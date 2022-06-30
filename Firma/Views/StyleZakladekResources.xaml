@@ -1,0 +1,126 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    
+    <!--Domyślne style-->
+    <Style x:Key="ControlStandardowy" TargetType="{x:Type Control}">
+        <Setter Property="Height" Value="28"/>
+        <Setter Property="Margin" Value="2"/>
+        <Setter Property="VerticalAlignment" Value="Center"/>
+    </Style>
+    
+    <Style x:Key="ControlBoldStandardowy" TargetType="{x:Type Control}">
+        <Setter Property="Height" Value="28"/>
+        <Setter Property="Margin" Value="2"/>
+        <Setter Property="VerticalAlignment" Value="Center"/>
+        <Setter Property="FontWeight" Value="Bold"/>
+    </Style>
+
+    <Style x:Key="LabelError" TargetType="{x:Type Label}">
+        <Setter Property="Height" Value="28"/>
+        <Setter Property="Background" Value="Red"/>
+    </Style>
+    <Style TargetType="{x:Type Button}">
+        <Setter Property="Background" Value="Green"/>
+    </Style>
+    <Style x:Key="ButtonStandardowy" TargetType="{x:Type Button}">
+        <Setter Property="Height" Value="28"/>
+        <Setter Property="Width" Value="100"/>
+        <Setter Property="Background" Value="Azure"/>
+        <Setter Property="HorizontalAlignment" Value="Left"/>
+    </Style>
+    
+    <!--Style kontrahent-->
+    <Style x:Key="ControlDuzyKontrahent" TargetType="{x:Type Control}">
+        <Setter Property="Width" Value="250"/>
+        <Setter Property="Height" Value="28"/>
+        <Setter Property="Margin" Value="2"/>
+        <Setter Property="HorizontalAlignment" Value="Left"/>
+    </Style>
+    <Style x:Key="ControlKontrahent" TargetType="{x:Type Control}">
+        <Setter Property="Width" Value="276"/>
+        <Setter Property="Height" Value="28"/>
+        <Setter Property="Margin" Value="2"/>
+        <Setter Property="HorizontalAlignment" Value="Left"/>
+    </Style>
+    <Style x:Key="BigTextBoxKontrahent" TargetType="{x:Type TextBox}">
+        <Setter Property="Height" Value="100"/>
+        <Setter Property="Margin" Value="2"/>
+    </Style>
+    <Style x:Key="TextBoxWewnetrznyKontrahent" TargetType="{x:Type TextBox}">
+        <Setter Property="Height" Value="28"/>
+        <Setter Property="Width" Value="100"/>
+        <Setter Property="HorizontalAlignment" Value="Left"/>
+        <Setter Property="Margin" Value="2"/>
+    </Style>
+    <Style x:Key="ControlSzerokoscDomyslnaKontrahent" TargetType="{x:Type Control}">
+        <Setter Property="Height" Value="28"/>
+        <Setter Property="HorizontalAlignment" Value="Stretch"/>
+        <Setter Property="Margin" Value="2"/>
+    </Style>
+    
+    <!--Style faktura-->
+    <Style x:Key="DokumentLabelFaktura" TargetType="{x:Type Label}">
+        <Setter Property="BorderBrush" Value="LightGray"/>
+        <Setter Property="BorderThickness" Value="1"/>
+        <Setter Property="HorizontalContentAlignment" Value="Center"/>
+        <Setter Property="FontWeight" Value="Bold"/>
+        <Setter Property="Height" Value="28"/>
+        <Setter Property="Margin" Value="2"/>
+    </Style>
+    <Style x:Key="NumerLabelFaktura" TargetType="{x:Type Label}">
+        <Setter Property="HorizontalContentAlignment" Value="Right"/>
+        <Setter Property="Height" Value="28"/>
+        <Setter Property="Margin" Value="2"/>
+    </Style>
+    <Style x:Key="KrotkiTextBoxFaktura" TargetType="{x:Type TextBox}">
+        <Setter Property="Width" Value="50"/>
+        <Setter Property="HorizontalAlignment" Value="Left"/>
+        <Setter Property="Height" Value="28"/>
+        <Setter Property="Margin" Value="2"/>
+    </Style>
+    <Style x:Key="ControlBottomFaktura" TargetType="{x:Type Control}">
+        <Setter Property="Height" Value="28"/>
+        <Setter Property="Margin" Value="2"/>
+        <Setter Property="VerticalAlignment" Value="Bottom"/>
+    </Style>
+    <Style x:Key="LabelNaglowekFaktura" TargetType="{x:Type Label}">
+        <Setter Property="BorderBrush" Value="LightGray"/>
+        <Setter Property="BorderThickness" Value="1"/>
+        <Setter Property="HorizontalContentAlignment" Value="Center"/>
+        <Setter Property="Height" Value="28"/>
+        <Setter Property="Margin" Value="2"/>
+    </Style>
+    <Style x:Key="BorderFieldStaticHeightFaktura" TargetType="{x:Type Border}">
+        <Setter Property="VerticalAlignment" Value="Top"/>
+        <Setter Property="Height" Value="98"/>
+        <Setter Property="BorderBrush" Value="LightGray"/>
+        <Setter Property="BorderThickness" Value="1"/>
+        <Setter Property="Margin" Value="2"/>
+    </Style>
+    <Style x:Key="BorderFieldStaticOneRowHeightFaktura" TargetType="{x:Type Border}">
+        <Setter Property="VerticalAlignment" Value="Top"/>
+        <Setter Property="Height" Value="34"/>
+        <Setter Property="BorderBrush" Value="LightGray"/>
+        <Setter Property="BorderThickness" Value="1"/>
+        <Setter Property="Margin" Value="2"/>
+    </Style>
+    <Style x:Key="BorderFieldStaticTwoRowsHeightFaktura" TargetType="{x:Type Border}">
+        <Setter Property="VerticalAlignment" Value="Top"/>
+        <Setter Property="Height" Value="66"/>
+        <Setter Property="BorderBrush" Value="LightGray"/>
+        <Setter Property="BorderThickness" Value="1"/>
+        <Setter Property="Margin" Value="2"/>
+    </Style>
+    <Style x:Key="BorderFieldFaktura" TargetType="{x:Type Border}">
+        <Setter Property="BorderBrush" Value="LightGray"/>
+        <Setter Property="BorderThickness" Value="1"/>
+        <Setter Property="Margin" Value="2"/>
+    </Style>
+    <!--Style VAT-->
+    <Style x:Key="LabelDoPrawejVAT" TargetType="{x:Type Label}">
+        <Setter Property="Height" Value="28"/>
+        <Setter Property="Margin" Value="2"/>
+        <Setter Property="VerticalAlignment" Value="Center"/>
+        <Setter Property="HorizontalAlignment" Value="Right"/>
+    </Style>
+</ResourceDictionary>

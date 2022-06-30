@@ -1,0 +1,145 @@
+﻿<UserControl x:Class="Firma.Views.NowyTowarView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Firma.Views"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <UserControl.Resources>
+        <ResourceDictionary Source="StyleZakladekResources.xaml"/>
+    </UserControl.Resources>
+    <ScrollViewer>
+    <Grid Background="white">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+        </Grid.RowDefinitions>
+        <!--<Label Grid.Row="0" Style="{StaticResource LabelStandardowy}">Tu będzie dodawanie towarów</Label>
+        <Label Grid.Row="1" Style="{StaticResource LabelError}">Tu będzie dodawanie towarów</Label>
+        <Button Grid.Row="2" Content="Ok" Style="{StaticResource ButtonStandardowy}"/>-->
+        <Expander Grid.Row="0" Header="Ogólne" Margin="5" IsExpanded="True">
+            <Grid Margin="5">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="150"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="50"/>
+                    <ColumnDefinition Width="120"/>
+                    <ColumnDefinition Width="100"/>
+                    <ColumnDefinition Width="70"/>
+                    <ColumnDefinition Width="100"/>
+                </Grid.ColumnDefinitions>
+                <Label Content="Kod(?-auto):"/>
+                <Grid Grid.Column="1" Grid.ColumnSpan="6">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="50"/>
+                        <ColumnDefinition Width="120"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBox Style="{StaticResource ControlStandardowy}"/>
+                    <Label Grid.Column="1" Content="Typ:" Style="{StaticResource ControlStandardowy}"/>
+                    <ComboBox Grid.Column="2" Style="{StaticResource ControlStandardowy}"/>
+                </Grid>
+                <Label Grid.Row="1" Content="Nazwa:" Style="{StaticResource ControlStandardowy}"/>
+                <TextBox Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="6" Style="{StaticResource ControlStandardowy}"/>
+                <Label Grid.Row="2" Content="Kod kreskowy:" Style="{StaticResource ControlStandardowy}"/>
+                <Grid Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="6">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="160"/>
+                        <ColumnDefinition Width="100"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBox Grid.Column="0" Style="{StaticResource ControlStandardowy}"/>
+                    <ComboBox Grid.Column="1" Style="{StaticResource ControlStandardowy}"/>
+                </Grid>
+                <Label Content="Numer katalogowy: " Grid.Row="3" Style="{StaticResource ControlStandardowy}"/>
+                <TextBox Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="3" Style="{StaticResource ControlStandardowy}"/>
+                <Label Content="Stawka VAT" Grid.Row="3" Grid.Column="4" Style="{StaticResource ControlStandardowy}"/>
+                <Label Content="sprzedaży:" Grid.Row="3" Grid.Column="5" Style="{StaticResource ControlStandardowy}"/>
+                <ComboBox Grid.Row="3" Grid.Column="6" Style="{StaticResource ControlStandardowy}"/>
+
+
+                <Label Content="Jednostka" Grid.Row="4" Style="{StaticResource ControlStandardowy}"/>
+                <ComboBox Grid.Row="4" Grid.Column="1" Style="{StaticResource ControlStandardowy}"/>
+                <Label Content="PKWiU" Grid.Row="4" Grid.Column="2" Style="{StaticResource ControlStandardowy}"/>
+                <TextBox Grid.Row="4" Grid.Column="3" Style="{StaticResource ControlStandardowy}"/>
+                <Label Content="zakupu:" Grid.Row="4" Grid.Column="5" Style="{StaticResource ControlStandardowy}"/>
+                <ComboBox Grid.Row="4" Grid.Column="6" Style="{StaticResource ControlStandardowy}"/>
+
+                <Label Content="kaucji:" Grid.Row="5" Grid.Column="5" Style="{StaticResource ControlStandardowy}"/>
+                <ComboBox Grid.Row="5" Grid.Column="6" Style="{StaticResource ControlStandardowy}"/>
+
+                <Label Content="Podst.zastosowania&#x0a;stawki VAT:" Grid.Row="6" Height="auto" Grid.Column="0" Style="{StaticResource ControlStandardowy}"/>
+                <TextBox Grid.Row="6" Grid.Column="1" Grid.ColumnSpan="6" Style="{StaticResource ControlStandardowy}"/>
+            </Grid>
+        </Expander>
+        <Expander Grid.Row="1" Header="Ceny" Margin="5" IsExpanded="True">
+            <Grid Margin="5">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="150"/>
+                    <ColumnDefinition Width="130"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <Label Content="Ostatnia przyjęcia/N:" Grid.Row="0" Grid.Column="0" Style="{StaticResource ControlStandardowy}"/>
+                <TextBox Grid.Column="1" Grid.Row="0" Style="{StaticResource ControlStandardowy}"/>
+
+                <DataGrid Grid.Row="1" Grid.ColumnSpan="3" ItemsSource="{Binding TowarCeny}" AutoGenerateColumns="False">
+                    <DataGrid.Columns>
+                        <DataGridComboBoxColumn Header="Definicja" Width="100"/>
+                        <DataGridTextColumn Header="Priorytet" Binding="{Binding Path=Priorytet,StringFormat=N}"/>
+                        <DataGridCheckBoxColumn Header="Korygowanie" Width="100" />
+                        <DataGridTextColumn Header="Netto" Width="100" Binding="{Binding Path=Netto,StringFormat=C}"/>
+                        <DataGridTextColumn Header="Brutto" Width="100" Binding="{Binding Path=Bruto,StringFormat=C}"/>
+                        <DataGridTextColumn Header="Jednostka" Width="100" Binding="{Binding Jednostka}"/>
+                        <DataGridTextColumn Header="Standardowe" Width="100" Binding="{Binding Standardowe}"/>
+                        <DataGridTextColumn Header="Narzut od nabycia" Width="100" Binding="{Binding NarzutOdNabycia}"/>
+                        <DataGridTextColumn Header="Marża od nabycia" Width="100" Binding="{Binding MarzaOdNabycia}"/>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </Grid>
+        </Expander>
+        <Grid Grid.Row="2">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="150"/>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="100"/>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="80"/>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="80"/>
+            </Grid.ColumnDefinitions>
+            <Label Grid.Row="0" Grid.Column="0" Content="Przecena:" Style="{StaticResource ControlStandardowy}"/>
+            <TextBox Grid.Row="0" Grid.Column="1" IsEnabled="False" Style="{StaticResource ControlStandardowy}"/>
+            <Label Grid.Row="0" Grid.Column="2" Content="Okres:" Style="{StaticResource ControlStandardowy}"/>
+            <TextBox Grid.Row="0" Grid.Column="3" Style="{StaticResource ControlStandardowy}"/>
+            <Label Grid.Row="0" Grid.Column="4" Content="Netto:" Style="{StaticResource ControlStandardowy}"/>
+            <TextBox Grid.Row="0" Grid.Column="5" Style="{StaticResource ControlStandardowy}"/>
+            <Label Grid.Row="0" Grid.Column="6" Content="Brutto:" Style="{StaticResource ControlStandardowy}"/>
+            <TextBox Grid.Row="0" Grid.Column="7" Style="{StaticResource ControlStandardowy}"/>
+
+            <Label Grid.Row="1" Grid.Column="0" Content="Marża:" Style="{StaticResource ControlStandardowy}"/>
+            <TextBox Grid.Row="1" Grid.Column="1" Style="{StaticResource ControlStandardowy}"/>
+        </Grid>
+    </Grid>
+    </ScrollViewer>
+</UserControl>

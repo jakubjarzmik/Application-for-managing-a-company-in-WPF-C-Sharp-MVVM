@@ -1,0 +1,188 @@
+﻿<UserControl x:Class="Firma.Views.NowaFakturaView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Firma.Views"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="1000"
+             Background="White">
+    <UserControl.Resources>
+        <ResourceDictionary Source="StyleZakladekResources.xaml"/>
+    </UserControl.Resources>
+    <ScrollViewer>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="750"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid Grid.Row="0" Grid.Column="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="90"/>
+                    <ColumnDefinition Width="80"/>
+                    <ColumnDefinition Width="80"/>
+                    <ColumnDefinition Width="80"/>
+                    <ColumnDefinition Width="80"/>
+                    <ColumnDefinition Width="80"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Label Content="Dokument:" Style="{StaticResource DokumentLabelFaktura}"/>
+                <ComboBox Grid.Column="1" Style="{StaticResource ControlStandardowy}"/>
+                <Label Grid.Column="2" Content="Numer:" Style="{StaticResource NumerLabelFaktura}"/>
+                <TextBox Grid.Column="3" IsEnabled="False" Style="{StaticResource ControlStandardowy}"/>
+                <TextBox Grid.Column="4" Style="{StaticResource ControlStandardowy}"/>
+                <TextBox Grid.Column="5" IsEnabled="False" Style="{StaticResource KrotkiTextBoxFaktura}"/>
+                <Label Grid.Row="1" Grid.Column="0" Content="Numer obcy:" Style="{StaticResource ControlStandardowy}"/>
+                <TextBox Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="5" Style="{StaticResource ControlStandardowy}"/>
+            </Grid>
+            <Grid Grid.Column="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="1.5*"/>
+                </Grid.ColumnDefinitions>
+                <Label Content="Data wpływu:" Style="{StaticResource ControlBottomFaktura}"/>
+                <DatePicker Grid.Column="1" Style="{StaticResource ControlBottomFaktura}"/>
+            </Grid>
+            <Expander Header="Nagłówek" Grid.Row="1" Grid.ColumnSpan="2" IsExpanded="True">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="100"/>
+                        <ColumnDefinition Width="200"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Label Content="Kontrahent" Style="{StaticResource LabelNaglowekFaktura}"/>
+                    <ComboBox Grid.Column="1" Style="{StaticResource ControlStandardowy}"/>
+                    <TextBox Grid.Column="2" IsEnabled="False" Style="{StaticResource ControlStandardowy}"/>
+                    <Label Grid.Row="1" Content="Kategoria" Style="{StaticResource LabelNaglowekFaktura}"/>
+                    <ComboBox Grid.Row="1" Grid.Column="1" Style="{StaticResource ControlStandardowy}"/>
+                    <TextBox Grid.Row="1" Grid.Column="2" Style="{StaticResource ControlStandardowy}"/>
+                    <Label Grid.Row="2" Content="Magazyn" Style="{StaticResource LabelNaglowekFaktura}"/>
+                    <ComboBox Grid.Row="2" Grid.Column="1" Style="{StaticResource ControlStandardowy}"/>
+                    <TextBox Grid.Row="2" Grid.Column="2" IsEnabled="False" Style="{StaticResource ControlStandardowy}"/>
+                </Grid>
+            </Expander>
+            <Expander Header="Daty i wartości" Grid.Row="2" IsExpanded="True">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Border Style="{StaticResource BorderFieldStaticHeightFaktura}">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Label Content="Data wystawienia:" Style="{StaticResource ControlStandardowy}"/>
+                            <DatePicker Grid.Column="1" Style="{StaticResource ControlStandardowy}"/>
+                            <Label Grid.Row="1" Content="Data zakupu:" Style="{StaticResource ControlStandardowy}"/>
+                            <DatePicker Grid.Row="1" Grid.Column="1" Style="{StaticResource ControlStandardowy}"/>
+                            <Label Grid.Row="2" Content="Faktura liczona od:" Style="{StaticResource ControlStandardowy}"/>
+                            <ComboBox Grid.Row="2" Grid.Column="1" IsEnabled="False" Style="{StaticResource ControlStandardowy}"/>
+                        </Grid>
+                    </Border>
+                    <Border Grid.Column="1" Style="{StaticResource BorderFieldStaticHeightFaktura}">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Label Content="Rabat:" Style="{StaticResource ControlStandardowy}"/>
+                            <TextBox Grid.Column="1" Style="{StaticResource ControlStandardowy}"/>
+                            <Label Grid.Row="1" Content="Płatność:" Style="{StaticResource ControlStandardowy}"/>
+                            <ComboBox Grid.Row="1" Grid.Column="1" Style="{StaticResource ControlStandardowy}"/>
+                            <Label Grid.Row="2" Content="Termin: 7dn." Style="{StaticResource ControlStandardowy}"/>
+                            <DatePicker Grid.Row="2" Grid.Column="1" Style="{StaticResource ControlStandardowy}"/>
+                        </Grid>
+                    </Border>
+                    <Border Grid.Column="2" Style="{StaticResource BorderFieldFaktura}">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Label Content="Netto:" Style="{StaticResource ControlStandardowy}"/>
+                            <TextBox Grid.Column="1" IsEnabled="False" Style="{StaticResource ControlStandardowy}"/>
+                            <Label Grid.Row="1" Content="Razem:" Style="{StaticResource ControlBoldStandardowy}"/>
+                            <TextBox Grid.Row="1" Grid.Column="1" IsEnabled="False" Style="{StaticResource ControlBoldStandardowy}"/>
+                            <Label Grid.Row="2" Content="Zapłacono:" Style="{StaticResource ControlStandardowy}"/>
+                            <TextBox Grid.Row="2" Grid.Column="1" IsEnabled="False" Style="{StaticResource ControlStandardowy}"/>
+                            <Label Grid.Row="3" Content="Pozostaje:" Style="{StaticResource ControlStandardowy}"/>
+                            <TextBox Grid.Row="3" Grid.Column="1" IsEnabled="False" Style="{StaticResource ControlStandardowy}"/>
+                            
+                        </Grid>
+                    </Border>
+                    
+                </Grid>
+            </Expander>
+            <Expander Header="Nagłówek" Grid.Row="2" Grid.Column="1" IsExpanded="True">
+                <Border Style="{StaticResource BorderFieldFaktura}">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+                        <CheckBox Name="MPP" Content="MPP - podzielona płatność" IsEnabled="False" Style="{StaticResource ControlStandardowy}"/>
+                        <Label Grid.Row="1" Content="Wartość podlegająca MPP:" Style="{StaticResource ControlStandardowy}"/>
+                        <TextBox Grid.Row="2" IsEnabled="False" Style="{StaticResource ControlStandardowy}"/>
+                    </Grid>
+                </Border>
+            </Expander>
+            <DataGrid Grid.Row="3" Grid.ColumnSpan="2" Name="Faktura" Height="100">
+                <DataGrid.Columns>
+                    <DataGridCheckBoxColumn/>
+                    <DataGridTextColumn Header="Lp."/>
+                    <DataGridTextColumn Header="Kod"/>
+                    <DataGridTextColumn Header="Nazwa"/>
+                    <DataGridTextColumn Header="Ilość"/>
+                    <DataGridTextColumn Header="Jm"/>
+                    <DataGridTextColumn Header="Rabat"/>
+                    <DataGridTextColumn Header="Cena"/>
+                    <DataGridTextColumn Header="Wartość"/>
+                    <DataGridTextColumn Header="Marża"/>
+                    <DataGridTextColumn Header="% Marży"/>
+                    <DataGridTextColumn Header="Magazyn"/>
+                </DataGrid.Columns>
+            </DataGrid>
+        </Grid>
+    </ScrollViewer>
+</UserControl>

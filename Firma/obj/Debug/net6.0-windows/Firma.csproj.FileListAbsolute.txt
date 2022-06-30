@@ -1,0 +1,102 @@
+C:\Users\akornatka\Desktop\Zajecia\TIU2022\Firma\Firma\bin\Debug\net6.0-windows\Firma.exe
+C:\Users\akornatka\Desktop\Zajecia\TIU2022\Firma\Firma\bin\Debug\net6.0-windows\Firma.deps.json
+C:\Users\akornatka\Desktop\Zajecia\TIU2022\Firma\Firma\bin\Debug\net6.0-windows\Firma.runtimeconfig.json
+C:\Users\akornatka\Desktop\Zajecia\TIU2022\Firma\Firma\bin\Debug\net6.0-windows\Firma.dll
+C:\Users\akornatka\Desktop\Zajecia\TIU2022\Firma\Firma\bin\Debug\net6.0-windows\ref\Firma.dll
+C:\Users\akornatka\Desktop\Zajecia\TIU2022\Firma\Firma\bin\Debug\net6.0-windows\Firma.pdb
+C:\Users\akornatka\Desktop\Zajecia\TIU2022\Firma\Firma\obj\Debug\net6.0-windows\Firma.csproj.AssemblyReference.cache
+C:\Users\akornatka\Desktop\Zajecia\TIU2022\Firma\Firma\obj\Debug\net6.0-windows\App.g.cs
+C:\Users\akornatka\Desktop\Zajecia\TIU2022\Firma\Firma\obj\Debug\net6.0-windows\Firma_MarkupCompile.cache
+C:\Users\akornatka\Desktop\Zajecia\TIU2022\Firma\Firma\obj\Debug\net6.0-windows\Firma_MarkupCompile.lref
+C:\Users\akornatka\Desktop\Zajecia\TIU2022\Firma\Firma\obj\Debug\net6.0-windows\Firma.g.resources
+C:\Users\akornatka\Desktop\Zajecia\TIU2022\Firma\Firma\obj\Debug\net6.0-windows\Firma.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\akornatka\Desktop\Zajecia\TIU2022\Firma\Firma\obj\Debug\net6.0-windows\Firma.AssemblyInfoInputs.cache
+C:\Users\akornatka\Desktop\Zajecia\TIU2022\Firma\Firma\obj\Debug\net6.0-windows\Firma.AssemblyInfo.cs
+C:\Users\akornatka\Desktop\Zajecia\TIU2022\Firma\Firma\obj\Debug\net6.0-windows\Firma.csproj.CoreCompileInputs.cache
+C:\Users\akornatka\Desktop\Zajecia\TIU2022\Firma\Firma\obj\Debug\net6.0-windows\Firma.dll
+C:\Users\akornatka\Desktop\Zajecia\TIU2022\Firma\Firma\obj\Debug\net6.0-windows\ref\Firma.dll
+C:\Users\akornatka\Desktop\Zajecia\TIU2022\Firma\Firma\obj\Debug\net6.0-windows\Firma.pdb
+C:\Users\akornatka\Desktop\Zajecia\TIU2022\Firma\Firma\obj\Debug\net6.0-windows\Firma.genruntimeconfig.cache
+C:\Users\akornatka\Desktop\Zajecia\TIU2022\Firma\Firma\obj\Debug\net6.0-windows\Views\MainWindow.g.cs
+C:\Users\akornatka\Desktop\Zajecia\TIU2022\Firma\Firma\obj\Debug\net6.0-windows\Views\MainWindow.baml
+C:\Users\akornatka\Desktop\Zajecia\TIU2022\Firma\Firma\obj\Debug\net6.0-windows\Views\NowyTowarView.g.cs
+C:\Users\akornatka\Desktop\Zajecia\TIU2022\Firma\Firma\obj\Debug\net6.0-windows\Views\NowyTowarView.baml
+C:\Users\akornatka\Desktop\Zajecia\TIU2022\Firma\Firma\obj\Debug\net6.0-windows\Views\WszystkieTowaryView.g.cs
+C:\Users\akornatka\Desktop\Zajecia\TIU2022\Firma\Firma\obj\Debug\net6.0-windows\Views\WszystkieTowaryView.baml
+C:\Users\akornatka\Desktop\Zajecia\TIU2022\Firma\Firma\obj\Debug\net6.0-windows\Views\MainWindowResources.baml
+C:\Users\akornatka\Desktop\Zajecia\TIU2022\Firma\Firma\obj\Debug\net6.0-windows\GeneratedInternalTypeHelper.g.cs
+C:\Users\akornatka\Desktop\Zajecia\TIU2022\Firma\Firma\obj\Debug\net6.0-windows\Views\NowaFakturaView.g.cs
+C:\Users\akornatka\Desktop\Zajecia\TIU2022\Firma\Firma\obj\Debug\net6.0-windows\Views\WszystkieFakturyView.g.cs
+C:\Users\akornatka\Desktop\Zajecia\TIU2022\Firma\Firma\obj\Debug\net6.0-windows\Views\NowaFakturaView.baml
+C:\Users\akornatka\Desktop\Zajecia\TIU2022\Firma\Firma\obj\Debug\net6.0-windows\Views\WszystkieFakturyView.baml
+C:\Users\akornatka\Desktop\Zajecia\TIU2022\Firma\Firma\obj\Debug\net6.0-windows\Views\StyleZakladekResources.baml
+C:\Users\Michałos\OneDrive\Pulpit\Zajęcia tworzenie interfejsów\Ćwiczenia zajęcia 21.05\FirmaClean\Firma\bin\Debug\net6.0-windows\Firma.exe
+C:\Users\Michałos\OneDrive\Pulpit\Zajęcia tworzenie interfejsów\Ćwiczenia zajęcia 21.05\FirmaClean\Firma\bin\Debug\net6.0-windows\Firma.deps.json
+C:\Users\Michałos\OneDrive\Pulpit\Zajęcia tworzenie interfejsów\Ćwiczenia zajęcia 21.05\FirmaClean\Firma\bin\Debug\net6.0-windows\Firma.runtimeconfig.json
+C:\Users\Michałos\OneDrive\Pulpit\Zajęcia tworzenie interfejsów\Ćwiczenia zajęcia 21.05\FirmaClean\Firma\bin\Debug\net6.0-windows\Firma.dll
+C:\Users\Michałos\OneDrive\Pulpit\Zajęcia tworzenie interfejsów\Ćwiczenia zajęcia 21.05\FirmaClean\Firma\bin\Debug\net6.0-windows\Firma.pdb
+C:\Users\Michałos\OneDrive\Pulpit\Zajęcia tworzenie interfejsów\Ćwiczenia zajęcia 21.05\FirmaClean\Firma\obj\Debug\net6.0-windows\Firma.csproj.AssemblyReference.cache
+C:\Users\Michałos\OneDrive\Pulpit\Zajęcia tworzenie interfejsów\Ćwiczenia zajęcia 21.05\FirmaClean\Firma\obj\Debug\net6.0-windows\Views\StyleZakladekResources.baml
+C:\Users\Michałos\OneDrive\Pulpit\Zajęcia tworzenie interfejsów\Ćwiczenia zajęcia 21.05\FirmaClean\Firma\obj\Debug\net6.0-windows\Views\MainWindow.g.cs
+C:\Users\Michałos\OneDrive\Pulpit\Zajęcia tworzenie interfejsów\Ćwiczenia zajęcia 21.05\FirmaClean\Firma\obj\Debug\net6.0-windows\Views\NowaFakturaView.g.cs
+C:\Users\Michałos\OneDrive\Pulpit\Zajęcia tworzenie interfejsów\Ćwiczenia zajęcia 21.05\FirmaClean\Firma\obj\Debug\net6.0-windows\Views\NowyTowarView.g.cs
+C:\Users\Michałos\OneDrive\Pulpit\Zajęcia tworzenie interfejsów\Ćwiczenia zajęcia 21.05\FirmaClean\Firma\obj\Debug\net6.0-windows\Views\WszystkieFakturyView.g.cs
+C:\Users\Michałos\OneDrive\Pulpit\Zajęcia tworzenie interfejsów\Ćwiczenia zajęcia 21.05\FirmaClean\Firma\obj\Debug\net6.0-windows\Views\WszystkieTowaryView.g.cs
+C:\Users\Michałos\OneDrive\Pulpit\Zajęcia tworzenie interfejsów\Ćwiczenia zajęcia 21.05\FirmaClean\Firma\obj\Debug\net6.0-windows\App.g.cs
+C:\Users\Michałos\OneDrive\Pulpit\Zajęcia tworzenie interfejsów\Ćwiczenia zajęcia 21.05\FirmaClean\Firma\obj\Debug\net6.0-windows\GeneratedInternalTypeHelper.g.cs
+C:\Users\Michałos\OneDrive\Pulpit\Zajęcia tworzenie interfejsów\Ćwiczenia zajęcia 21.05\FirmaClean\Firma\obj\Debug\net6.0-windows\Firma_MarkupCompile.cache
+C:\Users\Michałos\OneDrive\Pulpit\Zajęcia tworzenie interfejsów\Ćwiczenia zajęcia 21.05\FirmaClean\Firma\obj\Debug\net6.0-windows\Firma_MarkupCompile.lref
+C:\Users\Michałos\OneDrive\Pulpit\Zajęcia tworzenie interfejsów\Ćwiczenia zajęcia 21.05\FirmaClean\Firma\obj\Debug\net6.0-windows\Views\MainWindow.baml
+C:\Users\Michałos\OneDrive\Pulpit\Zajęcia tworzenie interfejsów\Ćwiczenia zajęcia 21.05\FirmaClean\Firma\obj\Debug\net6.0-windows\Views\MainWindowResources.baml
+C:\Users\Michałos\OneDrive\Pulpit\Zajęcia tworzenie interfejsów\Ćwiczenia zajęcia 21.05\FirmaClean\Firma\obj\Debug\net6.0-windows\Views\NowaFakturaView.baml
+C:\Users\Michałos\OneDrive\Pulpit\Zajęcia tworzenie interfejsów\Ćwiczenia zajęcia 21.05\FirmaClean\Firma\obj\Debug\net6.0-windows\Views\NowyTowarView.baml
+C:\Users\Michałos\OneDrive\Pulpit\Zajęcia tworzenie interfejsów\Ćwiczenia zajęcia 21.05\FirmaClean\Firma\obj\Debug\net6.0-windows\Views\WszystkieFakturyView.baml
+C:\Users\Michałos\OneDrive\Pulpit\Zajęcia tworzenie interfejsów\Ćwiczenia zajęcia 21.05\FirmaClean\Firma\obj\Debug\net6.0-windows\Views\WszystkieTowaryView.baml
+C:\Users\Michałos\OneDrive\Pulpit\Zajęcia tworzenie interfejsów\Ćwiczenia zajęcia 21.05\FirmaClean\Firma\obj\Debug\net6.0-windows\Firma.g.resources
+C:\Users\Michałos\OneDrive\Pulpit\Zajęcia tworzenie interfejsów\Ćwiczenia zajęcia 21.05\FirmaClean\Firma\obj\Debug\net6.0-windows\Firma.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Michałos\OneDrive\Pulpit\Zajęcia tworzenie interfejsów\Ćwiczenia zajęcia 21.05\FirmaClean\Firma\obj\Debug\net6.0-windows\Firma.AssemblyInfoInputs.cache
+C:\Users\Michałos\OneDrive\Pulpit\Zajęcia tworzenie interfejsów\Ćwiczenia zajęcia 21.05\FirmaClean\Firma\obj\Debug\net6.0-windows\Firma.AssemblyInfo.cs
+C:\Users\Michałos\OneDrive\Pulpit\Zajęcia tworzenie interfejsów\Ćwiczenia zajęcia 21.05\FirmaClean\Firma\obj\Debug\net6.0-windows\Firma.csproj.CoreCompileInputs.cache
+C:\Users\Michałos\OneDrive\Pulpit\Zajęcia tworzenie interfejsów\Ćwiczenia zajęcia 21.05\FirmaClean\Firma\obj\Debug\net6.0-windows\Firma.dll
+C:\Users\Michałos\OneDrive\Pulpit\Zajęcia tworzenie interfejsów\Ćwiczenia zajęcia 21.05\FirmaClean\Firma\obj\Debug\net6.0-windows\refint\Firma.dll
+C:\Users\Michałos\OneDrive\Pulpit\Zajęcia tworzenie interfejsów\Ćwiczenia zajęcia 21.05\FirmaClean\Firma\obj\Debug\net6.0-windows\Firma.pdb
+C:\Users\Michałos\OneDrive\Pulpit\Zajęcia tworzenie interfejsów\Ćwiczenia zajęcia 21.05\FirmaClean\Firma\obj\Debug\net6.0-windows\Firma.genruntimeconfig.cache
+C:\Users\Michałos\OneDrive\Pulpit\Zajęcia tworzenie interfejsów\Ćwiczenia zajęcia 21.05\FirmaClean\Firma\obj\Debug\net6.0-windows\ref\Firma.dll
+D:\Studia\Semestr IV\Tworzenie interfejsów użytkownika\Laboratorium\Projekt\Firma\Firma\bin\Debug\net6.0-windows\Firma.exe
+D:\Studia\Semestr IV\Tworzenie interfejsów użytkownika\Laboratorium\Projekt\Firma\Firma\bin\Debug\net6.0-windows\Firma.deps.json
+D:\Studia\Semestr IV\Tworzenie interfejsów użytkownika\Laboratorium\Projekt\Firma\Firma\bin\Debug\net6.0-windows\Firma.runtimeconfig.json
+D:\Studia\Semestr IV\Tworzenie interfejsów użytkownika\Laboratorium\Projekt\Firma\Firma\bin\Debug\net6.0-windows\Firma.dll
+D:\Studia\Semestr IV\Tworzenie interfejsów użytkownika\Laboratorium\Projekt\Firma\Firma\bin\Debug\net6.0-windows\Firma.pdb
+D:\Studia\Semestr IV\Tworzenie interfejsów użytkownika\Laboratorium\Projekt\Firma\Firma\obj\Debug\net6.0-windows\Firma.csproj.AssemblyReference.cache
+D:\Studia\Semestr IV\Tworzenie interfejsów użytkownika\Laboratorium\Projekt\Firma\Firma\obj\Debug\net6.0-windows\Views\StyleZakladekResources.baml
+D:\Studia\Semestr IV\Tworzenie interfejsów użytkownika\Laboratorium\Projekt\Firma\Firma\obj\Debug\net6.0-windows\Views\MainWindow.g.cs
+D:\Studia\Semestr IV\Tworzenie interfejsów użytkownika\Laboratorium\Projekt\Firma\Firma\obj\Debug\net6.0-windows\Views\NowaFakturaView.g.cs
+D:\Studia\Semestr IV\Tworzenie interfejsów użytkownika\Laboratorium\Projekt\Firma\Firma\obj\Debug\net6.0-windows\Views\NowyTowarView.g.cs
+D:\Studia\Semestr IV\Tworzenie interfejsów użytkownika\Laboratorium\Projekt\Firma\Firma\obj\Debug\net6.0-windows\App.g.cs
+D:\Studia\Semestr IV\Tworzenie interfejsów użytkownika\Laboratorium\Projekt\Firma\Firma\obj\Debug\net6.0-windows\GeneratedInternalTypeHelper.g.cs
+D:\Studia\Semestr IV\Tworzenie interfejsów użytkownika\Laboratorium\Projekt\Firma\Firma\obj\Debug\net6.0-windows\Firma_MarkupCompile.cache
+D:\Studia\Semestr IV\Tworzenie interfejsów użytkownika\Laboratorium\Projekt\Firma\Firma\obj\Debug\net6.0-windows\Firma_MarkupCompile.lref
+D:\Studia\Semestr IV\Tworzenie interfejsów użytkownika\Laboratorium\Projekt\Firma\Firma\obj\Debug\net6.0-windows\Views\MainWindow.baml
+D:\Studia\Semestr IV\Tworzenie interfejsów użytkownika\Laboratorium\Projekt\Firma\Firma\obj\Debug\net6.0-windows\Views\MainWindowResources.baml
+D:\Studia\Semestr IV\Tworzenie interfejsów użytkownika\Laboratorium\Projekt\Firma\Firma\obj\Debug\net6.0-windows\Views\NowaFakturaView.baml
+D:\Studia\Semestr IV\Tworzenie interfejsów użytkownika\Laboratorium\Projekt\Firma\Firma\obj\Debug\net6.0-windows\Views\NowyTowarView.baml
+D:\Studia\Semestr IV\Tworzenie interfejsów użytkownika\Laboratorium\Projekt\Firma\Firma\obj\Debug\net6.0-windows\Firma.g.resources
+D:\Studia\Semestr IV\Tworzenie interfejsów użytkownika\Laboratorium\Projekt\Firma\Firma\obj\Debug\net6.0-windows\Firma.GeneratedMSBuildEditorConfig.editorconfig
+D:\Studia\Semestr IV\Tworzenie interfejsów użytkownika\Laboratorium\Projekt\Firma\Firma\obj\Debug\net6.0-windows\Firma.AssemblyInfoInputs.cache
+D:\Studia\Semestr IV\Tworzenie interfejsów użytkownika\Laboratorium\Projekt\Firma\Firma\obj\Debug\net6.0-windows\Firma.AssemblyInfo.cs
+D:\Studia\Semestr IV\Tworzenie interfejsów użytkownika\Laboratorium\Projekt\Firma\Firma\obj\Debug\net6.0-windows\Firma.csproj.CoreCompileInputs.cache
+D:\Studia\Semestr IV\Tworzenie interfejsów użytkownika\Laboratorium\Projekt\Firma\Firma\obj\Debug\net6.0-windows\Firma.dll
+D:\Studia\Semestr IV\Tworzenie interfejsów użytkownika\Laboratorium\Projekt\Firma\Firma\obj\Debug\net6.0-windows\refint\Firma.dll
+D:\Studia\Semestr IV\Tworzenie interfejsów użytkownika\Laboratorium\Projekt\Firma\Firma\obj\Debug\net6.0-windows\Firma.pdb
+D:\Studia\Semestr IV\Tworzenie interfejsów użytkownika\Laboratorium\Projekt\Firma\Firma\obj\Debug\net6.0-windows\Firma.genruntimeconfig.cache
+D:\Studia\Semestr IV\Tworzenie interfejsów użytkownika\Laboratorium\Projekt\Firma\Firma\obj\Debug\net6.0-windows\ref\Firma.dll
+D:\Studia\Semestr IV\Tworzenie interfejsów użytkownika\Laboratorium\Projekt\Firma\Firma\obj\Debug\net6.0-windows\Views\NowyKontrahentView.g.cs
+D:\Studia\Semestr IV\Tworzenie interfejsów użytkownika\Laboratorium\Projekt\Firma\Firma\obj\Debug\net6.0-windows\Views\NowyKontrahentView.baml
+D:\Studia\Semestr IV\Tworzenie interfejsów użytkownika\Laboratorium\Projekt\Firma\Firma\obj\Debug\net6.0-windows\Views\PrzyjecieZewnetrzneView.g.cs
+D:\Studia\Semestr IV\Tworzenie interfejsów użytkownika\Laboratorium\Projekt\Firma\Firma\obj\Debug\net6.0-windows\Views\PrzyjecieZewnetrzneView.baml
+D:\Studia\Semestr IV\Tworzenie interfejsów użytkownika\Laboratorium\Projekt\Firma\Firma\obj\Debug\net6.0-windows\Views\WydanieZewnetrzneView.g.cs
+D:\Studia\Semestr IV\Tworzenie interfejsów użytkownika\Laboratorium\Projekt\Firma\Firma\obj\Debug\net6.0-windows\Views\WydanieZewnetrzneView.baml
+D:\Studia\Semestr IV\Tworzenie interfejsów użytkownika\Laboratorium\Projekt\Firma\Firma\obj\Debug\net6.0-windows\Views\RejestrVATView.g.cs
+D:\Studia\Semestr IV\Tworzenie interfejsów użytkownika\Laboratorium\Projekt\Firma\Firma\obj\Debug\net6.0-windows\Views\RejestrVATView.baml
+D:\Studia\Semestr IV\Tworzenie interfejsów użytkownika\Laboratorium\Projekt\Firma\Firma\obj\Debug\net6.0-windows\Views\EwidencjaPlatnosciView.g.cs
+D:\Studia\Semestr IV\Tworzenie interfejsów użytkownika\Laboratorium\Projekt\Firma\Firma\obj\Debug\net6.0-windows\Views\EwidencjaPlatnosciView.baml
