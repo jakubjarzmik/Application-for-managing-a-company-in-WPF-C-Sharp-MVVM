@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NETFRAMEWORK;NET48;
 D:\Studia\Semestr V\Programowanie desktopowych aplikacji biznesowych\Projekt\Firma\Firma\App.xaml
-101421359704
+111625665473
 
-23-1024608569
+24282204607
 23-639209015
-Views\EwidencjaPlatnosciView.xaml;Views\MainWindow.xaml;Views\MainWindowResources.xaml;Views\NowaFakturaView.xaml;Views\NowyKontrahentView.xaml;Views\NowyTowarView.xaml;Views\PrzyjecieZewnetrzneView.xaml;Views\RejestrVATView.xaml;Views\StyleZakladekResources.xaml;Views\WydanieZewnetrzneView.xaml;
+Themes\Generic.xaml;Views\EwidencjaPlatnosciView.xaml;Views\MainWindow.xaml;Views\MainWindowResources.xaml;Views\NowaFakturaView.xaml;Views\NowyKontrahentView.xaml;Views\NowyTowarView.xaml;Views\PrzyjecieZewnetrzneView.xaml;Views\RejestrVATView.xaml;Views\StyleZakladekResources.xaml;Views\WydanieZewnetrzneView.xaml;
 
 False
 
