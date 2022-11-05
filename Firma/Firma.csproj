@@ -7,6 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Models\Entities\ModelFaktury.edmx" />
     <None Remove="Views\24dp.png" />
     <None Remove="Views\Content\Icons\account-box-white.png" />
     <None Remove="Views\Content\Icons\account-box.png" />
@@ -80,7 +81,18 @@
   </ItemGroup>
 
   <ItemGroup>
+    <EntityDeploy Include="Models\Entities\ModelFaktury.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>ModelFaktury.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="EntityFramework" Version="5.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="System.Security" />
   </ItemGroup>
 
   <ItemGroup>
@@ -285,6 +297,11 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Update="Models\Entities\ModelFaktury.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>ModelFaktury.edmx</DependentUpon>
+    </Compile>
     <Compile Update="Views\RejestrVATView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>

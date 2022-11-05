@@ -1,0 +1,2425 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="JJFirmaModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="FakturaTowary">
+          <Key>
+            <PropertyRef Name="TowarNaFakturzeId" />
+          </Key>
+          <Property Name="TowarNaFakturzeId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FakturaId" Type="int" Nullable="false" />
+          <Property Name="TowarId" Type="int" Nullable="false" />
+          <Property Name="Ilosc" Type="int" Nullable="false" />
+          <Property Name="RodzajCenyId" Type="int" Nullable="false" />
+          <Property Name="Rabat" Type="decimal" Precision="5" Scale="2" Nullable="false" />
+          <Property Name="WartoscNetto" Type="decimal" Precision="15" Scale="2" Nullable="false" />
+          <Property Name="DataUtworzenia" Type="datetime" Nullable="false" />
+          <Property Name="DataMod" Type="datetime" />
+          <Property Name="KtoModId" Type="int" />
+          <Property Name="CzyAktywny" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Faktury">
+          <Key>
+            <PropertyRef Name="FakturaId" />
+          </Key>
+          <Property Name="FakturaId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Numer" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="KontrahentId" Type="int" Nullable="false" />
+          <Property Name="KategoriaFakturyId" Type="int" Nullable="false" />
+          <Property Name="MagazynId" Type="int" Nullable="false" />
+          <Property Name="DataWystawienia" Type="date" Nullable="false" />
+          <Property Name="DataSprzedazy" Type="date" Nullable="false" />
+          <Property Name="Rabat" Type="decimal" Precision="5" Scale="2" Nullable="false" />
+          <Property Name="RodzajePlatnosciId" Type="int" Nullable="false" />
+          <Property Name="TerminSplaty" Type="date" Nullable="false" />
+          <Property Name="Zadluzenie" Type="decimal" Precision="15" Scale="2" Nullable="false" />
+          <Property Name="CenaNetto" Type="decimal" Precision="15" Scale="2" Nullable="false" />
+          <Property Name="CenaBrutto" Type="decimal" Precision="15" Scale="2" Nullable="false" />
+          <Property Name="Zaplacono" Type="decimal" Precision="15" Scale="2" Nullable="false" />
+          <Property Name="DataUtworzenia" Type="datetime" Nullable="false" />
+          <Property Name="DataMod" Type="datetime" />
+          <Property Name="KtoModId" Type="int" />
+          <Property Name="CzyAktywny" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="FakturyKategorie">
+          <Key>
+            <PropertyRef Name="KategoriaFakturyId" />
+          </Key>
+          <Property Name="KategoriaFakturyId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Kod" Type="varchar" MaxLength="40" Nullable="false" />
+          <Property Name="Nazwa" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="DataUtworzenia" Type="datetime" Nullable="false" />
+          <Property Name="DataMod" Type="datetime" />
+          <Property Name="KtoModId" Type="int" />
+          <Property Name="CzyAktywny" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Kontrahenci">
+          <Key>
+            <PropertyRef Name="KontrahentId" />
+          </Key>
+          <Property Name="KontrahentId" Type="int" Nullable="false" />
+          <Property Name="Kod" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="NipKraj" Type="varchar" MaxLength="2" Nullable="false" />
+          <Property Name="Nip" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="RodzajKontrahentaId" Type="int" Nullable="false" />
+          <Property Name="Regon" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="DokumentTozsamosci" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="PESEL" Type="nvarchar" MaxLength="11" Nullable="false" />
+          <Property Name="Nazwa1" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Nazwa2" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Nazwa3" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="JednostkaPodlegaPodId" Type="int" />
+          <Property Name="Kraj" Type="nvarchar" MaxLength="40" Nullable="false" />
+          <Property Name="KrajISO" Type="nvarchar" MaxLength="9" Nullable="false" />
+          <Property Name="Miasto" Type="nvarchar" MaxLength="40" Nullable="false" />
+          <Property Name="Wojewodztwo" Type="nvarchar" MaxLength="40" Nullable="false" />
+          <Property Name="Poczta" Type="nvarchar" MaxLength="40" Nullable="false" />
+          <Property Name="KodPocztowy" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="Ulica" Type="nvarchar" MaxLength="40" Nullable="false" />
+          <Property Name="NrDomu" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="NrLokalu" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="AdresDodatkowe" Type="nvarchar" MaxLength="40" Nullable="false" />
+          <Property Name="Telefon1" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Telefon2" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Fax" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Email" Type="nvarchar" MaxLength="127" Nullable="false" />
+          <Property Name="TelefonSMS" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="URL" Type="varchar" MaxLength="254" Nullable="false" />
+          <Property Name="KorMiasto" Type="nvarchar" MaxLength="40" />
+          <Property Name="KorKraj" Type="nvarchar" MaxLength="40" />
+          <Property Name="KorPoczta" Type="nvarchar" MaxLength="40" />
+          <Property Name="KorKodPocztowy" Type="varchar" MaxLength="10" />
+          <Property Name="KorUlica" Type="nvarchar" MaxLength="40" />
+          <Property Name="KorNrDomu" Type="nvarchar" MaxLength="10" />
+          <Property Name="KorNrLokalu" Type="nvarchar" MaxLength="10" />
+          <Property Name="DataUtworzenia" Type="datetime" Nullable="false" />
+          <Property Name="DataMod" Type="datetime" />
+          <Property Name="KtoModId" Type="int" />
+          <Property Name="CzyAktywny" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="KontrahenciRodzaje">
+          <Key>
+            <PropertyRef Name="RodzajId" />
+          </Key>
+          <Property Name="RodzajId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nazwa" Type="nvarchar" MaxLength="40" Nullable="false" />
+          <Property Name="Opis" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="DataUtworzenia" Type="datetime" Nullable="false" />
+          <Property Name="DataMod" Type="datetime" />
+          <Property Name="KtoModId" Type="int" />
+          <Property Name="CzyAktywny" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Magazyny">
+          <Key>
+            <PropertyRef Name="MagazynId" />
+          </Key>
+          <Property Name="MagazynId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Symbol" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Nazwa" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Opis" Type="nvarchar" MaxLength="254" Nullable="false" />
+          <Property Name="TypMagazynuId" Type="int" Nullable="false" />
+          <Property Name="Kraj" Type="nvarchar" MaxLength="40" Nullable="false" />
+          <Property Name="Wojewodztwo" Type="nvarchar" MaxLength="40" Nullable="false" />
+          <Property Name="Miasto" Type="nvarchar" MaxLength="40" Nullable="false" />
+          <Property Name="Poczta" Type="nvarchar" MaxLength="40" Nullable="false" />
+          <Property Name="KodPocztowy" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="Ulica" Type="nvarchar" MaxLength="40" Nullable="false" />
+          <Property Name="NrDomu" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="NrLokalu" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="Telefon" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="DataUtworzenia" Type="datetime" Nullable="false" />
+          <Property Name="DataMod" Type="datetime" />
+          <Property Name="KtoModId" Type="int" />
+          <Property Name="CzyAktywny" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="MagazynyTypy">
+          <Key>
+            <PropertyRef Name="TypMagazynuId" />
+          </Key>
+          <Property Name="TypMagazynuId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Symbol" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Nazwa" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Opis" Type="nvarchar" MaxLength="254" Nullable="false" />
+          <Property Name="DataUtworzenia" Type="datetime" Nullable="false" />
+          <Property Name="DataMod" Type="datetime" />
+          <Property Name="KtoModId" Type="int" />
+          <Property Name="CzyAktywny" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Pojazdy">
+          <Key>
+            <PropertyRef Name="PojazdId" />
+          </Key>
+          <Property Name="PojazdId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="RodzajPojazdu" Type="nvarchar" MaxLength="40" Nullable="false" />
+          <Property Name="Marka" Type="nvarchar" MaxLength="40" Nullable="false" />
+          <Property Name="Model" Type="nvarchar" MaxLength="40" Nullable="false" />
+          <Property Name="Rocznik" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="NrVIN" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="KrajRejestracji" Type="varchar" MaxLength="2" Nullable="false" />
+          <Property Name="NrRejestracyjny" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="DataUtworzenia" Type="datetime" Nullable="false" />
+          <Property Name="DataMod" Type="datetime" />
+          <Property Name="KtoModId" Type="int" />
+          <Property Name="CzyAktywny" Type="bit" />
+        </EntityType>
+        <EntityType Name="Pracownicy">
+          <Key>
+            <PropertyRef Name="PracownikId" />
+          </Key>
+          <Property Name="PracownikId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Akronim" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="Nazwisko" Type="nvarchar" MaxLength="40" Nullable="false" />
+          <Property Name="Imie" Type="nvarchar" MaxLength="40" Nullable="false" />
+          <Property Name="DrugieImie" Type="nvarchar" MaxLength="40" Nullable="false" />
+          <Property Name="PESEL" Type="nvarchar" MaxLength="11" Nullable="false" />
+          <Property Name="NipKraj" Type="varchar" MaxLength="2" Nullable="false" />
+          <Property Name="Nip" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="DataUrodzenia" Type="date" Nullable="false" />
+          <Property Name="MiejsceUrodzenia" Type="nvarchar" MaxLength="40" Nullable="false" />
+          <Property Name="ImieOjca" Type="nvarchar" MaxLength="40" Nullable="false" />
+          <Property Name="ImieMatki" Type="nvarchar" MaxLength="40" Nullable="false" />
+          <Property Name="NazwiskoRodowe" Type="nvarchar" MaxLength="40" Nullable="false" />
+          <Property Name="NazwiskoRodoweMatki" Type="nvarchar" MaxLength="40" Nullable="false" />
+          <Property Name="Kraj" Type="nvarchar" MaxLength="40" Nullable="false" />
+          <Property Name="KrajKod" Type="varchar" MaxLength="2" Nullable="false" />
+          <Property Name="Wojewodztwo" Type="nvarchar" MaxLength="40" Nullable="false" />
+          <Property Name="Powiat" Type="nvarchar" MaxLength="40" Nullable="false" />
+          <Property Name="Gmina" Type="nvarchar" MaxLength="40" Nullable="false" />
+          <Property Name="KodGminy" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="CzyMiasto" Type="bit" Nullable="false" />
+          <Property Name="Miejscowosc" Type="nvarchar" MaxLength="40" Nullable="false" />
+          <Property Name="Ulica" Type="nvarchar" MaxLength="40" Nullable="false" />
+          <Property Name="NrDomu" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="NrLokalu" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="KodPocztowy" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="Poczta" Type="nvarchar" MaxLength="40" Nullable="false" />
+          <Property Name="Telefon" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="TelefonSMS" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Email" Type="nvarchar" MaxLength="127" Nullable="false" />
+          <Property Name="UmowaId" Type="int" Nullable="false" />
+          <Property Name="MagazynId" Type="int" />
+          <Property Name="PojazdId" Type="int" />
+          <Property Name="DataUtworzenia" Type="datetime" Nullable="false" />
+          <Property Name="DataMod" Type="datetime" />
+          <Property Name="KtoModId" Type="int" />
+          <Property Name="CzyAktywny" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="RodzajeCeny">
+          <Key>
+            <PropertyRef Name="RodzajCenyId" />
+          </Key>
+          <Property Name="RodzajCenyId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nazwa" Type="nvarchar" MaxLength="40" Nullable="false" />
+          <Property Name="Kod" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="DataUtworzenia" Type="datetime" Nullable="false" />
+          <Property Name="DataMod" Type="datetime" />
+          <Property Name="KtoModId" Type="int" />
+          <Property Name="CzyAktywny" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="RodzajePlatnosci">
+          <Key>
+            <PropertyRef Name="RodzajPlatnosciId" />
+          </Key>
+          <Property Name="RodzajPlatnosciId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nazwa" Type="nvarchar" MaxLength="40" Nullable="false" />
+          <Property Name="IloscDniSplaty" Type="int" Nullable="false" />
+          <Property Name="DataUtworzenia" Type="datetime" Nullable="false" />
+          <Property Name="DataMod" Type="datetime" />
+          <Property Name="KtoModId" Type="int" />
+          <Property Name="CzyAktywny" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="Towary">
+          <Key>
+            <PropertyRef Name="TowarId" />
+          </Key>
+          <Property Name="TowarId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Kod" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="NumerKat" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="GrupaTowaruId" Type="int" Nullable="false" />
+          <Property Name="TypTowaruId" Type="int" Nullable="false" />
+          <Property Name="EAN" Type="varchar" MaxLength="40" Nullable="false" />
+          <Property Name="SWW" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="URL" Type="varchar" MaxLength="254" Nullable="false" />
+          <Property Name="VatSprzId" Type="int" Nullable="false" />
+          <Property Name="VatZakId" Type="int" Nullable="false" />
+          <Property Name="Mpp" Type="bit" Nullable="false" />
+          <Property Name="Nazwa" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="NazwaFiskalna" Type="nvarchar" MaxLength="40" Nullable="false" />
+          <Property Name="Opis" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="KrajPochodzenia" Type="nvarchar" MaxLength="2" Nullable="false" />
+          <Property Name="Ilosc" Type="int" />
+          <Property Name="JednMiaryId" Type="int" Nullable="false" />
+          <Property Name="CenaZakupu" Type="decimal" Precision="15" Scale="2" Nullable="false" />
+          <Property Name="CenaHurtowa" Type="decimal" Precision="15" Scale="2" Nullable="false" />
+          <Property Name="CenaDetaliczna" Type="decimal" Precision="15" Scale="2" Nullable="false" />
+          <Property Name="Waluta" Type="varchar" MaxLength="3" Nullable="false" />
+          <Property Name="Rabat" Type="decimal" Precision="5" Scale="2" Nullable="false" />
+          <Property Name="WartoscVat" Type="decimal" Precision="15" Scale="2" Nullable="false" />
+          <Property Name="WagaKG" Type="decimal" Precision="15" Scale="4" />
+          <Property Name="DataUtworzenia" Type="datetime" Nullable="false" />
+          <Property Name="DataMod" Type="datetime" />
+          <Property Name="KtoModId" Type="int" />
+          <Property Name="CzyAktywny" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TowaryGrupy">
+          <Key>
+            <PropertyRef Name="GrupaTowaruId" />
+          </Key>
+          <Property Name="GrupaTowaruId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nazwa" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="Kod" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="DataUtworzenia" Type="datetime" Nullable="false" />
+          <Property Name="DataMod" Type="datetime" />
+          <Property Name="KtoModId" Type="int" />
+          <Property Name="CzyAktywny" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TowaryJednMiary">
+          <Key>
+            <PropertyRef Name="JednostkaId" />
+          </Key>
+          <Property Name="JednostkaId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Skrot" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="Nazwa" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="DataUtworzenia" Type="datetime" Nullable="false" />
+          <Property Name="DataMod" Type="datetime" />
+          <Property Name="KtoModId" Type="int" />
+          <Property Name="CzyAktywny" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TowaryStawkiVat">
+          <Key>
+            <PropertyRef Name="StawkiVatId" />
+          </Key>
+          <Property Name="StawkiVatId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="KodKraju" Type="varchar" MaxLength="5" Nullable="false" />
+          <Property Name="Stawka" Type="decimal" Precision="5" Scale="2" Nullable="false" />
+          <Property Name="DataUtworzenia" Type="datetime" Nullable="false" />
+          <Property Name="DataMod" Type="datetime" />
+          <Property Name="KtoModId" Type="int" />
+          <Property Name="CzyAktywny" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TowaryTypy">
+          <Key>
+            <PropertyRef Name="TypTowaruId" />
+          </Key>
+          <Property Name="TypTowaruId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nazwa" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="DataUtworzenia" Type="datetime" Nullable="false" />
+          <Property Name="DataMod" Type="datetime" />
+          <Property Name="KtoModId" Type="int" />
+          <Property Name="CzyAktywny" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Umowy">
+          <Key>
+            <PropertyRef Name="UmowaId" />
+          </Key>
+          <Property Name="UmowaId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NrUmowy" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="RodzajUmowyId" Type="int" Nullable="false" />
+          <Property Name="Stanowisko" Type="nvarchar" MaxLength="40" Nullable="false" />
+          <Property Name="KodZawodu" Type="varchar" MaxLength="7" />
+          <Property Name="DataZawarcia" Type="datetime" Nullable="false" />
+          <Property Name="DataOd" Type="datetime" Nullable="false" />
+          <Property Name="DataDo" Type="datetime" Nullable="false" />
+          <Property Name="StawkaBruttoMies" Type="decimal" Precision="15" Scale="2" Nullable="false" />
+          <Property Name="StawkaBruttoGodz" Type="decimal" Precision="15" Scale="2" Nullable="false" />
+          <Property Name="Waluta" Type="varchar" MaxLength="3" Nullable="false" />
+          <Property Name="CzasPracyMies" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="Wartosc" Type="decimal" Precision="15" Scale="2" Nullable="false" />
+          <Property Name="Opis" Type="nvarchar" MaxLength="1024" Nullable="false" />
+          <Property Name="JestEmerytalne" Type="bit" Nullable="false" />
+          <Property Name="JestRentowe" Type="bit" Nullable="false" />
+          <Property Name="JestChorobowe" Type="bit" Nullable="false" />
+          <Property Name="JestWypadkowe" Type="bit" Nullable="false" />
+          <Property Name="DataUtworzenia" Type="datetime" Nullable="false" />
+          <Property Name="DataMod" Type="datetime" />
+          <Property Name="KtoModId" Type="int" />
+          <Property Name="CzyAktywny" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="UmowyRodzaje">
+          <Key>
+            <PropertyRef Name="RodzajUmowyId" />
+          </Key>
+          <Property Name="RodzajUmowyId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Kod" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="Nazwa" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="DataUtworzenia" Type="datetime" Nullable="false" />
+          <Property Name="DataMod" Type="datetime" />
+          <Property Name="KtoModId" Type="int" />
+          <Property Name="CzyAktywny" Type="bit" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_FakturaTowary_Faktury">
+          <End Role="Faktury" Type="Self.Faktury" Multiplicity="1" />
+          <End Role="FakturaTowary" Type="Self.FakturaTowary" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Faktury">
+              <PropertyRef Name="FakturaId" />
+            </Principal>
+            <Dependent Role="FakturaTowary">
+              <PropertyRef Name="FakturaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FakturaTowary_Pracownicy">
+          <End Role="Pracownicy" Type="Self.Pracownicy" Multiplicity="0..1" />
+          <End Role="FakturaTowary" Type="Self.FakturaTowary" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Pracownicy">
+              <PropertyRef Name="PracownikId" />
+            </Principal>
+            <Dependent Role="FakturaTowary">
+              <PropertyRef Name="KtoModId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FakturaTowary_RodzajeCeny">
+          <End Role="RodzajeCeny" Type="Self.RodzajeCeny" Multiplicity="1" />
+          <End Role="FakturaTowary" Type="Self.FakturaTowary" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RodzajeCeny">
+              <PropertyRef Name="RodzajCenyId" />
+            </Principal>
+            <Dependent Role="FakturaTowary">
+              <PropertyRef Name="RodzajCenyId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FakturaTowary_Towary">
+          <End Role="Towary" Type="Self.Towary" Multiplicity="1" />
+          <End Role="FakturaTowary" Type="Self.FakturaTowary" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Towary">
+              <PropertyRef Name="TowarId" />
+            </Principal>
+            <Dependent Role="FakturaTowary">
+              <PropertyRef Name="TowarId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Faktury_FakturyKategorie">
+          <End Role="FakturyKategorie" Type="Self.FakturyKategorie" Multiplicity="1" />
+          <End Role="Faktury" Type="Self.Faktury" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FakturyKategorie">
+              <PropertyRef Name="KategoriaFakturyId" />
+            </Principal>
+            <Dependent Role="Faktury">
+              <PropertyRef Name="KategoriaFakturyId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Faktury_Kontrahenci">
+          <End Role="Kontrahenci" Type="Self.Kontrahenci" Multiplicity="1" />
+          <End Role="Faktury" Type="Self.Faktury" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Kontrahenci">
+              <PropertyRef Name="KontrahentId" />
+            </Principal>
+            <Dependent Role="Faktury">
+              <PropertyRef Name="KontrahentId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Faktury_Magazyny">
+          <End Role="Magazyny" Type="Self.Magazyny" Multiplicity="1" />
+          <End Role="Faktury" Type="Self.Faktury" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Magazyny">
+              <PropertyRef Name="MagazynId" />
+            </Principal>
+            <Dependent Role="Faktury">
+              <PropertyRef Name="MagazynId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Faktury_Pracownicy">
+          <End Role="Pracownicy" Type="Self.Pracownicy" Multiplicity="0..1" />
+          <End Role="Faktury" Type="Self.Faktury" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Pracownicy">
+              <PropertyRef Name="PracownikId" />
+            </Principal>
+            <Dependent Role="Faktury">
+              <PropertyRef Name="KtoModId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Faktury_RodzajePlatnosci">
+          <End Role="RodzajePlatnosci" Type="Self.RodzajePlatnosci" Multiplicity="1" />
+          <End Role="Faktury" Type="Self.Faktury" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RodzajePlatnosci">
+              <PropertyRef Name="RodzajPlatnosciId" />
+            </Principal>
+            <Dependent Role="Faktury">
+              <PropertyRef Name="RodzajePlatnosciId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FakturyKategorie_Pracownicy">
+          <End Role="Pracownicy" Type="Self.Pracownicy" Multiplicity="0..1" />
+          <End Role="FakturyKategorie" Type="Self.FakturyKategorie" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Pracownicy">
+              <PropertyRef Name="PracownikId" />
+            </Principal>
+            <Dependent Role="FakturyKategorie">
+              <PropertyRef Name="KtoModId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Kontrahenci_Kontrahenci">
+          <End Role="Kontrahenci" Type="Self.Kontrahenci" Multiplicity="0..1" />
+          <End Role="Kontrahenci1" Type="Self.Kontrahenci" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Kontrahenci">
+              <PropertyRef Name="KontrahentId" />
+            </Principal>
+            <Dependent Role="Kontrahenci1">
+              <PropertyRef Name="JednostkaPodlegaPodId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Kontrahenci_KontrahenciRodzaje">
+          <End Role="KontrahenciRodzaje" Type="Self.KontrahenciRodzaje" Multiplicity="1" />
+          <End Role="Kontrahenci" Type="Self.Kontrahenci" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="KontrahenciRodzaje">
+              <PropertyRef Name="RodzajId" />
+            </Principal>
+            <Dependent Role="Kontrahenci">
+              <PropertyRef Name="RodzajKontrahentaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Kontrahenci_Pracownicy">
+          <End Role="Pracownicy" Type="Self.Pracownicy" Multiplicity="0..1" />
+          <End Role="Kontrahenci" Type="Self.Kontrahenci" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Pracownicy">
+              <PropertyRef Name="PracownikId" />
+            </Principal>
+            <Dependent Role="Kontrahenci">
+              <PropertyRef Name="KtoModId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_KontrahenciRodzaje_Pracownicy">
+          <End Role="Pracownicy" Type="Self.Pracownicy" Multiplicity="0..1" />
+          <End Role="KontrahenciRodzaje" Type="Self.KontrahenciRodzaje" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Pracownicy">
+              <PropertyRef Name="PracownikId" />
+            </Principal>
+            <Dependent Role="KontrahenciRodzaje">
+              <PropertyRef Name="KtoModId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Magazyny_MagazynyTypy">
+          <End Role="MagazynyTypy" Type="Self.MagazynyTypy" Multiplicity="1" />
+          <End Role="Magazyny" Type="Self.Magazyny" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MagazynyTypy">
+              <PropertyRef Name="TypMagazynuId" />
+            </Principal>
+            <Dependent Role="Magazyny">
+              <PropertyRef Name="TypMagazynuId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Magazyny_Pracownicy">
+          <End Role="Pracownicy" Type="Self.Pracownicy" Multiplicity="0..1" />
+          <End Role="Magazyny" Type="Self.Magazyny" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Pracownicy">
+              <PropertyRef Name="PracownikId" />
+            </Principal>
+            <Dependent Role="Magazyny">
+              <PropertyRef Name="KtoModId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MagazynyTypy_Pracownicy">
+          <End Role="Pracownicy" Type="Self.Pracownicy" Multiplicity="0..1" />
+          <End Role="MagazynyTypy" Type="Self.MagazynyTypy" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Pracownicy">
+              <PropertyRef Name="PracownikId" />
+            </Principal>
+            <Dependent Role="MagazynyTypy">
+              <PropertyRef Name="KtoModId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Pojazdy_Pracownicy">
+          <End Role="Pracownicy" Type="Self.Pracownicy" Multiplicity="0..1" />
+          <End Role="Pojazdy" Type="Self.Pojazdy" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Pracownicy">
+              <PropertyRef Name="PracownikId" />
+            </Principal>
+            <Dependent Role="Pojazdy">
+              <PropertyRef Name="KtoModId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Pracownicy_Magazyny">
+          <End Role="Magazyny" Type="Self.Magazyny" Multiplicity="0..1" />
+          <End Role="Pracownicy" Type="Self.Pracownicy" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Magazyny">
+              <PropertyRef Name="MagazynId" />
+            </Principal>
+            <Dependent Role="Pracownicy">
+              <PropertyRef Name="MagazynId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Pracownicy_Pojazdy">
+          <End Role="Pojazdy" Type="Self.Pojazdy" Multiplicity="0..1" />
+          <End Role="Pracownicy" Type="Self.Pracownicy" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Pojazdy">
+              <PropertyRef Name="PojazdId" />
+            </Principal>
+            <Dependent Role="Pracownicy">
+              <PropertyRef Name="PojazdId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Pracownicy_Pracownicy">
+          <End Role="Pracownicy" Type="Self.Pracownicy" Multiplicity="0..1" />
+          <End Role="Pracownicy1" Type="Self.Pracownicy" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Pracownicy">
+              <PropertyRef Name="PracownikId" />
+            </Principal>
+            <Dependent Role="Pracownicy1">
+              <PropertyRef Name="KtoModId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Pracownicy_Umowy">
+          <End Role="Umowy" Type="Self.Umowy" Multiplicity="1" />
+          <End Role="Pracownicy" Type="Self.Pracownicy" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Umowy">
+              <PropertyRef Name="UmowaId" />
+            </Principal>
+            <Dependent Role="Pracownicy">
+              <PropertyRef Name="UmowaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RodzajeCeny_Pracownicy">
+          <End Role="Pracownicy" Type="Self.Pracownicy" Multiplicity="0..1" />
+          <End Role="RodzajeCeny" Type="Self.RodzajeCeny" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Pracownicy">
+              <PropertyRef Name="PracownikId" />
+            </Principal>
+            <Dependent Role="RodzajeCeny">
+              <PropertyRef Name="KtoModId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RodzajePlatnosci_Pracownicy">
+          <End Role="Pracownicy" Type="Self.Pracownicy" Multiplicity="0..1" />
+          <End Role="RodzajePlatnosci" Type="Self.RodzajePlatnosci" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Pracownicy">
+              <PropertyRef Name="PracownikId" />
+            </Principal>
+            <Dependent Role="RodzajePlatnosci">
+              <PropertyRef Name="KtoModId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Towary_Pracownicy">
+          <End Role="Pracownicy" Type="Self.Pracownicy" Multiplicity="0..1" />
+          <End Role="Towary" Type="Self.Towary" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Pracownicy">
+              <PropertyRef Name="PracownikId" />
+            </Principal>
+            <Dependent Role="Towary">
+              <PropertyRef Name="KtoModId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Towary_TowaryGrupy">
+          <End Role="TowaryGrupy" Type="Self.TowaryGrupy" Multiplicity="1" />
+          <End Role="Towary" Type="Self.Towary" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TowaryGrupy">
+              <PropertyRef Name="GrupaTowaruId" />
+            </Principal>
+            <Dependent Role="Towary">
+              <PropertyRef Name="GrupaTowaruId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Towary_TowaryJednMiary">
+          <End Role="TowaryJednMiary" Type="Self.TowaryJednMiary" Multiplicity="1" />
+          <End Role="Towary" Type="Self.Towary" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TowaryJednMiary">
+              <PropertyRef Name="JednostkaId" />
+            </Principal>
+            <Dependent Role="Towary">
+              <PropertyRef Name="JednMiaryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Towary_TowaryStawkiVat">
+          <End Role="TowaryStawkiVat" Type="Self.TowaryStawkiVat" Multiplicity="1" />
+          <End Role="Towary" Type="Self.Towary" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TowaryStawkiVat">
+              <PropertyRef Name="StawkiVatId" />
+            </Principal>
+            <Dependent Role="Towary">
+              <PropertyRef Name="VatSprzId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Towary_TowaryStawkiVat1">
+          <End Role="TowaryStawkiVat" Type="Self.TowaryStawkiVat" Multiplicity="1" />
+          <End Role="Towary" Type="Self.Towary" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TowaryStawkiVat">
+              <PropertyRef Name="StawkiVatId" />
+            </Principal>
+            <Dependent Role="Towary">
+              <PropertyRef Name="VatZakId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Towary_TowaryTypy">
+          <End Role="TowaryTypy" Type="Self.TowaryTypy" Multiplicity="1" />
+          <End Role="Towary" Type="Self.Towary" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TowaryTypy">
+              <PropertyRef Name="TypTowaruId" />
+            </Principal>
+            <Dependent Role="Towary">
+              <PropertyRef Name="TypTowaruId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TowaryGrupy_Pracownicy">
+          <End Role="Pracownicy" Type="Self.Pracownicy" Multiplicity="0..1" />
+          <End Role="TowaryGrupy" Type="Self.TowaryGrupy" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Pracownicy">
+              <PropertyRef Name="PracownikId" />
+            </Principal>
+            <Dependent Role="TowaryGrupy">
+              <PropertyRef Name="KtoModId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TowaryJednMiary_Pracownicy">
+          <End Role="Pracownicy" Type="Self.Pracownicy" Multiplicity="0..1" />
+          <End Role="TowaryJednMiary" Type="Self.TowaryJednMiary" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Pracownicy">
+              <PropertyRef Name="PracownikId" />
+            </Principal>
+            <Dependent Role="TowaryJednMiary">
+              <PropertyRef Name="KtoModId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TowaryStawkiVat_Pracownicy">
+          <End Role="Pracownicy" Type="Self.Pracownicy" Multiplicity="0..1" />
+          <End Role="TowaryStawkiVat" Type="Self.TowaryStawkiVat" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Pracownicy">
+              <PropertyRef Name="PracownikId" />
+            </Principal>
+            <Dependent Role="TowaryStawkiVat">
+              <PropertyRef Name="KtoModId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TowaryTypy_Pracownicy">
+          <End Role="Pracownicy" Type="Self.Pracownicy" Multiplicity="0..1" />
+          <End Role="TowaryTypy" Type="Self.TowaryTypy" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Pracownicy">
+              <PropertyRef Name="PracownikId" />
+            </Principal>
+            <Dependent Role="TowaryTypy">
+              <PropertyRef Name="KtoModId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Umowy_Pracownicy">
+          <End Role="Pracownicy" Type="Self.Pracownicy" Multiplicity="0..1" />
+          <End Role="Umowy" Type="Self.Umowy" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Pracownicy">
+              <PropertyRef Name="PracownikId" />
+            </Principal>
+            <Dependent Role="Umowy">
+              <PropertyRef Name="KtoModId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Umowy_UmowyRodzaje">
+          <End Role="UmowyRodzaje" Type="Self.UmowyRodzaje" Multiplicity="1" />
+          <End Role="Umowy" Type="Self.Umowy" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UmowyRodzaje">
+              <PropertyRef Name="RodzajUmowyId" />
+            </Principal>
+            <Dependent Role="Umowy">
+              <PropertyRef Name="RodzajUmowyId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UmowyRodzaje_UmowyRodzaje">
+          <End Role="Pracownicy" Type="Self.Pracownicy" Multiplicity="0..1" />
+          <End Role="UmowyRodzaje" Type="Self.UmowyRodzaje" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Pracownicy">
+              <PropertyRef Name="PracownikId" />
+            </Principal>
+            <Dependent Role="UmowyRodzaje">
+              <PropertyRef Name="KtoModId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="JJFirmaModelStoreContainer">
+          <EntitySet Name="FakturaTowary" EntityType="Self.FakturaTowary" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Faktury" EntityType="Self.Faktury" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="FakturyKategorie" EntityType="Self.FakturyKategorie" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Kontrahenci" EntityType="Self.Kontrahenci" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="KontrahenciRodzaje" EntityType="Self.KontrahenciRodzaje" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Magazyny" EntityType="Self.Magazyny" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MagazynyTypy" EntityType="Self.MagazynyTypy" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Pojazdy" EntityType="Self.Pojazdy" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Pracownicy" EntityType="Self.Pracownicy" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RodzajeCeny" EntityType="Self.RodzajeCeny" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RodzajePlatnosci" EntityType="Self.RodzajePlatnosci" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Towary" EntityType="Self.Towary" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TowaryGrupy" EntityType="Self.TowaryGrupy" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TowaryJednMiary" EntityType="Self.TowaryJednMiary" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TowaryStawkiVat" EntityType="Self.TowaryStawkiVat" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TowaryTypy" EntityType="Self.TowaryTypy" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Umowy" EntityType="Self.Umowy" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UmowyRodzaje" EntityType="Self.UmowyRodzaje" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_FakturaTowary_Faktury" Association="Self.FK_FakturaTowary_Faktury">
+            <End Role="Faktury" EntitySet="Faktury" />
+            <End Role="FakturaTowary" EntitySet="FakturaTowary" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FakturaTowary_Pracownicy" Association="Self.FK_FakturaTowary_Pracownicy">
+            <End Role="Pracownicy" EntitySet="Pracownicy" />
+            <End Role="FakturaTowary" EntitySet="FakturaTowary" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FakturaTowary_RodzajeCeny" Association="Self.FK_FakturaTowary_RodzajeCeny">
+            <End Role="RodzajeCeny" EntitySet="RodzajeCeny" />
+            <End Role="FakturaTowary" EntitySet="FakturaTowary" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FakturaTowary_Towary" Association="Self.FK_FakturaTowary_Towary">
+            <End Role="Towary" EntitySet="Towary" />
+            <End Role="FakturaTowary" EntitySet="FakturaTowary" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Faktury_FakturyKategorie" Association="Self.FK_Faktury_FakturyKategorie">
+            <End Role="FakturyKategorie" EntitySet="FakturyKategorie" />
+            <End Role="Faktury" EntitySet="Faktury" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Faktury_Kontrahenci" Association="Self.FK_Faktury_Kontrahenci">
+            <End Role="Kontrahenci" EntitySet="Kontrahenci" />
+            <End Role="Faktury" EntitySet="Faktury" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Faktury_Magazyny" Association="Self.FK_Faktury_Magazyny">
+            <End Role="Magazyny" EntitySet="Magazyny" />
+            <End Role="Faktury" EntitySet="Faktury" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Faktury_Pracownicy" Association="Self.FK_Faktury_Pracownicy">
+            <End Role="Pracownicy" EntitySet="Pracownicy" />
+            <End Role="Faktury" EntitySet="Faktury" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Faktury_RodzajePlatnosci" Association="Self.FK_Faktury_RodzajePlatnosci">
+            <End Role="RodzajePlatnosci" EntitySet="RodzajePlatnosci" />
+            <End Role="Faktury" EntitySet="Faktury" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FakturyKategorie_Pracownicy" Association="Self.FK_FakturyKategorie_Pracownicy">
+            <End Role="Pracownicy" EntitySet="Pracownicy" />
+            <End Role="FakturyKategorie" EntitySet="FakturyKategorie" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Kontrahenci_Kontrahenci" Association="Self.FK_Kontrahenci_Kontrahenci">
+            <End Role="Kontrahenci" EntitySet="Kontrahenci" />
+            <End Role="Kontrahenci1" EntitySet="Kontrahenci" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Kontrahenci_KontrahenciRodzaje" Association="Self.FK_Kontrahenci_KontrahenciRodzaje">
+            <End Role="KontrahenciRodzaje" EntitySet="KontrahenciRodzaje" />
+            <End Role="Kontrahenci" EntitySet="Kontrahenci" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Kontrahenci_Pracownicy" Association="Self.FK_Kontrahenci_Pracownicy">
+            <End Role="Pracownicy" EntitySet="Pracownicy" />
+            <End Role="Kontrahenci" EntitySet="Kontrahenci" />
+          </AssociationSet>
+          <AssociationSet Name="FK_KontrahenciRodzaje_Pracownicy" Association="Self.FK_KontrahenciRodzaje_Pracownicy">
+            <End Role="Pracownicy" EntitySet="Pracownicy" />
+            <End Role="KontrahenciRodzaje" EntitySet="KontrahenciRodzaje" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Magazyny_MagazynyTypy" Association="Self.FK_Magazyny_MagazynyTypy">
+            <End Role="MagazynyTypy" EntitySet="MagazynyTypy" />
+            <End Role="Magazyny" EntitySet="Magazyny" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Magazyny_Pracownicy" Association="Self.FK_Magazyny_Pracownicy">
+            <End Role="Pracownicy" EntitySet="Pracownicy" />
+            <End Role="Magazyny" EntitySet="Magazyny" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MagazynyTypy_Pracownicy" Association="Self.FK_MagazynyTypy_Pracownicy">
+            <End Role="Pracownicy" EntitySet="Pracownicy" />
+            <End Role="MagazynyTypy" EntitySet="MagazynyTypy" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Pojazdy_Pracownicy" Association="Self.FK_Pojazdy_Pracownicy">
+            <End Role="Pracownicy" EntitySet="Pracownicy" />
+            <End Role="Pojazdy" EntitySet="Pojazdy" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Pracownicy_Magazyny" Association="Self.FK_Pracownicy_Magazyny">
+            <End Role="Magazyny" EntitySet="Magazyny" />
+            <End Role="Pracownicy" EntitySet="Pracownicy" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Pracownicy_Pojazdy" Association="Self.FK_Pracownicy_Pojazdy">
+            <End Role="Pojazdy" EntitySet="Pojazdy" />
+            <End Role="Pracownicy" EntitySet="Pracownicy" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Pracownicy_Pracownicy" Association="Self.FK_Pracownicy_Pracownicy">
+            <End Role="Pracownicy" EntitySet="Pracownicy" />
+            <End Role="Pracownicy1" EntitySet="Pracownicy" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Pracownicy_Umowy" Association="Self.FK_Pracownicy_Umowy">
+            <End Role="Umowy" EntitySet="Umowy" />
+            <End Role="Pracownicy" EntitySet="Pracownicy" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RodzajeCeny_Pracownicy" Association="Self.FK_RodzajeCeny_Pracownicy">
+            <End Role="Pracownicy" EntitySet="Pracownicy" />
+            <End Role="RodzajeCeny" EntitySet="RodzajeCeny" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RodzajePlatnosci_Pracownicy" Association="Self.FK_RodzajePlatnosci_Pracownicy">
+            <End Role="Pracownicy" EntitySet="Pracownicy" />
+            <End Role="RodzajePlatnosci" EntitySet="RodzajePlatnosci" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Towary_Pracownicy" Association="Self.FK_Towary_Pracownicy">
+            <End Role="Pracownicy" EntitySet="Pracownicy" />
+            <End Role="Towary" EntitySet="Towary" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Towary_TowaryGrupy" Association="Self.FK_Towary_TowaryGrupy">
+            <End Role="TowaryGrupy" EntitySet="TowaryGrupy" />
+            <End Role="Towary" EntitySet="Towary" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Towary_TowaryJednMiary" Association="Self.FK_Towary_TowaryJednMiary">
+            <End Role="TowaryJednMiary" EntitySet="TowaryJednMiary" />
+            <End Role="Towary" EntitySet="Towary" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Towary_TowaryStawkiVat" Association="Self.FK_Towary_TowaryStawkiVat">
+            <End Role="TowaryStawkiVat" EntitySet="TowaryStawkiVat" />
+            <End Role="Towary" EntitySet="Towary" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Towary_TowaryStawkiVat1" Association="Self.FK_Towary_TowaryStawkiVat1">
+            <End Role="TowaryStawkiVat" EntitySet="TowaryStawkiVat" />
+            <End Role="Towary" EntitySet="Towary" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Towary_TowaryTypy" Association="Self.FK_Towary_TowaryTypy">
+            <End Role="TowaryTypy" EntitySet="TowaryTypy" />
+            <End Role="Towary" EntitySet="Towary" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TowaryGrupy_Pracownicy" Association="Self.FK_TowaryGrupy_Pracownicy">
+            <End Role="Pracownicy" EntitySet="Pracownicy" />
+            <End Role="TowaryGrupy" EntitySet="TowaryGrupy" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TowaryJednMiary_Pracownicy" Association="Self.FK_TowaryJednMiary_Pracownicy">
+            <End Role="Pracownicy" EntitySet="Pracownicy" />
+            <End Role="TowaryJednMiary" EntitySet="TowaryJednMiary" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TowaryStawkiVat_Pracownicy" Association="Self.FK_TowaryStawkiVat_Pracownicy">
+            <End Role="Pracownicy" EntitySet="Pracownicy" />
+            <End Role="TowaryStawkiVat" EntitySet="TowaryStawkiVat" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TowaryTypy_Pracownicy" Association="Self.FK_TowaryTypy_Pracownicy">
+            <End Role="Pracownicy" EntitySet="Pracownicy" />
+            <End Role="TowaryTypy" EntitySet="TowaryTypy" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Umowy_Pracownicy" Association="Self.FK_Umowy_Pracownicy">
+            <End Role="Pracownicy" EntitySet="Pracownicy" />
+            <End Role="Umowy" EntitySet="Umowy" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Umowy_UmowyRodzaje" Association="Self.FK_Umowy_UmowyRodzaje">
+            <End Role="UmowyRodzaje" EntitySet="UmowyRodzaje" />
+            <End Role="Umowy" EntitySet="Umowy" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UmowyRodzaje_UmowyRodzaje" Association="Self.FK_UmowyRodzaje_UmowyRodzaje">
+            <End Role="Pracownicy" EntitySet="Pracownicy" />
+            <End Role="UmowyRodzaje" EntitySet="UmowyRodzaje" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="JJFirmaModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="FakturaTowary">
+          <Key>
+            <PropertyRef Name="TowarNaFakturzeId" />
+          </Key>
+          <Property Name="TowarNaFakturzeId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FakturaId" Type="Int32" Nullable="false" />
+          <Property Name="TowarId" Type="Int32" Nullable="false" />
+          <Property Name="Ilosc" Type="Int32" Nullable="false" />
+          <Property Name="RodzajCenyId" Type="Int32" Nullable="false" />
+          <Property Name="Rabat" Type="Decimal" Precision="5" Scale="2" Nullable="false" />
+          <Property Name="WartoscNetto" Type="Decimal" Precision="15" Scale="2" Nullable="false" />
+          <Property Name="DataUtworzenia" Type="DateTime" Nullable="false" />
+          <Property Name="DataMod" Type="DateTime" />
+          <Property Name="KtoModId" Type="Int32" />
+          <Property Name="CzyAktywny" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Faktury" Relationship="Self.FK_FakturaTowary_Faktury" FromRole="FakturaTowary" ToRole="Faktury" />
+          <NavigationProperty Name="Pracownicy" Relationship="Self.FK_FakturaTowary_Pracownicy" FromRole="FakturaTowary" ToRole="Pracownicy" />
+          <NavigationProperty Name="RodzajeCeny" Relationship="Self.FK_FakturaTowary_RodzajeCeny" FromRole="FakturaTowary" ToRole="RodzajeCeny" />
+          <NavigationProperty Name="Towary" Relationship="Self.FK_FakturaTowary_Towary" FromRole="FakturaTowary" ToRole="Towary" />
+        </EntityType>
+        <EntityType Name="Faktury">
+          <Key>
+            <PropertyRef Name="FakturaId" />
+          </Key>
+          <Property Name="FakturaId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Numer" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="KontrahentId" Type="Int32" Nullable="false" />
+          <Property Name="KategoriaFakturyId" Type="Int32" Nullable="false" />
+          <Property Name="MagazynId" Type="Int32" Nullable="false" />
+          <Property Name="DataWystawienia" Type="DateTime" Nullable="false" />
+          <Property Name="DataSprzedazy" Type="DateTime" Nullable="false" />
+          <Property Name="Rabat" Type="Decimal" Precision="5" Scale="2" Nullable="false" />
+          <Property Name="RodzajePlatnosciId" Type="Int32" Nullable="false" />
+          <Property Name="TerminSplaty" Type="DateTime" Nullable="false" />
+          <Property Name="Zadluzenie" Type="Decimal" Precision="15" Scale="2" Nullable="false" />
+          <Property Name="CenaNetto" Type="Decimal" Precision="15" Scale="2" Nullable="false" />
+          <Property Name="CenaBrutto" Type="Decimal" Precision="15" Scale="2" Nullable="false" />
+          <Property Name="Zaplacono" Type="Decimal" Precision="15" Scale="2" Nullable="false" />
+          <Property Name="DataUtworzenia" Type="DateTime" Nullable="false" />
+          <Property Name="DataMod" Type="DateTime" />
+          <Property Name="KtoModId" Type="Int32" />
+          <Property Name="CzyAktywny" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="FakturaTowary" Relationship="Self.FK_FakturaTowary_Faktury" FromRole="Faktury" ToRole="FakturaTowary" />
+          <NavigationProperty Name="FakturyKategorie" Relationship="Self.FK_Faktury_FakturyKategorie" FromRole="Faktury" ToRole="FakturyKategorie" />
+          <NavigationProperty Name="Kontrahenci" Relationship="Self.FK_Faktury_Kontrahenci" FromRole="Faktury" ToRole="Kontrahenci" />
+          <NavigationProperty Name="Magazyny" Relationship="Self.FK_Faktury_Magazyny" FromRole="Faktury" ToRole="Magazyny" />
+          <NavigationProperty Name="Pracownicy" Relationship="Self.FK_Faktury_Pracownicy" FromRole="Faktury" ToRole="Pracownicy" />
+          <NavigationProperty Name="RodzajePlatnosci" Relationship="Self.FK_Faktury_RodzajePlatnosci" FromRole="Faktury" ToRole="RodzajePlatnosci" />
+        </EntityType>
+        <EntityType Name="FakturyKategorie">
+          <Key>
+            <PropertyRef Name="KategoriaFakturyId" />
+          </Key>
+          <Property Name="KategoriaFakturyId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Kod" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Nazwa" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="DataUtworzenia" Type="DateTime" Nullable="false" />
+          <Property Name="DataMod" Type="DateTime" />
+          <Property Name="KtoModId" Type="Int32" />
+          <Property Name="CzyAktywny" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Faktury" Relationship="Self.FK_Faktury_FakturyKategorie" FromRole="FakturyKategorie" ToRole="Faktury" />
+          <NavigationProperty Name="Pracownicy" Relationship="Self.FK_FakturyKategorie_Pracownicy" FromRole="FakturyKategorie" ToRole="Pracownicy" />
+        </EntityType>
+        <EntityType Name="Kontrahenci">
+          <Key>
+            <PropertyRef Name="KontrahentId" />
+          </Key>
+          <Property Name="KontrahentId" Type="Int32" Nullable="false" />
+          <Property Name="Kod" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="NipKraj" Type="String" MaxLength="2" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Nip" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="RodzajKontrahentaId" Type="Int32" Nullable="false" />
+          <Property Name="Regon" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="DokumentTozsamosci" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="PESEL" Type="String" MaxLength="11" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Nazwa1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Nazwa2" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Nazwa3" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="JednostkaPodlegaPodId" Type="Int32" />
+          <Property Name="Kraj" Type="String" MaxLength="40" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="KrajISO" Type="String" MaxLength="9" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Miasto" Type="String" MaxLength="40" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Wojewodztwo" Type="String" MaxLength="40" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Poczta" Type="String" MaxLength="40" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="KodPocztowy" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Ulica" Type="String" MaxLength="40" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="NrDomu" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="NrLokalu" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="AdresDodatkowe" Type="String" MaxLength="40" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Telefon1" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Telefon2" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Fax" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="127" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="TelefonSMS" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="URL" Type="String" MaxLength="254" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="KorMiasto" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="KorKraj" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="KorPoczta" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="KorKodPocztowy" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="KorUlica" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="KorNrDomu" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="KorNrLokalu" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="DataUtworzenia" Type="DateTime" Nullable="false" />
+          <Property Name="DataMod" Type="DateTime" />
+          <Property Name="KtoModId" Type="Int32" />
+          <Property Name="CzyAktywny" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Faktury" Relationship="Self.FK_Faktury_Kontrahenci" FromRole="Kontrahenci" ToRole="Faktury" />
+          <NavigationProperty Name="Kontrahenci1" Relationship="Self.FK_Kontrahenci_Kontrahenci" FromRole="Kontrahenci" ToRole="Kontrahenci1" />
+          <NavigationProperty Name="Kontrahenci2" Relationship="Self.FK_Kontrahenci_Kontrahenci" FromRole="Kontrahenci1" ToRole="Kontrahenci" />
+          <NavigationProperty Name="KontrahenciRodzaje" Relationship="Self.FK_Kontrahenci_KontrahenciRodzaje" FromRole="Kontrahenci" ToRole="KontrahenciRodzaje" />
+          <NavigationProperty Name="Pracownicy" Relationship="Self.FK_Kontrahenci_Pracownicy" FromRole="Kontrahenci" ToRole="Pracownicy" />
+        </EntityType>
+        <EntityType Name="KontrahenciRodzaje">
+          <Key>
+            <PropertyRef Name="RodzajId" />
+          </Key>
+          <Property Name="RodzajId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nazwa" Type="String" MaxLength="40" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Opis" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="DataUtworzenia" Type="DateTime" Nullable="false" />
+          <Property Name="DataMod" Type="DateTime" />
+          <Property Name="KtoModId" Type="Int32" />
+          <Property Name="CzyAktywny" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Kontrahenci" Relationship="Self.FK_Kontrahenci_KontrahenciRodzaje" FromRole="KontrahenciRodzaje" ToRole="Kontrahenci" />
+          <NavigationProperty Name="Pracownicy" Relationship="Self.FK_KontrahenciRodzaje_Pracownicy" FromRole="KontrahenciRodzaje" ToRole="Pracownicy" />
+        </EntityType>
+        <EntityType Name="Magazyny">
+          <Key>
+            <PropertyRef Name="MagazynId" />
+          </Key>
+          <Property Name="MagazynId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Symbol" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Nazwa" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Opis" Type="String" MaxLength="254" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="TypMagazynuId" Type="Int32" Nullable="false" />
+          <Property Name="Kraj" Type="String" MaxLength="40" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Wojewodztwo" Type="String" MaxLength="40" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Miasto" Type="String" MaxLength="40" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Poczta" Type="String" MaxLength="40" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="KodPocztowy" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Ulica" Type="String" MaxLength="40" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="NrDomu" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="NrLokalu" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Telefon" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="DataUtworzenia" Type="DateTime" Nullable="false" />
+          <Property Name="DataMod" Type="DateTime" />
+          <Property Name="KtoModId" Type="Int32" />
+          <Property Name="CzyAktywny" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Faktury" Relationship="Self.FK_Faktury_Magazyny" FromRole="Magazyny" ToRole="Faktury" />
+          <NavigationProperty Name="MagazynyTypy" Relationship="Self.FK_Magazyny_MagazynyTypy" FromRole="Magazyny" ToRole="MagazynyTypy" />
+          <NavigationProperty Name="Pracownicy" Relationship="Self.FK_Magazyny_Pracownicy" FromRole="Magazyny" ToRole="Pracownicy" />
+          <NavigationProperty Name="Pracownicy1" Relationship="Self.FK_Pracownicy_Magazyny" FromRole="Magazyny" ToRole="Pracownicy" />
+        </EntityType>
+        <EntityType Name="MagazynyTypy">
+          <Key>
+            <PropertyRef Name="TypMagazynuId" />
+          </Key>
+          <Property Name="TypMagazynuId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Symbol" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Nazwa" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Opis" Type="String" MaxLength="254" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="DataUtworzenia" Type="DateTime" Nullable="false" />
+          <Property Name="DataMod" Type="DateTime" />
+          <Property Name="KtoModId" Type="Int32" />
+          <Property Name="CzyAktywny" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Magazyny" Relationship="Self.FK_Magazyny_MagazynyTypy" FromRole="MagazynyTypy" ToRole="Magazyny" />
+          <NavigationProperty Name="Pracownicy" Relationship="Self.FK_MagazynyTypy_Pracownicy" FromRole="MagazynyTypy" ToRole="Pracownicy" />
+        </EntityType>
+        <EntityType Name="Pojazdy">
+          <Key>
+            <PropertyRef Name="PojazdId" />
+          </Key>
+          <Property Name="PojazdId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="RodzajPojazdu" Type="String" MaxLength="40" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Marka" Type="String" MaxLength="40" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Model" Type="String" MaxLength="40" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Rocznik" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="NrVIN" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="KrajRejestracji" Type="String" MaxLength="2" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="NrRejestracyjny" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="DataUtworzenia" Type="DateTime" Nullable="false" />
+          <Property Name="DataMod" Type="DateTime" />
+          <Property Name="KtoModId" Type="Int32" />
+          <Property Name="CzyAktywny" Type="Boolean" />
+          <NavigationProperty Name="Pracownicy" Relationship="Self.FK_Pojazdy_Pracownicy" FromRole="Pojazdy" ToRole="Pracownicy" />
+          <NavigationProperty Name="Pracownicy1" Relationship="Self.FK_Pracownicy_Pojazdy" FromRole="Pojazdy" ToRole="Pracownicy" />
+        </EntityType>
+        <EntityType Name="Pracownicy">
+          <Key>
+            <PropertyRef Name="PracownikId" />
+          </Key>
+          <Property Name="PracownikId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Akronim" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Nazwisko" Type="String" MaxLength="40" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Imie" Type="String" MaxLength="40" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="DrugieImie" Type="String" MaxLength="40" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="PESEL" Type="String" MaxLength="11" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="NipKraj" Type="String" MaxLength="2" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Nip" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="DataUrodzenia" Type="DateTime" Nullable="false" />
+          <Property Name="MiejsceUrodzenia" Type="String" MaxLength="40" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ImieOjca" Type="String" MaxLength="40" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ImieMatki" Type="String" MaxLength="40" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="NazwiskoRodowe" Type="String" MaxLength="40" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="NazwiskoRodoweMatki" Type="String" MaxLength="40" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Kraj" Type="String" MaxLength="40" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="KrajKod" Type="String" MaxLength="2" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Wojewodztwo" Type="String" MaxLength="40" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Powiat" Type="String" MaxLength="40" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Gmina" Type="String" MaxLength="40" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="KodGminy" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CzyMiasto" Type="Boolean" Nullable="false" />
+          <Property Name="Miejscowosc" Type="String" MaxLength="40" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Ulica" Type="String" MaxLength="40" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="NrDomu" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="NrLokalu" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="KodPocztowy" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Poczta" Type="String" MaxLength="40" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Telefon" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="TelefonSMS" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="127" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="UmowaId" Type="Int32" Nullable="false" />
+          <Property Name="MagazynId" Type="Int32" />
+          <Property Name="PojazdId" Type="Int32" />
+          <Property Name="DataUtworzenia" Type="DateTime" Nullable="false" />
+          <Property Name="DataMod" Type="DateTime" />
+          <Property Name="KtoModId" Type="Int32" />
+          <Property Name="CzyAktywny" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="FakturaTowary" Relationship="Self.FK_FakturaTowary_Pracownicy" FromRole="Pracownicy" ToRole="FakturaTowary" />
+          <NavigationProperty Name="Faktury" Relationship="Self.FK_Faktury_Pracownicy" FromRole="Pracownicy" ToRole="Faktury" />
+          <NavigationProperty Name="FakturyKategorie" Relationship="Self.FK_FakturyKategorie_Pracownicy" FromRole="Pracownicy" ToRole="FakturyKategorie" />
+          <NavigationProperty Name="Kontrahenci" Relationship="Self.FK_Kontrahenci_Pracownicy" FromRole="Pracownicy" ToRole="Kontrahenci" />
+          <NavigationProperty Name="KontrahenciRodzaje" Relationship="Self.FK_KontrahenciRodzaje_Pracownicy" FromRole="Pracownicy" ToRole="KontrahenciRodzaje" />
+          <NavigationProperty Name="Magazyny" Relationship="Self.FK_Magazyny_Pracownicy" FromRole="Pracownicy" ToRole="Magazyny" />
+          <NavigationProperty Name="Magazyny1" Relationship="Self.FK_Pracownicy_Magazyny" FromRole="Pracownicy" ToRole="Magazyny" />
+          <NavigationProperty Name="MagazynyTypy" Relationship="Self.FK_MagazynyTypy_Pracownicy" FromRole="Pracownicy" ToRole="MagazynyTypy" />
+          <NavigationProperty Name="Pojazdy" Relationship="Self.FK_Pojazdy_Pracownicy" FromRole="Pracownicy" ToRole="Pojazdy" />
+          <NavigationProperty Name="Pojazdy1" Relationship="Self.FK_Pracownicy_Pojazdy" FromRole="Pracownicy" ToRole="Pojazdy" />
+          <NavigationProperty Name="Pracownicy1" Relationship="Self.FK_Pracownicy_Pracownicy" FromRole="Pracownicy" ToRole="Pracownicy1" />
+          <NavigationProperty Name="Pracownicy2" Relationship="Self.FK_Pracownicy_Pracownicy" FromRole="Pracownicy1" ToRole="Pracownicy" />
+          <NavigationProperty Name="Umowy" Relationship="Self.FK_Pracownicy_Umowy" FromRole="Pracownicy" ToRole="Umowy" />
+          <NavigationProperty Name="RodzajeCeny" Relationship="Self.FK_RodzajeCeny_Pracownicy" FromRole="Pracownicy" ToRole="RodzajeCeny" />
+          <NavigationProperty Name="RodzajePlatnosci" Relationship="Self.FK_RodzajePlatnosci_Pracownicy" FromRole="Pracownicy" ToRole="RodzajePlatnosci" />
+          <NavigationProperty Name="Towary" Relationship="Self.FK_Towary_Pracownicy" FromRole="Pracownicy" ToRole="Towary" />
+          <NavigationProperty Name="TowaryGrupy" Relationship="Self.FK_TowaryGrupy_Pracownicy" FromRole="Pracownicy" ToRole="TowaryGrupy" />
+          <NavigationProperty Name="TowaryJednMiary" Relationship="Self.FK_TowaryJednMiary_Pracownicy" FromRole="Pracownicy" ToRole="TowaryJednMiary" />
+          <NavigationProperty Name="TowaryStawkiVat" Relationship="Self.FK_TowaryStawkiVat_Pracownicy" FromRole="Pracownicy" ToRole="TowaryStawkiVat" />
+          <NavigationProperty Name="TowaryTypy" Relationship="Self.FK_TowaryTypy_Pracownicy" FromRole="Pracownicy" ToRole="TowaryTypy" />
+          <NavigationProperty Name="Umowy1" Relationship="Self.FK_Umowy_Pracownicy" FromRole="Pracownicy" ToRole="Umowy" />
+          <NavigationProperty Name="UmowyRodzaje" Relationship="Self.FK_UmowyRodzaje_UmowyRodzaje" FromRole="Pracownicy" ToRole="UmowyRodzaje" />
+        </EntityType>
+        <EntityType Name="RodzajeCeny">
+          <Key>
+            <PropertyRef Name="RodzajCenyId" />
+          </Key>
+          <Property Name="RodzajCenyId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nazwa" Type="String" MaxLength="40" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Kod" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="DataUtworzenia" Type="DateTime" Nullable="false" />
+          <Property Name="DataMod" Type="DateTime" />
+          <Property Name="KtoModId" Type="Int32" />
+          <Property Name="CzyAktywny" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="FakturaTowary" Relationship="Self.FK_FakturaTowary_RodzajeCeny" FromRole="RodzajeCeny" ToRole="FakturaTowary" />
+          <NavigationProperty Name="Pracownicy" Relationship="Self.FK_RodzajeCeny_Pracownicy" FromRole="RodzajeCeny" ToRole="Pracownicy" />
+        </EntityType>
+        <EntityType Name="RodzajePlatnosci">
+          <Key>
+            <PropertyRef Name="RodzajPlatnosciId" />
+          </Key>
+          <Property Name="RodzajPlatnosciId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nazwa" Type="String" MaxLength="40" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="IloscDniSplaty" Type="Int32" Nullable="false" />
+          <Property Name="DataUtworzenia" Type="DateTime" Nullable="false" />
+          <Property Name="DataMod" Type="DateTime" />
+          <Property Name="KtoModId" Type="Int32" />
+          <Property Name="CzyAktywny" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Faktury" Relationship="Self.FK_Faktury_RodzajePlatnosci" FromRole="RodzajePlatnosci" ToRole="Faktury" />
+          <NavigationProperty Name="Pracownicy" Relationship="Self.FK_RodzajePlatnosci_Pracownicy" FromRole="RodzajePlatnosci" ToRole="Pracownicy" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="Towary">
+          <Key>
+            <PropertyRef Name="TowarId" />
+          </Key>
+          <Property Name="TowarId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Kod" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="NumerKat" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="GrupaTowaruId" Type="Int32" Nullable="false" />
+          <Property Name="TypTowaruId" Type="Int32" Nullable="false" />
+          <Property Name="EAN" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="SWW" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="URL" Type="String" MaxLength="254" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="VatSprzId" Type="Int32" Nullable="false" />
+          <Property Name="VatZakId" Type="Int32" Nullable="false" />
+          <Property Name="Mpp" Type="Boolean" Nullable="false" />
+          <Property Name="Nazwa" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="NazwaFiskalna" Type="String" MaxLength="40" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Opis" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="KrajPochodzenia" Type="String" MaxLength="2" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Ilosc" Type="Int32" />
+          <Property Name="JednMiaryId" Type="Int32" Nullable="false" />
+          <Property Name="CenaZakupu" Type="Decimal" Precision="15" Scale="2" Nullable="false" />
+          <Property Name="CenaHurtowa" Type="Decimal" Precision="15" Scale="2" Nullable="false" />
+          <Property Name="CenaDetaliczna" Type="Decimal" Precision="15" Scale="2" Nullable="false" />
+          <Property Name="Waluta" Type="String" MaxLength="3" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Rabat" Type="Decimal" Precision="5" Scale="2" Nullable="false" />
+          <Property Name="WartoscVat" Type="Decimal" Precision="15" Scale="2" Nullable="false" />
+          <Property Name="WagaKG" Type="Decimal" Precision="15" Scale="4" />
+          <Property Name="DataUtworzenia" Type="DateTime" Nullable="false" />
+          <Property Name="DataMod" Type="DateTime" />
+          <Property Name="KtoModId" Type="Int32" />
+          <Property Name="CzyAktywny" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="FakturaTowary" Relationship="Self.FK_FakturaTowary_Towary" FromRole="Towary" ToRole="FakturaTowary" />
+          <NavigationProperty Name="Pracownicy" Relationship="Self.FK_Towary_Pracownicy" FromRole="Towary" ToRole="Pracownicy" />
+          <NavigationProperty Name="TowaryGrupy" Relationship="Self.FK_Towary_TowaryGrupy" FromRole="Towary" ToRole="TowaryGrupy" />
+          <NavigationProperty Name="TowaryJednMiary" Relationship="Self.FK_Towary_TowaryJednMiary" FromRole="Towary" ToRole="TowaryJednMiary" />
+          <NavigationProperty Name="TowaryStawkiVat" Relationship="Self.FK_Towary_TowaryStawkiVat" FromRole="Towary" ToRole="TowaryStawkiVat" />
+          <NavigationProperty Name="TowaryStawkiVat1" Relationship="Self.FK_Towary_TowaryStawkiVat1" FromRole="Towary" ToRole="TowaryStawkiVat" />
+          <NavigationProperty Name="TowaryTypy" Relationship="Self.FK_Towary_TowaryTypy" FromRole="Towary" ToRole="TowaryTypy" />
+        </EntityType>
+        <EntityType Name="TowaryGrupy">
+          <Key>
+            <PropertyRef Name="GrupaTowaruId" />
+          </Key>
+          <Property Name="GrupaTowaruId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nazwa" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Kod" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="DataUtworzenia" Type="DateTime" Nullable="false" />
+          <Property Name="DataMod" Type="DateTime" />
+          <Property Name="KtoModId" Type="Int32" />
+          <Property Name="CzyAktywny" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Pracownicy" Relationship="Self.FK_TowaryGrupy_Pracownicy" FromRole="TowaryGrupy" ToRole="Pracownicy" />
+          <NavigationProperty Name="Towary" Relationship="Self.FK_Towary_TowaryGrupy" FromRole="TowaryGrupy" ToRole="Towary" />
+        </EntityType>
+        <EntityType Name="TowaryJednMiary">
+          <Key>
+            <PropertyRef Name="JednostkaId" />
+          </Key>
+          <Property Name="JednostkaId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Skrot" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Nazwa" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="DataUtworzenia" Type="DateTime" Nullable="false" />
+          <Property Name="DataMod" Type="DateTime" />
+          <Property Name="KtoModId" Type="Int32" />
+          <Property Name="CzyAktywny" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Pracownicy" Relationship="Self.FK_TowaryJednMiary_Pracownicy" FromRole="TowaryJednMiary" ToRole="Pracownicy" />
+          <NavigationProperty Name="Towary" Relationship="Self.FK_Towary_TowaryJednMiary" FromRole="TowaryJednMiary" ToRole="Towary" />
+        </EntityType>
+        <EntityType Name="TowaryStawkiVat">
+          <Key>
+            <PropertyRef Name="StawkiVatId" />
+          </Key>
+          <Property Name="StawkiVatId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="KodKraju" Type="String" MaxLength="5" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Stawka" Type="Decimal" Precision="5" Scale="2" Nullable="false" />
+          <Property Name="DataUtworzenia" Type="DateTime" Nullable="false" />
+          <Property Name="DataMod" Type="DateTime" />
+          <Property Name="KtoModId" Type="Int32" />
+          <Property Name="CzyAktywny" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Pracownicy" Relationship="Self.FK_TowaryStawkiVat_Pracownicy" FromRole="TowaryStawkiVat" ToRole="Pracownicy" />
+          <NavigationProperty Name="Towary" Relationship="Self.FK_Towary_TowaryStawkiVat" FromRole="TowaryStawkiVat" ToRole="Towary" />
+          <NavigationProperty Name="Towary1" Relationship="Self.FK_Towary_TowaryStawkiVat1" FromRole="TowaryStawkiVat" ToRole="Towary" />
+        </EntityType>
+        <EntityType Name="TowaryTypy">
+          <Key>
+            <PropertyRef Name="TypTowaruId" />
+          </Key>
+          <Property Name="TypTowaruId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nazwa" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="DataUtworzenia" Type="DateTime" Nullable="false" />
+          <Property Name="DataMod" Type="DateTime" />
+          <Property Name="KtoModId" Type="Int32" />
+          <Property Name="CzyAktywny" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Pracownicy" Relationship="Self.FK_TowaryTypy_Pracownicy" FromRole="TowaryTypy" ToRole="Pracownicy" />
+          <NavigationProperty Name="Towary" Relationship="Self.FK_Towary_TowaryTypy" FromRole="TowaryTypy" ToRole="Towary" />
+        </EntityType>
+        <EntityType Name="Umowy">
+          <Key>
+            <PropertyRef Name="UmowaId" />
+          </Key>
+          <Property Name="UmowaId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NrUmowy" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="RodzajUmowyId" Type="Int32" Nullable="false" />
+          <Property Name="Stanowisko" Type="String" MaxLength="40" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="KodZawodu" Type="String" MaxLength="7" FixedLength="false" Unicode="false" />
+          <Property Name="DataZawarcia" Type="DateTime" Nullable="false" />
+          <Property Name="DataOd" Type="DateTime" Nullable="false" />
+          <Property Name="DataDo" Type="DateTime" Nullable="false" />
+          <Property Name="StawkaBruttoMies" Type="Decimal" Precision="15" Scale="2" Nullable="false" />
+          <Property Name="StawkaBruttoGodz" Type="Decimal" Precision="15" Scale="2" Nullable="false" />
+          <Property Name="Waluta" Type="String" MaxLength="3" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CzasPracyMies" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="Wartosc" Type="Decimal" Precision="15" Scale="2" Nullable="false" />
+          <Property Name="Opis" Type="String" MaxLength="1024" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="JestEmerytalne" Type="Boolean" Nullable="false" />
+          <Property Name="JestRentowe" Type="Boolean" Nullable="false" />
+          <Property Name="JestChorobowe" Type="Boolean" Nullable="false" />
+          <Property Name="JestWypadkowe" Type="Boolean" Nullable="false" />
+          <Property Name="DataUtworzenia" Type="DateTime" Nullable="false" />
+          <Property Name="DataMod" Type="DateTime" />
+          <Property Name="KtoModId" Type="Int32" />
+          <Property Name="CzyAktywny" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Pracownicy" Relationship="Self.FK_Pracownicy_Umowy" FromRole="Umowy" ToRole="Pracownicy" />
+          <NavigationProperty Name="Pracownicy1" Relationship="Self.FK_Umowy_Pracownicy" FromRole="Umowy" ToRole="Pracownicy" />
+          <NavigationProperty Name="UmowyRodzaje" Relationship="Self.FK_Umowy_UmowyRodzaje" FromRole="Umowy" ToRole="UmowyRodzaje" />
+        </EntityType>
+        <EntityType Name="UmowyRodzaje">
+          <Key>
+            <PropertyRef Name="RodzajUmowyId" />
+          </Key>
+          <Property Name="RodzajUmowyId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Kod" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Nazwa" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="DataUtworzenia" Type="DateTime" Nullable="false" />
+          <Property Name="DataMod" Type="DateTime" />
+          <Property Name="KtoModId" Type="Int32" />
+          <Property Name="CzyAktywny" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Pracownicy" Relationship="Self.FK_UmowyRodzaje_UmowyRodzaje" FromRole="UmowyRodzaje" ToRole="Pracownicy" />
+          <NavigationProperty Name="Umowy" Relationship="Self.FK_Umowy_UmowyRodzaje" FromRole="UmowyRodzaje" ToRole="Umowy" />
+        </EntityType>
+        <Association Name="FK_FakturaTowary_Faktury">
+          <End Role="Faktury" Type="Self.Faktury" Multiplicity="1" />
+          <End Role="FakturaTowary" Type="Self.FakturaTowary" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Faktury">
+              <PropertyRef Name="FakturaId" />
+            </Principal>
+            <Dependent Role="FakturaTowary">
+              <PropertyRef Name="FakturaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FakturaTowary_Pracownicy">
+          <End Role="Pracownicy" Type="Self.Pracownicy" Multiplicity="0..1" />
+          <End Role="FakturaTowary" Type="Self.FakturaTowary" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Pracownicy">
+              <PropertyRef Name="PracownikId" />
+            </Principal>
+            <Dependent Role="FakturaTowary">
+              <PropertyRef Name="KtoModId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FakturaTowary_RodzajeCeny">
+          <End Role="RodzajeCeny" Type="Self.RodzajeCeny" Multiplicity="1" />
+          <End Role="FakturaTowary" Type="Self.FakturaTowary" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RodzajeCeny">
+              <PropertyRef Name="RodzajCenyId" />
+            </Principal>
+            <Dependent Role="FakturaTowary">
+              <PropertyRef Name="RodzajCenyId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FakturaTowary_Towary">
+          <End Role="Towary" Type="Self.Towary" Multiplicity="1" />
+          <End Role="FakturaTowary" Type="Self.FakturaTowary" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Towary">
+              <PropertyRef Name="TowarId" />
+            </Principal>
+            <Dependent Role="FakturaTowary">
+              <PropertyRef Name="TowarId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Faktury_FakturyKategorie">
+          <End Role="FakturyKategorie" Type="Self.FakturyKategorie" Multiplicity="1" />
+          <End Role="Faktury" Type="Self.Faktury" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FakturyKategorie">
+              <PropertyRef Name="KategoriaFakturyId" />
+            </Principal>
+            <Dependent Role="Faktury">
+              <PropertyRef Name="KategoriaFakturyId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Faktury_Kontrahenci">
+          <End Role="Kontrahenci" Type="Self.Kontrahenci" Multiplicity="1" />
+          <End Role="Faktury" Type="Self.Faktury" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Kontrahenci">
+              <PropertyRef Name="KontrahentId" />
+            </Principal>
+            <Dependent Role="Faktury">
+              <PropertyRef Name="KontrahentId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Faktury_Magazyny">
+          <End Role="Magazyny" Type="Self.Magazyny" Multiplicity="1" />
+          <End Role="Faktury" Type="Self.Faktury" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Magazyny">
+              <PropertyRef Name="MagazynId" />
+            </Principal>
+            <Dependent Role="Faktury">
+              <PropertyRef Name="MagazynId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Faktury_Pracownicy">
+          <End Role="Pracownicy" Type="Self.Pracownicy" Multiplicity="0..1" />
+          <End Role="Faktury" Type="Self.Faktury" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Pracownicy">
+              <PropertyRef Name="PracownikId" />
+            </Principal>
+            <Dependent Role="Faktury">
+              <PropertyRef Name="KtoModId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Faktury_RodzajePlatnosci">
+          <End Role="RodzajePlatnosci" Type="Self.RodzajePlatnosci" Multiplicity="1" />
+          <End Role="Faktury" Type="Self.Faktury" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RodzajePlatnosci">
+              <PropertyRef Name="RodzajPlatnosciId" />
+            </Principal>
+            <Dependent Role="Faktury">
+              <PropertyRef Name="RodzajePlatnosciId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FakturyKategorie_Pracownicy">
+          <End Role="Pracownicy" Type="Self.Pracownicy" Multiplicity="0..1" />
+          <End Role="FakturyKategorie" Type="Self.FakturyKategorie" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Pracownicy">
+              <PropertyRef Name="PracownikId" />
+            </Principal>
+            <Dependent Role="FakturyKategorie">
+              <PropertyRef Name="KtoModId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Kontrahenci_Kontrahenci">
+          <End Role="Kontrahenci" Type="Self.Kontrahenci" Multiplicity="0..1" />
+          <End Role="Kontrahenci1" Type="Self.Kontrahenci" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Kontrahenci">
+              <PropertyRef Name="KontrahentId" />
+            </Principal>
+            <Dependent Role="Kontrahenci1">
+              <PropertyRef Name="JednostkaPodlegaPodId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Kontrahenci_KontrahenciRodzaje">
+          <End Role="KontrahenciRodzaje" Type="Self.KontrahenciRodzaje" Multiplicity="1" />
+          <End Role="Kontrahenci" Type="Self.Kontrahenci" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="KontrahenciRodzaje">
+              <PropertyRef Name="RodzajId" />
+            </Principal>
+            <Dependent Role="Kontrahenci">
+              <PropertyRef Name="RodzajKontrahentaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Kontrahenci_Pracownicy">
+          <End Role="Pracownicy" Type="Self.Pracownicy" Multiplicity="0..1" />
+          <End Role="Kontrahenci" Type="Self.Kontrahenci" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Pracownicy">
+              <PropertyRef Name="PracownikId" />
+            </Principal>
+            <Dependent Role="Kontrahenci">
+              <PropertyRef Name="KtoModId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_KontrahenciRodzaje_Pracownicy">
+          <End Role="Pracownicy" Type="Self.Pracownicy" Multiplicity="0..1" />
+          <End Role="KontrahenciRodzaje" Type="Self.KontrahenciRodzaje" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Pracownicy">
+              <PropertyRef Name="PracownikId" />
+            </Principal>
+            <Dependent Role="KontrahenciRodzaje">
+              <PropertyRef Name="KtoModId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Magazyny_MagazynyTypy">
+          <End Role="MagazynyTypy" Type="Self.MagazynyTypy" Multiplicity="1" />
+          <End Role="Magazyny" Type="Self.Magazyny" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MagazynyTypy">
+              <PropertyRef Name="TypMagazynuId" />
+            </Principal>
+            <Dependent Role="Magazyny">
+              <PropertyRef Name="TypMagazynuId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Magazyny_Pracownicy">
+          <End Role="Pracownicy" Type="Self.Pracownicy" Multiplicity="0..1" />
+          <End Role="Magazyny" Type="Self.Magazyny" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Pracownicy">
+              <PropertyRef Name="PracownikId" />
+            </Principal>
+            <Dependent Role="Magazyny">
+              <PropertyRef Name="KtoModId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Pracownicy_Magazyny">
+          <End Role="Magazyny" Type="Self.Magazyny" Multiplicity="0..1" />
+          <End Role="Pracownicy" Type="Self.Pracownicy" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Magazyny">
+              <PropertyRef Name="MagazynId" />
+            </Principal>
+            <Dependent Role="Pracownicy">
+              <PropertyRef Name="MagazynId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MagazynyTypy_Pracownicy">
+          <End Role="Pracownicy" Type="Self.Pracownicy" Multiplicity="0..1" />
+          <End Role="MagazynyTypy" Type="Self.MagazynyTypy" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Pracownicy">
+              <PropertyRef Name="PracownikId" />
+            </Principal>
+            <Dependent Role="MagazynyTypy">
+              <PropertyRef Name="KtoModId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Pojazdy_Pracownicy">
+          <End Role="Pracownicy" Type="Self.Pracownicy" Multiplicity="0..1" />
+          <End Role="Pojazdy" Type="Self.Pojazdy" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Pracownicy">
+              <PropertyRef Name="PracownikId" />
+            </Principal>
+            <Dependent Role="Pojazdy">
+              <PropertyRef Name="KtoModId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Pracownicy_Pojazdy">
+          <End Role="Pojazdy" Type="Self.Pojazdy" Multiplicity="0..1" />
+          <End Role="Pracownicy" Type="Self.Pracownicy" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Pojazdy">
+              <PropertyRef Name="PojazdId" />
+            </Principal>
+            <Dependent Role="Pracownicy">
+              <PropertyRef Name="PojazdId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Pracownicy_Pracownicy">
+          <End Role="Pracownicy" Type="Self.Pracownicy" Multiplicity="0..1" />
+          <End Role="Pracownicy1" Type="Self.Pracownicy" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Pracownicy">
+              <PropertyRef Name="PracownikId" />
+            </Principal>
+            <Dependent Role="Pracownicy1">
+              <PropertyRef Name="KtoModId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Pracownicy_Umowy">
+          <End Role="Umowy" Type="Self.Umowy" Multiplicity="1" />
+          <End Role="Pracownicy" Type="Self.Pracownicy" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Umowy">
+              <PropertyRef Name="UmowaId" />
+            </Principal>
+            <Dependent Role="Pracownicy">
+              <PropertyRef Name="UmowaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RodzajeCeny_Pracownicy">
+          <End Role="Pracownicy" Type="Self.Pracownicy" Multiplicity="0..1" />
+          <End Role="RodzajeCeny" Type="Self.RodzajeCeny" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Pracownicy">
+              <PropertyRef Name="PracownikId" />
+            </Principal>
+            <Dependent Role="RodzajeCeny">
+              <PropertyRef Name="KtoModId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RodzajePlatnosci_Pracownicy">
+          <End Role="Pracownicy" Type="Self.Pracownicy" Multiplicity="0..1" />
+          <End Role="RodzajePlatnosci" Type="Self.RodzajePlatnosci" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Pracownicy">
+              <PropertyRef Name="PracownikId" />
+            </Principal>
+            <Dependent Role="RodzajePlatnosci">
+              <PropertyRef Name="KtoModId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Towary_Pracownicy">
+          <End Role="Pracownicy" Type="Self.Pracownicy" Multiplicity="0..1" />
+          <End Role="Towary" Type="Self.Towary" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Pracownicy">
+              <PropertyRef Name="PracownikId" />
+            </Principal>
+            <Dependent Role="Towary">
+              <PropertyRef Name="KtoModId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TowaryGrupy_Pracownicy">
+          <End Role="Pracownicy" Type="Self.Pracownicy" Multiplicity="0..1" />
+          <End Role="TowaryGrupy" Type="Self.TowaryGrupy" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Pracownicy">
+              <PropertyRef Name="PracownikId" />
+            </Principal>
+            <Dependent Role="TowaryGrupy">
+              <PropertyRef Name="KtoModId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TowaryJednMiary_Pracownicy">
+          <End Role="Pracownicy" Type="Self.Pracownicy" Multiplicity="0..1" />
+          <End Role="TowaryJednMiary" Type="Self.TowaryJednMiary" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Pracownicy">
+              <PropertyRef Name="PracownikId" />
+            </Principal>
+            <Dependent Role="TowaryJednMiary">
+              <PropertyRef Name="KtoModId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TowaryStawkiVat_Pracownicy">
+          <End Role="Pracownicy" Type="Self.Pracownicy" Multiplicity="0..1" />
+          <End Role="TowaryStawkiVat" Type="Self.TowaryStawkiVat" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Pracownicy">
+              <PropertyRef Name="PracownikId" />
+            </Principal>
+            <Dependent Role="TowaryStawkiVat">
+              <PropertyRef Name="KtoModId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TowaryTypy_Pracownicy">
+          <End Role="Pracownicy" Type="Self.Pracownicy" Multiplicity="0..1" />
+          <End Role="TowaryTypy" Type="Self.TowaryTypy" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Pracownicy">
+              <PropertyRef Name="PracownikId" />
+            </Principal>
+            <Dependent Role="TowaryTypy">
+              <PropertyRef Name="KtoModId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Umowy_Pracownicy">
+          <End Role="Pracownicy" Type="Self.Pracownicy" Multiplicity="0..1" />
+          <End Role="Umowy" Type="Self.Umowy" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Pracownicy">
+              <PropertyRef Name="PracownikId" />
+            </Principal>
+            <Dependent Role="Umowy">
+              <PropertyRef Name="KtoModId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UmowyRodzaje_UmowyRodzaje">
+          <End Role="Pracownicy" Type="Self.Pracownicy" Multiplicity="0..1" />
+          <End Role="UmowyRodzaje" Type="Self.UmowyRodzaje" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Pracownicy">
+              <PropertyRef Name="PracownikId" />
+            </Principal>
+            <Dependent Role="UmowyRodzaje">
+              <PropertyRef Name="KtoModId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Towary_TowaryGrupy">
+          <End Role="TowaryGrupy" Type="Self.TowaryGrupy" Multiplicity="1" />
+          <End Role="Towary" Type="Self.Towary" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TowaryGrupy">
+              <PropertyRef Name="GrupaTowaruId" />
+            </Principal>
+            <Dependent Role="Towary">
+              <PropertyRef Name="GrupaTowaruId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Towary_TowaryJednMiary">
+          <End Role="TowaryJednMiary" Type="Self.TowaryJednMiary" Multiplicity="1" />
+          <End Role="Towary" Type="Self.Towary" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TowaryJednMiary">
+              <PropertyRef Name="JednostkaId" />
+            </Principal>
+            <Dependent Role="Towary">
+              <PropertyRef Name="JednMiaryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Towary_TowaryStawkiVat">
+          <End Role="TowaryStawkiVat" Type="Self.TowaryStawkiVat" Multiplicity="1" />
+          <End Role="Towary" Type="Self.Towary" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TowaryStawkiVat">
+              <PropertyRef Name="StawkiVatId" />
+            </Principal>
+            <Dependent Role="Towary">
+              <PropertyRef Name="VatSprzId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Towary_TowaryStawkiVat1">
+          <End Role="TowaryStawkiVat" Type="Self.TowaryStawkiVat" Multiplicity="1" />
+          <End Role="Towary" Type="Self.Towary" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TowaryStawkiVat">
+              <PropertyRef Name="StawkiVatId" />
+            </Principal>
+            <Dependent Role="Towary">
+              <PropertyRef Name="VatZakId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Towary_TowaryTypy">
+          <End Role="TowaryTypy" Type="Self.TowaryTypy" Multiplicity="1" />
+          <End Role="Towary" Type="Self.Towary" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TowaryTypy">
+              <PropertyRef Name="TypTowaruId" />
+            </Principal>
+            <Dependent Role="Towary">
+              <PropertyRef Name="TypTowaruId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Umowy_UmowyRodzaje">
+          <End Role="UmowyRodzaje" Type="Self.UmowyRodzaje" Multiplicity="1" />
+          <End Role="Umowy" Type="Self.Umowy" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UmowyRodzaje">
+              <PropertyRef Name="RodzajUmowyId" />
+            </Principal>
+            <Dependent Role="Umowy">
+              <PropertyRef Name="RodzajUmowyId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="JJFirmaEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="FakturaTowary" EntityType="Self.FakturaTowary" />
+          <EntitySet Name="Faktury" EntityType="Self.Faktury" />
+          <EntitySet Name="FakturyKategorie" EntityType="Self.FakturyKategorie" />
+          <EntitySet Name="Kontrahenci" EntityType="Self.Kontrahenci" />
+          <EntitySet Name="KontrahenciRodzaje" EntityType="Self.KontrahenciRodzaje" />
+          <EntitySet Name="Magazyny" EntityType="Self.Magazyny" />
+          <EntitySet Name="MagazynyTypy" EntityType="Self.MagazynyTypy" />
+          <EntitySet Name="Pojazdy" EntityType="Self.Pojazdy" />
+          <EntitySet Name="Pracownicy" EntityType="Self.Pracownicy" />
+          <EntitySet Name="RodzajeCeny" EntityType="Self.RodzajeCeny" />
+          <EntitySet Name="RodzajePlatnosci" EntityType="Self.RodzajePlatnosci" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+          <EntitySet Name="Towary" EntityType="Self.Towary" />
+          <EntitySet Name="TowaryGrupy" EntityType="Self.TowaryGrupy" />
+          <EntitySet Name="TowaryJednMiary" EntityType="Self.TowaryJednMiary" />
+          <EntitySet Name="TowaryStawkiVat" EntityType="Self.TowaryStawkiVat" />
+          <EntitySet Name="TowaryTypy" EntityType="Self.TowaryTypy" />
+          <EntitySet Name="Umowy" EntityType="Self.Umowy" />
+          <EntitySet Name="UmowyRodzaje" EntityType="Self.UmowyRodzaje" />
+          <AssociationSet Name="FK_FakturaTowary_Faktury" Association="Self.FK_FakturaTowary_Faktury">
+            <End Role="Faktury" EntitySet="Faktury" />
+            <End Role="FakturaTowary" EntitySet="FakturaTowary" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FakturaTowary_Pracownicy" Association="Self.FK_FakturaTowary_Pracownicy">
+            <End Role="Pracownicy" EntitySet="Pracownicy" />
+            <End Role="FakturaTowary" EntitySet="FakturaTowary" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FakturaTowary_RodzajeCeny" Association="Self.FK_FakturaTowary_RodzajeCeny">
+            <End Role="RodzajeCeny" EntitySet="RodzajeCeny" />
+            <End Role="FakturaTowary" EntitySet="FakturaTowary" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FakturaTowary_Towary" Association="Self.FK_FakturaTowary_Towary">
+            <End Role="Towary" EntitySet="Towary" />
+            <End Role="FakturaTowary" EntitySet="FakturaTowary" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Faktury_FakturyKategorie" Association="Self.FK_Faktury_FakturyKategorie">
+            <End Role="FakturyKategorie" EntitySet="FakturyKategorie" />
+            <End Role="Faktury" EntitySet="Faktury" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Faktury_Kontrahenci" Association="Self.FK_Faktury_Kontrahenci">
+            <End Role="Kontrahenci" EntitySet="Kontrahenci" />
+            <End Role="Faktury" EntitySet="Faktury" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Faktury_Magazyny" Association="Self.FK_Faktury_Magazyny">
+            <End Role="Magazyny" EntitySet="Magazyny" />
+            <End Role="Faktury" EntitySet="Faktury" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Faktury_Pracownicy" Association="Self.FK_Faktury_Pracownicy">
+            <End Role="Pracownicy" EntitySet="Pracownicy" />
+            <End Role="Faktury" EntitySet="Faktury" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Faktury_RodzajePlatnosci" Association="Self.FK_Faktury_RodzajePlatnosci">
+            <End Role="RodzajePlatnosci" EntitySet="RodzajePlatnosci" />
+            <End Role="Faktury" EntitySet="Faktury" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FakturyKategorie_Pracownicy" Association="Self.FK_FakturyKategorie_Pracownicy">
+            <End Role="Pracownicy" EntitySet="Pracownicy" />
+            <End Role="FakturyKategorie" EntitySet="FakturyKategorie" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Kontrahenci_Kontrahenci" Association="Self.FK_Kontrahenci_Kontrahenci">
+            <End Role="Kontrahenci" EntitySet="Kontrahenci" />
+            <End Role="Kontrahenci1" EntitySet="Kontrahenci" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Kontrahenci_KontrahenciRodzaje" Association="Self.FK_Kontrahenci_KontrahenciRodzaje">
+            <End Role="KontrahenciRodzaje" EntitySet="KontrahenciRodzaje" />
+            <End Role="Kontrahenci" EntitySet="Kontrahenci" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Kontrahenci_Pracownicy" Association="Self.FK_Kontrahenci_Pracownicy">
+            <End Role="Pracownicy" EntitySet="Pracownicy" />
+            <End Role="Kontrahenci" EntitySet="Kontrahenci" />
+          </AssociationSet>
+          <AssociationSet Name="FK_KontrahenciRodzaje_Pracownicy" Association="Self.FK_KontrahenciRodzaje_Pracownicy">
+            <End Role="Pracownicy" EntitySet="Pracownicy" />
+            <End Role="KontrahenciRodzaje" EntitySet="KontrahenciRodzaje" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Magazyny_MagazynyTypy" Association="Self.FK_Magazyny_MagazynyTypy">
+            <End Role="MagazynyTypy" EntitySet="MagazynyTypy" />
+            <End Role="Magazyny" EntitySet="Magazyny" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Magazyny_Pracownicy" Association="Self.FK_Magazyny_Pracownicy">
+            <End Role="Pracownicy" EntitySet="Pracownicy" />
+            <End Role="Magazyny" EntitySet="Magazyny" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Pracownicy_Magazyny" Association="Self.FK_Pracownicy_Magazyny">
+            <End Role="Magazyny" EntitySet="Magazyny" />
+            <End Role="Pracownicy" EntitySet="Pracownicy" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MagazynyTypy_Pracownicy" Association="Self.FK_MagazynyTypy_Pracownicy">
+            <End Role="Pracownicy" EntitySet="Pracownicy" />
+            <End Role="MagazynyTypy" EntitySet="MagazynyTypy" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Pojazdy_Pracownicy" Association="Self.FK_Pojazdy_Pracownicy">
+            <End Role="Pracownicy" EntitySet="Pracownicy" />
+            <End Role="Pojazdy" EntitySet="Pojazdy" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Pracownicy_Pojazdy" Association="Self.FK_Pracownicy_Pojazdy">
+            <End Role="Pojazdy" EntitySet="Pojazdy" />
+            <End Role="Pracownicy" EntitySet="Pracownicy" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Pracownicy_Pracownicy" Association="Self.FK_Pracownicy_Pracownicy">
+            <End Role="Pracownicy" EntitySet="Pracownicy" />
+            <End Role="Pracownicy1" EntitySet="Pracownicy" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Pracownicy_Umowy" Association="Self.FK_Pracownicy_Umowy">
+            <End Role="Umowy" EntitySet="Umowy" />
+            <End Role="Pracownicy" EntitySet="Pracownicy" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RodzajeCeny_Pracownicy" Association="Self.FK_RodzajeCeny_Pracownicy">
+            <End Role="Pracownicy" EntitySet="Pracownicy" />
+            <End Role="RodzajeCeny" EntitySet="RodzajeCeny" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RodzajePlatnosci_Pracownicy" Association="Self.FK_RodzajePlatnosci_Pracownicy">
+            <End Role="Pracownicy" EntitySet="Pracownicy" />
+            <End Role="RodzajePlatnosci" EntitySet="RodzajePlatnosci" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Towary_Pracownicy" Association="Self.FK_Towary_Pracownicy">
+            <End Role="Pracownicy" EntitySet="Pracownicy" />
+            <End Role="Towary" EntitySet="Towary" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TowaryGrupy_Pracownicy" Association="Self.FK_TowaryGrupy_Pracownicy">
+            <End Role="Pracownicy" EntitySet="Pracownicy" />
+            <End Role="TowaryGrupy" EntitySet="TowaryGrupy" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TowaryJednMiary_Pracownicy" Association="Self.FK_TowaryJednMiary_Pracownicy">
+            <End Role="Pracownicy" EntitySet="Pracownicy" />
+            <End Role="TowaryJednMiary" EntitySet="TowaryJednMiary" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TowaryStawkiVat_Pracownicy" Association="Self.FK_TowaryStawkiVat_Pracownicy">
+            <End Role="Pracownicy" EntitySet="Pracownicy" />
+            <End Role="TowaryStawkiVat" EntitySet="TowaryStawkiVat" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TowaryTypy_Pracownicy" Association="Self.FK_TowaryTypy_Pracownicy">
+            <End Role="Pracownicy" EntitySet="Pracownicy" />
+            <End Role="TowaryTypy" EntitySet="TowaryTypy" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Umowy_Pracownicy" Association="Self.FK_Umowy_Pracownicy">
+            <End Role="Pracownicy" EntitySet="Pracownicy" />
+            <End Role="Umowy" EntitySet="Umowy" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UmowyRodzaje_UmowyRodzaje" Association="Self.FK_UmowyRodzaje_UmowyRodzaje">
+            <End Role="Pracownicy" EntitySet="Pracownicy" />
+            <End Role="UmowyRodzaje" EntitySet="UmowyRodzaje" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Towary_TowaryGrupy" Association="Self.FK_Towary_TowaryGrupy">
+            <End Role="TowaryGrupy" EntitySet="TowaryGrupy" />
+            <End Role="Towary" EntitySet="Towary" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Towary_TowaryJednMiary" Association="Self.FK_Towary_TowaryJednMiary">
+            <End Role="TowaryJednMiary" EntitySet="TowaryJednMiary" />
+            <End Role="Towary" EntitySet="Towary" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Towary_TowaryStawkiVat" Association="Self.FK_Towary_TowaryStawkiVat">
+            <End Role="TowaryStawkiVat" EntitySet="TowaryStawkiVat" />
+            <End Role="Towary" EntitySet="Towary" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Towary_TowaryStawkiVat1" Association="Self.FK_Towary_TowaryStawkiVat1">
+            <End Role="TowaryStawkiVat" EntitySet="TowaryStawkiVat" />
+            <End Role="Towary" EntitySet="Towary" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Towary_TowaryTypy" Association="Self.FK_Towary_TowaryTypy">
+            <End Role="TowaryTypy" EntitySet="TowaryTypy" />
+            <End Role="Towary" EntitySet="Towary" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Umowy_UmowyRodzaje" Association="Self.FK_Umowy_UmowyRodzaje">
+            <End Role="UmowyRodzaje" EntitySet="UmowyRodzaje" />
+            <End Role="Umowy" EntitySet="Umowy" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="JJFirmaModelStoreContainer" CdmEntityContainer="JJFirmaEntities">
+          <EntitySetMapping Name="FakturaTowary">
+            <EntityTypeMapping TypeName="JJFirmaModel.FakturaTowary">
+              <MappingFragment StoreEntitySet="FakturaTowary">
+                <ScalarProperty Name="TowarNaFakturzeId" ColumnName="TowarNaFakturzeId" />
+                <ScalarProperty Name="FakturaId" ColumnName="FakturaId" />
+                <ScalarProperty Name="TowarId" ColumnName="TowarId" />
+                <ScalarProperty Name="Ilosc" ColumnName="Ilosc" />
+                <ScalarProperty Name="RodzajCenyId" ColumnName="RodzajCenyId" />
+                <ScalarProperty Name="Rabat" ColumnName="Rabat" />
+                <ScalarProperty Name="WartoscNetto" ColumnName="WartoscNetto" />
+                <ScalarProperty Name="DataUtworzenia" ColumnName="DataUtworzenia" />
+                <ScalarProperty Name="DataMod" ColumnName="DataMod" />
+                <ScalarProperty Name="KtoModId" ColumnName="KtoModId" />
+                <ScalarProperty Name="CzyAktywny" ColumnName="CzyAktywny" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Faktury">
+            <EntityTypeMapping TypeName="JJFirmaModel.Faktury">
+              <MappingFragment StoreEntitySet="Faktury">
+                <ScalarProperty Name="FakturaId" ColumnName="FakturaId" />
+                <ScalarProperty Name="Numer" ColumnName="Numer" />
+                <ScalarProperty Name="KontrahentId" ColumnName="KontrahentId" />
+                <ScalarProperty Name="KategoriaFakturyId" ColumnName="KategoriaFakturyId" />
+                <ScalarProperty Name="MagazynId" ColumnName="MagazynId" />
+                <ScalarProperty Name="DataWystawienia" ColumnName="DataWystawienia" />
+                <ScalarProperty Name="DataSprzedazy" ColumnName="DataSprzedazy" />
+                <ScalarProperty Name="Rabat" ColumnName="Rabat" />
+                <ScalarProperty Name="RodzajePlatnosciId" ColumnName="RodzajePlatnosciId" />
+                <ScalarProperty Name="TerminSplaty" ColumnName="TerminSplaty" />
+                <ScalarProperty Name="Zadluzenie" ColumnName="Zadluzenie" />
+                <ScalarProperty Name="CenaNetto" ColumnName="CenaNetto" />
+                <ScalarProperty Name="CenaBrutto" ColumnName="CenaBrutto" />
+                <ScalarProperty Name="Zaplacono" ColumnName="Zaplacono" />
+                <ScalarProperty Name="DataUtworzenia" ColumnName="DataUtworzenia" />
+                <ScalarProperty Name="DataMod" ColumnName="DataMod" />
+                <ScalarProperty Name="KtoModId" ColumnName="KtoModId" />
+                <ScalarProperty Name="CzyAktywny" ColumnName="CzyAktywny" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FakturyKategorie">
+            <EntityTypeMapping TypeName="JJFirmaModel.FakturyKategorie">
+              <MappingFragment StoreEntitySet="FakturyKategorie">
+                <ScalarProperty Name="KategoriaFakturyId" ColumnName="KategoriaFakturyId" />
+                <ScalarProperty Name="Kod" ColumnName="Kod" />
+                <ScalarProperty Name="Nazwa" ColumnName="Nazwa" />
+                <ScalarProperty Name="DataUtworzenia" ColumnName="DataUtworzenia" />
+                <ScalarProperty Name="DataMod" ColumnName="DataMod" />
+                <ScalarProperty Name="KtoModId" ColumnName="KtoModId" />
+                <ScalarProperty Name="CzyAktywny" ColumnName="CzyAktywny" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Kontrahenci">
+            <EntityTypeMapping TypeName="JJFirmaModel.Kontrahenci">
+              <MappingFragment StoreEntitySet="Kontrahenci">
+                <ScalarProperty Name="KontrahentId" ColumnName="KontrahentId" />
+                <ScalarProperty Name="Kod" ColumnName="Kod" />
+                <ScalarProperty Name="NipKraj" ColumnName="NipKraj" />
+                <ScalarProperty Name="Nip" ColumnName="Nip" />
+                <ScalarProperty Name="RodzajKontrahentaId" ColumnName="RodzajKontrahentaId" />
+                <ScalarProperty Name="Regon" ColumnName="Regon" />
+                <ScalarProperty Name="DokumentTozsamosci" ColumnName="DokumentTozsamosci" />
+                <ScalarProperty Name="PESEL" ColumnName="PESEL" />
+                <ScalarProperty Name="Nazwa1" ColumnName="Nazwa1" />
+                <ScalarProperty Name="Nazwa2" ColumnName="Nazwa2" />
+                <ScalarProperty Name="Nazwa3" ColumnName="Nazwa3" />
+                <ScalarProperty Name="JednostkaPodlegaPodId" ColumnName="JednostkaPodlegaPodId" />
+                <ScalarProperty Name="Kraj" ColumnName="Kraj" />
+                <ScalarProperty Name="KrajISO" ColumnName="KrajISO" />
+                <ScalarProperty Name="Miasto" ColumnName="Miasto" />
+                <ScalarProperty Name="Wojewodztwo" ColumnName="Wojewodztwo" />
+                <ScalarProperty Name="Poczta" ColumnName="Poczta" />
+                <ScalarProperty Name="KodPocztowy" ColumnName="KodPocztowy" />
+                <ScalarProperty Name="Ulica" ColumnName="Ulica" />
+                <ScalarProperty Name="NrDomu" ColumnName="NrDomu" />
+                <ScalarProperty Name="NrLokalu" ColumnName="NrLokalu" />
+                <ScalarProperty Name="AdresDodatkowe" ColumnName="AdresDodatkowe" />
+                <ScalarProperty Name="Telefon1" ColumnName="Telefon1" />
+                <ScalarProperty Name="Telefon2" ColumnName="Telefon2" />
+                <ScalarProperty Name="Fax" ColumnName="Fax" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="TelefonSMS" ColumnName="TelefonSMS" />
+                <ScalarProperty Name="URL" ColumnName="URL" />
+                <ScalarProperty Name="KorMiasto" ColumnName="KorMiasto" />
+                <ScalarProperty Name="KorKraj" ColumnName="KorKraj" />
+                <ScalarProperty Name="KorPoczta" ColumnName="KorPoczta" />
+                <ScalarProperty Name="KorKodPocztowy" ColumnName="KorKodPocztowy" />
+                <ScalarProperty Name="KorUlica" ColumnName="KorUlica" />
+                <ScalarProperty Name="KorNrDomu" ColumnName="KorNrDomu" />
+                <ScalarProperty Name="KorNrLokalu" ColumnName="KorNrLokalu" />
+                <ScalarProperty Name="DataUtworzenia" ColumnName="DataUtworzenia" />
+                <ScalarProperty Name="DataMod" ColumnName="DataMod" />
+                <ScalarProperty Name="KtoModId" ColumnName="KtoModId" />
+                <ScalarProperty Name="CzyAktywny" ColumnName="CzyAktywny" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="KontrahenciRodzaje">
+            <EntityTypeMapping TypeName="JJFirmaModel.KontrahenciRodzaje">
+              <MappingFragment StoreEntitySet="KontrahenciRodzaje">
+                <ScalarProperty Name="RodzajId" ColumnName="RodzajId" />
+                <ScalarProperty Name="Nazwa" ColumnName="Nazwa" />
+                <ScalarProperty Name="Opis" ColumnName="Opis" />
+                <ScalarProperty Name="DataUtworzenia" ColumnName="DataUtworzenia" />
+                <ScalarProperty Name="DataMod" ColumnName="DataMod" />
+                <ScalarProperty Name="KtoModId" ColumnName="KtoModId" />
+                <ScalarProperty Name="CzyAktywny" ColumnName="CzyAktywny" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Magazyny">
+            <EntityTypeMapping TypeName="JJFirmaModel.Magazyny">
+              <MappingFragment StoreEntitySet="Magazyny">
+                <ScalarProperty Name="MagazynId" ColumnName="MagazynId" />
+                <ScalarProperty Name="Symbol" ColumnName="Symbol" />
+                <ScalarProperty Name="Nazwa" ColumnName="Nazwa" />
+                <ScalarProperty Name="Opis" ColumnName="Opis" />
+                <ScalarProperty Name="TypMagazynuId" ColumnName="TypMagazynuId" />
+                <ScalarProperty Name="Kraj" ColumnName="Kraj" />
+                <ScalarProperty Name="Wojewodztwo" ColumnName="Wojewodztwo" />
+                <ScalarProperty Name="Miasto" ColumnName="Miasto" />
+                <ScalarProperty Name="Poczta" ColumnName="Poczta" />
+                <ScalarProperty Name="KodPocztowy" ColumnName="KodPocztowy" />
+                <ScalarProperty Name="Ulica" ColumnName="Ulica" />
+                <ScalarProperty Name="NrDomu" ColumnName="NrDomu" />
+                <ScalarProperty Name="NrLokalu" ColumnName="NrLokalu" />
+                <ScalarProperty Name="Telefon" ColumnName="Telefon" />
+                <ScalarProperty Name="DataUtworzenia" ColumnName="DataUtworzenia" />
+                <ScalarProperty Name="DataMod" ColumnName="DataMod" />
+                <ScalarProperty Name="KtoModId" ColumnName="KtoModId" />
+                <ScalarProperty Name="CzyAktywny" ColumnName="CzyAktywny" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MagazynyTypy">
+            <EntityTypeMapping TypeName="JJFirmaModel.MagazynyTypy">
+              <MappingFragment StoreEntitySet="MagazynyTypy">
+                <ScalarProperty Name="TypMagazynuId" ColumnName="TypMagazynuId" />
+                <ScalarProperty Name="Symbol" ColumnName="Symbol" />
+                <ScalarProperty Name="Nazwa" ColumnName="Nazwa" />
+                <ScalarProperty Name="Opis" ColumnName="Opis" />
+                <ScalarProperty Name="DataUtworzenia" ColumnName="DataUtworzenia" />
+                <ScalarProperty Name="DataMod" ColumnName="DataMod" />
+                <ScalarProperty Name="KtoModId" ColumnName="KtoModId" />
+                <ScalarProperty Name="CzyAktywny" ColumnName="CzyAktywny" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Pojazdy">
+            <EntityTypeMapping TypeName="JJFirmaModel.Pojazdy">
+              <MappingFragment StoreEntitySet="Pojazdy">
+                <ScalarProperty Name="PojazdId" ColumnName="PojazdId" />
+                <ScalarProperty Name="RodzajPojazdu" ColumnName="RodzajPojazdu" />
+                <ScalarProperty Name="Marka" ColumnName="Marka" />
+                <ScalarProperty Name="Model" ColumnName="Model" />
+                <ScalarProperty Name="Rocznik" ColumnName="Rocznik" />
+                <ScalarProperty Name="NrVIN" ColumnName="NrVIN" />
+                <ScalarProperty Name="KrajRejestracji" ColumnName="KrajRejestracji" />
+                <ScalarProperty Name="NrRejestracyjny" ColumnName="NrRejestracyjny" />
+                <ScalarProperty Name="DataUtworzenia" ColumnName="DataUtworzenia" />
+                <ScalarProperty Name="DataMod" ColumnName="DataMod" />
+                <ScalarProperty Name="KtoModId" ColumnName="KtoModId" />
+                <ScalarProperty Name="CzyAktywny" ColumnName="CzyAktywny" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Pracownicy">
+            <EntityTypeMapping TypeName="JJFirmaModel.Pracownicy">
+              <MappingFragment StoreEntitySet="Pracownicy">
+                <ScalarProperty Name="PracownikId" ColumnName="PracownikId" />
+                <ScalarProperty Name="Akronim" ColumnName="Akronim" />
+                <ScalarProperty Name="Nazwisko" ColumnName="Nazwisko" />
+                <ScalarProperty Name="Imie" ColumnName="Imie" />
+                <ScalarProperty Name="DrugieImie" ColumnName="DrugieImie" />
+                <ScalarProperty Name="PESEL" ColumnName="PESEL" />
+                <ScalarProperty Name="NipKraj" ColumnName="NipKraj" />
+                <ScalarProperty Name="Nip" ColumnName="Nip" />
+                <ScalarProperty Name="DataUrodzenia" ColumnName="DataUrodzenia" />
+                <ScalarProperty Name="MiejsceUrodzenia" ColumnName="MiejsceUrodzenia" />
+                <ScalarProperty Name="ImieOjca" ColumnName="ImieOjca" />
+                <ScalarProperty Name="ImieMatki" ColumnName="ImieMatki" />
+                <ScalarProperty Name="NazwiskoRodowe" ColumnName="NazwiskoRodowe" />
+                <ScalarProperty Name="NazwiskoRodoweMatki" ColumnName="NazwiskoRodoweMatki" />
+                <ScalarProperty Name="Kraj" ColumnName="Kraj" />
+                <ScalarProperty Name="KrajKod" ColumnName="KrajKod" />
+                <ScalarProperty Name="Wojewodztwo" ColumnName="Wojewodztwo" />
+                <ScalarProperty Name="Powiat" ColumnName="Powiat" />
+                <ScalarProperty Name="Gmina" ColumnName="Gmina" />
+                <ScalarProperty Name="KodGminy" ColumnName="KodGminy" />
+                <ScalarProperty Name="CzyMiasto" ColumnName="CzyMiasto" />
+                <ScalarProperty Name="Miejscowosc" ColumnName="Miejscowosc" />
+                <ScalarProperty Name="Ulica" ColumnName="Ulica" />
+                <ScalarProperty Name="NrDomu" ColumnName="NrDomu" />
+                <ScalarProperty Name="NrLokalu" ColumnName="NrLokalu" />
+                <ScalarProperty Name="KodPocztowy" ColumnName="KodPocztowy" />
+                <ScalarProperty Name="Poczta" ColumnName="Poczta" />
+                <ScalarProperty Name="Telefon" ColumnName="Telefon" />
+                <ScalarProperty Name="TelefonSMS" ColumnName="TelefonSMS" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="UmowaId" ColumnName="UmowaId" />
+                <ScalarProperty Name="MagazynId" ColumnName="MagazynId" />
+                <ScalarProperty Name="PojazdId" ColumnName="PojazdId" />
+                <ScalarProperty Name="DataUtworzenia" ColumnName="DataUtworzenia" />
+                <ScalarProperty Name="DataMod" ColumnName="DataMod" />
+                <ScalarProperty Name="KtoModId" ColumnName="KtoModId" />
+                <ScalarProperty Name="CzyAktywny" ColumnName="CzyAktywny" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RodzajeCeny">
+            <EntityTypeMapping TypeName="JJFirmaModel.RodzajeCeny">
+              <MappingFragment StoreEntitySet="RodzajeCeny">
+                <ScalarProperty Name="RodzajCenyId" ColumnName="RodzajCenyId" />
+                <ScalarProperty Name="Nazwa" ColumnName="Nazwa" />
+                <ScalarProperty Name="Kod" ColumnName="Kod" />
+                <ScalarProperty Name="DataUtworzenia" ColumnName="DataUtworzenia" />
+                <ScalarProperty Name="DataMod" ColumnName="DataMod" />
+                <ScalarProperty Name="KtoModId" ColumnName="KtoModId" />
+                <ScalarProperty Name="CzyAktywny" ColumnName="CzyAktywny" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RodzajePlatnosci">
+            <EntityTypeMapping TypeName="JJFirmaModel.RodzajePlatnosci">
+              <MappingFragment StoreEntitySet="RodzajePlatnosci">
+                <ScalarProperty Name="RodzajPlatnosciId" ColumnName="RodzajPlatnosciId" />
+                <ScalarProperty Name="Nazwa" ColumnName="Nazwa" />
+                <ScalarProperty Name="IloscDniSplaty" ColumnName="IloscDniSplaty" />
+                <ScalarProperty Name="DataUtworzenia" ColumnName="DataUtworzenia" />
+                <ScalarProperty Name="DataMod" ColumnName="DataMod" />
+                <ScalarProperty Name="KtoModId" ColumnName="KtoModId" />
+                <ScalarProperty Name="CzyAktywny" ColumnName="CzyAktywny" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="JJFirmaModel.sysdiagrams">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Towary">
+            <EntityTypeMapping TypeName="JJFirmaModel.Towary">
+              <MappingFragment StoreEntitySet="Towary">
+                <ScalarProperty Name="TowarId" ColumnName="TowarId" />
+                <ScalarProperty Name="Kod" ColumnName="Kod" />
+                <ScalarProperty Name="NumerKat" ColumnName="NumerKat" />
+                <ScalarProperty Name="GrupaTowaruId" ColumnName="GrupaTowaruId" />
+                <ScalarProperty Name="TypTowaruId" ColumnName="TypTowaruId" />
+                <ScalarProperty Name="EAN" ColumnName="EAN" />
+                <ScalarProperty Name="SWW" ColumnName="SWW" />
+                <ScalarProperty Name="URL" ColumnName="URL" />
+                <ScalarProperty Name="VatSprzId" ColumnName="VatSprzId" />
+                <ScalarProperty Name="VatZakId" ColumnName="VatZakId" />
+                <ScalarProperty Name="Mpp" ColumnName="Mpp" />
+                <ScalarProperty Name="Nazwa" ColumnName="Nazwa" />
+                <ScalarProperty Name="NazwaFiskalna" ColumnName="NazwaFiskalna" />
+                <ScalarProperty Name="Opis" ColumnName="Opis" />
+                <ScalarProperty Name="KrajPochodzenia" ColumnName="KrajPochodzenia" />
+                <ScalarProperty Name="Ilosc" ColumnName="Ilosc" />
+                <ScalarProperty Name="JednMiaryId" ColumnName="JednMiaryId" />
+                <ScalarProperty Name="CenaZakupu" ColumnName="CenaZakupu" />
+                <ScalarProperty Name="CenaHurtowa" ColumnName="CenaHurtowa" />
+                <ScalarProperty Name="CenaDetaliczna" ColumnName="CenaDetaliczna" />
+                <ScalarProperty Name="Waluta" ColumnName="Waluta" />
+                <ScalarProperty Name="Rabat" ColumnName="Rabat" />
+                <ScalarProperty Name="WartoscVat" ColumnName="WartoscVat" />
+                <ScalarProperty Name="WagaKG" ColumnName="WagaKG" />
+                <ScalarProperty Name="DataUtworzenia" ColumnName="DataUtworzenia" />
+                <ScalarProperty Name="DataMod" ColumnName="DataMod" />
+                <ScalarProperty Name="KtoModId" ColumnName="KtoModId" />
+                <ScalarProperty Name="CzyAktywny" ColumnName="CzyAktywny" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TowaryGrupy">
+            <EntityTypeMapping TypeName="JJFirmaModel.TowaryGrupy">
+              <MappingFragment StoreEntitySet="TowaryGrupy">
+                <ScalarProperty Name="GrupaTowaruId" ColumnName="GrupaTowaruId" />
+                <ScalarProperty Name="Nazwa" ColumnName="Nazwa" />
+                <ScalarProperty Name="Kod" ColumnName="Kod" />
+                <ScalarProperty Name="DataUtworzenia" ColumnName="DataUtworzenia" />
+                <ScalarProperty Name="DataMod" ColumnName="DataMod" />
+                <ScalarProperty Name="KtoModId" ColumnName="KtoModId" />
+                <ScalarProperty Name="CzyAktywny" ColumnName="CzyAktywny" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TowaryJednMiary">
+            <EntityTypeMapping TypeName="JJFirmaModel.TowaryJednMiary">
+              <MappingFragment StoreEntitySet="TowaryJednMiary">
+                <ScalarProperty Name="JednostkaId" ColumnName="JednostkaId" />
+                <ScalarProperty Name="Skrot" ColumnName="Skrot" />
+                <ScalarProperty Name="Nazwa" ColumnName="Nazwa" />
+                <ScalarProperty Name="DataUtworzenia" ColumnName="DataUtworzenia" />
+                <ScalarProperty Name="DataMod" ColumnName="DataMod" />
+                <ScalarProperty Name="KtoModId" ColumnName="KtoModId" />
+                <ScalarProperty Name="CzyAktywny" ColumnName="CzyAktywny" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TowaryStawkiVat">
+            <EntityTypeMapping TypeName="JJFirmaModel.TowaryStawkiVat">
+              <MappingFragment StoreEntitySet="TowaryStawkiVat">
+                <ScalarProperty Name="StawkiVatId" ColumnName="StawkiVatId" />
+                <ScalarProperty Name="KodKraju" ColumnName="KodKraju" />
+                <ScalarProperty Name="Stawka" ColumnName="Stawka" />
+                <ScalarProperty Name="DataUtworzenia" ColumnName="DataUtworzenia" />
+                <ScalarProperty Name="DataMod" ColumnName="DataMod" />
+                <ScalarProperty Name="KtoModId" ColumnName="KtoModId" />
+                <ScalarProperty Name="CzyAktywny" ColumnName="CzyAktywny" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TowaryTypy">
+            <EntityTypeMapping TypeName="JJFirmaModel.TowaryTypy">
+              <MappingFragment StoreEntitySet="TowaryTypy">
+                <ScalarProperty Name="TypTowaruId" ColumnName="TypTowaruId" />
+                <ScalarProperty Name="Nazwa" ColumnName="Nazwa" />
+                <ScalarProperty Name="DataUtworzenia" ColumnName="DataUtworzenia" />
+                <ScalarProperty Name="DataMod" ColumnName="DataMod" />
+                <ScalarProperty Name="KtoModId" ColumnName="KtoModId" />
+                <ScalarProperty Name="CzyAktywny" ColumnName="CzyAktywny" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Umowy">
+            <EntityTypeMapping TypeName="JJFirmaModel.Umowy">
+              <MappingFragment StoreEntitySet="Umowy">
+                <ScalarProperty Name="UmowaId" ColumnName="UmowaId" />
+                <ScalarProperty Name="NrUmowy" ColumnName="NrUmowy" />
+                <ScalarProperty Name="RodzajUmowyId" ColumnName="RodzajUmowyId" />
+                <ScalarProperty Name="Stanowisko" ColumnName="Stanowisko" />
+                <ScalarProperty Name="KodZawodu" ColumnName="KodZawodu" />
+                <ScalarProperty Name="DataZawarcia" ColumnName="DataZawarcia" />
+                <ScalarProperty Name="DataOd" ColumnName="DataOd" />
+                <ScalarProperty Name="DataDo" ColumnName="DataDo" />
+                <ScalarProperty Name="StawkaBruttoMies" ColumnName="StawkaBruttoMies" />
+                <ScalarProperty Name="StawkaBruttoGodz" ColumnName="StawkaBruttoGodz" />
+                <ScalarProperty Name="Waluta" ColumnName="Waluta" />
+                <ScalarProperty Name="CzasPracyMies" ColumnName="CzasPracyMies" />
+                <ScalarProperty Name="Wartosc" ColumnName="Wartosc" />
+                <ScalarProperty Name="Opis" ColumnName="Opis" />
+                <ScalarProperty Name="JestEmerytalne" ColumnName="JestEmerytalne" />
+                <ScalarProperty Name="JestRentowe" ColumnName="JestRentowe" />
+                <ScalarProperty Name="JestChorobowe" ColumnName="JestChorobowe" />
+                <ScalarProperty Name="JestWypadkowe" ColumnName="JestWypadkowe" />
+                <ScalarProperty Name="DataUtworzenia" ColumnName="DataUtworzenia" />
+                <ScalarProperty Name="DataMod" ColumnName="DataMod" />
+                <ScalarProperty Name="KtoModId" ColumnName="KtoModId" />
+                <ScalarProperty Name="CzyAktywny" ColumnName="CzyAktywny" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UmowyRodzaje">
+            <EntityTypeMapping TypeName="JJFirmaModel.UmowyRodzaje">
+              <MappingFragment StoreEntitySet="UmowyRodzaje">
+                <ScalarProperty Name="RodzajUmowyId" ColumnName="RodzajUmowyId" />
+                <ScalarProperty Name="Kod" ColumnName="Kod" />
+                <ScalarProperty Name="Nazwa" ColumnName="Nazwa" />
+                <ScalarProperty Name="DataUtworzenia" ColumnName="DataUtworzenia" />
+                <ScalarProperty Name="DataMod" ColumnName="DataMod" />
+                <ScalarProperty Name="KtoModId" ColumnName="KtoModId" />
+                <ScalarProperty Name="CzyAktywny" ColumnName="CzyAktywny" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="true" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
