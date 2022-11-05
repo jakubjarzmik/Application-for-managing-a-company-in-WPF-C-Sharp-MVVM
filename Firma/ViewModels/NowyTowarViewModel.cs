@@ -17,35 +17,7 @@ namespace Firma.ViewModels
         #endregion
 
         #region Własności
-        private List<TowarCeny> _TowarCeny;
-        public List<TowarCeny> TowarCeny
-        {
-            get
-            {
-                _TowarCeny = new List<TowarCeny>();
-                _TowarCeny.Add(new TowarCeny
-                {
-                    Priorytet = 1,
-                    Brutto = 0,
-                    Netto = 0,
-                    Jednostka = "szt",
-                    Standardowe = 1,
-                    MarzaOdNabycia = 0,
-                    NarzutOdNabycia = 0
-                });
-                _TowarCeny.Add(new TowarCeny
-                {
-                    Priorytet = 2,
-                    Brutto = 0,
-                    Netto = 0,
-                    Jednostka = "szt",
-                    Standardowe = 1,
-                    MarzaOdNabycia = 0,
-                    NarzutOdNabycia = 0
-                });
-                return _TowarCeny;
-            }
-        }
+        
         #endregion
     }
 }
