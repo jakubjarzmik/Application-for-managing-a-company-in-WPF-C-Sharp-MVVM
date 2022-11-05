@@ -100,3 +100,41 @@ D:\Studia\Semestr IV\Tworzenie interfejsów użytkownika\Laboratorium\Projekt\Fi
 D:\Studia\Semestr IV\Tworzenie interfejsów użytkownika\Laboratorium\Projekt\Firma\Firma\obj\Debug\net6.0-windows\Views\RejestrVATView.baml
 D:\Studia\Semestr IV\Tworzenie interfejsów użytkownika\Laboratorium\Projekt\Firma\Firma\obj\Debug\net6.0-windows\Views\EwidencjaPlatnosciView.g.cs
 D:\Studia\Semestr IV\Tworzenie interfejsów użytkownika\Laboratorium\Projekt\Firma\Firma\obj\Debug\net6.0-windows\Views\EwidencjaPlatnosciView.baml
+D:\Studia\Semestr V\Programowanie desktopowych aplikacji biznesowych\Projekt\Firma\Firma\bin\Debug\net6.0-windows\Firma.exe
+D:\Studia\Semestr V\Programowanie desktopowych aplikacji biznesowych\Projekt\Firma\Firma\bin\Debug\net6.0-windows\Firma.deps.json
+D:\Studia\Semestr V\Programowanie desktopowych aplikacji biznesowych\Projekt\Firma\Firma\bin\Debug\net6.0-windows\Firma.runtimeconfig.json
+D:\Studia\Semestr V\Programowanie desktopowych aplikacji biznesowych\Projekt\Firma\Firma\bin\Debug\net6.0-windows\Firma.dll
+D:\Studia\Semestr V\Programowanie desktopowych aplikacji biznesowych\Projekt\Firma\Firma\bin\Debug\net6.0-windows\Firma.pdb
+D:\Studia\Semestr V\Programowanie desktopowych aplikacji biznesowych\Projekt\Firma\Firma\obj\Debug\net6.0-windows\Firma.csproj.AssemblyReference.cache
+D:\Studia\Semestr V\Programowanie desktopowych aplikacji biznesowych\Projekt\Firma\Firma\obj\Debug\net6.0-windows\Views\StyleZakladekResources.baml
+D:\Studia\Semestr V\Programowanie desktopowych aplikacji biznesowych\Projekt\Firma\Firma\obj\Debug\net6.0-windows\Views\EwidencjaPlatnosciView.g.cs
+D:\Studia\Semestr V\Programowanie desktopowych aplikacji biznesowych\Projekt\Firma\Firma\obj\Debug\net6.0-windows\Views\MainWindow.g.cs
+D:\Studia\Semestr V\Programowanie desktopowych aplikacji biznesowych\Projekt\Firma\Firma\obj\Debug\net6.0-windows\Views\NowaFakturaView.g.cs
+D:\Studia\Semestr V\Programowanie desktopowych aplikacji biznesowych\Projekt\Firma\Firma\obj\Debug\net6.0-windows\Views\NowyKontrahentView.g.cs
+D:\Studia\Semestr V\Programowanie desktopowych aplikacji biznesowych\Projekt\Firma\Firma\obj\Debug\net6.0-windows\Views\NowyTowarView.g.cs
+D:\Studia\Semestr V\Programowanie desktopowych aplikacji biznesowych\Projekt\Firma\Firma\obj\Debug\net6.0-windows\Views\PrzyjecieZewnetrzneView.g.cs
+D:\Studia\Semestr V\Programowanie desktopowych aplikacji biznesowych\Projekt\Firma\Firma\obj\Debug\net6.0-windows\Views\RejestrVATView.g.cs
+D:\Studia\Semestr V\Programowanie desktopowych aplikacji biznesowych\Projekt\Firma\Firma\obj\Debug\net6.0-windows\Views\WydanieZewnetrzneView.g.cs
+D:\Studia\Semestr V\Programowanie desktopowych aplikacji biznesowych\Projekt\Firma\Firma\obj\Debug\net6.0-windows\App.g.cs
+D:\Studia\Semestr V\Programowanie desktopowych aplikacji biznesowych\Projekt\Firma\Firma\obj\Debug\net6.0-windows\GeneratedInternalTypeHelper.g.cs
+D:\Studia\Semestr V\Programowanie desktopowych aplikacji biznesowych\Projekt\Firma\Firma\obj\Debug\net6.0-windows\Firma_MarkupCompile.cache
+D:\Studia\Semestr V\Programowanie desktopowych aplikacji biznesowych\Projekt\Firma\Firma\obj\Debug\net6.0-windows\Firma_MarkupCompile.lref
+D:\Studia\Semestr V\Programowanie desktopowych aplikacji biznesowych\Projekt\Firma\Firma\obj\Debug\net6.0-windows\Views\EwidencjaPlatnosciView.baml
+D:\Studia\Semestr V\Programowanie desktopowych aplikacji biznesowych\Projekt\Firma\Firma\obj\Debug\net6.0-windows\Views\MainWindow.baml
+D:\Studia\Semestr V\Programowanie desktopowych aplikacji biznesowych\Projekt\Firma\Firma\obj\Debug\net6.0-windows\Views\MainWindowResources.baml
+D:\Studia\Semestr V\Programowanie desktopowych aplikacji biznesowych\Projekt\Firma\Firma\obj\Debug\net6.0-windows\Views\NowaFakturaView.baml
+D:\Studia\Semestr V\Programowanie desktopowych aplikacji biznesowych\Projekt\Firma\Firma\obj\Debug\net6.0-windows\Views\NowyKontrahentView.baml
+D:\Studia\Semestr V\Programowanie desktopowych aplikacji biznesowych\Projekt\Firma\Firma\obj\Debug\net6.0-windows\Views\NowyTowarView.baml
+D:\Studia\Semestr V\Programowanie desktopowych aplikacji biznesowych\Projekt\Firma\Firma\obj\Debug\net6.0-windows\Views\PrzyjecieZewnetrzneView.baml
+D:\Studia\Semestr V\Programowanie desktopowych aplikacji biznesowych\Projekt\Firma\Firma\obj\Debug\net6.0-windows\Views\RejestrVATView.baml
+D:\Studia\Semestr V\Programowanie desktopowych aplikacji biznesowych\Projekt\Firma\Firma\obj\Debug\net6.0-windows\Views\WydanieZewnetrzneView.baml
+D:\Studia\Semestr V\Programowanie desktopowych aplikacji biznesowych\Projekt\Firma\Firma\obj\Debug\net6.0-windows\Firma.g.resources
+D:\Studia\Semestr V\Programowanie desktopowych aplikacji biznesowych\Projekt\Firma\Firma\obj\Debug\net6.0-windows\Firma.GeneratedMSBuildEditorConfig.editorconfig
+D:\Studia\Semestr V\Programowanie desktopowych aplikacji biznesowych\Projekt\Firma\Firma\obj\Debug\net6.0-windows\Firma.AssemblyInfoInputs.cache
+D:\Studia\Semestr V\Programowanie desktopowych aplikacji biznesowych\Projekt\Firma\Firma\obj\Debug\net6.0-windows\Firma.AssemblyInfo.cs
+D:\Studia\Semestr V\Programowanie desktopowych aplikacji biznesowych\Projekt\Firma\Firma\obj\Debug\net6.0-windows\Firma.csproj.CoreCompileInputs.cache
+D:\Studia\Semestr V\Programowanie desktopowych aplikacji biznesowych\Projekt\Firma\Firma\obj\Debug\net6.0-windows\Firma.dll
+D:\Studia\Semestr V\Programowanie desktopowych aplikacji biznesowych\Projekt\Firma\Firma\obj\Debug\net6.0-windows\refint\Firma.dll
+D:\Studia\Semestr V\Programowanie desktopowych aplikacji biznesowych\Projekt\Firma\Firma\obj\Debug\net6.0-windows\Firma.pdb
+D:\Studia\Semestr V\Programowanie desktopowych aplikacji biznesowych\Projekt\Firma\Firma\obj\Debug\net6.0-windows\Firma.genruntimeconfig.cache
+D:\Studia\Semestr V\Programowanie desktopowych aplikacji biznesowych\Projekt\Firma\Firma\obj\Debug\net6.0-windows\ref\Firma.dll
