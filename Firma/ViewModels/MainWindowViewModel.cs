@@ -108,7 +108,7 @@ namespace Firma.ViewModels
                     "pack://application:,,,/Views/Content/Icons/account-plus.png"),
                 new CommandViewModel("Ewidencja płatności",new BaseCommand(()=>createView(new EwidencjaPlatnosciViewModel())), "pack://application:,,,/Views/Content/Icons/receipt_FILL0_wght400_GRAD0_opsz48-white.png",
                     "pack://application:,,,/Views/Content/Icons/receipt_FILL0_wght400_GRAD0_opsz48.png"),
-                new CommandViewModel("Pojazdy",new BaseCommand(()=>createView(new PojazdyViewModel())), "pack://application:,,,/Views/Content/Icons/car-white.png",
+                new CommandViewModel("Pojazdy",new BaseCommand(()=>showAllPojazdy()), "pack://application:,,,/Views/Content/Icons/car-white.png",
                     "pack://application:,,,/Views/Content/Icons/car.png"),
 
             };
@@ -153,18 +153,16 @@ namespace Firma.ViewModels
             this.setActiveWorkspace(workspace);
         }
       
-        //to jest funkcja, która otwiera nową zakładke Towar
-        //za każdym tworzy nową NOWĄ zakładkę do dodawania towaru
-        //private void createTowar()
-        //{
-        //    //tworzy zakładke NowyTowar (VM)
-        //    NowyTowarViewModel workspace=new NowyTowarViewModel();
-        //    //dodajmy ją do kolkcji aktywnych zakładek
-        //    this.Workspaces.Add(workspace);
-        //    this.setActiveWorkspace(workspace);
-        //}
-        //to jest funkcja, która otwiera zakładke ze wszystkimi towarami
-        //za każdym razem sprawdza czy zakladka z towarami jest juz otwarta, jak jest to ja aktywuje, ajk nie ma to tworzy 
+        private void showAllPojazdy()
+        {
+            PojazdyViewModel workspace = this.Workspaces.FirstOrDefault(vm => vm is PojazdyViewModel) as PojazdyViewModel;
+            if (workspace == null)
+            {
+                workspace = new PojazdyViewModel();
+                this.Workspaces.Add(workspace);
+            }
+            this.setActiveWorkspace(workspace);
+        }
        
         private void setActiveWorkspace(WorkspaceViewModel workspace)
         {

@@ -16,7 +16,7 @@ namespace Firma.ViewModels
 
         #region Konstruktor
         public PojazdyViewModel()
-            :base("Towary")
+            :base("Pojazdy")
         {
         }
         #endregion

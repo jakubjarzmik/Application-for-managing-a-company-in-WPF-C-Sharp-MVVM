@@ -38,6 +38,10 @@
     <DataTemplate DataType="{x:Type vm:PojazdyViewModel}">
         <vw:PojazdyView/>
     </DataTemplate>
+    
+    <DataTemplate DataType="{x:Type vm:NowyPojazdViewModel}">
+        <vw:NowyPojazdView/>
+    </DataTemplate>
 
 
     <!--tu jest koniec laczenia View z ViewModel zakładek-->
