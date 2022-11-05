@@ -4,6 +4,64 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
+      <Diagram DiagramId="81181583819a43d08076c2aa54386a54" Name="Diagram1" ZoomLevel="48">
+        <EntityTypeShape EntityType="JJFirmaModel.FakturaTowary" Width="1.5" PointX="12.75" PointY="36" IsExpanded="true" />
+        <EntityTypeShape EntityType="JJFirmaModel.Faktury" Width="1.5" PointX="5.25" PointY="34.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JJFirmaModel.FakturyKategorie" Width="1.5" PointX="10.5" PointY="20" IsExpanded="true" />
+        <EntityTypeShape EntityType="JJFirmaModel.Kontrahenci" Width="1.5" PointX="15.75" PointY="26.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="JJFirmaModel.KontrahenciRodzaje" Width="1.5" PointX="10.5" PointY="23.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="JJFirmaModel.Magazyny" Width="1.5" PointX="3" PointY="35" IsExpanded="true" />
+        <EntityTypeShape EntityType="JJFirmaModel.MagazynyTypy" Width="1.5" PointX="0.75" PointY="36.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="JJFirmaModel.Pojazdy" Width="1.5" PointX="10.5" PointY="37.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="JJFirmaModel.Pracownicy" Width="1.5" PointX="8.25" PointY="31.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="JJFirmaModel.RodzajeCeny" Width="1.5" PointX="10.5" PointY="41.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JJFirmaModel.RodzajePlatnosci" Width="1.5" PointX="10.5" PointY="45.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="JJFirmaModel.sysdiagrams" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JJFirmaModel.Towary" Width="1.5" PointX="12.75" PointY="47.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="JJFirmaModel.TowaryGrupy" Width="1.5" PointX="10.5" PointY="48.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JJFirmaModel.TowaryJednMiary" Width="1.5" PointX="10.5" PointY="60.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JJFirmaModel.TowaryStawkiVat" Width="1.5" PointX="10.5" PointY="64.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="JJFirmaModel.TowaryTypy" Width="1.5" PointX="10.5" PointY="67.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="JJFirmaModel.Umowy" Width="1.5" PointX="15.75" PointY="51.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JJFirmaModel.UmowyRodzaje" Width="1.5" PointX="10.5" PointY="71.25" IsExpanded="true" />
+        <AssociationConnector Association="JJFirmaModel.FK_FakturaTowary_Faktury" ManuallyRouted="false" />
+        <AssociationConnector Association="JJFirmaModel.FK_FakturaTowary_Pracownicy" ManuallyRouted="false" />
+        <AssociationConnector Association="JJFirmaModel.FK_FakturaTowary_RodzajeCeny" ManuallyRouted="false" />
+        <AssociationConnector Association="JJFirmaModel.FK_FakturaTowary_Towary" ManuallyRouted="false" />
+        <AssociationConnector Association="JJFirmaModel.FK_Faktury_FakturyKategorie" ManuallyRouted="false" />
+        <AssociationConnector Association="JJFirmaModel.FK_Faktury_Kontrahenci" ManuallyRouted="false" />
+        <AssociationConnector Association="JJFirmaModel.FK_Faktury_Magazyny" ManuallyRouted="false" />
+        <AssociationConnector Association="JJFirmaModel.FK_Faktury_Pracownicy" ManuallyRouted="false" />
+        <AssociationConnector Association="JJFirmaModel.FK_Faktury_RodzajePlatnosci" ManuallyRouted="false" />
+        <AssociationConnector Association="JJFirmaModel.FK_FakturyKategorie_Pracownicy" ManuallyRouted="false" />
+        <AssociationConnector Association="JJFirmaModel.FK_Kontrahenci_Kontrahenci" ManuallyRouted="false" />
+        <AssociationConnector Association="JJFirmaModel.FK_Kontrahenci_KontrahenciRodzaje" ManuallyRouted="false" />
+        <AssociationConnector Association="JJFirmaModel.FK_Kontrahenci_Pracownicy" ManuallyRouted="false" />
+        <AssociationConnector Association="JJFirmaModel.FK_KontrahenciRodzaje_Pracownicy" ManuallyRouted="false" />
+        <AssociationConnector Association="JJFirmaModel.FK_Magazyny_MagazynyTypy" ManuallyRouted="false" />
+        <AssociationConnector Association="JJFirmaModel.FK_Magazyny_Pracownicy" ManuallyRouted="false" />
+        <AssociationConnector Association="JJFirmaModel.FK_Pracownicy_Magazyny" ManuallyRouted="false" />
+        <AssociationConnector Association="JJFirmaModel.FK_MagazynyTypy_Pracownicy" ManuallyRouted="false" />
+        <AssociationConnector Association="JJFirmaModel.FK_Pojazdy_Pracownicy" ManuallyRouted="false" />
+        <AssociationConnector Association="JJFirmaModel.FK_Pracownicy_Pojazdy" ManuallyRouted="false" />
+        <AssociationConnector Association="JJFirmaModel.FK_Pracownicy_Pracownicy" ManuallyRouted="false" />
+        <AssociationConnector Association="JJFirmaModel.FK_Pracownicy_Umowy" ManuallyRouted="false" />
+        <AssociationConnector Association="JJFirmaModel.FK_RodzajeCeny_Pracownicy" ManuallyRouted="false" />
+        <AssociationConnector Association="JJFirmaModel.FK_RodzajePlatnosci_Pracownicy" ManuallyRouted="false" />
+        <AssociationConnector Association="JJFirmaModel.FK_Towary_Pracownicy" ManuallyRouted="false" />
+        <AssociationConnector Association="JJFirmaModel.FK_TowaryGrupy_Pracownicy" ManuallyRouted="false" />
+        <AssociationConnector Association="JJFirmaModel.FK_TowaryJednMiary_Pracownicy" ManuallyRouted="false" />
+        <AssociationConnector Association="JJFirmaModel.FK_TowaryStawkiVat_Pracownicy" ManuallyRouted="false" />
+        <AssociationConnector Association="JJFirmaModel.FK_TowaryTypy_Pracownicy" ManuallyRouted="false" />
+        <AssociationConnector Association="JJFirmaModel.FK_Umowy_Pracownicy" ManuallyRouted="false" />
+        <AssociationConnector Association="JJFirmaModel.FK_UmowyRodzaje_UmowyRodzaje" ManuallyRouted="false" />
+        <AssociationConnector Association="JJFirmaModel.FK_Towary_TowaryGrupy" ManuallyRouted="false" />
+        <AssociationConnector Association="JJFirmaModel.FK_Towary_TowaryJednMiary" ManuallyRouted="false" />
+        <AssociationConnector Association="JJFirmaModel.FK_Towary_TowaryStawkiVat" ManuallyRouted="false" />
+        <AssociationConnector Association="JJFirmaModel.FK_Towary_TowaryStawkiVat1" ManuallyRouted="false" />
+        <AssociationConnector Association="JJFirmaModel.FK_Towary_TowaryTypy" ManuallyRouted="false" />
+        <AssociationConnector Association="JJFirmaModel.FK_Umowy_UmowyRodzaje" ManuallyRouted="false" />
+      </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
 </edmx:Edmx>

@@ -67,6 +67,13 @@ namespace Firma.ViewModels
                 return new BaseCommand(() => createView(new EwidencjaPlatnosciViewModel()));
             }
         }
+        public ICommand PojazdyCommand
+        {
+            get
+            {
+                return new BaseCommand(() => createView(new PojazdyViewModel()));
+            }
+        }
         #endregion
 
         #region Przyciski w menu z lewej strony
@@ -101,8 +108,9 @@ namespace Firma.ViewModels
                     "pack://application:,,,/Views/Content/Icons/account-plus.png"),
                 new CommandViewModel("Ewidencja płatności",new BaseCommand(()=>createView(new EwidencjaPlatnosciViewModel())), "pack://application:,,,/Views/Content/Icons/receipt_FILL0_wght400_GRAD0_opsz48-white.png",
                     "pack://application:,,,/Views/Content/Icons/receipt_FILL0_wght400_GRAD0_opsz48.png"),
-                
-               
+                new CommandViewModel("Pojazdy",new BaseCommand(()=>createView(new PojazdyViewModel())), "pack://application:,,,/Views/Content/Icons/car-white.png",
+                    "pack://application:,,,/Views/Content/Icons/car.png"),
+
             };
         }
         #endregion
