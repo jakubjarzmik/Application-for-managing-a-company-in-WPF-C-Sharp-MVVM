@@ -13,4 +13,7 @@
     <SourceRoot Include="C:\Users\jcobc\.nuget\packages\" />
     <SourceRoot Include="C:\Program Files (x86)\Microsoft Visual Studio\Shared\NuGetPackages\" />
   </ItemGroup>
+  <PropertyGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
+    <PkgEntityFramework Condition=" '$(PkgEntityFramework)' == '' ">C:\Users\jcobc\.nuget\packages\entityframework\5.0.0</PkgEntityFramework>
+  </PropertyGroup>
 </Project>

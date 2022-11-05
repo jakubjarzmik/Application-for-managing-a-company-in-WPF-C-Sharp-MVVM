@@ -2,8 +2,7 @@
 
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
-    <TargetFramework>net6.0-windows</TargetFramework>
-    <Nullable>enable</Nullable>
+    <TargetFramework>net48</TargetFramework>
     <UseWPF>true</UseWPF>
   </PropertyGroup>
 
@@ -78,6 +77,10 @@
     <None Remove="Views\Jeden.png" />
     <None Remove="Views\jj.ico" />
     <None Remove="Views\trzy.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="EntityFramework" Version="5.0.0" />
   </ItemGroup>
 
   <ItemGroup>
