@@ -18,7 +18,7 @@
                             <ToggleButton Content="Dodaj" Margin="0,2,0,2"/>
                             <ToggleButton Content="Modyfikuj" Margin="0,2,0,2"/>
                             <ToggleButton Content="Kasuj" Margin="0,2,0,2"/>
-                            <ToggleButton Content="Odswiez" Margin="0,2,0,2"/>
+                            <ToggleButton Content="Odswiez" Margin="0,2,0,2" Command="{Binding LoadCommand}"/>
                         </ToolBar>
 
                         <StackPanel Grid.Row="1" Background="Azure">

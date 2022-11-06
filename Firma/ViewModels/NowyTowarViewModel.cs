@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Firma.Models.Entities;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,6 +9,7 @@ namespace Firma.ViewModels
 {
     public class NowyTowarViewModel:WorkspaceViewModel
     {
+
         #region Konstruktor
         public NowyTowarViewModel()
         {

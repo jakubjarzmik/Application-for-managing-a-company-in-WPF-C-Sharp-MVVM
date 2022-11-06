@@ -71,7 +71,14 @@ namespace Firma.ViewModels
         {
             get
             {
-                return new BaseCommand(() => createView(new PojazdyViewModel()));
+                return new BaseCommand(() => showAllPojazdy());
+            }
+        }
+        public ICommand NowyPojazdCommand
+        {
+            get
+            {
+                return new BaseCommand(() => createView(new NowyPojazdViewModel()));
             }
         }
         #endregion
@@ -110,7 +117,7 @@ namespace Firma.ViewModels
                     "pack://application:,,,/Views/Content/Icons/receipt_FILL0_wght400_GRAD0_opsz48.png"),
                 new CommandViewModel("Pojazdy",new BaseCommand(()=>showAllPojazdy()), "pack://application:,,,/Views/Content/Icons/car-white.png",
                     "pack://application:,,,/Views/Content/Icons/car.png"),
-
+                new CommandViewModel("Nowy pojazd",new BaseCommand(()=>createView(new NowyPojazdViewModel())),"",""),
             };
         }
         #endregion

@@ -27,7 +27,7 @@ namespace Firma.ViewModels
         #endregion
         #region RequestClose [event]
         public event EventHandler RequestClose;
-        private void OnRequestClose()
+        public void OnRequestClose()
         {
             EventHandler handler = this.RequestClose;
             if (handler != null)

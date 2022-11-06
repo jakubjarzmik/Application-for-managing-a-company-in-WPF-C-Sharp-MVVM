@@ -8,7 +8,6 @@
 
   <ItemGroup>
     <None Remove="Models\Entities\ModelFaktury.edmx" />
-    <None Remove="Themes\Content\Icons\add.png" />
     <None Remove="Views\24dp.png" />
     <None Remove="Views\Content\Icons\account-box-white.png" />
     <None Remove="Views\Content\Icons\account-box.png" />
@@ -100,9 +99,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Resource Include="Themes\Content\Icons\add.png">
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-    </Resource>
     <Resource Include="Views\Content\Icons\account-box-white.png">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
