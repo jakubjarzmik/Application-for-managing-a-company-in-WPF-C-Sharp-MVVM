@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace Firma.ViewModels
 {
-    public class NowaFakturaViewModel:WorkspaceViewModel //bo wszystkie zakładki dziedzicza po workspaceVM
+    public class NowaFakturaViewModel : WorkspaceViewModel //bo wszystkie zakładki dziedzicza po workspaceVM
     {
         #region Konstruktor
         public NowaFakturaViewModel()
         {
-            base.DisplayName = "Faktura";
+            DisplayName = "Faktura";
         }
         #endregion
     }

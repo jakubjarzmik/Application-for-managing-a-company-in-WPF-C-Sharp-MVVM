@@ -7,6 +7,12 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
+    <Compile Update="Views\FakturyKategorieView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\KontrahenciRodzajeView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Views\NowaFakturaView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -14,6 +20,9 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="Views\NowyPojazdView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\NowyRodzajKontrahentaView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="Views\NowyTowarView.xaml.cs">
@@ -27,13 +36,67 @@
     <Page Update="Themes\Generic.xaml">
       <SubType>Designer</SubType>
     </Page>
+    <Page Update="Views\FakturyKategorieView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\NowyRodzajUmowyView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\NowyTypTowarowView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\NowaStawkaVatTowarowView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\NowaJednMiaryTowarowView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\NowaGrupaTowarowView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\NowyRodzajCenyView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\UmowyRodzajeView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\TowaryTypyView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\TowaryStawkiVatView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\TowaryJednMiaryView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\TowaryGrupyView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\RodzajeCenyView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\MagazynyTypyView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\KontrahenciRodzajeView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="Views\MainWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Views\MainWindowResources.xaml">
       <SubType>Designer</SubType>
     </Page>
+    <Page Update="Views\NowaKategoriaFakturyView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="Views\NowyPojazdView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\NowyTypMagazynuView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\NowyRodzajKontrahentaView.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Views\PojazdyView.xaml">

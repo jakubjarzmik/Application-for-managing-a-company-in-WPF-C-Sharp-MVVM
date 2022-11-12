@@ -33,7 +33,12 @@ namespace Firma.ViewModels
             if (handler != null)
                 handler(this, EventArgs.Empty);
         }
-        #endregion 
+
+        public static explicit operator WorkspaceViewModel(Type v)
+        {
+            throw new NotImplementedException();
+        }
+        #endregion
 
     }
 }

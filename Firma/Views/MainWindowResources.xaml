@@ -43,6 +43,78 @@
         <vw:NowyPojazdView/>
     </DataTemplate>
 
+    <DataTemplate DataType="{x:Type vm:FakturyKategorieViewModel}">
+        <vw:FakturyKategorieView/>
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type vm:NowaKategoriaFakturyViewModel}">
+        <vw:NowaKategoriaFakturyView/>
+    </DataTemplate>
+    
+    <DataTemplate DataType="{x:Type vm:KontrahenciRodzajeViewModel}">
+        <vw:KontrahenciRodzajeView/>
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type vm:NowyRodzajKontrahentaViewModel}">
+        <vw:NowyRodzajKontrahentaView/>
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type vm:MagazynyTypyViewModel}">
+        <vw:MagazynyTypyView/>
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type vm:NowyTypMagazynuViewModel}">
+        <vw:NowyTypMagazynuView/>
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type vm:RodzajeCenyViewModel}">
+        <vw:RodzajeCenyView/>
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type vm:NowyRodzajCenyViewModel}">
+        <vw:NowyRodzajCenyView/>
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type vm:TowaryGrupyViewModel}">
+        <vw:TowaryGrupyView/>
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type vm:NowaGrupaTowarowViewModel}">
+        <vw:NowaGrupaTowarowView/>
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type vm:TowaryJednMiaryViewModel}">
+        <vw:TowaryJednMiaryView/>
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type vm:NowaJednMiaryTowarowViewModel}">
+        <vw:NowaJednMiaryTowarowView/>
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type vm:TowaryStawkiVatViewModel}">
+        <vw:TowaryStawkiVatView/>
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type vm:NowaStawkaVatTowarowViewModel}">
+        <vw:NowaStawkaVatTowarowView/>
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type vm:TowaryTypyViewModel}">
+        <vw:TowaryTypyView/>
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type vm:NowyTypTowarowViewModel}">
+        <vw:NowyTypTowarowView/>
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type vm:UmowyRodzajeViewModel}">
+        <vw:UmowyRodzajeView/>
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type vm:NowyRodzajUmowyViewModel}">
+        <vw:NowyRodzajUmowyView/>
+    </DataTemplate>
+
 
     <!--tu jest koniec laczenia View z ViewModel zakładek-->
 
