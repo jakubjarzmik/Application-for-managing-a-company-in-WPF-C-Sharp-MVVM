@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="JJFirmaModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="JJFirmaModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="FakturaTowary">
           <Key>
             <PropertyRef Name="TowarNaFakturzeId" />
@@ -60,7 +60,7 @@
           <Key>
             <PropertyRef Name="KontrahentId" />
           </Key>
-          <Property Name="KontrahentId" Type="int" Nullable="false" />
+          <Property Name="KontrahentId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Kod" Type="varchar" MaxLength="20" Nullable="false" />
           <Property Name="NipKraj" Type="varchar" MaxLength="2" Nullable="false" />
           <Property Name="Nip" Type="nvarchar" MaxLength="20" Nullable="false" />
@@ -973,8 +973,7 @@
             <End Role="UmowyRodzaje" EntitySet="UmowyRodzaje" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="JJFirmaModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -989,8 +988,8 @@
           <Property Name="RodzajCenyId" Type="Int32" Nullable="false" />
           <Property Name="Rabat" Type="Decimal" Precision="5" Scale="2" Nullable="false" />
           <Property Name="WartoscNetto" Type="Decimal" Precision="15" Scale="2" Nullable="false" />
-          <Property Name="DataUtworzenia" Type="DateTime" Nullable="false" />
-          <Property Name="DataMod" Type="DateTime" />
+          <Property Name="DataUtworzenia" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="DataMod" Type="DateTime" Precision="3" />
           <Property Name="KtoModId" Type="Int32" />
           <Property Name="CzyAktywny" Type="Boolean" Nullable="false" />
           <NavigationProperty Name="Faktury" Relationship="Self.FK_FakturaTowary_Faktury" FromRole="FakturaTowary" ToRole="Faktury" />
@@ -1007,17 +1006,17 @@
           <Property Name="KontrahentId" Type="Int32" Nullable="false" />
           <Property Name="KategoriaFakturyId" Type="Int32" Nullable="false" />
           <Property Name="MagazynId" Type="Int32" Nullable="false" />
-          <Property Name="DataWystawienia" Type="DateTime" Nullable="false" />
-          <Property Name="DataSprzedazy" Type="DateTime" Nullable="false" />
+          <Property Name="DataWystawienia" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="DataSprzedazy" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="Rabat" Type="Decimal" Precision="5" Scale="2" Nullable="false" />
           <Property Name="RodzajePlatnosciId" Type="Int32" Nullable="false" />
-          <Property Name="TerminSplaty" Type="DateTime" Nullable="false" />
+          <Property Name="TerminSplaty" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="Zadluzenie" Type="Decimal" Precision="15" Scale="2" Nullable="false" />
           <Property Name="CenaNetto" Type="Decimal" Precision="15" Scale="2" Nullable="false" />
           <Property Name="CenaBrutto" Type="Decimal" Precision="15" Scale="2" Nullable="false" />
           <Property Name="Zaplacono" Type="Decimal" Precision="15" Scale="2" Nullable="false" />
-          <Property Name="DataUtworzenia" Type="DateTime" Nullable="false" />
-          <Property Name="DataMod" Type="DateTime" />
+          <Property Name="DataUtworzenia" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="DataMod" Type="DateTime" Precision="3" />
           <Property Name="KtoModId" Type="Int32" />
           <Property Name="CzyAktywny" Type="Boolean" Nullable="false" />
           <NavigationProperty Name="FakturaTowary" Relationship="Self.FK_FakturaTowary_Faktury" FromRole="Faktury" ToRole="FakturaTowary" />
@@ -1034,8 +1033,8 @@
           <Property Name="KategoriaFakturyId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Kod" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Nazwa" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="DataUtworzenia" Type="DateTime" Nullable="false" />
-          <Property Name="DataMod" Type="DateTime" />
+          <Property Name="DataUtworzenia" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="DataMod" Type="DateTime" Precision="3" />
           <Property Name="KtoModId" Type="Int32" />
           <Property Name="CzyAktywny" Type="Boolean" Nullable="false" />
           <NavigationProperty Name="Faktury" Relationship="Self.FK_Faktury_FakturyKategorie" FromRole="FakturyKategorie" ToRole="Faktury" />
@@ -1080,8 +1079,8 @@
           <Property Name="KorUlica" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
           <Property Name="KorNrDomu" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
           <Property Name="KorNrLokalu" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
-          <Property Name="DataUtworzenia" Type="DateTime" Nullable="false" />
-          <Property Name="DataMod" Type="DateTime" />
+          <Property Name="DataUtworzenia" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="DataMod" Type="DateTime" Precision="3" />
           <Property Name="KtoModId" Type="Int32" />
           <Property Name="CzyAktywny" Type="Boolean" Nullable="false" />
           <NavigationProperty Name="Faktury" Relationship="Self.FK_Faktury_Kontrahenci" FromRole="Kontrahenci" ToRole="Faktury" />
@@ -1097,8 +1096,8 @@
           <Property Name="RodzajId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Nazwa" Type="String" MaxLength="40" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Opis" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="DataUtworzenia" Type="DateTime" Nullable="false" />
-          <Property Name="DataMod" Type="DateTime" />
+          <Property Name="DataUtworzenia" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="DataMod" Type="DateTime" Precision="3" />
           <Property Name="KtoModId" Type="Int32" />
           <Property Name="CzyAktywny" Type="Boolean" Nullable="false" />
           <NavigationProperty Name="Kontrahenci" Relationship="Self.FK_Kontrahenci_KontrahenciRodzaje" FromRole="KontrahenciRodzaje" ToRole="Kontrahenci" />
@@ -1122,8 +1121,8 @@
           <Property Name="NrDomu" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="NrLokalu" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Telefon" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="DataUtworzenia" Type="DateTime" Nullable="false" />
-          <Property Name="DataMod" Type="DateTime" />
+          <Property Name="DataUtworzenia" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="DataMod" Type="DateTime" Precision="3" />
           <Property Name="KtoModId" Type="Int32" />
           <Property Name="CzyAktywny" Type="Boolean" Nullable="false" />
           <NavigationProperty Name="Faktury" Relationship="Self.FK_Faktury_Magazyny" FromRole="Magazyny" ToRole="Faktury" />
@@ -1139,8 +1138,8 @@
           <Property Name="Symbol" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Nazwa" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Opis" Type="String" MaxLength="254" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="DataUtworzenia" Type="DateTime" Nullable="false" />
-          <Property Name="DataMod" Type="DateTime" />
+          <Property Name="DataUtworzenia" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="DataMod" Type="DateTime" Precision="3" />
           <Property Name="KtoModId" Type="Int32" />
           <Property Name="CzyAktywny" Type="Boolean" Nullable="false" />
           <NavigationProperty Name="Magazyny" Relationship="Self.FK_Magazyny_MagazynyTypy" FromRole="MagazynyTypy" ToRole="Magazyny" />
@@ -1158,8 +1157,8 @@
           <Property Name="NrVIN" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="KrajRejestracji" Type="String" MaxLength="2" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="NrRejestracyjny" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="DataUtworzenia" Type="DateTime" Nullable="false" />
-          <Property Name="DataMod" Type="DateTime" />
+          <Property Name="DataUtworzenia" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="DataMod" Type="DateTime" Precision="3" />
           <Property Name="KtoModId" Type="Int32" />
           <Property Name="CzyAktywny" Type="Boolean" />
           <NavigationProperty Name="Pracownicy" Relationship="Self.FK_Pojazdy_Pracownicy" FromRole="Pojazdy" ToRole="Pracownicy" />
@@ -1177,7 +1176,7 @@
           <Property Name="PESEL" Type="String" MaxLength="11" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="NipKraj" Type="String" MaxLength="2" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Nip" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="DataUrodzenia" Type="DateTime" Nullable="false" />
+          <Property Name="DataUrodzenia" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="MiejsceUrodzenia" Type="String" MaxLength="40" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="ImieOjca" Type="String" MaxLength="40" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="ImieMatki" Type="String" MaxLength="40" FixedLength="false" Unicode="true" Nullable="false" />
@@ -1202,8 +1201,8 @@
           <Property Name="UmowaId" Type="Int32" Nullable="false" />
           <Property Name="MagazynId" Type="Int32" />
           <Property Name="PojazdId" Type="Int32" />
-          <Property Name="DataUtworzenia" Type="DateTime" Nullable="false" />
-          <Property Name="DataMod" Type="DateTime" />
+          <Property Name="DataUtworzenia" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="DataMod" Type="DateTime" Precision="3" />
           <Property Name="KtoModId" Type="Int32" />
           <Property Name="CzyAktywny" Type="Boolean" Nullable="false" />
           <NavigationProperty Name="FakturaTowary" Relationship="Self.FK_FakturaTowary_Pracownicy" FromRole="Pracownicy" ToRole="FakturaTowary" />
@@ -1236,8 +1235,8 @@
           <Property Name="RodzajCenyId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Nazwa" Type="String" MaxLength="40" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Kod" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="DataUtworzenia" Type="DateTime" Nullable="false" />
-          <Property Name="DataMod" Type="DateTime" />
+          <Property Name="DataUtworzenia" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="DataMod" Type="DateTime" Precision="3" />
           <Property Name="KtoModId" Type="Int32" />
           <Property Name="CzyAktywny" Type="Boolean" Nullable="false" />
           <NavigationProperty Name="FakturaTowary" Relationship="Self.FK_FakturaTowary_RodzajeCeny" FromRole="RodzajeCeny" ToRole="FakturaTowary" />
@@ -1250,8 +1249,8 @@
           <Property Name="RodzajPlatnosciId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Nazwa" Type="String" MaxLength="40" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="IloscDniSplaty" Type="Int32" Nullable="false" />
-          <Property Name="DataUtworzenia" Type="DateTime" Nullable="false" />
-          <Property Name="DataMod" Type="DateTime" />
+          <Property Name="DataUtworzenia" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="DataMod" Type="DateTime" Precision="3" />
           <Property Name="KtoModId" Type="Int32" />
           <Property Name="CzyAktywny" Type="Boolean" Nullable="false" />
           <NavigationProperty Name="Faktury" Relationship="Self.FK_Faktury_RodzajePlatnosci" FromRole="RodzajePlatnosci" ToRole="Faktury" />
@@ -1295,8 +1294,8 @@
           <Property Name="Rabat" Type="Decimal" Precision="5" Scale="2" Nullable="false" />
           <Property Name="WartoscVat" Type="Decimal" Precision="15" Scale="2" Nullable="false" />
           <Property Name="WagaKG" Type="Decimal" Precision="15" Scale="4" />
-          <Property Name="DataUtworzenia" Type="DateTime" Nullable="false" />
-          <Property Name="DataMod" Type="DateTime" />
+          <Property Name="DataUtworzenia" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="DataMod" Type="DateTime" Precision="3" />
           <Property Name="KtoModId" Type="Int32" />
           <Property Name="CzyAktywny" Type="Boolean" Nullable="false" />
           <NavigationProperty Name="FakturaTowary" Relationship="Self.FK_FakturaTowary_Towary" FromRole="Towary" ToRole="FakturaTowary" />
@@ -1314,8 +1313,8 @@
           <Property Name="GrupaTowaruId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Nazwa" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Kod" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="DataUtworzenia" Type="DateTime" Nullable="false" />
-          <Property Name="DataMod" Type="DateTime" />
+          <Property Name="DataUtworzenia" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="DataMod" Type="DateTime" Precision="3" />
           <Property Name="KtoModId" Type="Int32" />
           <Property Name="CzyAktywny" Type="Boolean" Nullable="false" />
           <NavigationProperty Name="Pracownicy" Relationship="Self.FK_TowaryGrupy_Pracownicy" FromRole="TowaryGrupy" ToRole="Pracownicy" />
@@ -1328,8 +1327,8 @@
           <Property Name="JednostkaId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Skrot" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Nazwa" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="DataUtworzenia" Type="DateTime" Nullable="false" />
-          <Property Name="DataMod" Type="DateTime" />
+          <Property Name="DataUtworzenia" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="DataMod" Type="DateTime" Precision="3" />
           <Property Name="KtoModId" Type="Int32" />
           <Property Name="CzyAktywny" Type="Boolean" Nullable="false" />
           <NavigationProperty Name="Pracownicy" Relationship="Self.FK_TowaryJednMiary_Pracownicy" FromRole="TowaryJednMiary" ToRole="Pracownicy" />
@@ -1342,8 +1341,8 @@
           <Property Name="StawkiVatId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="KodKraju" Type="String" MaxLength="5" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Stawka" Type="Decimal" Precision="5" Scale="2" Nullable="false" />
-          <Property Name="DataUtworzenia" Type="DateTime" Nullable="false" />
-          <Property Name="DataMod" Type="DateTime" />
+          <Property Name="DataUtworzenia" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="DataMod" Type="DateTime" Precision="3" />
           <Property Name="KtoModId" Type="Int32" />
           <Property Name="CzyAktywny" Type="Boolean" Nullable="false" />
           <NavigationProperty Name="Pracownicy" Relationship="Self.FK_TowaryStawkiVat_Pracownicy" FromRole="TowaryStawkiVat" ToRole="Pracownicy" />
@@ -1356,8 +1355,8 @@
           </Key>
           <Property Name="TypTowaruId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Nazwa" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="DataUtworzenia" Type="DateTime" Nullable="false" />
-          <Property Name="DataMod" Type="DateTime" />
+          <Property Name="DataUtworzenia" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="DataMod" Type="DateTime" Precision="3" />
           <Property Name="KtoModId" Type="Int32" />
           <Property Name="CzyAktywny" Type="Boolean" Nullable="false" />
           <NavigationProperty Name="Pracownicy" Relationship="Self.FK_TowaryTypy_Pracownicy" FromRole="TowaryTypy" ToRole="Pracownicy" />
@@ -1372,9 +1371,9 @@
           <Property Name="RodzajUmowyId" Type="Int32" Nullable="false" />
           <Property Name="Stanowisko" Type="String" MaxLength="40" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="KodZawodu" Type="String" MaxLength="7" FixedLength="false" Unicode="false" />
-          <Property Name="DataZawarcia" Type="DateTime" Nullable="false" />
-          <Property Name="DataOd" Type="DateTime" Nullable="false" />
-          <Property Name="DataDo" Type="DateTime" Nullable="false" />
+          <Property Name="DataZawarcia" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="DataOd" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="DataDo" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="StawkaBruttoMies" Type="Decimal" Precision="15" Scale="2" Nullable="false" />
           <Property Name="StawkaBruttoGodz" Type="Decimal" Precision="15" Scale="2" Nullable="false" />
           <Property Name="Waluta" Type="String" MaxLength="3" FixedLength="false" Unicode="false" Nullable="false" />
@@ -1385,8 +1384,8 @@
           <Property Name="JestRentowe" Type="Boolean" Nullable="false" />
           <Property Name="JestChorobowe" Type="Boolean" Nullable="false" />
           <Property Name="JestWypadkowe" Type="Boolean" Nullable="false" />
-          <Property Name="DataUtworzenia" Type="DateTime" Nullable="false" />
-          <Property Name="DataMod" Type="DateTime" />
+          <Property Name="DataUtworzenia" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="DataMod" Type="DateTime" Precision="3" />
           <Property Name="KtoModId" Type="Int32" />
           <Property Name="CzyAktywny" Type="Boolean" Nullable="false" />
           <NavigationProperty Name="Pracownicy" Relationship="Self.FK_Pracownicy_Umowy" FromRole="Umowy" ToRole="Pracownicy" />
@@ -1400,8 +1399,8 @@
           <Property Name="RodzajUmowyId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Kod" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Nazwa" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="DataUtworzenia" Type="DateTime" Nullable="false" />
-          <Property Name="DataMod" Type="DateTime" />
+          <Property Name="DataUtworzenia" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="DataMod" Type="DateTime" Precision="3" />
           <Property Name="KtoModId" Type="Int32" />
           <Property Name="CzyAktywny" Type="Boolean" Nullable="false" />
           <NavigationProperty Name="Pracownicy" Relationship="Self.FK_UmowyRodzaje_UmowyRodzaje" FromRole="UmowyRodzaje" ToRole="Pracownicy" />

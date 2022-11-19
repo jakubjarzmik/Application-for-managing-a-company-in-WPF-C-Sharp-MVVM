@@ -75,6 +75,14 @@
         <vw:NowyRodzajCenyView/>
     </DataTemplate>
 
+    <DataTemplate DataType="{x:Type vm:RodzajePlatnosciViewModel}">
+        <vw:RodzajePlatnosciView/>
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type vm:NowyRodzajPlatnosciViewModel}">
+        <vw:NowyRodzajPlatnosciView/>
+    </DataTemplate>
+
     <DataTemplate DataType="{x:Type vm:TowaryGrupyViewModel}">
         <vw:TowaryGrupyView/>
     </DataTemplate>

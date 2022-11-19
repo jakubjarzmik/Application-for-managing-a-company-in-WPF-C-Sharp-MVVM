@@ -55,7 +55,7 @@
     <Key>
       <PropertyRef Name="KontrahentId" />
     </Key>
-    <Property Name="KontrahentId" Type="int" Nullable="false" />
+    <Property Name="KontrahentId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Kod" Type="varchar" MaxLength="20" Nullable="false" />
     <Property Name="NipKraj" Type="varchar" MaxLength="2" Nullable="false" />
     <Property Name="Nip" Type="nvarchar" MaxLength="20" Nullable="false" />

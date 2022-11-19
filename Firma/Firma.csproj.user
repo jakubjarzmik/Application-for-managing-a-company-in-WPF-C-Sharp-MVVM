@@ -39,6 +39,9 @@
     <Page Update="Views\FakturyKategorieView.xaml">
       <SubType>Designer</SubType>
     </Page>
+    <Page Update="Views\NowyRodzajCenyView - Copy.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="Views\NowyRodzajUmowyView.xaml">
       <SubType>Designer</SubType>
     </Page>
@@ -55,6 +58,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Views\NowyRodzajCenyView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\RodzajePlatnosciView.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Views\UmowyRodzajeView.xaml">

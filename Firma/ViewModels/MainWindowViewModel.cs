@@ -138,6 +138,20 @@ namespace Firma.ViewModels
                 return new BaseCommand(() => createView(new NowyRodzajCenyViewModel()));
             }
         }
+        public ICommand RodzajePlatnosciCommand
+        {
+            get
+            {
+                return new BaseCommand(() => showAllRodzajePlatnosci());
+            }
+        }
+        public ICommand NowyRodzajPlatnosciCommand
+        {
+            get
+            {
+                return new BaseCommand(() => createView(new NowyRodzajPlatnosciViewModel()));
+            }
+        }
         public ICommand TowaryGrupyCommand
         {
             get
@@ -252,6 +266,8 @@ namespace Firma.ViewModels
                 new CommandViewModel("Nowy typ magazynu",new BaseCommand(()=>createView(new NowyTypMagazynuViewModel())),"",""),
                 new CommandViewModel("Rodzaje ceny", new BaseCommand(()=>showAllRodzajeCeny()),"",""),
                 new CommandViewModel("Nowy rodzaj ceny",new BaseCommand(()=>createView(new NowyRodzajCenyViewModel())),"",""),
+                new CommandViewModel("Rodzaje platności", new BaseCommand(()=>showAllRodzajePlatnosci()),"",""),
+                new CommandViewModel("Nowy rodzaj płatności",new BaseCommand(()=>createView(new NowyRodzajPlatnosciViewModel())),"",""),
                 new CommandViewModel("Grupy towarów", new BaseCommand(()=>showAllTowaryGrupy()),"",""),
                 new CommandViewModel("Nowa grupa towarów",new BaseCommand(()=>createView(new NowaGrupaTowarowViewModel())),"",""),
                 new CommandViewModel("Jednostki miary", new BaseCommand(()=>showAllTowaryJednMiary()),"",""),
@@ -354,6 +370,18 @@ namespace Firma.ViewModels
             if (workspace == null)
             {
                 workspace = new RodzajeCenyViewModel();
+                this.Workspaces.Add(workspace);
+            }
+            this.setActiveWorkspace(workspace);
+        }
+        
+       
+        private void showAllRodzajePlatnosci()
+        {
+            RodzajePlatnosciViewModel workspace = this.Workspaces.FirstOrDefault(vm => vm is RodzajePlatnosciViewModel) as RodzajePlatnosciViewModel;
+            if (workspace == null)
+            {
+                workspace = new RodzajePlatnosciViewModel();
                 this.Workspaces.Add(workspace);
             }
             this.setActiveWorkspace(workspace);

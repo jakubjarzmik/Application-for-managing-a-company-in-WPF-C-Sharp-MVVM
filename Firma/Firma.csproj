@@ -311,6 +311,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>ModelFaktury.edmx</DependentUpon>
     </Compile>
+    <Compile Update="Views\NowyRodzajCenyView - Copy.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Views\NowyRodzajUmowyView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -327,6 +330,9 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="Views\NowyRodzajCenyView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\RodzajePlatnosciView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="Views\UmowyRodzajeView.xaml.cs">

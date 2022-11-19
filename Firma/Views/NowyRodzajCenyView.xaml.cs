@@ -15,9 +15,9 @@ using System.Windows.Shapes;
 
 namespace Firma.Views
 {
-    public partial class NowyRodzajCenyView : JedenViewBase
+    public partial class NowyRodzajPlatnosciView : JedenViewBase
     {
-        public NowyRodzajCenyView()
+        public NowyRodzajPlatnosciView()
         {
             InitializeComponent();
         }
