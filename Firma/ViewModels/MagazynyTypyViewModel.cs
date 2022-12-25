@@ -13,7 +13,7 @@ namespace Firma.ViewModels
     {
         #region Konstruktor
         public MagazynyTypyViewModel() 
-            : base("Rodzaje kontrahentów")
+            : base("Typy magazynów")
         {
         }
         #endregion

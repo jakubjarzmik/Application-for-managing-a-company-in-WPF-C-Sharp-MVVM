@@ -1,0 +1,54 @@
+﻿<local:JedenViewBase x:Class="Firma.Views.NowyKontaktView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Firma.Views"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <UserControl.Resources>
+        <ResourceDictionary Source="StyleZakladekResources.xaml"/>
+    </UserControl.Resources>
+    <ScrollViewer>
+        <Grid Background="White">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Expander Grid.Row="0" Header="Ogólne" Margin="5" IsExpanded="True">
+                <Grid Margin="5">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="100"/>
+                        <ColumnDefinition Width="0.5*"/>
+                        <ColumnDefinition Width="100"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Label Grid.Row="0" Grid.Column="0" Content="Nazwa działu:"  Style="{StaticResource ControlStandardowy}"/>
+                    <TextBox Grid.Row="0" Grid.Column="1" Text="{Binding Path=NazwaDzialu, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource ControlStandardowy}"/>
+                    
+                    <Label Grid.Row="1" Grid.Column="0" Content="Opis osoby:" Style="{StaticResource ControlStandardowy}"/>
+                    <TextBox Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="3"  Text="{Binding Path=OpisOsoby, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource ControlStandardowy}"/>
+                    
+                    <Label Grid.Row="2" Grid.Column="0" Content="Telefony:"  Style="{StaticResource ControlStandardowy}"/>
+                    <TextBox Grid.Row="2" Grid.Column="1" Text="{Binding Path=Telefon1, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource ControlStandardowy}"/>
+                    <Label Grid.Row="2" Grid.Column="2" Content="E-maile:"  Style="{StaticResource ControlStandardowy}"/>
+                    <TextBox Grid.Row="2" Grid.Column="3" Text="{Binding Path=Email1, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource ControlStandardowy}"/>
+
+                    <TextBox Grid.Row="3" Grid.Column="1" Text="{Binding Path=Telefon2, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource ControlStandardowy}"/>
+                    <TextBox Grid.Row="3" Grid.Column="3" Text="{Binding Path=Email2, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource ControlStandardowy}"/>
+
+                    <Label Grid.Row="4" Grid.Column="0" Content="Uwagi:" Style="{StaticResource ControlStandardowy}"/>
+                    <TextBox Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="3" Text="{Binding Path=Uwagi, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource BigTextBoxKontrahent}"/>
+
+                </Grid>
+            </Expander>
+        </Grid>
+    </ScrollViewer>
+</local:JedenViewBase>

@@ -13,6 +13,7 @@
                 <DataGridTextColumn Header="Symbol" Binding="{Binding Path=Symbol}"/>
                 <DataGridTextColumn Header="Nazwa" Binding="{Binding Path=Nazwa}"/>
                 <DataGridTextColumn Header="Opis" Binding="{Binding Path=Opis}"/>
+                <DataGridTextColumn Header="Uwagi" Binding="{Binding Path=Uwagi}"/>
             </DataGrid.Columns>
         </DataGrid>
     </Grid>

@@ -14,7 +14,7 @@ namespace Firma.ViewModels.Abstract
         #region Fields
         // baza danych
         public JJFirmaEntities Db { get; set; }
-        // tu jest nasz dodawany towar
+        // tu jest nasz dodawany item
         public T Item { get; set; }
         #endregion
         #region Konstruktor

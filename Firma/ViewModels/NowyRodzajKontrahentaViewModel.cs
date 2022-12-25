@@ -48,12 +48,33 @@ namespace Firma.ViewModels
                 }
             }
         }
+        public string Uwagi
+        {
+            get
+            {
+                return Item.Uwagi;
+            }
+            set
+            {
+                if (value != Item.Uwagi)
+                {
+                    Item.Uwagi = value;
+                    base.OnPropertyChanged(() => Uwagi);
+
+                }
+            }
+        }
         #endregion
         #region Save
         public override void Save()
         {
             Item.DataUtworzenia = DateTime.Now;
+            Item.KtoUtworzylId = 1;
             Item.CzyAktywny = true;
+            if (Item.Uwagi == null)
+                Item.Uwagi = "";
+            if (Item.Opis == null)
+                Item.Opis = "";
             Db.KontrahenciRodzaje.AddObject(Item);
             Db.SaveChanges();
         }

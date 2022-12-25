@@ -19,16 +19,10 @@
     <Compile Update="Views\NowyKontrahentView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="Views\NowyPojazdView.xaml.cs">
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Update="Views\NowyRodzajKontrahentaView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="Views\NowyTowarView.xaml.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Update="Views\PojazdyView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
@@ -36,10 +30,73 @@
     <Page Update="Themes\Generic.xaml">
       <SubType>Designer</SubType>
     </Page>
+    <Page Update="Views\AdresyView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\SrednieWynagrodzenieView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\ZmianyCenyView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\UmowyView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\TowaryStawkiVatView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\TowaryView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\WydaniaZewnetrzneView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\PrzyjeciaZewnetrzneView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\PracownicyView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\PozycjeWydaniaZewnetrznegoView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\PozycjePrzyjeciaZewnetrznegoView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\MagazynyView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\KontrahenciView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\FakturyView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\FakturyRodzajeView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="Views\FakturyKategorieView.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="Views\NowyRodzajCenyView - Copy.xaml">
+    <Page Update="Views\KontaktyView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\KrajeView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\NowyRodzajFakturyView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\NowyKrajView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\NowyKontaktView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\NowyRodzajPlatnosciView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\NoweStanowiskoView.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Views\NowyRodzajUmowyView.xaml">
@@ -48,19 +105,16 @@
     <Page Update="Views\NowyTypTowarowView.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="Views\NowaStawkaVatTowarowView.xaml">
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Update="Views\NowaJednMiaryTowarowView.xaml">
+    <Page Update="Views\NowaJednostkaMiaryView.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Views\NowaGrupaTowarowView.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="Views\NowyRodzajCenyView.xaml">
+    <Page Update="Views\RodzajePlatnosciView.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="Views\RodzajePlatnosciView.xaml">
+    <Page Update="Views\UmowyStanowiskaView.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Views\UmowyRodzajeView.xaml">
@@ -69,16 +123,10 @@
     <Page Update="Views\TowaryTypyView.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="Views\TowaryStawkiVatView.xaml">
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Update="Views\TowaryJednMiaryView.xaml">
+    <Page Update="Views\JednostkiMiaryView.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Views\TowaryGrupyView.xaml">
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Update="Views\RodzajeCenyView.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Views\MagazynyTypyView.xaml">
@@ -96,22 +144,10 @@
     <Page Update="Views\NowaKategoriaFakturyView.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="Views\NowyPojazdView.xaml">
-      <SubType>Designer</SubType>
-    </Page>
     <Page Update="Views\NowyTypMagazynuView.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Views\NowyRodzajKontrahentaView.xaml">
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Update="Views\PojazdyView.xaml">
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Update="Views\RejestrVATView.xaml">
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Update="Views\EwidencjaPlatnosciView.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Views\WydanieZewnetrzneView.xaml">

@@ -22,33 +22,25 @@
     <DataTemplate DataType="{x:Type vm:PrzyjecieZewnetrzneViewModel}">
         <vw:PrzyjecieZewnetrzneView/>
     </DataTemplate>
-    
+
     <DataTemplate DataType="{x:Type vm:WydanieZewnetrzneViewModel}">
         <vw:WydanieZewnetrzneView/>
     </DataTemplate>
-
-    <DataTemplate DataType="{x:Type vm:RejestrVATViewModel}">
-        <vw:RejestrVATView/>
-    </DataTemplate>
-
-    <DataTemplate DataType="{x:Type vm:EwidencjaPlatnosciViewModel}">
-        <vw:EwidencjaPlatnosciView/>
-    </DataTemplate>
     
-    <DataTemplate DataType="{x:Type vm:PojazdyViewModel}">
-        <vw:PojazdyView/>
-    </DataTemplate>
-    
-    <DataTemplate DataType="{x:Type vm:NowyPojazdViewModel}">
-        <vw:NowyPojazdView/>
-    </DataTemplate>
-
     <DataTemplate DataType="{x:Type vm:FakturyKategorieViewModel}">
         <vw:FakturyKategorieView/>
     </DataTemplate>
 
     <DataTemplate DataType="{x:Type vm:NowaKategoriaFakturyViewModel}">
         <vw:NowaKategoriaFakturyView/>
+    </DataTemplate>
+    
+    <DataTemplate DataType="{x:Type vm:FakturyRodzajeViewModel}">
+        <vw:FakturyRodzajeView/>
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type vm:NowyRodzajFakturyViewModel}">
+        <vw:NowyRodzajFakturyView/>
     </DataTemplate>
     
     <DataTemplate DataType="{x:Type vm:KontrahenciRodzajeViewModel}">
@@ -67,14 +59,6 @@
         <vw:NowyTypMagazynuView/>
     </DataTemplate>
 
-    <DataTemplate DataType="{x:Type vm:RodzajeCenyViewModel}">
-        <vw:RodzajeCenyView/>
-    </DataTemplate>
-
-    <DataTemplate DataType="{x:Type vm:NowyRodzajCenyViewModel}">
-        <vw:NowyRodzajCenyView/>
-    </DataTemplate>
-
     <DataTemplate DataType="{x:Type vm:RodzajePlatnosciViewModel}">
         <vw:RodzajePlatnosciView/>
     </DataTemplate>
@@ -91,20 +75,12 @@
         <vw:NowaGrupaTowarowView/>
     </DataTemplate>
 
-    <DataTemplate DataType="{x:Type vm:TowaryJednMiaryViewModel}">
-        <vw:TowaryJednMiaryView/>
+    <DataTemplate DataType="{x:Type vm:JednostkiMiaryViewModel}">
+        <vw:JednostkiMiaryView/>
     </DataTemplate>
 
-    <DataTemplate DataType="{x:Type vm:NowaJednMiaryTowarowViewModel}">
-        <vw:NowaJednMiaryTowarowView/>
-    </DataTemplate>
-
-    <DataTemplate DataType="{x:Type vm:TowaryStawkiVatViewModel}">
-        <vw:TowaryStawkiVatView/>
-    </DataTemplate>
-
-    <DataTemplate DataType="{x:Type vm:NowaStawkaVatTowarowViewModel}">
-        <vw:NowaStawkaVatTowarowView/>
+    <DataTemplate DataType="{x:Type vm:NowaJednostkaMiaryViewModel}">
+        <vw:NowaJednostkaMiaryView/>
     </DataTemplate>
 
     <DataTemplate DataType="{x:Type vm:TowaryTypyViewModel}">
@@ -121,6 +97,86 @@
 
     <DataTemplate DataType="{x:Type vm:NowyRodzajUmowyViewModel}">
         <vw:NowyRodzajUmowyView/>
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type vm:UmowyStanowiskaViewModel}">
+        <vw:UmowyStanowiskaView/>
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type vm:NoweStanowiskoViewModel}">
+        <vw:NoweStanowiskoView/>
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type vm:KrajeViewModel}">
+        <vw:KrajeView/>
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type vm:NowyKrajViewModel}">
+        <vw:NowyKrajView/>
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type vm:KontaktyViewModel}">
+        <vw:KontaktyView/>
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type vm:NowyKontaktViewModel}">
+        <vw:NowyKontaktView/>
+    </DataTemplate>
+    
+    <DataTemplate DataType="{x:Type vm:FakturyViewModel}">
+        <vw:FakturyView/>
+    </DataTemplate>
+    
+    <DataTemplate DataType="{x:Type vm:AdresyViewModel}">
+        <vw:AdresyView/>
+    </DataTemplate>
+    
+    <DataTemplate DataType="{x:Type vm:KontrahenciViewModel}">
+        <vw:KontrahenciView/>
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type vm:MagazynyViewModel}">
+        <vw:MagazynyView/>
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type vm:PozycjePrzyjeciaZewnetrznegoViewModel}">
+        <vw:PozycjePrzyjeciaZewnetrznegoView/>
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type vm:PozycjeWydaniaZewnetrznegoViewModel}">
+        <vw:PozycjeWydaniaZewnetrznegoView/>
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type vm:PracownicyViewModel}">
+        <vw:PracownicyView/>
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type vm:PrzyjeciaZewnetrzneViewModel}">
+        <vw:PrzyjeciaZewnetrzneView/>
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type vm:WydaniaZewnetrzneViewModel}">
+        <vw:WydaniaZewnetrzneView/>
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type vm:TowaryViewModel}">
+        <vw:TowaryView/>
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type vm:TowaryStawkiVatViewModel}">
+        <vw:TowaryStawkiVatView/>
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type vm:UmowyViewModel}">
+        <vw:UmowyView/>
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type vm:ZmianyCenyViewModel}">
+        <vw:ZmianyCenyView/>
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type vm:SrednieWynagrodzenieViewModel}">
+        <vw:SrednieWynagrodzenieView/>
     </DataTemplate>
 
 
@@ -207,6 +263,7 @@
     </Style>
 
     <DataTemplate x:Key="CommandsTemplate">
+        <ScrollViewer>
         <ItemsControl IsTabStop="False" ItemsSource="{Binding}" Margin="0,0,0,0" Padding="5" Background="#242424">
             <ItemsControl.ItemTemplate>
                 <DataTemplate>
@@ -234,6 +291,7 @@
                 </DataTemplate>
             </ItemsControl.ItemTemplate>
         </ItemsControl>
+        </ScrollViewer>
     </DataTemplate>
 
     <Style x:Key="NewSideMenuButton" TargetType="{x:Type Button}">

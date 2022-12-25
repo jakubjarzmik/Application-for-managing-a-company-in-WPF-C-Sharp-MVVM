@@ -311,7 +311,72 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>ModelFaktury.edmx</DependentUpon>
     </Compile>
-    <Compile Update="Views\NowyRodzajCenyView - Copy.xaml.cs">
+    <Compile Update="Properties\Settings.Designer.cs">
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Update="Views\AdresyView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\ZmianyCenyView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\UmowyView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\TowaryStawkiVatView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\TowaryView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\WydaniaZewnetrzneView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\PrzyjeciaZewnetrzneView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\PracownicyView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\PozycjeWydaniaZewnetrznegoView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\PozycjePrzyjeciaZewnetrznegoView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\MagazynyView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\KontrahenciView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\FakturyView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\FakturyRodzajeView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\KontaktyView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\KrajeView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\NowyRodzajFakturyView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\NowyKrajView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\NowyKontaktView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\NowyRodzajPlatnosciView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\NoweStanowiskoView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="Views\NowyRodzajUmowyView.xaml.cs">
@@ -320,19 +385,16 @@
     <Compile Update="Views\NowyTypTowarowView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="Views\NowaStawkaVatTowarowView.xaml.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Update="Views\NowaJednMiaryTowarowView.xaml.cs">
+    <Compile Update="Views\NowaJednostkaMiaryView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="Views\NowaGrupaTowarowView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="Views\NowyRodzajCenyView.xaml.cs">
+    <Compile Update="Views\RodzajePlatnosciView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="Views\RodzajePlatnosciView.xaml.cs">
+    <Compile Update="Views\UmowyStanowiskaView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="Views\UmowyRodzajeView.xaml.cs">
@@ -341,16 +403,10 @@
     <Compile Update="Views\TowaryTypyView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="Views\TowaryStawkiVatView.xaml.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Update="Views\TowaryJednMiaryView.xaml.cs">
+    <Compile Update="Views\JednostkiMiaryView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="Views\TowaryGrupyView.xaml.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Update="Views\RodzajeCenyView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="Views\MagazynyTypyView.xaml.cs">
@@ -362,12 +418,6 @@
     <Compile Update="Views\NowyTypMagazynuView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="Views\RejestrVATView.xaml.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Update="Views\EwidencjaPlatnosciView.xaml.cs">
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Update="Views\WydanieZewnetrzneView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -377,15 +427,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Page Update="Views\NowyRodzajFakturyView.xaml">
+      <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+    </Page>
     <Page Update="Views\NowaKategoriaFakturyView.xaml">
-      <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Update="Views\RejestrVATView.xaml">
-      <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Update="Views\EwidencjaPlatnosciView.xaml">
       <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
       <SubType>Designer</SubType>
     </Page>
@@ -397,6 +442,13 @@
       <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
       <SubType>Designer</SubType>
     </Page>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
   </ItemGroup>
 
 </Project>

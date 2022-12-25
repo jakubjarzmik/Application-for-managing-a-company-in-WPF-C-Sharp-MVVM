@@ -11,13 +11,21 @@
     </UserControl.Resources>
     <ScrollViewer>
         <Grid Background="White">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="113*"/>
+                <ColumnDefinition Width="148*"/>
+            </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
-            <Expander Grid.Row="0" Header="Dane" Margin="5" IsExpanded="True">
+            <Expander Grid.Row="0" Header="Dane" Margin="5,5,5,5" IsExpanded="True" Grid.ColumnSpan="2">
                 <Grid Margin="5">
                     <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
                         <RowDefinition Height="Auto"/>
                     </Grid.RowDefinitions>
                     <Grid.ColumnDefinitions>
@@ -30,6 +38,11 @@
                     <TextBox Grid.Row="0" Grid.Column="1" Text="{Binding Path=Kod, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource ControlStandardowy}"/>
                     <Label Grid.Row="0" Grid.Column="2" Content="Nazwa:" Style="{StaticResource ControlStandardowy}"/>
                     <TextBox Grid.Row="0" Grid.Column="3"  Text="{Binding Path=Nazwa, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource ControlStandardowy}"/>
+                    <Label Grid.Row="1" Grid.Column="0" Content="Opis:" Style="{StaticResource ControlStandardowy}"/>
+                    <TextBox Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="3" Text="{Binding Path=Opis, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource BigTextBoxKontrahent}"/>
+                    <Label Grid.Row="2" Grid.Column="0" Content="Uwagi:" Style="{StaticResource ControlStandardowy}"/>
+                    <TextBox Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="3" Text="{Binding Path=Uwagi, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource BigTextBoxKontrahent}"/>
+
                 </Grid>
             </Expander>
         </Grid>

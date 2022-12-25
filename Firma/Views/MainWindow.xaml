@@ -292,10 +292,11 @@
 
         <Grid Grid.Row="2">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="200"/>
+                <ColumnDefinition Width="220"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
             <Border Grid.Column="0">
+
                 <HeaderedContentControl
                     Header="Operacje"
                     Margin="4,4,0,4"
@@ -303,7 +304,6 @@
                     ContentTemplate="{StaticResource CommandsTemplate}"
                     Style="{StaticResource MainHCCStyle}"
                     />
-
             </Border>
             <Border Grid.Column="1">
                 <HeaderedContentControl

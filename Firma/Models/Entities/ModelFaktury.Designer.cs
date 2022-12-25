@@ -19,43 +19,130 @@ using System.Xml.Serialization;
 [assembly: EdmSchemaAttribute()]
 #region EDM Relationship Metadata
 
-[assembly: EdmRelationshipAttribute("JJFirmaModel", "FK_FakturaTowary_Faktury", "Faktury", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Firma.Models.Entities.Faktury), "FakturaTowary", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Firma.Models.Entities.FakturaTowary), true)]
-[assembly: EdmRelationshipAttribute("JJFirmaModel", "FK_FakturaTowary_Pracownicy", "Pracownicy", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Firma.Models.Entities.Pracownicy), "FakturaTowary", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Firma.Models.Entities.FakturaTowary), true)]
-[assembly: EdmRelationshipAttribute("JJFirmaModel", "FK_FakturaTowary_RodzajeCeny", "RodzajeCeny", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Firma.Models.Entities.RodzajeCeny), "FakturaTowary", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Firma.Models.Entities.FakturaTowary), true)]
-[assembly: EdmRelationshipAttribute("JJFirmaModel", "FK_FakturaTowary_Towary", "Towary", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Firma.Models.Entities.Towary), "FakturaTowary", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Firma.Models.Entities.FakturaTowary), true)]
+[assembly: EdmRelationshipAttribute("JJFirmaModel", "FK_Adresy_Kraje", "Kraje", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Firma.Models.Entities.Kraje), "Adresy", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Firma.Models.Entities.Adresy), true)]
+[assembly: EdmRelationshipAttribute("JJFirmaModel", "FK_Adresy_Pracownicy", "Pracownicy", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Firma.Models.Entities.Pracownicy), "Adresy", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Firma.Models.Entities.Adresy), true)]
+[assembly: EdmRelationshipAttribute("JJFirmaModel", "FK_Adresy_Pracownicy1", "Pracownicy", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Firma.Models.Entities.Pracownicy), "Adresy", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Firma.Models.Entities.Adresy), true)]
+[assembly: EdmRelationshipAttribute("JJFirmaModel", "FK_Adresy_Pracownicy2", "Pracownicy", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Firma.Models.Entities.Pracownicy), "Adresy", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Firma.Models.Entities.Adresy), true)]
+[assembly: EdmRelationshipAttribute("JJFirmaModel", "FK_Kontrahenci_Adresy", "Adresy", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Firma.Models.Entities.Adresy), "Kontrahenci", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Firma.Models.Entities.Kontrahenci), true)]
+[assembly: EdmRelationshipAttribute("JJFirmaModel", "FK_Kontrahenci_Adresy1", "Adresy", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Firma.Models.Entities.Adresy), "Kontrahenci", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Firma.Models.Entities.Kontrahenci), true)]
+[assembly: EdmRelationshipAttribute("JJFirmaModel", "FK_Magazyny_Adresy", "Adresy", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Firma.Models.Entities.Adresy), "Magazyny", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Firma.Models.Entities.Magazyny), true)]
+[assembly: EdmRelationshipAttribute("JJFirmaModel", "FK_Pracownicy_Adresy", "Adresy", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Firma.Models.Entities.Adresy), "Pracownicy", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Firma.Models.Entities.Pracownicy), true)]
 [assembly: EdmRelationshipAttribute("JJFirmaModel", "FK_Faktury_FakturyKategorie", "FakturyKategorie", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Firma.Models.Entities.FakturyKategorie), "Faktury", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Firma.Models.Entities.Faktury), true)]
+[assembly: EdmRelationshipAttribute("JJFirmaModel", "FK_Faktury_FakturyRodzaje", "FakturyRodzaje", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Firma.Models.Entities.FakturyRodzaje), "Faktury", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Firma.Models.Entities.Faktury), true)]
 [assembly: EdmRelationshipAttribute("JJFirmaModel", "FK_Faktury_Kontrahenci", "Kontrahenci", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Firma.Models.Entities.Kontrahenci), "Faktury", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Firma.Models.Entities.Faktury), true)]
-[assembly: EdmRelationshipAttribute("JJFirmaModel", "FK_Faktury_Magazyny", "Magazyny", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Firma.Models.Entities.Magazyny), "Faktury", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Firma.Models.Entities.Faktury), true)]
-[assembly: EdmRelationshipAttribute("JJFirmaModel", "FK_Faktury_Pracownicy", "Pracownicy", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Firma.Models.Entities.Pracownicy), "Faktury", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Firma.Models.Entities.Faktury), true)]
+[assembly: EdmRelationshipAttribute("JJFirmaModel", "FK_Faktury_Pracownicy", "Pracownicy", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Firma.Models.Entities.Pracownicy), "Faktury", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Firma.Models.Entities.Faktury), true)]
+[assembly: EdmRelationshipAttribute("JJFirmaModel", "FK_Faktury_Pracownicy1", "Pracownicy", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Firma.Models.Entities.Pracownicy), "Faktury", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Firma.Models.Entities.Faktury), true)]
+[assembly: EdmRelationshipAttribute("JJFirmaModel", "FK_Faktury_Pracownicy2", "Pracownicy", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Firma.Models.Entities.Pracownicy), "Faktury", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Firma.Models.Entities.Faktury), true)]
 [assembly: EdmRelationshipAttribute("JJFirmaModel", "FK_Faktury_RodzajePlatnosci", "RodzajePlatnosci", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Firma.Models.Entities.RodzajePlatnosci), "Faktury", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Firma.Models.Entities.Faktury), true)]
-[assembly: EdmRelationshipAttribute("JJFirmaModel", "FK_FakturyKategorie_Pracownicy", "Pracownicy", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Firma.Models.Entities.Pracownicy), "FakturyKategorie", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Firma.Models.Entities.FakturyKategorie), true)]
+[assembly: EdmRelationshipAttribute("JJFirmaModel", "FK_FakturyWydaniaZewnetrzne_Faktury", "Faktury", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Firma.Models.Entities.Faktury), "FakturyWydaniaZewnetrzne", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Firma.Models.Entities.FakturyWydaniaZewnetrzne), true)]
+[assembly: EdmRelationshipAttribute("JJFirmaModel", "FK_FakturyKategorie_Pracownicy", "Pracownicy", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Firma.Models.Entities.Pracownicy), "FakturyKategorie", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Firma.Models.Entities.FakturyKategorie), true)]
+[assembly: EdmRelationshipAttribute("JJFirmaModel", "FK_FakturyKategorie_Pracownicy1", "Pracownicy", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Firma.Models.Entities.Pracownicy), "FakturyKategorie", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Firma.Models.Entities.FakturyKategorie), true)]
+[assembly: EdmRelationshipAttribute("JJFirmaModel", "FK_FakturyKategorie_Pracownicy2", "Pracownicy", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Firma.Models.Entities.Pracownicy), "FakturyKategorie", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Firma.Models.Entities.FakturyKategorie), true)]
+[assembly: EdmRelationshipAttribute("JJFirmaModel", "FK_FakturyRodzaje_Pracownicy", "Pracownicy", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Firma.Models.Entities.Pracownicy), "FakturyRodzaje", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Firma.Models.Entities.FakturyRodzaje), true)]
+[assembly: EdmRelationshipAttribute("JJFirmaModel", "FK_FakturyRodzaje_Pracownicy1", "Pracownicy", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Firma.Models.Entities.Pracownicy), "FakturyRodzaje", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Firma.Models.Entities.FakturyRodzaje), true)]
+[assembly: EdmRelationshipAttribute("JJFirmaModel", "FK_FakturyRodzaje_Pracownicy2", "Pracownicy", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Firma.Models.Entities.Pracownicy), "FakturyRodzaje", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Firma.Models.Entities.FakturyRodzaje), true)]
+[assembly: EdmRelationshipAttribute("JJFirmaModel", "FK_FakturyWydaniaZewnetrzne_Pracownicy", "Pracownicy", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Firma.Models.Entities.Pracownicy), "FakturyWydaniaZewnetrzne", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Firma.Models.Entities.FakturyWydaniaZewnetrzne), true)]
+[assembly: EdmRelationshipAttribute("JJFirmaModel", "FK_FakturyWydaniaZewnetrzne_Pracownicy1", "Pracownicy", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Firma.Models.Entities.Pracownicy), "FakturyWydaniaZewnetrzne", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Firma.Models.Entities.FakturyWydaniaZewnetrzne), true)]
+[assembly: EdmRelationshipAttribute("JJFirmaModel", "FK_FakturyWydaniaZewnetrzne_Pracownicy2", "Pracownicy", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Firma.Models.Entities.Pracownicy), "FakturyWydaniaZewnetrzne", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Firma.Models.Entities.FakturyWydaniaZewnetrzne), true)]
+[assembly: EdmRelationshipAttribute("JJFirmaModel", "FK_FakturyWydaniaZewnetrzne_WydaniaZewnetrzne", "WydaniaZewnetrzne", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Firma.Models.Entities.WydaniaZewnetrzne), "FakturyWydaniaZewnetrzne", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Firma.Models.Entities.FakturyWydaniaZewnetrzne), true)]
+[assembly: EdmRelationshipAttribute("JJFirmaModel", "FK_JednostkiMiary_Pracownicy", "Pracownicy", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Firma.Models.Entities.Pracownicy), "JednostkiMiary", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Firma.Models.Entities.JednostkiMiary), true)]
+[assembly: EdmRelationshipAttribute("JJFirmaModel", "FK_JednostkiMiary_Pracownicy1", "Pracownicy", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Firma.Models.Entities.Pracownicy), "JednostkiMiary", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Firma.Models.Entities.JednostkiMiary), true)]
+[assembly: EdmRelationshipAttribute("JJFirmaModel", "FK_JednostkiMiary_Pracownicy2", "Pracownicy", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Firma.Models.Entities.Pracownicy), "JednostkiMiary", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Firma.Models.Entities.JednostkiMiary), true)]
+[assembly: EdmRelationshipAttribute("JJFirmaModel", "FK_PozycjePrzyjeciaZewnetrznego_JednostkiMiary", "JednostkiMiary", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Firma.Models.Entities.JednostkiMiary), "PozycjePrzyjeciaZewnetrznego", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Firma.Models.Entities.PozycjePrzyjeciaZewnetrznego), true)]
+[assembly: EdmRelationshipAttribute("JJFirmaModel", "FK_PozycjeWydaniaZewnetrznego_JednostkiMiary", "JednostkiMiary", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Firma.Models.Entities.JednostkiMiary), "PozycjeWydaniaZewnetrznego", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Firma.Models.Entities.PozycjeWydaniaZewnetrznego), true)]
+[assembly: EdmRelationshipAttribute("JJFirmaModel", "FK_Kontakty_Pracownicy", "Pracownicy", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Firma.Models.Entities.Pracownicy), "Kontakty", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Firma.Models.Entities.Kontakty), true)]
+[assembly: EdmRelationshipAttribute("JJFirmaModel", "FK_Kontakty_Pracownicy1", "Pracownicy", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Firma.Models.Entities.Pracownicy), "Kontakty", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Firma.Models.Entities.Kontakty), true)]
+[assembly: EdmRelationshipAttribute("JJFirmaModel", "FK_Kontakty_Pracownicy2", "Pracownicy", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Firma.Models.Entities.Pracownicy), "Kontakty", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Firma.Models.Entities.Kontakty), true)]
+[assembly: EdmRelationshipAttribute("JJFirmaModel", "FK_KontrahenciKontakty_Kontakty", "Kontakty", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Firma.Models.Entities.Kontakty), "KontrahenciKontakty", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Firma.Models.Entities.KontrahenciKontakty), true)]
 [assembly: EdmRelationshipAttribute("JJFirmaModel", "FK_Kontrahenci_Kontrahenci", "Kontrahenci", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Firma.Models.Entities.Kontrahenci), "Kontrahenci1", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Firma.Models.Entities.Kontrahenci), true)]
 [assembly: EdmRelationshipAttribute("JJFirmaModel", "FK_Kontrahenci_KontrahenciRodzaje", "KontrahenciRodzaje", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Firma.Models.Entities.KontrahenciRodzaje), "Kontrahenci", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Firma.Models.Entities.Kontrahenci), true)]
-[assembly: EdmRelationshipAttribute("JJFirmaModel", "FK_Kontrahenci_Pracownicy", "Pracownicy", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Firma.Models.Entities.Pracownicy), "Kontrahenci", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Firma.Models.Entities.Kontrahenci), true)]
-[assembly: EdmRelationshipAttribute("JJFirmaModel", "FK_KontrahenciRodzaje_Pracownicy", "Pracownicy", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Firma.Models.Entities.Pracownicy), "KontrahenciRodzaje", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Firma.Models.Entities.KontrahenciRodzaje), true)]
+[assembly: EdmRelationshipAttribute("JJFirmaModel", "FK_Kontrahenci_Pracownicy", "Pracownicy", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Firma.Models.Entities.Pracownicy), "Kontrahenci", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Firma.Models.Entities.Kontrahenci), true)]
+[assembly: EdmRelationshipAttribute("JJFirmaModel", "FK_Kontrahenci_Pracownicy1", "Pracownicy", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Firma.Models.Entities.Pracownicy), "Kontrahenci", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Firma.Models.Entities.Kontrahenci), true)]
+[assembly: EdmRelationshipAttribute("JJFirmaModel", "FK_Kontrahenci_Pracownicy2", "Pracownicy", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Firma.Models.Entities.Pracownicy), "Kontrahenci", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Firma.Models.Entities.Kontrahenci), true)]
+[assembly: EdmRelationshipAttribute("JJFirmaModel", "FK_KontrahenciKontakty_Kontrahenci", "Kontrahenci", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Firma.Models.Entities.Kontrahenci), "KontrahenciKontakty", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Firma.Models.Entities.KontrahenciKontakty), true)]
+[assembly: EdmRelationshipAttribute("JJFirmaModel", "FK_PrzyjeciaZewnetrzne_Kontrahenci", "Kontrahenci", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Firma.Models.Entities.Kontrahenci), "PrzyjeciaZewnetrzne", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Firma.Models.Entities.PrzyjeciaZewnetrzne), true)]
+[assembly: EdmRelationshipAttribute("JJFirmaModel", "FK_Towary_Kontrahenci", "Kontrahenci", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Firma.Models.Entities.Kontrahenci), "Towary", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Firma.Models.Entities.Towary), true)]
+[assembly: EdmRelationshipAttribute("JJFirmaModel", "FK_WydaniaZewnetrzne_Kontrahenci", "Kontrahenci", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Firma.Models.Entities.Kontrahenci), "WydaniaZewnetrzne", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Firma.Models.Entities.WydaniaZewnetrzne), true)]
+[assembly: EdmRelationshipAttribute("JJFirmaModel", "FK_KontrahenciKontakty_Pracownicy", "Pracownicy", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Firma.Models.Entities.Pracownicy), "KontrahenciKontakty", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Firma.Models.Entities.KontrahenciKontakty), true)]
+[assembly: EdmRelationshipAttribute("JJFirmaModel", "FK_KontrahenciKontakty_Pracownicy1", "Pracownicy", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Firma.Models.Entities.Pracownicy), "KontrahenciKontakty", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Firma.Models.Entities.KontrahenciKontakty), true)]
+[assembly: EdmRelationshipAttribute("JJFirmaModel", "FK_KontrahenciKontakty_Pracownicy2", "Pracownicy", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Firma.Models.Entities.Pracownicy), "KontrahenciKontakty", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Firma.Models.Entities.KontrahenciKontakty), true)]
+[assembly: EdmRelationshipAttribute("JJFirmaModel", "FK_KontrahenciRodzaje_Pracownicy", "Pracownicy", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Firma.Models.Entities.Pracownicy), "KontrahenciRodzaje", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Firma.Models.Entities.KontrahenciRodzaje), true)]
+[assembly: EdmRelationshipAttribute("JJFirmaModel", "FK_KontrahenciRodzaje_Pracownicy1", "Pracownicy", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Firma.Models.Entities.Pracownicy), "KontrahenciRodzaje", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Firma.Models.Entities.KontrahenciRodzaje), true)]
+[assembly: EdmRelationshipAttribute("JJFirmaModel", "FK_KontrahenciRodzaje_Pracownicy2", "Pracownicy", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Firma.Models.Entities.Pracownicy), "KontrahenciRodzaje", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Firma.Models.Entities.KontrahenciRodzaje), true)]
+[assembly: EdmRelationshipAttribute("JJFirmaModel", "FK_Kraje_Pracownicy", "Pracownicy", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Firma.Models.Entities.Pracownicy), "Kraje", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Firma.Models.Entities.Kraje), true)]
+[assembly: EdmRelationshipAttribute("JJFirmaModel", "FK_Kraje_Pracownicy1", "Pracownicy", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Firma.Models.Entities.Pracownicy), "Kraje", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Firma.Models.Entities.Kraje), true)]
+[assembly: EdmRelationshipAttribute("JJFirmaModel", "FK_Kraje_Pracownicy2", "Pracownicy", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Firma.Models.Entities.Pracownicy), "Kraje", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Firma.Models.Entities.Kraje), true)]
+[assembly: EdmRelationshipAttribute("JJFirmaModel", "FK_Towary_Kraje", "Kraje", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Firma.Models.Entities.Kraje), "Towary", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Firma.Models.Entities.Towary), true)]
+[assembly: EdmRelationshipAttribute("JJFirmaModel", "FK_TowaryStawkiVat_Kraje", "Kraje", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Firma.Models.Entities.Kraje), "TowaryStawkiVat", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Firma.Models.Entities.TowaryStawkiVat), true)]
 [assembly: EdmRelationshipAttribute("JJFirmaModel", "FK_Magazyny_MagazynyTypy", "MagazynyTypy", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Firma.Models.Entities.MagazynyTypy), "Magazyny", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Firma.Models.Entities.Magazyny), true)]
-[assembly: EdmRelationshipAttribute("JJFirmaModel", "FK_Magazyny_Pracownicy", "Pracownicy", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Firma.Models.Entities.Pracownicy), "Magazyny", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Firma.Models.Entities.Magazyny), true)]
-[assembly: EdmRelationshipAttribute("JJFirmaModel", "FK_Pracownicy_Magazyny", "Magazyny", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Firma.Models.Entities.Magazyny), "Pracownicy", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Firma.Models.Entities.Pracownicy), true)]
-[assembly: EdmRelationshipAttribute("JJFirmaModel", "FK_MagazynyTypy_Pracownicy", "Pracownicy", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Firma.Models.Entities.Pracownicy), "MagazynyTypy", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Firma.Models.Entities.MagazynyTypy), true)]
-[assembly: EdmRelationshipAttribute("JJFirmaModel", "FK_Pojazdy_Pracownicy", "Pracownicy", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Firma.Models.Entities.Pracownicy), "Pojazdy", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Firma.Models.Entities.Pojazdy), true)]
-[assembly: EdmRelationshipAttribute("JJFirmaModel", "FK_Pracownicy_Pojazdy", "Pojazdy", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Firma.Models.Entities.Pojazdy), "Pracownicy", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Firma.Models.Entities.Pracownicy), true)]
-[assembly: EdmRelationshipAttribute("JJFirmaModel", "FK_Pracownicy_Pracownicy", "Pracownicy", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Firma.Models.Entities.Pracownicy), "Pracownicy1", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Firma.Models.Entities.Pracownicy), true)]
-[assembly: EdmRelationshipAttribute("JJFirmaModel", "FK_Pracownicy_Umowy", "Umowy", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Firma.Models.Entities.Umowy), "Pracownicy", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Firma.Models.Entities.Pracownicy), true)]
-[assembly: EdmRelationshipAttribute("JJFirmaModel", "FK_RodzajeCeny_Pracownicy", "Pracownicy", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Firma.Models.Entities.Pracownicy), "RodzajeCeny", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Firma.Models.Entities.RodzajeCeny), true)]
-[assembly: EdmRelationshipAttribute("JJFirmaModel", "FK_RodzajePlatnosci_Pracownicy", "Pracownicy", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Firma.Models.Entities.Pracownicy), "RodzajePlatnosci", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Firma.Models.Entities.RodzajePlatnosci), true)]
-[assembly: EdmRelationshipAttribute("JJFirmaModel", "FK_Towary_Pracownicy", "Pracownicy", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Firma.Models.Entities.Pracownicy), "Towary", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Firma.Models.Entities.Towary), true)]
-[assembly: EdmRelationshipAttribute("JJFirmaModel", "FK_TowaryGrupy_Pracownicy", "Pracownicy", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Firma.Models.Entities.Pracownicy), "TowaryGrupy", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Firma.Models.Entities.TowaryGrupy), true)]
-[assembly: EdmRelationshipAttribute("JJFirmaModel", "FK_TowaryJednMiary_Pracownicy", "Pracownicy", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Firma.Models.Entities.Pracownicy), "TowaryJednMiary", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Firma.Models.Entities.TowaryJednMiary), true)]
-[assembly: EdmRelationshipAttribute("JJFirmaModel", "FK_TowaryStawkiVat_Pracownicy", "Pracownicy", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Firma.Models.Entities.Pracownicy), "TowaryStawkiVat", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Firma.Models.Entities.TowaryStawkiVat), true)]
-[assembly: EdmRelationshipAttribute("JJFirmaModel", "FK_TowaryTypy_Pracownicy", "Pracownicy", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Firma.Models.Entities.Pracownicy), "TowaryTypy", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Firma.Models.Entities.TowaryTypy), true)]
-[assembly: EdmRelationshipAttribute("JJFirmaModel", "FK_Umowy_Pracownicy", "Pracownicy", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Firma.Models.Entities.Pracownicy), "Umowy", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Firma.Models.Entities.Umowy), true)]
-[assembly: EdmRelationshipAttribute("JJFirmaModel", "FK_UmowyRodzaje_UmowyRodzaje", "Pracownicy", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Firma.Models.Entities.Pracownicy), "UmowyRodzaje", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Firma.Models.Entities.UmowyRodzaje), true)]
+[assembly: EdmRelationshipAttribute("JJFirmaModel", "FK_Magazyny_Pracownicy", "Pracownicy", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Firma.Models.Entities.Pracownicy), "Magazyny", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Firma.Models.Entities.Magazyny), true)]
+[assembly: EdmRelationshipAttribute("JJFirmaModel", "FK_Magazyny_Pracownicy1", "Pracownicy", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Firma.Models.Entities.Pracownicy), "Magazyny", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Firma.Models.Entities.Magazyny), true)]
+[assembly: EdmRelationshipAttribute("JJFirmaModel", "FK_Magazyny_Pracownicy2", "Pracownicy", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Firma.Models.Entities.Pracownicy), "Magazyny", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Firma.Models.Entities.Magazyny), true)]
+[assembly: EdmRelationshipAttribute("JJFirmaModel", "FK_PrzyjeciaZewnetrzne_Magazyny", "Magazyny", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Firma.Models.Entities.Magazyny), "PrzyjeciaZewnetrzne", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Firma.Models.Entities.PrzyjeciaZewnetrzne), true)]
+[assembly: EdmRelationshipAttribute("JJFirmaModel", "FK_WydaniaZewnetrzne_Magazyny", "Magazyny", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Firma.Models.Entities.Magazyny), "WydaniaZewnetrzne", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Firma.Models.Entities.WydaniaZewnetrzne), true)]
+[assembly: EdmRelationshipAttribute("JJFirmaModel", "FK_MagazynyTypy_Pracownicy", "Pracownicy", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Firma.Models.Entities.Pracownicy), "MagazynyTypy", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Firma.Models.Entities.MagazynyTypy), true)]
+[assembly: EdmRelationshipAttribute("JJFirmaModel", "FK_MagazynyTypy_Pracownicy1", "Pracownicy", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Firma.Models.Entities.Pracownicy), "MagazynyTypy", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Firma.Models.Entities.MagazynyTypy), true)]
+[assembly: EdmRelationshipAttribute("JJFirmaModel", "FK_MagazynyTypy_Pracownicy2", "Pracownicy", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Firma.Models.Entities.Pracownicy), "MagazynyTypy", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Firma.Models.Entities.MagazynyTypy), true)]
+[assembly: EdmRelationshipAttribute("JJFirmaModel", "FK_PozycjePrzyjeciaZewnetrznego_Pracownicy", "Pracownicy", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Firma.Models.Entities.Pracownicy), "PozycjePrzyjeciaZewnetrznego", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Firma.Models.Entities.PozycjePrzyjeciaZewnetrznego), true)]
+[assembly: EdmRelationshipAttribute("JJFirmaModel", "FK_PozycjePrzyjeciaZewnetrznego_Pracownicy1", "Pracownicy", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Firma.Models.Entities.Pracownicy), "PozycjePrzyjeciaZewnetrznego", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Firma.Models.Entities.PozycjePrzyjeciaZewnetrznego), true)]
+[assembly: EdmRelationshipAttribute("JJFirmaModel", "FK_PozycjePrzyjeciaZewnetrznego_Pracownicy2", "Pracownicy", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Firma.Models.Entities.Pracownicy), "PozycjePrzyjeciaZewnetrznego", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Firma.Models.Entities.PozycjePrzyjeciaZewnetrznego), true)]
+[assembly: EdmRelationshipAttribute("JJFirmaModel", "FK_PozycjePrzyjeciaZewnetrznego_PrzyjeciaZewnetrzne", "PrzyjeciaZewnetrzne", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Firma.Models.Entities.PrzyjeciaZewnetrzne), "PozycjePrzyjeciaZewnetrznego", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Firma.Models.Entities.PozycjePrzyjeciaZewnetrznego), true)]
+[assembly: EdmRelationshipAttribute("JJFirmaModel", "FK_PozycjePrzyjeciaZewnetrznego_Towary", "Towary", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Firma.Models.Entities.Towary), "PozycjePrzyjeciaZewnetrznego", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Firma.Models.Entities.PozycjePrzyjeciaZewnetrznego), true)]
+[assembly: EdmRelationshipAttribute("JJFirmaModel", "FK_PozycjeWydaniaZewnetrznego_Pracownicy", "Pracownicy", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Firma.Models.Entities.Pracownicy), "PozycjeWydaniaZewnetrznego", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Firma.Models.Entities.PozycjeWydaniaZewnetrznego), true)]
+[assembly: EdmRelationshipAttribute("JJFirmaModel", "FK_PozycjeWydaniaZewnetrznego_Pracownicy1", "Pracownicy", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Firma.Models.Entities.Pracownicy), "PozycjeWydaniaZewnetrznego", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Firma.Models.Entities.PozycjeWydaniaZewnetrznego), true)]
+[assembly: EdmRelationshipAttribute("JJFirmaModel", "FK_PozycjeWydaniaZewnetrznego_Pracownicy2", "Pracownicy", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Firma.Models.Entities.Pracownicy), "PozycjeWydaniaZewnetrznego", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Firma.Models.Entities.PozycjeWydaniaZewnetrznego), true)]
+[assembly: EdmRelationshipAttribute("JJFirmaModel", "FK_PozycjeWydaniaZewnetrznego_Towary", "Towary", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Firma.Models.Entities.Towary), "PozycjeWydaniaZewnetrznego", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Firma.Models.Entities.PozycjeWydaniaZewnetrznego), true)]
+[assembly: EdmRelationshipAttribute("JJFirmaModel", "FK_PozycjeWydaniaZewnetrznego_WydaniaZewnetrzne", "WydaniaZewnetrzne", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Firma.Models.Entities.WydaniaZewnetrzne), "PozycjeWydaniaZewnetrznego", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Firma.Models.Entities.PozycjeWydaniaZewnetrznego), true)]
+[assembly: EdmRelationshipAttribute("JJFirmaModel", "FK_Pracownicy_Pracownicy", "Pracownicy", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Firma.Models.Entities.Pracownicy), "Pracownicy1", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Firma.Models.Entities.Pracownicy), true)]
+[assembly: EdmRelationshipAttribute("JJFirmaModel", "FK_Pracownicy_Pracownicy1", "Pracownicy", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Firma.Models.Entities.Pracownicy), "Pracownicy1", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Firma.Models.Entities.Pracownicy), true)]
+[assembly: EdmRelationshipAttribute("JJFirmaModel", "FK_Pracownicy_Pracownicy2", "Pracownicy", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Firma.Models.Entities.Pracownicy), "Pracownicy1", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Firma.Models.Entities.Pracownicy), true)]
+[assembly: EdmRelationshipAttribute("JJFirmaModel", "FK_PracownicyUmowy_Pracownicy", "Pracownicy", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Firma.Models.Entities.Pracownicy), "PracownicyUmowy", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Firma.Models.Entities.PracownicyUmowy), true)]
+[assembly: EdmRelationshipAttribute("JJFirmaModel", "FK_PracownicyUmowy_Pracownicy1", "Pracownicy", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Firma.Models.Entities.Pracownicy), "PracownicyUmowy", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Firma.Models.Entities.PracownicyUmowy), true)]
+[assembly: EdmRelationshipAttribute("JJFirmaModel", "FK_PracownicyUmowy_Pracownicy2", "Pracownicy", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Firma.Models.Entities.Pracownicy), "PracownicyUmowy", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Firma.Models.Entities.PracownicyUmowy), true)]
+[assembly: EdmRelationshipAttribute("JJFirmaModel", "FK_PracownicyUmowy_Pracownicy3", "Pracownicy", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Firma.Models.Entities.Pracownicy), "PracownicyUmowy", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Firma.Models.Entities.PracownicyUmowy), true)]
+[assembly: EdmRelationshipAttribute("JJFirmaModel", "FK_PrzyjeciaZewnetrzne_Pracownicy", "Pracownicy", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Firma.Models.Entities.Pracownicy), "PrzyjeciaZewnetrzne", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Firma.Models.Entities.PrzyjeciaZewnetrzne), true)]
+[assembly: EdmRelationshipAttribute("JJFirmaModel", "FK_PrzyjeciaZewnetrzne_Pracownicy1", "Pracownicy", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Firma.Models.Entities.Pracownicy), "PrzyjeciaZewnetrzne", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Firma.Models.Entities.PrzyjeciaZewnetrzne), true)]
+[assembly: EdmRelationshipAttribute("JJFirmaModel", "FK_PrzyjeciaZewnetrzne_Pracownicy2", "Pracownicy", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Firma.Models.Entities.Pracownicy), "PrzyjeciaZewnetrzne", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Firma.Models.Entities.PrzyjeciaZewnetrzne), true)]
+[assembly: EdmRelationshipAttribute("JJFirmaModel", "FK_RodzajePlatnosci_Pracownicy", "Pracownicy", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Firma.Models.Entities.Pracownicy), "RodzajePlatnosci", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Firma.Models.Entities.RodzajePlatnosci), true)]
+[assembly: EdmRelationshipAttribute("JJFirmaModel", "FK_RodzajePlatnosci_Pracownicy1", "Pracownicy", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Firma.Models.Entities.Pracownicy), "RodzajePlatnosci", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Firma.Models.Entities.RodzajePlatnosci), true)]
+[assembly: EdmRelationshipAttribute("JJFirmaModel", "FK_RodzajePlatnosci_Pracownicy2", "Pracownicy", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Firma.Models.Entities.Pracownicy), "RodzajePlatnosci", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Firma.Models.Entities.RodzajePlatnosci), true)]
+[assembly: EdmRelationshipAttribute("JJFirmaModel", "FK_Towary_Pracownicy", "Pracownicy", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Firma.Models.Entities.Pracownicy), "Towary", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Firma.Models.Entities.Towary), true)]
+[assembly: EdmRelationshipAttribute("JJFirmaModel", "FK_Towary_Pracownicy1", "Pracownicy", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Firma.Models.Entities.Pracownicy), "Towary", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Firma.Models.Entities.Towary), true)]
+[assembly: EdmRelationshipAttribute("JJFirmaModel", "FK_Towary_Pracownicy2", "Pracownicy", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Firma.Models.Entities.Pracownicy), "Towary", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Firma.Models.Entities.Towary), true)]
+[assembly: EdmRelationshipAttribute("JJFirmaModel", "FK_TowaryGrupy_Pracownicy", "Pracownicy", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Firma.Models.Entities.Pracownicy), "TowaryGrupy", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Firma.Models.Entities.TowaryGrupy), true)]
+[assembly: EdmRelationshipAttribute("JJFirmaModel", "FK_TowaryGrupy_Pracownicy1", "Pracownicy", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Firma.Models.Entities.Pracownicy), "TowaryGrupy", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Firma.Models.Entities.TowaryGrupy), true)]
+[assembly: EdmRelationshipAttribute("JJFirmaModel", "FK_TowaryGrupy_Pracownicy2", "Pracownicy", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Firma.Models.Entities.Pracownicy), "TowaryGrupy", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Firma.Models.Entities.TowaryGrupy), true)]
+[assembly: EdmRelationshipAttribute("JJFirmaModel", "FK_TowaryStawkiVat_Pracownicy", "Pracownicy", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Firma.Models.Entities.Pracownicy), "TowaryStawkiVat", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Firma.Models.Entities.TowaryStawkiVat), true)]
+[assembly: EdmRelationshipAttribute("JJFirmaModel", "FK_TowaryStawkiVat_Pracownicy1", "Pracownicy", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Firma.Models.Entities.Pracownicy), "TowaryStawkiVat", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Firma.Models.Entities.TowaryStawkiVat), true)]
+[assembly: EdmRelationshipAttribute("JJFirmaModel", "FK_TowaryStawkiVat_Pracownicy2", "Pracownicy", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Firma.Models.Entities.Pracownicy), "TowaryStawkiVat", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Firma.Models.Entities.TowaryStawkiVat), true)]
+[assembly: EdmRelationshipAttribute("JJFirmaModel", "FK_TowaryTypy_Pracownicy", "Pracownicy", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Firma.Models.Entities.Pracownicy), "TowaryTypy", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Firma.Models.Entities.TowaryTypy), true)]
+[assembly: EdmRelationshipAttribute("JJFirmaModel", "FK_TowaryTypy_Pracownicy1", "Pracownicy", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Firma.Models.Entities.Pracownicy), "TowaryTypy", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Firma.Models.Entities.TowaryTypy), true)]
+[assembly: EdmRelationshipAttribute("JJFirmaModel", "FK_TowaryTypy_Pracownicy2", "Pracownicy", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Firma.Models.Entities.Pracownicy), "TowaryTypy", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Firma.Models.Entities.TowaryTypy), true)]
+[assembly: EdmRelationshipAttribute("JJFirmaModel", "FK_Umowy_Pracownicy", "Pracownicy", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Firma.Models.Entities.Pracownicy), "Umowy", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Firma.Models.Entities.Umowy), true)]
+[assembly: EdmRelationshipAttribute("JJFirmaModel", "FK_Umowy_Pracownicy1", "Pracownicy", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Firma.Models.Entities.Pracownicy), "Umowy", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Firma.Models.Entities.Umowy), true)]
+[assembly: EdmRelationshipAttribute("JJFirmaModel", "FK_Umowy_Pracownicy2", "Pracownicy", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Firma.Models.Entities.Pracownicy), "Umowy", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Firma.Models.Entities.Umowy), true)]
+[assembly: EdmRelationshipAttribute("JJFirmaModel", "FK_UmowyRodzaje_Pracownicy", "Pracownicy", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Firma.Models.Entities.Pracownicy), "UmowyRodzaje", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Firma.Models.Entities.UmowyRodzaje), true)]
+[assembly: EdmRelationshipAttribute("JJFirmaModel", "FK_UmowyRodzaje_Pracownicy1", "Pracownicy", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Firma.Models.Entities.Pracownicy), "UmowyRodzaje", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Firma.Models.Entities.UmowyRodzaje), true)]
+[assembly: EdmRelationshipAttribute("JJFirmaModel", "FK_UmowyRodzaje_Pracownicy2", "Pracownicy", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Firma.Models.Entities.Pracownicy), "UmowyRodzaje", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Firma.Models.Entities.UmowyRodzaje), true)]
+[assembly: EdmRelationshipAttribute("JJFirmaModel", "FK_UmowyStanowiska_Pracownicy", "Pracownicy", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Firma.Models.Entities.Pracownicy), "UmowyStanowiska", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Firma.Models.Entities.UmowyStanowiska), true)]
+[assembly: EdmRelationshipAttribute("JJFirmaModel", "FK_UmowyStanowiska_Pracownicy1", "Pracownicy", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Firma.Models.Entities.Pracownicy), "UmowyStanowiska", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Firma.Models.Entities.UmowyStanowiska), true)]
+[assembly: EdmRelationshipAttribute("JJFirmaModel", "FK_UmowyStanowiska_Pracownicy2", "Pracownicy", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Firma.Models.Entities.Pracownicy), "UmowyStanowiska", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Firma.Models.Entities.UmowyStanowiska), true)]
+[assembly: EdmRelationshipAttribute("JJFirmaModel", "FK_WydaniaZewnetrzne_Pracownicy", "Pracownicy", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Firma.Models.Entities.Pracownicy), "WydaniaZewnetrzne", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Firma.Models.Entities.WydaniaZewnetrzne), true)]
+[assembly: EdmRelationshipAttribute("JJFirmaModel", "FK_WydaniaZewnetrzne_Pracownicy1", "Pracownicy", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Firma.Models.Entities.Pracownicy), "WydaniaZewnetrzne", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Firma.Models.Entities.WydaniaZewnetrzne), true)]
+[assembly: EdmRelationshipAttribute("JJFirmaModel", "FK_WydaniaZewnetrzne_Pracownicy2", "Pracownicy", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Firma.Models.Entities.Pracownicy), "WydaniaZewnetrzne", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Firma.Models.Entities.WydaniaZewnetrzne), true)]
+[assembly: EdmRelationshipAttribute("JJFirmaModel", "FK_PracownicyUmowy_Umowy", "Umowy", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Firma.Models.Entities.Umowy), "PracownicyUmowy", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Firma.Models.Entities.PracownicyUmowy), true)]
 [assembly: EdmRelationshipAttribute("JJFirmaModel", "FK_Towary_TowaryGrupy", "TowaryGrupy", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Firma.Models.Entities.TowaryGrupy), "Towary", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Firma.Models.Entities.Towary), true)]
-[assembly: EdmRelationshipAttribute("JJFirmaModel", "FK_Towary_TowaryJednMiary", "TowaryJednMiary", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Firma.Models.Entities.TowaryJednMiary), "Towary", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Firma.Models.Entities.Towary), true)]
 [assembly: EdmRelationshipAttribute("JJFirmaModel", "FK_Towary_TowaryStawkiVat", "TowaryStawkiVat", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Firma.Models.Entities.TowaryStawkiVat), "Towary", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Firma.Models.Entities.Towary), true)]
 [assembly: EdmRelationshipAttribute("JJFirmaModel", "FK_Towary_TowaryStawkiVat1", "TowaryStawkiVat", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Firma.Models.Entities.TowaryStawkiVat), "Towary", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Firma.Models.Entities.Towary), true)]
 [assembly: EdmRelationshipAttribute("JJFirmaModel", "FK_Towary_TowaryTypy", "TowaryTypy", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Firma.Models.Entities.TowaryTypy), "Towary", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Firma.Models.Entities.Towary), true)]
+[assembly: EdmRelationshipAttribute("JJFirmaModel", "FK_TowaryGrupy_TowaryGrupy", "TowaryGrupy", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Firma.Models.Entities.TowaryGrupy), "TowaryGrupy1", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Firma.Models.Entities.TowaryGrupy), true)]
 [assembly: EdmRelationshipAttribute("JJFirmaModel", "FK_Umowy_UmowyRodzaje", "UmowyRodzaje", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Firma.Models.Entities.UmowyRodzaje), "Umowy", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Firma.Models.Entities.Umowy), true)]
+[assembly: EdmRelationshipAttribute("JJFirmaModel", "FK_Umowy_UmowyStanowiska", "UmowyStanowiska", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Firma.Models.Entities.UmowyStanowiska), "Umowy", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Firma.Models.Entities.Umowy), true)]
+[assembly: EdmRelationshipAttribute("JJFirmaModel", "FK_ZmianyCeny_JednostkiMiary", "JednostkiMiary", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Firma.Models.Entities.JednostkiMiary), "ZmianyCeny", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Firma.Models.Entities.ZmianyCeny), true)]
+[assembly: EdmRelationshipAttribute("JJFirmaModel", "FK_ZmianyCeny_Pracownicy", "Pracownicy", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Firma.Models.Entities.Pracownicy), "ZmianyCeny", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Firma.Models.Entities.ZmianyCeny), true)]
+[assembly: EdmRelationshipAttribute("JJFirmaModel", "FK_ZmianyCeny_Pracownicy1", "Pracownicy", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Firma.Models.Entities.Pracownicy), "ZmianyCeny", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Firma.Models.Entities.ZmianyCeny), true)]
+[assembly: EdmRelationshipAttribute("JJFirmaModel", "FK_ZmianyCeny_Pracownicy2", "Pracownicy", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Firma.Models.Entities.Pracownicy), "ZmianyCeny", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Firma.Models.Entities.ZmianyCeny), true)]
+[assembly: EdmRelationshipAttribute("JJFirmaModel", "FK_ZmianyCeny_Towary", "Towary", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Firma.Models.Entities.Towary), "ZmianyCeny", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Firma.Models.Entities.ZmianyCeny), true)]
 
 #endregion
 
@@ -110,18 +197,18 @@ namespace Firma.Models.Entities
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        public ObjectSet<FakturaTowary> FakturaTowary
+        public ObjectSet<Adresy> Adresy
         {
             get
             {
-                if ((_FakturaTowary == null))
+                if ((_Adresy == null))
                 {
-                    _FakturaTowary = base.CreateObjectSet<FakturaTowary>("FakturaTowary");
+                    _Adresy = base.CreateObjectSet<Adresy>("Adresy");
                 }
-                return _FakturaTowary;
+                return _Adresy;
             }
         }
-        private ObjectSet<FakturaTowary> _FakturaTowary;
+        private ObjectSet<Adresy> _Adresy;
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -158,6 +245,70 @@ namespace Firma.Models.Entities
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
+        public ObjectSet<FakturyRodzaje> FakturyRodzaje
+        {
+            get
+            {
+                if ((_FakturyRodzaje == null))
+                {
+                    _FakturyRodzaje = base.CreateObjectSet<FakturyRodzaje>("FakturyRodzaje");
+                }
+                return _FakturyRodzaje;
+            }
+        }
+        private ObjectSet<FakturyRodzaje> _FakturyRodzaje;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<FakturyWydaniaZewnetrzne> FakturyWydaniaZewnetrzne
+        {
+            get
+            {
+                if ((_FakturyWydaniaZewnetrzne == null))
+                {
+                    _FakturyWydaniaZewnetrzne = base.CreateObjectSet<FakturyWydaniaZewnetrzne>("FakturyWydaniaZewnetrzne");
+                }
+                return _FakturyWydaniaZewnetrzne;
+            }
+        }
+        private ObjectSet<FakturyWydaniaZewnetrzne> _FakturyWydaniaZewnetrzne;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<JednostkiMiary> JednostkiMiary
+        {
+            get
+            {
+                if ((_JednostkiMiary == null))
+                {
+                    _JednostkiMiary = base.CreateObjectSet<JednostkiMiary>("JednostkiMiary");
+                }
+                return _JednostkiMiary;
+            }
+        }
+        private ObjectSet<JednostkiMiary> _JednostkiMiary;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<Kontakty> Kontakty
+        {
+            get
+            {
+                if ((_Kontakty == null))
+                {
+                    _Kontakty = base.CreateObjectSet<Kontakty>("Kontakty");
+                }
+                return _Kontakty;
+            }
+        }
+        private ObjectSet<Kontakty> _Kontakty;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
         public ObjectSet<Kontrahenci> Kontrahenci
         {
             get
@@ -174,6 +325,22 @@ namespace Firma.Models.Entities
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
+        public ObjectSet<KontrahenciKontakty> KontrahenciKontakty
+        {
+            get
+            {
+                if ((_KontrahenciKontakty == null))
+                {
+                    _KontrahenciKontakty = base.CreateObjectSet<KontrahenciKontakty>("KontrahenciKontakty");
+                }
+                return _KontrahenciKontakty;
+            }
+        }
+        private ObjectSet<KontrahenciKontakty> _KontrahenciKontakty;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
         public ObjectSet<KontrahenciRodzaje> KontrahenciRodzaje
         {
             get
@@ -186,6 +353,22 @@ namespace Firma.Models.Entities
             }
         }
         private ObjectSet<KontrahenciRodzaje> _KontrahenciRodzaje;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<Kraje> Kraje
+        {
+            get
+            {
+                if ((_Kraje == null))
+                {
+                    _Kraje = base.CreateObjectSet<Kraje>("Kraje");
+                }
+                return _Kraje;
+            }
+        }
+        private ObjectSet<Kraje> _Kraje;
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -222,18 +405,34 @@ namespace Firma.Models.Entities
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        public ObjectSet<Pojazdy> Pojazdy
+        public ObjectSet<PozycjePrzyjeciaZewnetrznego> PozycjePrzyjeciaZewnetrznego
         {
             get
             {
-                if ((_Pojazdy == null))
+                if ((_PozycjePrzyjeciaZewnetrznego == null))
                 {
-                    _Pojazdy = base.CreateObjectSet<Pojazdy>("Pojazdy");
+                    _PozycjePrzyjeciaZewnetrznego = base.CreateObjectSet<PozycjePrzyjeciaZewnetrznego>("PozycjePrzyjeciaZewnetrznego");
                 }
-                return _Pojazdy;
+                return _PozycjePrzyjeciaZewnetrznego;
             }
         }
-        private ObjectSet<Pojazdy> _Pojazdy;
+        private ObjectSet<PozycjePrzyjeciaZewnetrznego> _PozycjePrzyjeciaZewnetrznego;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<PozycjeWydaniaZewnetrznego> PozycjeWydaniaZewnetrznego
+        {
+            get
+            {
+                if ((_PozycjeWydaniaZewnetrznego == null))
+                {
+                    _PozycjeWydaniaZewnetrznego = base.CreateObjectSet<PozycjeWydaniaZewnetrznego>("PozycjeWydaniaZewnetrznego");
+                }
+                return _PozycjeWydaniaZewnetrznego;
+            }
+        }
+        private ObjectSet<PozycjeWydaniaZewnetrznego> _PozycjeWydaniaZewnetrznego;
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -254,18 +453,34 @@ namespace Firma.Models.Entities
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        public ObjectSet<RodzajeCeny> RodzajeCeny
+        public ObjectSet<PracownicyUmowy> PracownicyUmowy
         {
             get
             {
-                if ((_RodzajeCeny == null))
+                if ((_PracownicyUmowy == null))
                 {
-                    _RodzajeCeny = base.CreateObjectSet<RodzajeCeny>("RodzajeCeny");
+                    _PracownicyUmowy = base.CreateObjectSet<PracownicyUmowy>("PracownicyUmowy");
                 }
-                return _RodzajeCeny;
+                return _PracownicyUmowy;
             }
         }
-        private ObjectSet<RodzajeCeny> _RodzajeCeny;
+        private ObjectSet<PracownicyUmowy> _PracownicyUmowy;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<PrzyjeciaZewnetrzne> PrzyjeciaZewnetrzne
+        {
+            get
+            {
+                if ((_PrzyjeciaZewnetrzne == null))
+                {
+                    _PrzyjeciaZewnetrzne = base.CreateObjectSet<PrzyjeciaZewnetrzne>("PrzyjeciaZewnetrzne");
+                }
+                return _PrzyjeciaZewnetrzne;
+            }
+        }
+        private ObjectSet<PrzyjeciaZewnetrzne> _PrzyjeciaZewnetrzne;
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -334,22 +549,6 @@ namespace Firma.Models.Entities
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        public ObjectSet<TowaryJednMiary> TowaryJednMiary
-        {
-            get
-            {
-                if ((_TowaryJednMiary == null))
-                {
-                    _TowaryJednMiary = base.CreateObjectSet<TowaryJednMiary>("TowaryJednMiary");
-                }
-                return _TowaryJednMiary;
-            }
-        }
-        private ObjectSet<TowaryJednMiary> _TowaryJednMiary;
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
         public ObjectSet<TowaryStawkiVat> TowaryStawkiVat
         {
             get
@@ -410,17 +609,65 @@ namespace Firma.Models.Entities
             }
         }
         private ObjectSet<UmowyRodzaje> _UmowyRodzaje;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<UmowyStanowiska> UmowyStanowiska
+        {
+            get
+            {
+                if ((_UmowyStanowiska == null))
+                {
+                    _UmowyStanowiska = base.CreateObjectSet<UmowyStanowiska>("UmowyStanowiska");
+                }
+                return _UmowyStanowiska;
+            }
+        }
+        private ObjectSet<UmowyStanowiska> _UmowyStanowiska;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<WydaniaZewnetrzne> WydaniaZewnetrzne
+        {
+            get
+            {
+                if ((_WydaniaZewnetrzne == null))
+                {
+                    _WydaniaZewnetrzne = base.CreateObjectSet<WydaniaZewnetrzne>("WydaniaZewnetrzne");
+                }
+                return _WydaniaZewnetrzne;
+            }
+        }
+        private ObjectSet<WydaniaZewnetrzne> _WydaniaZewnetrzne;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<ZmianyCeny> ZmianyCeny
+        {
+            get
+            {
+                if ((_ZmianyCeny == null))
+                {
+                    _ZmianyCeny = base.CreateObjectSet<ZmianyCeny>("ZmianyCeny");
+                }
+                return _ZmianyCeny;
+            }
+        }
+        private ObjectSet<ZmianyCeny> _ZmianyCeny;
 
         #endregion
 
         #region AddTo Methods
     
         /// <summary>
-        /// Deprecated Method for adding a new object to the FakturaTowary EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// Deprecated Method for adding a new object to the Adresy EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
-        public void AddToFakturaTowary(FakturaTowary fakturaTowary)
+        public void AddToAdresy(Adresy adresy)
         {
-            base.AddObject("FakturaTowary", fakturaTowary);
+            base.AddObject("Adresy", adresy);
         }
     
         /// <summary>
@@ -440,6 +687,38 @@ namespace Firma.Models.Entities
         }
     
         /// <summary>
+        /// Deprecated Method for adding a new object to the FakturyRodzaje EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToFakturyRodzaje(FakturyRodzaje fakturyRodzaje)
+        {
+            base.AddObject("FakturyRodzaje", fakturyRodzaje);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the FakturyWydaniaZewnetrzne EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToFakturyWydaniaZewnetrzne(FakturyWydaniaZewnetrzne fakturyWydaniaZewnetrzne)
+        {
+            base.AddObject("FakturyWydaniaZewnetrzne", fakturyWydaniaZewnetrzne);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the JednostkiMiary EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToJednostkiMiary(JednostkiMiary jednostkiMiary)
+        {
+            base.AddObject("JednostkiMiary", jednostkiMiary);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the Kontakty EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToKontakty(Kontakty kontakty)
+        {
+            base.AddObject("Kontakty", kontakty);
+        }
+    
+        /// <summary>
         /// Deprecated Method for adding a new object to the Kontrahenci EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
         public void AddToKontrahenci(Kontrahenci kontrahenci)
@@ -448,11 +727,27 @@ namespace Firma.Models.Entities
         }
     
         /// <summary>
+        /// Deprecated Method for adding a new object to the KontrahenciKontakty EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToKontrahenciKontakty(KontrahenciKontakty kontrahenciKontakty)
+        {
+            base.AddObject("KontrahenciKontakty", kontrahenciKontakty);
+        }
+    
+        /// <summary>
         /// Deprecated Method for adding a new object to the KontrahenciRodzaje EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
         public void AddToKontrahenciRodzaje(KontrahenciRodzaje kontrahenciRodzaje)
         {
             base.AddObject("KontrahenciRodzaje", kontrahenciRodzaje);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the Kraje EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToKraje(Kraje kraje)
+        {
+            base.AddObject("Kraje", kraje);
         }
     
         /// <summary>
@@ -472,11 +767,19 @@ namespace Firma.Models.Entities
         }
     
         /// <summary>
-        /// Deprecated Method for adding a new object to the Pojazdy EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// Deprecated Method for adding a new object to the PozycjePrzyjeciaZewnetrznego EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
-        public void AddToPojazdy(Pojazdy pojazdy)
+        public void AddToPozycjePrzyjeciaZewnetrznego(PozycjePrzyjeciaZewnetrznego pozycjePrzyjeciaZewnetrznego)
         {
-            base.AddObject("Pojazdy", pojazdy);
+            base.AddObject("PozycjePrzyjeciaZewnetrznego", pozycjePrzyjeciaZewnetrznego);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the PozycjeWydaniaZewnetrznego EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToPozycjeWydaniaZewnetrznego(PozycjeWydaniaZewnetrznego pozycjeWydaniaZewnetrznego)
+        {
+            base.AddObject("PozycjeWydaniaZewnetrznego", pozycjeWydaniaZewnetrznego);
         }
     
         /// <summary>
@@ -488,11 +791,19 @@ namespace Firma.Models.Entities
         }
     
         /// <summary>
-        /// Deprecated Method for adding a new object to the RodzajeCeny EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// Deprecated Method for adding a new object to the PracownicyUmowy EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
-        public void AddToRodzajeCeny(RodzajeCeny rodzajeCeny)
+        public void AddToPracownicyUmowy(PracownicyUmowy pracownicyUmowy)
         {
-            base.AddObject("RodzajeCeny", rodzajeCeny);
+            base.AddObject("PracownicyUmowy", pracownicyUmowy);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the PrzyjeciaZewnetrzne EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToPrzyjeciaZewnetrzne(PrzyjeciaZewnetrzne przyjeciaZewnetrzne)
+        {
+            base.AddObject("PrzyjeciaZewnetrzne", przyjeciaZewnetrzne);
         }
     
         /// <summary>
@@ -528,14 +839,6 @@ namespace Firma.Models.Entities
         }
     
         /// <summary>
-        /// Deprecated Method for adding a new object to the TowaryJednMiary EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
-        /// </summary>
-        public void AddToTowaryJednMiary(TowaryJednMiary towaryJednMiary)
-        {
-            base.AddObject("TowaryJednMiary", towaryJednMiary);
-        }
-    
-        /// <summary>
         /// Deprecated Method for adding a new object to the TowaryStawkiVat EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
         public void AddToTowaryStawkiVat(TowaryStawkiVat towaryStawkiVat)
@@ -566,6 +869,30 @@ namespace Firma.Models.Entities
         {
             base.AddObject("UmowyRodzaje", umowyRodzaje);
         }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the UmowyStanowiska EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToUmowyStanowiska(UmowyStanowiska umowyStanowiska)
+        {
+            base.AddObject("UmowyStanowiska", umowyStanowiska);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the WydaniaZewnetrzne EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToWydaniaZewnetrzne(WydaniaZewnetrzne wydaniaZewnetrzne)
+        {
+            base.AddObject("WydaniaZewnetrzne", wydaniaZewnetrzne);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the ZmianyCeny EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToZmianyCeny(ZmianyCeny zmianyCeny)
+        {
+            base.AddObject("ZmianyCeny", zmianyCeny);
+        }
 
         #endregion
 
@@ -578,38 +905,48 @@ namespace Firma.Models.Entities
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="JJFirmaModel", Name="FakturaTowary")]
+    [EdmEntityTypeAttribute(NamespaceName="JJFirmaModel", Name="Adresy")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
-    public partial class FakturaTowary : EntityObject
+    public partial class Adresy : EntityObject
     {
         #region Factory Method
     
         /// <summary>
-        /// Create a new FakturaTowary object.
+        /// Create a new Adresy object.
         /// </summary>
-        /// <param name="towarNaFakturzeId">Initial value of the TowarNaFakturzeId property.</param>
-        /// <param name="fakturaId">Initial value of the FakturaId property.</param>
-        /// <param name="towarId">Initial value of the TowarId property.</param>
-        /// <param name="ilosc">Initial value of the Ilosc property.</param>
-        /// <param name="rodzajCenyId">Initial value of the RodzajCenyId property.</param>
-        /// <param name="rabat">Initial value of the Rabat property.</param>
-        /// <param name="wartoscNetto">Initial value of the WartoscNetto property.</param>
+        /// <param name="adresId">Initial value of the AdresId property.</param>
+        /// <param name="krajId">Initial value of the KrajId property.</param>
+        /// <param name="miasto">Initial value of the Miasto property.</param>
+        /// <param name="wojewodztwo">Initial value of the Wojewodztwo property.</param>
+        /// <param name="poczta">Initial value of the Poczta property.</param>
+        /// <param name="kodPocztowy">Initial value of the KodPocztowy property.</param>
+        /// <param name="ulica">Initial value of the Ulica property.</param>
+        /// <param name="nrDomu">Initial value of the NrDomu property.</param>
+        /// <param name="nrLokalu">Initial value of the NrLokalu property.</param>
+        /// <param name="dodatkowe">Initial value of the Dodatkowe property.</param>
+        /// <param name="uwagi">Initial value of the Uwagi property.</param>
         /// <param name="dataUtworzenia">Initial value of the DataUtworzenia property.</param>
+        /// <param name="ktoUtworzylId">Initial value of the KtoUtworzylId property.</param>
         /// <param name="czyAktywny">Initial value of the CzyAktywny property.</param>
-        public static FakturaTowary CreateFakturaTowary(global::System.Int32 towarNaFakturzeId, global::System.Int32 fakturaId, global::System.Int32 towarId, global::System.Int32 ilosc, global::System.Int32 rodzajCenyId, global::System.Decimal rabat, global::System.Decimal wartoscNetto, global::System.DateTime dataUtworzenia, global::System.Boolean czyAktywny)
+        public static Adresy CreateAdresy(global::System.Int32 adresId, global::System.Int32 krajId, global::System.String miasto, global::System.String wojewodztwo, global::System.String poczta, global::System.String kodPocztowy, global::System.String ulica, global::System.String nrDomu, global::System.String nrLokalu, global::System.String dodatkowe, global::System.String uwagi, global::System.DateTime dataUtworzenia, global::System.Int32 ktoUtworzylId, global::System.Boolean czyAktywny)
         {
-            FakturaTowary fakturaTowary = new FakturaTowary();
-            fakturaTowary.TowarNaFakturzeId = towarNaFakturzeId;
-            fakturaTowary.FakturaId = fakturaId;
-            fakturaTowary.TowarId = towarId;
-            fakturaTowary.Ilosc = ilosc;
-            fakturaTowary.RodzajCenyId = rodzajCenyId;
-            fakturaTowary.Rabat = rabat;
-            fakturaTowary.WartoscNetto = wartoscNetto;
-            fakturaTowary.DataUtworzenia = dataUtworzenia;
-            fakturaTowary.CzyAktywny = czyAktywny;
-            return fakturaTowary;
+            Adresy adresy = new Adresy();
+            adresy.AdresId = adresId;
+            adresy.KrajId = krajId;
+            adresy.Miasto = miasto;
+            adresy.Wojewodztwo = wojewodztwo;
+            adresy.Poczta = poczta;
+            adresy.KodPocztowy = kodPocztowy;
+            adresy.Ulica = ulica;
+            adresy.NrDomu = nrDomu;
+            adresy.NrLokalu = nrLokalu;
+            adresy.Dodatkowe = dodatkowe;
+            adresy.Uwagi = uwagi;
+            adresy.DataUtworzenia = dataUtworzenia;
+            adresy.KtoUtworzylId = ktoUtworzylId;
+            adresy.CzyAktywny = czyAktywny;
+            return adresy;
         }
 
         #endregion
@@ -621,171 +958,267 @@ namespace Firma.Models.Entities
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.Int32 TowarNaFakturzeId
+        public global::System.Int32 AdresId
         {
             get
             {
-                return _TowarNaFakturzeId;
+                return _AdresId;
             }
             set
             {
-                if (_TowarNaFakturzeId != value)
+                if (_AdresId != value)
                 {
-                    OnTowarNaFakturzeIdChanging(value);
-                    ReportPropertyChanging("TowarNaFakturzeId");
-                    _TowarNaFakturzeId = StructuralObject.SetValidValue(value, "TowarNaFakturzeId");
-                    ReportPropertyChanged("TowarNaFakturzeId");
-                    OnTowarNaFakturzeIdChanged();
+                    OnAdresIdChanging(value);
+                    ReportPropertyChanging("AdresId");
+                    _AdresId = StructuralObject.SetValidValue(value, "AdresId");
+                    ReportPropertyChanged("AdresId");
+                    OnAdresIdChanged();
                 }
             }
         }
-        private global::System.Int32 _TowarNaFakturzeId;
-        partial void OnTowarNaFakturzeIdChanging(global::System.Int32 value);
-        partial void OnTowarNaFakturzeIdChanged();
+        private global::System.Int32 _AdresId;
+        partial void OnAdresIdChanging(global::System.Int32 value);
+        partial void OnAdresIdChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.Int32 FakturaId
+        public global::System.Int32 KrajId
         {
             get
             {
-                return _FakturaId;
+                return _KrajId;
             }
             set
             {
-                OnFakturaIdChanging(value);
-                ReportPropertyChanging("FakturaId");
-                _FakturaId = StructuralObject.SetValidValue(value, "FakturaId");
-                ReportPropertyChanged("FakturaId");
-                OnFakturaIdChanged();
+                OnKrajIdChanging(value);
+                ReportPropertyChanging("KrajId");
+                _KrajId = StructuralObject.SetValidValue(value, "KrajId");
+                ReportPropertyChanged("KrajId");
+                OnKrajIdChanged();
             }
         }
-        private global::System.Int32 _FakturaId;
-        partial void OnFakturaIdChanging(global::System.Int32 value);
-        partial void OnFakturaIdChanged();
+        private global::System.Int32 _KrajId;
+        partial void OnKrajIdChanging(global::System.Int32 value);
+        partial void OnKrajIdChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.Int32 TowarId
+        public global::System.String Miasto
         {
             get
             {
-                return _TowarId;
+                return _Miasto;
             }
             set
             {
-                OnTowarIdChanging(value);
-                ReportPropertyChanging("TowarId");
-                _TowarId = StructuralObject.SetValidValue(value, "TowarId");
-                ReportPropertyChanged("TowarId");
-                OnTowarIdChanged();
+                OnMiastoChanging(value);
+                ReportPropertyChanging("Miasto");
+                _Miasto = StructuralObject.SetValidValue(value, false, "Miasto");
+                ReportPropertyChanged("Miasto");
+                OnMiastoChanged();
             }
         }
-        private global::System.Int32 _TowarId;
-        partial void OnTowarIdChanging(global::System.Int32 value);
-        partial void OnTowarIdChanged();
+        private global::System.String _Miasto;
+        partial void OnMiastoChanging(global::System.String value);
+        partial void OnMiastoChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.Int32 Ilosc
+        public global::System.String Wojewodztwo
         {
             get
             {
-                return _Ilosc;
+                return _Wojewodztwo;
             }
             set
             {
-                OnIloscChanging(value);
-                ReportPropertyChanging("Ilosc");
-                _Ilosc = StructuralObject.SetValidValue(value, "Ilosc");
-                ReportPropertyChanged("Ilosc");
-                OnIloscChanged();
+                OnWojewodztwoChanging(value);
+                ReportPropertyChanging("Wojewodztwo");
+                _Wojewodztwo = StructuralObject.SetValidValue(value, false, "Wojewodztwo");
+                ReportPropertyChanged("Wojewodztwo");
+                OnWojewodztwoChanged();
             }
         }
-        private global::System.Int32 _Ilosc;
-        partial void OnIloscChanging(global::System.Int32 value);
-        partial void OnIloscChanged();
+        private global::System.String _Wojewodztwo;
+        partial void OnWojewodztwoChanging(global::System.String value);
+        partial void OnWojewodztwoChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.Int32 RodzajCenyId
+        public global::System.String Poczta
         {
             get
             {
-                return _RodzajCenyId;
+                return _Poczta;
             }
             set
             {
-                OnRodzajCenyIdChanging(value);
-                ReportPropertyChanging("RodzajCenyId");
-                _RodzajCenyId = StructuralObject.SetValidValue(value, "RodzajCenyId");
-                ReportPropertyChanged("RodzajCenyId");
-                OnRodzajCenyIdChanged();
+                OnPocztaChanging(value);
+                ReportPropertyChanging("Poczta");
+                _Poczta = StructuralObject.SetValidValue(value, false, "Poczta");
+                ReportPropertyChanged("Poczta");
+                OnPocztaChanged();
             }
         }
-        private global::System.Int32 _RodzajCenyId;
-        partial void OnRodzajCenyIdChanging(global::System.Int32 value);
-        partial void OnRodzajCenyIdChanged();
+        private global::System.String _Poczta;
+        partial void OnPocztaChanging(global::System.String value);
+        partial void OnPocztaChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.Decimal Rabat
+        public global::System.String KodPocztowy
         {
             get
             {
-                return _Rabat;
+                return _KodPocztowy;
             }
             set
             {
-                OnRabatChanging(value);
-                ReportPropertyChanging("Rabat");
-                _Rabat = StructuralObject.SetValidValue(value, "Rabat");
-                ReportPropertyChanged("Rabat");
-                OnRabatChanged();
+                OnKodPocztowyChanging(value);
+                ReportPropertyChanging("KodPocztowy");
+                _KodPocztowy = StructuralObject.SetValidValue(value, false, "KodPocztowy");
+                ReportPropertyChanged("KodPocztowy");
+                OnKodPocztowyChanged();
             }
         }
-        private global::System.Decimal _Rabat;
-        partial void OnRabatChanging(global::System.Decimal value);
-        partial void OnRabatChanged();
+        private global::System.String _KodPocztowy;
+        partial void OnKodPocztowyChanging(global::System.String value);
+        partial void OnKodPocztowyChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.Decimal WartoscNetto
+        public global::System.String Ulica
         {
             get
             {
-                return _WartoscNetto;
+                return _Ulica;
             }
             set
             {
-                OnWartoscNettoChanging(value);
-                ReportPropertyChanging("WartoscNetto");
-                _WartoscNetto = StructuralObject.SetValidValue(value, "WartoscNetto");
-                ReportPropertyChanged("WartoscNetto");
-                OnWartoscNettoChanged();
+                OnUlicaChanging(value);
+                ReportPropertyChanging("Ulica");
+                _Ulica = StructuralObject.SetValidValue(value, false, "Ulica");
+                ReportPropertyChanged("Ulica");
+                OnUlicaChanged();
             }
         }
-        private global::System.Decimal _WartoscNetto;
-        partial void OnWartoscNettoChanging(global::System.Decimal value);
-        partial void OnWartoscNettoChanged();
+        private global::System.String _Ulica;
+        partial void OnUlicaChanging(global::System.String value);
+        partial void OnUlicaChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String NrDomu
+        {
+            get
+            {
+                return _NrDomu;
+            }
+            set
+            {
+                OnNrDomuChanging(value);
+                ReportPropertyChanging("NrDomu");
+                _NrDomu = StructuralObject.SetValidValue(value, false, "NrDomu");
+                ReportPropertyChanged("NrDomu");
+                OnNrDomuChanged();
+            }
+        }
+        private global::System.String _NrDomu;
+        partial void OnNrDomuChanging(global::System.String value);
+        partial void OnNrDomuChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String NrLokalu
+        {
+            get
+            {
+                return _NrLokalu;
+            }
+            set
+            {
+                OnNrLokaluChanging(value);
+                ReportPropertyChanging("NrLokalu");
+                _NrLokalu = StructuralObject.SetValidValue(value, false, "NrLokalu");
+                ReportPropertyChanged("NrLokalu");
+                OnNrLokaluChanged();
+            }
+        }
+        private global::System.String _NrLokalu;
+        partial void OnNrLokaluChanging(global::System.String value);
+        partial void OnNrLokaluChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String Dodatkowe
+        {
+            get
+            {
+                return _Dodatkowe;
+            }
+            set
+            {
+                OnDodatkoweChanging(value);
+                ReportPropertyChanging("Dodatkowe");
+                _Dodatkowe = StructuralObject.SetValidValue(value, false, "Dodatkowe");
+                ReportPropertyChanged("Dodatkowe");
+                OnDodatkoweChanged();
+            }
+        }
+        private global::System.String _Dodatkowe;
+        partial void OnDodatkoweChanging(global::System.String value);
+        partial void OnDodatkoweChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String Uwagi
+        {
+            get
+            {
+                return _Uwagi;
+            }
+            set
+            {
+                OnUwagiChanging(value);
+                ReportPropertyChanging("Uwagi");
+                _Uwagi = StructuralObject.SetValidValue(value, false, "Uwagi");
+                ReportPropertyChanged("Uwagi");
+                OnUwagiChanged();
+            }
+        }
+        private global::System.String _Uwagi;
+        partial void OnUwagiChanging(global::System.String value);
+        partial void OnUwagiChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -810,6 +1243,30 @@ namespace Firma.Models.Entities
         private global::System.DateTime _DataUtworzenia;
         partial void OnDataUtworzeniaChanging(global::System.DateTime value);
         partial void OnDataUtworzeniaChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 KtoUtworzylId
+        {
+            get
+            {
+                return _KtoUtworzylId;
+            }
+            set
+            {
+                OnKtoUtworzylIdChanging(value);
+                ReportPropertyChanging("KtoUtworzylId");
+                _KtoUtworzylId = StructuralObject.SetValidValue(value, "KtoUtworzylId");
+                ReportPropertyChanged("KtoUtworzylId");
+                OnKtoUtworzylIdChanged();
+            }
+        }
+        private global::System.Int32 _KtoUtworzylId;
+        partial void OnKtoUtworzylIdChanging(global::System.Int32 value);
+        partial void OnKtoUtworzylIdChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -862,6 +1319,54 @@ namespace Firma.Models.Entities
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.DateTime> DataUsuniecia
+        {
+            get
+            {
+                return _DataUsuniecia;
+            }
+            set
+            {
+                OnDataUsunieciaChanging(value);
+                ReportPropertyChanging("DataUsuniecia");
+                _DataUsuniecia = StructuralObject.SetValidValue(value, "DataUsuniecia");
+                ReportPropertyChanged("DataUsuniecia");
+                OnDataUsunieciaChanged();
+            }
+        }
+        private Nullable<global::System.DateTime> _DataUsuniecia;
+        partial void OnDataUsunieciaChanging(Nullable<global::System.DateTime> value);
+        partial void OnDataUsunieciaChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> KtoUsunalId
+        {
+            get
+            {
+                return _KtoUsunalId;
+            }
+            set
+            {
+                OnKtoUsunalIdChanging(value);
+                ReportPropertyChanging("KtoUsunalId");
+                _KtoUsunalId = StructuralObject.SetValidValue(value, "KtoUsunalId");
+                ReportPropertyChanged("KtoUsunalId");
+                OnKtoUsunalIdChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _KtoUsunalId;
+        partial void OnKtoUsunalIdChanging(Nullable<global::System.Int32> value);
+        partial void OnKtoUsunalIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Boolean CzyAktywny
@@ -893,16 +1398,16 @@ namespace Firma.Models.Entities
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("JJFirmaModel", "FK_FakturaTowary_Faktury", "Faktury")]
-        public Faktury Faktury
+        [EdmRelationshipNavigationPropertyAttribute("JJFirmaModel", "FK_Adresy_Kraje", "Kraje")]
+        public Kraje Kraje
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Faktury>("JJFirmaModel.FK_FakturaTowary_Faktury", "Faktury").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Kraje>("JJFirmaModel.FK_Adresy_Kraje", "Kraje").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Faktury>("JJFirmaModel.FK_FakturaTowary_Faktury", "Faktury").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Kraje>("JJFirmaModel.FK_Adresy_Kraje", "Kraje").Value = value;
             }
         }
         /// <summary>
@@ -910,17 +1415,17 @@ namespace Firma.Models.Entities
         /// </summary>
         [BrowsableAttribute(false)]
         [DataMemberAttribute()]
-        public EntityReference<Faktury> FakturyReference
+        public EntityReference<Kraje> KrajeReference
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Faktury>("JJFirmaModel.FK_FakturaTowary_Faktury", "Faktury");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Kraje>("JJFirmaModel.FK_Adresy_Kraje", "Kraje");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Faktury>("JJFirmaModel.FK_FakturaTowary_Faktury", "Faktury", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Kraje>("JJFirmaModel.FK_Adresy_Kraje", "Kraje", value);
                 }
             }
         }
@@ -931,16 +1436,16 @@ namespace Firma.Models.Entities
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("JJFirmaModel", "FK_FakturaTowary_Pracownicy", "Pracownicy")]
+        [EdmRelationshipNavigationPropertyAttribute("JJFirmaModel", "FK_Adresy_Pracownicy", "Pracownicy")]
         public Pracownicy Pracownicy
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Pracownicy>("JJFirmaModel.FK_FakturaTowary_Pracownicy", "Pracownicy").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Pracownicy>("JJFirmaModel.FK_Adresy_Pracownicy", "Pracownicy").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Pracownicy>("JJFirmaModel.FK_FakturaTowary_Pracownicy", "Pracownicy").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Pracownicy>("JJFirmaModel.FK_Adresy_Pracownicy", "Pracownicy").Value = value;
             }
         }
         /// <summary>
@@ -952,13 +1457,13 @@ namespace Firma.Models.Entities
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Pracownicy>("JJFirmaModel.FK_FakturaTowary_Pracownicy", "Pracownicy");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Pracownicy>("JJFirmaModel.FK_Adresy_Pracownicy", "Pracownicy");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Pracownicy>("JJFirmaModel.FK_FakturaTowary_Pracownicy", "Pracownicy", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Pracownicy>("JJFirmaModel.FK_Adresy_Pracownicy", "Pracownicy", value);
                 }
             }
         }
@@ -969,16 +1474,16 @@ namespace Firma.Models.Entities
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("JJFirmaModel", "FK_FakturaTowary_RodzajeCeny", "RodzajeCeny")]
-        public RodzajeCeny RodzajeCeny
+        [EdmRelationshipNavigationPropertyAttribute("JJFirmaModel", "FK_Adresy_Pracownicy1", "Pracownicy")]
+        public Pracownicy Pracownicy1
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<RodzajeCeny>("JJFirmaModel.FK_FakturaTowary_RodzajeCeny", "RodzajeCeny").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Pracownicy>("JJFirmaModel.FK_Adresy_Pracownicy1", "Pracownicy").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<RodzajeCeny>("JJFirmaModel.FK_FakturaTowary_RodzajeCeny", "RodzajeCeny").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Pracownicy>("JJFirmaModel.FK_Adresy_Pracownicy1", "Pracownicy").Value = value;
             }
         }
         /// <summary>
@@ -986,17 +1491,17 @@ namespace Firma.Models.Entities
         /// </summary>
         [BrowsableAttribute(false)]
         [DataMemberAttribute()]
-        public EntityReference<RodzajeCeny> RodzajeCenyReference
+        public EntityReference<Pracownicy> Pracownicy1Reference
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<RodzajeCeny>("JJFirmaModel.FK_FakturaTowary_RodzajeCeny", "RodzajeCeny");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Pracownicy>("JJFirmaModel.FK_Adresy_Pracownicy1", "Pracownicy");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<RodzajeCeny>("JJFirmaModel.FK_FakturaTowary_RodzajeCeny", "RodzajeCeny", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Pracownicy>("JJFirmaModel.FK_Adresy_Pracownicy1", "Pracownicy", value);
                 }
             }
         }
@@ -1007,16 +1512,16 @@ namespace Firma.Models.Entities
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("JJFirmaModel", "FK_FakturaTowary_Towary", "Towary")]
-        public Towary Towary
+        [EdmRelationshipNavigationPropertyAttribute("JJFirmaModel", "FK_Adresy_Pracownicy2", "Pracownicy")]
+        public Pracownicy Pracownicy2
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Towary>("JJFirmaModel.FK_FakturaTowary_Towary", "Towary").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Pracownicy>("JJFirmaModel.FK_Adresy_Pracownicy2", "Pracownicy").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Towary>("JJFirmaModel.FK_FakturaTowary_Towary", "Towary").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Pracownicy>("JJFirmaModel.FK_Adresy_Pracownicy2", "Pracownicy").Value = value;
             }
         }
         /// <summary>
@@ -1024,17 +1529,105 @@ namespace Firma.Models.Entities
         /// </summary>
         [BrowsableAttribute(false)]
         [DataMemberAttribute()]
-        public EntityReference<Towary> TowaryReference
+        public EntityReference<Pracownicy> Pracownicy2Reference
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Towary>("JJFirmaModel.FK_FakturaTowary_Towary", "Towary");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Pracownicy>("JJFirmaModel.FK_Adresy_Pracownicy2", "Pracownicy");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Towary>("JJFirmaModel.FK_FakturaTowary_Towary", "Towary", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Pracownicy>("JJFirmaModel.FK_Adresy_Pracownicy2", "Pracownicy", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("JJFirmaModel", "FK_Kontrahenci_Adresy", "Kontrahenci")]
+        public EntityCollection<Kontrahenci> Kontrahenci
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Kontrahenci>("JJFirmaModel.FK_Kontrahenci_Adresy", "Kontrahenci");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Kontrahenci>("JJFirmaModel.FK_Kontrahenci_Adresy", "Kontrahenci", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("JJFirmaModel", "FK_Kontrahenci_Adresy1", "Kontrahenci")]
+        public EntityCollection<Kontrahenci> Kontrahenci1
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Kontrahenci>("JJFirmaModel.FK_Kontrahenci_Adresy1", "Kontrahenci");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Kontrahenci>("JJFirmaModel.FK_Kontrahenci_Adresy1", "Kontrahenci", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("JJFirmaModel", "FK_Magazyny_Adresy", "Magazyny")]
+        public EntityCollection<Magazyny> Magazyny
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Magazyny>("JJFirmaModel.FK_Magazyny_Adresy", "Magazyny");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Magazyny>("JJFirmaModel.FK_Magazyny_Adresy", "Magazyny", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("JJFirmaModel", "FK_Pracownicy_Adresy", "Pracownicy")]
+        public EntityCollection<Pracownicy> Pracownicy3
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Pracownicy>("JJFirmaModel.FK_Pracownicy_Adresy", "Pracownicy");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Pracownicy>("JJFirmaModel.FK_Pracownicy_Adresy", "Pracownicy", value);
                 }
             }
         }
@@ -1057,39 +1650,31 @@ namespace Firma.Models.Entities
         /// Create a new Faktury object.
         /// </summary>
         /// <param name="fakturaId">Initial value of the FakturaId property.</param>
+        /// <param name="rodzajFakturyId">Initial value of the RodzajFakturyId property.</param>
         /// <param name="numer">Initial value of the Numer property.</param>
         /// <param name="kontrahentId">Initial value of the KontrahentId property.</param>
         /// <param name="kategoriaFakturyId">Initial value of the KategoriaFakturyId property.</param>
-        /// <param name="magazynId">Initial value of the MagazynId property.</param>
         /// <param name="dataWystawienia">Initial value of the DataWystawienia property.</param>
         /// <param name="dataSprzedazy">Initial value of the DataSprzedazy property.</param>
         /// <param name="rabat">Initial value of the Rabat property.</param>
         /// <param name="rodzajePlatnosciId">Initial value of the RodzajePlatnosciId property.</param>
-        /// <param name="terminSplaty">Initial value of the TerminSplaty property.</param>
-        /// <param name="zadluzenie">Initial value of the Zadluzenie property.</param>
-        /// <param name="cenaNetto">Initial value of the CenaNetto property.</param>
-        /// <param name="cenaBrutto">Initial value of the CenaBrutto property.</param>
-        /// <param name="zaplacono">Initial value of the Zaplacono property.</param>
         /// <param name="dataUtworzenia">Initial value of the DataUtworzenia property.</param>
+        /// <param name="ktoUtworzylId">Initial value of the KtoUtworzylId property.</param>
         /// <param name="czyAktywny">Initial value of the CzyAktywny property.</param>
-        public static Faktury CreateFaktury(global::System.Int32 fakturaId, global::System.String numer, global::System.Int32 kontrahentId, global::System.Int32 kategoriaFakturyId, global::System.Int32 magazynId, global::System.DateTime dataWystawienia, global::System.DateTime dataSprzedazy, global::System.Decimal rabat, global::System.Int32 rodzajePlatnosciId, global::System.DateTime terminSplaty, global::System.Decimal zadluzenie, global::System.Decimal cenaNetto, global::System.Decimal cenaBrutto, global::System.Decimal zaplacono, global::System.DateTime dataUtworzenia, global::System.Boolean czyAktywny)
+        public static Faktury CreateFaktury(global::System.Int32 fakturaId, global::System.Int32 rodzajFakturyId, global::System.String numer, global::System.Int32 kontrahentId, global::System.Int32 kategoriaFakturyId, global::System.DateTime dataWystawienia, global::System.DateTime dataSprzedazy, global::System.Decimal rabat, global::System.Int32 rodzajePlatnosciId, global::System.DateTime dataUtworzenia, global::System.Int32 ktoUtworzylId, global::System.Boolean czyAktywny)
         {
             Faktury faktury = new Faktury();
             faktury.FakturaId = fakturaId;
+            faktury.RodzajFakturyId = rodzajFakturyId;
             faktury.Numer = numer;
             faktury.KontrahentId = kontrahentId;
             faktury.KategoriaFakturyId = kategoriaFakturyId;
-            faktury.MagazynId = magazynId;
             faktury.DataWystawienia = dataWystawienia;
             faktury.DataSprzedazy = dataSprzedazy;
             faktury.Rabat = rabat;
             faktury.RodzajePlatnosciId = rodzajePlatnosciId;
-            faktury.TerminSplaty = terminSplaty;
-            faktury.Zadluzenie = zadluzenie;
-            faktury.CenaNetto = cenaNetto;
-            faktury.CenaBrutto = cenaBrutto;
-            faktury.Zaplacono = zaplacono;
             faktury.DataUtworzenia = dataUtworzenia;
+            faktury.KtoUtworzylId = ktoUtworzylId;
             faktury.CzyAktywny = czyAktywny;
             return faktury;
         }
@@ -1124,6 +1709,30 @@ namespace Firma.Models.Entities
         private global::System.Int32 _FakturaId;
         partial void OnFakturaIdChanging(global::System.Int32 value);
         partial void OnFakturaIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 RodzajFakturyId
+        {
+            get
+            {
+                return _RodzajFakturyId;
+            }
+            set
+            {
+                OnRodzajFakturyIdChanging(value);
+                ReportPropertyChanging("RodzajFakturyId");
+                _RodzajFakturyId = StructuralObject.SetValidValue(value, "RodzajFakturyId");
+                ReportPropertyChanged("RodzajFakturyId");
+                OnRodzajFakturyIdChanged();
+            }
+        }
+        private global::System.Int32 _RodzajFakturyId;
+        partial void OnRodzajFakturyIdChanging(global::System.Int32 value);
+        partial void OnRodzajFakturyIdChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -1196,30 +1805,6 @@ namespace Firma.Models.Entities
         private global::System.Int32 _KategoriaFakturyId;
         partial void OnKategoriaFakturyIdChanging(global::System.Int32 value);
         partial void OnKategoriaFakturyIdChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.Int32 MagazynId
-        {
-            get
-            {
-                return _MagazynId;
-            }
-            set
-            {
-                OnMagazynIdChanging(value);
-                ReportPropertyChanging("MagazynId");
-                _MagazynId = StructuralObject.SetValidValue(value, "MagazynId");
-                ReportPropertyChanged("MagazynId");
-                OnMagazynIdChanged();
-            }
-        }
-        private global::System.Int32 _MagazynId;
-        partial void OnMagazynIdChanging(global::System.Int32 value);
-        partial void OnMagazynIdChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -1322,126 +1907,6 @@ namespace Firma.Models.Entities
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.DateTime TerminSplaty
-        {
-            get
-            {
-                return _TerminSplaty;
-            }
-            set
-            {
-                OnTerminSplatyChanging(value);
-                ReportPropertyChanging("TerminSplaty");
-                _TerminSplaty = StructuralObject.SetValidValue(value, "TerminSplaty");
-                ReportPropertyChanged("TerminSplaty");
-                OnTerminSplatyChanged();
-            }
-        }
-        private global::System.DateTime _TerminSplaty;
-        partial void OnTerminSplatyChanging(global::System.DateTime value);
-        partial void OnTerminSplatyChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.Decimal Zadluzenie
-        {
-            get
-            {
-                return _Zadluzenie;
-            }
-            set
-            {
-                OnZadluzenieChanging(value);
-                ReportPropertyChanging("Zadluzenie");
-                _Zadluzenie = StructuralObject.SetValidValue(value, "Zadluzenie");
-                ReportPropertyChanged("Zadluzenie");
-                OnZadluzenieChanged();
-            }
-        }
-        private global::System.Decimal _Zadluzenie;
-        partial void OnZadluzenieChanging(global::System.Decimal value);
-        partial void OnZadluzenieChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.Decimal CenaNetto
-        {
-            get
-            {
-                return _CenaNetto;
-            }
-            set
-            {
-                OnCenaNettoChanging(value);
-                ReportPropertyChanging("CenaNetto");
-                _CenaNetto = StructuralObject.SetValidValue(value, "CenaNetto");
-                ReportPropertyChanged("CenaNetto");
-                OnCenaNettoChanged();
-            }
-        }
-        private global::System.Decimal _CenaNetto;
-        partial void OnCenaNettoChanging(global::System.Decimal value);
-        partial void OnCenaNettoChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.Decimal CenaBrutto
-        {
-            get
-            {
-                return _CenaBrutto;
-            }
-            set
-            {
-                OnCenaBruttoChanging(value);
-                ReportPropertyChanging("CenaBrutto");
-                _CenaBrutto = StructuralObject.SetValidValue(value, "CenaBrutto");
-                ReportPropertyChanged("CenaBrutto");
-                OnCenaBruttoChanged();
-            }
-        }
-        private global::System.Decimal _CenaBrutto;
-        partial void OnCenaBruttoChanging(global::System.Decimal value);
-        partial void OnCenaBruttoChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.Decimal Zaplacono
-        {
-            get
-            {
-                return _Zaplacono;
-            }
-            set
-            {
-                OnZaplaconoChanging(value);
-                ReportPropertyChanging("Zaplacono");
-                _Zaplacono = StructuralObject.SetValidValue(value, "Zaplacono");
-                ReportPropertyChanged("Zaplacono");
-                OnZaplaconoChanged();
-            }
-        }
-        private global::System.Decimal _Zaplacono;
-        partial void OnZaplaconoChanging(global::System.Decimal value);
-        partial void OnZaplaconoChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
         public global::System.DateTime DataUtworzenia
         {
             get
@@ -1460,6 +1925,30 @@ namespace Firma.Models.Entities
         private global::System.DateTime _DataUtworzenia;
         partial void OnDataUtworzeniaChanging(global::System.DateTime value);
         partial void OnDataUtworzeniaChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 KtoUtworzylId
+        {
+            get
+            {
+                return _KtoUtworzylId;
+            }
+            set
+            {
+                OnKtoUtworzylIdChanging(value);
+                ReportPropertyChanging("KtoUtworzylId");
+                _KtoUtworzylId = StructuralObject.SetValidValue(value, "KtoUtworzylId");
+                ReportPropertyChanged("KtoUtworzylId");
+                OnKtoUtworzylIdChanged();
+            }
+        }
+        private global::System.Int32 _KtoUtworzylId;
+        partial void OnKtoUtworzylIdChanging(global::System.Int32 value);
+        partial void OnKtoUtworzylIdChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -1512,6 +2001,54 @@ namespace Firma.Models.Entities
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.DateTime> DataUsuniecia
+        {
+            get
+            {
+                return _DataUsuniecia;
+            }
+            set
+            {
+                OnDataUsunieciaChanging(value);
+                ReportPropertyChanging("DataUsuniecia");
+                _DataUsuniecia = StructuralObject.SetValidValue(value, "DataUsuniecia");
+                ReportPropertyChanged("DataUsuniecia");
+                OnDataUsunieciaChanged();
+            }
+        }
+        private Nullable<global::System.DateTime> _DataUsuniecia;
+        partial void OnDataUsunieciaChanging(Nullable<global::System.DateTime> value);
+        partial void OnDataUsunieciaChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> KtoUsunalId
+        {
+            get
+            {
+                return _KtoUsunalId;
+            }
+            set
+            {
+                OnKtoUsunalIdChanging(value);
+                ReportPropertyChanging("KtoUsunalId");
+                _KtoUsunalId = StructuralObject.SetValidValue(value, "KtoUsunalId");
+                ReportPropertyChanged("KtoUsunalId");
+                OnKtoUsunalIdChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _KtoUsunalId;
+        partial void OnKtoUsunalIdChanging(Nullable<global::System.Int32> value);
+        partial void OnKtoUsunalIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Boolean CzyAktywny
@@ -1536,28 +2073,6 @@ namespace Firma.Models.Entities
         #endregion
 
         #region Navigation Properties
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("JJFirmaModel", "FK_FakturaTowary_Faktury", "FakturaTowary")]
-        public EntityCollection<FakturaTowary> FakturaTowary
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<FakturaTowary>("JJFirmaModel.FK_FakturaTowary_Faktury", "FakturaTowary");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<FakturaTowary>("JJFirmaModel.FK_FakturaTowary_Faktury", "FakturaTowary", value);
-                }
-            }
-        }
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -1593,6 +2108,44 @@ namespace Firma.Models.Entities
                 if ((value != null))
                 {
                     ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<FakturyKategorie>("JJFirmaModel.FK_Faktury_FakturyKategorie", "FakturyKategorie", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("JJFirmaModel", "FK_Faktury_FakturyRodzaje", "FakturyRodzaje")]
+        public FakturyRodzaje FakturyRodzaje
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<FakturyRodzaje>("JJFirmaModel.FK_Faktury_FakturyRodzaje", "FakturyRodzaje").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<FakturyRodzaje>("JJFirmaModel.FK_Faktury_FakturyRodzaje", "FakturyRodzaje").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<FakturyRodzaje> FakturyRodzajeReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<FakturyRodzaje>("JJFirmaModel.FK_Faktury_FakturyRodzaje", "FakturyRodzaje");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<FakturyRodzaje>("JJFirmaModel.FK_Faktury_FakturyRodzaje", "FakturyRodzaje", value);
                 }
             }
         }
@@ -1641,44 +2194,6 @@ namespace Firma.Models.Entities
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("JJFirmaModel", "FK_Faktury_Magazyny", "Magazyny")]
-        public Magazyny Magazyny
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Magazyny>("JJFirmaModel.FK_Faktury_Magazyny", "Magazyny").Value;
-            }
-            set
-            {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Magazyny>("JJFirmaModel.FK_Faktury_Magazyny", "Magazyny").Value = value;
-            }
-        }
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [BrowsableAttribute(false)]
-        [DataMemberAttribute()]
-        public EntityReference<Magazyny> MagazynyReference
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Magazyny>("JJFirmaModel.FK_Faktury_Magazyny", "Magazyny");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Magazyny>("JJFirmaModel.FK_Faktury_Magazyny", "Magazyny", value);
-                }
-            }
-        }
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
         [EdmRelationshipNavigationPropertyAttribute("JJFirmaModel", "FK_Faktury_Pracownicy", "Pracownicy")]
         public Pracownicy Pracownicy
         {
@@ -1707,6 +2222,82 @@ namespace Firma.Models.Entities
                 if ((value != null))
                 {
                     ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Pracownicy>("JJFirmaModel.FK_Faktury_Pracownicy", "Pracownicy", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("JJFirmaModel", "FK_Faktury_Pracownicy1", "Pracownicy")]
+        public Pracownicy Pracownicy1
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Pracownicy>("JJFirmaModel.FK_Faktury_Pracownicy1", "Pracownicy").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Pracownicy>("JJFirmaModel.FK_Faktury_Pracownicy1", "Pracownicy").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<Pracownicy> Pracownicy1Reference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Pracownicy>("JJFirmaModel.FK_Faktury_Pracownicy1", "Pracownicy");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Pracownicy>("JJFirmaModel.FK_Faktury_Pracownicy1", "Pracownicy", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("JJFirmaModel", "FK_Faktury_Pracownicy2", "Pracownicy")]
+        public Pracownicy Pracownicy2
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Pracownicy>("JJFirmaModel.FK_Faktury_Pracownicy2", "Pracownicy").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Pracownicy>("JJFirmaModel.FK_Faktury_Pracownicy2", "Pracownicy").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<Pracownicy> Pracownicy2Reference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Pracownicy>("JJFirmaModel.FK_Faktury_Pracownicy2", "Pracownicy");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Pracownicy>("JJFirmaModel.FK_Faktury_Pracownicy2", "Pracownicy", value);
                 }
             }
         }
@@ -1748,6 +2339,28 @@ namespace Firma.Models.Entities
                 }
             }
         }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("JJFirmaModel", "FK_FakturyWydaniaZewnetrzne_Faktury", "FakturyWydaniaZewnetrzne")]
+        public EntityCollection<FakturyWydaniaZewnetrzne> FakturyWydaniaZewnetrzne
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<FakturyWydaniaZewnetrzne>("JJFirmaModel.FK_FakturyWydaniaZewnetrzne_Faktury", "FakturyWydaniaZewnetrzne");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<FakturyWydaniaZewnetrzne>("JJFirmaModel.FK_FakturyWydaniaZewnetrzne_Faktury", "FakturyWydaniaZewnetrzne", value);
+                }
+            }
+        }
 
         #endregion
 
@@ -1769,15 +2382,21 @@ namespace Firma.Models.Entities
         /// <param name="kategoriaFakturyId">Initial value of the KategoriaFakturyId property.</param>
         /// <param name="kod">Initial value of the Kod property.</param>
         /// <param name="nazwa">Initial value of the Nazwa property.</param>
+        /// <param name="opis">Initial value of the Opis property.</param>
+        /// <param name="uwagi">Initial value of the Uwagi property.</param>
         /// <param name="dataUtworzenia">Initial value of the DataUtworzenia property.</param>
+        /// <param name="ktoUtworzylId">Initial value of the KtoUtworzylId property.</param>
         /// <param name="czyAktywny">Initial value of the CzyAktywny property.</param>
-        public static FakturyKategorie CreateFakturyKategorie(global::System.Int32 kategoriaFakturyId, global::System.String kod, global::System.String nazwa, global::System.DateTime dataUtworzenia, global::System.Boolean czyAktywny)
+        public static FakturyKategorie CreateFakturyKategorie(global::System.Int32 kategoriaFakturyId, global::System.String kod, global::System.String nazwa, global::System.String opis, global::System.String uwagi, global::System.DateTime dataUtworzenia, global::System.Int32 ktoUtworzylId, global::System.Boolean czyAktywny)
         {
             FakturyKategorie fakturyKategorie = new FakturyKategorie();
             fakturyKategorie.KategoriaFakturyId = kategoriaFakturyId;
             fakturyKategorie.Kod = kod;
             fakturyKategorie.Nazwa = nazwa;
+            fakturyKategorie.Opis = opis;
+            fakturyKategorie.Uwagi = uwagi;
             fakturyKategorie.DataUtworzenia = dataUtworzenia;
+            fakturyKategorie.KtoUtworzylId = ktoUtworzylId;
             fakturyKategorie.CzyAktywny = czyAktywny;
             return fakturyKategorie;
         }
@@ -1866,6 +2485,54 @@ namespace Firma.Models.Entities
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
+        public global::System.String Opis
+        {
+            get
+            {
+                return _Opis;
+            }
+            set
+            {
+                OnOpisChanging(value);
+                ReportPropertyChanging("Opis");
+                _Opis = StructuralObject.SetValidValue(value, false, "Opis");
+                ReportPropertyChanged("Opis");
+                OnOpisChanged();
+            }
+        }
+        private global::System.String _Opis;
+        partial void OnOpisChanging(global::System.String value);
+        partial void OnOpisChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String Uwagi
+        {
+            get
+            {
+                return _Uwagi;
+            }
+            set
+            {
+                OnUwagiChanging(value);
+                ReportPropertyChanging("Uwagi");
+                _Uwagi = StructuralObject.SetValidValue(value, false, "Uwagi");
+                ReportPropertyChanged("Uwagi");
+                OnUwagiChanged();
+            }
+        }
+        private global::System.String _Uwagi;
+        partial void OnUwagiChanging(global::System.String value);
+        partial void OnUwagiChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
         public global::System.DateTime DataUtworzenia
         {
             get
@@ -1884,6 +2551,30 @@ namespace Firma.Models.Entities
         private global::System.DateTime _DataUtworzenia;
         partial void OnDataUtworzeniaChanging(global::System.DateTime value);
         partial void OnDataUtworzeniaChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 KtoUtworzylId
+        {
+            get
+            {
+                return _KtoUtworzylId;
+            }
+            set
+            {
+                OnKtoUtworzylIdChanging(value);
+                ReportPropertyChanging("KtoUtworzylId");
+                _KtoUtworzylId = StructuralObject.SetValidValue(value, "KtoUtworzylId");
+                ReportPropertyChanged("KtoUtworzylId");
+                OnKtoUtworzylIdChanged();
+            }
+        }
+        private global::System.Int32 _KtoUtworzylId;
+        partial void OnKtoUtworzylIdChanging(global::System.Int32 value);
+        partial void OnKtoUtworzylIdChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -1932,6 +2623,54 @@ namespace Firma.Models.Entities
         private Nullable<global::System.Int32> _KtoModId;
         partial void OnKtoModIdChanging(Nullable<global::System.Int32> value);
         partial void OnKtoModIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.DateTime> DataUsuniecia
+        {
+            get
+            {
+                return _DataUsuniecia;
+            }
+            set
+            {
+                OnDataUsunieciaChanging(value);
+                ReportPropertyChanging("DataUsuniecia");
+                _DataUsuniecia = StructuralObject.SetValidValue(value, "DataUsuniecia");
+                ReportPropertyChanged("DataUsuniecia");
+                OnDataUsunieciaChanged();
+            }
+        }
+        private Nullable<global::System.DateTime> _DataUsuniecia;
+        partial void OnDataUsunieciaChanging(Nullable<global::System.DateTime> value);
+        partial void OnDataUsunieciaChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> KtoUsunalId
+        {
+            get
+            {
+                return _KtoUsunalId;
+            }
+            set
+            {
+                OnKtoUsunalIdChanging(value);
+                ReportPropertyChanging("KtoUsunalId");
+                _KtoUsunalId = StructuralObject.SetValidValue(value, "KtoUsunalId");
+                ReportPropertyChanged("KtoUsunalId");
+                OnKtoUsunalIdChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _KtoUsunalId;
+        partial void OnKtoUsunalIdChanging(Nullable<global::System.Int32> value);
+        partial void OnKtoUsunalIdChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -2020,6 +2759,2128 @@ namespace Firma.Models.Entities
                 }
             }
         }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("JJFirmaModel", "FK_FakturyKategorie_Pracownicy1", "Pracownicy")]
+        public Pracownicy Pracownicy1
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Pracownicy>("JJFirmaModel.FK_FakturyKategorie_Pracownicy1", "Pracownicy").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Pracownicy>("JJFirmaModel.FK_FakturyKategorie_Pracownicy1", "Pracownicy").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<Pracownicy> Pracownicy1Reference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Pracownicy>("JJFirmaModel.FK_FakturyKategorie_Pracownicy1", "Pracownicy");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Pracownicy>("JJFirmaModel.FK_FakturyKategorie_Pracownicy1", "Pracownicy", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("JJFirmaModel", "FK_FakturyKategorie_Pracownicy2", "Pracownicy")]
+        public Pracownicy Pracownicy2
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Pracownicy>("JJFirmaModel.FK_FakturyKategorie_Pracownicy2", "Pracownicy").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Pracownicy>("JJFirmaModel.FK_FakturyKategorie_Pracownicy2", "Pracownicy").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<Pracownicy> Pracownicy2Reference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Pracownicy>("JJFirmaModel.FK_FakturyKategorie_Pracownicy2", "Pracownicy");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Pracownicy>("JJFirmaModel.FK_FakturyKategorie_Pracownicy2", "Pracownicy", value);
+                }
+            }
+        }
+
+        #endregion
+
+    }
+    
+    /// <summary>
+    /// No Metadata Documentation available.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="JJFirmaModel", Name="FakturyRodzaje")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class FakturyRodzaje : EntityObject
+    {
+        #region Factory Method
+    
+        /// <summary>
+        /// Create a new FakturyRodzaje object.
+        /// </summary>
+        /// <param name="rodzajFakturyId">Initial value of the RodzajFakturyId property.</param>
+        /// <param name="kod">Initial value of the Kod property.</param>
+        /// <param name="nazwa">Initial value of the Nazwa property.</param>
+        /// <param name="opis">Initial value of the Opis property.</param>
+        /// <param name="uwagi">Initial value of the Uwagi property.</param>
+        /// <param name="dataUtworzenia">Initial value of the DataUtworzenia property.</param>
+        /// <param name="ktoUtworzylId">Initial value of the KtoUtworzylId property.</param>
+        /// <param name="czyAktywny">Initial value of the CzyAktywny property.</param>
+        public static FakturyRodzaje CreateFakturyRodzaje(global::System.Int32 rodzajFakturyId, global::System.String kod, global::System.String nazwa, global::System.String opis, global::System.String uwagi, global::System.DateTime dataUtworzenia, global::System.Int32 ktoUtworzylId, global::System.Boolean czyAktywny)
+        {
+            FakturyRodzaje fakturyRodzaje = new FakturyRodzaje();
+            fakturyRodzaje.RodzajFakturyId = rodzajFakturyId;
+            fakturyRodzaje.Kod = kod;
+            fakturyRodzaje.Nazwa = nazwa;
+            fakturyRodzaje.Opis = opis;
+            fakturyRodzaje.Uwagi = uwagi;
+            fakturyRodzaje.DataUtworzenia = dataUtworzenia;
+            fakturyRodzaje.KtoUtworzylId = ktoUtworzylId;
+            fakturyRodzaje.CzyAktywny = czyAktywny;
+            return fakturyRodzaje;
+        }
+
+        #endregion
+
+        #region Simple Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 RodzajFakturyId
+        {
+            get
+            {
+                return _RodzajFakturyId;
+            }
+            set
+            {
+                if (_RodzajFakturyId != value)
+                {
+                    OnRodzajFakturyIdChanging(value);
+                    ReportPropertyChanging("RodzajFakturyId");
+                    _RodzajFakturyId = StructuralObject.SetValidValue(value, "RodzajFakturyId");
+                    ReportPropertyChanged("RodzajFakturyId");
+                    OnRodzajFakturyIdChanged();
+                }
+            }
+        }
+        private global::System.Int32 _RodzajFakturyId;
+        partial void OnRodzajFakturyIdChanging(global::System.Int32 value);
+        partial void OnRodzajFakturyIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String Kod
+        {
+            get
+            {
+                return _Kod;
+            }
+            set
+            {
+                OnKodChanging(value);
+                ReportPropertyChanging("Kod");
+                _Kod = StructuralObject.SetValidValue(value, false, "Kod");
+                ReportPropertyChanged("Kod");
+                OnKodChanged();
+            }
+        }
+        private global::System.String _Kod;
+        partial void OnKodChanging(global::System.String value);
+        partial void OnKodChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String Nazwa
+        {
+            get
+            {
+                return _Nazwa;
+            }
+            set
+            {
+                OnNazwaChanging(value);
+                ReportPropertyChanging("Nazwa");
+                _Nazwa = StructuralObject.SetValidValue(value, false, "Nazwa");
+                ReportPropertyChanged("Nazwa");
+                OnNazwaChanged();
+            }
+        }
+        private global::System.String _Nazwa;
+        partial void OnNazwaChanging(global::System.String value);
+        partial void OnNazwaChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String Opis
+        {
+            get
+            {
+                return _Opis;
+            }
+            set
+            {
+                OnOpisChanging(value);
+                ReportPropertyChanging("Opis");
+                _Opis = StructuralObject.SetValidValue(value, false, "Opis");
+                ReportPropertyChanged("Opis");
+                OnOpisChanged();
+            }
+        }
+        private global::System.String _Opis;
+        partial void OnOpisChanging(global::System.String value);
+        partial void OnOpisChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String Uwagi
+        {
+            get
+            {
+                return _Uwagi;
+            }
+            set
+            {
+                OnUwagiChanging(value);
+                ReportPropertyChanging("Uwagi");
+                _Uwagi = StructuralObject.SetValidValue(value, false, "Uwagi");
+                ReportPropertyChanged("Uwagi");
+                OnUwagiChanged();
+            }
+        }
+        private global::System.String _Uwagi;
+        partial void OnUwagiChanging(global::System.String value);
+        partial void OnUwagiChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.DateTime DataUtworzenia
+        {
+            get
+            {
+                return _DataUtworzenia;
+            }
+            set
+            {
+                OnDataUtworzeniaChanging(value);
+                ReportPropertyChanging("DataUtworzenia");
+                _DataUtworzenia = StructuralObject.SetValidValue(value, "DataUtworzenia");
+                ReportPropertyChanged("DataUtworzenia");
+                OnDataUtworzeniaChanged();
+            }
+        }
+        private global::System.DateTime _DataUtworzenia;
+        partial void OnDataUtworzeniaChanging(global::System.DateTime value);
+        partial void OnDataUtworzeniaChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 KtoUtworzylId
+        {
+            get
+            {
+                return _KtoUtworzylId;
+            }
+            set
+            {
+                OnKtoUtworzylIdChanging(value);
+                ReportPropertyChanging("KtoUtworzylId");
+                _KtoUtworzylId = StructuralObject.SetValidValue(value, "KtoUtworzylId");
+                ReportPropertyChanged("KtoUtworzylId");
+                OnKtoUtworzylIdChanged();
+            }
+        }
+        private global::System.Int32 _KtoUtworzylId;
+        partial void OnKtoUtworzylIdChanging(global::System.Int32 value);
+        partial void OnKtoUtworzylIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.DateTime> DataModyfikacji
+        {
+            get
+            {
+                return _DataModyfikacji;
+            }
+            set
+            {
+                OnDataModyfikacjiChanging(value);
+                ReportPropertyChanging("DataModyfikacji");
+                _DataModyfikacji = StructuralObject.SetValidValue(value, "DataModyfikacji");
+                ReportPropertyChanged("DataModyfikacji");
+                OnDataModyfikacjiChanged();
+            }
+        }
+        private Nullable<global::System.DateTime> _DataModyfikacji;
+        partial void OnDataModyfikacjiChanging(Nullable<global::System.DateTime> value);
+        partial void OnDataModyfikacjiChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> KtoModId
+        {
+            get
+            {
+                return _KtoModId;
+            }
+            set
+            {
+                OnKtoModIdChanging(value);
+                ReportPropertyChanging("KtoModId");
+                _KtoModId = StructuralObject.SetValidValue(value, "KtoModId");
+                ReportPropertyChanged("KtoModId");
+                OnKtoModIdChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _KtoModId;
+        partial void OnKtoModIdChanging(Nullable<global::System.Int32> value);
+        partial void OnKtoModIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.DateTime> DataUsuniecia
+        {
+            get
+            {
+                return _DataUsuniecia;
+            }
+            set
+            {
+                OnDataUsunieciaChanging(value);
+                ReportPropertyChanging("DataUsuniecia");
+                _DataUsuniecia = StructuralObject.SetValidValue(value, "DataUsuniecia");
+                ReportPropertyChanged("DataUsuniecia");
+                OnDataUsunieciaChanged();
+            }
+        }
+        private Nullable<global::System.DateTime> _DataUsuniecia;
+        partial void OnDataUsunieciaChanging(Nullable<global::System.DateTime> value);
+        partial void OnDataUsunieciaChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> KtoUsunalId
+        {
+            get
+            {
+                return _KtoUsunalId;
+            }
+            set
+            {
+                OnKtoUsunalIdChanging(value);
+                ReportPropertyChanging("KtoUsunalId");
+                _KtoUsunalId = StructuralObject.SetValidValue(value, "KtoUsunalId");
+                ReportPropertyChanged("KtoUsunalId");
+                OnKtoUsunalIdChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _KtoUsunalId;
+        partial void OnKtoUsunalIdChanging(Nullable<global::System.Int32> value);
+        partial void OnKtoUsunalIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Boolean CzyAktywny
+        {
+            get
+            {
+                return _CzyAktywny;
+            }
+            set
+            {
+                OnCzyAktywnyChanging(value);
+                ReportPropertyChanging("CzyAktywny");
+                _CzyAktywny = StructuralObject.SetValidValue(value, "CzyAktywny");
+                ReportPropertyChanged("CzyAktywny");
+                OnCzyAktywnyChanged();
+            }
+        }
+        private global::System.Boolean _CzyAktywny;
+        partial void OnCzyAktywnyChanging(global::System.Boolean value);
+        partial void OnCzyAktywnyChanged();
+
+        #endregion
+
+        #region Navigation Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("JJFirmaModel", "FK_Faktury_FakturyRodzaje", "Faktury")]
+        public EntityCollection<Faktury> Faktury
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Faktury>("JJFirmaModel.FK_Faktury_FakturyRodzaje", "Faktury");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Faktury>("JJFirmaModel.FK_Faktury_FakturyRodzaje", "Faktury", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("JJFirmaModel", "FK_FakturyRodzaje_Pracownicy", "Pracownicy")]
+        public Pracownicy Pracownicy
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Pracownicy>("JJFirmaModel.FK_FakturyRodzaje_Pracownicy", "Pracownicy").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Pracownicy>("JJFirmaModel.FK_FakturyRodzaje_Pracownicy", "Pracownicy").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<Pracownicy> PracownicyReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Pracownicy>("JJFirmaModel.FK_FakturyRodzaje_Pracownicy", "Pracownicy");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Pracownicy>("JJFirmaModel.FK_FakturyRodzaje_Pracownicy", "Pracownicy", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("JJFirmaModel", "FK_FakturyRodzaje_Pracownicy1", "Pracownicy")]
+        public Pracownicy Pracownicy1
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Pracownicy>("JJFirmaModel.FK_FakturyRodzaje_Pracownicy1", "Pracownicy").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Pracownicy>("JJFirmaModel.FK_FakturyRodzaje_Pracownicy1", "Pracownicy").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<Pracownicy> Pracownicy1Reference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Pracownicy>("JJFirmaModel.FK_FakturyRodzaje_Pracownicy1", "Pracownicy");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Pracownicy>("JJFirmaModel.FK_FakturyRodzaje_Pracownicy1", "Pracownicy", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("JJFirmaModel", "FK_FakturyRodzaje_Pracownicy2", "Pracownicy")]
+        public Pracownicy Pracownicy2
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Pracownicy>("JJFirmaModel.FK_FakturyRodzaje_Pracownicy2", "Pracownicy").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Pracownicy>("JJFirmaModel.FK_FakturyRodzaje_Pracownicy2", "Pracownicy").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<Pracownicy> Pracownicy2Reference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Pracownicy>("JJFirmaModel.FK_FakturyRodzaje_Pracownicy2", "Pracownicy");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Pracownicy>("JJFirmaModel.FK_FakturyRodzaje_Pracownicy2", "Pracownicy", value);
+                }
+            }
+        }
+
+        #endregion
+
+    }
+    
+    /// <summary>
+    /// No Metadata Documentation available.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="JJFirmaModel", Name="FakturyWydaniaZewnetrzne")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class FakturyWydaniaZewnetrzne : EntityObject
+    {
+        #region Factory Method
+    
+        /// <summary>
+        /// Create a new FakturyWydaniaZewnetrzne object.
+        /// </summary>
+        /// <param name="fakturaWZId">Initial value of the FakturaWZId property.</param>
+        /// <param name="fakturaId">Initial value of the FakturaId property.</param>
+        /// <param name="wydanieZewnetrzneId">Initial value of the WydanieZewnetrzneId property.</param>
+        /// <param name="dataUtworzenia">Initial value of the DataUtworzenia property.</param>
+        /// <param name="ktoUtworzylId">Initial value of the KtoUtworzylId property.</param>
+        /// <param name="czyAktywny">Initial value of the CzyAktywny property.</param>
+        public static FakturyWydaniaZewnetrzne CreateFakturyWydaniaZewnetrzne(global::System.Int32 fakturaWZId, global::System.Int32 fakturaId, global::System.Int32 wydanieZewnetrzneId, global::System.DateTime dataUtworzenia, global::System.Int32 ktoUtworzylId, global::System.Boolean czyAktywny)
+        {
+            FakturyWydaniaZewnetrzne fakturyWydaniaZewnetrzne = new FakturyWydaniaZewnetrzne();
+            fakturyWydaniaZewnetrzne.FakturaWZId = fakturaWZId;
+            fakturyWydaniaZewnetrzne.FakturaId = fakturaId;
+            fakturyWydaniaZewnetrzne.WydanieZewnetrzneId = wydanieZewnetrzneId;
+            fakturyWydaniaZewnetrzne.DataUtworzenia = dataUtworzenia;
+            fakturyWydaniaZewnetrzne.KtoUtworzylId = ktoUtworzylId;
+            fakturyWydaniaZewnetrzne.CzyAktywny = czyAktywny;
+            return fakturyWydaniaZewnetrzne;
+        }
+
+        #endregion
+
+        #region Simple Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 FakturaWZId
+        {
+            get
+            {
+                return _FakturaWZId;
+            }
+            set
+            {
+                if (_FakturaWZId != value)
+                {
+                    OnFakturaWZIdChanging(value);
+                    ReportPropertyChanging("FakturaWZId");
+                    _FakturaWZId = StructuralObject.SetValidValue(value, "FakturaWZId");
+                    ReportPropertyChanged("FakturaWZId");
+                    OnFakturaWZIdChanged();
+                }
+            }
+        }
+        private global::System.Int32 _FakturaWZId;
+        partial void OnFakturaWZIdChanging(global::System.Int32 value);
+        partial void OnFakturaWZIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 FakturaId
+        {
+            get
+            {
+                return _FakturaId;
+            }
+            set
+            {
+                OnFakturaIdChanging(value);
+                ReportPropertyChanging("FakturaId");
+                _FakturaId = StructuralObject.SetValidValue(value, "FakturaId");
+                ReportPropertyChanged("FakturaId");
+                OnFakturaIdChanged();
+            }
+        }
+        private global::System.Int32 _FakturaId;
+        partial void OnFakturaIdChanging(global::System.Int32 value);
+        partial void OnFakturaIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 WydanieZewnetrzneId
+        {
+            get
+            {
+                return _WydanieZewnetrzneId;
+            }
+            set
+            {
+                OnWydanieZewnetrzneIdChanging(value);
+                ReportPropertyChanging("WydanieZewnetrzneId");
+                _WydanieZewnetrzneId = StructuralObject.SetValidValue(value, "WydanieZewnetrzneId");
+                ReportPropertyChanged("WydanieZewnetrzneId");
+                OnWydanieZewnetrzneIdChanged();
+            }
+        }
+        private global::System.Int32 _WydanieZewnetrzneId;
+        partial void OnWydanieZewnetrzneIdChanging(global::System.Int32 value);
+        partial void OnWydanieZewnetrzneIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.DateTime DataUtworzenia
+        {
+            get
+            {
+                return _DataUtworzenia;
+            }
+            set
+            {
+                OnDataUtworzeniaChanging(value);
+                ReportPropertyChanging("DataUtworzenia");
+                _DataUtworzenia = StructuralObject.SetValidValue(value, "DataUtworzenia");
+                ReportPropertyChanged("DataUtworzenia");
+                OnDataUtworzeniaChanged();
+            }
+        }
+        private global::System.DateTime _DataUtworzenia;
+        partial void OnDataUtworzeniaChanging(global::System.DateTime value);
+        partial void OnDataUtworzeniaChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 KtoUtworzylId
+        {
+            get
+            {
+                return _KtoUtworzylId;
+            }
+            set
+            {
+                OnKtoUtworzylIdChanging(value);
+                ReportPropertyChanging("KtoUtworzylId");
+                _KtoUtworzylId = StructuralObject.SetValidValue(value, "KtoUtworzylId");
+                ReportPropertyChanged("KtoUtworzylId");
+                OnKtoUtworzylIdChanged();
+            }
+        }
+        private global::System.Int32 _KtoUtworzylId;
+        partial void OnKtoUtworzylIdChanging(global::System.Int32 value);
+        partial void OnKtoUtworzylIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.DateTime> DataMod
+        {
+            get
+            {
+                return _DataMod;
+            }
+            set
+            {
+                OnDataModChanging(value);
+                ReportPropertyChanging("DataMod");
+                _DataMod = StructuralObject.SetValidValue(value, "DataMod");
+                ReportPropertyChanged("DataMod");
+                OnDataModChanged();
+            }
+        }
+        private Nullable<global::System.DateTime> _DataMod;
+        partial void OnDataModChanging(Nullable<global::System.DateTime> value);
+        partial void OnDataModChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> KtoModId
+        {
+            get
+            {
+                return _KtoModId;
+            }
+            set
+            {
+                OnKtoModIdChanging(value);
+                ReportPropertyChanging("KtoModId");
+                _KtoModId = StructuralObject.SetValidValue(value, "KtoModId");
+                ReportPropertyChanged("KtoModId");
+                OnKtoModIdChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _KtoModId;
+        partial void OnKtoModIdChanging(Nullable<global::System.Int32> value);
+        partial void OnKtoModIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.DateTime> DataUsuniecia
+        {
+            get
+            {
+                return _DataUsuniecia;
+            }
+            set
+            {
+                OnDataUsunieciaChanging(value);
+                ReportPropertyChanging("DataUsuniecia");
+                _DataUsuniecia = StructuralObject.SetValidValue(value, "DataUsuniecia");
+                ReportPropertyChanged("DataUsuniecia");
+                OnDataUsunieciaChanged();
+            }
+        }
+        private Nullable<global::System.DateTime> _DataUsuniecia;
+        partial void OnDataUsunieciaChanging(Nullable<global::System.DateTime> value);
+        partial void OnDataUsunieciaChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> KtoUsunalId
+        {
+            get
+            {
+                return _KtoUsunalId;
+            }
+            set
+            {
+                OnKtoUsunalIdChanging(value);
+                ReportPropertyChanging("KtoUsunalId");
+                _KtoUsunalId = StructuralObject.SetValidValue(value, "KtoUsunalId");
+                ReportPropertyChanged("KtoUsunalId");
+                OnKtoUsunalIdChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _KtoUsunalId;
+        partial void OnKtoUsunalIdChanging(Nullable<global::System.Int32> value);
+        partial void OnKtoUsunalIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Boolean CzyAktywny
+        {
+            get
+            {
+                return _CzyAktywny;
+            }
+            set
+            {
+                OnCzyAktywnyChanging(value);
+                ReportPropertyChanging("CzyAktywny");
+                _CzyAktywny = StructuralObject.SetValidValue(value, "CzyAktywny");
+                ReportPropertyChanged("CzyAktywny");
+                OnCzyAktywnyChanged();
+            }
+        }
+        private global::System.Boolean _CzyAktywny;
+        partial void OnCzyAktywnyChanging(global::System.Boolean value);
+        partial void OnCzyAktywnyChanged();
+
+        #endregion
+
+        #region Navigation Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("JJFirmaModel", "FK_FakturyWydaniaZewnetrzne_Faktury", "Faktury")]
+        public Faktury Faktury
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Faktury>("JJFirmaModel.FK_FakturyWydaniaZewnetrzne_Faktury", "Faktury").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Faktury>("JJFirmaModel.FK_FakturyWydaniaZewnetrzne_Faktury", "Faktury").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<Faktury> FakturyReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Faktury>("JJFirmaModel.FK_FakturyWydaniaZewnetrzne_Faktury", "Faktury");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Faktury>("JJFirmaModel.FK_FakturyWydaniaZewnetrzne_Faktury", "Faktury", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("JJFirmaModel", "FK_FakturyWydaniaZewnetrzne_Pracownicy", "Pracownicy")]
+        public Pracownicy Pracownicy
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Pracownicy>("JJFirmaModel.FK_FakturyWydaniaZewnetrzne_Pracownicy", "Pracownicy").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Pracownicy>("JJFirmaModel.FK_FakturyWydaniaZewnetrzne_Pracownicy", "Pracownicy").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<Pracownicy> PracownicyReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Pracownicy>("JJFirmaModel.FK_FakturyWydaniaZewnetrzne_Pracownicy", "Pracownicy");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Pracownicy>("JJFirmaModel.FK_FakturyWydaniaZewnetrzne_Pracownicy", "Pracownicy", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("JJFirmaModel", "FK_FakturyWydaniaZewnetrzne_Pracownicy1", "Pracownicy")]
+        public Pracownicy Pracownicy1
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Pracownicy>("JJFirmaModel.FK_FakturyWydaniaZewnetrzne_Pracownicy1", "Pracownicy").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Pracownicy>("JJFirmaModel.FK_FakturyWydaniaZewnetrzne_Pracownicy1", "Pracownicy").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<Pracownicy> Pracownicy1Reference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Pracownicy>("JJFirmaModel.FK_FakturyWydaniaZewnetrzne_Pracownicy1", "Pracownicy");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Pracownicy>("JJFirmaModel.FK_FakturyWydaniaZewnetrzne_Pracownicy1", "Pracownicy", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("JJFirmaModel", "FK_FakturyWydaniaZewnetrzne_Pracownicy2", "Pracownicy")]
+        public Pracownicy Pracownicy2
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Pracownicy>("JJFirmaModel.FK_FakturyWydaniaZewnetrzne_Pracownicy2", "Pracownicy").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Pracownicy>("JJFirmaModel.FK_FakturyWydaniaZewnetrzne_Pracownicy2", "Pracownicy").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<Pracownicy> Pracownicy2Reference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Pracownicy>("JJFirmaModel.FK_FakturyWydaniaZewnetrzne_Pracownicy2", "Pracownicy");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Pracownicy>("JJFirmaModel.FK_FakturyWydaniaZewnetrzne_Pracownicy2", "Pracownicy", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("JJFirmaModel", "FK_FakturyWydaniaZewnetrzne_WydaniaZewnetrzne", "WydaniaZewnetrzne")]
+        public WydaniaZewnetrzne WydaniaZewnetrzne
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<WydaniaZewnetrzne>("JJFirmaModel.FK_FakturyWydaniaZewnetrzne_WydaniaZewnetrzne", "WydaniaZewnetrzne").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<WydaniaZewnetrzne>("JJFirmaModel.FK_FakturyWydaniaZewnetrzne_WydaniaZewnetrzne", "WydaniaZewnetrzne").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<WydaniaZewnetrzne> WydaniaZewnetrzneReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<WydaniaZewnetrzne>("JJFirmaModel.FK_FakturyWydaniaZewnetrzne_WydaniaZewnetrzne", "WydaniaZewnetrzne");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<WydaniaZewnetrzne>("JJFirmaModel.FK_FakturyWydaniaZewnetrzne_WydaniaZewnetrzne", "WydaniaZewnetrzne", value);
+                }
+            }
+        }
+
+        #endregion
+
+    }
+    
+    /// <summary>
+    /// No Metadata Documentation available.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="JJFirmaModel", Name="JednostkiMiary")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class JednostkiMiary : EntityObject
+    {
+        #region Factory Method
+    
+        /// <summary>
+        /// Create a new JednostkiMiary object.
+        /// </summary>
+        /// <param name="jednostkaId">Initial value of the JednostkaId property.</param>
+        /// <param name="skrot">Initial value of the Skrot property.</param>
+        /// <param name="nazwa">Initial value of the Nazwa property.</param>
+        /// <param name="opis">Initial value of the Opis property.</param>
+        /// <param name="uwagi">Initial value of the Uwagi property.</param>
+        /// <param name="dataUtworzenia">Initial value of the DataUtworzenia property.</param>
+        /// <param name="ktoUtworzylId">Initial value of the KtoUtworzylId property.</param>
+        /// <param name="czyAktywny">Initial value of the CzyAktywny property.</param>
+        public static JednostkiMiary CreateJednostkiMiary(global::System.Int32 jednostkaId, global::System.String skrot, global::System.String nazwa, global::System.String opis, global::System.String uwagi, global::System.DateTime dataUtworzenia, global::System.Int32 ktoUtworzylId, global::System.Boolean czyAktywny)
+        {
+            JednostkiMiary jednostkiMiary = new JednostkiMiary();
+            jednostkiMiary.JednostkaId = jednostkaId;
+            jednostkiMiary.Skrot = skrot;
+            jednostkiMiary.Nazwa = nazwa;
+            jednostkiMiary.Opis = opis;
+            jednostkiMiary.Uwagi = uwagi;
+            jednostkiMiary.DataUtworzenia = dataUtworzenia;
+            jednostkiMiary.KtoUtworzylId = ktoUtworzylId;
+            jednostkiMiary.CzyAktywny = czyAktywny;
+            return jednostkiMiary;
+        }
+
+        #endregion
+
+        #region Simple Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 JednostkaId
+        {
+            get
+            {
+                return _JednostkaId;
+            }
+            set
+            {
+                if (_JednostkaId != value)
+                {
+                    OnJednostkaIdChanging(value);
+                    ReportPropertyChanging("JednostkaId");
+                    _JednostkaId = StructuralObject.SetValidValue(value, "JednostkaId");
+                    ReportPropertyChanged("JednostkaId");
+                    OnJednostkaIdChanged();
+                }
+            }
+        }
+        private global::System.Int32 _JednostkaId;
+        partial void OnJednostkaIdChanging(global::System.Int32 value);
+        partial void OnJednostkaIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String Skrot
+        {
+            get
+            {
+                return _Skrot;
+            }
+            set
+            {
+                OnSkrotChanging(value);
+                ReportPropertyChanging("Skrot");
+                _Skrot = StructuralObject.SetValidValue(value, false, "Skrot");
+                ReportPropertyChanged("Skrot");
+                OnSkrotChanged();
+            }
+        }
+        private global::System.String _Skrot;
+        partial void OnSkrotChanging(global::System.String value);
+        partial void OnSkrotChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String Nazwa
+        {
+            get
+            {
+                return _Nazwa;
+            }
+            set
+            {
+                OnNazwaChanging(value);
+                ReportPropertyChanging("Nazwa");
+                _Nazwa = StructuralObject.SetValidValue(value, false, "Nazwa");
+                ReportPropertyChanged("Nazwa");
+                OnNazwaChanged();
+            }
+        }
+        private global::System.String _Nazwa;
+        partial void OnNazwaChanging(global::System.String value);
+        partial void OnNazwaChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String Opis
+        {
+            get
+            {
+                return _Opis;
+            }
+            set
+            {
+                OnOpisChanging(value);
+                ReportPropertyChanging("Opis");
+                _Opis = StructuralObject.SetValidValue(value, false, "Opis");
+                ReportPropertyChanged("Opis");
+                OnOpisChanged();
+            }
+        }
+        private global::System.String _Opis;
+        partial void OnOpisChanging(global::System.String value);
+        partial void OnOpisChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String Uwagi
+        {
+            get
+            {
+                return _Uwagi;
+            }
+            set
+            {
+                OnUwagiChanging(value);
+                ReportPropertyChanging("Uwagi");
+                _Uwagi = StructuralObject.SetValidValue(value, false, "Uwagi");
+                ReportPropertyChanged("Uwagi");
+                OnUwagiChanged();
+            }
+        }
+        private global::System.String _Uwagi;
+        partial void OnUwagiChanging(global::System.String value);
+        partial void OnUwagiChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.DateTime DataUtworzenia
+        {
+            get
+            {
+                return _DataUtworzenia;
+            }
+            set
+            {
+                OnDataUtworzeniaChanging(value);
+                ReportPropertyChanging("DataUtworzenia");
+                _DataUtworzenia = StructuralObject.SetValidValue(value, "DataUtworzenia");
+                ReportPropertyChanged("DataUtworzenia");
+                OnDataUtworzeniaChanged();
+            }
+        }
+        private global::System.DateTime _DataUtworzenia;
+        partial void OnDataUtworzeniaChanging(global::System.DateTime value);
+        partial void OnDataUtworzeniaChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 KtoUtworzylId
+        {
+            get
+            {
+                return _KtoUtworzylId;
+            }
+            set
+            {
+                OnKtoUtworzylIdChanging(value);
+                ReportPropertyChanging("KtoUtworzylId");
+                _KtoUtworzylId = StructuralObject.SetValidValue(value, "KtoUtworzylId");
+                ReportPropertyChanged("KtoUtworzylId");
+                OnKtoUtworzylIdChanged();
+            }
+        }
+        private global::System.Int32 _KtoUtworzylId;
+        partial void OnKtoUtworzylIdChanging(global::System.Int32 value);
+        partial void OnKtoUtworzylIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.DateTime> DataMod
+        {
+            get
+            {
+                return _DataMod;
+            }
+            set
+            {
+                OnDataModChanging(value);
+                ReportPropertyChanging("DataMod");
+                _DataMod = StructuralObject.SetValidValue(value, "DataMod");
+                ReportPropertyChanged("DataMod");
+                OnDataModChanged();
+            }
+        }
+        private Nullable<global::System.DateTime> _DataMod;
+        partial void OnDataModChanging(Nullable<global::System.DateTime> value);
+        partial void OnDataModChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> KtoModId
+        {
+            get
+            {
+                return _KtoModId;
+            }
+            set
+            {
+                OnKtoModIdChanging(value);
+                ReportPropertyChanging("KtoModId");
+                _KtoModId = StructuralObject.SetValidValue(value, "KtoModId");
+                ReportPropertyChanged("KtoModId");
+                OnKtoModIdChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _KtoModId;
+        partial void OnKtoModIdChanging(Nullable<global::System.Int32> value);
+        partial void OnKtoModIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.DateTime> DataUsuniecia
+        {
+            get
+            {
+                return _DataUsuniecia;
+            }
+            set
+            {
+                OnDataUsunieciaChanging(value);
+                ReportPropertyChanging("DataUsuniecia");
+                _DataUsuniecia = StructuralObject.SetValidValue(value, "DataUsuniecia");
+                ReportPropertyChanged("DataUsuniecia");
+                OnDataUsunieciaChanged();
+            }
+        }
+        private Nullable<global::System.DateTime> _DataUsuniecia;
+        partial void OnDataUsunieciaChanging(Nullable<global::System.DateTime> value);
+        partial void OnDataUsunieciaChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> KtoUsunalId
+        {
+            get
+            {
+                return _KtoUsunalId;
+            }
+            set
+            {
+                OnKtoUsunalIdChanging(value);
+                ReportPropertyChanging("KtoUsunalId");
+                _KtoUsunalId = StructuralObject.SetValidValue(value, "KtoUsunalId");
+                ReportPropertyChanged("KtoUsunalId");
+                OnKtoUsunalIdChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _KtoUsunalId;
+        partial void OnKtoUsunalIdChanging(Nullable<global::System.Int32> value);
+        partial void OnKtoUsunalIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Boolean CzyAktywny
+        {
+            get
+            {
+                return _CzyAktywny;
+            }
+            set
+            {
+                OnCzyAktywnyChanging(value);
+                ReportPropertyChanging("CzyAktywny");
+                _CzyAktywny = StructuralObject.SetValidValue(value, "CzyAktywny");
+                ReportPropertyChanged("CzyAktywny");
+                OnCzyAktywnyChanged();
+            }
+        }
+        private global::System.Boolean _CzyAktywny;
+        partial void OnCzyAktywnyChanging(global::System.Boolean value);
+        partial void OnCzyAktywnyChanged();
+
+        #endregion
+
+        #region Navigation Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("JJFirmaModel", "FK_JednostkiMiary_Pracownicy", "Pracownicy")]
+        public Pracownicy Pracownicy
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Pracownicy>("JJFirmaModel.FK_JednostkiMiary_Pracownicy", "Pracownicy").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Pracownicy>("JJFirmaModel.FK_JednostkiMiary_Pracownicy", "Pracownicy").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<Pracownicy> PracownicyReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Pracownicy>("JJFirmaModel.FK_JednostkiMiary_Pracownicy", "Pracownicy");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Pracownicy>("JJFirmaModel.FK_JednostkiMiary_Pracownicy", "Pracownicy", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("JJFirmaModel", "FK_JednostkiMiary_Pracownicy1", "Pracownicy")]
+        public Pracownicy Pracownicy1
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Pracownicy>("JJFirmaModel.FK_JednostkiMiary_Pracownicy1", "Pracownicy").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Pracownicy>("JJFirmaModel.FK_JednostkiMiary_Pracownicy1", "Pracownicy").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<Pracownicy> Pracownicy1Reference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Pracownicy>("JJFirmaModel.FK_JednostkiMiary_Pracownicy1", "Pracownicy");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Pracownicy>("JJFirmaModel.FK_JednostkiMiary_Pracownicy1", "Pracownicy", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("JJFirmaModel", "FK_JednostkiMiary_Pracownicy2", "Pracownicy")]
+        public Pracownicy Pracownicy2
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Pracownicy>("JJFirmaModel.FK_JednostkiMiary_Pracownicy2", "Pracownicy").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Pracownicy>("JJFirmaModel.FK_JednostkiMiary_Pracownicy2", "Pracownicy").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<Pracownicy> Pracownicy2Reference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Pracownicy>("JJFirmaModel.FK_JednostkiMiary_Pracownicy2", "Pracownicy");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Pracownicy>("JJFirmaModel.FK_JednostkiMiary_Pracownicy2", "Pracownicy", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("JJFirmaModel", "FK_PozycjePrzyjeciaZewnetrznego_JednostkiMiary", "PozycjePrzyjeciaZewnetrznego")]
+        public EntityCollection<PozycjePrzyjeciaZewnetrznego> PozycjePrzyjeciaZewnetrznego
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<PozycjePrzyjeciaZewnetrznego>("JJFirmaModel.FK_PozycjePrzyjeciaZewnetrznego_JednostkiMiary", "PozycjePrzyjeciaZewnetrznego");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<PozycjePrzyjeciaZewnetrznego>("JJFirmaModel.FK_PozycjePrzyjeciaZewnetrznego_JednostkiMiary", "PozycjePrzyjeciaZewnetrznego", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("JJFirmaModel", "FK_PozycjeWydaniaZewnetrznego_JednostkiMiary", "PozycjeWydaniaZewnetrznego")]
+        public EntityCollection<PozycjeWydaniaZewnetrznego> PozycjeWydaniaZewnetrznego
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<PozycjeWydaniaZewnetrznego>("JJFirmaModel.FK_PozycjeWydaniaZewnetrznego_JednostkiMiary", "PozycjeWydaniaZewnetrznego");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<PozycjeWydaniaZewnetrznego>("JJFirmaModel.FK_PozycjeWydaniaZewnetrznego_JednostkiMiary", "PozycjeWydaniaZewnetrznego", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("JJFirmaModel", "FK_ZmianyCeny_JednostkiMiary", "ZmianyCeny")]
+        public EntityCollection<ZmianyCeny> ZmianyCeny
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<ZmianyCeny>("JJFirmaModel.FK_ZmianyCeny_JednostkiMiary", "ZmianyCeny");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<ZmianyCeny>("JJFirmaModel.FK_ZmianyCeny_JednostkiMiary", "ZmianyCeny", value);
+                }
+            }
+        }
+
+        #endregion
+
+    }
+    
+    /// <summary>
+    /// No Metadata Documentation available.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="JJFirmaModel", Name="Kontakty")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class Kontakty : EntityObject
+    {
+        #region Factory Method
+    
+        /// <summary>
+        /// Create a new Kontakty object.
+        /// </summary>
+        /// <param name="kontaktId">Initial value of the KontaktId property.</param>
+        /// <param name="nazwaDzialu">Initial value of the NazwaDzialu property.</param>
+        /// <param name="opisOsoby">Initial value of the OpisOsoby property.</param>
+        /// <param name="telefon1">Initial value of the Telefon1 property.</param>
+        /// <param name="telefon2">Initial value of the Telefon2 property.</param>
+        /// <param name="fax">Initial value of the Fax property.</param>
+        /// <param name="email1">Initial value of the Email1 property.</param>
+        /// <param name="email2">Initial value of the Email2 property.</param>
+        /// <param name="uwagi">Initial value of the Uwagi property.</param>
+        /// <param name="dataUtworzenia">Initial value of the DataUtworzenia property.</param>
+        /// <param name="ktoUtworzylId">Initial value of the KtoUtworzylId property.</param>
+        /// <param name="czyAktywny">Initial value of the CzyAktywny property.</param>
+        public static Kontakty CreateKontakty(global::System.Int32 kontaktId, global::System.String nazwaDzialu, global::System.String opisOsoby, global::System.String telefon1, global::System.String telefon2, global::System.String fax, global::System.String email1, global::System.String email2, global::System.String uwagi, global::System.DateTime dataUtworzenia, global::System.Int32 ktoUtworzylId, global::System.Boolean czyAktywny)
+        {
+            Kontakty kontakty = new Kontakty();
+            kontakty.KontaktId = kontaktId;
+            kontakty.NazwaDzialu = nazwaDzialu;
+            kontakty.OpisOsoby = opisOsoby;
+            kontakty.Telefon1 = telefon1;
+            kontakty.Telefon2 = telefon2;
+            kontakty.Fax = fax;
+            kontakty.Email1 = email1;
+            kontakty.Email2 = email2;
+            kontakty.Uwagi = uwagi;
+            kontakty.DataUtworzenia = dataUtworzenia;
+            kontakty.KtoUtworzylId = ktoUtworzylId;
+            kontakty.CzyAktywny = czyAktywny;
+            return kontakty;
+        }
+
+        #endregion
+
+        #region Simple Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 KontaktId
+        {
+            get
+            {
+                return _KontaktId;
+            }
+            set
+            {
+                if (_KontaktId != value)
+                {
+                    OnKontaktIdChanging(value);
+                    ReportPropertyChanging("KontaktId");
+                    _KontaktId = StructuralObject.SetValidValue(value, "KontaktId");
+                    ReportPropertyChanged("KontaktId");
+                    OnKontaktIdChanged();
+                }
+            }
+        }
+        private global::System.Int32 _KontaktId;
+        partial void OnKontaktIdChanging(global::System.Int32 value);
+        partial void OnKontaktIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String NazwaDzialu
+        {
+            get
+            {
+                return _NazwaDzialu;
+            }
+            set
+            {
+                OnNazwaDzialuChanging(value);
+                ReportPropertyChanging("NazwaDzialu");
+                _NazwaDzialu = StructuralObject.SetValidValue(value, false, "NazwaDzialu");
+                ReportPropertyChanged("NazwaDzialu");
+                OnNazwaDzialuChanged();
+            }
+        }
+        private global::System.String _NazwaDzialu;
+        partial void OnNazwaDzialuChanging(global::System.String value);
+        partial void OnNazwaDzialuChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String OpisOsoby
+        {
+            get
+            {
+                return _OpisOsoby;
+            }
+            set
+            {
+                OnOpisOsobyChanging(value);
+                ReportPropertyChanging("OpisOsoby");
+                _OpisOsoby = StructuralObject.SetValidValue(value, false, "OpisOsoby");
+                ReportPropertyChanged("OpisOsoby");
+                OnOpisOsobyChanged();
+            }
+        }
+        private global::System.String _OpisOsoby;
+        partial void OnOpisOsobyChanging(global::System.String value);
+        partial void OnOpisOsobyChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String Telefon1
+        {
+            get
+            {
+                return _Telefon1;
+            }
+            set
+            {
+                OnTelefon1Changing(value);
+                ReportPropertyChanging("Telefon1");
+                _Telefon1 = StructuralObject.SetValidValue(value, false, "Telefon1");
+                ReportPropertyChanged("Telefon1");
+                OnTelefon1Changed();
+            }
+        }
+        private global::System.String _Telefon1;
+        partial void OnTelefon1Changing(global::System.String value);
+        partial void OnTelefon1Changed();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String Telefon2
+        {
+            get
+            {
+                return _Telefon2;
+            }
+            set
+            {
+                OnTelefon2Changing(value);
+                ReportPropertyChanging("Telefon2");
+                _Telefon2 = StructuralObject.SetValidValue(value, false, "Telefon2");
+                ReportPropertyChanged("Telefon2");
+                OnTelefon2Changed();
+            }
+        }
+        private global::System.String _Telefon2;
+        partial void OnTelefon2Changing(global::System.String value);
+        partial void OnTelefon2Changed();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String Fax
+        {
+            get
+            {
+                return _Fax;
+            }
+            set
+            {
+                OnFaxChanging(value);
+                ReportPropertyChanging("Fax");
+                _Fax = StructuralObject.SetValidValue(value, false, "Fax");
+                ReportPropertyChanged("Fax");
+                OnFaxChanged();
+            }
+        }
+        private global::System.String _Fax;
+        partial void OnFaxChanging(global::System.String value);
+        partial void OnFaxChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String Email1
+        {
+            get
+            {
+                return _Email1;
+            }
+            set
+            {
+                OnEmail1Changing(value);
+                ReportPropertyChanging("Email1");
+                _Email1 = StructuralObject.SetValidValue(value, false, "Email1");
+                ReportPropertyChanged("Email1");
+                OnEmail1Changed();
+            }
+        }
+        private global::System.String _Email1;
+        partial void OnEmail1Changing(global::System.String value);
+        partial void OnEmail1Changed();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String Email2
+        {
+            get
+            {
+                return _Email2;
+            }
+            set
+            {
+                OnEmail2Changing(value);
+                ReportPropertyChanging("Email2");
+                _Email2 = StructuralObject.SetValidValue(value, false, "Email2");
+                ReportPropertyChanged("Email2");
+                OnEmail2Changed();
+            }
+        }
+        private global::System.String _Email2;
+        partial void OnEmail2Changing(global::System.String value);
+        partial void OnEmail2Changed();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String Uwagi
+        {
+            get
+            {
+                return _Uwagi;
+            }
+            set
+            {
+                OnUwagiChanging(value);
+                ReportPropertyChanging("Uwagi");
+                _Uwagi = StructuralObject.SetValidValue(value, false, "Uwagi");
+                ReportPropertyChanged("Uwagi");
+                OnUwagiChanged();
+            }
+        }
+        private global::System.String _Uwagi;
+        partial void OnUwagiChanging(global::System.String value);
+        partial void OnUwagiChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.DateTime DataUtworzenia
+        {
+            get
+            {
+                return _DataUtworzenia;
+            }
+            set
+            {
+                OnDataUtworzeniaChanging(value);
+                ReportPropertyChanging("DataUtworzenia");
+                _DataUtworzenia = StructuralObject.SetValidValue(value, "DataUtworzenia");
+                ReportPropertyChanged("DataUtworzenia");
+                OnDataUtworzeniaChanged();
+            }
+        }
+        private global::System.DateTime _DataUtworzenia;
+        partial void OnDataUtworzeniaChanging(global::System.DateTime value);
+        partial void OnDataUtworzeniaChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 KtoUtworzylId
+        {
+            get
+            {
+                return _KtoUtworzylId;
+            }
+            set
+            {
+                OnKtoUtworzylIdChanging(value);
+                ReportPropertyChanging("KtoUtworzylId");
+                _KtoUtworzylId = StructuralObject.SetValidValue(value, "KtoUtworzylId");
+                ReportPropertyChanged("KtoUtworzylId");
+                OnKtoUtworzylIdChanged();
+            }
+        }
+        private global::System.Int32 _KtoUtworzylId;
+        partial void OnKtoUtworzylIdChanging(global::System.Int32 value);
+        partial void OnKtoUtworzylIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.DateTime> DataMod
+        {
+            get
+            {
+                return _DataMod;
+            }
+            set
+            {
+                OnDataModChanging(value);
+                ReportPropertyChanging("DataMod");
+                _DataMod = StructuralObject.SetValidValue(value, "DataMod");
+                ReportPropertyChanged("DataMod");
+                OnDataModChanged();
+            }
+        }
+        private Nullable<global::System.DateTime> _DataMod;
+        partial void OnDataModChanging(Nullable<global::System.DateTime> value);
+        partial void OnDataModChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> KtoModId
+        {
+            get
+            {
+                return _KtoModId;
+            }
+            set
+            {
+                OnKtoModIdChanging(value);
+                ReportPropertyChanging("KtoModId");
+                _KtoModId = StructuralObject.SetValidValue(value, "KtoModId");
+                ReportPropertyChanged("KtoModId");
+                OnKtoModIdChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _KtoModId;
+        partial void OnKtoModIdChanging(Nullable<global::System.Int32> value);
+        partial void OnKtoModIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.DateTime> DataUsuniecia
+        {
+            get
+            {
+                return _DataUsuniecia;
+            }
+            set
+            {
+                OnDataUsunieciaChanging(value);
+                ReportPropertyChanging("DataUsuniecia");
+                _DataUsuniecia = StructuralObject.SetValidValue(value, "DataUsuniecia");
+                ReportPropertyChanged("DataUsuniecia");
+                OnDataUsunieciaChanged();
+            }
+        }
+        private Nullable<global::System.DateTime> _DataUsuniecia;
+        partial void OnDataUsunieciaChanging(Nullable<global::System.DateTime> value);
+        partial void OnDataUsunieciaChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> KtoUsunalId
+        {
+            get
+            {
+                return _KtoUsunalId;
+            }
+            set
+            {
+                OnKtoUsunalIdChanging(value);
+                ReportPropertyChanging("KtoUsunalId");
+                _KtoUsunalId = StructuralObject.SetValidValue(value, "KtoUsunalId");
+                ReportPropertyChanged("KtoUsunalId");
+                OnKtoUsunalIdChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _KtoUsunalId;
+        partial void OnKtoUsunalIdChanging(Nullable<global::System.Int32> value);
+        partial void OnKtoUsunalIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Boolean CzyAktywny
+        {
+            get
+            {
+                return _CzyAktywny;
+            }
+            set
+            {
+                OnCzyAktywnyChanging(value);
+                ReportPropertyChanging("CzyAktywny");
+                _CzyAktywny = StructuralObject.SetValidValue(value, "CzyAktywny");
+                ReportPropertyChanged("CzyAktywny");
+                OnCzyAktywnyChanged();
+            }
+        }
+        private global::System.Boolean _CzyAktywny;
+        partial void OnCzyAktywnyChanging(global::System.Boolean value);
+        partial void OnCzyAktywnyChanged();
+
+        #endregion
+
+        #region Navigation Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("JJFirmaModel", "FK_Kontakty_Pracownicy", "Pracownicy")]
+        public Pracownicy Pracownicy
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Pracownicy>("JJFirmaModel.FK_Kontakty_Pracownicy", "Pracownicy").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Pracownicy>("JJFirmaModel.FK_Kontakty_Pracownicy", "Pracownicy").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<Pracownicy> PracownicyReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Pracownicy>("JJFirmaModel.FK_Kontakty_Pracownicy", "Pracownicy");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Pracownicy>("JJFirmaModel.FK_Kontakty_Pracownicy", "Pracownicy", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("JJFirmaModel", "FK_Kontakty_Pracownicy1", "Pracownicy")]
+        public Pracownicy Pracownicy1
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Pracownicy>("JJFirmaModel.FK_Kontakty_Pracownicy1", "Pracownicy").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Pracownicy>("JJFirmaModel.FK_Kontakty_Pracownicy1", "Pracownicy").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<Pracownicy> Pracownicy1Reference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Pracownicy>("JJFirmaModel.FK_Kontakty_Pracownicy1", "Pracownicy");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Pracownicy>("JJFirmaModel.FK_Kontakty_Pracownicy1", "Pracownicy", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("JJFirmaModel", "FK_Kontakty_Pracownicy2", "Pracownicy")]
+        public Pracownicy Pracownicy2
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Pracownicy>("JJFirmaModel.FK_Kontakty_Pracownicy2", "Pracownicy").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Pracownicy>("JJFirmaModel.FK_Kontakty_Pracownicy2", "Pracownicy").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<Pracownicy> Pracownicy2Reference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Pracownicy>("JJFirmaModel.FK_Kontakty_Pracownicy2", "Pracownicy");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Pracownicy>("JJFirmaModel.FK_Kontakty_Pracownicy2", "Pracownicy", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("JJFirmaModel", "FK_KontrahenciKontakty_Kontakty", "KontrahenciKontakty")]
+        public EntityCollection<KontrahenciKontakty> KontrahenciKontakty
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<KontrahenciKontakty>("JJFirmaModel.FK_KontrahenciKontakty_Kontakty", "KontrahenciKontakty");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<KontrahenciKontakty>("JJFirmaModel.FK_KontrahenciKontakty_Kontakty", "KontrahenciKontakty", value);
+                }
+            }
+        }
 
         #endregion
 
@@ -2040,7 +4901,6 @@ namespace Firma.Models.Entities
         /// </summary>
         /// <param name="kontrahentId">Initial value of the KontrahentId property.</param>
         /// <param name="kod">Initial value of the Kod property.</param>
-        /// <param name="nipKraj">Initial value of the NipKraj property.</param>
         /// <param name="nip">Initial value of the Nip property.</param>
         /// <param name="rodzajKontrahentaId">Initial value of the RodzajKontrahentaId property.</param>
         /// <param name="regon">Initial value of the Regon property.</param>
@@ -2049,30 +4909,16 @@ namespace Firma.Models.Entities
         /// <param name="nazwa1">Initial value of the Nazwa1 property.</param>
         /// <param name="nazwa2">Initial value of the Nazwa2 property.</param>
         /// <param name="nazwa3">Initial value of the Nazwa3 property.</param>
-        /// <param name="kraj">Initial value of the Kraj property.</param>
-        /// <param name="krajISO">Initial value of the KrajISO property.</param>
-        /// <param name="miasto">Initial value of the Miasto property.</param>
-        /// <param name="wojewodztwo">Initial value of the Wojewodztwo property.</param>
-        /// <param name="poczta">Initial value of the Poczta property.</param>
-        /// <param name="kodPocztowy">Initial value of the KodPocztowy property.</param>
-        /// <param name="ulica">Initial value of the Ulica property.</param>
-        /// <param name="nrDomu">Initial value of the NrDomu property.</param>
-        /// <param name="nrLokalu">Initial value of the NrLokalu property.</param>
-        /// <param name="adresDodatkowe">Initial value of the AdresDodatkowe property.</param>
-        /// <param name="telefon1">Initial value of the Telefon1 property.</param>
-        /// <param name="telefon2">Initial value of the Telefon2 property.</param>
-        /// <param name="fax">Initial value of the Fax property.</param>
-        /// <param name="email">Initial value of the Email property.</param>
-        /// <param name="telefonSMS">Initial value of the TelefonSMS property.</param>
+        /// <param name="adresId">Initial value of the AdresId property.</param>
         /// <param name="uRL">Initial value of the URL property.</param>
         /// <param name="dataUtworzenia">Initial value of the DataUtworzenia property.</param>
+        /// <param name="ktoUtworzylId">Initial value of the KtoUtworzylId property.</param>
         /// <param name="czyAktywny">Initial value of the CzyAktywny property.</param>
-        public static Kontrahenci CreateKontrahenci(global::System.Int32 kontrahentId, global::System.String kod, global::System.String nipKraj, global::System.String nip, global::System.Int32 rodzajKontrahentaId, global::System.String regon, global::System.String dokumentTozsamosci, global::System.String pESEL, global::System.String nazwa1, global::System.String nazwa2, global::System.String nazwa3, global::System.String kraj, global::System.String krajISO, global::System.String miasto, global::System.String wojewodztwo, global::System.String poczta, global::System.String kodPocztowy, global::System.String ulica, global::System.String nrDomu, global::System.String nrLokalu, global::System.String adresDodatkowe, global::System.String telefon1, global::System.String telefon2, global::System.String fax, global::System.String email, global::System.String telefonSMS, global::System.String uRL, global::System.DateTime dataUtworzenia, global::System.Boolean czyAktywny)
+        public static Kontrahenci CreateKontrahenci(global::System.Int32 kontrahentId, global::System.String kod, global::System.String nip, global::System.Int32 rodzajKontrahentaId, global::System.String regon, global::System.String dokumentTozsamosci, global::System.String pESEL, global::System.String nazwa1, global::System.String nazwa2, global::System.String nazwa3, global::System.Int32 adresId, global::System.String uRL, global::System.DateTime dataUtworzenia, global::System.Int32 ktoUtworzylId, global::System.Boolean czyAktywny)
         {
             Kontrahenci kontrahenci = new Kontrahenci();
             kontrahenci.KontrahentId = kontrahentId;
             kontrahenci.Kod = kod;
-            kontrahenci.NipKraj = nipKraj;
             kontrahenci.Nip = nip;
             kontrahenci.RodzajKontrahentaId = rodzajKontrahentaId;
             kontrahenci.Regon = regon;
@@ -2081,23 +4927,10 @@ namespace Firma.Models.Entities
             kontrahenci.Nazwa1 = nazwa1;
             kontrahenci.Nazwa2 = nazwa2;
             kontrahenci.Nazwa3 = nazwa3;
-            kontrahenci.Kraj = kraj;
-            kontrahenci.KrajISO = krajISO;
-            kontrahenci.Miasto = miasto;
-            kontrahenci.Wojewodztwo = wojewodztwo;
-            kontrahenci.Poczta = poczta;
-            kontrahenci.KodPocztowy = kodPocztowy;
-            kontrahenci.Ulica = ulica;
-            kontrahenci.NrDomu = nrDomu;
-            kontrahenci.NrLokalu = nrLokalu;
-            kontrahenci.AdresDodatkowe = adresDodatkowe;
-            kontrahenci.Telefon1 = telefon1;
-            kontrahenci.Telefon2 = telefon2;
-            kontrahenci.Fax = fax;
-            kontrahenci.Email = email;
-            kontrahenci.TelefonSMS = telefonSMS;
+            kontrahenci.AdresId = adresId;
             kontrahenci.URL = uRL;
             kontrahenci.DataUtworzenia = dataUtworzenia;
+            kontrahenci.KtoUtworzylId = ktoUtworzylId;
             kontrahenci.CzyAktywny = czyAktywny;
             return kontrahenci;
         }
@@ -2156,30 +4989,6 @@ namespace Firma.Models.Entities
         private global::System.String _Kod;
         partial void OnKodChanging(global::System.String value);
         partial void OnKodChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.String NipKraj
-        {
-            get
-            {
-                return _NipKraj;
-            }
-            set
-            {
-                OnNipKrajChanging(value);
-                ReportPropertyChanging("NipKraj");
-                _NipKraj = StructuralObject.SetValidValue(value, false, "NipKraj");
-                ReportPropertyChanged("NipKraj");
-                OnNipKrajChanged();
-            }
-        }
-        private global::System.String _NipKraj;
-        partial void OnNipKrajChanging(global::System.String value);
-        partial void OnNipKrajChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -2402,360 +5211,48 @@ namespace Firma.Models.Entities
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.String Kraj
+        public global::System.Int32 AdresId
         {
             get
             {
-                return _Kraj;
+                return _AdresId;
             }
             set
             {
-                OnKrajChanging(value);
-                ReportPropertyChanging("Kraj");
-                _Kraj = StructuralObject.SetValidValue(value, false, "Kraj");
-                ReportPropertyChanged("Kraj");
-                OnKrajChanged();
+                OnAdresIdChanging(value);
+                ReportPropertyChanging("AdresId");
+                _AdresId = StructuralObject.SetValidValue(value, "AdresId");
+                ReportPropertyChanged("AdresId");
+                OnAdresIdChanged();
             }
         }
-        private global::System.String _Kraj;
-        partial void OnKrajChanging(global::System.String value);
-        partial void OnKrajChanged();
+        private global::System.Int32 _AdresId;
+        partial void OnAdresIdChanging(global::System.Int32 value);
+        partial void OnAdresIdChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
-        public global::System.String KrajISO
+        public Nullable<global::System.Int32> AdresKorId
         {
             get
             {
-                return _KrajISO;
+                return _AdresKorId;
             }
             set
             {
-                OnKrajISOChanging(value);
-                ReportPropertyChanging("KrajISO");
-                _KrajISO = StructuralObject.SetValidValue(value, false, "KrajISO");
-                ReportPropertyChanged("KrajISO");
-                OnKrajISOChanged();
+                OnAdresKorIdChanging(value);
+                ReportPropertyChanging("AdresKorId");
+                _AdresKorId = StructuralObject.SetValidValue(value, "AdresKorId");
+                ReportPropertyChanged("AdresKorId");
+                OnAdresKorIdChanged();
             }
         }
-        private global::System.String _KrajISO;
-        partial void OnKrajISOChanging(global::System.String value);
-        partial void OnKrajISOChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.String Miasto
-        {
-            get
-            {
-                return _Miasto;
-            }
-            set
-            {
-                OnMiastoChanging(value);
-                ReportPropertyChanging("Miasto");
-                _Miasto = StructuralObject.SetValidValue(value, false, "Miasto");
-                ReportPropertyChanged("Miasto");
-                OnMiastoChanged();
-            }
-        }
-        private global::System.String _Miasto;
-        partial void OnMiastoChanging(global::System.String value);
-        partial void OnMiastoChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.String Wojewodztwo
-        {
-            get
-            {
-                return _Wojewodztwo;
-            }
-            set
-            {
-                OnWojewodztwoChanging(value);
-                ReportPropertyChanging("Wojewodztwo");
-                _Wojewodztwo = StructuralObject.SetValidValue(value, false, "Wojewodztwo");
-                ReportPropertyChanged("Wojewodztwo");
-                OnWojewodztwoChanged();
-            }
-        }
-        private global::System.String _Wojewodztwo;
-        partial void OnWojewodztwoChanging(global::System.String value);
-        partial void OnWojewodztwoChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.String Poczta
-        {
-            get
-            {
-                return _Poczta;
-            }
-            set
-            {
-                OnPocztaChanging(value);
-                ReportPropertyChanging("Poczta");
-                _Poczta = StructuralObject.SetValidValue(value, false, "Poczta");
-                ReportPropertyChanged("Poczta");
-                OnPocztaChanged();
-            }
-        }
-        private global::System.String _Poczta;
-        partial void OnPocztaChanging(global::System.String value);
-        partial void OnPocztaChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.String KodPocztowy
-        {
-            get
-            {
-                return _KodPocztowy;
-            }
-            set
-            {
-                OnKodPocztowyChanging(value);
-                ReportPropertyChanging("KodPocztowy");
-                _KodPocztowy = StructuralObject.SetValidValue(value, false, "KodPocztowy");
-                ReportPropertyChanged("KodPocztowy");
-                OnKodPocztowyChanged();
-            }
-        }
-        private global::System.String _KodPocztowy;
-        partial void OnKodPocztowyChanging(global::System.String value);
-        partial void OnKodPocztowyChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.String Ulica
-        {
-            get
-            {
-                return _Ulica;
-            }
-            set
-            {
-                OnUlicaChanging(value);
-                ReportPropertyChanging("Ulica");
-                _Ulica = StructuralObject.SetValidValue(value, false, "Ulica");
-                ReportPropertyChanged("Ulica");
-                OnUlicaChanged();
-            }
-        }
-        private global::System.String _Ulica;
-        partial void OnUlicaChanging(global::System.String value);
-        partial void OnUlicaChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.String NrDomu
-        {
-            get
-            {
-                return _NrDomu;
-            }
-            set
-            {
-                OnNrDomuChanging(value);
-                ReportPropertyChanging("NrDomu");
-                _NrDomu = StructuralObject.SetValidValue(value, false, "NrDomu");
-                ReportPropertyChanged("NrDomu");
-                OnNrDomuChanged();
-            }
-        }
-        private global::System.String _NrDomu;
-        partial void OnNrDomuChanging(global::System.String value);
-        partial void OnNrDomuChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.String NrLokalu
-        {
-            get
-            {
-                return _NrLokalu;
-            }
-            set
-            {
-                OnNrLokaluChanging(value);
-                ReportPropertyChanging("NrLokalu");
-                _NrLokalu = StructuralObject.SetValidValue(value, false, "NrLokalu");
-                ReportPropertyChanged("NrLokalu");
-                OnNrLokaluChanged();
-            }
-        }
-        private global::System.String _NrLokalu;
-        partial void OnNrLokaluChanging(global::System.String value);
-        partial void OnNrLokaluChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.String AdresDodatkowe
-        {
-            get
-            {
-                return _AdresDodatkowe;
-            }
-            set
-            {
-                OnAdresDodatkoweChanging(value);
-                ReportPropertyChanging("AdresDodatkowe");
-                _AdresDodatkowe = StructuralObject.SetValidValue(value, false, "AdresDodatkowe");
-                ReportPropertyChanged("AdresDodatkowe");
-                OnAdresDodatkoweChanged();
-            }
-        }
-        private global::System.String _AdresDodatkowe;
-        partial void OnAdresDodatkoweChanging(global::System.String value);
-        partial void OnAdresDodatkoweChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.String Telefon1
-        {
-            get
-            {
-                return _Telefon1;
-            }
-            set
-            {
-                OnTelefon1Changing(value);
-                ReportPropertyChanging("Telefon1");
-                _Telefon1 = StructuralObject.SetValidValue(value, false, "Telefon1");
-                ReportPropertyChanged("Telefon1");
-                OnTelefon1Changed();
-            }
-        }
-        private global::System.String _Telefon1;
-        partial void OnTelefon1Changing(global::System.String value);
-        partial void OnTelefon1Changed();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.String Telefon2
-        {
-            get
-            {
-                return _Telefon2;
-            }
-            set
-            {
-                OnTelefon2Changing(value);
-                ReportPropertyChanging("Telefon2");
-                _Telefon2 = StructuralObject.SetValidValue(value, false, "Telefon2");
-                ReportPropertyChanged("Telefon2");
-                OnTelefon2Changed();
-            }
-        }
-        private global::System.String _Telefon2;
-        partial void OnTelefon2Changing(global::System.String value);
-        partial void OnTelefon2Changed();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.String Fax
-        {
-            get
-            {
-                return _Fax;
-            }
-            set
-            {
-                OnFaxChanging(value);
-                ReportPropertyChanging("Fax");
-                _Fax = StructuralObject.SetValidValue(value, false, "Fax");
-                ReportPropertyChanged("Fax");
-                OnFaxChanged();
-            }
-        }
-        private global::System.String _Fax;
-        partial void OnFaxChanging(global::System.String value);
-        partial void OnFaxChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.String Email
-        {
-            get
-            {
-                return _Email;
-            }
-            set
-            {
-                OnEmailChanging(value);
-                ReportPropertyChanging("Email");
-                _Email = StructuralObject.SetValidValue(value, false, "Email");
-                ReportPropertyChanged("Email");
-                OnEmailChanged();
-            }
-        }
-        private global::System.String _Email;
-        partial void OnEmailChanging(global::System.String value);
-        partial void OnEmailChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.String TelefonSMS
-        {
-            get
-            {
-                return _TelefonSMS;
-            }
-            set
-            {
-                OnTelefonSMSChanging(value);
-                ReportPropertyChanging("TelefonSMS");
-                _TelefonSMS = StructuralObject.SetValidValue(value, false, "TelefonSMS");
-                ReportPropertyChanged("TelefonSMS");
-                OnTelefonSMSChanged();
-            }
-        }
-        private global::System.String _TelefonSMS;
-        partial void OnTelefonSMSChanging(global::System.String value);
-        partial void OnTelefonSMSChanged();
+        private Nullable<global::System.Int32> _AdresKorId;
+        partial void OnAdresKorIdChanging(Nullable<global::System.Int32> value);
+        partial void OnAdresKorIdChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -2784,174 +5281,6 @@ namespace Firma.Models.Entities
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
-        [DataMemberAttribute()]
-        public global::System.String KorMiasto
-        {
-            get
-            {
-                return _KorMiasto;
-            }
-            set
-            {
-                OnKorMiastoChanging(value);
-                ReportPropertyChanging("KorMiasto");
-                _KorMiasto = StructuralObject.SetValidValue(value, true, "KorMiasto");
-                ReportPropertyChanged("KorMiasto");
-                OnKorMiastoChanged();
-            }
-        }
-        private global::System.String _KorMiasto;
-        partial void OnKorMiastoChanging(global::System.String value);
-        partial void OnKorMiastoChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
-        [DataMemberAttribute()]
-        public global::System.String KorKraj
-        {
-            get
-            {
-                return _KorKraj;
-            }
-            set
-            {
-                OnKorKrajChanging(value);
-                ReportPropertyChanging("KorKraj");
-                _KorKraj = StructuralObject.SetValidValue(value, true, "KorKraj");
-                ReportPropertyChanged("KorKraj");
-                OnKorKrajChanged();
-            }
-        }
-        private global::System.String _KorKraj;
-        partial void OnKorKrajChanging(global::System.String value);
-        partial void OnKorKrajChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
-        [DataMemberAttribute()]
-        public global::System.String KorPoczta
-        {
-            get
-            {
-                return _KorPoczta;
-            }
-            set
-            {
-                OnKorPocztaChanging(value);
-                ReportPropertyChanging("KorPoczta");
-                _KorPoczta = StructuralObject.SetValidValue(value, true, "KorPoczta");
-                ReportPropertyChanged("KorPoczta");
-                OnKorPocztaChanged();
-            }
-        }
-        private global::System.String _KorPoczta;
-        partial void OnKorPocztaChanging(global::System.String value);
-        partial void OnKorPocztaChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
-        [DataMemberAttribute()]
-        public global::System.String KorKodPocztowy
-        {
-            get
-            {
-                return _KorKodPocztowy;
-            }
-            set
-            {
-                OnKorKodPocztowyChanging(value);
-                ReportPropertyChanging("KorKodPocztowy");
-                _KorKodPocztowy = StructuralObject.SetValidValue(value, true, "KorKodPocztowy");
-                ReportPropertyChanged("KorKodPocztowy");
-                OnKorKodPocztowyChanged();
-            }
-        }
-        private global::System.String _KorKodPocztowy;
-        partial void OnKorKodPocztowyChanging(global::System.String value);
-        partial void OnKorKodPocztowyChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
-        [DataMemberAttribute()]
-        public global::System.String KorUlica
-        {
-            get
-            {
-                return _KorUlica;
-            }
-            set
-            {
-                OnKorUlicaChanging(value);
-                ReportPropertyChanging("KorUlica");
-                _KorUlica = StructuralObject.SetValidValue(value, true, "KorUlica");
-                ReportPropertyChanged("KorUlica");
-                OnKorUlicaChanged();
-            }
-        }
-        private global::System.String _KorUlica;
-        partial void OnKorUlicaChanging(global::System.String value);
-        partial void OnKorUlicaChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
-        [DataMemberAttribute()]
-        public global::System.String KorNrDomu
-        {
-            get
-            {
-                return _KorNrDomu;
-            }
-            set
-            {
-                OnKorNrDomuChanging(value);
-                ReportPropertyChanging("KorNrDomu");
-                _KorNrDomu = StructuralObject.SetValidValue(value, true, "KorNrDomu");
-                ReportPropertyChanged("KorNrDomu");
-                OnKorNrDomuChanged();
-            }
-        }
-        private global::System.String _KorNrDomu;
-        partial void OnKorNrDomuChanging(global::System.String value);
-        partial void OnKorNrDomuChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
-        [DataMemberAttribute()]
-        public global::System.String KorNrLokalu
-        {
-            get
-            {
-                return _KorNrLokalu;
-            }
-            set
-            {
-                OnKorNrLokaluChanging(value);
-                ReportPropertyChanging("KorNrLokalu");
-                _KorNrLokalu = StructuralObject.SetValidValue(value, true, "KorNrLokalu");
-                ReportPropertyChanged("KorNrLokalu");
-                OnKorNrLokaluChanged();
-            }
-        }
-        private global::System.String _KorNrLokalu;
-        partial void OnKorNrLokaluChanging(global::System.String value);
-        partial void OnKorNrLokaluChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.DateTime DataUtworzenia
@@ -2972,6 +5301,30 @@ namespace Firma.Models.Entities
         private global::System.DateTime _DataUtworzenia;
         partial void OnDataUtworzeniaChanging(global::System.DateTime value);
         partial void OnDataUtworzeniaChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 KtoUtworzylId
+        {
+            get
+            {
+                return _KtoUtworzylId;
+            }
+            set
+            {
+                OnKtoUtworzylIdChanging(value);
+                ReportPropertyChanging("KtoUtworzylId");
+                _KtoUtworzylId = StructuralObject.SetValidValue(value, "KtoUtworzylId");
+                ReportPropertyChanged("KtoUtworzylId");
+                OnKtoUtworzylIdChanged();
+            }
+        }
+        private global::System.Int32 _KtoUtworzylId;
+        partial void OnKtoUtworzylIdChanging(global::System.Int32 value);
+        partial void OnKtoUtworzylIdChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -3024,6 +5377,54 @@ namespace Firma.Models.Entities
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.DateTime> DataUsuniecia
+        {
+            get
+            {
+                return _DataUsuniecia;
+            }
+            set
+            {
+                OnDataUsunieciaChanging(value);
+                ReportPropertyChanging("DataUsuniecia");
+                _DataUsuniecia = StructuralObject.SetValidValue(value, "DataUsuniecia");
+                ReportPropertyChanged("DataUsuniecia");
+                OnDataUsunieciaChanged();
+            }
+        }
+        private Nullable<global::System.DateTime> _DataUsuniecia;
+        partial void OnDataUsunieciaChanging(Nullable<global::System.DateTime> value);
+        partial void OnDataUsunieciaChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> KtoUsunalId
+        {
+            get
+            {
+                return _KtoUsunalId;
+            }
+            set
+            {
+                OnKtoUsunalIdChanging(value);
+                ReportPropertyChanging("KtoUsunalId");
+                _KtoUsunalId = StructuralObject.SetValidValue(value, "KtoUsunalId");
+                ReportPropertyChanged("KtoUsunalId");
+                OnKtoUsunalIdChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _KtoUsunalId;
+        partial void OnKtoUsunalIdChanging(Nullable<global::System.Int32> value);
+        partial void OnKtoUsunalIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Boolean CzyAktywny
@@ -3048,6 +5449,82 @@ namespace Firma.Models.Entities
         #endregion
 
         #region Navigation Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("JJFirmaModel", "FK_Kontrahenci_Adresy", "Adresy")]
+        public Adresy Adresy
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Adresy>("JJFirmaModel.FK_Kontrahenci_Adresy", "Adresy").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Adresy>("JJFirmaModel.FK_Kontrahenci_Adresy", "Adresy").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<Adresy> AdresyReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Adresy>("JJFirmaModel.FK_Kontrahenci_Adresy", "Adresy");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Adresy>("JJFirmaModel.FK_Kontrahenci_Adresy", "Adresy", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("JJFirmaModel", "FK_Kontrahenci_Adresy1", "Adresy")]
+        public Adresy Adresy1
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Adresy>("JJFirmaModel.FK_Kontrahenci_Adresy1", "Adresy").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Adresy>("JJFirmaModel.FK_Kontrahenci_Adresy1", "Adresy").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<Adresy> Adresy1Reference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Adresy>("JJFirmaModel.FK_Kontrahenci_Adresy1", "Adresy");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Adresy>("JJFirmaModel.FK_Kontrahenci_Adresy1", "Adresy", value);
+                }
+            }
+        }
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -3206,6 +5683,646 @@ namespace Firma.Models.Entities
                 }
             }
         }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("JJFirmaModel", "FK_Kontrahenci_Pracownicy1", "Pracownicy")]
+        public Pracownicy Pracownicy1
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Pracownicy>("JJFirmaModel.FK_Kontrahenci_Pracownicy1", "Pracownicy").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Pracownicy>("JJFirmaModel.FK_Kontrahenci_Pracownicy1", "Pracownicy").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<Pracownicy> Pracownicy1Reference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Pracownicy>("JJFirmaModel.FK_Kontrahenci_Pracownicy1", "Pracownicy");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Pracownicy>("JJFirmaModel.FK_Kontrahenci_Pracownicy1", "Pracownicy", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("JJFirmaModel", "FK_Kontrahenci_Pracownicy2", "Pracownicy")]
+        public Pracownicy Pracownicy2
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Pracownicy>("JJFirmaModel.FK_Kontrahenci_Pracownicy2", "Pracownicy").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Pracownicy>("JJFirmaModel.FK_Kontrahenci_Pracownicy2", "Pracownicy").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<Pracownicy> Pracownicy2Reference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Pracownicy>("JJFirmaModel.FK_Kontrahenci_Pracownicy2", "Pracownicy");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Pracownicy>("JJFirmaModel.FK_Kontrahenci_Pracownicy2", "Pracownicy", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("JJFirmaModel", "FK_KontrahenciKontakty_Kontrahenci", "KontrahenciKontakty")]
+        public EntityCollection<KontrahenciKontakty> KontrahenciKontakty
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<KontrahenciKontakty>("JJFirmaModel.FK_KontrahenciKontakty_Kontrahenci", "KontrahenciKontakty");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<KontrahenciKontakty>("JJFirmaModel.FK_KontrahenciKontakty_Kontrahenci", "KontrahenciKontakty", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("JJFirmaModel", "FK_PrzyjeciaZewnetrzne_Kontrahenci", "PrzyjeciaZewnetrzne")]
+        public EntityCollection<PrzyjeciaZewnetrzne> PrzyjeciaZewnetrzne
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<PrzyjeciaZewnetrzne>("JJFirmaModel.FK_PrzyjeciaZewnetrzne_Kontrahenci", "PrzyjeciaZewnetrzne");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<PrzyjeciaZewnetrzne>("JJFirmaModel.FK_PrzyjeciaZewnetrzne_Kontrahenci", "PrzyjeciaZewnetrzne", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("JJFirmaModel", "FK_Towary_Kontrahenci", "Towary")]
+        public EntityCollection<Towary> Towary
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Towary>("JJFirmaModel.FK_Towary_Kontrahenci", "Towary");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Towary>("JJFirmaModel.FK_Towary_Kontrahenci", "Towary", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("JJFirmaModel", "FK_WydaniaZewnetrzne_Kontrahenci", "WydaniaZewnetrzne")]
+        public EntityCollection<WydaniaZewnetrzne> WydaniaZewnetrzne
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<WydaniaZewnetrzne>("JJFirmaModel.FK_WydaniaZewnetrzne_Kontrahenci", "WydaniaZewnetrzne");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<WydaniaZewnetrzne>("JJFirmaModel.FK_WydaniaZewnetrzne_Kontrahenci", "WydaniaZewnetrzne", value);
+                }
+            }
+        }
+
+        #endregion
+
+    }
+    
+    /// <summary>
+    /// No Metadata Documentation available.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="JJFirmaModel", Name="KontrahenciKontakty")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class KontrahenciKontakty : EntityObject
+    {
+        #region Factory Method
+    
+        /// <summary>
+        /// Create a new KontrahenciKontakty object.
+        /// </summary>
+        /// <param name="kontrahentKontaktId">Initial value of the KontrahentKontaktId property.</param>
+        /// <param name="kontrahentId">Initial value of the KontrahentId property.</param>
+        /// <param name="kontaktId">Initial value of the KontaktId property.</param>
+        /// <param name="dataUtworzenia">Initial value of the DataUtworzenia property.</param>
+        /// <param name="ktoUtworzylId">Initial value of the KtoUtworzylId property.</param>
+        /// <param name="czyAktywny">Initial value of the CzyAktywny property.</param>
+        public static KontrahenciKontakty CreateKontrahenciKontakty(global::System.Int32 kontrahentKontaktId, global::System.Int32 kontrahentId, global::System.Int32 kontaktId, global::System.DateTime dataUtworzenia, global::System.Int32 ktoUtworzylId, global::System.Boolean czyAktywny)
+        {
+            KontrahenciKontakty kontrahenciKontakty = new KontrahenciKontakty();
+            kontrahenciKontakty.KontrahentKontaktId = kontrahentKontaktId;
+            kontrahenciKontakty.KontrahentId = kontrahentId;
+            kontrahenciKontakty.KontaktId = kontaktId;
+            kontrahenciKontakty.DataUtworzenia = dataUtworzenia;
+            kontrahenciKontakty.KtoUtworzylId = ktoUtworzylId;
+            kontrahenciKontakty.CzyAktywny = czyAktywny;
+            return kontrahenciKontakty;
+        }
+
+        #endregion
+
+        #region Simple Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 KontrahentKontaktId
+        {
+            get
+            {
+                return _KontrahentKontaktId;
+            }
+            set
+            {
+                if (_KontrahentKontaktId != value)
+                {
+                    OnKontrahentKontaktIdChanging(value);
+                    ReportPropertyChanging("KontrahentKontaktId");
+                    _KontrahentKontaktId = StructuralObject.SetValidValue(value, "KontrahentKontaktId");
+                    ReportPropertyChanged("KontrahentKontaktId");
+                    OnKontrahentKontaktIdChanged();
+                }
+            }
+        }
+        private global::System.Int32 _KontrahentKontaktId;
+        partial void OnKontrahentKontaktIdChanging(global::System.Int32 value);
+        partial void OnKontrahentKontaktIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 KontrahentId
+        {
+            get
+            {
+                return _KontrahentId;
+            }
+            set
+            {
+                OnKontrahentIdChanging(value);
+                ReportPropertyChanging("KontrahentId");
+                _KontrahentId = StructuralObject.SetValidValue(value, "KontrahentId");
+                ReportPropertyChanged("KontrahentId");
+                OnKontrahentIdChanged();
+            }
+        }
+        private global::System.Int32 _KontrahentId;
+        partial void OnKontrahentIdChanging(global::System.Int32 value);
+        partial void OnKontrahentIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 KontaktId
+        {
+            get
+            {
+                return _KontaktId;
+            }
+            set
+            {
+                OnKontaktIdChanging(value);
+                ReportPropertyChanging("KontaktId");
+                _KontaktId = StructuralObject.SetValidValue(value, "KontaktId");
+                ReportPropertyChanged("KontaktId");
+                OnKontaktIdChanged();
+            }
+        }
+        private global::System.Int32 _KontaktId;
+        partial void OnKontaktIdChanging(global::System.Int32 value);
+        partial void OnKontaktIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.DateTime DataUtworzenia
+        {
+            get
+            {
+                return _DataUtworzenia;
+            }
+            set
+            {
+                OnDataUtworzeniaChanging(value);
+                ReportPropertyChanging("DataUtworzenia");
+                _DataUtworzenia = StructuralObject.SetValidValue(value, "DataUtworzenia");
+                ReportPropertyChanged("DataUtworzenia");
+                OnDataUtworzeniaChanged();
+            }
+        }
+        private global::System.DateTime _DataUtworzenia;
+        partial void OnDataUtworzeniaChanging(global::System.DateTime value);
+        partial void OnDataUtworzeniaChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 KtoUtworzylId
+        {
+            get
+            {
+                return _KtoUtworzylId;
+            }
+            set
+            {
+                OnKtoUtworzylIdChanging(value);
+                ReportPropertyChanging("KtoUtworzylId");
+                _KtoUtworzylId = StructuralObject.SetValidValue(value, "KtoUtworzylId");
+                ReportPropertyChanged("KtoUtworzylId");
+                OnKtoUtworzylIdChanged();
+            }
+        }
+        private global::System.Int32 _KtoUtworzylId;
+        partial void OnKtoUtworzylIdChanging(global::System.Int32 value);
+        partial void OnKtoUtworzylIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.DateTime> DataMod
+        {
+            get
+            {
+                return _DataMod;
+            }
+            set
+            {
+                OnDataModChanging(value);
+                ReportPropertyChanging("DataMod");
+                _DataMod = StructuralObject.SetValidValue(value, "DataMod");
+                ReportPropertyChanged("DataMod");
+                OnDataModChanged();
+            }
+        }
+        private Nullable<global::System.DateTime> _DataMod;
+        partial void OnDataModChanging(Nullable<global::System.DateTime> value);
+        partial void OnDataModChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> KtoModId
+        {
+            get
+            {
+                return _KtoModId;
+            }
+            set
+            {
+                OnKtoModIdChanging(value);
+                ReportPropertyChanging("KtoModId");
+                _KtoModId = StructuralObject.SetValidValue(value, "KtoModId");
+                ReportPropertyChanged("KtoModId");
+                OnKtoModIdChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _KtoModId;
+        partial void OnKtoModIdChanging(Nullable<global::System.Int32> value);
+        partial void OnKtoModIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.DateTime> DataUsuniecia
+        {
+            get
+            {
+                return _DataUsuniecia;
+            }
+            set
+            {
+                OnDataUsunieciaChanging(value);
+                ReportPropertyChanging("DataUsuniecia");
+                _DataUsuniecia = StructuralObject.SetValidValue(value, "DataUsuniecia");
+                ReportPropertyChanged("DataUsuniecia");
+                OnDataUsunieciaChanged();
+            }
+        }
+        private Nullable<global::System.DateTime> _DataUsuniecia;
+        partial void OnDataUsunieciaChanging(Nullable<global::System.DateTime> value);
+        partial void OnDataUsunieciaChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> KtoUsunalId
+        {
+            get
+            {
+                return _KtoUsunalId;
+            }
+            set
+            {
+                OnKtoUsunalIdChanging(value);
+                ReportPropertyChanging("KtoUsunalId");
+                _KtoUsunalId = StructuralObject.SetValidValue(value, "KtoUsunalId");
+                ReportPropertyChanged("KtoUsunalId");
+                OnKtoUsunalIdChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _KtoUsunalId;
+        partial void OnKtoUsunalIdChanging(Nullable<global::System.Int32> value);
+        partial void OnKtoUsunalIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Boolean CzyAktywny
+        {
+            get
+            {
+                return _CzyAktywny;
+            }
+            set
+            {
+                OnCzyAktywnyChanging(value);
+                ReportPropertyChanging("CzyAktywny");
+                _CzyAktywny = StructuralObject.SetValidValue(value, "CzyAktywny");
+                ReportPropertyChanged("CzyAktywny");
+                OnCzyAktywnyChanged();
+            }
+        }
+        private global::System.Boolean _CzyAktywny;
+        partial void OnCzyAktywnyChanging(global::System.Boolean value);
+        partial void OnCzyAktywnyChanged();
+
+        #endregion
+
+        #region Navigation Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("JJFirmaModel", "FK_KontrahenciKontakty_Kontakty", "Kontakty")]
+        public Kontakty Kontakty
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Kontakty>("JJFirmaModel.FK_KontrahenciKontakty_Kontakty", "Kontakty").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Kontakty>("JJFirmaModel.FK_KontrahenciKontakty_Kontakty", "Kontakty").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<Kontakty> KontaktyReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Kontakty>("JJFirmaModel.FK_KontrahenciKontakty_Kontakty", "Kontakty");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Kontakty>("JJFirmaModel.FK_KontrahenciKontakty_Kontakty", "Kontakty", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("JJFirmaModel", "FK_KontrahenciKontakty_Kontrahenci", "Kontrahenci")]
+        public Kontrahenci Kontrahenci
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Kontrahenci>("JJFirmaModel.FK_KontrahenciKontakty_Kontrahenci", "Kontrahenci").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Kontrahenci>("JJFirmaModel.FK_KontrahenciKontakty_Kontrahenci", "Kontrahenci").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<Kontrahenci> KontrahenciReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Kontrahenci>("JJFirmaModel.FK_KontrahenciKontakty_Kontrahenci", "Kontrahenci");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Kontrahenci>("JJFirmaModel.FK_KontrahenciKontakty_Kontrahenci", "Kontrahenci", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("JJFirmaModel", "FK_KontrahenciKontakty_Pracownicy", "Pracownicy")]
+        public Pracownicy Pracownicy
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Pracownicy>("JJFirmaModel.FK_KontrahenciKontakty_Pracownicy", "Pracownicy").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Pracownicy>("JJFirmaModel.FK_KontrahenciKontakty_Pracownicy", "Pracownicy").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<Pracownicy> PracownicyReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Pracownicy>("JJFirmaModel.FK_KontrahenciKontakty_Pracownicy", "Pracownicy");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Pracownicy>("JJFirmaModel.FK_KontrahenciKontakty_Pracownicy", "Pracownicy", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("JJFirmaModel", "FK_KontrahenciKontakty_Pracownicy1", "Pracownicy")]
+        public Pracownicy Pracownicy1
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Pracownicy>("JJFirmaModel.FK_KontrahenciKontakty_Pracownicy1", "Pracownicy").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Pracownicy>("JJFirmaModel.FK_KontrahenciKontakty_Pracownicy1", "Pracownicy").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<Pracownicy> Pracownicy1Reference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Pracownicy>("JJFirmaModel.FK_KontrahenciKontakty_Pracownicy1", "Pracownicy");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Pracownicy>("JJFirmaModel.FK_KontrahenciKontakty_Pracownicy1", "Pracownicy", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("JJFirmaModel", "FK_KontrahenciKontakty_Pracownicy2", "Pracownicy")]
+        public Pracownicy Pracownicy2
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Pracownicy>("JJFirmaModel.FK_KontrahenciKontakty_Pracownicy2", "Pracownicy").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Pracownicy>("JJFirmaModel.FK_KontrahenciKontakty_Pracownicy2", "Pracownicy").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<Pracownicy> Pracownicy2Reference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Pracownicy>("JJFirmaModel.FK_KontrahenciKontakty_Pracownicy2", "Pracownicy");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Pracownicy>("JJFirmaModel.FK_KontrahenciKontakty_Pracownicy2", "Pracownicy", value);
+                }
+            }
+        }
 
         #endregion
 
@@ -3227,15 +6344,19 @@ namespace Firma.Models.Entities
         /// <param name="rodzajId">Initial value of the RodzajId property.</param>
         /// <param name="nazwa">Initial value of the Nazwa property.</param>
         /// <param name="opis">Initial value of the Opis property.</param>
+        /// <param name="uwagi">Initial value of the Uwagi property.</param>
         /// <param name="dataUtworzenia">Initial value of the DataUtworzenia property.</param>
+        /// <param name="ktoUtworzylId">Initial value of the KtoUtworzylId property.</param>
         /// <param name="czyAktywny">Initial value of the CzyAktywny property.</param>
-        public static KontrahenciRodzaje CreateKontrahenciRodzaje(global::System.Int32 rodzajId, global::System.String nazwa, global::System.String opis, global::System.DateTime dataUtworzenia, global::System.Boolean czyAktywny)
+        public static KontrahenciRodzaje CreateKontrahenciRodzaje(global::System.Int32 rodzajId, global::System.String nazwa, global::System.String opis, global::System.String uwagi, global::System.DateTime dataUtworzenia, global::System.Int32 ktoUtworzylId, global::System.Boolean czyAktywny)
         {
             KontrahenciRodzaje kontrahenciRodzaje = new KontrahenciRodzaje();
             kontrahenciRodzaje.RodzajId = rodzajId;
             kontrahenciRodzaje.Nazwa = nazwa;
             kontrahenciRodzaje.Opis = opis;
+            kontrahenciRodzaje.Uwagi = uwagi;
             kontrahenciRodzaje.DataUtworzenia = dataUtworzenia;
+            kontrahenciRodzaje.KtoUtworzylId = ktoUtworzylId;
             kontrahenciRodzaje.CzyAktywny = czyAktywny;
             return kontrahenciRodzaje;
         }
@@ -3324,6 +6445,30 @@ namespace Firma.Models.Entities
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
+        public global::System.String Uwagi
+        {
+            get
+            {
+                return _Uwagi;
+            }
+            set
+            {
+                OnUwagiChanging(value);
+                ReportPropertyChanging("Uwagi");
+                _Uwagi = StructuralObject.SetValidValue(value, false, "Uwagi");
+                ReportPropertyChanged("Uwagi");
+                OnUwagiChanged();
+            }
+        }
+        private global::System.String _Uwagi;
+        partial void OnUwagiChanging(global::System.String value);
+        partial void OnUwagiChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
         public global::System.DateTime DataUtworzenia
         {
             get
@@ -3342,6 +6487,30 @@ namespace Firma.Models.Entities
         private global::System.DateTime _DataUtworzenia;
         partial void OnDataUtworzeniaChanging(global::System.DateTime value);
         partial void OnDataUtworzeniaChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 KtoUtworzylId
+        {
+            get
+            {
+                return _KtoUtworzylId;
+            }
+            set
+            {
+                OnKtoUtworzylIdChanging(value);
+                ReportPropertyChanging("KtoUtworzylId");
+                _KtoUtworzylId = StructuralObject.SetValidValue(value, "KtoUtworzylId");
+                ReportPropertyChanged("KtoUtworzylId");
+                OnKtoUtworzylIdChanged();
+            }
+        }
+        private global::System.Int32 _KtoUtworzylId;
+        partial void OnKtoUtworzylIdChanging(global::System.Int32 value);
+        partial void OnKtoUtworzylIdChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -3390,6 +6559,54 @@ namespace Firma.Models.Entities
         private Nullable<global::System.Int32> _KtoModId;
         partial void OnKtoModIdChanging(Nullable<global::System.Int32> value);
         partial void OnKtoModIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.DateTime> DataUsuniecia
+        {
+            get
+            {
+                return _DataUsuniecia;
+            }
+            set
+            {
+                OnDataUsunieciaChanging(value);
+                ReportPropertyChanging("DataUsuniecia");
+                _DataUsuniecia = StructuralObject.SetValidValue(value, "DataUsuniecia");
+                ReportPropertyChanged("DataUsuniecia");
+                OnDataUsunieciaChanged();
+            }
+        }
+        private Nullable<global::System.DateTime> _DataUsuniecia;
+        partial void OnDataUsunieciaChanging(Nullable<global::System.DateTime> value);
+        partial void OnDataUsunieciaChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> KtoUsunalId
+        {
+            get
+            {
+                return _KtoUsunalId;
+            }
+            set
+            {
+                OnKtoUsunalIdChanging(value);
+                ReportPropertyChanging("KtoUsunalId");
+                _KtoUsunalId = StructuralObject.SetValidValue(value, "KtoUsunalId");
+                ReportPropertyChanged("KtoUsunalId");
+                OnKtoUsunalIdChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _KtoUsunalId;
+        partial void OnKtoUsunalIdChanging(Nullable<global::System.Int32> value);
+        partial void OnKtoUsunalIdChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -3478,6 +6695,548 @@ namespace Firma.Models.Entities
                 }
             }
         }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("JJFirmaModel", "FK_KontrahenciRodzaje_Pracownicy1", "Pracownicy")]
+        public Pracownicy Pracownicy1
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Pracownicy>("JJFirmaModel.FK_KontrahenciRodzaje_Pracownicy1", "Pracownicy").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Pracownicy>("JJFirmaModel.FK_KontrahenciRodzaje_Pracownicy1", "Pracownicy").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<Pracownicy> Pracownicy1Reference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Pracownicy>("JJFirmaModel.FK_KontrahenciRodzaje_Pracownicy1", "Pracownicy");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Pracownicy>("JJFirmaModel.FK_KontrahenciRodzaje_Pracownicy1", "Pracownicy", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("JJFirmaModel", "FK_KontrahenciRodzaje_Pracownicy2", "Pracownicy")]
+        public Pracownicy Pracownicy2
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Pracownicy>("JJFirmaModel.FK_KontrahenciRodzaje_Pracownicy2", "Pracownicy").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Pracownicy>("JJFirmaModel.FK_KontrahenciRodzaje_Pracownicy2", "Pracownicy").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<Pracownicy> Pracownicy2Reference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Pracownicy>("JJFirmaModel.FK_KontrahenciRodzaje_Pracownicy2", "Pracownicy");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Pracownicy>("JJFirmaModel.FK_KontrahenciRodzaje_Pracownicy2", "Pracownicy", value);
+                }
+            }
+        }
+
+        #endregion
+
+    }
+    
+    /// <summary>
+    /// No Metadata Documentation available.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="JJFirmaModel", Name="Kraje")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class Kraje : EntityObject
+    {
+        #region Factory Method
+    
+        /// <summary>
+        /// Create a new Kraje object.
+        /// </summary>
+        /// <param name="krajId">Initial value of the KrajId property.</param>
+        /// <param name="nazwa">Initial value of the Nazwa property.</param>
+        /// <param name="iSO">Initial value of the ISO property.</param>
+        /// <param name="dataUtworzenia">Initial value of the DataUtworzenia property.</param>
+        /// <param name="ktoUtworzylId">Initial value of the KtoUtworzylId property.</param>
+        /// <param name="czyAktywny">Initial value of the CzyAktywny property.</param>
+        public static Kraje CreateKraje(global::System.Int32 krajId, global::System.String nazwa, global::System.String iSO, global::System.DateTime dataUtworzenia, global::System.Int32 ktoUtworzylId, global::System.Boolean czyAktywny)
+        {
+            Kraje kraje = new Kraje();
+            kraje.KrajId = krajId;
+            kraje.Nazwa = nazwa;
+            kraje.ISO = iSO;
+            kraje.DataUtworzenia = dataUtworzenia;
+            kraje.KtoUtworzylId = ktoUtworzylId;
+            kraje.CzyAktywny = czyAktywny;
+            return kraje;
+        }
+
+        #endregion
+
+        #region Simple Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 KrajId
+        {
+            get
+            {
+                return _KrajId;
+            }
+            set
+            {
+                if (_KrajId != value)
+                {
+                    OnKrajIdChanging(value);
+                    ReportPropertyChanging("KrajId");
+                    _KrajId = StructuralObject.SetValidValue(value, "KrajId");
+                    ReportPropertyChanged("KrajId");
+                    OnKrajIdChanged();
+                }
+            }
+        }
+        private global::System.Int32 _KrajId;
+        partial void OnKrajIdChanging(global::System.Int32 value);
+        partial void OnKrajIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String Nazwa
+        {
+            get
+            {
+                return _Nazwa;
+            }
+            set
+            {
+                OnNazwaChanging(value);
+                ReportPropertyChanging("Nazwa");
+                _Nazwa = StructuralObject.SetValidValue(value, false, "Nazwa");
+                ReportPropertyChanged("Nazwa");
+                OnNazwaChanged();
+            }
+        }
+        private global::System.String _Nazwa;
+        partial void OnNazwaChanging(global::System.String value);
+        partial void OnNazwaChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String ISO
+        {
+            get
+            {
+                return _ISO;
+            }
+            set
+            {
+                OnISOChanging(value);
+                ReportPropertyChanging("ISO");
+                _ISO = StructuralObject.SetValidValue(value, false, "ISO");
+                ReportPropertyChanged("ISO");
+                OnISOChanged();
+            }
+        }
+        private global::System.String _ISO;
+        partial void OnISOChanging(global::System.String value);
+        partial void OnISOChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.DateTime DataUtworzenia
+        {
+            get
+            {
+                return _DataUtworzenia;
+            }
+            set
+            {
+                OnDataUtworzeniaChanging(value);
+                ReportPropertyChanging("DataUtworzenia");
+                _DataUtworzenia = StructuralObject.SetValidValue(value, "DataUtworzenia");
+                ReportPropertyChanged("DataUtworzenia");
+                OnDataUtworzeniaChanged();
+            }
+        }
+        private global::System.DateTime _DataUtworzenia;
+        partial void OnDataUtworzeniaChanging(global::System.DateTime value);
+        partial void OnDataUtworzeniaChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 KtoUtworzylId
+        {
+            get
+            {
+                return _KtoUtworzylId;
+            }
+            set
+            {
+                OnKtoUtworzylIdChanging(value);
+                ReportPropertyChanging("KtoUtworzylId");
+                _KtoUtworzylId = StructuralObject.SetValidValue(value, "KtoUtworzylId");
+                ReportPropertyChanged("KtoUtworzylId");
+                OnKtoUtworzylIdChanged();
+            }
+        }
+        private global::System.Int32 _KtoUtworzylId;
+        partial void OnKtoUtworzylIdChanging(global::System.Int32 value);
+        partial void OnKtoUtworzylIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.DateTime> DataMod
+        {
+            get
+            {
+                return _DataMod;
+            }
+            set
+            {
+                OnDataModChanging(value);
+                ReportPropertyChanging("DataMod");
+                _DataMod = StructuralObject.SetValidValue(value, "DataMod");
+                ReportPropertyChanged("DataMod");
+                OnDataModChanged();
+            }
+        }
+        private Nullable<global::System.DateTime> _DataMod;
+        partial void OnDataModChanging(Nullable<global::System.DateTime> value);
+        partial void OnDataModChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> KtoModId
+        {
+            get
+            {
+                return _KtoModId;
+            }
+            set
+            {
+                OnKtoModIdChanging(value);
+                ReportPropertyChanging("KtoModId");
+                _KtoModId = StructuralObject.SetValidValue(value, "KtoModId");
+                ReportPropertyChanged("KtoModId");
+                OnKtoModIdChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _KtoModId;
+        partial void OnKtoModIdChanging(Nullable<global::System.Int32> value);
+        partial void OnKtoModIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.DateTime> DataUsuniecia
+        {
+            get
+            {
+                return _DataUsuniecia;
+            }
+            set
+            {
+                OnDataUsunieciaChanging(value);
+                ReportPropertyChanging("DataUsuniecia");
+                _DataUsuniecia = StructuralObject.SetValidValue(value, "DataUsuniecia");
+                ReportPropertyChanged("DataUsuniecia");
+                OnDataUsunieciaChanged();
+            }
+        }
+        private Nullable<global::System.DateTime> _DataUsuniecia;
+        partial void OnDataUsunieciaChanging(Nullable<global::System.DateTime> value);
+        partial void OnDataUsunieciaChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> KtoUsunalId
+        {
+            get
+            {
+                return _KtoUsunalId;
+            }
+            set
+            {
+                OnKtoUsunalIdChanging(value);
+                ReportPropertyChanging("KtoUsunalId");
+                _KtoUsunalId = StructuralObject.SetValidValue(value, "KtoUsunalId");
+                ReportPropertyChanged("KtoUsunalId");
+                OnKtoUsunalIdChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _KtoUsunalId;
+        partial void OnKtoUsunalIdChanging(Nullable<global::System.Int32> value);
+        partial void OnKtoUsunalIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Boolean CzyAktywny
+        {
+            get
+            {
+                return _CzyAktywny;
+            }
+            set
+            {
+                OnCzyAktywnyChanging(value);
+                ReportPropertyChanging("CzyAktywny");
+                _CzyAktywny = StructuralObject.SetValidValue(value, "CzyAktywny");
+                ReportPropertyChanged("CzyAktywny");
+                OnCzyAktywnyChanged();
+            }
+        }
+        private global::System.Boolean _CzyAktywny;
+        partial void OnCzyAktywnyChanging(global::System.Boolean value);
+        partial void OnCzyAktywnyChanged();
+
+        #endregion
+
+        #region Navigation Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("JJFirmaModel", "FK_Adresy_Kraje", "Adresy")]
+        public EntityCollection<Adresy> Adresy
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Adresy>("JJFirmaModel.FK_Adresy_Kraje", "Adresy");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Adresy>("JJFirmaModel.FK_Adresy_Kraje", "Adresy", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("JJFirmaModel", "FK_Kraje_Pracownicy", "Pracownicy")]
+        public Pracownicy Pracownicy
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Pracownicy>("JJFirmaModel.FK_Kraje_Pracownicy", "Pracownicy").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Pracownicy>("JJFirmaModel.FK_Kraje_Pracownicy", "Pracownicy").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<Pracownicy> PracownicyReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Pracownicy>("JJFirmaModel.FK_Kraje_Pracownicy", "Pracownicy");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Pracownicy>("JJFirmaModel.FK_Kraje_Pracownicy", "Pracownicy", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("JJFirmaModel", "FK_Kraje_Pracownicy1", "Pracownicy")]
+        public Pracownicy Pracownicy1
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Pracownicy>("JJFirmaModel.FK_Kraje_Pracownicy1", "Pracownicy").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Pracownicy>("JJFirmaModel.FK_Kraje_Pracownicy1", "Pracownicy").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<Pracownicy> Pracownicy1Reference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Pracownicy>("JJFirmaModel.FK_Kraje_Pracownicy1", "Pracownicy");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Pracownicy>("JJFirmaModel.FK_Kraje_Pracownicy1", "Pracownicy", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("JJFirmaModel", "FK_Kraje_Pracownicy2", "Pracownicy")]
+        public Pracownicy Pracownicy2
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Pracownicy>("JJFirmaModel.FK_Kraje_Pracownicy2", "Pracownicy").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Pracownicy>("JJFirmaModel.FK_Kraje_Pracownicy2", "Pracownicy").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<Pracownicy> Pracownicy2Reference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Pracownicy>("JJFirmaModel.FK_Kraje_Pracownicy2", "Pracownicy");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Pracownicy>("JJFirmaModel.FK_Kraje_Pracownicy2", "Pracownicy", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("JJFirmaModel", "FK_Towary_Kraje", "Towary")]
+        public EntityCollection<Towary> Towary
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Towary>("JJFirmaModel.FK_Towary_Kraje", "Towary");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Towary>("JJFirmaModel.FK_Towary_Kraje", "Towary", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("JJFirmaModel", "FK_TowaryStawkiVat_Kraje", "TowaryStawkiVat")]
+        public EntityCollection<TowaryStawkiVat> TowaryStawkiVat
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<TowaryStawkiVat>("JJFirmaModel.FK_TowaryStawkiVat_Kraje", "TowaryStawkiVat");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<TowaryStawkiVat>("JJFirmaModel.FK_TowaryStawkiVat_Kraje", "TowaryStawkiVat", value);
+                }
+            }
+        }
 
         #endregion
 
@@ -3501,18 +7260,11 @@ namespace Firma.Models.Entities
         /// <param name="nazwa">Initial value of the Nazwa property.</param>
         /// <param name="opis">Initial value of the Opis property.</param>
         /// <param name="typMagazynuId">Initial value of the TypMagazynuId property.</param>
-        /// <param name="kraj">Initial value of the Kraj property.</param>
-        /// <param name="wojewodztwo">Initial value of the Wojewodztwo property.</param>
-        /// <param name="miasto">Initial value of the Miasto property.</param>
-        /// <param name="poczta">Initial value of the Poczta property.</param>
-        /// <param name="kodPocztowy">Initial value of the KodPocztowy property.</param>
-        /// <param name="ulica">Initial value of the Ulica property.</param>
-        /// <param name="nrDomu">Initial value of the NrDomu property.</param>
-        /// <param name="nrLokalu">Initial value of the NrLokalu property.</param>
         /// <param name="telefon">Initial value of the Telefon property.</param>
         /// <param name="dataUtworzenia">Initial value of the DataUtworzenia property.</param>
+        /// <param name="ktoUtworzylId">Initial value of the KtoUtworzylId property.</param>
         /// <param name="czyAktywny">Initial value of the CzyAktywny property.</param>
-        public static Magazyny CreateMagazyny(global::System.Int32 magazynId, global::System.String symbol, global::System.String nazwa, global::System.String opis, global::System.Int32 typMagazynuId, global::System.String kraj, global::System.String wojewodztwo, global::System.String miasto, global::System.String poczta, global::System.String kodPocztowy, global::System.String ulica, global::System.String nrDomu, global::System.String nrLokalu, global::System.String telefon, global::System.DateTime dataUtworzenia, global::System.Boolean czyAktywny)
+        public static Magazyny CreateMagazyny(global::System.Int32 magazynId, global::System.String symbol, global::System.String nazwa, global::System.String opis, global::System.Int32 typMagazynuId, global::System.String telefon, global::System.DateTime dataUtworzenia, global::System.Int32 ktoUtworzylId, global::System.Boolean czyAktywny)
         {
             Magazyny magazyny = new Magazyny();
             magazyny.MagazynId = magazynId;
@@ -3520,16 +7272,9 @@ namespace Firma.Models.Entities
             magazyny.Nazwa = nazwa;
             magazyny.Opis = opis;
             magazyny.TypMagazynuId = typMagazynuId;
-            magazyny.Kraj = kraj;
-            magazyny.Wojewodztwo = wojewodztwo;
-            magazyny.Miasto = miasto;
-            magazyny.Poczta = poczta;
-            magazyny.KodPocztowy = kodPocztowy;
-            magazyny.Ulica = ulica;
-            magazyny.NrDomu = nrDomu;
-            magazyny.NrLokalu = nrLokalu;
             magazyny.Telefon = telefon;
             magazyny.DataUtworzenia = dataUtworzenia;
+            magazyny.KtoUtworzylId = ktoUtworzylId;
             magazyny.CzyAktywny = czyAktywny;
             return magazyny;
         }
@@ -3664,194 +7409,26 @@ namespace Firma.Models.Entities
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
-        public global::System.String Kraj
+        public Nullable<global::System.Int32> AdresId
         {
             get
             {
-                return _Kraj;
+                return _AdresId;
             }
             set
             {
-                OnKrajChanging(value);
-                ReportPropertyChanging("Kraj");
-                _Kraj = StructuralObject.SetValidValue(value, false, "Kraj");
-                ReportPropertyChanged("Kraj");
-                OnKrajChanged();
+                OnAdresIdChanging(value);
+                ReportPropertyChanging("AdresId");
+                _AdresId = StructuralObject.SetValidValue(value, "AdresId");
+                ReportPropertyChanged("AdresId");
+                OnAdresIdChanged();
             }
         }
-        private global::System.String _Kraj;
-        partial void OnKrajChanging(global::System.String value);
-        partial void OnKrajChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.String Wojewodztwo
-        {
-            get
-            {
-                return _Wojewodztwo;
-            }
-            set
-            {
-                OnWojewodztwoChanging(value);
-                ReportPropertyChanging("Wojewodztwo");
-                _Wojewodztwo = StructuralObject.SetValidValue(value, false, "Wojewodztwo");
-                ReportPropertyChanged("Wojewodztwo");
-                OnWojewodztwoChanged();
-            }
-        }
-        private global::System.String _Wojewodztwo;
-        partial void OnWojewodztwoChanging(global::System.String value);
-        partial void OnWojewodztwoChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.String Miasto
-        {
-            get
-            {
-                return _Miasto;
-            }
-            set
-            {
-                OnMiastoChanging(value);
-                ReportPropertyChanging("Miasto");
-                _Miasto = StructuralObject.SetValidValue(value, false, "Miasto");
-                ReportPropertyChanged("Miasto");
-                OnMiastoChanged();
-            }
-        }
-        private global::System.String _Miasto;
-        partial void OnMiastoChanging(global::System.String value);
-        partial void OnMiastoChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.String Poczta
-        {
-            get
-            {
-                return _Poczta;
-            }
-            set
-            {
-                OnPocztaChanging(value);
-                ReportPropertyChanging("Poczta");
-                _Poczta = StructuralObject.SetValidValue(value, false, "Poczta");
-                ReportPropertyChanged("Poczta");
-                OnPocztaChanged();
-            }
-        }
-        private global::System.String _Poczta;
-        partial void OnPocztaChanging(global::System.String value);
-        partial void OnPocztaChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.String KodPocztowy
-        {
-            get
-            {
-                return _KodPocztowy;
-            }
-            set
-            {
-                OnKodPocztowyChanging(value);
-                ReportPropertyChanging("KodPocztowy");
-                _KodPocztowy = StructuralObject.SetValidValue(value, false, "KodPocztowy");
-                ReportPropertyChanged("KodPocztowy");
-                OnKodPocztowyChanged();
-            }
-        }
-        private global::System.String _KodPocztowy;
-        partial void OnKodPocztowyChanging(global::System.String value);
-        partial void OnKodPocztowyChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.String Ulica
-        {
-            get
-            {
-                return _Ulica;
-            }
-            set
-            {
-                OnUlicaChanging(value);
-                ReportPropertyChanging("Ulica");
-                _Ulica = StructuralObject.SetValidValue(value, false, "Ulica");
-                ReportPropertyChanged("Ulica");
-                OnUlicaChanged();
-            }
-        }
-        private global::System.String _Ulica;
-        partial void OnUlicaChanging(global::System.String value);
-        partial void OnUlicaChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.String NrDomu
-        {
-            get
-            {
-                return _NrDomu;
-            }
-            set
-            {
-                OnNrDomuChanging(value);
-                ReportPropertyChanging("NrDomu");
-                _NrDomu = StructuralObject.SetValidValue(value, false, "NrDomu");
-                ReportPropertyChanged("NrDomu");
-                OnNrDomuChanged();
-            }
-        }
-        private global::System.String _NrDomu;
-        partial void OnNrDomuChanging(global::System.String value);
-        partial void OnNrDomuChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.String NrLokalu
-        {
-            get
-            {
-                return _NrLokalu;
-            }
-            set
-            {
-                OnNrLokaluChanging(value);
-                ReportPropertyChanging("NrLokalu");
-                _NrLokalu = StructuralObject.SetValidValue(value, false, "NrLokalu");
-                ReportPropertyChanged("NrLokalu");
-                OnNrLokaluChanged();
-            }
-        }
-        private global::System.String _NrLokalu;
-        partial void OnNrLokaluChanging(global::System.String value);
-        partial void OnNrLokaluChanged();
+        private Nullable<global::System.Int32> _AdresId;
+        partial void OnAdresIdChanging(Nullable<global::System.Int32> value);
+        partial void OnAdresIdChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -3904,6 +7481,30 @@ namespace Firma.Models.Entities
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 KtoUtworzylId
+        {
+            get
+            {
+                return _KtoUtworzylId;
+            }
+            set
+            {
+                OnKtoUtworzylIdChanging(value);
+                ReportPropertyChanging("KtoUtworzylId");
+                _KtoUtworzylId = StructuralObject.SetValidValue(value, "KtoUtworzylId");
+                ReportPropertyChanged("KtoUtworzylId");
+                OnKtoUtworzylIdChanged();
+            }
+        }
+        private global::System.Int32 _KtoUtworzylId;
+        partial void OnKtoUtworzylIdChanging(global::System.Int32 value);
+        partial void OnKtoUtworzylIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public Nullable<global::System.DateTime> DataMod
@@ -3952,6 +7553,54 @@ namespace Firma.Models.Entities
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.DateTime> DataUsuniecia
+        {
+            get
+            {
+                return _DataUsuniecia;
+            }
+            set
+            {
+                OnDataUsunieciaChanging(value);
+                ReportPropertyChanging("DataUsuniecia");
+                _DataUsuniecia = StructuralObject.SetValidValue(value, "DataUsuniecia");
+                ReportPropertyChanged("DataUsuniecia");
+                OnDataUsunieciaChanged();
+            }
+        }
+        private Nullable<global::System.DateTime> _DataUsuniecia;
+        partial void OnDataUsunieciaChanging(Nullable<global::System.DateTime> value);
+        partial void OnDataUsunieciaChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> KtoUsunalId
+        {
+            get
+            {
+                return _KtoUsunalId;
+            }
+            set
+            {
+                OnKtoUsunalIdChanging(value);
+                ReportPropertyChanging("KtoUsunalId");
+                _KtoUsunalId = StructuralObject.SetValidValue(value, "KtoUsunalId");
+                ReportPropertyChanged("KtoUsunalId");
+                OnKtoUsunalIdChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _KtoUsunalId;
+        partial void OnKtoUsunalIdChanging(Nullable<global::System.Int32> value);
+        partial void OnKtoUsunalIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Boolean CzyAktywny
@@ -3983,18 +7632,34 @@ namespace Firma.Models.Entities
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("JJFirmaModel", "FK_Faktury_Magazyny", "Faktury")]
-        public EntityCollection<Faktury> Faktury
+        [EdmRelationshipNavigationPropertyAttribute("JJFirmaModel", "FK_Magazyny_Adresy", "Adresy")]
+        public Adresy Adresy
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Faktury>("JJFirmaModel.FK_Faktury_Magazyny", "Faktury");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Adresy>("JJFirmaModel.FK_Magazyny_Adresy", "Adresy").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Adresy>("JJFirmaModel.FK_Magazyny_Adresy", "Adresy").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<Adresy> AdresyReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Adresy>("JJFirmaModel.FK_Magazyny_Adresy", "Adresy");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Faktury>("JJFirmaModel.FK_Faktury_Magazyny", "Faktury", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Adresy>("JJFirmaModel.FK_Magazyny_Adresy", "Adresy", value);
                 }
             }
         }
@@ -4081,18 +7746,116 @@ namespace Firma.Models.Entities
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("JJFirmaModel", "FK_Pracownicy_Magazyny", "Pracownicy")]
-        public EntityCollection<Pracownicy> Pracownicy1
+        [EdmRelationshipNavigationPropertyAttribute("JJFirmaModel", "FK_Magazyny_Pracownicy1", "Pracownicy")]
+        public Pracownicy Pracownicy1
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Pracownicy>("JJFirmaModel.FK_Pracownicy_Magazyny", "Pracownicy");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Pracownicy>("JJFirmaModel.FK_Magazyny_Pracownicy1", "Pracownicy").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Pracownicy>("JJFirmaModel.FK_Magazyny_Pracownicy1", "Pracownicy").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<Pracownicy> Pracownicy1Reference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Pracownicy>("JJFirmaModel.FK_Magazyny_Pracownicy1", "Pracownicy");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Pracownicy>("JJFirmaModel.FK_Pracownicy_Magazyny", "Pracownicy", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Pracownicy>("JJFirmaModel.FK_Magazyny_Pracownicy1", "Pracownicy", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("JJFirmaModel", "FK_Magazyny_Pracownicy2", "Pracownicy")]
+        public Pracownicy Pracownicy2
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Pracownicy>("JJFirmaModel.FK_Magazyny_Pracownicy2", "Pracownicy").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Pracownicy>("JJFirmaModel.FK_Magazyny_Pracownicy2", "Pracownicy").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<Pracownicy> Pracownicy2Reference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Pracownicy>("JJFirmaModel.FK_Magazyny_Pracownicy2", "Pracownicy");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Pracownicy>("JJFirmaModel.FK_Magazyny_Pracownicy2", "Pracownicy", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("JJFirmaModel", "FK_PrzyjeciaZewnetrzne_Magazyny", "PrzyjeciaZewnetrzne")]
+        public EntityCollection<PrzyjeciaZewnetrzne> PrzyjeciaZewnetrzne
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<PrzyjeciaZewnetrzne>("JJFirmaModel.FK_PrzyjeciaZewnetrzne_Magazyny", "PrzyjeciaZewnetrzne");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<PrzyjeciaZewnetrzne>("JJFirmaModel.FK_PrzyjeciaZewnetrzne_Magazyny", "PrzyjeciaZewnetrzne", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("JJFirmaModel", "FK_WydaniaZewnetrzne_Magazyny", "WydaniaZewnetrzne")]
+        public EntityCollection<WydaniaZewnetrzne> WydaniaZewnetrzne
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<WydaniaZewnetrzne>("JJFirmaModel.FK_WydaniaZewnetrzne_Magazyny", "WydaniaZewnetrzne");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<WydaniaZewnetrzne>("JJFirmaModel.FK_WydaniaZewnetrzne_Magazyny", "WydaniaZewnetrzne", value);
                 }
             }
         }
@@ -4118,16 +7881,20 @@ namespace Firma.Models.Entities
         /// <param name="symbol">Initial value of the Symbol property.</param>
         /// <param name="nazwa">Initial value of the Nazwa property.</param>
         /// <param name="opis">Initial value of the Opis property.</param>
+        /// <param name="uwagi">Initial value of the Uwagi property.</param>
         /// <param name="dataUtworzenia">Initial value of the DataUtworzenia property.</param>
+        /// <param name="ktoUtworzylId">Initial value of the KtoUtworzylId property.</param>
         /// <param name="czyAktywny">Initial value of the CzyAktywny property.</param>
-        public static MagazynyTypy CreateMagazynyTypy(global::System.Int32 typMagazynuId, global::System.String symbol, global::System.String nazwa, global::System.String opis, global::System.DateTime dataUtworzenia, global::System.Boolean czyAktywny)
+        public static MagazynyTypy CreateMagazynyTypy(global::System.Int32 typMagazynuId, global::System.String symbol, global::System.String nazwa, global::System.String opis, global::System.String uwagi, global::System.DateTime dataUtworzenia, global::System.Int32 ktoUtworzylId, global::System.Boolean czyAktywny)
         {
             MagazynyTypy magazynyTypy = new MagazynyTypy();
             magazynyTypy.TypMagazynuId = typMagazynuId;
             magazynyTypy.Symbol = symbol;
             magazynyTypy.Nazwa = nazwa;
             magazynyTypy.Opis = opis;
+            magazynyTypy.Uwagi = uwagi;
             magazynyTypy.DataUtworzenia = dataUtworzenia;
+            magazynyTypy.KtoUtworzylId = ktoUtworzylId;
             magazynyTypy.CzyAktywny = czyAktywny;
             return magazynyTypy;
         }
@@ -4240,6 +8007,30 @@ namespace Firma.Models.Entities
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
+        public global::System.String Uwagi
+        {
+            get
+            {
+                return _Uwagi;
+            }
+            set
+            {
+                OnUwagiChanging(value);
+                ReportPropertyChanging("Uwagi");
+                _Uwagi = StructuralObject.SetValidValue(value, false, "Uwagi");
+                ReportPropertyChanged("Uwagi");
+                OnUwagiChanged();
+            }
+        }
+        private global::System.String _Uwagi;
+        partial void OnUwagiChanging(global::System.String value);
+        partial void OnUwagiChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
         public global::System.DateTime DataUtworzenia
         {
             get
@@ -4258,6 +8049,30 @@ namespace Firma.Models.Entities
         private global::System.DateTime _DataUtworzenia;
         partial void OnDataUtworzeniaChanging(global::System.DateTime value);
         partial void OnDataUtworzeniaChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 KtoUtworzylId
+        {
+            get
+            {
+                return _KtoUtworzylId;
+            }
+            set
+            {
+                OnKtoUtworzylIdChanging(value);
+                ReportPropertyChanging("KtoUtworzylId");
+                _KtoUtworzylId = StructuralObject.SetValidValue(value, "KtoUtworzylId");
+                ReportPropertyChanged("KtoUtworzylId");
+                OnKtoUtworzylIdChanged();
+            }
+        }
+        private global::System.Int32 _KtoUtworzylId;
+        partial void OnKtoUtworzylIdChanging(global::System.Int32 value);
+        partial void OnKtoUtworzylIdChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -4306,6 +8121,54 @@ namespace Firma.Models.Entities
         private Nullable<global::System.Int32> _KtoModId;
         partial void OnKtoModIdChanging(Nullable<global::System.Int32> value);
         partial void OnKtoModIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.DateTime> DataUsuniecia
+        {
+            get
+            {
+                return _DataUsuniecia;
+            }
+            set
+            {
+                OnDataUsunieciaChanging(value);
+                ReportPropertyChanging("DataUsuniecia");
+                _DataUsuniecia = StructuralObject.SetValidValue(value, "DataUsuniecia");
+                ReportPropertyChanged("DataUsuniecia");
+                OnDataUsunieciaChanged();
+            }
+        }
+        private Nullable<global::System.DateTime> _DataUsuniecia;
+        partial void OnDataUsunieciaChanging(Nullable<global::System.DateTime> value);
+        partial void OnDataUsunieciaChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> KtoUsunalId
+        {
+            get
+            {
+                return _KtoUsunalId;
+            }
+            set
+            {
+                OnKtoUsunalIdChanging(value);
+                ReportPropertyChanging("KtoUsunalId");
+                _KtoUsunalId = StructuralObject.SetValidValue(value, "KtoUsunalId");
+                ReportPropertyChanged("KtoUsunalId");
+                OnKtoUsunalIdChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _KtoUsunalId;
+        partial void OnKtoUsunalIdChanging(Nullable<global::System.Int32> value);
+        partial void OnKtoUsunalIdChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -4394,6 +8257,82 @@ namespace Firma.Models.Entities
                 }
             }
         }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("JJFirmaModel", "FK_MagazynyTypy_Pracownicy1", "Pracownicy")]
+        public Pracownicy Pracownicy1
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Pracownicy>("JJFirmaModel.FK_MagazynyTypy_Pracownicy1", "Pracownicy").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Pracownicy>("JJFirmaModel.FK_MagazynyTypy_Pracownicy1", "Pracownicy").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<Pracownicy> Pracownicy1Reference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Pracownicy>("JJFirmaModel.FK_MagazynyTypy_Pracownicy1", "Pracownicy");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Pracownicy>("JJFirmaModel.FK_MagazynyTypy_Pracownicy1", "Pracownicy", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("JJFirmaModel", "FK_MagazynyTypy_Pracownicy2", "Pracownicy")]
+        public Pracownicy Pracownicy2
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Pracownicy>("JJFirmaModel.FK_MagazynyTypy_Pracownicy2", "Pracownicy").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Pracownicy>("JJFirmaModel.FK_MagazynyTypy_Pracownicy2", "Pracownicy").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<Pracownicy> Pracownicy2Reference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Pracownicy>("JJFirmaModel.FK_MagazynyTypy_Pracownicy2", "Pracownicy");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Pracownicy>("JJFirmaModel.FK_MagazynyTypy_Pracownicy2", "Pracownicy", value);
+                }
+            }
+        }
 
         #endregion
 
@@ -4402,38 +8341,40 @@ namespace Firma.Models.Entities
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="JJFirmaModel", Name="Pojazdy")]
+    [EdmEntityTypeAttribute(NamespaceName="JJFirmaModel", Name="PozycjePrzyjeciaZewnetrznego")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
-    public partial class Pojazdy : EntityObject
+    public partial class PozycjePrzyjeciaZewnetrznego : EntityObject
     {
         #region Factory Method
     
         /// <summary>
-        /// Create a new Pojazdy object.
+        /// Create a new PozycjePrzyjeciaZewnetrznego object.
         /// </summary>
-        /// <param name="pojazdId">Initial value of the PojazdId property.</param>
-        /// <param name="rodzajPojazdu">Initial value of the RodzajPojazdu property.</param>
-        /// <param name="marka">Initial value of the Marka property.</param>
-        /// <param name="model">Initial value of the Model property.</param>
-        /// <param name="rocznik">Initial value of the Rocznik property.</param>
-        /// <param name="nrVIN">Initial value of the NrVIN property.</param>
-        /// <param name="krajRejestracji">Initial value of the KrajRejestracji property.</param>
-        /// <param name="nrRejestracyjny">Initial value of the NrRejestracyjny property.</param>
+        /// <param name="pozycjaPZId">Initial value of the PozycjaPZId property.</param>
+        /// <param name="przyjecieZewnetrzneId">Initial value of the PrzyjecieZewnetrzneId property.</param>
+        /// <param name="towarId">Initial value of the TowarId property.</param>
+        /// <param name="ilosc">Initial value of the Ilosc property.</param>
+        /// <param name="jednMiaryId">Initial value of the JednMiaryId property.</param>
+        /// <param name="pierwotnaCenaZakupu">Initial value of the PierwotnaCenaZakupu property.</param>
+        /// <param name="rabat">Initial value of the Rabat property.</param>
         /// <param name="dataUtworzenia">Initial value of the DataUtworzenia property.</param>
-        public static Pojazdy CreatePojazdy(global::System.Int32 pojazdId, global::System.String rodzajPojazdu, global::System.String marka, global::System.String model, global::System.String rocznik, global::System.String nrVIN, global::System.String krajRejestracji, global::System.String nrRejestracyjny, global::System.DateTime dataUtworzenia)
+        /// <param name="ktoUtworzylId">Initial value of the KtoUtworzylId property.</param>
+        /// <param name="czyAktywny">Initial value of the CzyAktywny property.</param>
+        public static PozycjePrzyjeciaZewnetrznego CreatePozycjePrzyjeciaZewnetrznego(global::System.Int32 pozycjaPZId, global::System.Int32 przyjecieZewnetrzneId, global::System.Int32 towarId, global::System.Int32 ilosc, global::System.Int32 jednMiaryId, global::System.Decimal pierwotnaCenaZakupu, global::System.Decimal rabat, global::System.DateTime dataUtworzenia, global::System.Int32 ktoUtworzylId, global::System.Boolean czyAktywny)
         {
-            Pojazdy pojazdy = new Pojazdy();
-            pojazdy.PojazdId = pojazdId;
-            pojazdy.RodzajPojazdu = rodzajPojazdu;
-            pojazdy.Marka = marka;
-            pojazdy.Model = model;
-            pojazdy.Rocznik = rocznik;
-            pojazdy.NrVIN = nrVIN;
-            pojazdy.KrajRejestracji = krajRejestracji;
-            pojazdy.NrRejestracyjny = nrRejestracyjny;
-            pojazdy.DataUtworzenia = dataUtworzenia;
-            return pojazdy;
+            PozycjePrzyjeciaZewnetrznego pozycjePrzyjeciaZewnetrznego = new PozycjePrzyjeciaZewnetrznego();
+            pozycjePrzyjeciaZewnetrznego.PozycjaPZId = pozycjaPZId;
+            pozycjePrzyjeciaZewnetrznego.PrzyjecieZewnetrzneId = przyjecieZewnetrzneId;
+            pozycjePrzyjeciaZewnetrznego.TowarId = towarId;
+            pozycjePrzyjeciaZewnetrznego.Ilosc = ilosc;
+            pozycjePrzyjeciaZewnetrznego.JednMiaryId = jednMiaryId;
+            pozycjePrzyjeciaZewnetrznego.PierwotnaCenaZakupu = pierwotnaCenaZakupu;
+            pozycjePrzyjeciaZewnetrznego.Rabat = rabat;
+            pozycjePrzyjeciaZewnetrznego.DataUtworzenia = dataUtworzenia;
+            pozycjePrzyjeciaZewnetrznego.KtoUtworzylId = ktoUtworzylId;
+            pozycjePrzyjeciaZewnetrznego.CzyAktywny = czyAktywny;
+            return pozycjePrzyjeciaZewnetrznego;
         }
 
         #endregion
@@ -4445,195 +8386,171 @@ namespace Firma.Models.Entities
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.Int32 PojazdId
+        public global::System.Int32 PozycjaPZId
         {
             get
             {
-                return _PojazdId;
+                return _PozycjaPZId;
             }
             set
             {
-                if (_PojazdId != value)
+                if (_PozycjaPZId != value)
                 {
-                    OnPojazdIdChanging(value);
-                    ReportPropertyChanging("PojazdId");
-                    _PojazdId = StructuralObject.SetValidValue(value, "PojazdId");
-                    ReportPropertyChanged("PojazdId");
-                    OnPojazdIdChanged();
+                    OnPozycjaPZIdChanging(value);
+                    ReportPropertyChanging("PozycjaPZId");
+                    _PozycjaPZId = StructuralObject.SetValidValue(value, "PozycjaPZId");
+                    ReportPropertyChanged("PozycjaPZId");
+                    OnPozycjaPZIdChanged();
                 }
             }
         }
-        private global::System.Int32 _PojazdId;
-        partial void OnPojazdIdChanging(global::System.Int32 value);
-        partial void OnPojazdIdChanged();
+        private global::System.Int32 _PozycjaPZId;
+        partial void OnPozycjaPZIdChanging(global::System.Int32 value);
+        partial void OnPozycjaPZIdChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.String RodzajPojazdu
+        public global::System.Int32 PrzyjecieZewnetrzneId
         {
             get
             {
-                return _RodzajPojazdu;
+                return _PrzyjecieZewnetrzneId;
             }
             set
             {
-                OnRodzajPojazduChanging(value);
-                ReportPropertyChanging("RodzajPojazdu");
-                _RodzajPojazdu = StructuralObject.SetValidValue(value, false, "RodzajPojazdu");
-                ReportPropertyChanged("RodzajPojazdu");
-                OnRodzajPojazduChanged();
+                OnPrzyjecieZewnetrzneIdChanging(value);
+                ReportPropertyChanging("PrzyjecieZewnetrzneId");
+                _PrzyjecieZewnetrzneId = StructuralObject.SetValidValue(value, "PrzyjecieZewnetrzneId");
+                ReportPropertyChanged("PrzyjecieZewnetrzneId");
+                OnPrzyjecieZewnetrzneIdChanged();
             }
         }
-        private global::System.String _RodzajPojazdu;
-        partial void OnRodzajPojazduChanging(global::System.String value);
-        partial void OnRodzajPojazduChanged();
+        private global::System.Int32 _PrzyjecieZewnetrzneId;
+        partial void OnPrzyjecieZewnetrzneIdChanging(global::System.Int32 value);
+        partial void OnPrzyjecieZewnetrzneIdChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.String Marka
+        public global::System.Int32 TowarId
         {
             get
             {
-                return _Marka;
+                return _TowarId;
             }
             set
             {
-                OnMarkaChanging(value);
-                ReportPropertyChanging("Marka");
-                _Marka = StructuralObject.SetValidValue(value, false, "Marka");
-                ReportPropertyChanged("Marka");
-                OnMarkaChanged();
+                OnTowarIdChanging(value);
+                ReportPropertyChanging("TowarId");
+                _TowarId = StructuralObject.SetValidValue(value, "TowarId");
+                ReportPropertyChanged("TowarId");
+                OnTowarIdChanged();
             }
         }
-        private global::System.String _Marka;
-        partial void OnMarkaChanging(global::System.String value);
-        partial void OnMarkaChanged();
+        private global::System.Int32 _TowarId;
+        partial void OnTowarIdChanging(global::System.Int32 value);
+        partial void OnTowarIdChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.String Model
+        public global::System.Int32 Ilosc
         {
             get
             {
-                return _Model;
+                return _Ilosc;
             }
             set
             {
-                OnModelChanging(value);
-                ReportPropertyChanging("Model");
-                _Model = StructuralObject.SetValidValue(value, false, "Model");
-                ReportPropertyChanged("Model");
-                OnModelChanged();
+                OnIloscChanging(value);
+                ReportPropertyChanging("Ilosc");
+                _Ilosc = StructuralObject.SetValidValue(value, "Ilosc");
+                ReportPropertyChanged("Ilosc");
+                OnIloscChanged();
             }
         }
-        private global::System.String _Model;
-        partial void OnModelChanging(global::System.String value);
-        partial void OnModelChanged();
+        private global::System.Int32 _Ilosc;
+        partial void OnIloscChanging(global::System.Int32 value);
+        partial void OnIloscChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.String Rocznik
+        public global::System.Int32 JednMiaryId
         {
             get
             {
-                return _Rocznik;
+                return _JednMiaryId;
             }
             set
             {
-                OnRocznikChanging(value);
-                ReportPropertyChanging("Rocznik");
-                _Rocznik = StructuralObject.SetValidValue(value, false, "Rocznik");
-                ReportPropertyChanged("Rocznik");
-                OnRocznikChanged();
+                OnJednMiaryIdChanging(value);
+                ReportPropertyChanging("JednMiaryId");
+                _JednMiaryId = StructuralObject.SetValidValue(value, "JednMiaryId");
+                ReportPropertyChanged("JednMiaryId");
+                OnJednMiaryIdChanged();
             }
         }
-        private global::System.String _Rocznik;
-        partial void OnRocznikChanging(global::System.String value);
-        partial void OnRocznikChanged();
+        private global::System.Int32 _JednMiaryId;
+        partial void OnJednMiaryIdChanging(global::System.Int32 value);
+        partial void OnJednMiaryIdChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.String NrVIN
+        public global::System.Decimal PierwotnaCenaZakupu
         {
             get
             {
-                return _NrVIN;
+                return _PierwotnaCenaZakupu;
             }
             set
             {
-                OnNrVINChanging(value);
-                ReportPropertyChanging("NrVIN");
-                _NrVIN = StructuralObject.SetValidValue(value, false, "NrVIN");
-                ReportPropertyChanged("NrVIN");
-                OnNrVINChanged();
+                OnPierwotnaCenaZakupuChanging(value);
+                ReportPropertyChanging("PierwotnaCenaZakupu");
+                _PierwotnaCenaZakupu = StructuralObject.SetValidValue(value, "PierwotnaCenaZakupu");
+                ReportPropertyChanged("PierwotnaCenaZakupu");
+                OnPierwotnaCenaZakupuChanged();
             }
         }
-        private global::System.String _NrVIN;
-        partial void OnNrVINChanging(global::System.String value);
-        partial void OnNrVINChanged();
+        private global::System.Decimal _PierwotnaCenaZakupu;
+        partial void OnPierwotnaCenaZakupuChanging(global::System.Decimal value);
+        partial void OnPierwotnaCenaZakupuChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.String KrajRejestracji
+        public global::System.Decimal Rabat
         {
             get
             {
-                return _KrajRejestracji;
+                return _Rabat;
             }
             set
             {
-                OnKrajRejestracjiChanging(value);
-                ReportPropertyChanging("KrajRejestracji");
-                _KrajRejestracji = StructuralObject.SetValidValue(value, false, "KrajRejestracji");
-                ReportPropertyChanged("KrajRejestracji");
-                OnKrajRejestracjiChanged();
+                OnRabatChanging(value);
+                ReportPropertyChanging("Rabat");
+                _Rabat = StructuralObject.SetValidValue(value, "Rabat");
+                ReportPropertyChanged("Rabat");
+                OnRabatChanged();
             }
         }
-        private global::System.String _KrajRejestracji;
-        partial void OnKrajRejestracjiChanging(global::System.String value);
-        partial void OnKrajRejestracjiChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.String NrRejestracyjny
-        {
-            get
-            {
-                return _NrRejestracyjny;
-            }
-            set
-            {
-                OnNrRejestracyjnyChanging(value);
-                ReportPropertyChanging("NrRejestracyjny");
-                _NrRejestracyjny = StructuralObject.SetValidValue(value, false, "NrRejestracyjny");
-                ReportPropertyChanged("NrRejestracyjny");
-                OnNrRejestracyjnyChanged();
-            }
-        }
-        private global::System.String _NrRejestracyjny;
-        partial void OnNrRejestracyjnyChanging(global::System.String value);
-        partial void OnNrRejestracyjnyChanged();
+        private global::System.Decimal _Rabat;
+        partial void OnRabatChanging(global::System.Decimal value);
+        partial void OnRabatChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -4658,6 +8575,30 @@ namespace Firma.Models.Entities
         private global::System.DateTime _DataUtworzenia;
         partial void OnDataUtworzeniaChanging(global::System.DateTime value);
         partial void OnDataUtworzeniaChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 KtoUtworzylId
+        {
+            get
+            {
+                return _KtoUtworzylId;
+            }
+            set
+            {
+                OnKtoUtworzylIdChanging(value);
+                ReportPropertyChanging("KtoUtworzylId");
+                _KtoUtworzylId = StructuralObject.SetValidValue(value, "KtoUtworzylId");
+                ReportPropertyChanged("KtoUtworzylId");
+                OnKtoUtworzylIdChanged();
+            }
+        }
+        private global::System.Int32 _KtoUtworzylId;
+        partial void OnKtoUtworzylIdChanging(global::System.Int32 value);
+        partial void OnKtoUtworzylIdChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -4712,7 +8653,55 @@ namespace Firma.Models.Entities
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
-        public Nullable<global::System.Boolean> CzyAktywny
+        public Nullable<global::System.DateTime> DataUsuniecia
+        {
+            get
+            {
+                return _DataUsuniecia;
+            }
+            set
+            {
+                OnDataUsunieciaChanging(value);
+                ReportPropertyChanging("DataUsuniecia");
+                _DataUsuniecia = StructuralObject.SetValidValue(value, "DataUsuniecia");
+                ReportPropertyChanged("DataUsuniecia");
+                OnDataUsunieciaChanged();
+            }
+        }
+        private Nullable<global::System.DateTime> _DataUsuniecia;
+        partial void OnDataUsunieciaChanging(Nullable<global::System.DateTime> value);
+        partial void OnDataUsunieciaChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> KtoUsunalId
+        {
+            get
+            {
+                return _KtoUsunalId;
+            }
+            set
+            {
+                OnKtoUsunalIdChanging(value);
+                ReportPropertyChanging("KtoUsunalId");
+                _KtoUsunalId = StructuralObject.SetValidValue(value, "KtoUsunalId");
+                ReportPropertyChanged("KtoUsunalId");
+                OnKtoUsunalIdChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _KtoUsunalId;
+        partial void OnKtoUsunalIdChanging(Nullable<global::System.Int32> value);
+        partial void OnKtoUsunalIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Boolean CzyAktywny
         {
             get
             {
@@ -4727,8 +8716,8 @@ namespace Firma.Models.Entities
                 OnCzyAktywnyChanged();
             }
         }
-        private Nullable<global::System.Boolean> _CzyAktywny;
-        partial void OnCzyAktywnyChanging(Nullable<global::System.Boolean> value);
+        private global::System.Boolean _CzyAktywny;
+        partial void OnCzyAktywnyChanging(global::System.Boolean value);
         partial void OnCzyAktywnyChanged();
 
         #endregion
@@ -4741,16 +8730,54 @@ namespace Firma.Models.Entities
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("JJFirmaModel", "FK_Pojazdy_Pracownicy", "Pracownicy")]
+        [EdmRelationshipNavigationPropertyAttribute("JJFirmaModel", "FK_PozycjePrzyjeciaZewnetrznego_JednostkiMiary", "JednostkiMiary")]
+        public JednostkiMiary JednostkiMiary
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<JednostkiMiary>("JJFirmaModel.FK_PozycjePrzyjeciaZewnetrznego_JednostkiMiary", "JednostkiMiary").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<JednostkiMiary>("JJFirmaModel.FK_PozycjePrzyjeciaZewnetrznego_JednostkiMiary", "JednostkiMiary").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<JednostkiMiary> JednostkiMiaryReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<JednostkiMiary>("JJFirmaModel.FK_PozycjePrzyjeciaZewnetrznego_JednostkiMiary", "JednostkiMiary");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<JednostkiMiary>("JJFirmaModel.FK_PozycjePrzyjeciaZewnetrznego_JednostkiMiary", "JednostkiMiary", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("JJFirmaModel", "FK_PozycjePrzyjeciaZewnetrznego_Pracownicy", "Pracownicy")]
         public Pracownicy Pracownicy
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Pracownicy>("JJFirmaModel.FK_Pojazdy_Pracownicy", "Pracownicy").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Pracownicy>("JJFirmaModel.FK_PozycjePrzyjeciaZewnetrznego_Pracownicy", "Pracownicy").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Pracownicy>("JJFirmaModel.FK_Pojazdy_Pracownicy", "Pracownicy").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Pracownicy>("JJFirmaModel.FK_PozycjePrzyjeciaZewnetrznego_Pracownicy", "Pracownicy").Value = value;
             }
         }
         /// <summary>
@@ -4762,13 +8789,13 @@ namespace Firma.Models.Entities
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Pracownicy>("JJFirmaModel.FK_Pojazdy_Pracownicy", "Pracownicy");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Pracownicy>("JJFirmaModel.FK_PozycjePrzyjeciaZewnetrznego_Pracownicy", "Pracownicy");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Pracownicy>("JJFirmaModel.FK_Pojazdy_Pracownicy", "Pracownicy", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Pracownicy>("JJFirmaModel.FK_PozycjePrzyjeciaZewnetrznego_Pracownicy", "Pracownicy", value);
                 }
             }
         }
@@ -4779,18 +8806,740 @@ namespace Firma.Models.Entities
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("JJFirmaModel", "FK_Pracownicy_Pojazdy", "Pracownicy")]
-        public EntityCollection<Pracownicy> Pracownicy1
+        [EdmRelationshipNavigationPropertyAttribute("JJFirmaModel", "FK_PozycjePrzyjeciaZewnetrznego_Pracownicy1", "Pracownicy")]
+        public Pracownicy Pracownicy1
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Pracownicy>("JJFirmaModel.FK_Pracownicy_Pojazdy", "Pracownicy");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Pracownicy>("JJFirmaModel.FK_PozycjePrzyjeciaZewnetrznego_Pracownicy1", "Pracownicy").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Pracownicy>("JJFirmaModel.FK_PozycjePrzyjeciaZewnetrznego_Pracownicy1", "Pracownicy").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<Pracownicy> Pracownicy1Reference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Pracownicy>("JJFirmaModel.FK_PozycjePrzyjeciaZewnetrznego_Pracownicy1", "Pracownicy");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Pracownicy>("JJFirmaModel.FK_Pracownicy_Pojazdy", "Pracownicy", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Pracownicy>("JJFirmaModel.FK_PozycjePrzyjeciaZewnetrznego_Pracownicy1", "Pracownicy", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("JJFirmaModel", "FK_PozycjePrzyjeciaZewnetrznego_Pracownicy2", "Pracownicy")]
+        public Pracownicy Pracownicy2
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Pracownicy>("JJFirmaModel.FK_PozycjePrzyjeciaZewnetrznego_Pracownicy2", "Pracownicy").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Pracownicy>("JJFirmaModel.FK_PozycjePrzyjeciaZewnetrznego_Pracownicy2", "Pracownicy").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<Pracownicy> Pracownicy2Reference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Pracownicy>("JJFirmaModel.FK_PozycjePrzyjeciaZewnetrznego_Pracownicy2", "Pracownicy");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Pracownicy>("JJFirmaModel.FK_PozycjePrzyjeciaZewnetrznego_Pracownicy2", "Pracownicy", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("JJFirmaModel", "FK_PozycjePrzyjeciaZewnetrznego_PrzyjeciaZewnetrzne", "PrzyjeciaZewnetrzne")]
+        public PrzyjeciaZewnetrzne PrzyjeciaZewnetrzne
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<PrzyjeciaZewnetrzne>("JJFirmaModel.FK_PozycjePrzyjeciaZewnetrznego_PrzyjeciaZewnetrzne", "PrzyjeciaZewnetrzne").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<PrzyjeciaZewnetrzne>("JJFirmaModel.FK_PozycjePrzyjeciaZewnetrznego_PrzyjeciaZewnetrzne", "PrzyjeciaZewnetrzne").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<PrzyjeciaZewnetrzne> PrzyjeciaZewnetrzneReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<PrzyjeciaZewnetrzne>("JJFirmaModel.FK_PozycjePrzyjeciaZewnetrznego_PrzyjeciaZewnetrzne", "PrzyjeciaZewnetrzne");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<PrzyjeciaZewnetrzne>("JJFirmaModel.FK_PozycjePrzyjeciaZewnetrznego_PrzyjeciaZewnetrzne", "PrzyjeciaZewnetrzne", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("JJFirmaModel", "FK_PozycjePrzyjeciaZewnetrznego_Towary", "Towary")]
+        public Towary Towary
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Towary>("JJFirmaModel.FK_PozycjePrzyjeciaZewnetrznego_Towary", "Towary").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Towary>("JJFirmaModel.FK_PozycjePrzyjeciaZewnetrznego_Towary", "Towary").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<Towary> TowaryReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Towary>("JJFirmaModel.FK_PozycjePrzyjeciaZewnetrznego_Towary", "Towary");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Towary>("JJFirmaModel.FK_PozycjePrzyjeciaZewnetrznego_Towary", "Towary", value);
+                }
+            }
+        }
+
+        #endregion
+
+    }
+    
+    /// <summary>
+    /// No Metadata Documentation available.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="JJFirmaModel", Name="PozycjeWydaniaZewnetrznego")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class PozycjeWydaniaZewnetrznego : EntityObject
+    {
+        #region Factory Method
+    
+        /// <summary>
+        /// Create a new PozycjeWydaniaZewnetrznego object.
+        /// </summary>
+        /// <param name="pozycjaWZId">Initial value of the PozycjaWZId property.</param>
+        /// <param name="wydanieZewnetrzneId">Initial value of the WydanieZewnetrzneId property.</param>
+        /// <param name="towarId">Initial value of the TowarId property.</param>
+        /// <param name="ilosc">Initial value of the Ilosc property.</param>
+        /// <param name="jednMiaryId">Initial value of the JednMiaryId property.</param>
+        /// <param name="rabat">Initial value of the Rabat property.</param>
+        /// <param name="dataUtworzenia">Initial value of the DataUtworzenia property.</param>
+        /// <param name="ktoUtworzylId">Initial value of the KtoUtworzylId property.</param>
+        /// <param name="czyAktywny">Initial value of the CzyAktywny property.</param>
+        public static PozycjeWydaniaZewnetrznego CreatePozycjeWydaniaZewnetrznego(global::System.Int32 pozycjaWZId, global::System.Int32 wydanieZewnetrzneId, global::System.Int32 towarId, global::System.Int32 ilosc, global::System.Int32 jednMiaryId, global::System.Decimal rabat, global::System.DateTime dataUtworzenia, global::System.Int32 ktoUtworzylId, global::System.Boolean czyAktywny)
+        {
+            PozycjeWydaniaZewnetrznego pozycjeWydaniaZewnetrznego = new PozycjeWydaniaZewnetrznego();
+            pozycjeWydaniaZewnetrznego.PozycjaWZId = pozycjaWZId;
+            pozycjeWydaniaZewnetrznego.WydanieZewnetrzneId = wydanieZewnetrzneId;
+            pozycjeWydaniaZewnetrznego.TowarId = towarId;
+            pozycjeWydaniaZewnetrznego.Ilosc = ilosc;
+            pozycjeWydaniaZewnetrznego.JednMiaryId = jednMiaryId;
+            pozycjeWydaniaZewnetrznego.Rabat = rabat;
+            pozycjeWydaniaZewnetrznego.DataUtworzenia = dataUtworzenia;
+            pozycjeWydaniaZewnetrznego.KtoUtworzylId = ktoUtworzylId;
+            pozycjeWydaniaZewnetrznego.CzyAktywny = czyAktywny;
+            return pozycjeWydaniaZewnetrznego;
+        }
+
+        #endregion
+
+        #region Simple Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 PozycjaWZId
+        {
+            get
+            {
+                return _PozycjaWZId;
+            }
+            set
+            {
+                if (_PozycjaWZId != value)
+                {
+                    OnPozycjaWZIdChanging(value);
+                    ReportPropertyChanging("PozycjaWZId");
+                    _PozycjaWZId = StructuralObject.SetValidValue(value, "PozycjaWZId");
+                    ReportPropertyChanged("PozycjaWZId");
+                    OnPozycjaWZIdChanged();
+                }
+            }
+        }
+        private global::System.Int32 _PozycjaWZId;
+        partial void OnPozycjaWZIdChanging(global::System.Int32 value);
+        partial void OnPozycjaWZIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 WydanieZewnetrzneId
+        {
+            get
+            {
+                return _WydanieZewnetrzneId;
+            }
+            set
+            {
+                OnWydanieZewnetrzneIdChanging(value);
+                ReportPropertyChanging("WydanieZewnetrzneId");
+                _WydanieZewnetrzneId = StructuralObject.SetValidValue(value, "WydanieZewnetrzneId");
+                ReportPropertyChanged("WydanieZewnetrzneId");
+                OnWydanieZewnetrzneIdChanged();
+            }
+        }
+        private global::System.Int32 _WydanieZewnetrzneId;
+        partial void OnWydanieZewnetrzneIdChanging(global::System.Int32 value);
+        partial void OnWydanieZewnetrzneIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 TowarId
+        {
+            get
+            {
+                return _TowarId;
+            }
+            set
+            {
+                OnTowarIdChanging(value);
+                ReportPropertyChanging("TowarId");
+                _TowarId = StructuralObject.SetValidValue(value, "TowarId");
+                ReportPropertyChanged("TowarId");
+                OnTowarIdChanged();
+            }
+        }
+        private global::System.Int32 _TowarId;
+        partial void OnTowarIdChanging(global::System.Int32 value);
+        partial void OnTowarIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 Ilosc
+        {
+            get
+            {
+                return _Ilosc;
+            }
+            set
+            {
+                OnIloscChanging(value);
+                ReportPropertyChanging("Ilosc");
+                _Ilosc = StructuralObject.SetValidValue(value, "Ilosc");
+                ReportPropertyChanged("Ilosc");
+                OnIloscChanged();
+            }
+        }
+        private global::System.Int32 _Ilosc;
+        partial void OnIloscChanging(global::System.Int32 value);
+        partial void OnIloscChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 JednMiaryId
+        {
+            get
+            {
+                return _JednMiaryId;
+            }
+            set
+            {
+                OnJednMiaryIdChanging(value);
+                ReportPropertyChanging("JednMiaryId");
+                _JednMiaryId = StructuralObject.SetValidValue(value, "JednMiaryId");
+                ReportPropertyChanged("JednMiaryId");
+                OnJednMiaryIdChanged();
+            }
+        }
+        private global::System.Int32 _JednMiaryId;
+        partial void OnJednMiaryIdChanging(global::System.Int32 value);
+        partial void OnJednMiaryIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Decimal Rabat
+        {
+            get
+            {
+                return _Rabat;
+            }
+            set
+            {
+                OnRabatChanging(value);
+                ReportPropertyChanging("Rabat");
+                _Rabat = StructuralObject.SetValidValue(value, "Rabat");
+                ReportPropertyChanged("Rabat");
+                OnRabatChanged();
+            }
+        }
+        private global::System.Decimal _Rabat;
+        partial void OnRabatChanging(global::System.Decimal value);
+        partial void OnRabatChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.DateTime DataUtworzenia
+        {
+            get
+            {
+                return _DataUtworzenia;
+            }
+            set
+            {
+                OnDataUtworzeniaChanging(value);
+                ReportPropertyChanging("DataUtworzenia");
+                _DataUtworzenia = StructuralObject.SetValidValue(value, "DataUtworzenia");
+                ReportPropertyChanged("DataUtworzenia");
+                OnDataUtworzeniaChanged();
+            }
+        }
+        private global::System.DateTime _DataUtworzenia;
+        partial void OnDataUtworzeniaChanging(global::System.DateTime value);
+        partial void OnDataUtworzeniaChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 KtoUtworzylId
+        {
+            get
+            {
+                return _KtoUtworzylId;
+            }
+            set
+            {
+                OnKtoUtworzylIdChanging(value);
+                ReportPropertyChanging("KtoUtworzylId");
+                _KtoUtworzylId = StructuralObject.SetValidValue(value, "KtoUtworzylId");
+                ReportPropertyChanged("KtoUtworzylId");
+                OnKtoUtworzylIdChanged();
+            }
+        }
+        private global::System.Int32 _KtoUtworzylId;
+        partial void OnKtoUtworzylIdChanging(global::System.Int32 value);
+        partial void OnKtoUtworzylIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.DateTime> DataMod
+        {
+            get
+            {
+                return _DataMod;
+            }
+            set
+            {
+                OnDataModChanging(value);
+                ReportPropertyChanging("DataMod");
+                _DataMod = StructuralObject.SetValidValue(value, "DataMod");
+                ReportPropertyChanged("DataMod");
+                OnDataModChanged();
+            }
+        }
+        private Nullable<global::System.DateTime> _DataMod;
+        partial void OnDataModChanging(Nullable<global::System.DateTime> value);
+        partial void OnDataModChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> KtoModId
+        {
+            get
+            {
+                return _KtoModId;
+            }
+            set
+            {
+                OnKtoModIdChanging(value);
+                ReportPropertyChanging("KtoModId");
+                _KtoModId = StructuralObject.SetValidValue(value, "KtoModId");
+                ReportPropertyChanged("KtoModId");
+                OnKtoModIdChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _KtoModId;
+        partial void OnKtoModIdChanging(Nullable<global::System.Int32> value);
+        partial void OnKtoModIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.DateTime> DataUsuniecia
+        {
+            get
+            {
+                return _DataUsuniecia;
+            }
+            set
+            {
+                OnDataUsunieciaChanging(value);
+                ReportPropertyChanging("DataUsuniecia");
+                _DataUsuniecia = StructuralObject.SetValidValue(value, "DataUsuniecia");
+                ReportPropertyChanged("DataUsuniecia");
+                OnDataUsunieciaChanged();
+            }
+        }
+        private Nullable<global::System.DateTime> _DataUsuniecia;
+        partial void OnDataUsunieciaChanging(Nullable<global::System.DateTime> value);
+        partial void OnDataUsunieciaChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> KtoUsunalId
+        {
+            get
+            {
+                return _KtoUsunalId;
+            }
+            set
+            {
+                OnKtoUsunalIdChanging(value);
+                ReportPropertyChanging("KtoUsunalId");
+                _KtoUsunalId = StructuralObject.SetValidValue(value, "KtoUsunalId");
+                ReportPropertyChanged("KtoUsunalId");
+                OnKtoUsunalIdChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _KtoUsunalId;
+        partial void OnKtoUsunalIdChanging(Nullable<global::System.Int32> value);
+        partial void OnKtoUsunalIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Boolean CzyAktywny
+        {
+            get
+            {
+                return _CzyAktywny;
+            }
+            set
+            {
+                OnCzyAktywnyChanging(value);
+                ReportPropertyChanging("CzyAktywny");
+                _CzyAktywny = StructuralObject.SetValidValue(value, "CzyAktywny");
+                ReportPropertyChanged("CzyAktywny");
+                OnCzyAktywnyChanged();
+            }
+        }
+        private global::System.Boolean _CzyAktywny;
+        partial void OnCzyAktywnyChanging(global::System.Boolean value);
+        partial void OnCzyAktywnyChanged();
+
+        #endregion
+
+        #region Navigation Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("JJFirmaModel", "FK_PozycjeWydaniaZewnetrznego_JednostkiMiary", "JednostkiMiary")]
+        public JednostkiMiary JednostkiMiary
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<JednostkiMiary>("JJFirmaModel.FK_PozycjeWydaniaZewnetrznego_JednostkiMiary", "JednostkiMiary").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<JednostkiMiary>("JJFirmaModel.FK_PozycjeWydaniaZewnetrznego_JednostkiMiary", "JednostkiMiary").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<JednostkiMiary> JednostkiMiaryReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<JednostkiMiary>("JJFirmaModel.FK_PozycjeWydaniaZewnetrznego_JednostkiMiary", "JednostkiMiary");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<JednostkiMiary>("JJFirmaModel.FK_PozycjeWydaniaZewnetrznego_JednostkiMiary", "JednostkiMiary", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("JJFirmaModel", "FK_PozycjeWydaniaZewnetrznego_Pracownicy", "Pracownicy")]
+        public Pracownicy Pracownicy
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Pracownicy>("JJFirmaModel.FK_PozycjeWydaniaZewnetrznego_Pracownicy", "Pracownicy").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Pracownicy>("JJFirmaModel.FK_PozycjeWydaniaZewnetrznego_Pracownicy", "Pracownicy").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<Pracownicy> PracownicyReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Pracownicy>("JJFirmaModel.FK_PozycjeWydaniaZewnetrznego_Pracownicy", "Pracownicy");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Pracownicy>("JJFirmaModel.FK_PozycjeWydaniaZewnetrznego_Pracownicy", "Pracownicy", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("JJFirmaModel", "FK_PozycjeWydaniaZewnetrznego_Pracownicy1", "Pracownicy")]
+        public Pracownicy Pracownicy1
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Pracownicy>("JJFirmaModel.FK_PozycjeWydaniaZewnetrznego_Pracownicy1", "Pracownicy").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Pracownicy>("JJFirmaModel.FK_PozycjeWydaniaZewnetrznego_Pracownicy1", "Pracownicy").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<Pracownicy> Pracownicy1Reference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Pracownicy>("JJFirmaModel.FK_PozycjeWydaniaZewnetrznego_Pracownicy1", "Pracownicy");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Pracownicy>("JJFirmaModel.FK_PozycjeWydaniaZewnetrznego_Pracownicy1", "Pracownicy", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("JJFirmaModel", "FK_PozycjeWydaniaZewnetrznego_Pracownicy2", "Pracownicy")]
+        public Pracownicy Pracownicy2
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Pracownicy>("JJFirmaModel.FK_PozycjeWydaniaZewnetrznego_Pracownicy2", "Pracownicy").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Pracownicy>("JJFirmaModel.FK_PozycjeWydaniaZewnetrznego_Pracownicy2", "Pracownicy").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<Pracownicy> Pracownicy2Reference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Pracownicy>("JJFirmaModel.FK_PozycjeWydaniaZewnetrznego_Pracownicy2", "Pracownicy");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Pracownicy>("JJFirmaModel.FK_PozycjeWydaniaZewnetrznego_Pracownicy2", "Pracownicy", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("JJFirmaModel", "FK_PozycjeWydaniaZewnetrznego_Towary", "Towary")]
+        public Towary Towary
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Towary>("JJFirmaModel.FK_PozycjeWydaniaZewnetrznego_Towary", "Towary").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Towary>("JJFirmaModel.FK_PozycjeWydaniaZewnetrznego_Towary", "Towary").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<Towary> TowaryReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Towary>("JJFirmaModel.FK_PozycjeWydaniaZewnetrznego_Towary", "Towary");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Towary>("JJFirmaModel.FK_PozycjeWydaniaZewnetrznego_Towary", "Towary", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("JJFirmaModel", "FK_PozycjeWydaniaZewnetrznego_WydaniaZewnetrzne", "WydaniaZewnetrzne")]
+        public WydaniaZewnetrzne WydaniaZewnetrzne
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<WydaniaZewnetrzne>("JJFirmaModel.FK_PozycjeWydaniaZewnetrznego_WydaniaZewnetrzne", "WydaniaZewnetrzne").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<WydaniaZewnetrzne>("JJFirmaModel.FK_PozycjeWydaniaZewnetrznego_WydaniaZewnetrzne", "WydaniaZewnetrzne").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<WydaniaZewnetrzne> WydaniaZewnetrzneReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<WydaniaZewnetrzne>("JJFirmaModel.FK_PozycjeWydaniaZewnetrznego_WydaniaZewnetrzne", "WydaniaZewnetrzne");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<WydaniaZewnetrzne>("JJFirmaModel.FK_PozycjeWydaniaZewnetrznego_WydaniaZewnetrzne", "WydaniaZewnetrzne", value);
                 }
             }
         }
@@ -4826,26 +9575,15 @@ namespace Firma.Models.Entities
         /// <param name="imieMatki">Initial value of the ImieMatki property.</param>
         /// <param name="nazwiskoRodowe">Initial value of the NazwiskoRodowe property.</param>
         /// <param name="nazwiskoRodoweMatki">Initial value of the NazwiskoRodoweMatki property.</param>
-        /// <param name="kraj">Initial value of the Kraj property.</param>
-        /// <param name="krajKod">Initial value of the KrajKod property.</param>
-        /// <param name="wojewodztwo">Initial value of the Wojewodztwo property.</param>
-        /// <param name="powiat">Initial value of the Powiat property.</param>
-        /// <param name="gmina">Initial value of the Gmina property.</param>
-        /// <param name="kodGminy">Initial value of the KodGminy property.</param>
-        /// <param name="czyMiasto">Initial value of the CzyMiasto property.</param>
-        /// <param name="miejscowosc">Initial value of the Miejscowosc property.</param>
-        /// <param name="ulica">Initial value of the Ulica property.</param>
-        /// <param name="nrDomu">Initial value of the NrDomu property.</param>
-        /// <param name="nrLokalu">Initial value of the NrLokalu property.</param>
-        /// <param name="kodPocztowy">Initial value of the KodPocztowy property.</param>
-        /// <param name="poczta">Initial value of the Poczta property.</param>
+        /// <param name="adresId">Initial value of the AdresId property.</param>
         /// <param name="telefon">Initial value of the Telefon property.</param>
         /// <param name="telefonSMS">Initial value of the TelefonSMS property.</param>
         /// <param name="email">Initial value of the Email property.</param>
-        /// <param name="umowaId">Initial value of the UmowaId property.</param>
+        /// <param name="uwagi">Initial value of the Uwagi property.</param>
         /// <param name="dataUtworzenia">Initial value of the DataUtworzenia property.</param>
+        /// <param name="ktoUtworzylId">Initial value of the KtoUtworzylId property.</param>
         /// <param name="czyAktywny">Initial value of the CzyAktywny property.</param>
-        public static Pracownicy CreatePracownicy(global::System.Int32 pracownikId, global::System.String akronim, global::System.String nazwisko, global::System.String imie, global::System.String drugieImie, global::System.String pESEL, global::System.String nipKraj, global::System.String nip, global::System.DateTime dataUrodzenia, global::System.String miejsceUrodzenia, global::System.String imieOjca, global::System.String imieMatki, global::System.String nazwiskoRodowe, global::System.String nazwiskoRodoweMatki, global::System.String kraj, global::System.String krajKod, global::System.String wojewodztwo, global::System.String powiat, global::System.String gmina, global::System.String kodGminy, global::System.Boolean czyMiasto, global::System.String miejscowosc, global::System.String ulica, global::System.String nrDomu, global::System.String nrLokalu, global::System.String kodPocztowy, global::System.String poczta, global::System.String telefon, global::System.String telefonSMS, global::System.String email, global::System.Int32 umowaId, global::System.DateTime dataUtworzenia, global::System.Boolean czyAktywny)
+        public static Pracownicy CreatePracownicy(global::System.Int32 pracownikId, global::System.String akronim, global::System.String nazwisko, global::System.String imie, global::System.String drugieImie, global::System.String pESEL, global::System.String nipKraj, global::System.String nip, global::System.DateTime dataUrodzenia, global::System.String miejsceUrodzenia, global::System.String imieOjca, global::System.String imieMatki, global::System.String nazwiskoRodowe, global::System.String nazwiskoRodoweMatki, global::System.Int32 adresId, global::System.String telefon, global::System.String telefonSMS, global::System.String email, global::System.String uwagi, global::System.DateTime dataUtworzenia, global::System.Int32 ktoUtworzylId, global::System.Boolean czyAktywny)
         {
             Pracownicy pracownicy = new Pracownicy();
             pracownicy.PracownikId = pracownikId;
@@ -4862,24 +9600,13 @@ namespace Firma.Models.Entities
             pracownicy.ImieMatki = imieMatki;
             pracownicy.NazwiskoRodowe = nazwiskoRodowe;
             pracownicy.NazwiskoRodoweMatki = nazwiskoRodoweMatki;
-            pracownicy.Kraj = kraj;
-            pracownicy.KrajKod = krajKod;
-            pracownicy.Wojewodztwo = wojewodztwo;
-            pracownicy.Powiat = powiat;
-            pracownicy.Gmina = gmina;
-            pracownicy.KodGminy = kodGminy;
-            pracownicy.CzyMiasto = czyMiasto;
-            pracownicy.Miejscowosc = miejscowosc;
-            pracownicy.Ulica = ulica;
-            pracownicy.NrDomu = nrDomu;
-            pracownicy.NrLokalu = nrLokalu;
-            pracownicy.KodPocztowy = kodPocztowy;
-            pracownicy.Poczta = poczta;
+            pracownicy.AdresId = adresId;
             pracownicy.Telefon = telefon;
             pracownicy.TelefonSMS = telefonSMS;
             pracownicy.Email = email;
-            pracownicy.UmowaId = umowaId;
+            pracownicy.Uwagi = uwagi;
             pracownicy.DataUtworzenia = dataUtworzenia;
+            pracownicy.KtoUtworzylId = ktoUtworzylId;
             pracownicy.CzyAktywny = czyAktywny;
             return pracownicy;
         }
@@ -5232,312 +9959,24 @@ namespace Firma.Models.Entities
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.String Kraj
+        public global::System.Int32 AdresId
         {
             get
             {
-                return _Kraj;
+                return _AdresId;
             }
             set
             {
-                OnKrajChanging(value);
-                ReportPropertyChanging("Kraj");
-                _Kraj = StructuralObject.SetValidValue(value, false, "Kraj");
-                ReportPropertyChanged("Kraj");
-                OnKrajChanged();
+                OnAdresIdChanging(value);
+                ReportPropertyChanging("AdresId");
+                _AdresId = StructuralObject.SetValidValue(value, "AdresId");
+                ReportPropertyChanged("AdresId");
+                OnAdresIdChanged();
             }
         }
-        private global::System.String _Kraj;
-        partial void OnKrajChanging(global::System.String value);
-        partial void OnKrajChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.String KrajKod
-        {
-            get
-            {
-                return _KrajKod;
-            }
-            set
-            {
-                OnKrajKodChanging(value);
-                ReportPropertyChanging("KrajKod");
-                _KrajKod = StructuralObject.SetValidValue(value, false, "KrajKod");
-                ReportPropertyChanged("KrajKod");
-                OnKrajKodChanged();
-            }
-        }
-        private global::System.String _KrajKod;
-        partial void OnKrajKodChanging(global::System.String value);
-        partial void OnKrajKodChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.String Wojewodztwo
-        {
-            get
-            {
-                return _Wojewodztwo;
-            }
-            set
-            {
-                OnWojewodztwoChanging(value);
-                ReportPropertyChanging("Wojewodztwo");
-                _Wojewodztwo = StructuralObject.SetValidValue(value, false, "Wojewodztwo");
-                ReportPropertyChanged("Wojewodztwo");
-                OnWojewodztwoChanged();
-            }
-        }
-        private global::System.String _Wojewodztwo;
-        partial void OnWojewodztwoChanging(global::System.String value);
-        partial void OnWojewodztwoChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.String Powiat
-        {
-            get
-            {
-                return _Powiat;
-            }
-            set
-            {
-                OnPowiatChanging(value);
-                ReportPropertyChanging("Powiat");
-                _Powiat = StructuralObject.SetValidValue(value, false, "Powiat");
-                ReportPropertyChanged("Powiat");
-                OnPowiatChanged();
-            }
-        }
-        private global::System.String _Powiat;
-        partial void OnPowiatChanging(global::System.String value);
-        partial void OnPowiatChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.String Gmina
-        {
-            get
-            {
-                return _Gmina;
-            }
-            set
-            {
-                OnGminaChanging(value);
-                ReportPropertyChanging("Gmina");
-                _Gmina = StructuralObject.SetValidValue(value, false, "Gmina");
-                ReportPropertyChanged("Gmina");
-                OnGminaChanged();
-            }
-        }
-        private global::System.String _Gmina;
-        partial void OnGminaChanging(global::System.String value);
-        partial void OnGminaChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.String KodGminy
-        {
-            get
-            {
-                return _KodGminy;
-            }
-            set
-            {
-                OnKodGminyChanging(value);
-                ReportPropertyChanging("KodGminy");
-                _KodGminy = StructuralObject.SetValidValue(value, false, "KodGminy");
-                ReportPropertyChanged("KodGminy");
-                OnKodGminyChanged();
-            }
-        }
-        private global::System.String _KodGminy;
-        partial void OnKodGminyChanging(global::System.String value);
-        partial void OnKodGminyChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.Boolean CzyMiasto
-        {
-            get
-            {
-                return _CzyMiasto;
-            }
-            set
-            {
-                OnCzyMiastoChanging(value);
-                ReportPropertyChanging("CzyMiasto");
-                _CzyMiasto = StructuralObject.SetValidValue(value, "CzyMiasto");
-                ReportPropertyChanged("CzyMiasto");
-                OnCzyMiastoChanged();
-            }
-        }
-        private global::System.Boolean _CzyMiasto;
-        partial void OnCzyMiastoChanging(global::System.Boolean value);
-        partial void OnCzyMiastoChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.String Miejscowosc
-        {
-            get
-            {
-                return _Miejscowosc;
-            }
-            set
-            {
-                OnMiejscowoscChanging(value);
-                ReportPropertyChanging("Miejscowosc");
-                _Miejscowosc = StructuralObject.SetValidValue(value, false, "Miejscowosc");
-                ReportPropertyChanged("Miejscowosc");
-                OnMiejscowoscChanged();
-            }
-        }
-        private global::System.String _Miejscowosc;
-        partial void OnMiejscowoscChanging(global::System.String value);
-        partial void OnMiejscowoscChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.String Ulica
-        {
-            get
-            {
-                return _Ulica;
-            }
-            set
-            {
-                OnUlicaChanging(value);
-                ReportPropertyChanging("Ulica");
-                _Ulica = StructuralObject.SetValidValue(value, false, "Ulica");
-                ReportPropertyChanged("Ulica");
-                OnUlicaChanged();
-            }
-        }
-        private global::System.String _Ulica;
-        partial void OnUlicaChanging(global::System.String value);
-        partial void OnUlicaChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.String NrDomu
-        {
-            get
-            {
-                return _NrDomu;
-            }
-            set
-            {
-                OnNrDomuChanging(value);
-                ReportPropertyChanging("NrDomu");
-                _NrDomu = StructuralObject.SetValidValue(value, false, "NrDomu");
-                ReportPropertyChanged("NrDomu");
-                OnNrDomuChanged();
-            }
-        }
-        private global::System.String _NrDomu;
-        partial void OnNrDomuChanging(global::System.String value);
-        partial void OnNrDomuChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.String NrLokalu
-        {
-            get
-            {
-                return _NrLokalu;
-            }
-            set
-            {
-                OnNrLokaluChanging(value);
-                ReportPropertyChanging("NrLokalu");
-                _NrLokalu = StructuralObject.SetValidValue(value, false, "NrLokalu");
-                ReportPropertyChanged("NrLokalu");
-                OnNrLokaluChanged();
-            }
-        }
-        private global::System.String _NrLokalu;
-        partial void OnNrLokaluChanging(global::System.String value);
-        partial void OnNrLokaluChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.String KodPocztowy
-        {
-            get
-            {
-                return _KodPocztowy;
-            }
-            set
-            {
-                OnKodPocztowyChanging(value);
-                ReportPropertyChanging("KodPocztowy");
-                _KodPocztowy = StructuralObject.SetValidValue(value, false, "KodPocztowy");
-                ReportPropertyChanged("KodPocztowy");
-                OnKodPocztowyChanged();
-            }
-        }
-        private global::System.String _KodPocztowy;
-        partial void OnKodPocztowyChanging(global::System.String value);
-        partial void OnKodPocztowyChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.String Poczta
-        {
-            get
-            {
-                return _Poczta;
-            }
-            set
-            {
-                OnPocztaChanging(value);
-                ReportPropertyChanging("Poczta");
-                _Poczta = StructuralObject.SetValidValue(value, false, "Poczta");
-                ReportPropertyChanged("Poczta");
-                OnPocztaChanged();
-            }
-        }
-        private global::System.String _Poczta;
-        partial void OnPocztaChanging(global::System.String value);
-        partial void OnPocztaChanged();
+        private global::System.Int32 _AdresId;
+        partial void OnAdresIdChanging(global::System.Int32 value);
+        partial void OnAdresIdChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -5616,72 +10055,24 @@ namespace Firma.Models.Entities
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.Int32 UmowaId
+        public global::System.String Uwagi
         {
             get
             {
-                return _UmowaId;
+                return _Uwagi;
             }
             set
             {
-                OnUmowaIdChanging(value);
-                ReportPropertyChanging("UmowaId");
-                _UmowaId = StructuralObject.SetValidValue(value, "UmowaId");
-                ReportPropertyChanged("UmowaId");
-                OnUmowaIdChanged();
+                OnUwagiChanging(value);
+                ReportPropertyChanging("Uwagi");
+                _Uwagi = StructuralObject.SetValidValue(value, false, "Uwagi");
+                ReportPropertyChanged("Uwagi");
+                OnUwagiChanged();
             }
         }
-        private global::System.Int32 _UmowaId;
-        partial void OnUmowaIdChanging(global::System.Int32 value);
-        partial void OnUmowaIdChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
-        [DataMemberAttribute()]
-        public Nullable<global::System.Int32> MagazynId
-        {
-            get
-            {
-                return _MagazynId;
-            }
-            set
-            {
-                OnMagazynIdChanging(value);
-                ReportPropertyChanging("MagazynId");
-                _MagazynId = StructuralObject.SetValidValue(value, "MagazynId");
-                ReportPropertyChanged("MagazynId");
-                OnMagazynIdChanged();
-            }
-        }
-        private Nullable<global::System.Int32> _MagazynId;
-        partial void OnMagazynIdChanging(Nullable<global::System.Int32> value);
-        partial void OnMagazynIdChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
-        [DataMemberAttribute()]
-        public Nullable<global::System.Int32> PojazdId
-        {
-            get
-            {
-                return _PojazdId;
-            }
-            set
-            {
-                OnPojazdIdChanging(value);
-                ReportPropertyChanging("PojazdId");
-                _PojazdId = StructuralObject.SetValidValue(value, "PojazdId");
-                ReportPropertyChanged("PojazdId");
-                OnPojazdIdChanged();
-            }
-        }
-        private Nullable<global::System.Int32> _PojazdId;
-        partial void OnPojazdIdChanging(Nullable<global::System.Int32> value);
-        partial void OnPojazdIdChanged();
+        private global::System.String _Uwagi;
+        partial void OnUwagiChanging(global::System.String value);
+        partial void OnUwagiChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -5706,6 +10097,30 @@ namespace Firma.Models.Entities
         private global::System.DateTime _DataUtworzenia;
         partial void OnDataUtworzeniaChanging(global::System.DateTime value);
         partial void OnDataUtworzeniaChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 KtoUtworzylId
+        {
+            get
+            {
+                return _KtoUtworzylId;
+            }
+            set
+            {
+                OnKtoUtworzylIdChanging(value);
+                ReportPropertyChanging("KtoUtworzylId");
+                _KtoUtworzylId = StructuralObject.SetValidValue(value, "KtoUtworzylId");
+                ReportPropertyChanged("KtoUtworzylId");
+                OnKtoUtworzylIdChanged();
+            }
+        }
+        private global::System.Int32 _KtoUtworzylId;
+        partial void OnKtoUtworzylIdChanging(global::System.Int32 value);
+        partial void OnKtoUtworzylIdChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -5758,6 +10173,54 @@ namespace Firma.Models.Entities
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.DateTime> DataUsuniecia
+        {
+            get
+            {
+                return _DataUsuniecia;
+            }
+            set
+            {
+                OnDataUsunieciaChanging(value);
+                ReportPropertyChanging("DataUsuniecia");
+                _DataUsuniecia = StructuralObject.SetValidValue(value, "DataUsuniecia");
+                ReportPropertyChanged("DataUsuniecia");
+                OnDataUsunieciaChanged();
+            }
+        }
+        private Nullable<global::System.DateTime> _DataUsuniecia;
+        partial void OnDataUsunieciaChanging(Nullable<global::System.DateTime> value);
+        partial void OnDataUsunieciaChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> KtoUsunalId
+        {
+            get
+            {
+                return _KtoUsunalId;
+            }
+            set
+            {
+                OnKtoUsunalIdChanging(value);
+                ReportPropertyChanging("KtoUsunalId");
+                _KtoUsunalId = StructuralObject.SetValidValue(value, "KtoUsunalId");
+                ReportPropertyChanged("KtoUsunalId");
+                OnKtoUsunalIdChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _KtoUsunalId;
+        partial void OnKtoUsunalIdChanging(Nullable<global::System.Int32> value);
+        partial void OnKtoUsunalIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Boolean CzyAktywny
@@ -5789,18 +10252,100 @@ namespace Firma.Models.Entities
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("JJFirmaModel", "FK_FakturaTowary_Pracownicy", "FakturaTowary")]
-        public EntityCollection<FakturaTowary> FakturaTowary
+        [EdmRelationshipNavigationPropertyAttribute("JJFirmaModel", "FK_Adresy_Pracownicy", "Adresy")]
+        public EntityCollection<Adresy> Adresy
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<FakturaTowary>("JJFirmaModel.FK_FakturaTowary_Pracownicy", "FakturaTowary");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Adresy>("JJFirmaModel.FK_Adresy_Pracownicy", "Adresy");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<FakturaTowary>("JJFirmaModel.FK_FakturaTowary_Pracownicy", "FakturaTowary", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Adresy>("JJFirmaModel.FK_Adresy_Pracownicy", "Adresy", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("JJFirmaModel", "FK_Adresy_Pracownicy1", "Adresy")]
+        public EntityCollection<Adresy> Adresy1
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Adresy>("JJFirmaModel.FK_Adresy_Pracownicy1", "Adresy");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Adresy>("JJFirmaModel.FK_Adresy_Pracownicy1", "Adresy", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("JJFirmaModel", "FK_Adresy_Pracownicy2", "Adresy")]
+        public EntityCollection<Adresy> Adresy2
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Adresy>("JJFirmaModel.FK_Adresy_Pracownicy2", "Adresy");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Adresy>("JJFirmaModel.FK_Adresy_Pracownicy2", "Adresy", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("JJFirmaModel", "FK_Pracownicy_Adresy", "Adresy")]
+        public Adresy Adresy3
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Adresy>("JJFirmaModel.FK_Pracownicy_Adresy", "Adresy").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Adresy>("JJFirmaModel.FK_Pracownicy_Adresy", "Adresy").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<Adresy> Adresy3Reference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Adresy>("JJFirmaModel.FK_Pracownicy_Adresy", "Adresy");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Adresy>("JJFirmaModel.FK_Pracownicy_Adresy", "Adresy", value);
                 }
             }
         }
@@ -5833,6 +10378,50 @@ namespace Firma.Models.Entities
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("JJFirmaModel", "FK_Faktury_Pracownicy1", "Faktury")]
+        public EntityCollection<Faktury> Faktury1
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Faktury>("JJFirmaModel.FK_Faktury_Pracownicy1", "Faktury");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Faktury>("JJFirmaModel.FK_Faktury_Pracownicy1", "Faktury", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("JJFirmaModel", "FK_Faktury_Pracownicy2", "Faktury")]
+        public EntityCollection<Faktury> Faktury2
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Faktury>("JJFirmaModel.FK_Faktury_Pracownicy2", "Faktury");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Faktury>("JJFirmaModel.FK_Faktury_Pracownicy2", "Faktury", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
         [EdmRelationshipNavigationPropertyAttribute("JJFirmaModel", "FK_FakturyKategorie_Pracownicy", "FakturyKategorie")]
         public EntityCollection<FakturyKategorie> FakturyKategorie
         {
@@ -5845,6 +10434,314 @@ namespace Firma.Models.Entities
                 if ((value != null))
                 {
                     ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<FakturyKategorie>("JJFirmaModel.FK_FakturyKategorie_Pracownicy", "FakturyKategorie", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("JJFirmaModel", "FK_FakturyKategorie_Pracownicy1", "FakturyKategorie")]
+        public EntityCollection<FakturyKategorie> FakturyKategorie1
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<FakturyKategorie>("JJFirmaModel.FK_FakturyKategorie_Pracownicy1", "FakturyKategorie");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<FakturyKategorie>("JJFirmaModel.FK_FakturyKategorie_Pracownicy1", "FakturyKategorie", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("JJFirmaModel", "FK_FakturyKategorie_Pracownicy2", "FakturyKategorie")]
+        public EntityCollection<FakturyKategorie> FakturyKategorie2
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<FakturyKategorie>("JJFirmaModel.FK_FakturyKategorie_Pracownicy2", "FakturyKategorie");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<FakturyKategorie>("JJFirmaModel.FK_FakturyKategorie_Pracownicy2", "FakturyKategorie", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("JJFirmaModel", "FK_FakturyRodzaje_Pracownicy", "FakturyRodzaje")]
+        public EntityCollection<FakturyRodzaje> FakturyRodzaje
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<FakturyRodzaje>("JJFirmaModel.FK_FakturyRodzaje_Pracownicy", "FakturyRodzaje");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<FakturyRodzaje>("JJFirmaModel.FK_FakturyRodzaje_Pracownicy", "FakturyRodzaje", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("JJFirmaModel", "FK_FakturyRodzaje_Pracownicy1", "FakturyRodzaje")]
+        public EntityCollection<FakturyRodzaje> FakturyRodzaje1
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<FakturyRodzaje>("JJFirmaModel.FK_FakturyRodzaje_Pracownicy1", "FakturyRodzaje");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<FakturyRodzaje>("JJFirmaModel.FK_FakturyRodzaje_Pracownicy1", "FakturyRodzaje", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("JJFirmaModel", "FK_FakturyRodzaje_Pracownicy2", "FakturyRodzaje")]
+        public EntityCollection<FakturyRodzaje> FakturyRodzaje2
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<FakturyRodzaje>("JJFirmaModel.FK_FakturyRodzaje_Pracownicy2", "FakturyRodzaje");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<FakturyRodzaje>("JJFirmaModel.FK_FakturyRodzaje_Pracownicy2", "FakturyRodzaje", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("JJFirmaModel", "FK_FakturyWydaniaZewnetrzne_Pracownicy", "FakturyWydaniaZewnetrzne")]
+        public EntityCollection<FakturyWydaniaZewnetrzne> FakturyWydaniaZewnetrzne
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<FakturyWydaniaZewnetrzne>("JJFirmaModel.FK_FakturyWydaniaZewnetrzne_Pracownicy", "FakturyWydaniaZewnetrzne");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<FakturyWydaniaZewnetrzne>("JJFirmaModel.FK_FakturyWydaniaZewnetrzne_Pracownicy", "FakturyWydaniaZewnetrzne", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("JJFirmaModel", "FK_FakturyWydaniaZewnetrzne_Pracownicy1", "FakturyWydaniaZewnetrzne")]
+        public EntityCollection<FakturyWydaniaZewnetrzne> FakturyWydaniaZewnetrzne1
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<FakturyWydaniaZewnetrzne>("JJFirmaModel.FK_FakturyWydaniaZewnetrzne_Pracownicy1", "FakturyWydaniaZewnetrzne");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<FakturyWydaniaZewnetrzne>("JJFirmaModel.FK_FakturyWydaniaZewnetrzne_Pracownicy1", "FakturyWydaniaZewnetrzne", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("JJFirmaModel", "FK_FakturyWydaniaZewnetrzne_Pracownicy2", "FakturyWydaniaZewnetrzne")]
+        public EntityCollection<FakturyWydaniaZewnetrzne> FakturyWydaniaZewnetrzne2
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<FakturyWydaniaZewnetrzne>("JJFirmaModel.FK_FakturyWydaniaZewnetrzne_Pracownicy2", "FakturyWydaniaZewnetrzne");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<FakturyWydaniaZewnetrzne>("JJFirmaModel.FK_FakturyWydaniaZewnetrzne_Pracownicy2", "FakturyWydaniaZewnetrzne", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("JJFirmaModel", "FK_JednostkiMiary_Pracownicy", "JednostkiMiary")]
+        public EntityCollection<JednostkiMiary> JednostkiMiary
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<JednostkiMiary>("JJFirmaModel.FK_JednostkiMiary_Pracownicy", "JednostkiMiary");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<JednostkiMiary>("JJFirmaModel.FK_JednostkiMiary_Pracownicy", "JednostkiMiary", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("JJFirmaModel", "FK_JednostkiMiary_Pracownicy1", "JednostkiMiary")]
+        public EntityCollection<JednostkiMiary> JednostkiMiary1
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<JednostkiMiary>("JJFirmaModel.FK_JednostkiMiary_Pracownicy1", "JednostkiMiary");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<JednostkiMiary>("JJFirmaModel.FK_JednostkiMiary_Pracownicy1", "JednostkiMiary", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("JJFirmaModel", "FK_JednostkiMiary_Pracownicy2", "JednostkiMiary")]
+        public EntityCollection<JednostkiMiary> JednostkiMiary2
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<JednostkiMiary>("JJFirmaModel.FK_JednostkiMiary_Pracownicy2", "JednostkiMiary");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<JednostkiMiary>("JJFirmaModel.FK_JednostkiMiary_Pracownicy2", "JednostkiMiary", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("JJFirmaModel", "FK_Kontakty_Pracownicy", "Kontakty")]
+        public EntityCollection<Kontakty> Kontakty
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Kontakty>("JJFirmaModel.FK_Kontakty_Pracownicy", "Kontakty");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Kontakty>("JJFirmaModel.FK_Kontakty_Pracownicy", "Kontakty", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("JJFirmaModel", "FK_Kontakty_Pracownicy1", "Kontakty")]
+        public EntityCollection<Kontakty> Kontakty1
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Kontakty>("JJFirmaModel.FK_Kontakty_Pracownicy1", "Kontakty");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Kontakty>("JJFirmaModel.FK_Kontakty_Pracownicy1", "Kontakty", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("JJFirmaModel", "FK_Kontakty_Pracownicy2", "Kontakty")]
+        public EntityCollection<Kontakty> Kontakty2
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Kontakty>("JJFirmaModel.FK_Kontakty_Pracownicy2", "Kontakty");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Kontakty>("JJFirmaModel.FK_Kontakty_Pracownicy2", "Kontakty", value);
                 }
             }
         }
@@ -5877,6 +10774,116 @@ namespace Firma.Models.Entities
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("JJFirmaModel", "FK_Kontrahenci_Pracownicy1", "Kontrahenci")]
+        public EntityCollection<Kontrahenci> Kontrahenci1
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Kontrahenci>("JJFirmaModel.FK_Kontrahenci_Pracownicy1", "Kontrahenci");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Kontrahenci>("JJFirmaModel.FK_Kontrahenci_Pracownicy1", "Kontrahenci", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("JJFirmaModel", "FK_Kontrahenci_Pracownicy2", "Kontrahenci")]
+        public EntityCollection<Kontrahenci> Kontrahenci2
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Kontrahenci>("JJFirmaModel.FK_Kontrahenci_Pracownicy2", "Kontrahenci");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Kontrahenci>("JJFirmaModel.FK_Kontrahenci_Pracownicy2", "Kontrahenci", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("JJFirmaModel", "FK_KontrahenciKontakty_Pracownicy", "KontrahenciKontakty")]
+        public EntityCollection<KontrahenciKontakty> KontrahenciKontakty
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<KontrahenciKontakty>("JJFirmaModel.FK_KontrahenciKontakty_Pracownicy", "KontrahenciKontakty");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<KontrahenciKontakty>("JJFirmaModel.FK_KontrahenciKontakty_Pracownicy", "KontrahenciKontakty", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("JJFirmaModel", "FK_KontrahenciKontakty_Pracownicy1", "KontrahenciKontakty")]
+        public EntityCollection<KontrahenciKontakty> KontrahenciKontakty1
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<KontrahenciKontakty>("JJFirmaModel.FK_KontrahenciKontakty_Pracownicy1", "KontrahenciKontakty");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<KontrahenciKontakty>("JJFirmaModel.FK_KontrahenciKontakty_Pracownicy1", "KontrahenciKontakty", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("JJFirmaModel", "FK_KontrahenciKontakty_Pracownicy2", "KontrahenciKontakty")]
+        public EntityCollection<KontrahenciKontakty> KontrahenciKontakty2
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<KontrahenciKontakty>("JJFirmaModel.FK_KontrahenciKontakty_Pracownicy2", "KontrahenciKontakty");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<KontrahenciKontakty>("JJFirmaModel.FK_KontrahenciKontakty_Pracownicy2", "KontrahenciKontakty", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
         [EdmRelationshipNavigationPropertyAttribute("JJFirmaModel", "FK_KontrahenciRodzaje_Pracownicy", "KontrahenciRodzaje")]
         public EntityCollection<KontrahenciRodzaje> KontrahenciRodzaje
         {
@@ -5889,6 +10896,116 @@ namespace Firma.Models.Entities
                 if ((value != null))
                 {
                     ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<KontrahenciRodzaje>("JJFirmaModel.FK_KontrahenciRodzaje_Pracownicy", "KontrahenciRodzaje", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("JJFirmaModel", "FK_KontrahenciRodzaje_Pracownicy1", "KontrahenciRodzaje")]
+        public EntityCollection<KontrahenciRodzaje> KontrahenciRodzaje1
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<KontrahenciRodzaje>("JJFirmaModel.FK_KontrahenciRodzaje_Pracownicy1", "KontrahenciRodzaje");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<KontrahenciRodzaje>("JJFirmaModel.FK_KontrahenciRodzaje_Pracownicy1", "KontrahenciRodzaje", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("JJFirmaModel", "FK_KontrahenciRodzaje_Pracownicy2", "KontrahenciRodzaje")]
+        public EntityCollection<KontrahenciRodzaje> KontrahenciRodzaje2
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<KontrahenciRodzaje>("JJFirmaModel.FK_KontrahenciRodzaje_Pracownicy2", "KontrahenciRodzaje");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<KontrahenciRodzaje>("JJFirmaModel.FK_KontrahenciRodzaje_Pracownicy2", "KontrahenciRodzaje", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("JJFirmaModel", "FK_Kraje_Pracownicy", "Kraje")]
+        public EntityCollection<Kraje> Kraje
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Kraje>("JJFirmaModel.FK_Kraje_Pracownicy", "Kraje");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Kraje>("JJFirmaModel.FK_Kraje_Pracownicy", "Kraje", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("JJFirmaModel", "FK_Kraje_Pracownicy1", "Kraje")]
+        public EntityCollection<Kraje> Kraje1
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Kraje>("JJFirmaModel.FK_Kraje_Pracownicy1", "Kraje");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Kraje>("JJFirmaModel.FK_Kraje_Pracownicy1", "Kraje", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("JJFirmaModel", "FK_Kraje_Pracownicy2", "Kraje")]
+        public EntityCollection<Kraje> Kraje2
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Kraje>("JJFirmaModel.FK_Kraje_Pracownicy2", "Kraje");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Kraje>("JJFirmaModel.FK_Kraje_Pracownicy2", "Kraje", value);
                 }
             }
         }
@@ -5921,34 +11038,40 @@ namespace Firma.Models.Entities
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("JJFirmaModel", "FK_Pracownicy_Magazyny", "Magazyny")]
-        public Magazyny Magazyny1
+        [EdmRelationshipNavigationPropertyAttribute("JJFirmaModel", "FK_Magazyny_Pracownicy1", "Magazyny")]
+        public EntityCollection<Magazyny> Magazyny1
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Magazyny>("JJFirmaModel.FK_Pracownicy_Magazyny", "Magazyny").Value;
-            }
-            set
-            {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Magazyny>("JJFirmaModel.FK_Pracownicy_Magazyny", "Magazyny").Value = value;
-            }
-        }
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [BrowsableAttribute(false)]
-        [DataMemberAttribute()]
-        public EntityReference<Magazyny> Magazyny1Reference
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Magazyny>("JJFirmaModel.FK_Pracownicy_Magazyny", "Magazyny");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Magazyny>("JJFirmaModel.FK_Magazyny_Pracownicy1", "Magazyny");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Magazyny>("JJFirmaModel.FK_Pracownicy_Magazyny", "Magazyny", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Magazyny>("JJFirmaModel.FK_Magazyny_Pracownicy1", "Magazyny", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("JJFirmaModel", "FK_Magazyny_Pracownicy2", "Magazyny")]
+        public EntityCollection<Magazyny> Magazyny2
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Magazyny>("JJFirmaModel.FK_Magazyny_Pracownicy2", "Magazyny");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Magazyny>("JJFirmaModel.FK_Magazyny_Pracownicy2", "Magazyny", value);
                 }
             }
         }
@@ -5981,18 +11104,18 @@ namespace Firma.Models.Entities
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("JJFirmaModel", "FK_Pojazdy_Pracownicy", "Pojazdy")]
-        public EntityCollection<Pojazdy> Pojazdy
+        [EdmRelationshipNavigationPropertyAttribute("JJFirmaModel", "FK_MagazynyTypy_Pracownicy1", "MagazynyTypy")]
+        public EntityCollection<MagazynyTypy> MagazynyTypy1
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Pojazdy>("JJFirmaModel.FK_Pojazdy_Pracownicy", "Pojazdy");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<MagazynyTypy>("JJFirmaModel.FK_MagazynyTypy_Pracownicy1", "MagazynyTypy");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Pojazdy>("JJFirmaModel.FK_Pojazdy_Pracownicy", "Pojazdy", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<MagazynyTypy>("JJFirmaModel.FK_MagazynyTypy_Pracownicy1", "MagazynyTypy", value);
                 }
             }
         }
@@ -6003,34 +11126,150 @@ namespace Firma.Models.Entities
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("JJFirmaModel", "FK_Pracownicy_Pojazdy", "Pojazdy")]
-        public Pojazdy Pojazdy1
+        [EdmRelationshipNavigationPropertyAttribute("JJFirmaModel", "FK_MagazynyTypy_Pracownicy2", "MagazynyTypy")]
+        public EntityCollection<MagazynyTypy> MagazynyTypy2
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Pojazdy>("JJFirmaModel.FK_Pracownicy_Pojazdy", "Pojazdy").Value;
-            }
-            set
-            {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Pojazdy>("JJFirmaModel.FK_Pracownicy_Pojazdy", "Pojazdy").Value = value;
-            }
-        }
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [BrowsableAttribute(false)]
-        [DataMemberAttribute()]
-        public EntityReference<Pojazdy> Pojazdy1Reference
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Pojazdy>("JJFirmaModel.FK_Pracownicy_Pojazdy", "Pojazdy");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<MagazynyTypy>("JJFirmaModel.FK_MagazynyTypy_Pracownicy2", "MagazynyTypy");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Pojazdy>("JJFirmaModel.FK_Pracownicy_Pojazdy", "Pojazdy", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<MagazynyTypy>("JJFirmaModel.FK_MagazynyTypy_Pracownicy2", "MagazynyTypy", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("JJFirmaModel", "FK_PozycjePrzyjeciaZewnetrznego_Pracownicy", "PozycjePrzyjeciaZewnetrznego")]
+        public EntityCollection<PozycjePrzyjeciaZewnetrznego> PozycjePrzyjeciaZewnetrznego
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<PozycjePrzyjeciaZewnetrznego>("JJFirmaModel.FK_PozycjePrzyjeciaZewnetrznego_Pracownicy", "PozycjePrzyjeciaZewnetrznego");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<PozycjePrzyjeciaZewnetrznego>("JJFirmaModel.FK_PozycjePrzyjeciaZewnetrznego_Pracownicy", "PozycjePrzyjeciaZewnetrznego", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("JJFirmaModel", "FK_PozycjePrzyjeciaZewnetrznego_Pracownicy1", "PozycjePrzyjeciaZewnetrznego")]
+        public EntityCollection<PozycjePrzyjeciaZewnetrznego> PozycjePrzyjeciaZewnetrznego1
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<PozycjePrzyjeciaZewnetrznego>("JJFirmaModel.FK_PozycjePrzyjeciaZewnetrznego_Pracownicy1", "PozycjePrzyjeciaZewnetrznego");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<PozycjePrzyjeciaZewnetrznego>("JJFirmaModel.FK_PozycjePrzyjeciaZewnetrznego_Pracownicy1", "PozycjePrzyjeciaZewnetrznego", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("JJFirmaModel", "FK_PozycjePrzyjeciaZewnetrznego_Pracownicy2", "PozycjePrzyjeciaZewnetrznego")]
+        public EntityCollection<PozycjePrzyjeciaZewnetrznego> PozycjePrzyjeciaZewnetrznego2
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<PozycjePrzyjeciaZewnetrznego>("JJFirmaModel.FK_PozycjePrzyjeciaZewnetrznego_Pracownicy2", "PozycjePrzyjeciaZewnetrznego");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<PozycjePrzyjeciaZewnetrznego>("JJFirmaModel.FK_PozycjePrzyjeciaZewnetrznego_Pracownicy2", "PozycjePrzyjeciaZewnetrznego", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("JJFirmaModel", "FK_PozycjeWydaniaZewnetrznego_Pracownicy", "PozycjeWydaniaZewnetrznego")]
+        public EntityCollection<PozycjeWydaniaZewnetrznego> PozycjeWydaniaZewnetrznego
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<PozycjeWydaniaZewnetrznego>("JJFirmaModel.FK_PozycjeWydaniaZewnetrznego_Pracownicy", "PozycjeWydaniaZewnetrznego");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<PozycjeWydaniaZewnetrznego>("JJFirmaModel.FK_PozycjeWydaniaZewnetrznego_Pracownicy", "PozycjeWydaniaZewnetrznego", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("JJFirmaModel", "FK_PozycjeWydaniaZewnetrznego_Pracownicy1", "PozycjeWydaniaZewnetrznego")]
+        public EntityCollection<PozycjeWydaniaZewnetrznego> PozycjeWydaniaZewnetrznego1
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<PozycjeWydaniaZewnetrznego>("JJFirmaModel.FK_PozycjeWydaniaZewnetrznego_Pracownicy1", "PozycjeWydaniaZewnetrznego");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<PozycjeWydaniaZewnetrznego>("JJFirmaModel.FK_PozycjeWydaniaZewnetrznego_Pracownicy1", "PozycjeWydaniaZewnetrznego", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("JJFirmaModel", "FK_PozycjeWydaniaZewnetrznego_Pracownicy2", "PozycjeWydaniaZewnetrznego")]
+        public EntityCollection<PozycjeWydaniaZewnetrznego> PozycjeWydaniaZewnetrznego2
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<PozycjeWydaniaZewnetrznego>("JJFirmaModel.FK_PozycjeWydaniaZewnetrznego_Pracownicy2", "PozycjeWydaniaZewnetrznego");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<PozycjeWydaniaZewnetrznego>("JJFirmaModel.FK_PozycjeWydaniaZewnetrznego_Pracownicy2", "PozycjeWydaniaZewnetrznego", value);
                 }
             }
         }
@@ -6101,34 +11340,18 @@ namespace Firma.Models.Entities
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("JJFirmaModel", "FK_Pracownicy_Umowy", "Umowy")]
-        public Umowy Umowy
+        [EdmRelationshipNavigationPropertyAttribute("JJFirmaModel", "FK_Pracownicy_Pracownicy1", "Pracownicy1")]
+        public EntityCollection<Pracownicy> Pracownicy11
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Umowy>("JJFirmaModel.FK_Pracownicy_Umowy", "Umowy").Value;
-            }
-            set
-            {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Umowy>("JJFirmaModel.FK_Pracownicy_Umowy", "Umowy").Value = value;
-            }
-        }
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [BrowsableAttribute(false)]
-        [DataMemberAttribute()]
-        public EntityReference<Umowy> UmowyReference
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Umowy>("JJFirmaModel.FK_Pracownicy_Umowy", "Umowy");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Pracownicy>("JJFirmaModel.FK_Pracownicy_Pracownicy1", "Pracownicy1");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Umowy>("JJFirmaModel.FK_Pracownicy_Umowy", "Umowy", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Pracownicy>("JJFirmaModel.FK_Pracownicy_Pracownicy1", "Pracownicy1", value);
                 }
             }
         }
@@ -6139,18 +11362,248 @@ namespace Firma.Models.Entities
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("JJFirmaModel", "FK_RodzajeCeny_Pracownicy", "RodzajeCeny")]
-        public EntityCollection<RodzajeCeny> RodzajeCeny
+        [EdmRelationshipNavigationPropertyAttribute("JJFirmaModel", "FK_Pracownicy_Pracownicy1", "Pracownicy")]
+        public Pracownicy Pracownicy3
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<RodzajeCeny>("JJFirmaModel.FK_RodzajeCeny_Pracownicy", "RodzajeCeny");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Pracownicy>("JJFirmaModel.FK_Pracownicy_Pracownicy1", "Pracownicy").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Pracownicy>("JJFirmaModel.FK_Pracownicy_Pracownicy1", "Pracownicy").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<Pracownicy> Pracownicy3Reference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Pracownicy>("JJFirmaModel.FK_Pracownicy_Pracownicy1", "Pracownicy");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<RodzajeCeny>("JJFirmaModel.FK_RodzajeCeny_Pracownicy", "RodzajeCeny", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Pracownicy>("JJFirmaModel.FK_Pracownicy_Pracownicy1", "Pracownicy", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("JJFirmaModel", "FK_Pracownicy_Pracownicy2", "Pracownicy1")]
+        public EntityCollection<Pracownicy> Pracownicy12
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Pracownicy>("JJFirmaModel.FK_Pracownicy_Pracownicy2", "Pracownicy1");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Pracownicy>("JJFirmaModel.FK_Pracownicy_Pracownicy2", "Pracownicy1", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("JJFirmaModel", "FK_Pracownicy_Pracownicy2", "Pracownicy")]
+        public Pracownicy Pracownicy4
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Pracownicy>("JJFirmaModel.FK_Pracownicy_Pracownicy2", "Pracownicy").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Pracownicy>("JJFirmaModel.FK_Pracownicy_Pracownicy2", "Pracownicy").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<Pracownicy> Pracownicy4Reference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Pracownicy>("JJFirmaModel.FK_Pracownicy_Pracownicy2", "Pracownicy");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Pracownicy>("JJFirmaModel.FK_Pracownicy_Pracownicy2", "Pracownicy", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("JJFirmaModel", "FK_PracownicyUmowy_Pracownicy", "PracownicyUmowy")]
+        public EntityCollection<PracownicyUmowy> PracownicyUmowy
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<PracownicyUmowy>("JJFirmaModel.FK_PracownicyUmowy_Pracownicy", "PracownicyUmowy");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<PracownicyUmowy>("JJFirmaModel.FK_PracownicyUmowy_Pracownicy", "PracownicyUmowy", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("JJFirmaModel", "FK_PracownicyUmowy_Pracownicy1", "PracownicyUmowy")]
+        public EntityCollection<PracownicyUmowy> PracownicyUmowy1
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<PracownicyUmowy>("JJFirmaModel.FK_PracownicyUmowy_Pracownicy1", "PracownicyUmowy");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<PracownicyUmowy>("JJFirmaModel.FK_PracownicyUmowy_Pracownicy1", "PracownicyUmowy", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("JJFirmaModel", "FK_PracownicyUmowy_Pracownicy2", "PracownicyUmowy")]
+        public EntityCollection<PracownicyUmowy> PracownicyUmowy2
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<PracownicyUmowy>("JJFirmaModel.FK_PracownicyUmowy_Pracownicy2", "PracownicyUmowy");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<PracownicyUmowy>("JJFirmaModel.FK_PracownicyUmowy_Pracownicy2", "PracownicyUmowy", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("JJFirmaModel", "FK_PracownicyUmowy_Pracownicy3", "PracownicyUmowy")]
+        public EntityCollection<PracownicyUmowy> PracownicyUmowy3
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<PracownicyUmowy>("JJFirmaModel.FK_PracownicyUmowy_Pracownicy3", "PracownicyUmowy");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<PracownicyUmowy>("JJFirmaModel.FK_PracownicyUmowy_Pracownicy3", "PracownicyUmowy", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("JJFirmaModel", "FK_PrzyjeciaZewnetrzne_Pracownicy", "PrzyjeciaZewnetrzne")]
+        public EntityCollection<PrzyjeciaZewnetrzne> PrzyjeciaZewnetrzne
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<PrzyjeciaZewnetrzne>("JJFirmaModel.FK_PrzyjeciaZewnetrzne_Pracownicy", "PrzyjeciaZewnetrzne");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<PrzyjeciaZewnetrzne>("JJFirmaModel.FK_PrzyjeciaZewnetrzne_Pracownicy", "PrzyjeciaZewnetrzne", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("JJFirmaModel", "FK_PrzyjeciaZewnetrzne_Pracownicy1", "PrzyjeciaZewnetrzne")]
+        public EntityCollection<PrzyjeciaZewnetrzne> PrzyjeciaZewnetrzne1
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<PrzyjeciaZewnetrzne>("JJFirmaModel.FK_PrzyjeciaZewnetrzne_Pracownicy1", "PrzyjeciaZewnetrzne");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<PrzyjeciaZewnetrzne>("JJFirmaModel.FK_PrzyjeciaZewnetrzne_Pracownicy1", "PrzyjeciaZewnetrzne", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("JJFirmaModel", "FK_PrzyjeciaZewnetrzne_Pracownicy2", "PrzyjeciaZewnetrzne")]
+        public EntityCollection<PrzyjeciaZewnetrzne> PrzyjeciaZewnetrzne2
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<PrzyjeciaZewnetrzne>("JJFirmaModel.FK_PrzyjeciaZewnetrzne_Pracownicy2", "PrzyjeciaZewnetrzne");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<PrzyjeciaZewnetrzne>("JJFirmaModel.FK_PrzyjeciaZewnetrzne_Pracownicy2", "PrzyjeciaZewnetrzne", value);
                 }
             }
         }
@@ -6183,6 +11636,50 @@ namespace Firma.Models.Entities
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("JJFirmaModel", "FK_RodzajePlatnosci_Pracownicy1", "RodzajePlatnosci")]
+        public EntityCollection<RodzajePlatnosci> RodzajePlatnosci1
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<RodzajePlatnosci>("JJFirmaModel.FK_RodzajePlatnosci_Pracownicy1", "RodzajePlatnosci");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<RodzajePlatnosci>("JJFirmaModel.FK_RodzajePlatnosci_Pracownicy1", "RodzajePlatnosci", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("JJFirmaModel", "FK_RodzajePlatnosci_Pracownicy2", "RodzajePlatnosci")]
+        public EntityCollection<RodzajePlatnosci> RodzajePlatnosci2
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<RodzajePlatnosci>("JJFirmaModel.FK_RodzajePlatnosci_Pracownicy2", "RodzajePlatnosci");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<RodzajePlatnosci>("JJFirmaModel.FK_RodzajePlatnosci_Pracownicy2", "RodzajePlatnosci", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
         [EdmRelationshipNavigationPropertyAttribute("JJFirmaModel", "FK_Towary_Pracownicy", "Towary")]
         public EntityCollection<Towary> Towary
         {
@@ -6195,6 +11692,50 @@ namespace Firma.Models.Entities
                 if ((value != null))
                 {
                     ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Towary>("JJFirmaModel.FK_Towary_Pracownicy", "Towary", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("JJFirmaModel", "FK_Towary_Pracownicy1", "Towary")]
+        public EntityCollection<Towary> Towary1
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Towary>("JJFirmaModel.FK_Towary_Pracownicy1", "Towary");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Towary>("JJFirmaModel.FK_Towary_Pracownicy1", "Towary", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("JJFirmaModel", "FK_Towary_Pracownicy2", "Towary")]
+        public EntityCollection<Towary> Towary2
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Towary>("JJFirmaModel.FK_Towary_Pracownicy2", "Towary");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Towary>("JJFirmaModel.FK_Towary_Pracownicy2", "Towary", value);
                 }
             }
         }
@@ -6227,18 +11768,40 @@ namespace Firma.Models.Entities
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("JJFirmaModel", "FK_TowaryJednMiary_Pracownicy", "TowaryJednMiary")]
-        public EntityCollection<TowaryJednMiary> TowaryJednMiary
+        [EdmRelationshipNavigationPropertyAttribute("JJFirmaModel", "FK_TowaryGrupy_Pracownicy1", "TowaryGrupy")]
+        public EntityCollection<TowaryGrupy> TowaryGrupy1
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<TowaryJednMiary>("JJFirmaModel.FK_TowaryJednMiary_Pracownicy", "TowaryJednMiary");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<TowaryGrupy>("JJFirmaModel.FK_TowaryGrupy_Pracownicy1", "TowaryGrupy");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<TowaryJednMiary>("JJFirmaModel.FK_TowaryJednMiary_Pracownicy", "TowaryJednMiary", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<TowaryGrupy>("JJFirmaModel.FK_TowaryGrupy_Pracownicy1", "TowaryGrupy", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("JJFirmaModel", "FK_TowaryGrupy_Pracownicy2", "TowaryGrupy")]
+        public EntityCollection<TowaryGrupy> TowaryGrupy2
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<TowaryGrupy>("JJFirmaModel.FK_TowaryGrupy_Pracownicy2", "TowaryGrupy");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<TowaryGrupy>("JJFirmaModel.FK_TowaryGrupy_Pracownicy2", "TowaryGrupy", value);
                 }
             }
         }
@@ -6271,6 +11834,50 @@ namespace Firma.Models.Entities
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("JJFirmaModel", "FK_TowaryStawkiVat_Pracownicy1", "TowaryStawkiVat")]
+        public EntityCollection<TowaryStawkiVat> TowaryStawkiVat1
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<TowaryStawkiVat>("JJFirmaModel.FK_TowaryStawkiVat_Pracownicy1", "TowaryStawkiVat");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<TowaryStawkiVat>("JJFirmaModel.FK_TowaryStawkiVat_Pracownicy1", "TowaryStawkiVat", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("JJFirmaModel", "FK_TowaryStawkiVat_Pracownicy2", "TowaryStawkiVat")]
+        public EntityCollection<TowaryStawkiVat> TowaryStawkiVat2
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<TowaryStawkiVat>("JJFirmaModel.FK_TowaryStawkiVat_Pracownicy2", "TowaryStawkiVat");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<TowaryStawkiVat>("JJFirmaModel.FK_TowaryStawkiVat_Pracownicy2", "TowaryStawkiVat", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
         [EdmRelationshipNavigationPropertyAttribute("JJFirmaModel", "FK_TowaryTypy_Pracownicy", "TowaryTypy")]
         public EntityCollection<TowaryTypy> TowaryTypy
         {
@@ -6293,8 +11900,52 @@ namespace Firma.Models.Entities
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("JJFirmaModel", "FK_TowaryTypy_Pracownicy1", "TowaryTypy")]
+        public EntityCollection<TowaryTypy> TowaryTypy1
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<TowaryTypy>("JJFirmaModel.FK_TowaryTypy_Pracownicy1", "TowaryTypy");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<TowaryTypy>("JJFirmaModel.FK_TowaryTypy_Pracownicy1", "TowaryTypy", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("JJFirmaModel", "FK_TowaryTypy_Pracownicy2", "TowaryTypy")]
+        public EntityCollection<TowaryTypy> TowaryTypy2
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<TowaryTypy>("JJFirmaModel.FK_TowaryTypy_Pracownicy2", "TowaryTypy");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<TowaryTypy>("JJFirmaModel.FK_TowaryTypy_Pracownicy2", "TowaryTypy", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
         [EdmRelationshipNavigationPropertyAttribute("JJFirmaModel", "FK_Umowy_Pracownicy", "Umowy")]
-        public EntityCollection<Umowy> Umowy1
+        public EntityCollection<Umowy> Umowy
         {
             get
             {
@@ -6315,18 +11966,304 @@ namespace Firma.Models.Entities
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("JJFirmaModel", "FK_UmowyRodzaje_UmowyRodzaje", "UmowyRodzaje")]
-        public EntityCollection<UmowyRodzaje> UmowyRodzaje
+        [EdmRelationshipNavigationPropertyAttribute("JJFirmaModel", "FK_Umowy_Pracownicy1", "Umowy")]
+        public EntityCollection<Umowy> Umowy1
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<UmowyRodzaje>("JJFirmaModel.FK_UmowyRodzaje_UmowyRodzaje", "UmowyRodzaje");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Umowy>("JJFirmaModel.FK_Umowy_Pracownicy1", "Umowy");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<UmowyRodzaje>("JJFirmaModel.FK_UmowyRodzaje_UmowyRodzaje", "UmowyRodzaje", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Umowy>("JJFirmaModel.FK_Umowy_Pracownicy1", "Umowy", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("JJFirmaModel", "FK_Umowy_Pracownicy2", "Umowy")]
+        public EntityCollection<Umowy> Umowy2
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Umowy>("JJFirmaModel.FK_Umowy_Pracownicy2", "Umowy");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Umowy>("JJFirmaModel.FK_Umowy_Pracownicy2", "Umowy", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("JJFirmaModel", "FK_UmowyRodzaje_Pracownicy", "UmowyRodzaje")]
+        public EntityCollection<UmowyRodzaje> UmowyRodzaje
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<UmowyRodzaje>("JJFirmaModel.FK_UmowyRodzaje_Pracownicy", "UmowyRodzaje");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<UmowyRodzaje>("JJFirmaModel.FK_UmowyRodzaje_Pracownicy", "UmowyRodzaje", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("JJFirmaModel", "FK_UmowyRodzaje_Pracownicy1", "UmowyRodzaje")]
+        public EntityCollection<UmowyRodzaje> UmowyRodzaje1
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<UmowyRodzaje>("JJFirmaModel.FK_UmowyRodzaje_Pracownicy1", "UmowyRodzaje");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<UmowyRodzaje>("JJFirmaModel.FK_UmowyRodzaje_Pracownicy1", "UmowyRodzaje", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("JJFirmaModel", "FK_UmowyRodzaje_Pracownicy2", "UmowyRodzaje")]
+        public EntityCollection<UmowyRodzaje> UmowyRodzaje2
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<UmowyRodzaje>("JJFirmaModel.FK_UmowyRodzaje_Pracownicy2", "UmowyRodzaje");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<UmowyRodzaje>("JJFirmaModel.FK_UmowyRodzaje_Pracownicy2", "UmowyRodzaje", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("JJFirmaModel", "FK_UmowyStanowiska_Pracownicy", "UmowyStanowiska")]
+        public EntityCollection<UmowyStanowiska> UmowyStanowiska
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<UmowyStanowiska>("JJFirmaModel.FK_UmowyStanowiska_Pracownicy", "UmowyStanowiska");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<UmowyStanowiska>("JJFirmaModel.FK_UmowyStanowiska_Pracownicy", "UmowyStanowiska", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("JJFirmaModel", "FK_UmowyStanowiska_Pracownicy1", "UmowyStanowiska")]
+        public EntityCollection<UmowyStanowiska> UmowyStanowiska1
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<UmowyStanowiska>("JJFirmaModel.FK_UmowyStanowiska_Pracownicy1", "UmowyStanowiska");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<UmowyStanowiska>("JJFirmaModel.FK_UmowyStanowiska_Pracownicy1", "UmowyStanowiska", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("JJFirmaModel", "FK_UmowyStanowiska_Pracownicy2", "UmowyStanowiska")]
+        public EntityCollection<UmowyStanowiska> UmowyStanowiska2
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<UmowyStanowiska>("JJFirmaModel.FK_UmowyStanowiska_Pracownicy2", "UmowyStanowiska");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<UmowyStanowiska>("JJFirmaModel.FK_UmowyStanowiska_Pracownicy2", "UmowyStanowiska", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("JJFirmaModel", "FK_WydaniaZewnetrzne_Pracownicy", "WydaniaZewnetrzne")]
+        public EntityCollection<WydaniaZewnetrzne> WydaniaZewnetrzne
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<WydaniaZewnetrzne>("JJFirmaModel.FK_WydaniaZewnetrzne_Pracownicy", "WydaniaZewnetrzne");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<WydaniaZewnetrzne>("JJFirmaModel.FK_WydaniaZewnetrzne_Pracownicy", "WydaniaZewnetrzne", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("JJFirmaModel", "FK_WydaniaZewnetrzne_Pracownicy1", "WydaniaZewnetrzne")]
+        public EntityCollection<WydaniaZewnetrzne> WydaniaZewnetrzne1
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<WydaniaZewnetrzne>("JJFirmaModel.FK_WydaniaZewnetrzne_Pracownicy1", "WydaniaZewnetrzne");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<WydaniaZewnetrzne>("JJFirmaModel.FK_WydaniaZewnetrzne_Pracownicy1", "WydaniaZewnetrzne", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("JJFirmaModel", "FK_WydaniaZewnetrzne_Pracownicy2", "WydaniaZewnetrzne")]
+        public EntityCollection<WydaniaZewnetrzne> WydaniaZewnetrzne2
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<WydaniaZewnetrzne>("JJFirmaModel.FK_WydaniaZewnetrzne_Pracownicy2", "WydaniaZewnetrzne");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<WydaniaZewnetrzne>("JJFirmaModel.FK_WydaniaZewnetrzne_Pracownicy2", "WydaniaZewnetrzne", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("JJFirmaModel", "FK_ZmianyCeny_Pracownicy", "ZmianyCeny")]
+        public EntityCollection<ZmianyCeny> ZmianyCeny
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<ZmianyCeny>("JJFirmaModel.FK_ZmianyCeny_Pracownicy", "ZmianyCeny");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<ZmianyCeny>("JJFirmaModel.FK_ZmianyCeny_Pracownicy", "ZmianyCeny", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("JJFirmaModel", "FK_ZmianyCeny_Pracownicy1", "ZmianyCeny")]
+        public EntityCollection<ZmianyCeny> ZmianyCeny1
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<ZmianyCeny>("JJFirmaModel.FK_ZmianyCeny_Pracownicy1", "ZmianyCeny");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<ZmianyCeny>("JJFirmaModel.FK_ZmianyCeny_Pracownicy1", "ZmianyCeny", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("JJFirmaModel", "FK_ZmianyCeny_Pracownicy2", "ZmianyCeny")]
+        public EntityCollection<ZmianyCeny> ZmianyCeny2
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<ZmianyCeny>("JJFirmaModel.FK_ZmianyCeny_Pracownicy2", "ZmianyCeny");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<ZmianyCeny>("JJFirmaModel.FK_ZmianyCeny_Pracownicy2", "ZmianyCeny", value);
                 }
             }
         }
@@ -6338,30 +12275,30 @@ namespace Firma.Models.Entities
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="JJFirmaModel", Name="RodzajeCeny")]
+    [EdmEntityTypeAttribute(NamespaceName="JJFirmaModel", Name="PracownicyUmowy")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
-    public partial class RodzajeCeny : EntityObject
+    public partial class PracownicyUmowy : EntityObject
     {
         #region Factory Method
     
         /// <summary>
-        /// Create a new RodzajeCeny object.
+        /// Create a new PracownicyUmowy object.
         /// </summary>
-        /// <param name="rodzajCenyId">Initial value of the RodzajCenyId property.</param>
-        /// <param name="nazwa">Initial value of the Nazwa property.</param>
-        /// <param name="kod">Initial value of the Kod property.</param>
+        /// <param name="pracownikUmowaId">Initial value of the PracownikUmowaId property.</param>
+        /// <param name="pracownikId">Initial value of the PracownikId property.</param>
+        /// <param name="umowaId">Initial value of the UmowaId property.</param>
         /// <param name="dataUtworzenia">Initial value of the DataUtworzenia property.</param>
-        /// <param name="czyAktywny">Initial value of the CzyAktywny property.</param>
-        public static RodzajeCeny CreateRodzajeCeny(global::System.Int32 rodzajCenyId, global::System.String nazwa, global::System.String kod, global::System.DateTime dataUtworzenia, global::System.Boolean czyAktywny)
+        /// <param name="ktoUtworzylId">Initial value of the KtoUtworzylId property.</param>
+        public static PracownicyUmowy CreatePracownicyUmowy(global::System.Int32 pracownikUmowaId, global::System.Int32 pracownikId, global::System.Int32 umowaId, global::System.DateTime dataUtworzenia, global::System.Int32 ktoUtworzylId)
         {
-            RodzajeCeny rodzajeCeny = new RodzajeCeny();
-            rodzajeCeny.RodzajCenyId = rodzajCenyId;
-            rodzajeCeny.Nazwa = nazwa;
-            rodzajeCeny.Kod = kod;
-            rodzajeCeny.DataUtworzenia = dataUtworzenia;
-            rodzajeCeny.CzyAktywny = czyAktywny;
-            return rodzajeCeny;
+            PracownicyUmowy pracownicyUmowy = new PracownicyUmowy();
+            pracownicyUmowy.PracownikUmowaId = pracownikUmowaId;
+            pracownicyUmowy.PracownikId = pracownikId;
+            pracownicyUmowy.UmowaId = umowaId;
+            pracownicyUmowy.DataUtworzenia = dataUtworzenia;
+            pracownicyUmowy.KtoUtworzylId = ktoUtworzylId;
+            return pracownicyUmowy;
         }
 
         #endregion
@@ -6373,75 +12310,75 @@ namespace Firma.Models.Entities
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.Int32 RodzajCenyId
+        public global::System.Int32 PracownikUmowaId
         {
             get
             {
-                return _RodzajCenyId;
+                return _PracownikUmowaId;
             }
             set
             {
-                if (_RodzajCenyId != value)
+                if (_PracownikUmowaId != value)
                 {
-                    OnRodzajCenyIdChanging(value);
-                    ReportPropertyChanging("RodzajCenyId");
-                    _RodzajCenyId = StructuralObject.SetValidValue(value, "RodzajCenyId");
-                    ReportPropertyChanged("RodzajCenyId");
-                    OnRodzajCenyIdChanged();
+                    OnPracownikUmowaIdChanging(value);
+                    ReportPropertyChanging("PracownikUmowaId");
+                    _PracownikUmowaId = StructuralObject.SetValidValue(value, "PracownikUmowaId");
+                    ReportPropertyChanged("PracownikUmowaId");
+                    OnPracownikUmowaIdChanged();
                 }
             }
         }
-        private global::System.Int32 _RodzajCenyId;
-        partial void OnRodzajCenyIdChanging(global::System.Int32 value);
-        partial void OnRodzajCenyIdChanged();
+        private global::System.Int32 _PracownikUmowaId;
+        partial void OnPracownikUmowaIdChanging(global::System.Int32 value);
+        partial void OnPracownikUmowaIdChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.String Nazwa
+        public global::System.Int32 PracownikId
         {
             get
             {
-                return _Nazwa;
+                return _PracownikId;
             }
             set
             {
-                OnNazwaChanging(value);
-                ReportPropertyChanging("Nazwa");
-                _Nazwa = StructuralObject.SetValidValue(value, false, "Nazwa");
-                ReportPropertyChanged("Nazwa");
-                OnNazwaChanged();
+                OnPracownikIdChanging(value);
+                ReportPropertyChanging("PracownikId");
+                _PracownikId = StructuralObject.SetValidValue(value, "PracownikId");
+                ReportPropertyChanged("PracownikId");
+                OnPracownikIdChanged();
             }
         }
-        private global::System.String _Nazwa;
-        partial void OnNazwaChanging(global::System.String value);
-        partial void OnNazwaChanged();
+        private global::System.Int32 _PracownikId;
+        partial void OnPracownikIdChanging(global::System.Int32 value);
+        partial void OnPracownikIdChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.String Kod
+        public global::System.Int32 UmowaId
         {
             get
             {
-                return _Kod;
+                return _UmowaId;
             }
             set
             {
-                OnKodChanging(value);
-                ReportPropertyChanging("Kod");
-                _Kod = StructuralObject.SetValidValue(value, false, "Kod");
-                ReportPropertyChanged("Kod");
-                OnKodChanged();
+                OnUmowaIdChanging(value);
+                ReportPropertyChanging("UmowaId");
+                _UmowaId = StructuralObject.SetValidValue(value, "UmowaId");
+                ReportPropertyChanged("UmowaId");
+                OnUmowaIdChanged();
             }
         }
-        private global::System.String _Kod;
-        partial void OnKodChanging(global::System.String value);
-        partial void OnKodChanged();
+        private global::System.Int32 _UmowaId;
+        partial void OnUmowaIdChanging(global::System.Int32 value);
+        partial void OnUmowaIdChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -6466,6 +12403,30 @@ namespace Firma.Models.Entities
         private global::System.DateTime _DataUtworzenia;
         partial void OnDataUtworzeniaChanging(global::System.DateTime value);
         partial void OnDataUtworzeniaChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 KtoUtworzylId
+        {
+            get
+            {
+                return _KtoUtworzylId;
+            }
+            set
+            {
+                OnKtoUtworzylIdChanging(value);
+                ReportPropertyChanging("KtoUtworzylId");
+                _KtoUtworzylId = StructuralObject.SetValidValue(value, "KtoUtworzylId");
+                ReportPropertyChanged("KtoUtworzylId");
+                OnKtoUtworzylIdChanged();
+            }
+        }
+        private global::System.Int32 _KtoUtworzylId;
+        partial void OnKtoUtworzylIdChanging(global::System.Int32 value);
+        partial void OnKtoUtworzylIdChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -6518,6 +12479,634 @@ namespace Firma.Models.Entities
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.DateTime> DataUsuniecia
+        {
+            get
+            {
+                return _DataUsuniecia;
+            }
+            set
+            {
+                OnDataUsunieciaChanging(value);
+                ReportPropertyChanging("DataUsuniecia");
+                _DataUsuniecia = StructuralObject.SetValidValue(value, "DataUsuniecia");
+                ReportPropertyChanged("DataUsuniecia");
+                OnDataUsunieciaChanged();
+            }
+        }
+        private Nullable<global::System.DateTime> _DataUsuniecia;
+        partial void OnDataUsunieciaChanging(Nullable<global::System.DateTime> value);
+        partial void OnDataUsunieciaChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> KtoUsunalId
+        {
+            get
+            {
+                return _KtoUsunalId;
+            }
+            set
+            {
+                OnKtoUsunalIdChanging(value);
+                ReportPropertyChanging("KtoUsunalId");
+                _KtoUsunalId = StructuralObject.SetValidValue(value, "KtoUsunalId");
+                ReportPropertyChanged("KtoUsunalId");
+                OnKtoUsunalIdChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _KtoUsunalId;
+        partial void OnKtoUsunalIdChanging(Nullable<global::System.Int32> value);
+        partial void OnKtoUsunalIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Boolean> CzyAktywny
+        {
+            get
+            {
+                return _CzyAktywny;
+            }
+            set
+            {
+                OnCzyAktywnyChanging(value);
+                ReportPropertyChanging("CzyAktywny");
+                _CzyAktywny = StructuralObject.SetValidValue(value, "CzyAktywny");
+                ReportPropertyChanged("CzyAktywny");
+                OnCzyAktywnyChanged();
+            }
+        }
+        private Nullable<global::System.Boolean> _CzyAktywny;
+        partial void OnCzyAktywnyChanging(Nullable<global::System.Boolean> value);
+        partial void OnCzyAktywnyChanged();
+
+        #endregion
+
+        #region Navigation Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("JJFirmaModel", "FK_PracownicyUmowy_Pracownicy", "Pracownicy")]
+        public Pracownicy Pracownicy
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Pracownicy>("JJFirmaModel.FK_PracownicyUmowy_Pracownicy", "Pracownicy").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Pracownicy>("JJFirmaModel.FK_PracownicyUmowy_Pracownicy", "Pracownicy").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<Pracownicy> PracownicyReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Pracownicy>("JJFirmaModel.FK_PracownicyUmowy_Pracownicy", "Pracownicy");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Pracownicy>("JJFirmaModel.FK_PracownicyUmowy_Pracownicy", "Pracownicy", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("JJFirmaModel", "FK_PracownicyUmowy_Pracownicy1", "Pracownicy")]
+        public Pracownicy Pracownicy1
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Pracownicy>("JJFirmaModel.FK_PracownicyUmowy_Pracownicy1", "Pracownicy").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Pracownicy>("JJFirmaModel.FK_PracownicyUmowy_Pracownicy1", "Pracownicy").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<Pracownicy> Pracownicy1Reference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Pracownicy>("JJFirmaModel.FK_PracownicyUmowy_Pracownicy1", "Pracownicy");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Pracownicy>("JJFirmaModel.FK_PracownicyUmowy_Pracownicy1", "Pracownicy", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("JJFirmaModel", "FK_PracownicyUmowy_Pracownicy2", "Pracownicy")]
+        public Pracownicy Pracownicy2
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Pracownicy>("JJFirmaModel.FK_PracownicyUmowy_Pracownicy2", "Pracownicy").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Pracownicy>("JJFirmaModel.FK_PracownicyUmowy_Pracownicy2", "Pracownicy").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<Pracownicy> Pracownicy2Reference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Pracownicy>("JJFirmaModel.FK_PracownicyUmowy_Pracownicy2", "Pracownicy");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Pracownicy>("JJFirmaModel.FK_PracownicyUmowy_Pracownicy2", "Pracownicy", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("JJFirmaModel", "FK_PracownicyUmowy_Pracownicy3", "Pracownicy")]
+        public Pracownicy Pracownicy3
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Pracownicy>("JJFirmaModel.FK_PracownicyUmowy_Pracownicy3", "Pracownicy").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Pracownicy>("JJFirmaModel.FK_PracownicyUmowy_Pracownicy3", "Pracownicy").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<Pracownicy> Pracownicy3Reference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Pracownicy>("JJFirmaModel.FK_PracownicyUmowy_Pracownicy3", "Pracownicy");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Pracownicy>("JJFirmaModel.FK_PracownicyUmowy_Pracownicy3", "Pracownicy", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("JJFirmaModel", "FK_PracownicyUmowy_Umowy", "Umowy")]
+        public Umowy Umowy
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Umowy>("JJFirmaModel.FK_PracownicyUmowy_Umowy", "Umowy").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Umowy>("JJFirmaModel.FK_PracownicyUmowy_Umowy", "Umowy").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<Umowy> UmowyReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Umowy>("JJFirmaModel.FK_PracownicyUmowy_Umowy", "Umowy");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Umowy>("JJFirmaModel.FK_PracownicyUmowy_Umowy", "Umowy", value);
+                }
+            }
+        }
+
+        #endregion
+
+    }
+    
+    /// <summary>
+    /// No Metadata Documentation available.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="JJFirmaModel", Name="PrzyjeciaZewnetrzne")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class PrzyjeciaZewnetrzne : EntityObject
+    {
+        #region Factory Method
+    
+        /// <summary>
+        /// Create a new PrzyjeciaZewnetrzne object.
+        /// </summary>
+        /// <param name="przyjecieZewnetrzneId">Initial value of the PrzyjecieZewnetrzneId property.</param>
+        /// <param name="numer">Initial value of the Numer property.</param>
+        /// <param name="kontrahentId">Initial value of the KontrahentId property.</param>
+        /// <param name="magazynId">Initial value of the MagazynId property.</param>
+        /// <param name="dataWystawienia">Initial value of the DataWystawienia property.</param>
+        /// <param name="dataPrzyjecia">Initial value of the DataPrzyjecia property.</param>
+        /// <param name="rabat">Initial value of the Rabat property.</param>
+        /// <param name="dataUtworzenia">Initial value of the DataUtworzenia property.</param>
+        /// <param name="ktoUtworzylId">Initial value of the KtoUtworzylId property.</param>
+        /// <param name="czyAktywny">Initial value of the CzyAktywny property.</param>
+        public static PrzyjeciaZewnetrzne CreatePrzyjeciaZewnetrzne(global::System.Int32 przyjecieZewnetrzneId, global::System.String numer, global::System.Int32 kontrahentId, global::System.Int32 magazynId, global::System.DateTime dataWystawienia, global::System.DateTime dataPrzyjecia, global::System.Decimal rabat, global::System.DateTime dataUtworzenia, global::System.Int32 ktoUtworzylId, global::System.Boolean czyAktywny)
+        {
+            PrzyjeciaZewnetrzne przyjeciaZewnetrzne = new PrzyjeciaZewnetrzne();
+            przyjeciaZewnetrzne.PrzyjecieZewnetrzneId = przyjecieZewnetrzneId;
+            przyjeciaZewnetrzne.Numer = numer;
+            przyjeciaZewnetrzne.KontrahentId = kontrahentId;
+            przyjeciaZewnetrzne.MagazynId = magazynId;
+            przyjeciaZewnetrzne.DataWystawienia = dataWystawienia;
+            przyjeciaZewnetrzne.DataPrzyjecia = dataPrzyjecia;
+            przyjeciaZewnetrzne.Rabat = rabat;
+            przyjeciaZewnetrzne.DataUtworzenia = dataUtworzenia;
+            przyjeciaZewnetrzne.KtoUtworzylId = ktoUtworzylId;
+            przyjeciaZewnetrzne.CzyAktywny = czyAktywny;
+            return przyjeciaZewnetrzne;
+        }
+
+        #endregion
+
+        #region Simple Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 PrzyjecieZewnetrzneId
+        {
+            get
+            {
+                return _PrzyjecieZewnetrzneId;
+            }
+            set
+            {
+                if (_PrzyjecieZewnetrzneId != value)
+                {
+                    OnPrzyjecieZewnetrzneIdChanging(value);
+                    ReportPropertyChanging("PrzyjecieZewnetrzneId");
+                    _PrzyjecieZewnetrzneId = StructuralObject.SetValidValue(value, "PrzyjecieZewnetrzneId");
+                    ReportPropertyChanged("PrzyjecieZewnetrzneId");
+                    OnPrzyjecieZewnetrzneIdChanged();
+                }
+            }
+        }
+        private global::System.Int32 _PrzyjecieZewnetrzneId;
+        partial void OnPrzyjecieZewnetrzneIdChanging(global::System.Int32 value);
+        partial void OnPrzyjecieZewnetrzneIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String Numer
+        {
+            get
+            {
+                return _Numer;
+            }
+            set
+            {
+                OnNumerChanging(value);
+                ReportPropertyChanging("Numer");
+                _Numer = StructuralObject.SetValidValue(value, false, "Numer");
+                ReportPropertyChanged("Numer");
+                OnNumerChanged();
+            }
+        }
+        private global::System.String _Numer;
+        partial void OnNumerChanging(global::System.String value);
+        partial void OnNumerChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 KontrahentId
+        {
+            get
+            {
+                return _KontrahentId;
+            }
+            set
+            {
+                OnKontrahentIdChanging(value);
+                ReportPropertyChanging("KontrahentId");
+                _KontrahentId = StructuralObject.SetValidValue(value, "KontrahentId");
+                ReportPropertyChanged("KontrahentId");
+                OnKontrahentIdChanged();
+            }
+        }
+        private global::System.Int32 _KontrahentId;
+        partial void OnKontrahentIdChanging(global::System.Int32 value);
+        partial void OnKontrahentIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 MagazynId
+        {
+            get
+            {
+                return _MagazynId;
+            }
+            set
+            {
+                OnMagazynIdChanging(value);
+                ReportPropertyChanging("MagazynId");
+                _MagazynId = StructuralObject.SetValidValue(value, "MagazynId");
+                ReportPropertyChanged("MagazynId");
+                OnMagazynIdChanged();
+            }
+        }
+        private global::System.Int32 _MagazynId;
+        partial void OnMagazynIdChanging(global::System.Int32 value);
+        partial void OnMagazynIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.DateTime DataWystawienia
+        {
+            get
+            {
+                return _DataWystawienia;
+            }
+            set
+            {
+                OnDataWystawieniaChanging(value);
+                ReportPropertyChanging("DataWystawienia");
+                _DataWystawienia = StructuralObject.SetValidValue(value, "DataWystawienia");
+                ReportPropertyChanged("DataWystawienia");
+                OnDataWystawieniaChanged();
+            }
+        }
+        private global::System.DateTime _DataWystawienia;
+        partial void OnDataWystawieniaChanging(global::System.DateTime value);
+        partial void OnDataWystawieniaChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.DateTime DataPrzyjecia
+        {
+            get
+            {
+                return _DataPrzyjecia;
+            }
+            set
+            {
+                OnDataPrzyjeciaChanging(value);
+                ReportPropertyChanging("DataPrzyjecia");
+                _DataPrzyjecia = StructuralObject.SetValidValue(value, "DataPrzyjecia");
+                ReportPropertyChanged("DataPrzyjecia");
+                OnDataPrzyjeciaChanged();
+            }
+        }
+        private global::System.DateTime _DataPrzyjecia;
+        partial void OnDataPrzyjeciaChanging(global::System.DateTime value);
+        partial void OnDataPrzyjeciaChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Decimal Rabat
+        {
+            get
+            {
+                return _Rabat;
+            }
+            set
+            {
+                OnRabatChanging(value);
+                ReportPropertyChanging("Rabat");
+                _Rabat = StructuralObject.SetValidValue(value, "Rabat");
+                ReportPropertyChanged("Rabat");
+                OnRabatChanged();
+            }
+        }
+        private global::System.Decimal _Rabat;
+        partial void OnRabatChanging(global::System.Decimal value);
+        partial void OnRabatChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.DateTime DataUtworzenia
+        {
+            get
+            {
+                return _DataUtworzenia;
+            }
+            set
+            {
+                OnDataUtworzeniaChanging(value);
+                ReportPropertyChanging("DataUtworzenia");
+                _DataUtworzenia = StructuralObject.SetValidValue(value, "DataUtworzenia");
+                ReportPropertyChanged("DataUtworzenia");
+                OnDataUtworzeniaChanged();
+            }
+        }
+        private global::System.DateTime _DataUtworzenia;
+        partial void OnDataUtworzeniaChanging(global::System.DateTime value);
+        partial void OnDataUtworzeniaChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 KtoUtworzylId
+        {
+            get
+            {
+                return _KtoUtworzylId;
+            }
+            set
+            {
+                OnKtoUtworzylIdChanging(value);
+                ReportPropertyChanging("KtoUtworzylId");
+                _KtoUtworzylId = StructuralObject.SetValidValue(value, "KtoUtworzylId");
+                ReportPropertyChanged("KtoUtworzylId");
+                OnKtoUtworzylIdChanged();
+            }
+        }
+        private global::System.Int32 _KtoUtworzylId;
+        partial void OnKtoUtworzylIdChanging(global::System.Int32 value);
+        partial void OnKtoUtworzylIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.DateTime> DataMod
+        {
+            get
+            {
+                return _DataMod;
+            }
+            set
+            {
+                OnDataModChanging(value);
+                ReportPropertyChanging("DataMod");
+                _DataMod = StructuralObject.SetValidValue(value, "DataMod");
+                ReportPropertyChanged("DataMod");
+                OnDataModChanged();
+            }
+        }
+        private Nullable<global::System.DateTime> _DataMod;
+        partial void OnDataModChanging(Nullable<global::System.DateTime> value);
+        partial void OnDataModChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> KtoModId
+        {
+            get
+            {
+                return _KtoModId;
+            }
+            set
+            {
+                OnKtoModIdChanging(value);
+                ReportPropertyChanging("KtoModId");
+                _KtoModId = StructuralObject.SetValidValue(value, "KtoModId");
+                ReportPropertyChanged("KtoModId");
+                OnKtoModIdChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _KtoModId;
+        partial void OnKtoModIdChanging(Nullable<global::System.Int32> value);
+        partial void OnKtoModIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.DateTime> DataUsuniecia
+        {
+            get
+            {
+                return _DataUsuniecia;
+            }
+            set
+            {
+                OnDataUsunieciaChanging(value);
+                ReportPropertyChanging("DataUsuniecia");
+                _DataUsuniecia = StructuralObject.SetValidValue(value, "DataUsuniecia");
+                ReportPropertyChanged("DataUsuniecia");
+                OnDataUsunieciaChanged();
+            }
+        }
+        private Nullable<global::System.DateTime> _DataUsuniecia;
+        partial void OnDataUsunieciaChanging(Nullable<global::System.DateTime> value);
+        partial void OnDataUsunieciaChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> KtoUsunalId
+        {
+            get
+            {
+                return _KtoUsunalId;
+            }
+            set
+            {
+                OnKtoUsunalIdChanging(value);
+                ReportPropertyChanging("KtoUsunalId");
+                _KtoUsunalId = StructuralObject.SetValidValue(value, "KtoUsunalId");
+                ReportPropertyChanged("KtoUsunalId");
+                OnKtoUsunalIdChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _KtoUsunalId;
+        partial void OnKtoUsunalIdChanging(Nullable<global::System.Int32> value);
+        partial void OnKtoUsunalIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Boolean CzyAktywny
@@ -6549,18 +13138,34 @@ namespace Firma.Models.Entities
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("JJFirmaModel", "FK_FakturaTowary_RodzajeCeny", "FakturaTowary")]
-        public EntityCollection<FakturaTowary> FakturaTowary
+        [EdmRelationshipNavigationPropertyAttribute("JJFirmaModel", "FK_PrzyjeciaZewnetrzne_Kontrahenci", "Kontrahenci")]
+        public Kontrahenci Kontrahenci
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<FakturaTowary>("JJFirmaModel.FK_FakturaTowary_RodzajeCeny", "FakturaTowary");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Kontrahenci>("JJFirmaModel.FK_PrzyjeciaZewnetrzne_Kontrahenci", "Kontrahenci").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Kontrahenci>("JJFirmaModel.FK_PrzyjeciaZewnetrzne_Kontrahenci", "Kontrahenci").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<Kontrahenci> KontrahenciReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Kontrahenci>("JJFirmaModel.FK_PrzyjeciaZewnetrzne_Kontrahenci", "Kontrahenci");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<FakturaTowary>("JJFirmaModel.FK_FakturaTowary_RodzajeCeny", "FakturaTowary", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Kontrahenci>("JJFirmaModel.FK_PrzyjeciaZewnetrzne_Kontrahenci", "Kontrahenci", value);
                 }
             }
         }
@@ -6571,16 +13176,76 @@ namespace Firma.Models.Entities
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("JJFirmaModel", "FK_RodzajeCeny_Pracownicy", "Pracownicy")]
+        [EdmRelationshipNavigationPropertyAttribute("JJFirmaModel", "FK_PrzyjeciaZewnetrzne_Magazyny", "Magazyny")]
+        public Magazyny Magazyny
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Magazyny>("JJFirmaModel.FK_PrzyjeciaZewnetrzne_Magazyny", "Magazyny").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Magazyny>("JJFirmaModel.FK_PrzyjeciaZewnetrzne_Magazyny", "Magazyny").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<Magazyny> MagazynyReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Magazyny>("JJFirmaModel.FK_PrzyjeciaZewnetrzne_Magazyny", "Magazyny");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Magazyny>("JJFirmaModel.FK_PrzyjeciaZewnetrzne_Magazyny", "Magazyny", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("JJFirmaModel", "FK_PozycjePrzyjeciaZewnetrznego_PrzyjeciaZewnetrzne", "PozycjePrzyjeciaZewnetrznego")]
+        public EntityCollection<PozycjePrzyjeciaZewnetrznego> PozycjePrzyjeciaZewnetrznego
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<PozycjePrzyjeciaZewnetrznego>("JJFirmaModel.FK_PozycjePrzyjeciaZewnetrznego_PrzyjeciaZewnetrzne", "PozycjePrzyjeciaZewnetrznego");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<PozycjePrzyjeciaZewnetrznego>("JJFirmaModel.FK_PozycjePrzyjeciaZewnetrznego_PrzyjeciaZewnetrzne", "PozycjePrzyjeciaZewnetrznego", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("JJFirmaModel", "FK_PrzyjeciaZewnetrzne_Pracownicy", "Pracownicy")]
         public Pracownicy Pracownicy
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Pracownicy>("JJFirmaModel.FK_RodzajeCeny_Pracownicy", "Pracownicy").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Pracownicy>("JJFirmaModel.FK_PrzyjeciaZewnetrzne_Pracownicy", "Pracownicy").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Pracownicy>("JJFirmaModel.FK_RodzajeCeny_Pracownicy", "Pracownicy").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Pracownicy>("JJFirmaModel.FK_PrzyjeciaZewnetrzne_Pracownicy", "Pracownicy").Value = value;
             }
         }
         /// <summary>
@@ -6592,13 +13257,89 @@ namespace Firma.Models.Entities
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Pracownicy>("JJFirmaModel.FK_RodzajeCeny_Pracownicy", "Pracownicy");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Pracownicy>("JJFirmaModel.FK_PrzyjeciaZewnetrzne_Pracownicy", "Pracownicy");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Pracownicy>("JJFirmaModel.FK_RodzajeCeny_Pracownicy", "Pracownicy", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Pracownicy>("JJFirmaModel.FK_PrzyjeciaZewnetrzne_Pracownicy", "Pracownicy", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("JJFirmaModel", "FK_PrzyjeciaZewnetrzne_Pracownicy1", "Pracownicy")]
+        public Pracownicy Pracownicy1
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Pracownicy>("JJFirmaModel.FK_PrzyjeciaZewnetrzne_Pracownicy1", "Pracownicy").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Pracownicy>("JJFirmaModel.FK_PrzyjeciaZewnetrzne_Pracownicy1", "Pracownicy").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<Pracownicy> Pracownicy1Reference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Pracownicy>("JJFirmaModel.FK_PrzyjeciaZewnetrzne_Pracownicy1", "Pracownicy");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Pracownicy>("JJFirmaModel.FK_PrzyjeciaZewnetrzne_Pracownicy1", "Pracownicy", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("JJFirmaModel", "FK_PrzyjeciaZewnetrzne_Pracownicy2", "Pracownicy")]
+        public Pracownicy Pracownicy2
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Pracownicy>("JJFirmaModel.FK_PrzyjeciaZewnetrzne_Pracownicy2", "Pracownicy").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Pracownicy>("JJFirmaModel.FK_PrzyjeciaZewnetrzne_Pracownicy2", "Pracownicy").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<Pracownicy> Pracownicy2Reference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Pracownicy>("JJFirmaModel.FK_PrzyjeciaZewnetrzne_Pracownicy2", "Pracownicy");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Pracownicy>("JJFirmaModel.FK_PrzyjeciaZewnetrzne_Pracownicy2", "Pracownicy", value);
                 }
             }
         }
@@ -6623,15 +13364,21 @@ namespace Firma.Models.Entities
         /// <param name="rodzajPlatnosciId">Initial value of the RodzajPlatnosciId property.</param>
         /// <param name="nazwa">Initial value of the Nazwa property.</param>
         /// <param name="iloscDniSplaty">Initial value of the IloscDniSplaty property.</param>
+        /// <param name="opis">Initial value of the Opis property.</param>
+        /// <param name="uwagi">Initial value of the Uwagi property.</param>
         /// <param name="dataUtworzenia">Initial value of the DataUtworzenia property.</param>
+        /// <param name="ktoUtworzylId">Initial value of the KtoUtworzylId property.</param>
         /// <param name="czyAktywny">Initial value of the CzyAktywny property.</param>
-        public static RodzajePlatnosci CreateRodzajePlatnosci(global::System.Int32 rodzajPlatnosciId, global::System.String nazwa, global::System.Int32 iloscDniSplaty, global::System.DateTime dataUtworzenia, global::System.Boolean czyAktywny)
+        public static RodzajePlatnosci CreateRodzajePlatnosci(global::System.Int32 rodzajPlatnosciId, global::System.String nazwa, global::System.Int32 iloscDniSplaty, global::System.String opis, global::System.String uwagi, global::System.DateTime dataUtworzenia, global::System.Int32 ktoUtworzylId, global::System.Boolean czyAktywny)
         {
             RodzajePlatnosci rodzajePlatnosci = new RodzajePlatnosci();
             rodzajePlatnosci.RodzajPlatnosciId = rodzajPlatnosciId;
             rodzajePlatnosci.Nazwa = nazwa;
             rodzajePlatnosci.IloscDniSplaty = iloscDniSplaty;
+            rodzajePlatnosci.Opis = opis;
+            rodzajePlatnosci.Uwagi = uwagi;
             rodzajePlatnosci.DataUtworzenia = dataUtworzenia;
+            rodzajePlatnosci.KtoUtworzylId = ktoUtworzylId;
             rodzajePlatnosci.CzyAktywny = czyAktywny;
             return rodzajePlatnosci;
         }
@@ -6720,6 +13467,54 @@ namespace Firma.Models.Entities
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
+        public global::System.String Opis
+        {
+            get
+            {
+                return _Opis;
+            }
+            set
+            {
+                OnOpisChanging(value);
+                ReportPropertyChanging("Opis");
+                _Opis = StructuralObject.SetValidValue(value, false, "Opis");
+                ReportPropertyChanged("Opis");
+                OnOpisChanged();
+            }
+        }
+        private global::System.String _Opis;
+        partial void OnOpisChanging(global::System.String value);
+        partial void OnOpisChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String Uwagi
+        {
+            get
+            {
+                return _Uwagi;
+            }
+            set
+            {
+                OnUwagiChanging(value);
+                ReportPropertyChanging("Uwagi");
+                _Uwagi = StructuralObject.SetValidValue(value, false, "Uwagi");
+                ReportPropertyChanged("Uwagi");
+                OnUwagiChanged();
+            }
+        }
+        private global::System.String _Uwagi;
+        partial void OnUwagiChanging(global::System.String value);
+        partial void OnUwagiChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
         public global::System.DateTime DataUtworzenia
         {
             get
@@ -6738,6 +13533,30 @@ namespace Firma.Models.Entities
         private global::System.DateTime _DataUtworzenia;
         partial void OnDataUtworzeniaChanging(global::System.DateTime value);
         partial void OnDataUtworzeniaChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 KtoUtworzylId
+        {
+            get
+            {
+                return _KtoUtworzylId;
+            }
+            set
+            {
+                OnKtoUtworzylIdChanging(value);
+                ReportPropertyChanging("KtoUtworzylId");
+                _KtoUtworzylId = StructuralObject.SetValidValue(value, "KtoUtworzylId");
+                ReportPropertyChanged("KtoUtworzylId");
+                OnKtoUtworzylIdChanged();
+            }
+        }
+        private global::System.Int32 _KtoUtworzylId;
+        partial void OnKtoUtworzylIdChanging(global::System.Int32 value);
+        partial void OnKtoUtworzylIdChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -6786,6 +13605,54 @@ namespace Firma.Models.Entities
         private Nullable<global::System.Int32> _KtoModId;
         partial void OnKtoModIdChanging(Nullable<global::System.Int32> value);
         partial void OnKtoModIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.DateTime> DataUsuniecia
+        {
+            get
+            {
+                return _DataUsuniecia;
+            }
+            set
+            {
+                OnDataUsunieciaChanging(value);
+                ReportPropertyChanging("DataUsuniecia");
+                _DataUsuniecia = StructuralObject.SetValidValue(value, "DataUsuniecia");
+                ReportPropertyChanged("DataUsuniecia");
+                OnDataUsunieciaChanged();
+            }
+        }
+        private Nullable<global::System.DateTime> _DataUsuniecia;
+        partial void OnDataUsunieciaChanging(Nullable<global::System.DateTime> value);
+        partial void OnDataUsunieciaChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> KtoUsunalId
+        {
+            get
+            {
+                return _KtoUsunalId;
+            }
+            set
+            {
+                OnKtoUsunalIdChanging(value);
+                ReportPropertyChanging("KtoUsunalId");
+                _KtoUsunalId = StructuralObject.SetValidValue(value, "KtoUsunalId");
+                ReportPropertyChanged("KtoUsunalId");
+                OnKtoUsunalIdChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _KtoUsunalId;
+        partial void OnKtoUsunalIdChanging(Nullable<global::System.Int32> value);
+        partial void OnKtoUsunalIdChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -6871,6 +13738,82 @@ namespace Firma.Models.Entities
                 if ((value != null))
                 {
                     ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Pracownicy>("JJFirmaModel.FK_RodzajePlatnosci_Pracownicy", "Pracownicy", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("JJFirmaModel", "FK_RodzajePlatnosci_Pracownicy1", "Pracownicy")]
+        public Pracownicy Pracownicy1
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Pracownicy>("JJFirmaModel.FK_RodzajePlatnosci_Pracownicy1", "Pracownicy").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Pracownicy>("JJFirmaModel.FK_RodzajePlatnosci_Pracownicy1", "Pracownicy").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<Pracownicy> Pracownicy1Reference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Pracownicy>("JJFirmaModel.FK_RodzajePlatnosci_Pracownicy1", "Pracownicy");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Pracownicy>("JJFirmaModel.FK_RodzajePlatnosci_Pracownicy1", "Pracownicy", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("JJFirmaModel", "FK_RodzajePlatnosci_Pracownicy2", "Pracownicy")]
+        public Pracownicy Pracownicy2
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Pracownicy>("JJFirmaModel.FK_RodzajePlatnosci_Pracownicy2", "Pracownicy").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Pracownicy>("JJFirmaModel.FK_RodzajePlatnosci_Pracownicy2", "Pracownicy").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<Pracownicy> Pracownicy2Reference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Pracownicy>("JJFirmaModel.FK_RodzajePlatnosci_Pracownicy2", "Pracownicy");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Pracownicy>("JJFirmaModel.FK_RodzajePlatnosci_Pracownicy2", "Pracownicy", value);
                 }
             }
         }
@@ -7050,54 +13993,46 @@ namespace Firma.Models.Entities
         /// </summary>
         /// <param name="towarId">Initial value of the TowarId property.</param>
         /// <param name="kod">Initial value of the Kod property.</param>
-        /// <param name="numerKat">Initial value of the NumerKat property.</param>
+        /// <param name="numerKatalogowy">Initial value of the NumerKatalogowy property.</param>
         /// <param name="grupaTowaruId">Initial value of the GrupaTowaruId property.</param>
         /// <param name="typTowaruId">Initial value of the TypTowaruId property.</param>
         /// <param name="eAN">Initial value of the EAN property.</param>
         /// <param name="sWW">Initial value of the SWW property.</param>
+        /// <param name="producentId">Initial value of the ProducentId property.</param>
         /// <param name="uRL">Initial value of the URL property.</param>
         /// <param name="vatSprzId">Initial value of the VatSprzId property.</param>
         /// <param name="vatZakId">Initial value of the VatZakId property.</param>
         /// <param name="mpp">Initial value of the Mpp property.</param>
+        /// <param name="krajPochodzeniaId">Initial value of the KrajPochodzeniaId property.</param>
         /// <param name="nazwa">Initial value of the Nazwa property.</param>
         /// <param name="nazwaFiskalna">Initial value of the NazwaFiskalna property.</param>
         /// <param name="opis">Initial value of the Opis property.</param>
-        /// <param name="krajPochodzenia">Initial value of the KrajPochodzenia property.</param>
-        /// <param name="jednMiaryId">Initial value of the JednMiaryId property.</param>
-        /// <param name="cenaZakupu">Initial value of the CenaZakupu property.</param>
-        /// <param name="cenaHurtowa">Initial value of the CenaHurtowa property.</param>
-        /// <param name="cenaDetaliczna">Initial value of the CenaDetaliczna property.</param>
-        /// <param name="waluta">Initial value of the Waluta property.</param>
-        /// <param name="rabat">Initial value of the Rabat property.</param>
-        /// <param name="wartoscVat">Initial value of the WartoscVat property.</param>
+        /// <param name="uwagi">Initial value of the Uwagi property.</param>
         /// <param name="dataUtworzenia">Initial value of the DataUtworzenia property.</param>
+        /// <param name="ktoUtworzylId">Initial value of the KtoUtworzylId property.</param>
         /// <param name="czyAktywny">Initial value of the CzyAktywny property.</param>
-        public static Towary CreateTowary(global::System.Int32 towarId, global::System.String kod, global::System.String numerKat, global::System.Int32 grupaTowaruId, global::System.Int32 typTowaruId, global::System.String eAN, global::System.String sWW, global::System.String uRL, global::System.Int32 vatSprzId, global::System.Int32 vatZakId, global::System.Boolean mpp, global::System.String nazwa, global::System.String nazwaFiskalna, global::System.String opis, global::System.String krajPochodzenia, global::System.Int32 jednMiaryId, global::System.Decimal cenaZakupu, global::System.Decimal cenaHurtowa, global::System.Decimal cenaDetaliczna, global::System.String waluta, global::System.Decimal rabat, global::System.Decimal wartoscVat, global::System.DateTime dataUtworzenia, global::System.Boolean czyAktywny)
+        public static Towary CreateTowary(global::System.Int32 towarId, global::System.String kod, global::System.String numerKatalogowy, global::System.Int32 grupaTowaruId, global::System.Int32 typTowaruId, global::System.String eAN, global::System.String sWW, global::System.Int32 producentId, global::System.String uRL, global::System.Int32 vatSprzId, global::System.Int32 vatZakId, global::System.Boolean mpp, global::System.Int32 krajPochodzeniaId, global::System.String nazwa, global::System.String nazwaFiskalna, global::System.String opis, global::System.String uwagi, global::System.DateTime dataUtworzenia, global::System.Int32 ktoUtworzylId, global::System.Boolean czyAktywny)
         {
             Towary towary = new Towary();
             towary.TowarId = towarId;
             towary.Kod = kod;
-            towary.NumerKat = numerKat;
+            towary.NumerKatalogowy = numerKatalogowy;
             towary.GrupaTowaruId = grupaTowaruId;
             towary.TypTowaruId = typTowaruId;
             towary.EAN = eAN;
             towary.SWW = sWW;
+            towary.ProducentId = producentId;
             towary.URL = uRL;
             towary.VatSprzId = vatSprzId;
             towary.VatZakId = vatZakId;
             towary.Mpp = mpp;
+            towary.KrajPochodzeniaId = krajPochodzeniaId;
             towary.Nazwa = nazwa;
             towary.NazwaFiskalna = nazwaFiskalna;
             towary.Opis = opis;
-            towary.KrajPochodzenia = krajPochodzenia;
-            towary.JednMiaryId = jednMiaryId;
-            towary.CenaZakupu = cenaZakupu;
-            towary.CenaHurtowa = cenaHurtowa;
-            towary.CenaDetaliczna = cenaDetaliczna;
-            towary.Waluta = waluta;
-            towary.Rabat = rabat;
-            towary.WartoscVat = wartoscVat;
+            towary.Uwagi = uwagi;
             towary.DataUtworzenia = dataUtworzenia;
+            towary.KtoUtworzylId = ktoUtworzylId;
             towary.CzyAktywny = czyAktywny;
             return towary;
         }
@@ -7162,24 +14097,24 @@ namespace Firma.Models.Entities
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.String NumerKat
+        public global::System.String NumerKatalogowy
         {
             get
             {
-                return _NumerKat;
+                return _NumerKatalogowy;
             }
             set
             {
-                OnNumerKatChanging(value);
-                ReportPropertyChanging("NumerKat");
-                _NumerKat = StructuralObject.SetValidValue(value, false, "NumerKat");
-                ReportPropertyChanged("NumerKat");
-                OnNumerKatChanged();
+                OnNumerKatalogowyChanging(value);
+                ReportPropertyChanging("NumerKatalogowy");
+                _NumerKatalogowy = StructuralObject.SetValidValue(value, false, "NumerKatalogowy");
+                ReportPropertyChanged("NumerKatalogowy");
+                OnNumerKatalogowyChanged();
             }
         }
-        private global::System.String _NumerKat;
-        partial void OnNumerKatChanging(global::System.String value);
-        partial void OnNumerKatChanged();
+        private global::System.String _NumerKatalogowy;
+        partial void OnNumerKatalogowyChanging(global::System.String value);
+        partial void OnNumerKatalogowyChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -7282,6 +14217,30 @@ namespace Firma.Models.Entities
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
+        public global::System.Int32 ProducentId
+        {
+            get
+            {
+                return _ProducentId;
+            }
+            set
+            {
+                OnProducentIdChanging(value);
+                ReportPropertyChanging("ProducentId");
+                _ProducentId = StructuralObject.SetValidValue(value, "ProducentId");
+                ReportPropertyChanged("ProducentId");
+                OnProducentIdChanged();
+            }
+        }
+        private global::System.Int32 _ProducentId;
+        partial void OnProducentIdChanging(global::System.Int32 value);
+        partial void OnProducentIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
         public global::System.String URL
         {
             get
@@ -7378,6 +14337,30 @@ namespace Firma.Models.Entities
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
+        public global::System.Int32 KrajPochodzeniaId
+        {
+            get
+            {
+                return _KrajPochodzeniaId;
+            }
+            set
+            {
+                OnKrajPochodzeniaIdChanging(value);
+                ReportPropertyChanging("KrajPochodzeniaId");
+                _KrajPochodzeniaId = StructuralObject.SetValidValue(value, "KrajPochodzeniaId");
+                ReportPropertyChanged("KrajPochodzeniaId");
+                OnKrajPochodzeniaIdChanged();
+            }
+        }
+        private global::System.Int32 _KrajPochodzeniaId;
+        partial void OnKrajPochodzeniaIdChanging(global::System.Int32 value);
+        partial void OnKrajPochodzeniaIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
         public global::System.String Nazwa
         {
             get
@@ -7450,240 +14433,24 @@ namespace Firma.Models.Entities
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.String KrajPochodzenia
+        public global::System.String Uwagi
         {
             get
             {
-                return _KrajPochodzenia;
+                return _Uwagi;
             }
             set
             {
-                OnKrajPochodzeniaChanging(value);
-                ReportPropertyChanging("KrajPochodzenia");
-                _KrajPochodzenia = StructuralObject.SetValidValue(value, false, "KrajPochodzenia");
-                ReportPropertyChanged("KrajPochodzenia");
-                OnKrajPochodzeniaChanged();
+                OnUwagiChanging(value);
+                ReportPropertyChanging("Uwagi");
+                _Uwagi = StructuralObject.SetValidValue(value, false, "Uwagi");
+                ReportPropertyChanged("Uwagi");
+                OnUwagiChanged();
             }
         }
-        private global::System.String _KrajPochodzenia;
-        partial void OnKrajPochodzeniaChanging(global::System.String value);
-        partial void OnKrajPochodzeniaChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
-        [DataMemberAttribute()]
-        public Nullable<global::System.Int32> Ilosc
-        {
-            get
-            {
-                return _Ilosc;
-            }
-            set
-            {
-                OnIloscChanging(value);
-                ReportPropertyChanging("Ilosc");
-                _Ilosc = StructuralObject.SetValidValue(value, "Ilosc");
-                ReportPropertyChanged("Ilosc");
-                OnIloscChanged();
-            }
-        }
-        private Nullable<global::System.Int32> _Ilosc;
-        partial void OnIloscChanging(Nullable<global::System.Int32> value);
-        partial void OnIloscChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.Int32 JednMiaryId
-        {
-            get
-            {
-                return _JednMiaryId;
-            }
-            set
-            {
-                OnJednMiaryIdChanging(value);
-                ReportPropertyChanging("JednMiaryId");
-                _JednMiaryId = StructuralObject.SetValidValue(value, "JednMiaryId");
-                ReportPropertyChanged("JednMiaryId");
-                OnJednMiaryIdChanged();
-            }
-        }
-        private global::System.Int32 _JednMiaryId;
-        partial void OnJednMiaryIdChanging(global::System.Int32 value);
-        partial void OnJednMiaryIdChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.Decimal CenaZakupu
-        {
-            get
-            {
-                return _CenaZakupu;
-            }
-            set
-            {
-                OnCenaZakupuChanging(value);
-                ReportPropertyChanging("CenaZakupu");
-                _CenaZakupu = StructuralObject.SetValidValue(value, "CenaZakupu");
-                ReportPropertyChanged("CenaZakupu");
-                OnCenaZakupuChanged();
-            }
-        }
-        private global::System.Decimal _CenaZakupu;
-        partial void OnCenaZakupuChanging(global::System.Decimal value);
-        partial void OnCenaZakupuChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.Decimal CenaHurtowa
-        {
-            get
-            {
-                return _CenaHurtowa;
-            }
-            set
-            {
-                OnCenaHurtowaChanging(value);
-                ReportPropertyChanging("CenaHurtowa");
-                _CenaHurtowa = StructuralObject.SetValidValue(value, "CenaHurtowa");
-                ReportPropertyChanged("CenaHurtowa");
-                OnCenaHurtowaChanged();
-            }
-        }
-        private global::System.Decimal _CenaHurtowa;
-        partial void OnCenaHurtowaChanging(global::System.Decimal value);
-        partial void OnCenaHurtowaChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.Decimal CenaDetaliczna
-        {
-            get
-            {
-                return _CenaDetaliczna;
-            }
-            set
-            {
-                OnCenaDetalicznaChanging(value);
-                ReportPropertyChanging("CenaDetaliczna");
-                _CenaDetaliczna = StructuralObject.SetValidValue(value, "CenaDetaliczna");
-                ReportPropertyChanged("CenaDetaliczna");
-                OnCenaDetalicznaChanged();
-            }
-        }
-        private global::System.Decimal _CenaDetaliczna;
-        partial void OnCenaDetalicznaChanging(global::System.Decimal value);
-        partial void OnCenaDetalicznaChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.String Waluta
-        {
-            get
-            {
-                return _Waluta;
-            }
-            set
-            {
-                OnWalutaChanging(value);
-                ReportPropertyChanging("Waluta");
-                _Waluta = StructuralObject.SetValidValue(value, false, "Waluta");
-                ReportPropertyChanged("Waluta");
-                OnWalutaChanged();
-            }
-        }
-        private global::System.String _Waluta;
-        partial void OnWalutaChanging(global::System.String value);
-        partial void OnWalutaChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.Decimal Rabat
-        {
-            get
-            {
-                return _Rabat;
-            }
-            set
-            {
-                OnRabatChanging(value);
-                ReportPropertyChanging("Rabat");
-                _Rabat = StructuralObject.SetValidValue(value, "Rabat");
-                ReportPropertyChanged("Rabat");
-                OnRabatChanged();
-            }
-        }
-        private global::System.Decimal _Rabat;
-        partial void OnRabatChanging(global::System.Decimal value);
-        partial void OnRabatChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.Decimal WartoscVat
-        {
-            get
-            {
-                return _WartoscVat;
-            }
-            set
-            {
-                OnWartoscVatChanging(value);
-                ReportPropertyChanging("WartoscVat");
-                _WartoscVat = StructuralObject.SetValidValue(value, "WartoscVat");
-                ReportPropertyChanged("WartoscVat");
-                OnWartoscVatChanged();
-            }
-        }
-        private global::System.Decimal _WartoscVat;
-        partial void OnWartoscVatChanging(global::System.Decimal value);
-        partial void OnWartoscVatChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
-        [DataMemberAttribute()]
-        public Nullable<global::System.Decimal> WagaKG
-        {
-            get
-            {
-                return _WagaKG;
-            }
-            set
-            {
-                OnWagaKGChanging(value);
-                ReportPropertyChanging("WagaKG");
-                _WagaKG = StructuralObject.SetValidValue(value, "WagaKG");
-                ReportPropertyChanged("WagaKG");
-                OnWagaKGChanged();
-            }
-        }
-        private Nullable<global::System.Decimal> _WagaKG;
-        partial void OnWagaKGChanging(Nullable<global::System.Decimal> value);
-        partial void OnWagaKGChanged();
+        private global::System.String _Uwagi;
+        partial void OnUwagiChanging(global::System.String value);
+        partial void OnUwagiChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -7708,6 +14475,30 @@ namespace Firma.Models.Entities
         private global::System.DateTime _DataUtworzenia;
         partial void OnDataUtworzeniaChanging(global::System.DateTime value);
         partial void OnDataUtworzeniaChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 KtoUtworzylId
+        {
+            get
+            {
+                return _KtoUtworzylId;
+            }
+            set
+            {
+                OnKtoUtworzylIdChanging(value);
+                ReportPropertyChanging("KtoUtworzylId");
+                _KtoUtworzylId = StructuralObject.SetValidValue(value, "KtoUtworzylId");
+                ReportPropertyChanged("KtoUtworzylId");
+                OnKtoUtworzylIdChanged();
+            }
+        }
+        private global::System.Int32 _KtoUtworzylId;
+        partial void OnKtoUtworzylIdChanging(global::System.Int32 value);
+        partial void OnKtoUtworzylIdChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -7760,6 +14551,54 @@ namespace Firma.Models.Entities
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.DateTime> DataUsuniecia
+        {
+            get
+            {
+                return _DataUsuniecia;
+            }
+            set
+            {
+                OnDataUsunieciaChanging(value);
+                ReportPropertyChanging("DataUsuniecia");
+                _DataUsuniecia = StructuralObject.SetValidValue(value, "DataUsuniecia");
+                ReportPropertyChanged("DataUsuniecia");
+                OnDataUsunieciaChanged();
+            }
+        }
+        private Nullable<global::System.DateTime> _DataUsuniecia;
+        partial void OnDataUsunieciaChanging(Nullable<global::System.DateTime> value);
+        partial void OnDataUsunieciaChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> KtoUsunalId
+        {
+            get
+            {
+                return _KtoUsunalId;
+            }
+            set
+            {
+                OnKtoUsunalIdChanging(value);
+                ReportPropertyChanging("KtoUsunalId");
+                _KtoUsunalId = StructuralObject.SetValidValue(value, "KtoUsunalId");
+                ReportPropertyChanged("KtoUsunalId");
+                OnKtoUsunalIdChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _KtoUsunalId;
+        partial void OnKtoUsunalIdChanging(Nullable<global::System.Int32> value);
+        partial void OnKtoUsunalIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Boolean CzyAktywny
@@ -7791,18 +14630,116 @@ namespace Firma.Models.Entities
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("JJFirmaModel", "FK_FakturaTowary_Towary", "FakturaTowary")]
-        public EntityCollection<FakturaTowary> FakturaTowary
+        [EdmRelationshipNavigationPropertyAttribute("JJFirmaModel", "FK_Towary_Kontrahenci", "Kontrahenci")]
+        public Kontrahenci Kontrahenci
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<FakturaTowary>("JJFirmaModel.FK_FakturaTowary_Towary", "FakturaTowary");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Kontrahenci>("JJFirmaModel.FK_Towary_Kontrahenci", "Kontrahenci").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Kontrahenci>("JJFirmaModel.FK_Towary_Kontrahenci", "Kontrahenci").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<Kontrahenci> KontrahenciReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Kontrahenci>("JJFirmaModel.FK_Towary_Kontrahenci", "Kontrahenci");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<FakturaTowary>("JJFirmaModel.FK_FakturaTowary_Towary", "FakturaTowary", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Kontrahenci>("JJFirmaModel.FK_Towary_Kontrahenci", "Kontrahenci", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("JJFirmaModel", "FK_Towary_Kraje", "Kraje")]
+        public Kraje Kraje
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Kraje>("JJFirmaModel.FK_Towary_Kraje", "Kraje").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Kraje>("JJFirmaModel.FK_Towary_Kraje", "Kraje").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<Kraje> KrajeReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Kraje>("JJFirmaModel.FK_Towary_Kraje", "Kraje");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Kraje>("JJFirmaModel.FK_Towary_Kraje", "Kraje", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("JJFirmaModel", "FK_PozycjePrzyjeciaZewnetrznego_Towary", "PozycjePrzyjeciaZewnetrznego")]
+        public EntityCollection<PozycjePrzyjeciaZewnetrznego> PozycjePrzyjeciaZewnetrznego
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<PozycjePrzyjeciaZewnetrznego>("JJFirmaModel.FK_PozycjePrzyjeciaZewnetrznego_Towary", "PozycjePrzyjeciaZewnetrznego");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<PozycjePrzyjeciaZewnetrznego>("JJFirmaModel.FK_PozycjePrzyjeciaZewnetrznego_Towary", "PozycjePrzyjeciaZewnetrznego", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("JJFirmaModel", "FK_PozycjeWydaniaZewnetrznego_Towary", "PozycjeWydaniaZewnetrznego")]
+        public EntityCollection<PozycjeWydaniaZewnetrznego> PozycjeWydaniaZewnetrznego
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<PozycjeWydaniaZewnetrznego>("JJFirmaModel.FK_PozycjeWydaniaZewnetrznego_Towary", "PozycjeWydaniaZewnetrznego");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<PozycjeWydaniaZewnetrznego>("JJFirmaModel.FK_PozycjeWydaniaZewnetrznego_Towary", "PozycjeWydaniaZewnetrznego", value);
                 }
             }
         }
@@ -7851,6 +14788,82 @@ namespace Firma.Models.Entities
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("JJFirmaModel", "FK_Towary_Pracownicy1", "Pracownicy")]
+        public Pracownicy Pracownicy1
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Pracownicy>("JJFirmaModel.FK_Towary_Pracownicy1", "Pracownicy").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Pracownicy>("JJFirmaModel.FK_Towary_Pracownicy1", "Pracownicy").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<Pracownicy> Pracownicy1Reference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Pracownicy>("JJFirmaModel.FK_Towary_Pracownicy1", "Pracownicy");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Pracownicy>("JJFirmaModel.FK_Towary_Pracownicy1", "Pracownicy", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("JJFirmaModel", "FK_Towary_Pracownicy2", "Pracownicy")]
+        public Pracownicy Pracownicy2
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Pracownicy>("JJFirmaModel.FK_Towary_Pracownicy2", "Pracownicy").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Pracownicy>("JJFirmaModel.FK_Towary_Pracownicy2", "Pracownicy").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<Pracownicy> Pracownicy2Reference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Pracownicy>("JJFirmaModel.FK_Towary_Pracownicy2", "Pracownicy");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Pracownicy>("JJFirmaModel.FK_Towary_Pracownicy2", "Pracownicy", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
         [EdmRelationshipNavigationPropertyAttribute("JJFirmaModel", "FK_Towary_TowaryGrupy", "TowaryGrupy")]
         public TowaryGrupy TowaryGrupy
         {
@@ -7879,44 +14892,6 @@ namespace Firma.Models.Entities
                 if ((value != null))
                 {
                     ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<TowaryGrupy>("JJFirmaModel.FK_Towary_TowaryGrupy", "TowaryGrupy", value);
-                }
-            }
-        }
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("JJFirmaModel", "FK_Towary_TowaryJednMiary", "TowaryJednMiary")]
-        public TowaryJednMiary TowaryJednMiary
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<TowaryJednMiary>("JJFirmaModel.FK_Towary_TowaryJednMiary", "TowaryJednMiary").Value;
-            }
-            set
-            {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<TowaryJednMiary>("JJFirmaModel.FK_Towary_TowaryJednMiary", "TowaryJednMiary").Value = value;
-            }
-        }
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [BrowsableAttribute(false)]
-        [DataMemberAttribute()]
-        public EntityReference<TowaryJednMiary> TowaryJednMiaryReference
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<TowaryJednMiary>("JJFirmaModel.FK_Towary_TowaryJednMiary", "TowaryJednMiary");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<TowaryJednMiary>("JJFirmaModel.FK_Towary_TowaryJednMiary", "TowaryJednMiary", value);
                 }
             }
         }
@@ -8034,6 +15009,28 @@ namespace Firma.Models.Entities
                 }
             }
         }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("JJFirmaModel", "FK_ZmianyCeny_Towary", "ZmianyCeny")]
+        public EntityCollection<ZmianyCeny> ZmianyCeny
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<ZmianyCeny>("JJFirmaModel.FK_ZmianyCeny_Towary", "ZmianyCeny");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<ZmianyCeny>("JJFirmaModel.FK_ZmianyCeny_Towary", "ZmianyCeny", value);
+                }
+            }
+        }
 
         #endregion
 
@@ -8053,17 +15050,23 @@ namespace Firma.Models.Entities
         /// Create a new TowaryGrupy object.
         /// </summary>
         /// <param name="grupaTowaruId">Initial value of the GrupaTowaruId property.</param>
-        /// <param name="nazwa">Initial value of the Nazwa property.</param>
         /// <param name="kod">Initial value of the Kod property.</param>
+        /// <param name="nazwa">Initial value of the Nazwa property.</param>
+        /// <param name="opis">Initial value of the Opis property.</param>
+        /// <param name="uwagi">Initial value of the Uwagi property.</param>
         /// <param name="dataUtworzenia">Initial value of the DataUtworzenia property.</param>
+        /// <param name="ktoUtworzylId">Initial value of the KtoUtworzylId property.</param>
         /// <param name="czyAktywny">Initial value of the CzyAktywny property.</param>
-        public static TowaryGrupy CreateTowaryGrupy(global::System.Int32 grupaTowaruId, global::System.String nazwa, global::System.String kod, global::System.DateTime dataUtworzenia, global::System.Boolean czyAktywny)
+        public static TowaryGrupy CreateTowaryGrupy(global::System.Int32 grupaTowaruId, global::System.String kod, global::System.String nazwa, global::System.String opis, global::System.String uwagi, global::System.DateTime dataUtworzenia, global::System.Int32 ktoUtworzylId, global::System.Boolean czyAktywny)
         {
             TowaryGrupy towaryGrupy = new TowaryGrupy();
             towaryGrupy.GrupaTowaruId = grupaTowaruId;
-            towaryGrupy.Nazwa = nazwa;
             towaryGrupy.Kod = kod;
+            towaryGrupy.Nazwa = nazwa;
+            towaryGrupy.Opis = opis;
+            towaryGrupy.Uwagi = uwagi;
             towaryGrupy.DataUtworzenia = dataUtworzenia;
+            towaryGrupy.KtoUtworzylId = ktoUtworzylId;
             towaryGrupy.CzyAktywny = czyAktywny;
             return towaryGrupy;
         }
@@ -8102,26 +15105,26 @@ namespace Firma.Models.Entities
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
-        public global::System.String Nazwa
+        public Nullable<global::System.Int32> GrupaNadrzednaId
         {
             get
             {
-                return _Nazwa;
+                return _GrupaNadrzednaId;
             }
             set
             {
-                OnNazwaChanging(value);
-                ReportPropertyChanging("Nazwa");
-                _Nazwa = StructuralObject.SetValidValue(value, false, "Nazwa");
-                ReportPropertyChanged("Nazwa");
-                OnNazwaChanged();
+                OnGrupaNadrzednaIdChanging(value);
+                ReportPropertyChanging("GrupaNadrzednaId");
+                _GrupaNadrzednaId = StructuralObject.SetValidValue(value, "GrupaNadrzednaId");
+                ReportPropertyChanged("GrupaNadrzednaId");
+                OnGrupaNadrzednaIdChanged();
             }
         }
-        private global::System.String _Nazwa;
-        partial void OnNazwaChanging(global::System.String value);
-        partial void OnNazwaChanged();
+        private Nullable<global::System.Int32> _GrupaNadrzednaId;
+        partial void OnGrupaNadrzednaIdChanging(Nullable<global::System.Int32> value);
+        partial void OnGrupaNadrzednaIdChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -8152,6 +15155,78 @@ namespace Firma.Models.Entities
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
+        public global::System.String Nazwa
+        {
+            get
+            {
+                return _Nazwa;
+            }
+            set
+            {
+                OnNazwaChanging(value);
+                ReportPropertyChanging("Nazwa");
+                _Nazwa = StructuralObject.SetValidValue(value, false, "Nazwa");
+                ReportPropertyChanged("Nazwa");
+                OnNazwaChanged();
+            }
+        }
+        private global::System.String _Nazwa;
+        partial void OnNazwaChanging(global::System.String value);
+        partial void OnNazwaChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String Opis
+        {
+            get
+            {
+                return _Opis;
+            }
+            set
+            {
+                OnOpisChanging(value);
+                ReportPropertyChanging("Opis");
+                _Opis = StructuralObject.SetValidValue(value, false, "Opis");
+                ReportPropertyChanged("Opis");
+                OnOpisChanged();
+            }
+        }
+        private global::System.String _Opis;
+        partial void OnOpisChanging(global::System.String value);
+        partial void OnOpisChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String Uwagi
+        {
+            get
+            {
+                return _Uwagi;
+            }
+            set
+            {
+                OnUwagiChanging(value);
+                ReportPropertyChanging("Uwagi");
+                _Uwagi = StructuralObject.SetValidValue(value, false, "Uwagi");
+                ReportPropertyChanged("Uwagi");
+                OnUwagiChanged();
+            }
+        }
+        private global::System.String _Uwagi;
+        partial void OnUwagiChanging(global::System.String value);
+        partial void OnUwagiChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
         public global::System.DateTime DataUtworzenia
         {
             get
@@ -8170,6 +15245,30 @@ namespace Firma.Models.Entities
         private global::System.DateTime _DataUtworzenia;
         partial void OnDataUtworzeniaChanging(global::System.DateTime value);
         partial void OnDataUtworzeniaChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 KtoUtworzylId
+        {
+            get
+            {
+                return _KtoUtworzylId;
+            }
+            set
+            {
+                OnKtoUtworzylIdChanging(value);
+                ReportPropertyChanging("KtoUtworzylId");
+                _KtoUtworzylId = StructuralObject.SetValidValue(value, "KtoUtworzylId");
+                ReportPropertyChanged("KtoUtworzylId");
+                OnKtoUtworzylIdChanged();
+            }
+        }
+        private global::System.Int32 _KtoUtworzylId;
+        partial void OnKtoUtworzylIdChanging(global::System.Int32 value);
+        partial void OnKtoUtworzylIdChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -8218,6 +15317,54 @@ namespace Firma.Models.Entities
         private Nullable<global::System.Int32> _KtoModId;
         partial void OnKtoModIdChanging(Nullable<global::System.Int32> value);
         partial void OnKtoModIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.DateTime> DataUsuniecia
+        {
+            get
+            {
+                return _DataUsuniecia;
+            }
+            set
+            {
+                OnDataUsunieciaChanging(value);
+                ReportPropertyChanging("DataUsuniecia");
+                _DataUsuniecia = StructuralObject.SetValidValue(value, "DataUsuniecia");
+                ReportPropertyChanged("DataUsuniecia");
+                OnDataUsunieciaChanged();
+            }
+        }
+        private Nullable<global::System.DateTime> _DataUsuniecia;
+        partial void OnDataUsunieciaChanging(Nullable<global::System.DateTime> value);
+        partial void OnDataUsunieciaChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> KtoUsunalId
+        {
+            get
+            {
+                return _KtoUsunalId;
+            }
+            set
+            {
+                OnKtoUsunalIdChanging(value);
+                ReportPropertyChanging("KtoUsunalId");
+                _KtoUsunalId = StructuralObject.SetValidValue(value, "KtoUsunalId");
+                ReportPropertyChanged("KtoUsunalId");
+                OnKtoUsunalIdChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _KtoUsunalId;
+        partial void OnKtoUsunalIdChanging(Nullable<global::System.Int32> value);
+        partial void OnKtoUsunalIdChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -8291,6 +15438,82 @@ namespace Firma.Models.Entities
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("JJFirmaModel", "FK_TowaryGrupy_Pracownicy1", "Pracownicy")]
+        public Pracownicy Pracownicy1
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Pracownicy>("JJFirmaModel.FK_TowaryGrupy_Pracownicy1", "Pracownicy").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Pracownicy>("JJFirmaModel.FK_TowaryGrupy_Pracownicy1", "Pracownicy").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<Pracownicy> Pracownicy1Reference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Pracownicy>("JJFirmaModel.FK_TowaryGrupy_Pracownicy1", "Pracownicy");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Pracownicy>("JJFirmaModel.FK_TowaryGrupy_Pracownicy1", "Pracownicy", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("JJFirmaModel", "FK_TowaryGrupy_Pracownicy2", "Pracownicy")]
+        public Pracownicy Pracownicy2
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Pracownicy>("JJFirmaModel.FK_TowaryGrupy_Pracownicy2", "Pracownicy").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Pracownicy>("JJFirmaModel.FK_TowaryGrupy_Pracownicy2", "Pracownicy").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<Pracownicy> Pracownicy2Reference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Pracownicy>("JJFirmaModel.FK_TowaryGrupy_Pracownicy2", "Pracownicy");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Pracownicy>("JJFirmaModel.FK_TowaryGrupy_Pracownicy2", "Pracownicy", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
         [EdmRelationshipNavigationPropertyAttribute("JJFirmaModel", "FK_Towary_TowaryGrupy", "Towary")]
         public EntityCollection<Towary> Towary
         {
@@ -8306,218 +15529,6 @@ namespace Firma.Models.Entities
                 }
             }
         }
-
-        #endregion
-
-    }
-    
-    /// <summary>
-    /// No Metadata Documentation available.
-    /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="JJFirmaModel", Name="TowaryJednMiary")]
-    [Serializable()]
-    [DataContractAttribute(IsReference=true)]
-    public partial class TowaryJednMiary : EntityObject
-    {
-        #region Factory Method
-    
-        /// <summary>
-        /// Create a new TowaryJednMiary object.
-        /// </summary>
-        /// <param name="jednostkaId">Initial value of the JednostkaId property.</param>
-        /// <param name="skrot">Initial value of the Skrot property.</param>
-        /// <param name="nazwa">Initial value of the Nazwa property.</param>
-        /// <param name="dataUtworzenia">Initial value of the DataUtworzenia property.</param>
-        /// <param name="czyAktywny">Initial value of the CzyAktywny property.</param>
-        public static TowaryJednMiary CreateTowaryJednMiary(global::System.Int32 jednostkaId, global::System.String skrot, global::System.String nazwa, global::System.DateTime dataUtworzenia, global::System.Boolean czyAktywny)
-        {
-            TowaryJednMiary towaryJednMiary = new TowaryJednMiary();
-            towaryJednMiary.JednostkaId = jednostkaId;
-            towaryJednMiary.Skrot = skrot;
-            towaryJednMiary.Nazwa = nazwa;
-            towaryJednMiary.DataUtworzenia = dataUtworzenia;
-            towaryJednMiary.CzyAktywny = czyAktywny;
-            return towaryJednMiary;
-        }
-
-        #endregion
-
-        #region Simple Properties
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.Int32 JednostkaId
-        {
-            get
-            {
-                return _JednostkaId;
-            }
-            set
-            {
-                if (_JednostkaId != value)
-                {
-                    OnJednostkaIdChanging(value);
-                    ReportPropertyChanging("JednostkaId");
-                    _JednostkaId = StructuralObject.SetValidValue(value, "JednostkaId");
-                    ReportPropertyChanged("JednostkaId");
-                    OnJednostkaIdChanged();
-                }
-            }
-        }
-        private global::System.Int32 _JednostkaId;
-        partial void OnJednostkaIdChanging(global::System.Int32 value);
-        partial void OnJednostkaIdChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.String Skrot
-        {
-            get
-            {
-                return _Skrot;
-            }
-            set
-            {
-                OnSkrotChanging(value);
-                ReportPropertyChanging("Skrot");
-                _Skrot = StructuralObject.SetValidValue(value, false, "Skrot");
-                ReportPropertyChanged("Skrot");
-                OnSkrotChanged();
-            }
-        }
-        private global::System.String _Skrot;
-        partial void OnSkrotChanging(global::System.String value);
-        partial void OnSkrotChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.String Nazwa
-        {
-            get
-            {
-                return _Nazwa;
-            }
-            set
-            {
-                OnNazwaChanging(value);
-                ReportPropertyChanging("Nazwa");
-                _Nazwa = StructuralObject.SetValidValue(value, false, "Nazwa");
-                ReportPropertyChanged("Nazwa");
-                OnNazwaChanged();
-            }
-        }
-        private global::System.String _Nazwa;
-        partial void OnNazwaChanging(global::System.String value);
-        partial void OnNazwaChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.DateTime DataUtworzenia
-        {
-            get
-            {
-                return _DataUtworzenia;
-            }
-            set
-            {
-                OnDataUtworzeniaChanging(value);
-                ReportPropertyChanging("DataUtworzenia");
-                _DataUtworzenia = StructuralObject.SetValidValue(value, "DataUtworzenia");
-                ReportPropertyChanged("DataUtworzenia");
-                OnDataUtworzeniaChanged();
-            }
-        }
-        private global::System.DateTime _DataUtworzenia;
-        partial void OnDataUtworzeniaChanging(global::System.DateTime value);
-        partial void OnDataUtworzeniaChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
-        [DataMemberAttribute()]
-        public Nullable<global::System.DateTime> DataMod
-        {
-            get
-            {
-                return _DataMod;
-            }
-            set
-            {
-                OnDataModChanging(value);
-                ReportPropertyChanging("DataMod");
-                _DataMod = StructuralObject.SetValidValue(value, "DataMod");
-                ReportPropertyChanged("DataMod");
-                OnDataModChanged();
-            }
-        }
-        private Nullable<global::System.DateTime> _DataMod;
-        partial void OnDataModChanging(Nullable<global::System.DateTime> value);
-        partial void OnDataModChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
-        [DataMemberAttribute()]
-        public Nullable<global::System.Int32> KtoModId
-        {
-            get
-            {
-                return _KtoModId;
-            }
-            set
-            {
-                OnKtoModIdChanging(value);
-                ReportPropertyChanging("KtoModId");
-                _KtoModId = StructuralObject.SetValidValue(value, "KtoModId");
-                ReportPropertyChanged("KtoModId");
-                OnKtoModIdChanged();
-            }
-        }
-        private Nullable<global::System.Int32> _KtoModId;
-        partial void OnKtoModIdChanging(Nullable<global::System.Int32> value);
-        partial void OnKtoModIdChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.Boolean CzyAktywny
-        {
-            get
-            {
-                return _CzyAktywny;
-            }
-            set
-            {
-                OnCzyAktywnyChanging(value);
-                ReportPropertyChanging("CzyAktywny");
-                _CzyAktywny = StructuralObject.SetValidValue(value, "CzyAktywny");
-                ReportPropertyChanged("CzyAktywny");
-                OnCzyAktywnyChanged();
-            }
-        }
-        private global::System.Boolean _CzyAktywny;
-        partial void OnCzyAktywnyChanging(global::System.Boolean value);
-        partial void OnCzyAktywnyChanged();
-
-        #endregion
-
-        #region Navigation Properties
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -8525,16 +15536,38 @@ namespace Firma.Models.Entities
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("JJFirmaModel", "FK_TowaryJednMiary_Pracownicy", "Pracownicy")]
-        public Pracownicy Pracownicy
+        [EdmRelationshipNavigationPropertyAttribute("JJFirmaModel", "FK_TowaryGrupy_TowaryGrupy", "TowaryGrupy1")]
+        public EntityCollection<TowaryGrupy> TowaryGrupy1
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Pracownicy>("JJFirmaModel.FK_TowaryJednMiary_Pracownicy", "Pracownicy").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<TowaryGrupy>("JJFirmaModel.FK_TowaryGrupy_TowaryGrupy", "TowaryGrupy1");
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Pracownicy>("JJFirmaModel.FK_TowaryJednMiary_Pracownicy", "Pracownicy").Value = value;
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<TowaryGrupy>("JJFirmaModel.FK_TowaryGrupy_TowaryGrupy", "TowaryGrupy1", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("JJFirmaModel", "FK_TowaryGrupy_TowaryGrupy", "TowaryGrupy")]
+        public TowaryGrupy TowaryGrupy2
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<TowaryGrupy>("JJFirmaModel.FK_TowaryGrupy_TowaryGrupy", "TowaryGrupy").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<TowaryGrupy>("JJFirmaModel.FK_TowaryGrupy_TowaryGrupy", "TowaryGrupy").Value = value;
             }
         }
         /// <summary>
@@ -8542,39 +15575,17 @@ namespace Firma.Models.Entities
         /// </summary>
         [BrowsableAttribute(false)]
         [DataMemberAttribute()]
-        public EntityReference<Pracownicy> PracownicyReference
+        public EntityReference<TowaryGrupy> TowaryGrupy2Reference
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Pracownicy>("JJFirmaModel.FK_TowaryJednMiary_Pracownicy", "Pracownicy");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<TowaryGrupy>("JJFirmaModel.FK_TowaryGrupy_TowaryGrupy", "TowaryGrupy");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Pracownicy>("JJFirmaModel.FK_TowaryJednMiary_Pracownicy", "Pracownicy", value);
-                }
-            }
-        }
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("JJFirmaModel", "FK_Towary_TowaryJednMiary", "Towary")]
-        public EntityCollection<Towary> Towary
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Towary>("JJFirmaModel.FK_Towary_TowaryJednMiary", "Towary");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Towary>("JJFirmaModel.FK_Towary_TowaryJednMiary", "Towary", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<TowaryGrupy>("JJFirmaModel.FK_TowaryGrupy_TowaryGrupy", "TowaryGrupy", value);
                 }
             }
         }
@@ -8597,17 +15608,21 @@ namespace Firma.Models.Entities
         /// Create a new TowaryStawkiVat object.
         /// </summary>
         /// <param name="stawkiVatId">Initial value of the StawkiVatId property.</param>
-        /// <param name="kodKraju">Initial value of the KodKraju property.</param>
+        /// <param name="krajId">Initial value of the KrajId property.</param>
         /// <param name="stawka">Initial value of the Stawka property.</param>
+        /// <param name="opis">Initial value of the Opis property.</param>
         /// <param name="dataUtworzenia">Initial value of the DataUtworzenia property.</param>
+        /// <param name="ktoUtworzylId">Initial value of the KtoUtworzylId property.</param>
         /// <param name="czyAktywny">Initial value of the CzyAktywny property.</param>
-        public static TowaryStawkiVat CreateTowaryStawkiVat(global::System.Int32 stawkiVatId, global::System.String kodKraju, global::System.Decimal stawka, global::System.DateTime dataUtworzenia, global::System.Boolean czyAktywny)
+        public static TowaryStawkiVat CreateTowaryStawkiVat(global::System.Int32 stawkiVatId, global::System.Int32 krajId, global::System.Decimal stawka, global::System.String opis, global::System.DateTime dataUtworzenia, global::System.Int32 ktoUtworzylId, global::System.Boolean czyAktywny)
         {
             TowaryStawkiVat towaryStawkiVat = new TowaryStawkiVat();
             towaryStawkiVat.StawkiVatId = stawkiVatId;
-            towaryStawkiVat.KodKraju = kodKraju;
+            towaryStawkiVat.KrajId = krajId;
             towaryStawkiVat.Stawka = stawka;
+            towaryStawkiVat.Opis = opis;
             towaryStawkiVat.DataUtworzenia = dataUtworzenia;
+            towaryStawkiVat.KtoUtworzylId = ktoUtworzylId;
             towaryStawkiVat.CzyAktywny = czyAktywny;
             return towaryStawkiVat;
         }
@@ -8648,24 +15663,24 @@ namespace Firma.Models.Entities
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.String KodKraju
+        public global::System.Int32 KrajId
         {
             get
             {
-                return _KodKraju;
+                return _KrajId;
             }
             set
             {
-                OnKodKrajuChanging(value);
-                ReportPropertyChanging("KodKraju");
-                _KodKraju = StructuralObject.SetValidValue(value, false, "KodKraju");
-                ReportPropertyChanged("KodKraju");
-                OnKodKrajuChanged();
+                OnKrajIdChanging(value);
+                ReportPropertyChanging("KrajId");
+                _KrajId = StructuralObject.SetValidValue(value, "KrajId");
+                ReportPropertyChanged("KrajId");
+                OnKrajIdChanged();
             }
         }
-        private global::System.String _KodKraju;
-        partial void OnKodKrajuChanging(global::System.String value);
-        partial void OnKodKrajuChanged();
+        private global::System.Int32 _KrajId;
+        partial void OnKrajIdChanging(global::System.Int32 value);
+        partial void OnKrajIdChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -8696,6 +15711,30 @@ namespace Firma.Models.Entities
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
+        public global::System.String Opis
+        {
+            get
+            {
+                return _Opis;
+            }
+            set
+            {
+                OnOpisChanging(value);
+                ReportPropertyChanging("Opis");
+                _Opis = StructuralObject.SetValidValue(value, false, "Opis");
+                ReportPropertyChanged("Opis");
+                OnOpisChanged();
+            }
+        }
+        private global::System.String _Opis;
+        partial void OnOpisChanging(global::System.String value);
+        partial void OnOpisChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
         public global::System.DateTime DataUtworzenia
         {
             get
@@ -8714,6 +15753,30 @@ namespace Firma.Models.Entities
         private global::System.DateTime _DataUtworzenia;
         partial void OnDataUtworzeniaChanging(global::System.DateTime value);
         partial void OnDataUtworzeniaChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 KtoUtworzylId
+        {
+            get
+            {
+                return _KtoUtworzylId;
+            }
+            set
+            {
+                OnKtoUtworzylIdChanging(value);
+                ReportPropertyChanging("KtoUtworzylId");
+                _KtoUtworzylId = StructuralObject.SetValidValue(value, "KtoUtworzylId");
+                ReportPropertyChanged("KtoUtworzylId");
+                OnKtoUtworzylIdChanged();
+            }
+        }
+        private global::System.Int32 _KtoUtworzylId;
+        partial void OnKtoUtworzylIdChanging(global::System.Int32 value);
+        partial void OnKtoUtworzylIdChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -8766,6 +15829,54 @@ namespace Firma.Models.Entities
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.DateTime> DataUsuniecia
+        {
+            get
+            {
+                return _DataUsuniecia;
+            }
+            set
+            {
+                OnDataUsunieciaChanging(value);
+                ReportPropertyChanging("DataUsuniecia");
+                _DataUsuniecia = StructuralObject.SetValidValue(value, "DataUsuniecia");
+                ReportPropertyChanged("DataUsuniecia");
+                OnDataUsunieciaChanged();
+            }
+        }
+        private Nullable<global::System.DateTime> _DataUsuniecia;
+        partial void OnDataUsunieciaChanging(Nullable<global::System.DateTime> value);
+        partial void OnDataUsunieciaChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> KtoUsunalId
+        {
+            get
+            {
+                return _KtoUsunalId;
+            }
+            set
+            {
+                OnKtoUsunalIdChanging(value);
+                ReportPropertyChanging("KtoUsunalId");
+                _KtoUsunalId = StructuralObject.SetValidValue(value, "KtoUsunalId");
+                ReportPropertyChanged("KtoUsunalId");
+                OnKtoUsunalIdChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _KtoUsunalId;
+        partial void OnKtoUsunalIdChanging(Nullable<global::System.Int32> value);
+        partial void OnKtoUsunalIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Boolean CzyAktywny
@@ -8790,6 +15901,44 @@ namespace Firma.Models.Entities
         #endregion
 
         #region Navigation Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("JJFirmaModel", "FK_TowaryStawkiVat_Kraje", "Kraje")]
+        public Kraje Kraje
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Kraje>("JJFirmaModel.FK_TowaryStawkiVat_Kraje", "Kraje").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Kraje>("JJFirmaModel.FK_TowaryStawkiVat_Kraje", "Kraje").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<Kraje> KrajeReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Kraje>("JJFirmaModel.FK_TowaryStawkiVat_Kraje", "Kraje");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Kraje>("JJFirmaModel.FK_TowaryStawkiVat_Kraje", "Kraje", value);
+                }
+            }
+        }
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -8825,6 +15974,82 @@ namespace Firma.Models.Entities
                 if ((value != null))
                 {
                     ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Pracownicy>("JJFirmaModel.FK_TowaryStawkiVat_Pracownicy", "Pracownicy", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("JJFirmaModel", "FK_TowaryStawkiVat_Pracownicy1", "Pracownicy")]
+        public Pracownicy Pracownicy1
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Pracownicy>("JJFirmaModel.FK_TowaryStawkiVat_Pracownicy1", "Pracownicy").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Pracownicy>("JJFirmaModel.FK_TowaryStawkiVat_Pracownicy1", "Pracownicy").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<Pracownicy> Pracownicy1Reference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Pracownicy>("JJFirmaModel.FK_TowaryStawkiVat_Pracownicy1", "Pracownicy");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Pracownicy>("JJFirmaModel.FK_TowaryStawkiVat_Pracownicy1", "Pracownicy", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("JJFirmaModel", "FK_TowaryStawkiVat_Pracownicy2", "Pracownicy")]
+        public Pracownicy Pracownicy2
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Pracownicy>("JJFirmaModel.FK_TowaryStawkiVat_Pracownicy2", "Pracownicy").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Pracownicy>("JJFirmaModel.FK_TowaryStawkiVat_Pracownicy2", "Pracownicy").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<Pracownicy> Pracownicy2Reference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Pracownicy>("JJFirmaModel.FK_TowaryStawkiVat_Pracownicy2", "Pracownicy");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Pracownicy>("JJFirmaModel.FK_TowaryStawkiVat_Pracownicy2", "Pracownicy", value);
                 }
             }
         }
@@ -8892,14 +16117,20 @@ namespace Firma.Models.Entities
         /// </summary>
         /// <param name="typTowaruId">Initial value of the TypTowaruId property.</param>
         /// <param name="nazwa">Initial value of the Nazwa property.</param>
+        /// <param name="opis">Initial value of the Opis property.</param>
+        /// <param name="uwagi">Initial value of the Uwagi property.</param>
         /// <param name="dataUtworzenia">Initial value of the DataUtworzenia property.</param>
+        /// <param name="ktoUtworzylId">Initial value of the KtoUtworzylId property.</param>
         /// <param name="czyAktywny">Initial value of the CzyAktywny property.</param>
-        public static TowaryTypy CreateTowaryTypy(global::System.Int32 typTowaruId, global::System.String nazwa, global::System.DateTime dataUtworzenia, global::System.Boolean czyAktywny)
+        public static TowaryTypy CreateTowaryTypy(global::System.Int32 typTowaruId, global::System.String nazwa, global::System.String opis, global::System.String uwagi, global::System.DateTime dataUtworzenia, global::System.Int32 ktoUtworzylId, global::System.Boolean czyAktywny)
         {
             TowaryTypy towaryTypy = new TowaryTypy();
             towaryTypy.TypTowaruId = typTowaruId;
             towaryTypy.Nazwa = nazwa;
+            towaryTypy.Opis = opis;
+            towaryTypy.Uwagi = uwagi;
             towaryTypy.DataUtworzenia = dataUtworzenia;
+            towaryTypy.KtoUtworzylId = ktoUtworzylId;
             towaryTypy.CzyAktywny = czyAktywny;
             return towaryTypy;
         }
@@ -8964,6 +16195,54 @@ namespace Firma.Models.Entities
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
+        public global::System.String Opis
+        {
+            get
+            {
+                return _Opis;
+            }
+            set
+            {
+                OnOpisChanging(value);
+                ReportPropertyChanging("Opis");
+                _Opis = StructuralObject.SetValidValue(value, false, "Opis");
+                ReportPropertyChanged("Opis");
+                OnOpisChanged();
+            }
+        }
+        private global::System.String _Opis;
+        partial void OnOpisChanging(global::System.String value);
+        partial void OnOpisChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String Uwagi
+        {
+            get
+            {
+                return _Uwagi;
+            }
+            set
+            {
+                OnUwagiChanging(value);
+                ReportPropertyChanging("Uwagi");
+                _Uwagi = StructuralObject.SetValidValue(value, false, "Uwagi");
+                ReportPropertyChanged("Uwagi");
+                OnUwagiChanged();
+            }
+        }
+        private global::System.String _Uwagi;
+        partial void OnUwagiChanging(global::System.String value);
+        partial void OnUwagiChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
         public global::System.DateTime DataUtworzenia
         {
             get
@@ -8982,6 +16261,30 @@ namespace Firma.Models.Entities
         private global::System.DateTime _DataUtworzenia;
         partial void OnDataUtworzeniaChanging(global::System.DateTime value);
         partial void OnDataUtworzeniaChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 KtoUtworzylId
+        {
+            get
+            {
+                return _KtoUtworzylId;
+            }
+            set
+            {
+                OnKtoUtworzylIdChanging(value);
+                ReportPropertyChanging("KtoUtworzylId");
+                _KtoUtworzylId = StructuralObject.SetValidValue(value, "KtoUtworzylId");
+                ReportPropertyChanged("KtoUtworzylId");
+                OnKtoUtworzylIdChanged();
+            }
+        }
+        private global::System.Int32 _KtoUtworzylId;
+        partial void OnKtoUtworzylIdChanging(global::System.Int32 value);
+        partial void OnKtoUtworzylIdChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -9030,6 +16333,54 @@ namespace Firma.Models.Entities
         private Nullable<global::System.Int32> _KtoModId;
         partial void OnKtoModIdChanging(Nullable<global::System.Int32> value);
         partial void OnKtoModIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.DateTime> DataUsuniecia
+        {
+            get
+            {
+                return _DataUsuniecia;
+            }
+            set
+            {
+                OnDataUsunieciaChanging(value);
+                ReportPropertyChanging("DataUsuniecia");
+                _DataUsuniecia = StructuralObject.SetValidValue(value, "DataUsuniecia");
+                ReportPropertyChanged("DataUsuniecia");
+                OnDataUsunieciaChanged();
+            }
+        }
+        private Nullable<global::System.DateTime> _DataUsuniecia;
+        partial void OnDataUsunieciaChanging(Nullable<global::System.DateTime> value);
+        partial void OnDataUsunieciaChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> KtoUsunalId
+        {
+            get
+            {
+                return _KtoUsunalId;
+            }
+            set
+            {
+                OnKtoUsunalIdChanging(value);
+                ReportPropertyChanging("KtoUsunalId");
+                _KtoUsunalId = StructuralObject.SetValidValue(value, "KtoUsunalId");
+                ReportPropertyChanged("KtoUsunalId");
+                OnKtoUsunalIdChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _KtoUsunalId;
+        partial void OnKtoUsunalIdChanging(Nullable<global::System.Int32> value);
+        partial void OnKtoUsunalIdChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -9103,6 +16454,82 @@ namespace Firma.Models.Entities
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("JJFirmaModel", "FK_TowaryTypy_Pracownicy1", "Pracownicy")]
+        public Pracownicy Pracownicy1
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Pracownicy>("JJFirmaModel.FK_TowaryTypy_Pracownicy1", "Pracownicy").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Pracownicy>("JJFirmaModel.FK_TowaryTypy_Pracownicy1", "Pracownicy").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<Pracownicy> Pracownicy1Reference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Pracownicy>("JJFirmaModel.FK_TowaryTypy_Pracownicy1", "Pracownicy");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Pracownicy>("JJFirmaModel.FK_TowaryTypy_Pracownicy1", "Pracownicy", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("JJFirmaModel", "FK_TowaryTypy_Pracownicy2", "Pracownicy")]
+        public Pracownicy Pracownicy2
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Pracownicy>("JJFirmaModel.FK_TowaryTypy_Pracownicy2", "Pracownicy").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Pracownicy>("JJFirmaModel.FK_TowaryTypy_Pracownicy2", "Pracownicy").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<Pracownicy> Pracownicy2Reference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Pracownicy>("JJFirmaModel.FK_TowaryTypy_Pracownicy2", "Pracownicy");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Pracownicy>("JJFirmaModel.FK_TowaryTypy_Pracownicy2", "Pracownicy", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
         [EdmRelationshipNavigationPropertyAttribute("JJFirmaModel", "FK_Towary_TowaryTypy", "Towary")]
         public EntityCollection<Towary> Towary
         {
@@ -9139,43 +16566,41 @@ namespace Firma.Models.Entities
         /// <param name="umowaId">Initial value of the UmowaId property.</param>
         /// <param name="nrUmowy">Initial value of the NrUmowy property.</param>
         /// <param name="rodzajUmowyId">Initial value of the RodzajUmowyId property.</param>
-        /// <param name="stanowisko">Initial value of the Stanowisko property.</param>
+        /// <param name="stanowiskoId">Initial value of the StanowiskoId property.</param>
         /// <param name="dataZawarcia">Initial value of the DataZawarcia property.</param>
         /// <param name="dataOd">Initial value of the DataOd property.</param>
         /// <param name="dataDo">Initial value of the DataDo property.</param>
         /// <param name="stawkaBruttoMies">Initial value of the StawkaBruttoMies property.</param>
         /// <param name="stawkaBruttoGodz">Initial value of the StawkaBruttoGodz property.</param>
-        /// <param name="waluta">Initial value of the Waluta property.</param>
         /// <param name="czasPracyMies">Initial value of the CzasPracyMies property.</param>
-        /// <param name="wartosc">Initial value of the Wartosc property.</param>
         /// <param name="opis">Initial value of the Opis property.</param>
         /// <param name="jestEmerytalne">Initial value of the JestEmerytalne property.</param>
         /// <param name="jestRentowe">Initial value of the JestRentowe property.</param>
         /// <param name="jestChorobowe">Initial value of the JestChorobowe property.</param>
         /// <param name="jestWypadkowe">Initial value of the JestWypadkowe property.</param>
         /// <param name="dataUtworzenia">Initial value of the DataUtworzenia property.</param>
+        /// <param name="ktoUtworzylId">Initial value of the KtoUtworzylId property.</param>
         /// <param name="czyAktywny">Initial value of the CzyAktywny property.</param>
-        public static Umowy CreateUmowy(global::System.Int32 umowaId, global::System.String nrUmowy, global::System.Int32 rodzajUmowyId, global::System.String stanowisko, global::System.DateTime dataZawarcia, global::System.DateTime dataOd, global::System.DateTime dataDo, global::System.Decimal stawkaBruttoMies, global::System.Decimal stawkaBruttoGodz, global::System.String waluta, global::System.String czasPracyMies, global::System.Decimal wartosc, global::System.String opis, global::System.Boolean jestEmerytalne, global::System.Boolean jestRentowe, global::System.Boolean jestChorobowe, global::System.Boolean jestWypadkowe, global::System.DateTime dataUtworzenia, global::System.Boolean czyAktywny)
+        public static Umowy CreateUmowy(global::System.Int32 umowaId, global::System.String nrUmowy, global::System.Int32 rodzajUmowyId, global::System.Int32 stanowiskoId, global::System.DateTime dataZawarcia, global::System.DateTime dataOd, global::System.DateTime dataDo, global::System.Decimal stawkaBruttoMies, global::System.Decimal stawkaBruttoGodz, global::System.Int32 czasPracyMies, global::System.String opis, global::System.Boolean jestEmerytalne, global::System.Boolean jestRentowe, global::System.Boolean jestChorobowe, global::System.Boolean jestWypadkowe, global::System.DateTime dataUtworzenia, global::System.Int32 ktoUtworzylId, global::System.Boolean czyAktywny)
         {
             Umowy umowy = new Umowy();
             umowy.UmowaId = umowaId;
             umowy.NrUmowy = nrUmowy;
             umowy.RodzajUmowyId = rodzajUmowyId;
-            umowy.Stanowisko = stanowisko;
+            umowy.StanowiskoId = stanowiskoId;
             umowy.DataZawarcia = dataZawarcia;
             umowy.DataOd = dataOd;
             umowy.DataDo = dataDo;
             umowy.StawkaBruttoMies = stawkaBruttoMies;
             umowy.StawkaBruttoGodz = stawkaBruttoGodz;
-            umowy.Waluta = waluta;
             umowy.CzasPracyMies = czasPracyMies;
-            umowy.Wartosc = wartosc;
             umowy.Opis = opis;
             umowy.JestEmerytalne = jestEmerytalne;
             umowy.JestRentowe = jestRentowe;
             umowy.JestChorobowe = jestChorobowe;
             umowy.JestWypadkowe = jestWypadkowe;
             umowy.DataUtworzenia = dataUtworzenia;
+            umowy.KtoUtworzylId = ktoUtworzylId;
             umowy.CzyAktywny = czyAktywny;
             return umowy;
         }
@@ -9264,48 +16689,24 @@ namespace Firma.Models.Entities
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.String Stanowisko
+        public global::System.Int32 StanowiskoId
         {
             get
             {
-                return _Stanowisko;
+                return _StanowiskoId;
             }
             set
             {
-                OnStanowiskoChanging(value);
-                ReportPropertyChanging("Stanowisko");
-                _Stanowisko = StructuralObject.SetValidValue(value, false, "Stanowisko");
-                ReportPropertyChanged("Stanowisko");
-                OnStanowiskoChanged();
+                OnStanowiskoIdChanging(value);
+                ReportPropertyChanging("StanowiskoId");
+                _StanowiskoId = StructuralObject.SetValidValue(value, "StanowiskoId");
+                ReportPropertyChanged("StanowiskoId");
+                OnStanowiskoIdChanged();
             }
         }
-        private global::System.String _Stanowisko;
-        partial void OnStanowiskoChanging(global::System.String value);
-        partial void OnStanowiskoChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
-        [DataMemberAttribute()]
-        public global::System.String KodZawodu
-        {
-            get
-            {
-                return _KodZawodu;
-            }
-            set
-            {
-                OnKodZawoduChanging(value);
-                ReportPropertyChanging("KodZawodu");
-                _KodZawodu = StructuralObject.SetValidValue(value, true, "KodZawodu");
-                ReportPropertyChanged("KodZawodu");
-                OnKodZawoduChanged();
-            }
-        }
-        private global::System.String _KodZawodu;
-        partial void OnKodZawoduChanging(global::System.String value);
-        partial void OnKodZawoduChanged();
+        private global::System.Int32 _StanowiskoId;
+        partial void OnStanowiskoIdChanging(global::System.Int32 value);
+        partial void OnStanowiskoIdChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -9432,31 +16833,7 @@ namespace Firma.Models.Entities
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.String Waluta
-        {
-            get
-            {
-                return _Waluta;
-            }
-            set
-            {
-                OnWalutaChanging(value);
-                ReportPropertyChanging("Waluta");
-                _Waluta = StructuralObject.SetValidValue(value, false, "Waluta");
-                ReportPropertyChanged("Waluta");
-                OnWalutaChanged();
-            }
-        }
-        private global::System.String _Waluta;
-        partial void OnWalutaChanging(global::System.String value);
-        partial void OnWalutaChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.String CzasPracyMies
+        public global::System.Int32 CzasPracyMies
         {
             get
             {
@@ -9466,38 +16843,14 @@ namespace Firma.Models.Entities
             {
                 OnCzasPracyMiesChanging(value);
                 ReportPropertyChanging("CzasPracyMies");
-                _CzasPracyMies = StructuralObject.SetValidValue(value, false, "CzasPracyMies");
+                _CzasPracyMies = StructuralObject.SetValidValue(value, "CzasPracyMies");
                 ReportPropertyChanged("CzasPracyMies");
                 OnCzasPracyMiesChanged();
             }
         }
-        private global::System.String _CzasPracyMies;
-        partial void OnCzasPracyMiesChanging(global::System.String value);
+        private global::System.Int32 _CzasPracyMies;
+        partial void OnCzasPracyMiesChanging(global::System.Int32 value);
         partial void OnCzasPracyMiesChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.Decimal Wartosc
-        {
-            get
-            {
-                return _Wartosc;
-            }
-            set
-            {
-                OnWartoscChanging(value);
-                ReportPropertyChanging("Wartosc");
-                _Wartosc = StructuralObject.SetValidValue(value, "Wartosc");
-                ReportPropertyChanged("Wartosc");
-                OnWartoscChanged();
-            }
-        }
-        private global::System.Decimal _Wartosc;
-        partial void OnWartoscChanging(global::System.Decimal value);
-        partial void OnWartoscChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -9646,6 +16999,30 @@ namespace Firma.Models.Entities
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 KtoUtworzylId
+        {
+            get
+            {
+                return _KtoUtworzylId;
+            }
+            set
+            {
+                OnKtoUtworzylIdChanging(value);
+                ReportPropertyChanging("KtoUtworzylId");
+                _KtoUtworzylId = StructuralObject.SetValidValue(value, "KtoUtworzylId");
+                ReportPropertyChanged("KtoUtworzylId");
+                OnKtoUtworzylIdChanged();
+            }
+        }
+        private global::System.Int32 _KtoUtworzylId;
+        partial void OnKtoUtworzylIdChanging(global::System.Int32 value);
+        partial void OnKtoUtworzylIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public Nullable<global::System.DateTime> DataMod
@@ -9694,6 +17071,54 @@ namespace Firma.Models.Entities
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.DateTime> DataUsuniecia
+        {
+            get
+            {
+                return _DataUsuniecia;
+            }
+            set
+            {
+                OnDataUsunieciaChanging(value);
+                ReportPropertyChanging("DataUsuniecia");
+                _DataUsuniecia = StructuralObject.SetValidValue(value, "DataUsuniecia");
+                ReportPropertyChanged("DataUsuniecia");
+                OnDataUsunieciaChanged();
+            }
+        }
+        private Nullable<global::System.DateTime> _DataUsuniecia;
+        partial void OnDataUsunieciaChanging(Nullable<global::System.DateTime> value);
+        partial void OnDataUsunieciaChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> KtoUsunalId
+        {
+            get
+            {
+                return _KtoUsunalId;
+            }
+            set
+            {
+                OnKtoUsunalIdChanging(value);
+                ReportPropertyChanging("KtoUsunalId");
+                _KtoUsunalId = StructuralObject.SetValidValue(value, "KtoUsunalId");
+                ReportPropertyChanged("KtoUsunalId");
+                OnKtoUsunalIdChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _KtoUsunalId;
+        partial void OnKtoUsunalIdChanging(Nullable<global::System.Int32> value);
+        partial void OnKtoUsunalIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Boolean CzyAktywny
@@ -9725,30 +17150,8 @@ namespace Firma.Models.Entities
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("JJFirmaModel", "FK_Pracownicy_Umowy", "Pracownicy")]
-        public EntityCollection<Pracownicy> Pracownicy
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Pracownicy>("JJFirmaModel.FK_Pracownicy_Umowy", "Pracownicy");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Pracownicy>("JJFirmaModel.FK_Pracownicy_Umowy", "Pracownicy", value);
-                }
-            }
-        }
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
         [EdmRelationshipNavigationPropertyAttribute("JJFirmaModel", "FK_Umowy_Pracownicy", "Pracownicy")]
-        public Pracownicy Pracownicy1
+        public Pracownicy Pracownicy
         {
             get
             {
@@ -9764,7 +17167,7 @@ namespace Firma.Models.Entities
         /// </summary>
         [BrowsableAttribute(false)]
         [DataMemberAttribute()]
-        public EntityReference<Pracownicy> Pracownicy1Reference
+        public EntityReference<Pracownicy> PracownicyReference
         {
             get
             {
@@ -9775,6 +17178,104 @@ namespace Firma.Models.Entities
                 if ((value != null))
                 {
                     ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Pracownicy>("JJFirmaModel.FK_Umowy_Pracownicy", "Pracownicy", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("JJFirmaModel", "FK_Umowy_Pracownicy1", "Pracownicy")]
+        public Pracownicy Pracownicy1
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Pracownicy>("JJFirmaModel.FK_Umowy_Pracownicy1", "Pracownicy").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Pracownicy>("JJFirmaModel.FK_Umowy_Pracownicy1", "Pracownicy").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<Pracownicy> Pracownicy1Reference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Pracownicy>("JJFirmaModel.FK_Umowy_Pracownicy1", "Pracownicy");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Pracownicy>("JJFirmaModel.FK_Umowy_Pracownicy1", "Pracownicy", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("JJFirmaModel", "FK_Umowy_Pracownicy2", "Pracownicy")]
+        public Pracownicy Pracownicy2
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Pracownicy>("JJFirmaModel.FK_Umowy_Pracownicy2", "Pracownicy").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Pracownicy>("JJFirmaModel.FK_Umowy_Pracownicy2", "Pracownicy").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<Pracownicy> Pracownicy2Reference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Pracownicy>("JJFirmaModel.FK_Umowy_Pracownicy2", "Pracownicy");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Pracownicy>("JJFirmaModel.FK_Umowy_Pracownicy2", "Pracownicy", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("JJFirmaModel", "FK_PracownicyUmowy_Umowy", "PracownicyUmowy")]
+        public EntityCollection<PracownicyUmowy> PracownicyUmowy
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<PracownicyUmowy>("JJFirmaModel.FK_PracownicyUmowy_Umowy", "PracownicyUmowy");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<PracownicyUmowy>("JJFirmaModel.FK_PracownicyUmowy_Umowy", "PracownicyUmowy", value);
                 }
             }
         }
@@ -9816,6 +17317,44 @@ namespace Firma.Models.Entities
                 }
             }
         }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("JJFirmaModel", "FK_Umowy_UmowyStanowiska", "UmowyStanowiska")]
+        public UmowyStanowiska UmowyStanowiska
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<UmowyStanowiska>("JJFirmaModel.FK_Umowy_UmowyStanowiska", "UmowyStanowiska").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<UmowyStanowiska>("JJFirmaModel.FK_Umowy_UmowyStanowiska", "UmowyStanowiska").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<UmowyStanowiska> UmowyStanowiskaReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<UmowyStanowiska>("JJFirmaModel.FK_Umowy_UmowyStanowiska", "UmowyStanowiska");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<UmowyStanowiska>("JJFirmaModel.FK_Umowy_UmowyStanowiska", "UmowyStanowiska", value);
+                }
+            }
+        }
 
         #endregion
 
@@ -9837,15 +17376,21 @@ namespace Firma.Models.Entities
         /// <param name="rodzajUmowyId">Initial value of the RodzajUmowyId property.</param>
         /// <param name="kod">Initial value of the Kod property.</param>
         /// <param name="nazwa">Initial value of the Nazwa property.</param>
+        /// <param name="opis">Initial value of the Opis property.</param>
+        /// <param name="uwagi">Initial value of the Uwagi property.</param>
         /// <param name="dataUtworzenia">Initial value of the DataUtworzenia property.</param>
+        /// <param name="ktoUtworzylId">Initial value of the KtoUtworzylId property.</param>
         /// <param name="czyAktywny">Initial value of the CzyAktywny property.</param>
-        public static UmowyRodzaje CreateUmowyRodzaje(global::System.Int32 rodzajUmowyId, global::System.String kod, global::System.String nazwa, global::System.DateTime dataUtworzenia, global::System.Boolean czyAktywny)
+        public static UmowyRodzaje CreateUmowyRodzaje(global::System.Int32 rodzajUmowyId, global::System.String kod, global::System.String nazwa, global::System.String opis, global::System.String uwagi, global::System.DateTime dataUtworzenia, global::System.Int32 ktoUtworzylId, global::System.Boolean czyAktywny)
         {
             UmowyRodzaje umowyRodzaje = new UmowyRodzaje();
             umowyRodzaje.RodzajUmowyId = rodzajUmowyId;
             umowyRodzaje.Kod = kod;
             umowyRodzaje.Nazwa = nazwa;
+            umowyRodzaje.Opis = opis;
+            umowyRodzaje.Uwagi = uwagi;
             umowyRodzaje.DataUtworzenia = dataUtworzenia;
+            umowyRodzaje.KtoUtworzylId = ktoUtworzylId;
             umowyRodzaje.CzyAktywny = czyAktywny;
             return umowyRodzaje;
         }
@@ -9934,6 +17479,54 @@ namespace Firma.Models.Entities
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
+        public global::System.String Opis
+        {
+            get
+            {
+                return _Opis;
+            }
+            set
+            {
+                OnOpisChanging(value);
+                ReportPropertyChanging("Opis");
+                _Opis = StructuralObject.SetValidValue(value, false, "Opis");
+                ReportPropertyChanged("Opis");
+                OnOpisChanged();
+            }
+        }
+        private global::System.String _Opis;
+        partial void OnOpisChanging(global::System.String value);
+        partial void OnOpisChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String Uwagi
+        {
+            get
+            {
+                return _Uwagi;
+            }
+            set
+            {
+                OnUwagiChanging(value);
+                ReportPropertyChanging("Uwagi");
+                _Uwagi = StructuralObject.SetValidValue(value, false, "Uwagi");
+                ReportPropertyChanged("Uwagi");
+                OnUwagiChanged();
+            }
+        }
+        private global::System.String _Uwagi;
+        partial void OnUwagiChanging(global::System.String value);
+        partial void OnUwagiChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
         public global::System.DateTime DataUtworzenia
         {
             get
@@ -9952,6 +17545,30 @@ namespace Firma.Models.Entities
         private global::System.DateTime _DataUtworzenia;
         partial void OnDataUtworzeniaChanging(global::System.DateTime value);
         partial void OnDataUtworzeniaChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 KtoUtworzylId
+        {
+            get
+            {
+                return _KtoUtworzylId;
+            }
+            set
+            {
+                OnKtoUtworzylIdChanging(value);
+                ReportPropertyChanging("KtoUtworzylId");
+                _KtoUtworzylId = StructuralObject.SetValidValue(value, "KtoUtworzylId");
+                ReportPropertyChanged("KtoUtworzylId");
+                OnKtoUtworzylIdChanged();
+            }
+        }
+        private global::System.Int32 _KtoUtworzylId;
+        partial void OnKtoUtworzylIdChanging(global::System.Int32 value);
+        partial void OnKtoUtworzylIdChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -10004,6 +17621,54 @@ namespace Firma.Models.Entities
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.DateTime> DataUsuniecia
+        {
+            get
+            {
+                return _DataUsuniecia;
+            }
+            set
+            {
+                OnDataUsunieciaChanging(value);
+                ReportPropertyChanging("DataUsuniecia");
+                _DataUsuniecia = StructuralObject.SetValidValue(value, "DataUsuniecia");
+                ReportPropertyChanged("DataUsuniecia");
+                OnDataUsunieciaChanged();
+            }
+        }
+        private Nullable<global::System.DateTime> _DataUsuniecia;
+        partial void OnDataUsunieciaChanging(Nullable<global::System.DateTime> value);
+        partial void OnDataUsunieciaChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> KtoUsunalId
+        {
+            get
+            {
+                return _KtoUsunalId;
+            }
+            set
+            {
+                OnKtoUsunalIdChanging(value);
+                ReportPropertyChanging("KtoUsunalId");
+                _KtoUsunalId = StructuralObject.SetValidValue(value, "KtoUsunalId");
+                ReportPropertyChanged("KtoUsunalId");
+                OnKtoUsunalIdChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _KtoUsunalId;
+        partial void OnKtoUsunalIdChanging(Nullable<global::System.Int32> value);
+        partial void OnKtoUsunalIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Boolean CzyAktywny
@@ -10035,16 +17700,16 @@ namespace Firma.Models.Entities
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("JJFirmaModel", "FK_UmowyRodzaje_UmowyRodzaje", "Pracownicy")]
+        [EdmRelationshipNavigationPropertyAttribute("JJFirmaModel", "FK_UmowyRodzaje_Pracownicy", "Pracownicy")]
         public Pracownicy Pracownicy
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Pracownicy>("JJFirmaModel.FK_UmowyRodzaje_UmowyRodzaje", "Pracownicy").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Pracownicy>("JJFirmaModel.FK_UmowyRodzaje_Pracownicy", "Pracownicy").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Pracownicy>("JJFirmaModel.FK_UmowyRodzaje_UmowyRodzaje", "Pracownicy").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Pracownicy>("JJFirmaModel.FK_UmowyRodzaje_Pracownicy", "Pracownicy").Value = value;
             }
         }
         /// <summary>
@@ -10056,13 +17721,89 @@ namespace Firma.Models.Entities
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Pracownicy>("JJFirmaModel.FK_UmowyRodzaje_UmowyRodzaje", "Pracownicy");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Pracownicy>("JJFirmaModel.FK_UmowyRodzaje_Pracownicy", "Pracownicy");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Pracownicy>("JJFirmaModel.FK_UmowyRodzaje_UmowyRodzaje", "Pracownicy", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Pracownicy>("JJFirmaModel.FK_UmowyRodzaje_Pracownicy", "Pracownicy", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("JJFirmaModel", "FK_UmowyRodzaje_Pracownicy1", "Pracownicy")]
+        public Pracownicy Pracownicy1
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Pracownicy>("JJFirmaModel.FK_UmowyRodzaje_Pracownicy1", "Pracownicy").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Pracownicy>("JJFirmaModel.FK_UmowyRodzaje_Pracownicy1", "Pracownicy").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<Pracownicy> Pracownicy1Reference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Pracownicy>("JJFirmaModel.FK_UmowyRodzaje_Pracownicy1", "Pracownicy");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Pracownicy>("JJFirmaModel.FK_UmowyRodzaje_Pracownicy1", "Pracownicy", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("JJFirmaModel", "FK_UmowyRodzaje_Pracownicy2", "Pracownicy")]
+        public Pracownicy Pracownicy2
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Pracownicy>("JJFirmaModel.FK_UmowyRodzaje_Pracownicy2", "Pracownicy").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Pracownicy>("JJFirmaModel.FK_UmowyRodzaje_Pracownicy2", "Pracownicy").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<Pracownicy> Pracownicy2Reference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Pracownicy>("JJFirmaModel.FK_UmowyRodzaje_Pracownicy2", "Pracownicy");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Pracownicy>("JJFirmaModel.FK_UmowyRodzaje_Pracownicy2", "Pracownicy", value);
                 }
             }
         }
@@ -10085,6 +17826,1656 @@ namespace Firma.Models.Entities
                 if ((value != null))
                 {
                     ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Umowy>("JJFirmaModel.FK_Umowy_UmowyRodzaje", "Umowy", value);
+                }
+            }
+        }
+
+        #endregion
+
+    }
+    
+    /// <summary>
+    /// No Metadata Documentation available.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="JJFirmaModel", Name="UmowyStanowiska")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class UmowyStanowiska : EntityObject
+    {
+        #region Factory Method
+    
+        /// <summary>
+        /// Create a new UmowyStanowiska object.
+        /// </summary>
+        /// <param name="stanowiskoId">Initial value of the StanowiskoId property.</param>
+        /// <param name="kodZawodu">Initial value of the KodZawodu property.</param>
+        /// <param name="nazwa">Initial value of the Nazwa property.</param>
+        /// <param name="opis">Initial value of the Opis property.</param>
+        /// <param name="uwagi">Initial value of the Uwagi property.</param>
+        /// <param name="dataUtworzenia">Initial value of the DataUtworzenia property.</param>
+        /// <param name="ktoUtworzylId">Initial value of the KtoUtworzylId property.</param>
+        /// <param name="czyAktywny">Initial value of the CzyAktywny property.</param>
+        public static UmowyStanowiska CreateUmowyStanowiska(global::System.Int32 stanowiskoId, global::System.String kodZawodu, global::System.String nazwa, global::System.String opis, global::System.String uwagi, global::System.DateTime dataUtworzenia, global::System.Int32 ktoUtworzylId, global::System.Boolean czyAktywny)
+        {
+            UmowyStanowiska umowyStanowiska = new UmowyStanowiska();
+            umowyStanowiska.StanowiskoId = stanowiskoId;
+            umowyStanowiska.KodZawodu = kodZawodu;
+            umowyStanowiska.Nazwa = nazwa;
+            umowyStanowiska.Opis = opis;
+            umowyStanowiska.Uwagi = uwagi;
+            umowyStanowiska.DataUtworzenia = dataUtworzenia;
+            umowyStanowiska.KtoUtworzylId = ktoUtworzylId;
+            umowyStanowiska.CzyAktywny = czyAktywny;
+            return umowyStanowiska;
+        }
+
+        #endregion
+
+        #region Simple Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 StanowiskoId
+        {
+            get
+            {
+                return _StanowiskoId;
+            }
+            set
+            {
+                if (_StanowiskoId != value)
+                {
+                    OnStanowiskoIdChanging(value);
+                    ReportPropertyChanging("StanowiskoId");
+                    _StanowiskoId = StructuralObject.SetValidValue(value, "StanowiskoId");
+                    ReportPropertyChanged("StanowiskoId");
+                    OnStanowiskoIdChanged();
+                }
+            }
+        }
+        private global::System.Int32 _StanowiskoId;
+        partial void OnStanowiskoIdChanging(global::System.Int32 value);
+        partial void OnStanowiskoIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String KodZawodu
+        {
+            get
+            {
+                return _KodZawodu;
+            }
+            set
+            {
+                OnKodZawoduChanging(value);
+                ReportPropertyChanging("KodZawodu");
+                _KodZawodu = StructuralObject.SetValidValue(value, false, "KodZawodu");
+                ReportPropertyChanged("KodZawodu");
+                OnKodZawoduChanged();
+            }
+        }
+        private global::System.String _KodZawodu;
+        partial void OnKodZawoduChanging(global::System.String value);
+        partial void OnKodZawoduChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String Nazwa
+        {
+            get
+            {
+                return _Nazwa;
+            }
+            set
+            {
+                OnNazwaChanging(value);
+                ReportPropertyChanging("Nazwa");
+                _Nazwa = StructuralObject.SetValidValue(value, false, "Nazwa");
+                ReportPropertyChanged("Nazwa");
+                OnNazwaChanged();
+            }
+        }
+        private global::System.String _Nazwa;
+        partial void OnNazwaChanging(global::System.String value);
+        partial void OnNazwaChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String Opis
+        {
+            get
+            {
+                return _Opis;
+            }
+            set
+            {
+                OnOpisChanging(value);
+                ReportPropertyChanging("Opis");
+                _Opis = StructuralObject.SetValidValue(value, false, "Opis");
+                ReportPropertyChanged("Opis");
+                OnOpisChanged();
+            }
+        }
+        private global::System.String _Opis;
+        partial void OnOpisChanging(global::System.String value);
+        partial void OnOpisChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String Uwagi
+        {
+            get
+            {
+                return _Uwagi;
+            }
+            set
+            {
+                OnUwagiChanging(value);
+                ReportPropertyChanging("Uwagi");
+                _Uwagi = StructuralObject.SetValidValue(value, false, "Uwagi");
+                ReportPropertyChanged("Uwagi");
+                OnUwagiChanged();
+            }
+        }
+        private global::System.String _Uwagi;
+        partial void OnUwagiChanging(global::System.String value);
+        partial void OnUwagiChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.DateTime DataUtworzenia
+        {
+            get
+            {
+                return _DataUtworzenia;
+            }
+            set
+            {
+                OnDataUtworzeniaChanging(value);
+                ReportPropertyChanging("DataUtworzenia");
+                _DataUtworzenia = StructuralObject.SetValidValue(value, "DataUtworzenia");
+                ReportPropertyChanged("DataUtworzenia");
+                OnDataUtworzeniaChanged();
+            }
+        }
+        private global::System.DateTime _DataUtworzenia;
+        partial void OnDataUtworzeniaChanging(global::System.DateTime value);
+        partial void OnDataUtworzeniaChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 KtoUtworzylId
+        {
+            get
+            {
+                return _KtoUtworzylId;
+            }
+            set
+            {
+                OnKtoUtworzylIdChanging(value);
+                ReportPropertyChanging("KtoUtworzylId");
+                _KtoUtworzylId = StructuralObject.SetValidValue(value, "KtoUtworzylId");
+                ReportPropertyChanged("KtoUtworzylId");
+                OnKtoUtworzylIdChanged();
+            }
+        }
+        private global::System.Int32 _KtoUtworzylId;
+        partial void OnKtoUtworzylIdChanging(global::System.Int32 value);
+        partial void OnKtoUtworzylIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.DateTime> DataMod
+        {
+            get
+            {
+                return _DataMod;
+            }
+            set
+            {
+                OnDataModChanging(value);
+                ReportPropertyChanging("DataMod");
+                _DataMod = StructuralObject.SetValidValue(value, "DataMod");
+                ReportPropertyChanged("DataMod");
+                OnDataModChanged();
+            }
+        }
+        private Nullable<global::System.DateTime> _DataMod;
+        partial void OnDataModChanging(Nullable<global::System.DateTime> value);
+        partial void OnDataModChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> KtoModId
+        {
+            get
+            {
+                return _KtoModId;
+            }
+            set
+            {
+                OnKtoModIdChanging(value);
+                ReportPropertyChanging("KtoModId");
+                _KtoModId = StructuralObject.SetValidValue(value, "KtoModId");
+                ReportPropertyChanged("KtoModId");
+                OnKtoModIdChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _KtoModId;
+        partial void OnKtoModIdChanging(Nullable<global::System.Int32> value);
+        partial void OnKtoModIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.DateTime> DataUsuniecia
+        {
+            get
+            {
+                return _DataUsuniecia;
+            }
+            set
+            {
+                OnDataUsunieciaChanging(value);
+                ReportPropertyChanging("DataUsuniecia");
+                _DataUsuniecia = StructuralObject.SetValidValue(value, "DataUsuniecia");
+                ReportPropertyChanged("DataUsuniecia");
+                OnDataUsunieciaChanged();
+            }
+        }
+        private Nullable<global::System.DateTime> _DataUsuniecia;
+        partial void OnDataUsunieciaChanging(Nullable<global::System.DateTime> value);
+        partial void OnDataUsunieciaChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> KtoUsunalId
+        {
+            get
+            {
+                return _KtoUsunalId;
+            }
+            set
+            {
+                OnKtoUsunalIdChanging(value);
+                ReportPropertyChanging("KtoUsunalId");
+                _KtoUsunalId = StructuralObject.SetValidValue(value, "KtoUsunalId");
+                ReportPropertyChanged("KtoUsunalId");
+                OnKtoUsunalIdChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _KtoUsunalId;
+        partial void OnKtoUsunalIdChanging(Nullable<global::System.Int32> value);
+        partial void OnKtoUsunalIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Boolean CzyAktywny
+        {
+            get
+            {
+                return _CzyAktywny;
+            }
+            set
+            {
+                OnCzyAktywnyChanging(value);
+                ReportPropertyChanging("CzyAktywny");
+                _CzyAktywny = StructuralObject.SetValidValue(value, "CzyAktywny");
+                ReportPropertyChanged("CzyAktywny");
+                OnCzyAktywnyChanged();
+            }
+        }
+        private global::System.Boolean _CzyAktywny;
+        partial void OnCzyAktywnyChanging(global::System.Boolean value);
+        partial void OnCzyAktywnyChanged();
+
+        #endregion
+
+        #region Navigation Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("JJFirmaModel", "FK_UmowyStanowiska_Pracownicy", "Pracownicy")]
+        public Pracownicy Pracownicy
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Pracownicy>("JJFirmaModel.FK_UmowyStanowiska_Pracownicy", "Pracownicy").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Pracownicy>("JJFirmaModel.FK_UmowyStanowiska_Pracownicy", "Pracownicy").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<Pracownicy> PracownicyReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Pracownicy>("JJFirmaModel.FK_UmowyStanowiska_Pracownicy", "Pracownicy");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Pracownicy>("JJFirmaModel.FK_UmowyStanowiska_Pracownicy", "Pracownicy", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("JJFirmaModel", "FK_UmowyStanowiska_Pracownicy1", "Pracownicy")]
+        public Pracownicy Pracownicy1
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Pracownicy>("JJFirmaModel.FK_UmowyStanowiska_Pracownicy1", "Pracownicy").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Pracownicy>("JJFirmaModel.FK_UmowyStanowiska_Pracownicy1", "Pracownicy").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<Pracownicy> Pracownicy1Reference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Pracownicy>("JJFirmaModel.FK_UmowyStanowiska_Pracownicy1", "Pracownicy");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Pracownicy>("JJFirmaModel.FK_UmowyStanowiska_Pracownicy1", "Pracownicy", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("JJFirmaModel", "FK_UmowyStanowiska_Pracownicy2", "Pracownicy")]
+        public Pracownicy Pracownicy2
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Pracownicy>("JJFirmaModel.FK_UmowyStanowiska_Pracownicy2", "Pracownicy").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Pracownicy>("JJFirmaModel.FK_UmowyStanowiska_Pracownicy2", "Pracownicy").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<Pracownicy> Pracownicy2Reference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Pracownicy>("JJFirmaModel.FK_UmowyStanowiska_Pracownicy2", "Pracownicy");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Pracownicy>("JJFirmaModel.FK_UmowyStanowiska_Pracownicy2", "Pracownicy", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("JJFirmaModel", "FK_Umowy_UmowyStanowiska", "Umowy")]
+        public EntityCollection<Umowy> Umowy
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Umowy>("JJFirmaModel.FK_Umowy_UmowyStanowiska", "Umowy");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Umowy>("JJFirmaModel.FK_Umowy_UmowyStanowiska", "Umowy", value);
+                }
+            }
+        }
+
+        #endregion
+
+    }
+    
+    /// <summary>
+    /// No Metadata Documentation available.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="JJFirmaModel", Name="WydaniaZewnetrzne")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class WydaniaZewnetrzne : EntityObject
+    {
+        #region Factory Method
+    
+        /// <summary>
+        /// Create a new WydaniaZewnetrzne object.
+        /// </summary>
+        /// <param name="wydanieZewnetrzneId">Initial value of the WydanieZewnetrzneId property.</param>
+        /// <param name="numer">Initial value of the Numer property.</param>
+        /// <param name="kontrahentId">Initial value of the KontrahentId property.</param>
+        /// <param name="magazynId">Initial value of the MagazynId property.</param>
+        /// <param name="dataWystawienia">Initial value of the DataWystawienia property.</param>
+        /// <param name="dataWydania">Initial value of the DataWydania property.</param>
+        /// <param name="rabat">Initial value of the Rabat property.</param>
+        /// <param name="dataUtworzenia">Initial value of the DataUtworzenia property.</param>
+        /// <param name="ktoUtworzylId">Initial value of the KtoUtworzylId property.</param>
+        /// <param name="czyAktywny">Initial value of the CzyAktywny property.</param>
+        public static WydaniaZewnetrzne CreateWydaniaZewnetrzne(global::System.Int32 wydanieZewnetrzneId, global::System.String numer, global::System.Int32 kontrahentId, global::System.Int32 magazynId, global::System.DateTime dataWystawienia, global::System.DateTime dataWydania, global::System.Decimal rabat, global::System.DateTime dataUtworzenia, global::System.Int32 ktoUtworzylId, global::System.Boolean czyAktywny)
+        {
+            WydaniaZewnetrzne wydaniaZewnetrzne = new WydaniaZewnetrzne();
+            wydaniaZewnetrzne.WydanieZewnetrzneId = wydanieZewnetrzneId;
+            wydaniaZewnetrzne.Numer = numer;
+            wydaniaZewnetrzne.KontrahentId = kontrahentId;
+            wydaniaZewnetrzne.MagazynId = magazynId;
+            wydaniaZewnetrzne.DataWystawienia = dataWystawienia;
+            wydaniaZewnetrzne.DataWydania = dataWydania;
+            wydaniaZewnetrzne.Rabat = rabat;
+            wydaniaZewnetrzne.DataUtworzenia = dataUtworzenia;
+            wydaniaZewnetrzne.KtoUtworzylId = ktoUtworzylId;
+            wydaniaZewnetrzne.CzyAktywny = czyAktywny;
+            return wydaniaZewnetrzne;
+        }
+
+        #endregion
+
+        #region Simple Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 WydanieZewnetrzneId
+        {
+            get
+            {
+                return _WydanieZewnetrzneId;
+            }
+            set
+            {
+                if (_WydanieZewnetrzneId != value)
+                {
+                    OnWydanieZewnetrzneIdChanging(value);
+                    ReportPropertyChanging("WydanieZewnetrzneId");
+                    _WydanieZewnetrzneId = StructuralObject.SetValidValue(value, "WydanieZewnetrzneId");
+                    ReportPropertyChanged("WydanieZewnetrzneId");
+                    OnWydanieZewnetrzneIdChanged();
+                }
+            }
+        }
+        private global::System.Int32 _WydanieZewnetrzneId;
+        partial void OnWydanieZewnetrzneIdChanging(global::System.Int32 value);
+        partial void OnWydanieZewnetrzneIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String Numer
+        {
+            get
+            {
+                return _Numer;
+            }
+            set
+            {
+                OnNumerChanging(value);
+                ReportPropertyChanging("Numer");
+                _Numer = StructuralObject.SetValidValue(value, false, "Numer");
+                ReportPropertyChanged("Numer");
+                OnNumerChanged();
+            }
+        }
+        private global::System.String _Numer;
+        partial void OnNumerChanging(global::System.String value);
+        partial void OnNumerChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 KontrahentId
+        {
+            get
+            {
+                return _KontrahentId;
+            }
+            set
+            {
+                OnKontrahentIdChanging(value);
+                ReportPropertyChanging("KontrahentId");
+                _KontrahentId = StructuralObject.SetValidValue(value, "KontrahentId");
+                ReportPropertyChanged("KontrahentId");
+                OnKontrahentIdChanged();
+            }
+        }
+        private global::System.Int32 _KontrahentId;
+        partial void OnKontrahentIdChanging(global::System.Int32 value);
+        partial void OnKontrahentIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 MagazynId
+        {
+            get
+            {
+                return _MagazynId;
+            }
+            set
+            {
+                OnMagazynIdChanging(value);
+                ReportPropertyChanging("MagazynId");
+                _MagazynId = StructuralObject.SetValidValue(value, "MagazynId");
+                ReportPropertyChanged("MagazynId");
+                OnMagazynIdChanged();
+            }
+        }
+        private global::System.Int32 _MagazynId;
+        partial void OnMagazynIdChanging(global::System.Int32 value);
+        partial void OnMagazynIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.DateTime DataWystawienia
+        {
+            get
+            {
+                return _DataWystawienia;
+            }
+            set
+            {
+                OnDataWystawieniaChanging(value);
+                ReportPropertyChanging("DataWystawienia");
+                _DataWystawienia = StructuralObject.SetValidValue(value, "DataWystawienia");
+                ReportPropertyChanged("DataWystawienia");
+                OnDataWystawieniaChanged();
+            }
+        }
+        private global::System.DateTime _DataWystawienia;
+        partial void OnDataWystawieniaChanging(global::System.DateTime value);
+        partial void OnDataWystawieniaChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.DateTime DataWydania
+        {
+            get
+            {
+                return _DataWydania;
+            }
+            set
+            {
+                OnDataWydaniaChanging(value);
+                ReportPropertyChanging("DataWydania");
+                _DataWydania = StructuralObject.SetValidValue(value, "DataWydania");
+                ReportPropertyChanged("DataWydania");
+                OnDataWydaniaChanged();
+            }
+        }
+        private global::System.DateTime _DataWydania;
+        partial void OnDataWydaniaChanging(global::System.DateTime value);
+        partial void OnDataWydaniaChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Decimal Rabat
+        {
+            get
+            {
+                return _Rabat;
+            }
+            set
+            {
+                OnRabatChanging(value);
+                ReportPropertyChanging("Rabat");
+                _Rabat = StructuralObject.SetValidValue(value, "Rabat");
+                ReportPropertyChanged("Rabat");
+                OnRabatChanged();
+            }
+        }
+        private global::System.Decimal _Rabat;
+        partial void OnRabatChanging(global::System.Decimal value);
+        partial void OnRabatChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.DateTime DataUtworzenia
+        {
+            get
+            {
+                return _DataUtworzenia;
+            }
+            set
+            {
+                OnDataUtworzeniaChanging(value);
+                ReportPropertyChanging("DataUtworzenia");
+                _DataUtworzenia = StructuralObject.SetValidValue(value, "DataUtworzenia");
+                ReportPropertyChanged("DataUtworzenia");
+                OnDataUtworzeniaChanged();
+            }
+        }
+        private global::System.DateTime _DataUtworzenia;
+        partial void OnDataUtworzeniaChanging(global::System.DateTime value);
+        partial void OnDataUtworzeniaChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 KtoUtworzylId
+        {
+            get
+            {
+                return _KtoUtworzylId;
+            }
+            set
+            {
+                OnKtoUtworzylIdChanging(value);
+                ReportPropertyChanging("KtoUtworzylId");
+                _KtoUtworzylId = StructuralObject.SetValidValue(value, "KtoUtworzylId");
+                ReportPropertyChanged("KtoUtworzylId");
+                OnKtoUtworzylIdChanged();
+            }
+        }
+        private global::System.Int32 _KtoUtworzylId;
+        partial void OnKtoUtworzylIdChanging(global::System.Int32 value);
+        partial void OnKtoUtworzylIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.DateTime> DataMod
+        {
+            get
+            {
+                return _DataMod;
+            }
+            set
+            {
+                OnDataModChanging(value);
+                ReportPropertyChanging("DataMod");
+                _DataMod = StructuralObject.SetValidValue(value, "DataMod");
+                ReportPropertyChanged("DataMod");
+                OnDataModChanged();
+            }
+        }
+        private Nullable<global::System.DateTime> _DataMod;
+        partial void OnDataModChanging(Nullable<global::System.DateTime> value);
+        partial void OnDataModChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> KtoModId
+        {
+            get
+            {
+                return _KtoModId;
+            }
+            set
+            {
+                OnKtoModIdChanging(value);
+                ReportPropertyChanging("KtoModId");
+                _KtoModId = StructuralObject.SetValidValue(value, "KtoModId");
+                ReportPropertyChanged("KtoModId");
+                OnKtoModIdChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _KtoModId;
+        partial void OnKtoModIdChanging(Nullable<global::System.Int32> value);
+        partial void OnKtoModIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.DateTime> DataUsuniecia
+        {
+            get
+            {
+                return _DataUsuniecia;
+            }
+            set
+            {
+                OnDataUsunieciaChanging(value);
+                ReportPropertyChanging("DataUsuniecia");
+                _DataUsuniecia = StructuralObject.SetValidValue(value, "DataUsuniecia");
+                ReportPropertyChanged("DataUsuniecia");
+                OnDataUsunieciaChanged();
+            }
+        }
+        private Nullable<global::System.DateTime> _DataUsuniecia;
+        partial void OnDataUsunieciaChanging(Nullable<global::System.DateTime> value);
+        partial void OnDataUsunieciaChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> KtoUsunalId
+        {
+            get
+            {
+                return _KtoUsunalId;
+            }
+            set
+            {
+                OnKtoUsunalIdChanging(value);
+                ReportPropertyChanging("KtoUsunalId");
+                _KtoUsunalId = StructuralObject.SetValidValue(value, "KtoUsunalId");
+                ReportPropertyChanged("KtoUsunalId");
+                OnKtoUsunalIdChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _KtoUsunalId;
+        partial void OnKtoUsunalIdChanging(Nullable<global::System.Int32> value);
+        partial void OnKtoUsunalIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Boolean CzyAktywny
+        {
+            get
+            {
+                return _CzyAktywny;
+            }
+            set
+            {
+                OnCzyAktywnyChanging(value);
+                ReportPropertyChanging("CzyAktywny");
+                _CzyAktywny = StructuralObject.SetValidValue(value, "CzyAktywny");
+                ReportPropertyChanged("CzyAktywny");
+                OnCzyAktywnyChanged();
+            }
+        }
+        private global::System.Boolean _CzyAktywny;
+        partial void OnCzyAktywnyChanging(global::System.Boolean value);
+        partial void OnCzyAktywnyChanged();
+
+        #endregion
+
+        #region Navigation Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("JJFirmaModel", "FK_FakturyWydaniaZewnetrzne_WydaniaZewnetrzne", "FakturyWydaniaZewnetrzne")]
+        public EntityCollection<FakturyWydaniaZewnetrzne> FakturyWydaniaZewnetrzne
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<FakturyWydaniaZewnetrzne>("JJFirmaModel.FK_FakturyWydaniaZewnetrzne_WydaniaZewnetrzne", "FakturyWydaniaZewnetrzne");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<FakturyWydaniaZewnetrzne>("JJFirmaModel.FK_FakturyWydaniaZewnetrzne_WydaniaZewnetrzne", "FakturyWydaniaZewnetrzne", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("JJFirmaModel", "FK_WydaniaZewnetrzne_Kontrahenci", "Kontrahenci")]
+        public Kontrahenci Kontrahenci
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Kontrahenci>("JJFirmaModel.FK_WydaniaZewnetrzne_Kontrahenci", "Kontrahenci").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Kontrahenci>("JJFirmaModel.FK_WydaniaZewnetrzne_Kontrahenci", "Kontrahenci").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<Kontrahenci> KontrahenciReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Kontrahenci>("JJFirmaModel.FK_WydaniaZewnetrzne_Kontrahenci", "Kontrahenci");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Kontrahenci>("JJFirmaModel.FK_WydaniaZewnetrzne_Kontrahenci", "Kontrahenci", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("JJFirmaModel", "FK_WydaniaZewnetrzne_Magazyny", "Magazyny")]
+        public Magazyny Magazyny
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Magazyny>("JJFirmaModel.FK_WydaniaZewnetrzne_Magazyny", "Magazyny").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Magazyny>("JJFirmaModel.FK_WydaniaZewnetrzne_Magazyny", "Magazyny").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<Magazyny> MagazynyReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Magazyny>("JJFirmaModel.FK_WydaniaZewnetrzne_Magazyny", "Magazyny");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Magazyny>("JJFirmaModel.FK_WydaniaZewnetrzne_Magazyny", "Magazyny", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("JJFirmaModel", "FK_PozycjeWydaniaZewnetrznego_WydaniaZewnetrzne", "PozycjeWydaniaZewnetrznego")]
+        public EntityCollection<PozycjeWydaniaZewnetrznego> PozycjeWydaniaZewnetrznego
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<PozycjeWydaniaZewnetrznego>("JJFirmaModel.FK_PozycjeWydaniaZewnetrznego_WydaniaZewnetrzne", "PozycjeWydaniaZewnetrznego");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<PozycjeWydaniaZewnetrznego>("JJFirmaModel.FK_PozycjeWydaniaZewnetrznego_WydaniaZewnetrzne", "PozycjeWydaniaZewnetrznego", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("JJFirmaModel", "FK_WydaniaZewnetrzne_Pracownicy", "Pracownicy")]
+        public Pracownicy Pracownicy
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Pracownicy>("JJFirmaModel.FK_WydaniaZewnetrzne_Pracownicy", "Pracownicy").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Pracownicy>("JJFirmaModel.FK_WydaniaZewnetrzne_Pracownicy", "Pracownicy").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<Pracownicy> PracownicyReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Pracownicy>("JJFirmaModel.FK_WydaniaZewnetrzne_Pracownicy", "Pracownicy");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Pracownicy>("JJFirmaModel.FK_WydaniaZewnetrzne_Pracownicy", "Pracownicy", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("JJFirmaModel", "FK_WydaniaZewnetrzne_Pracownicy1", "Pracownicy")]
+        public Pracownicy Pracownicy1
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Pracownicy>("JJFirmaModel.FK_WydaniaZewnetrzne_Pracownicy1", "Pracownicy").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Pracownicy>("JJFirmaModel.FK_WydaniaZewnetrzne_Pracownicy1", "Pracownicy").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<Pracownicy> Pracownicy1Reference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Pracownicy>("JJFirmaModel.FK_WydaniaZewnetrzne_Pracownicy1", "Pracownicy");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Pracownicy>("JJFirmaModel.FK_WydaniaZewnetrzne_Pracownicy1", "Pracownicy", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("JJFirmaModel", "FK_WydaniaZewnetrzne_Pracownicy2", "Pracownicy")]
+        public Pracownicy Pracownicy2
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Pracownicy>("JJFirmaModel.FK_WydaniaZewnetrzne_Pracownicy2", "Pracownicy").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Pracownicy>("JJFirmaModel.FK_WydaniaZewnetrzne_Pracownicy2", "Pracownicy").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<Pracownicy> Pracownicy2Reference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Pracownicy>("JJFirmaModel.FK_WydaniaZewnetrzne_Pracownicy2", "Pracownicy");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Pracownicy>("JJFirmaModel.FK_WydaniaZewnetrzne_Pracownicy2", "Pracownicy", value);
+                }
+            }
+        }
+
+        #endregion
+
+    }
+    
+    /// <summary>
+    /// No Metadata Documentation available.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="JJFirmaModel", Name="ZmianyCeny")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class ZmianyCeny : EntityObject
+    {
+        #region Factory Method
+    
+        /// <summary>
+        /// Create a new ZmianyCeny object.
+        /// </summary>
+        /// <param name="zmianaCenyId">Initial value of the ZmianaCenyId property.</param>
+        /// <param name="towarId">Initial value of the TowarId property.</param>
+        /// <param name="jednMiaryId">Initial value of the JednMiaryId property.</param>
+        /// <param name="cenaNetto">Initial value of the CenaNetto property.</param>
+        /// <param name="dataObowiazywaniaOd">Initial value of the DataObowiazywaniaOd property.</param>
+        /// <param name="dataUtworzenia">Initial value of the DataUtworzenia property.</param>
+        /// <param name="ktoUtworzylId">Initial value of the KtoUtworzylId property.</param>
+        /// <param name="czyAktywny">Initial value of the CzyAktywny property.</param>
+        public static ZmianyCeny CreateZmianyCeny(global::System.Int32 zmianaCenyId, global::System.Int32 towarId, global::System.Int32 jednMiaryId, global::System.Decimal cenaNetto, global::System.DateTime dataObowiazywaniaOd, global::System.DateTime dataUtworzenia, global::System.Int32 ktoUtworzylId, global::System.Boolean czyAktywny)
+        {
+            ZmianyCeny zmianyCeny = new ZmianyCeny();
+            zmianyCeny.ZmianaCenyId = zmianaCenyId;
+            zmianyCeny.TowarId = towarId;
+            zmianyCeny.JednMiaryId = jednMiaryId;
+            zmianyCeny.CenaNetto = cenaNetto;
+            zmianyCeny.DataObowiazywaniaOd = dataObowiazywaniaOd;
+            zmianyCeny.DataUtworzenia = dataUtworzenia;
+            zmianyCeny.KtoUtworzylId = ktoUtworzylId;
+            zmianyCeny.CzyAktywny = czyAktywny;
+            return zmianyCeny;
+        }
+
+        #endregion
+
+        #region Simple Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 ZmianaCenyId
+        {
+            get
+            {
+                return _ZmianaCenyId;
+            }
+            set
+            {
+                if (_ZmianaCenyId != value)
+                {
+                    OnZmianaCenyIdChanging(value);
+                    ReportPropertyChanging("ZmianaCenyId");
+                    _ZmianaCenyId = StructuralObject.SetValidValue(value, "ZmianaCenyId");
+                    ReportPropertyChanged("ZmianaCenyId");
+                    OnZmianaCenyIdChanged();
+                }
+            }
+        }
+        private global::System.Int32 _ZmianaCenyId;
+        partial void OnZmianaCenyIdChanging(global::System.Int32 value);
+        partial void OnZmianaCenyIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 TowarId
+        {
+            get
+            {
+                return _TowarId;
+            }
+            set
+            {
+                OnTowarIdChanging(value);
+                ReportPropertyChanging("TowarId");
+                _TowarId = StructuralObject.SetValidValue(value, "TowarId");
+                ReportPropertyChanged("TowarId");
+                OnTowarIdChanged();
+            }
+        }
+        private global::System.Int32 _TowarId;
+        partial void OnTowarIdChanging(global::System.Int32 value);
+        partial void OnTowarIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 JednMiaryId
+        {
+            get
+            {
+                return _JednMiaryId;
+            }
+            set
+            {
+                OnJednMiaryIdChanging(value);
+                ReportPropertyChanging("JednMiaryId");
+                _JednMiaryId = StructuralObject.SetValidValue(value, "JednMiaryId");
+                ReportPropertyChanged("JednMiaryId");
+                OnJednMiaryIdChanged();
+            }
+        }
+        private global::System.Int32 _JednMiaryId;
+        partial void OnJednMiaryIdChanging(global::System.Int32 value);
+        partial void OnJednMiaryIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Decimal CenaNetto
+        {
+            get
+            {
+                return _CenaNetto;
+            }
+            set
+            {
+                OnCenaNettoChanging(value);
+                ReportPropertyChanging("CenaNetto");
+                _CenaNetto = StructuralObject.SetValidValue(value, "CenaNetto");
+                ReportPropertyChanged("CenaNetto");
+                OnCenaNettoChanged();
+            }
+        }
+        private global::System.Decimal _CenaNetto;
+        partial void OnCenaNettoChanging(global::System.Decimal value);
+        partial void OnCenaNettoChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.DateTime DataObowiazywaniaOd
+        {
+            get
+            {
+                return _DataObowiazywaniaOd;
+            }
+            set
+            {
+                OnDataObowiazywaniaOdChanging(value);
+                ReportPropertyChanging("DataObowiazywaniaOd");
+                _DataObowiazywaniaOd = StructuralObject.SetValidValue(value, "DataObowiazywaniaOd");
+                ReportPropertyChanged("DataObowiazywaniaOd");
+                OnDataObowiazywaniaOdChanged();
+            }
+        }
+        private global::System.DateTime _DataObowiazywaniaOd;
+        partial void OnDataObowiazywaniaOdChanging(global::System.DateTime value);
+        partial void OnDataObowiazywaniaOdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.DateTime> DataObowiazywaniaDo
+        {
+            get
+            {
+                return _DataObowiazywaniaDo;
+            }
+            set
+            {
+                OnDataObowiazywaniaDoChanging(value);
+                ReportPropertyChanging("DataObowiazywaniaDo");
+                _DataObowiazywaniaDo = StructuralObject.SetValidValue(value, "DataObowiazywaniaDo");
+                ReportPropertyChanged("DataObowiazywaniaDo");
+                OnDataObowiazywaniaDoChanged();
+            }
+        }
+        private Nullable<global::System.DateTime> _DataObowiazywaniaDo;
+        partial void OnDataObowiazywaniaDoChanging(Nullable<global::System.DateTime> value);
+        partial void OnDataObowiazywaniaDoChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.DateTime DataUtworzenia
+        {
+            get
+            {
+                return _DataUtworzenia;
+            }
+            set
+            {
+                OnDataUtworzeniaChanging(value);
+                ReportPropertyChanging("DataUtworzenia");
+                _DataUtworzenia = StructuralObject.SetValidValue(value, "DataUtworzenia");
+                ReportPropertyChanged("DataUtworzenia");
+                OnDataUtworzeniaChanged();
+            }
+        }
+        private global::System.DateTime _DataUtworzenia;
+        partial void OnDataUtworzeniaChanging(global::System.DateTime value);
+        partial void OnDataUtworzeniaChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 KtoUtworzylId
+        {
+            get
+            {
+                return _KtoUtworzylId;
+            }
+            set
+            {
+                OnKtoUtworzylIdChanging(value);
+                ReportPropertyChanging("KtoUtworzylId");
+                _KtoUtworzylId = StructuralObject.SetValidValue(value, "KtoUtworzylId");
+                ReportPropertyChanged("KtoUtworzylId");
+                OnKtoUtworzylIdChanged();
+            }
+        }
+        private global::System.Int32 _KtoUtworzylId;
+        partial void OnKtoUtworzylIdChanging(global::System.Int32 value);
+        partial void OnKtoUtworzylIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.DateTime> DataMod
+        {
+            get
+            {
+                return _DataMod;
+            }
+            set
+            {
+                OnDataModChanging(value);
+                ReportPropertyChanging("DataMod");
+                _DataMod = StructuralObject.SetValidValue(value, "DataMod");
+                ReportPropertyChanged("DataMod");
+                OnDataModChanged();
+            }
+        }
+        private Nullable<global::System.DateTime> _DataMod;
+        partial void OnDataModChanging(Nullable<global::System.DateTime> value);
+        partial void OnDataModChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> KtoModId
+        {
+            get
+            {
+                return _KtoModId;
+            }
+            set
+            {
+                OnKtoModIdChanging(value);
+                ReportPropertyChanging("KtoModId");
+                _KtoModId = StructuralObject.SetValidValue(value, "KtoModId");
+                ReportPropertyChanged("KtoModId");
+                OnKtoModIdChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _KtoModId;
+        partial void OnKtoModIdChanging(Nullable<global::System.Int32> value);
+        partial void OnKtoModIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.DateTime> DataUsuniecia
+        {
+            get
+            {
+                return _DataUsuniecia;
+            }
+            set
+            {
+                OnDataUsunieciaChanging(value);
+                ReportPropertyChanging("DataUsuniecia");
+                _DataUsuniecia = StructuralObject.SetValidValue(value, "DataUsuniecia");
+                ReportPropertyChanged("DataUsuniecia");
+                OnDataUsunieciaChanged();
+            }
+        }
+        private Nullable<global::System.DateTime> _DataUsuniecia;
+        partial void OnDataUsunieciaChanging(Nullable<global::System.DateTime> value);
+        partial void OnDataUsunieciaChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> KtoUsunalId
+        {
+            get
+            {
+                return _KtoUsunalId;
+            }
+            set
+            {
+                OnKtoUsunalIdChanging(value);
+                ReportPropertyChanging("KtoUsunalId");
+                _KtoUsunalId = StructuralObject.SetValidValue(value, "KtoUsunalId");
+                ReportPropertyChanged("KtoUsunalId");
+                OnKtoUsunalIdChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _KtoUsunalId;
+        partial void OnKtoUsunalIdChanging(Nullable<global::System.Int32> value);
+        partial void OnKtoUsunalIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Boolean CzyAktywny
+        {
+            get
+            {
+                return _CzyAktywny;
+            }
+            set
+            {
+                OnCzyAktywnyChanging(value);
+                ReportPropertyChanging("CzyAktywny");
+                _CzyAktywny = StructuralObject.SetValidValue(value, "CzyAktywny");
+                ReportPropertyChanged("CzyAktywny");
+                OnCzyAktywnyChanged();
+            }
+        }
+        private global::System.Boolean _CzyAktywny;
+        partial void OnCzyAktywnyChanging(global::System.Boolean value);
+        partial void OnCzyAktywnyChanged();
+
+        #endregion
+
+        #region Navigation Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("JJFirmaModel", "FK_ZmianyCeny_JednostkiMiary", "JednostkiMiary")]
+        public JednostkiMiary JednostkiMiary
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<JednostkiMiary>("JJFirmaModel.FK_ZmianyCeny_JednostkiMiary", "JednostkiMiary").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<JednostkiMiary>("JJFirmaModel.FK_ZmianyCeny_JednostkiMiary", "JednostkiMiary").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<JednostkiMiary> JednostkiMiaryReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<JednostkiMiary>("JJFirmaModel.FK_ZmianyCeny_JednostkiMiary", "JednostkiMiary");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<JednostkiMiary>("JJFirmaModel.FK_ZmianyCeny_JednostkiMiary", "JednostkiMiary", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("JJFirmaModel", "FK_ZmianyCeny_Pracownicy", "Pracownicy")]
+        public Pracownicy Pracownicy
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Pracownicy>("JJFirmaModel.FK_ZmianyCeny_Pracownicy", "Pracownicy").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Pracownicy>("JJFirmaModel.FK_ZmianyCeny_Pracownicy", "Pracownicy").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<Pracownicy> PracownicyReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Pracownicy>("JJFirmaModel.FK_ZmianyCeny_Pracownicy", "Pracownicy");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Pracownicy>("JJFirmaModel.FK_ZmianyCeny_Pracownicy", "Pracownicy", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("JJFirmaModel", "FK_ZmianyCeny_Pracownicy1", "Pracownicy")]
+        public Pracownicy Pracownicy1
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Pracownicy>("JJFirmaModel.FK_ZmianyCeny_Pracownicy1", "Pracownicy").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Pracownicy>("JJFirmaModel.FK_ZmianyCeny_Pracownicy1", "Pracownicy").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<Pracownicy> Pracownicy1Reference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Pracownicy>("JJFirmaModel.FK_ZmianyCeny_Pracownicy1", "Pracownicy");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Pracownicy>("JJFirmaModel.FK_ZmianyCeny_Pracownicy1", "Pracownicy", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("JJFirmaModel", "FK_ZmianyCeny_Pracownicy2", "Pracownicy")]
+        public Pracownicy Pracownicy2
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Pracownicy>("JJFirmaModel.FK_ZmianyCeny_Pracownicy2", "Pracownicy").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Pracownicy>("JJFirmaModel.FK_ZmianyCeny_Pracownicy2", "Pracownicy").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<Pracownicy> Pracownicy2Reference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Pracownicy>("JJFirmaModel.FK_ZmianyCeny_Pracownicy2", "Pracownicy");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Pracownicy>("JJFirmaModel.FK_ZmianyCeny_Pracownicy2", "Pracownicy", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("JJFirmaModel", "FK_ZmianyCeny_Towary", "Towary")]
+        public Towary Towary
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Towary>("JJFirmaModel.FK_ZmianyCeny_Towary", "Towary").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Towary>("JJFirmaModel.FK_ZmianyCeny_Towary", "Towary").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<Towary> TowaryReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Towary>("JJFirmaModel.FK_ZmianyCeny_Towary", "Towary");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Towary>("JJFirmaModel.FK_ZmianyCeny_Towary", "Towary", value);
                 }
             }
         }

@@ -9,9 +9,9 @@
     <Grid>
         <DataGrid AutoGenerateColumns="False" ItemsSource="{Binding List}">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="ID" Binding="{Binding Path=StawkiVatId}"/>
-                <DataGridTextColumn Header="Kod kraju" Binding="{Binding Path=KodKraju}"/>
-                <DataGridTextColumn Header="Stawka (%)" Binding="{Binding Path=Stawka}"/>
+                <DataGridTextColumn Header="Kraj" Binding="{Binding Path=Kraj}"/>
+                <DataGridTextColumn Header="Stawka" Binding="{Binding Path=Stawka}"/>
+                <DataGridTextColumn Header="Opis" Binding="{Binding Path=Opis}"/>
             </DataGrid.Columns>
         </DataGrid>
     </Grid>

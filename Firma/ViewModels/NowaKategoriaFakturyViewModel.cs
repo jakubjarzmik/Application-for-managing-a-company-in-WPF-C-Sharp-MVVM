@@ -49,13 +49,48 @@ namespace Firma.ViewModels
                 }
             }
         }
-        
+        public string Opis
+        {
+            get
+            {
+                return Item.Opis;
+            }
+            set
+            {
+                if (value != Item.Opis)
+                {
+                    Item.Opis = value;
+                    base.OnPropertyChanged(() => Opis);
+                }
+            }
+        }
+        public string Uwagi
+        {
+            get
+            {
+                return Item.Uwagi;
+            }
+            set
+            {
+                if (value != Item.Uwagi)
+                {
+                    Item.Uwagi = value;
+                    base.OnPropertyChanged(() => Uwagi);
+           
+             }
+            }
+        }
         #endregion
         #region Save
         public override void Save()
         {
             Item.DataUtworzenia = DateTime.Now;
+            Item.KtoUtworzylId = 1;
             Item.CzyAktywny = true;
+            if (Item.Uwagi == null)
+                Item.Uwagi = "";
+            if (Item.Opis == null)
+                Item.Opis = "";
             Db.FakturyKategorie.AddObject(Item);
             Db.SaveChanges();
         }

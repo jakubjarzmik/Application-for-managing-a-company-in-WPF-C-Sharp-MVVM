@@ -1,0 +1,2702 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="JJFirmaModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Adresy">
+    <Key>
+      <PropertyRef Name="AdresId" />
+    </Key>
+    <Property Name="AdresId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="KrajId" Type="Int32" Nullable="false" />
+    <Property Name="Miasto" Type="String" MaxLength="40" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Wojewodztwo" Type="String" MaxLength="40" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Poczta" Type="String" MaxLength="40" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="KodPocztowy" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Ulica" Type="String" MaxLength="40" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="NrDomu" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="NrLokalu" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Dodatkowe" Type="String" MaxLength="40" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Uwagi" Type="String" MaxLength="254" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="DataUtworzenia" Type="DateTime" Nullable="false" />
+    <Property Name="KtoUtworzylId" Type="Int32" Nullable="false" />
+    <Property Name="DataMod" Type="DateTime" />
+    <Property Name="KtoModId" Type="Int32" />
+    <Property Name="DataUsuniecia" Type="DateTime" />
+    <Property Name="KtoUsunalId" Type="Int32" />
+    <Property Name="CzyAktywny" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Kraje" Relationship="Self.FK_Adresy_Kraje" FromRole="Adresy" ToRole="Kraje" />
+    <NavigationProperty Name="Pracownicy" Relationship="Self.FK_Adresy_Pracownicy" FromRole="Adresy" ToRole="Pracownicy" />
+    <NavigationProperty Name="Pracownicy1" Relationship="Self.FK_Adresy_Pracownicy1" FromRole="Adresy" ToRole="Pracownicy" />
+    <NavigationProperty Name="Pracownicy2" Relationship="Self.FK_Adresy_Pracownicy2" FromRole="Adresy" ToRole="Pracownicy" />
+    <NavigationProperty Name="Kontrahenci" Relationship="Self.FK_Kontrahenci_Adresy" FromRole="Adresy" ToRole="Kontrahenci" />
+    <NavigationProperty Name="Kontrahenci1" Relationship="Self.FK_Kontrahenci_Adresy1" FromRole="Adresy" ToRole="Kontrahenci" />
+    <NavigationProperty Name="Magazyny" Relationship="Self.FK_Magazyny_Adresy" FromRole="Adresy" ToRole="Magazyny" />
+    <NavigationProperty Name="Pracownicy3" Relationship="Self.FK_Pracownicy_Adresy" FromRole="Adresy" ToRole="Pracownicy" />
+  </EntityType>
+  <EntityType Name="Faktury">
+    <Key>
+      <PropertyRef Name="FakturaId" />
+    </Key>
+    <Property Name="FakturaId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="RodzajFakturyId" Type="Int32" Nullable="false" />
+    <Property Name="Numer" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="KontrahentId" Type="Int32" Nullable="false" />
+    <Property Name="KategoriaFakturyId" Type="Int32" Nullable="false" />
+    <Property Name="DataWystawienia" Type="DateTime" Nullable="false" />
+    <Property Name="DataSprzedazy" Type="DateTime" Nullable="false" />
+    <Property Name="Rabat" Type="Decimal" Precision="5" Scale="2" Nullable="false" />
+    <Property Name="RodzajePlatnosciId" Type="Int32" Nullable="false" />
+    <Property Name="DataUtworzenia" Type="DateTime" Nullable="false" />
+    <Property Name="KtoUtworzylId" Type="Int32" Nullable="false" />
+    <Property Name="DataMod" Type="DateTime" />
+    <Property Name="KtoModId" Type="Int32" />
+    <Property Name="DataUsuniecia" Type="DateTime" />
+    <Property Name="KtoUsunalId" Type="Int32" />
+    <Property Name="CzyAktywny" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="FakturyKategorie" Relationship="Self.FK_Faktury_FakturyKategorie" FromRole="Faktury" ToRole="FakturyKategorie" />
+    <NavigationProperty Name="FakturyRodzaje" Relationship="Self.FK_Faktury_FakturyRodzaje" FromRole="Faktury" ToRole="FakturyRodzaje" />
+    <NavigationProperty Name="Kontrahenci" Relationship="Self.FK_Faktury_Kontrahenci" FromRole="Faktury" ToRole="Kontrahenci" />
+    <NavigationProperty Name="Pracownicy" Relationship="Self.FK_Faktury_Pracownicy" FromRole="Faktury" ToRole="Pracownicy" />
+    <NavigationProperty Name="Pracownicy1" Relationship="Self.FK_Faktury_Pracownicy1" FromRole="Faktury" ToRole="Pracownicy" />
+    <NavigationProperty Name="Pracownicy2" Relationship="Self.FK_Faktury_Pracownicy2" FromRole="Faktury" ToRole="Pracownicy" />
+    <NavigationProperty Name="RodzajePlatnosci" Relationship="Self.FK_Faktury_RodzajePlatnosci" FromRole="Faktury" ToRole="RodzajePlatnosci" />
+    <NavigationProperty Name="FakturyWydaniaZewnetrzne" Relationship="Self.FK_FakturyWydaniaZewnetrzne_Faktury" FromRole="Faktury" ToRole="FakturyWydaniaZewnetrzne" />
+  </EntityType>
+  <EntityType Name="FakturyKategorie">
+    <Key>
+      <PropertyRef Name="KategoriaFakturyId" />
+    </Key>
+    <Property Name="KategoriaFakturyId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Kod" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Nazwa" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Opis" Type="String" MaxLength="127" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Uwagi" Type="String" MaxLength="254" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="DataUtworzenia" Type="DateTime" Nullable="false" />
+    <Property Name="KtoUtworzylId" Type="Int32" Nullable="false" />
+    <Property Name="DataMod" Type="DateTime" />
+    <Property Name="KtoModId" Type="Int32" />
+    <Property Name="DataUsuniecia" Type="DateTime" />
+    <Property Name="KtoUsunalId" Type="Int32" />
+    <Property Name="CzyAktywny" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Faktury" Relationship="Self.FK_Faktury_FakturyKategorie" FromRole="FakturyKategorie" ToRole="Faktury" />
+    <NavigationProperty Name="Pracownicy" Relationship="Self.FK_FakturyKategorie_Pracownicy" FromRole="FakturyKategorie" ToRole="Pracownicy" />
+    <NavigationProperty Name="Pracownicy1" Relationship="Self.FK_FakturyKategorie_Pracownicy1" FromRole="FakturyKategorie" ToRole="Pracownicy" />
+    <NavigationProperty Name="Pracownicy2" Relationship="Self.FK_FakturyKategorie_Pracownicy2" FromRole="FakturyKategorie" ToRole="Pracownicy" />
+  </EntityType>
+  <EntityType Name="FakturyRodzaje">
+    <Key>
+      <PropertyRef Name="RodzajFakturyId" />
+    </Key>
+    <Property Name="RodzajFakturyId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Kod" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Nazwa" Type="String" MaxLength="40" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Opis" Type="String" MaxLength="127" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Uwagi" Type="String" MaxLength="127" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="DataUtworzenia" Type="DateTime" Nullable="false" />
+    <Property Name="KtoUtworzylId" Type="Int32" Nullable="false" />
+    <Property Name="DataModyfikacji" Type="DateTime" />
+    <Property Name="KtoModId" Type="Int32" />
+    <Property Name="DataUsuniecia" Type="DateTime" />
+    <Property Name="KtoUsunalId" Type="Int32" />
+    <Property Name="CzyAktywny" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Faktury" Relationship="Self.FK_Faktury_FakturyRodzaje" FromRole="FakturyRodzaje" ToRole="Faktury" />
+    <NavigationProperty Name="Pracownicy" Relationship="Self.FK_FakturyRodzaje_Pracownicy" FromRole="FakturyRodzaje" ToRole="Pracownicy" />
+    <NavigationProperty Name="Pracownicy1" Relationship="Self.FK_FakturyRodzaje_Pracownicy1" FromRole="FakturyRodzaje" ToRole="Pracownicy" />
+    <NavigationProperty Name="Pracownicy2" Relationship="Self.FK_FakturyRodzaje_Pracownicy2" FromRole="FakturyRodzaje" ToRole="Pracownicy" />
+  </EntityType>
+  <EntityType Name="FakturyWydaniaZewnetrzne">
+    <Key>
+      <PropertyRef Name="FakturaWZId" />
+    </Key>
+    <Property Name="FakturaWZId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FakturaId" Type="Int32" Nullable="false" />
+    <Property Name="WydanieZewnetrzneId" Type="Int32" Nullable="false" />
+    <Property Name="DataUtworzenia" Type="DateTime" Nullable="false" />
+    <Property Name="KtoUtworzylId" Type="Int32" Nullable="false" />
+    <Property Name="DataMod" Type="DateTime" />
+    <Property Name="KtoModId" Type="Int32" />
+    <Property Name="DataUsuniecia" Type="DateTime" />
+    <Property Name="KtoUsunalId" Type="Int32" />
+    <Property Name="CzyAktywny" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Faktury" Relationship="Self.FK_FakturyWydaniaZewnetrzne_Faktury" FromRole="FakturyWydaniaZewnetrzne" ToRole="Faktury" />
+    <NavigationProperty Name="Pracownicy" Relationship="Self.FK_FakturyWydaniaZewnetrzne_Pracownicy" FromRole="FakturyWydaniaZewnetrzne" ToRole="Pracownicy" />
+    <NavigationProperty Name="Pracownicy1" Relationship="Self.FK_FakturyWydaniaZewnetrzne_Pracownicy1" FromRole="FakturyWydaniaZewnetrzne" ToRole="Pracownicy" />
+    <NavigationProperty Name="Pracownicy2" Relationship="Self.FK_FakturyWydaniaZewnetrzne_Pracownicy2" FromRole="FakturyWydaniaZewnetrzne" ToRole="Pracownicy" />
+    <NavigationProperty Name="WydaniaZewnetrzne" Relationship="Self.FK_FakturyWydaniaZewnetrzne_WydaniaZewnetrzne" FromRole="FakturyWydaniaZewnetrzne" ToRole="WydaniaZewnetrzne" />
+  </EntityType>
+  <EntityType Name="JednostkiMiary">
+    <Key>
+      <PropertyRef Name="JednostkaId" />
+    </Key>
+    <Property Name="JednostkaId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Skrot" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Nazwa" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Opis" Type="String" MaxLength="127" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Uwagi" Type="String" MaxLength="254" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="DataUtworzenia" Type="DateTime" Nullable="false" />
+    <Property Name="KtoUtworzylId" Type="Int32" Nullable="false" />
+    <Property Name="DataMod" Type="DateTime" />
+    <Property Name="KtoModId" Type="Int32" />
+    <Property Name="DataUsuniecia" Type="DateTime" />
+    <Property Name="KtoUsunalId" Type="Int32" />
+    <Property Name="CzyAktywny" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Pracownicy" Relationship="Self.FK_JednostkiMiary_Pracownicy" FromRole="JednostkiMiary" ToRole="Pracownicy" />
+    <NavigationProperty Name="Pracownicy1" Relationship="Self.FK_JednostkiMiary_Pracownicy1" FromRole="JednostkiMiary" ToRole="Pracownicy" />
+    <NavigationProperty Name="Pracownicy2" Relationship="Self.FK_JednostkiMiary_Pracownicy2" FromRole="JednostkiMiary" ToRole="Pracownicy" />
+    <NavigationProperty Name="PozycjePrzyjeciaZewnetrznego" Relationship="Self.FK_PozycjePrzyjeciaZewnetrznego_JednostkiMiary" FromRole="JednostkiMiary" ToRole="PozycjePrzyjeciaZewnetrznego" />
+    <NavigationProperty Name="PozycjeWydaniaZewnetrznego" Relationship="Self.FK_PozycjeWydaniaZewnetrznego_JednostkiMiary" FromRole="JednostkiMiary" ToRole="PozycjeWydaniaZewnetrznego" />
+  </EntityType>
+  <EntityType Name="Kontakty">
+    <Key>
+      <PropertyRef Name="KontaktId" />
+    </Key>
+    <Property Name="KontaktId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NazwaDzialu" Type="String" MaxLength="40" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="OpisOsoby" Type="String" MaxLength="127" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Telefon1" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Telefon2" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Fax" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Email1" Type="String" MaxLength="127" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Email2" Type="String" MaxLength="127" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Uwagi" Type="String" MaxLength="254" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="DataUtworzenia" Type="DateTime" Nullable="false" />
+    <Property Name="KtoUtworzylId" Type="Int32" Nullable="false" />
+    <Property Name="DataMod" Type="DateTime" />
+    <Property Name="KtoModId" Type="Int32" />
+    <Property Name="DataUsuniecia" Type="DateTime" />
+    <Property Name="KtoUsunalId" Type="Int32" />
+    <Property Name="CzyAktywny" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Pracownicy" Relationship="Self.FK_Kontakty_Pracownicy" FromRole="Kontakty" ToRole="Pracownicy" />
+    <NavigationProperty Name="Pracownicy1" Relationship="Self.FK_Kontakty_Pracownicy1" FromRole="Kontakty" ToRole="Pracownicy" />
+    <NavigationProperty Name="Pracownicy2" Relationship="Self.FK_Kontakty_Pracownicy2" FromRole="Kontakty" ToRole="Pracownicy" />
+    <NavigationProperty Name="KontrahenciKontakty" Relationship="Self.FK_KontrahenciKontakty_Kontakty" FromRole="Kontakty" ToRole="KontrahenciKontakty" />
+  </EntityType>
+  <EntityType Name="Kontrahenci">
+    <Key>
+      <PropertyRef Name="KontrahentId" />
+    </Key>
+    <Property Name="KontrahentId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Kod" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Nip" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="RodzajKontrahentaId" Type="Int32" Nullable="false" />
+    <Property Name="Regon" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="DokumentTozsamosci" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="PESEL" Type="String" MaxLength="11" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Nazwa1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Nazwa2" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Nazwa3" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="JednostkaPodlegaPodId" Type="Int32" />
+    <Property Name="AdresId" Type="Int32" Nullable="false" />
+    <Property Name="AdresKorId" Type="Int32" />
+    <Property Name="URL" Type="String" MaxLength="254" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="DataUtworzenia" Type="DateTime" Nullable="false" />
+    <Property Name="KtoUtworzylId" Type="Int32" Nullable="false" />
+    <Property Name="DataMod" Type="DateTime" />
+    <Property Name="KtoModId" Type="Int32" />
+    <Property Name="DataUsuniecia" Type="DateTime" />
+    <Property Name="KtoUsunalId" Type="Int32" />
+    <Property Name="CzyAktywny" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Adresy" Relationship="Self.FK_Kontrahenci_Adresy" FromRole="Kontrahenci" ToRole="Adresy" />
+    <NavigationProperty Name="Adresy1" Relationship="Self.FK_Kontrahenci_Adresy1" FromRole="Kontrahenci" ToRole="Adresy" />
+    <NavigationProperty Name="Faktury" Relationship="Self.FK_Faktury_Kontrahenci" FromRole="Kontrahenci" ToRole="Faktury" />
+    <NavigationProperty Name="Kontrahenci1" Relationship="Self.FK_Kontrahenci_Kontrahenci" FromRole="Kontrahenci" ToRole="Kontrahenci1" />
+    <NavigationProperty Name="Kontrahenci2" Relationship="Self.FK_Kontrahenci_Kontrahenci" FromRole="Kontrahenci1" ToRole="Kontrahenci" />
+    <NavigationProperty Name="KontrahenciRodzaje" Relationship="Self.FK_Kontrahenci_KontrahenciRodzaje" FromRole="Kontrahenci" ToRole="KontrahenciRodzaje" />
+    <NavigationProperty Name="Pracownicy" Relationship="Self.FK_Kontrahenci_Pracownicy" FromRole="Kontrahenci" ToRole="Pracownicy" />
+    <NavigationProperty Name="Pracownicy1" Relationship="Self.FK_Kontrahenci_Pracownicy1" FromRole="Kontrahenci" ToRole="Pracownicy" />
+    <NavigationProperty Name="Pracownicy2" Relationship="Self.FK_Kontrahenci_Pracownicy2" FromRole="Kontrahenci" ToRole="Pracownicy" />
+    <NavigationProperty Name="KontrahenciKontakty" Relationship="Self.FK_KontrahenciKontakty_Kontrahenci" FromRole="Kontrahenci" ToRole="KontrahenciKontakty" />
+    <NavigationProperty Name="PrzyjeciaZewnetrzne" Relationship="Self.FK_PrzyjeciaZewnetrzne_Kontrahenci" FromRole="Kontrahenci" ToRole="PrzyjeciaZewnetrzne" />
+    <NavigationProperty Name="Towary" Relationship="Self.FK_Towary_Kontrahenci" FromRole="Kontrahenci" ToRole="Towary" />
+    <NavigationProperty Name="WydaniaZewnetrzne" Relationship="Self.FK_WydaniaZewnetrzne_Kontrahenci" FromRole="Kontrahenci" ToRole="WydaniaZewnetrzne" />
+  </EntityType>
+  <EntityType Name="KontrahenciKontakty">
+    <Key>
+      <PropertyRef Name="KontrahentKontaktId" />
+    </Key>
+    <Property Name="KontrahentKontaktId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="KontrahentId" Type="Int32" Nullable="false" />
+    <Property Name="KontaktId" Type="Int32" Nullable="false" />
+    <Property Name="DataUtworzenia" Type="DateTime" Nullable="false" />
+    <Property Name="KtoUtworzylId" Type="Int32" Nullable="false" />
+    <Property Name="DataMod" Type="DateTime" />
+    <Property Name="KtoModId" Type="Int32" />
+    <Property Name="DataUsuniecia" Type="DateTime" />
+    <Property Name="KtoUsunalId" Type="Int32" />
+    <Property Name="CzyAktywny" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Kontakty" Relationship="Self.FK_KontrahenciKontakty_Kontakty" FromRole="KontrahenciKontakty" ToRole="Kontakty" />
+    <NavigationProperty Name="Kontrahenci" Relationship="Self.FK_KontrahenciKontakty_Kontrahenci" FromRole="KontrahenciKontakty" ToRole="Kontrahenci" />
+    <NavigationProperty Name="Pracownicy" Relationship="Self.FK_KontrahenciKontakty_Pracownicy" FromRole="KontrahenciKontakty" ToRole="Pracownicy" />
+    <NavigationProperty Name="Pracownicy1" Relationship="Self.FK_KontrahenciKontakty_Pracownicy1" FromRole="KontrahenciKontakty" ToRole="Pracownicy" />
+    <NavigationProperty Name="Pracownicy2" Relationship="Self.FK_KontrahenciKontakty_Pracownicy2" FromRole="KontrahenciKontakty" ToRole="Pracownicy" />
+  </EntityType>
+  <EntityType Name="KontrahenciRodzaje">
+    <Key>
+      <PropertyRef Name="RodzajId" />
+    </Key>
+    <Property Name="RodzajId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nazwa" Type="String" MaxLength="40" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Opis" Type="String" MaxLength="127" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Uwagi" Type="String" MaxLength="254" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="DataUtworzenia" Type="DateTime" Nullable="false" />
+    <Property Name="KtoUtworzylId" Type="Int32" Nullable="false" />
+    <Property Name="DataMod" Type="DateTime" />
+    <Property Name="KtoModId" Type="Int32" />
+    <Property Name="DataUsuniecia" Type="DateTime" />
+    <Property Name="KtoUsunalId" Type="Int32" />
+    <Property Name="CzyAktywny" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Kontrahenci" Relationship="Self.FK_Kontrahenci_KontrahenciRodzaje" FromRole="KontrahenciRodzaje" ToRole="Kontrahenci" />
+    <NavigationProperty Name="Pracownicy" Relationship="Self.FK_KontrahenciRodzaje_Pracownicy" FromRole="KontrahenciRodzaje" ToRole="Pracownicy" />
+    <NavigationProperty Name="Pracownicy1" Relationship="Self.FK_KontrahenciRodzaje_Pracownicy1" FromRole="KontrahenciRodzaje" ToRole="Pracownicy" />
+    <NavigationProperty Name="Pracownicy2" Relationship="Self.FK_KontrahenciRodzaje_Pracownicy2" FromRole="KontrahenciRodzaje" ToRole="Pracownicy" />
+  </EntityType>
+  <EntityType Name="Kraje">
+    <Key>
+      <PropertyRef Name="KrajId" />
+    </Key>
+    <Property Name="KrajId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nazwa" Type="String" MaxLength="40" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ISO" Type="String" MaxLength="9" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="DataUtworzenia" Type="DateTime" Nullable="false" />
+    <Property Name="KtoUtworzylId" Type="Int32" Nullable="false" />
+    <Property Name="DataMod" Type="DateTime" />
+    <Property Name="KtoModId" Type="Int32" />
+    <Property Name="DataUsuniecia" Type="DateTime" />
+    <Property Name="KtoUsunalId" Type="Int32" />
+    <Property Name="CzyAktywny" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Adresy" Relationship="Self.FK_Adresy_Kraje" FromRole="Kraje" ToRole="Adresy" />
+    <NavigationProperty Name="Pracownicy" Relationship="Self.FK_Kraje_Pracownicy" FromRole="Kraje" ToRole="Pracownicy" />
+    <NavigationProperty Name="Pracownicy1" Relationship="Self.FK_Kraje_Pracownicy1" FromRole="Kraje" ToRole="Pracownicy" />
+    <NavigationProperty Name="Pracownicy2" Relationship="Self.FK_Kraje_Pracownicy2" FromRole="Kraje" ToRole="Pracownicy" />
+    <NavigationProperty Name="Towary" Relationship="Self.FK_Towary_Kraje" FromRole="Kraje" ToRole="Towary" />
+    <NavigationProperty Name="TowaryStawkiVat" Relationship="Self.FK_TowaryStawkiVat_Kraje" FromRole="Kraje" ToRole="TowaryStawkiVat" />
+  </EntityType>
+  <EntityType Name="Magazyny">
+    <Key>
+      <PropertyRef Name="MagazynId" />
+    </Key>
+    <Property Name="MagazynId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Symbol" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Nazwa" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Opis" Type="String" MaxLength="254" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="TypMagazynuId" Type="Int32" Nullable="false" />
+    <Property Name="AdresId" Type="Int32" />
+    <Property Name="Telefon" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="DataUtworzenia" Type="DateTime" Nullable="false" />
+    <Property Name="KtoUtworzylId" Type="Int32" Nullable="false" />
+    <Property Name="DataMod" Type="DateTime" />
+    <Property Name="KtoModId" Type="Int32" />
+    <Property Name="DataUsuniecia" Type="DateTime" />
+    <Property Name="KtoUsunalId" Type="Int32" />
+    <Property Name="CzyAktywny" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Adresy" Relationship="Self.FK_Magazyny_Adresy" FromRole="Magazyny" ToRole="Adresy" />
+    <NavigationProperty Name="MagazynyTypy" Relationship="Self.FK_Magazyny_MagazynyTypy" FromRole="Magazyny" ToRole="MagazynyTypy" />
+    <NavigationProperty Name="Pracownicy" Relationship="Self.FK_Magazyny_Pracownicy" FromRole="Magazyny" ToRole="Pracownicy" />
+    <NavigationProperty Name="Pracownicy1" Relationship="Self.FK_Magazyny_Pracownicy1" FromRole="Magazyny" ToRole="Pracownicy" />
+    <NavigationProperty Name="Pracownicy2" Relationship="Self.FK_Magazyny_Pracownicy2" FromRole="Magazyny" ToRole="Pracownicy" />
+    <NavigationProperty Name="PrzyjeciaZewnetrzne" Relationship="Self.FK_PrzyjeciaZewnetrzne_Magazyny" FromRole="Magazyny" ToRole="PrzyjeciaZewnetrzne" />
+    <NavigationProperty Name="WydaniaZewnetrzne" Relationship="Self.FK_WydaniaZewnetrzne_Magazyny" FromRole="Magazyny" ToRole="WydaniaZewnetrzne" />
+  </EntityType>
+  <EntityType Name="MagazynyTypy">
+    <Key>
+      <PropertyRef Name="TypMagazynuId" />
+    </Key>
+    <Property Name="TypMagazynuId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Symbol" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Nazwa" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Opis" Type="String" MaxLength="254" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Uwagi" Type="String" MaxLength="254" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="DataUtworzenia" Type="DateTime" Nullable="false" />
+    <Property Name="KtoUtworzylId" Type="Int32" Nullable="false" />
+    <Property Name="DataMod" Type="DateTime" />
+    <Property Name="KtoModId" Type="Int32" />
+    <Property Name="DataUsuniecia" Type="DateTime" />
+    <Property Name="KtoUsunalId" Type="Int32" />
+    <Property Name="CzyAktywny" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Magazyny" Relationship="Self.FK_Magazyny_MagazynyTypy" FromRole="MagazynyTypy" ToRole="Magazyny" />
+    <NavigationProperty Name="Pracownicy" Relationship="Self.FK_MagazynyTypy_Pracownicy" FromRole="MagazynyTypy" ToRole="Pracownicy" />
+    <NavigationProperty Name="Pracownicy1" Relationship="Self.FK_MagazynyTypy_Pracownicy1" FromRole="MagazynyTypy" ToRole="Pracownicy" />
+    <NavigationProperty Name="Pracownicy2" Relationship="Self.FK_MagazynyTypy_Pracownicy2" FromRole="MagazynyTypy" ToRole="Pracownicy" />
+  </EntityType>
+  <EntityType Name="PozycjePrzyjeciaZewnetrznego">
+    <Key>
+      <PropertyRef Name="PozycjaPZId" />
+    </Key>
+    <Property Name="PozycjaPZId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PrzyjecieZewnetrzneId" Type="Int32" Nullable="false" />
+    <Property Name="TowarId" Type="Int32" Nullable="false" />
+    <Property Name="Ilosc" Type="Int32" Nullable="false" />
+    <Property Name="JednMiaryId" Type="Int32" Nullable="false" />
+    <Property Name="PierwotnaCenaZakupu" Type="Decimal" Precision="15" Scale="2" Nullable="false" />
+    <Property Name="Rabat" Type="Decimal" Precision="5" Scale="2" Nullable="false" />
+    <Property Name="DataUtworzenia" Type="DateTime" Nullable="false" />
+    <Property Name="KtoUtworzylId" Type="Int32" Nullable="false" />
+    <Property Name="DataMod" Type="DateTime" />
+    <Property Name="KtoModId" Type="Int32" />
+    <Property Name="DataUsuniecia" Type="DateTime" />
+    <Property Name="KtoUsunalId" Type="Int32" />
+    <Property Name="CzyAktywny" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="JednostkiMiary" Relationship="Self.FK_PozycjePrzyjeciaZewnetrznego_JednostkiMiary" FromRole="PozycjePrzyjeciaZewnetrznego" ToRole="JednostkiMiary" />
+    <NavigationProperty Name="Pracownicy" Relationship="Self.FK_PozycjePrzyjeciaZewnetrznego_Pracownicy" FromRole="PozycjePrzyjeciaZewnetrznego" ToRole="Pracownicy" />
+    <NavigationProperty Name="Pracownicy1" Relationship="Self.FK_PozycjePrzyjeciaZewnetrznego_Pracownicy1" FromRole="PozycjePrzyjeciaZewnetrznego" ToRole="Pracownicy" />
+    <NavigationProperty Name="Pracownicy2" Relationship="Self.FK_PozycjePrzyjeciaZewnetrznego_Pracownicy2" FromRole="PozycjePrzyjeciaZewnetrznego" ToRole="Pracownicy" />
+    <NavigationProperty Name="PrzyjeciaZewnetrzne" Relationship="Self.FK_PozycjePrzyjeciaZewnetrznego_PrzyjeciaZewnetrzne" FromRole="PozycjePrzyjeciaZewnetrznego" ToRole="PrzyjeciaZewnetrzne" />
+    <NavigationProperty Name="Towary" Relationship="Self.FK_PozycjePrzyjeciaZewnetrznego_Towary" FromRole="PozycjePrzyjeciaZewnetrznego" ToRole="Towary" />
+  </EntityType>
+  <EntityType Name="PozycjeWydaniaZewnetrznego">
+    <Key>
+      <PropertyRef Name="PozycjaWZId" />
+    </Key>
+    <Property Name="PozycjaWZId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="WydanieZewnetrzneId" Type="Int32" Nullable="false" />
+    <Property Name="TowarId" Type="Int32" Nullable="false" />
+    <Property Name="Ilosc" Type="Int32" Nullable="false" />
+    <Property Name="JednMiaryId" Type="Int32" Nullable="false" />
+    <Property Name="Rabat" Type="Decimal" Precision="5" Scale="2" Nullable="false" />
+    <Property Name="DataUtworzenia" Type="DateTime" Nullable="false" />
+    <Property Name="KtoUtworzylId" Type="Int32" Nullable="false" />
+    <Property Name="DataMod" Type="DateTime" />
+    <Property Name="KtoModId" Type="Int32" />
+    <Property Name="DataUsuniecia" Type="DateTime" />
+    <Property Name="KtoUsunalId" Type="Int32" />
+    <Property Name="CzyAktywny" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="JednostkiMiary" Relationship="Self.FK_PozycjeWydaniaZewnetrznego_JednostkiMiary" FromRole="PozycjeWydaniaZewnetrznego" ToRole="JednostkiMiary" />
+    <NavigationProperty Name="Pracownicy" Relationship="Self.FK_PozycjeWydaniaZewnetrznego_Pracownicy" FromRole="PozycjeWydaniaZewnetrznego" ToRole="Pracownicy" />
+    <NavigationProperty Name="Pracownicy1" Relationship="Self.FK_PozycjeWydaniaZewnetrznego_Pracownicy1" FromRole="PozycjeWydaniaZewnetrznego" ToRole="Pracownicy" />
+    <NavigationProperty Name="Pracownicy2" Relationship="Self.FK_PozycjeWydaniaZewnetrznego_Pracownicy2" FromRole="PozycjeWydaniaZewnetrznego" ToRole="Pracownicy" />
+    <NavigationProperty Name="Towary" Relationship="Self.FK_PozycjeWydaniaZewnetrznego_Towary" FromRole="PozycjeWydaniaZewnetrznego" ToRole="Towary" />
+    <NavigationProperty Name="WydaniaZewnetrzne" Relationship="Self.FK_PozycjeWydaniaZewnetrznego_WydaniaZewnetrzne" FromRole="PozycjeWydaniaZewnetrznego" ToRole="WydaniaZewnetrzne" />
+  </EntityType>
+  <EntityType Name="Pracownicy">
+    <Key>
+      <PropertyRef Name="PracownikId" />
+    </Key>
+    <Property Name="PracownikId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Akronim" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Nazwisko" Type="String" MaxLength="40" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Imie" Type="String" MaxLength="40" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="DrugieImie" Type="String" MaxLength="40" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="PESEL" Type="String" MaxLength="11" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="NipKraj" Type="String" MaxLength="2" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Nip" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="DataUrodzenia" Type="DateTime" Nullable="false" />
+    <Property Name="MiejsceUrodzenia" Type="String" MaxLength="40" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ImieOjca" Type="String" MaxLength="40" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ImieMatki" Type="String" MaxLength="40" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="NazwiskoRodowe" Type="String" MaxLength="40" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="NazwiskoRodoweMatki" Type="String" MaxLength="40" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="AdresId" Type="Int32" Nullable="false" />
+    <Property Name="Telefon" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="TelefonSMS" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Email" Type="String" MaxLength="127" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Uwagi" Type="String" MaxLength="254" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="DataUtworzenia" Type="DateTime" Nullable="false" />
+    <Property Name="KtoUtworzylId" Type="Int32" Nullable="false" />
+    <Property Name="DataMod" Type="DateTime" />
+    <Property Name="KtoModId" Type="Int32" />
+    <Property Name="DataUsuniecia" Type="DateTime" />
+    <Property Name="KtoUsunalId" Type="Int32" />
+    <Property Name="CzyAktywny" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Adresy" Relationship="Self.FK_Adresy_Pracownicy" FromRole="Pracownicy" ToRole="Adresy" />
+    <NavigationProperty Name="Adresy1" Relationship="Self.FK_Adresy_Pracownicy1" FromRole="Pracownicy" ToRole="Adresy" />
+    <NavigationProperty Name="Adresy2" Relationship="Self.FK_Adresy_Pracownicy2" FromRole="Pracownicy" ToRole="Adresy" />
+    <NavigationProperty Name="Adresy3" Relationship="Self.FK_Pracownicy_Adresy" FromRole="Pracownicy" ToRole="Adresy" />
+    <NavigationProperty Name="Faktury" Relationship="Self.FK_Faktury_Pracownicy" FromRole="Pracownicy" ToRole="Faktury" />
+    <NavigationProperty Name="Faktury1" Relationship="Self.FK_Faktury_Pracownicy1" FromRole="Pracownicy" ToRole="Faktury" />
+    <NavigationProperty Name="Faktury2" Relationship="Self.FK_Faktury_Pracownicy2" FromRole="Pracownicy" ToRole="Faktury" />
+    <NavigationProperty Name="FakturyKategorie" Relationship="Self.FK_FakturyKategorie_Pracownicy" FromRole="Pracownicy" ToRole="FakturyKategorie" />
+    <NavigationProperty Name="FakturyKategorie1" Relationship="Self.FK_FakturyKategorie_Pracownicy1" FromRole="Pracownicy" ToRole="FakturyKategorie" />
+    <NavigationProperty Name="FakturyKategorie2" Relationship="Self.FK_FakturyKategorie_Pracownicy2" FromRole="Pracownicy" ToRole="FakturyKategorie" />
+    <NavigationProperty Name="FakturyRodzaje" Relationship="Self.FK_FakturyRodzaje_Pracownicy" FromRole="Pracownicy" ToRole="FakturyRodzaje" />
+    <NavigationProperty Name="FakturyRodzaje1" Relationship="Self.FK_FakturyRodzaje_Pracownicy1" FromRole="Pracownicy" ToRole="FakturyRodzaje" />
+    <NavigationProperty Name="FakturyRodzaje2" Relationship="Self.FK_FakturyRodzaje_Pracownicy2" FromRole="Pracownicy" ToRole="FakturyRodzaje" />
+    <NavigationProperty Name="FakturyWydaniaZewnetrzne" Relationship="Self.FK_FakturyWydaniaZewnetrzne_Pracownicy" FromRole="Pracownicy" ToRole="FakturyWydaniaZewnetrzne" />
+    <NavigationProperty Name="FakturyWydaniaZewnetrzne1" Relationship="Self.FK_FakturyWydaniaZewnetrzne_Pracownicy1" FromRole="Pracownicy" ToRole="FakturyWydaniaZewnetrzne" />
+    <NavigationProperty Name="FakturyWydaniaZewnetrzne2" Relationship="Self.FK_FakturyWydaniaZewnetrzne_Pracownicy2" FromRole="Pracownicy" ToRole="FakturyWydaniaZewnetrzne" />
+    <NavigationProperty Name="JednostkiMiary" Relationship="Self.FK_JednostkiMiary_Pracownicy" FromRole="Pracownicy" ToRole="JednostkiMiary" />
+    <NavigationProperty Name="JednostkiMiary1" Relationship="Self.FK_JednostkiMiary_Pracownicy1" FromRole="Pracownicy" ToRole="JednostkiMiary" />
+    <NavigationProperty Name="JednostkiMiary2" Relationship="Self.FK_JednostkiMiary_Pracownicy2" FromRole="Pracownicy" ToRole="JednostkiMiary" />
+    <NavigationProperty Name="Kontakty" Relationship="Self.FK_Kontakty_Pracownicy" FromRole="Pracownicy" ToRole="Kontakty" />
+    <NavigationProperty Name="Kontakty1" Relationship="Self.FK_Kontakty_Pracownicy1" FromRole="Pracownicy" ToRole="Kontakty" />
+    <NavigationProperty Name="Kontakty2" Relationship="Self.FK_Kontakty_Pracownicy2" FromRole="Pracownicy" ToRole="Kontakty" />
+    <NavigationProperty Name="Kontrahenci" Relationship="Self.FK_Kontrahenci_Pracownicy" FromRole="Pracownicy" ToRole="Kontrahenci" />
+    <NavigationProperty Name="Kontrahenci1" Relationship="Self.FK_Kontrahenci_Pracownicy1" FromRole="Pracownicy" ToRole="Kontrahenci" />
+    <NavigationProperty Name="Kontrahenci2" Relationship="Self.FK_Kontrahenci_Pracownicy2" FromRole="Pracownicy" ToRole="Kontrahenci" />
+    <NavigationProperty Name="KontrahenciKontakty" Relationship="Self.FK_KontrahenciKontakty_Pracownicy" FromRole="Pracownicy" ToRole="KontrahenciKontakty" />
+    <NavigationProperty Name="KontrahenciKontakty1" Relationship="Self.FK_KontrahenciKontakty_Pracownicy1" FromRole="Pracownicy" ToRole="KontrahenciKontakty" />
+    <NavigationProperty Name="KontrahenciKontakty2" Relationship="Self.FK_KontrahenciKontakty_Pracownicy2" FromRole="Pracownicy" ToRole="KontrahenciKontakty" />
+    <NavigationProperty Name="KontrahenciRodzaje" Relationship="Self.FK_KontrahenciRodzaje_Pracownicy" FromRole="Pracownicy" ToRole="KontrahenciRodzaje" />
+    <NavigationProperty Name="KontrahenciRodzaje1" Relationship="Self.FK_KontrahenciRodzaje_Pracownicy1" FromRole="Pracownicy" ToRole="KontrahenciRodzaje" />
+    <NavigationProperty Name="KontrahenciRodzaje2" Relationship="Self.FK_KontrahenciRodzaje_Pracownicy2" FromRole="Pracownicy" ToRole="KontrahenciRodzaje" />
+    <NavigationProperty Name="Kraje" Relationship="Self.FK_Kraje_Pracownicy" FromRole="Pracownicy" ToRole="Kraje" />
+    <NavigationProperty Name="Kraje1" Relationship="Self.FK_Kraje_Pracownicy1" FromRole="Pracownicy" ToRole="Kraje" />
+    <NavigationProperty Name="Kraje2" Relationship="Self.FK_Kraje_Pracownicy2" FromRole="Pracownicy" ToRole="Kraje" />
+    <NavigationProperty Name="Magazyny" Relationship="Self.FK_Magazyny_Pracownicy" FromRole="Pracownicy" ToRole="Magazyny" />
+    <NavigationProperty Name="Magazyny1" Relationship="Self.FK_Magazyny_Pracownicy1" FromRole="Pracownicy" ToRole="Magazyny" />
+    <NavigationProperty Name="Magazyny2" Relationship="Self.FK_Magazyny_Pracownicy2" FromRole="Pracownicy" ToRole="Magazyny" />
+    <NavigationProperty Name="MagazynyTypy" Relationship="Self.FK_MagazynyTypy_Pracownicy" FromRole="Pracownicy" ToRole="MagazynyTypy" />
+    <NavigationProperty Name="MagazynyTypy1" Relationship="Self.FK_MagazynyTypy_Pracownicy1" FromRole="Pracownicy" ToRole="MagazynyTypy" />
+    <NavigationProperty Name="MagazynyTypy2" Relationship="Self.FK_MagazynyTypy_Pracownicy2" FromRole="Pracownicy" ToRole="MagazynyTypy" />
+    <NavigationProperty Name="PozycjePrzyjeciaZewnetrznego" Relationship="Self.FK_PozycjePrzyjeciaZewnetrznego_Pracownicy" FromRole="Pracownicy" ToRole="PozycjePrzyjeciaZewnetrznego" />
+    <NavigationProperty Name="PozycjePrzyjeciaZewnetrznego1" Relationship="Self.FK_PozycjePrzyjeciaZewnetrznego_Pracownicy1" FromRole="Pracownicy" ToRole="PozycjePrzyjeciaZewnetrznego" />
+    <NavigationProperty Name="PozycjePrzyjeciaZewnetrznego2" Relationship="Self.FK_PozycjePrzyjeciaZewnetrznego_Pracownicy2" FromRole="Pracownicy" ToRole="PozycjePrzyjeciaZewnetrznego" />
+    <NavigationProperty Name="PozycjeWydaniaZewnetrznego" Relationship="Self.FK_PozycjeWydaniaZewnetrznego_Pracownicy" FromRole="Pracownicy" ToRole="PozycjeWydaniaZewnetrznego" />
+    <NavigationProperty Name="PozycjeWydaniaZewnetrznego1" Relationship="Self.FK_PozycjeWydaniaZewnetrznego_Pracownicy1" FromRole="Pracownicy" ToRole="PozycjeWydaniaZewnetrznego" />
+    <NavigationProperty Name="PozycjeWydaniaZewnetrznego2" Relationship="Self.FK_PozycjeWydaniaZewnetrznego_Pracownicy2" FromRole="Pracownicy" ToRole="PozycjeWydaniaZewnetrznego" />
+    <NavigationProperty Name="Pracownicy1" Relationship="Self.FK_Pracownicy_Pracownicy" FromRole="Pracownicy" ToRole="Pracownicy1" />
+    <NavigationProperty Name="Pracownicy2" Relationship="Self.FK_Pracownicy_Pracownicy" FromRole="Pracownicy1" ToRole="Pracownicy" />
+    <NavigationProperty Name="Pracownicy11" Relationship="Self.FK_Pracownicy_Pracownicy1" FromRole="Pracownicy" ToRole="Pracownicy1" />
+    <NavigationProperty Name="Pracownicy3" Relationship="Self.FK_Pracownicy_Pracownicy1" FromRole="Pracownicy1" ToRole="Pracownicy" />
+    <NavigationProperty Name="Pracownicy12" Relationship="Self.FK_Pracownicy_Pracownicy2" FromRole="Pracownicy" ToRole="Pracownicy1" />
+    <NavigationProperty Name="Pracownicy4" Relationship="Self.FK_Pracownicy_Pracownicy2" FromRole="Pracownicy1" ToRole="Pracownicy" />
+    <NavigationProperty Name="PracownicyUmowy" Relationship="Self.FK_PracownicyUmowy_Pracownicy" FromRole="Pracownicy" ToRole="PracownicyUmowy" />
+    <NavigationProperty Name="PracownicyUmowy1" Relationship="Self.FK_PracownicyUmowy_Pracownicy1" FromRole="Pracownicy" ToRole="PracownicyUmowy" />
+    <NavigationProperty Name="PracownicyUmowy2" Relationship="Self.FK_PracownicyUmowy_Pracownicy2" FromRole="Pracownicy" ToRole="PracownicyUmowy" />
+    <NavigationProperty Name="PracownicyUmowy3" Relationship="Self.FK_PracownicyUmowy_Pracownicy3" FromRole="Pracownicy" ToRole="PracownicyUmowy" />
+    <NavigationProperty Name="PrzyjeciaZewnetrzne" Relationship="Self.FK_PrzyjeciaZewnetrzne_Pracownicy" FromRole="Pracownicy" ToRole="PrzyjeciaZewnetrzne" />
+    <NavigationProperty Name="PrzyjeciaZewnetrzne1" Relationship="Self.FK_PrzyjeciaZewnetrzne_Pracownicy1" FromRole="Pracownicy" ToRole="PrzyjeciaZewnetrzne" />
+    <NavigationProperty Name="PrzyjeciaZewnetrzne2" Relationship="Self.FK_PrzyjeciaZewnetrzne_Pracownicy2" FromRole="Pracownicy" ToRole="PrzyjeciaZewnetrzne" />
+    <NavigationProperty Name="RodzajePlatnosci" Relationship="Self.FK_RodzajePlatnosci_Pracownicy" FromRole="Pracownicy" ToRole="RodzajePlatnosci" />
+    <NavigationProperty Name="RodzajePlatnosci1" Relationship="Self.FK_RodzajePlatnosci_Pracownicy1" FromRole="Pracownicy" ToRole="RodzajePlatnosci" />
+    <NavigationProperty Name="RodzajePlatnosci2" Relationship="Self.FK_RodzajePlatnosci_Pracownicy2" FromRole="Pracownicy" ToRole="RodzajePlatnosci" />
+    <NavigationProperty Name="Towary" Relationship="Self.FK_Towary_Pracownicy" FromRole="Pracownicy" ToRole="Towary" />
+    <NavigationProperty Name="Towary1" Relationship="Self.FK_Towary_Pracownicy1" FromRole="Pracownicy" ToRole="Towary" />
+    <NavigationProperty Name="Towary2" Relationship="Self.FK_Towary_Pracownicy2" FromRole="Pracownicy" ToRole="Towary" />
+    <NavigationProperty Name="TowaryGrupy" Relationship="Self.FK_TowaryGrupy_Pracownicy" FromRole="Pracownicy" ToRole="TowaryGrupy" />
+    <NavigationProperty Name="TowaryGrupy1" Relationship="Self.FK_TowaryGrupy_Pracownicy1" FromRole="Pracownicy" ToRole="TowaryGrupy" />
+    <NavigationProperty Name="TowaryGrupy2" Relationship="Self.FK_TowaryGrupy_Pracownicy2" FromRole="Pracownicy" ToRole="TowaryGrupy" />
+    <NavigationProperty Name="TowaryStawkiVat" Relationship="Self.FK_TowaryStawkiVat_Pracownicy" FromRole="Pracownicy" ToRole="TowaryStawkiVat" />
+    <NavigationProperty Name="TowaryStawkiVat1" Relationship="Self.FK_TowaryStawkiVat_Pracownicy1" FromRole="Pracownicy" ToRole="TowaryStawkiVat" />
+    <NavigationProperty Name="TowaryStawkiVat2" Relationship="Self.FK_TowaryStawkiVat_Pracownicy2" FromRole="Pracownicy" ToRole="TowaryStawkiVat" />
+    <NavigationProperty Name="TowaryTypy" Relationship="Self.FK_TowaryTypy_Pracownicy" FromRole="Pracownicy" ToRole="TowaryTypy" />
+    <NavigationProperty Name="TowaryTypy1" Relationship="Self.FK_TowaryTypy_Pracownicy1" FromRole="Pracownicy" ToRole="TowaryTypy" />
+    <NavigationProperty Name="TowaryTypy2" Relationship="Self.FK_TowaryTypy_Pracownicy2" FromRole="Pracownicy" ToRole="TowaryTypy" />
+    <NavigationProperty Name="Umowy" Relationship="Self.FK_Umowy_Pracownicy" FromRole="Pracownicy" ToRole="Umowy" />
+    <NavigationProperty Name="Umowy1" Relationship="Self.FK_Umowy_Pracownicy1" FromRole="Pracownicy" ToRole="Umowy" />
+    <NavigationProperty Name="Umowy2" Relationship="Self.FK_Umowy_Pracownicy2" FromRole="Pracownicy" ToRole="Umowy" />
+    <NavigationProperty Name="UmowyRodzaje" Relationship="Self.FK_UmowyRodzaje_Pracownicy" FromRole="Pracownicy" ToRole="UmowyRodzaje" />
+    <NavigationProperty Name="UmowyRodzaje1" Relationship="Self.FK_UmowyRodzaje_Pracownicy1" FromRole="Pracownicy" ToRole="UmowyRodzaje" />
+    <NavigationProperty Name="UmowyRodzaje2" Relationship="Self.FK_UmowyRodzaje_Pracownicy2" FromRole="Pracownicy" ToRole="UmowyRodzaje" />
+    <NavigationProperty Name="UmowyStanowiska" Relationship="Self.FK_UmowyStanowiska_Pracownicy" FromRole="Pracownicy" ToRole="UmowyStanowiska" />
+    <NavigationProperty Name="UmowyStanowiska1" Relationship="Self.FK_UmowyStanowiska_Pracownicy1" FromRole="Pracownicy" ToRole="UmowyStanowiska" />
+    <NavigationProperty Name="UmowyStanowiska2" Relationship="Self.FK_UmowyStanowiska_Pracownicy2" FromRole="Pracownicy" ToRole="UmowyStanowiska" />
+    <NavigationProperty Name="WydaniaZewnetrzne" Relationship="Self.FK_WydaniaZewnetrzne_Pracownicy" FromRole="Pracownicy" ToRole="WydaniaZewnetrzne" />
+    <NavigationProperty Name="WydaniaZewnetrzne1" Relationship="Self.FK_WydaniaZewnetrzne_Pracownicy1" FromRole="Pracownicy" ToRole="WydaniaZewnetrzne" />
+    <NavigationProperty Name="WydaniaZewnetrzne2" Relationship="Self.FK_WydaniaZewnetrzne_Pracownicy2" FromRole="Pracownicy" ToRole="WydaniaZewnetrzne" />
+  </EntityType>
+  <EntityType Name="PracownicyUmowy">
+    <Key>
+      <PropertyRef Name="PracownikUmowaId" />
+    </Key>
+    <Property Name="PracownikUmowaId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PracownikId" Type="Int32" Nullable="false" />
+    <Property Name="UmowaId" Type="Int32" Nullable="false" />
+    <Property Name="DataUtworzenia" Type="DateTime" Nullable="false" />
+    <Property Name="KtoUtworzylId" Type="Int32" Nullable="false" />
+    <Property Name="DataMod" Type="DateTime" />
+    <Property Name="KtoModId" Type="Int32" />
+    <Property Name="DataUsuniecia" Type="DateTime" />
+    <Property Name="KtoUsunalId" Type="Int32" />
+    <Property Name="CzyAktywny" Type="Boolean" />
+    <NavigationProperty Name="Pracownicy" Relationship="Self.FK_PracownicyUmowy_Pracownicy" FromRole="PracownicyUmowy" ToRole="Pracownicy" />
+    <NavigationProperty Name="Pracownicy1" Relationship="Self.FK_PracownicyUmowy_Pracownicy1" FromRole="PracownicyUmowy" ToRole="Pracownicy" />
+    <NavigationProperty Name="Pracownicy2" Relationship="Self.FK_PracownicyUmowy_Pracownicy2" FromRole="PracownicyUmowy" ToRole="Pracownicy" />
+    <NavigationProperty Name="Pracownicy3" Relationship="Self.FK_PracownicyUmowy_Pracownicy3" FromRole="PracownicyUmowy" ToRole="Pracownicy" />
+    <NavigationProperty Name="Umowy" Relationship="Self.FK_PracownicyUmowy_Umowy" FromRole="PracownicyUmowy" ToRole="Umowy" />
+  </EntityType>
+  <EntityType Name="PrzyjeciaZewnetrzne">
+    <Key>
+      <PropertyRef Name="PrzyjecieZewnetrzneId" />
+    </Key>
+    <Property Name="PrzyjecieZewnetrzneId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Numer" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="KontrahentId" Type="Int32" Nullable="false" />
+    <Property Name="MagazynId" Type="Int32" Nullable="false" />
+    <Property Name="DataWystawienia" Type="DateTime" Nullable="false" />
+    <Property Name="DataPrzyjecia" Type="DateTime" Nullable="false" />
+    <Property Name="Rabat" Type="Decimal" Precision="5" Scale="2" Nullable="false" />
+    <Property Name="DataUtworzenia" Type="DateTime" Nullable="false" />
+    <Property Name="KtoUtworzylId" Type="Int32" Nullable="false" />
+    <Property Name="DataMod" Type="DateTime" />
+    <Property Name="KtoModId" Type="Int32" />
+    <Property Name="DataUsuniecia" Type="DateTime" />
+    <Property Name="KtoUsunalId" Type="Int32" />
+    <Property Name="CzyAktywny" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Kontrahenci" Relationship="Self.FK_PrzyjeciaZewnetrzne_Kontrahenci" FromRole="PrzyjeciaZewnetrzne" ToRole="Kontrahenci" />
+    <NavigationProperty Name="Magazyny" Relationship="Self.FK_PrzyjeciaZewnetrzne_Magazyny" FromRole="PrzyjeciaZewnetrzne" ToRole="Magazyny" />
+    <NavigationProperty Name="PozycjePrzyjeciaZewnetrznego" Relationship="Self.FK_PozycjePrzyjeciaZewnetrznego_PrzyjeciaZewnetrzne" FromRole="PrzyjeciaZewnetrzne" ToRole="PozycjePrzyjeciaZewnetrznego" />
+    <NavigationProperty Name="Pracownicy" Relationship="Self.FK_PrzyjeciaZewnetrzne_Pracownicy" FromRole="PrzyjeciaZewnetrzne" ToRole="Pracownicy" />
+    <NavigationProperty Name="Pracownicy1" Relationship="Self.FK_PrzyjeciaZewnetrzne_Pracownicy1" FromRole="PrzyjeciaZewnetrzne" ToRole="Pracownicy" />
+    <NavigationProperty Name="Pracownicy2" Relationship="Self.FK_PrzyjeciaZewnetrzne_Pracownicy2" FromRole="PrzyjeciaZewnetrzne" ToRole="Pracownicy" />
+  </EntityType>
+  <EntityType Name="RodzajePlatnosci">
+    <Key>
+      <PropertyRef Name="RodzajPlatnosciId" />
+    </Key>
+    <Property Name="RodzajPlatnosciId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nazwa" Type="String" MaxLength="40" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="IloscDniSplaty" Type="Int32" Nullable="false" />
+    <Property Name="Opis" Type="String" MaxLength="127" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Uwagi" Type="String" MaxLength="254" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="DataUtworzenia" Type="DateTime" Nullable="false" />
+    <Property Name="KtoUtworzylId" Type="Int32" Nullable="false" />
+    <Property Name="DataMod" Type="DateTime" />
+    <Property Name="KtoModId" Type="Int32" />
+    <Property Name="DataUsuniecia" Type="DateTime" />
+    <Property Name="KtoUsunalId" Type="Int32" />
+    <Property Name="CzyAktywny" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Faktury" Relationship="Self.FK_Faktury_RodzajePlatnosci" FromRole="RodzajePlatnosci" ToRole="Faktury" />
+    <NavigationProperty Name="Pracownicy" Relationship="Self.FK_RodzajePlatnosci_Pracownicy" FromRole="RodzajePlatnosci" ToRole="Pracownicy" />
+    <NavigationProperty Name="Pracownicy1" Relationship="Self.FK_RodzajePlatnosci_Pracownicy1" FromRole="RodzajePlatnosci" ToRole="Pracownicy" />
+    <NavigationProperty Name="Pracownicy2" Relationship="Self.FK_RodzajePlatnosci_Pracownicy2" FromRole="RodzajePlatnosci" ToRole="Pracownicy" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="Towary">
+    <Key>
+      <PropertyRef Name="TowarId" />
+    </Key>
+    <Property Name="TowarId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Kod" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="NumerKatalogowy" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="GrupaTowaruId" Type="Int32" Nullable="false" />
+    <Property Name="TypTowaruId" Type="Int32" Nullable="false" />
+    <Property Name="EAN" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="SWW" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ProducentId" Type="Int32" Nullable="false" />
+    <Property Name="URL" Type="String" MaxLength="254" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="VatSprzId" Type="Int32" Nullable="false" />
+    <Property Name="VatZakId" Type="Int32" Nullable="false" />
+    <Property Name="Mpp" Type="Boolean" Nullable="false" />
+    <Property Name="KrajPochodzeniaId" Type="Int32" Nullable="false" />
+    <Property Name="Nazwa" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="NazwaFiskalna" Type="String" MaxLength="40" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Opis" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Uwagi" Type="String" MaxLength="254" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="DataUtworzenia" Type="DateTime" Nullable="false" />
+    <Property Name="KtoUtworzylId" Type="Int32" Nullable="false" />
+    <Property Name="DataMod" Type="DateTime" />
+    <Property Name="KtoModId" Type="Int32" />
+    <Property Name="DataUsuniecia" Type="DateTime" />
+    <Property Name="KtoUsunalId" Type="Int32" />
+    <Property Name="CzyAktywny" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Kontrahenci" Relationship="Self.FK_Towary_Kontrahenci" FromRole="Towary" ToRole="Kontrahenci" />
+    <NavigationProperty Name="Kraje" Relationship="Self.FK_Towary_Kraje" FromRole="Towary" ToRole="Kraje" />
+    <NavigationProperty Name="PozycjePrzyjeciaZewnetrznego" Relationship="Self.FK_PozycjePrzyjeciaZewnetrznego_Towary" FromRole="Towary" ToRole="PozycjePrzyjeciaZewnetrznego" />
+    <NavigationProperty Name="PozycjeWydaniaZewnetrznego" Relationship="Self.FK_PozycjeWydaniaZewnetrznego_Towary" FromRole="Towary" ToRole="PozycjeWydaniaZewnetrznego" />
+    <NavigationProperty Name="Pracownicy" Relationship="Self.FK_Towary_Pracownicy" FromRole="Towary" ToRole="Pracownicy" />
+    <NavigationProperty Name="Pracownicy1" Relationship="Self.FK_Towary_Pracownicy1" FromRole="Towary" ToRole="Pracownicy" />
+    <NavigationProperty Name="Pracownicy2" Relationship="Self.FK_Towary_Pracownicy2" FromRole="Towary" ToRole="Pracownicy" />
+    <NavigationProperty Name="TowaryGrupy" Relationship="Self.FK_Towary_TowaryGrupy" FromRole="Towary" ToRole="TowaryGrupy" />
+    <NavigationProperty Name="TowaryStawkiVat" Relationship="Self.FK_Towary_TowaryStawkiVat" FromRole="Towary" ToRole="TowaryStawkiVat" />
+    <NavigationProperty Name="TowaryStawkiVat1" Relationship="Self.FK_Towary_TowaryStawkiVat1" FromRole="Towary" ToRole="TowaryStawkiVat" />
+    <NavigationProperty Name="TowaryTypy" Relationship="Self.FK_Towary_TowaryTypy" FromRole="Towary" ToRole="TowaryTypy" />
+  </EntityType>
+  <EntityType Name="TowaryGrupy">
+    <Key>
+      <PropertyRef Name="GrupaTowaruId" />
+    </Key>
+    <Property Name="GrupaTowaruId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="GrupaNadrzednaId" Type="Int32" />
+    <Property Name="Kod" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Nazwa" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Opis" Type="String" MaxLength="127" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Uwagi" Type="String" MaxLength="254" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="DataUtworzenia" Type="DateTime" Nullable="false" />
+    <Property Name="KtoUtworzylId" Type="Int32" Nullable="false" />
+    <Property Name="DataMod" Type="DateTime" />
+    <Property Name="KtoModId" Type="Int32" />
+    <Property Name="DataUsuniecia" Type="DateTime" />
+    <Property Name="KtoUsunalId" Type="Int32" />
+    <Property Name="CzyAktywny" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Pracownicy" Relationship="Self.FK_TowaryGrupy_Pracownicy" FromRole="TowaryGrupy" ToRole="Pracownicy" />
+    <NavigationProperty Name="Pracownicy1" Relationship="Self.FK_TowaryGrupy_Pracownicy1" FromRole="TowaryGrupy" ToRole="Pracownicy" />
+    <NavigationProperty Name="Pracownicy2" Relationship="Self.FK_TowaryGrupy_Pracownicy2" FromRole="TowaryGrupy" ToRole="Pracownicy" />
+    <NavigationProperty Name="Towary" Relationship="Self.FK_Towary_TowaryGrupy" FromRole="TowaryGrupy" ToRole="Towary" />
+    <NavigationProperty Name="TowaryGrupy1" Relationship="Self.FK_TowaryGrupy_TowaryGrupy" FromRole="TowaryGrupy" ToRole="TowaryGrupy1" />
+    <NavigationProperty Name="TowaryGrupy2" Relationship="Self.FK_TowaryGrupy_TowaryGrupy" FromRole="TowaryGrupy1" ToRole="TowaryGrupy" />
+  </EntityType>
+  <EntityType Name="TowaryStawkiVat">
+    <Key>
+      <PropertyRef Name="StawkiVatId" />
+    </Key>
+    <Property Name="StawkiVatId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="KrajId" Type="Int32" Nullable="false" />
+    <Property Name="Stawka" Type="Decimal" Precision="5" Scale="2" Nullable="false" />
+    <Property Name="Opis" Type="String" MaxLength="254" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="DataUtworzenia" Type="DateTime" Nullable="false" />
+    <Property Name="KtoUtworzylId" Type="Int32" Nullable="false" />
+    <Property Name="DataMod" Type="DateTime" />
+    <Property Name="KtoModId" Type="Int32" />
+    <Property Name="DataUsuniecia" Type="DateTime" />
+    <Property Name="KtoUsunalId" Type="Int32" />
+    <Property Name="CzyAktywny" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Kraje" Relationship="Self.FK_TowaryStawkiVat_Kraje" FromRole="TowaryStawkiVat" ToRole="Kraje" />
+    <NavigationProperty Name="Pracownicy" Relationship="Self.FK_TowaryStawkiVat_Pracownicy" FromRole="TowaryStawkiVat" ToRole="Pracownicy" />
+    <NavigationProperty Name="Pracownicy1" Relationship="Self.FK_TowaryStawkiVat_Pracownicy1" FromRole="TowaryStawkiVat" ToRole="Pracownicy" />
+    <NavigationProperty Name="Pracownicy2" Relationship="Self.FK_TowaryStawkiVat_Pracownicy2" FromRole="TowaryStawkiVat" ToRole="Pracownicy" />
+    <NavigationProperty Name="Towary" Relationship="Self.FK_Towary_TowaryStawkiVat" FromRole="TowaryStawkiVat" ToRole="Towary" />
+    <NavigationProperty Name="Towary1" Relationship="Self.FK_Towary_TowaryStawkiVat1" FromRole="TowaryStawkiVat" ToRole="Towary" />
+  </EntityType>
+  <EntityType Name="TowaryTypy">
+    <Key>
+      <PropertyRef Name="TypTowaruId" />
+    </Key>
+    <Property Name="TypTowaruId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nazwa" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Opis" Type="String" MaxLength="127" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Uwagi" Type="String" MaxLength="254" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="DataUtworzenia" Type="DateTime" Nullable="false" />
+    <Property Name="KtoUtworzylId" Type="Int32" Nullable="false" />
+    <Property Name="DataMod" Type="DateTime" />
+    <Property Name="KtoModId" Type="Int32" />
+    <Property Name="DataUsuniecia" Type="DateTime" />
+    <Property Name="KtoUsunalId" Type="Int32" />
+    <Property Name="CzyAktywny" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Pracownicy" Relationship="Self.FK_TowaryTypy_Pracownicy" FromRole="TowaryTypy" ToRole="Pracownicy" />
+    <NavigationProperty Name="Pracownicy1" Relationship="Self.FK_TowaryTypy_Pracownicy1" FromRole="TowaryTypy" ToRole="Pracownicy" />
+    <NavigationProperty Name="Pracownicy2" Relationship="Self.FK_TowaryTypy_Pracownicy2" FromRole="TowaryTypy" ToRole="Pracownicy" />
+    <NavigationProperty Name="Towary" Relationship="Self.FK_Towary_TowaryTypy" FromRole="TowaryTypy" ToRole="Towary" />
+  </EntityType>
+  <EntityType Name="Umowy">
+    <Key>
+      <PropertyRef Name="UmowaId" />
+    </Key>
+    <Property Name="UmowaId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NrUmowy" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="RodzajUmowyId" Type="Int32" Nullable="false" />
+    <Property Name="StanowiskoId" Type="Int32" Nullable="false" />
+    <Property Name="DataZawarcia" Type="DateTime" Nullable="false" />
+    <Property Name="DataOd" Type="DateTime" Nullable="false" />
+    <Property Name="DataDo" Type="DateTime" Nullable="false" />
+    <Property Name="StawkaBruttoMies" Type="Decimal" Precision="15" Scale="2" Nullable="false" />
+    <Property Name="StawkaBruttoGodz" Type="Decimal" Precision="15" Scale="2" Nullable="false" />
+    <Property Name="CzasPracyMies" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="Opis" Type="String" MaxLength="1024" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="JestEmerytalne" Type="Boolean" Nullable="false" />
+    <Property Name="JestRentowe" Type="Boolean" Nullable="false" />
+    <Property Name="JestChorobowe" Type="Boolean" Nullable="false" />
+    <Property Name="JestWypadkowe" Type="Boolean" Nullable="false" />
+    <Property Name="DataUtworzenia" Type="DateTime" Nullable="false" />
+    <Property Name="KtoUtworzylId" Type="Int32" Nullable="false" />
+    <Property Name="DataMod" Type="DateTime" />
+    <Property Name="KtoModId" Type="Int32" />
+    <Property Name="DataUsuniecia" Type="DateTime" />
+    <Property Name="KtoUsunalId" Type="Int32" />
+    <Property Name="CzyAktywny" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Pracownicy" Relationship="Self.FK_Umowy_Pracownicy" FromRole="Umowy" ToRole="Pracownicy" />
+    <NavigationProperty Name="Pracownicy1" Relationship="Self.FK_Umowy_Pracownicy1" FromRole="Umowy" ToRole="Pracownicy" />
+    <NavigationProperty Name="Pracownicy2" Relationship="Self.FK_Umowy_Pracownicy2" FromRole="Umowy" ToRole="Pracownicy" />
+    <NavigationProperty Name="PracownicyUmowy" Relationship="Self.FK_PracownicyUmowy_Umowy" FromRole="Umowy" ToRole="PracownicyUmowy" />
+    <NavigationProperty Name="UmowyRodzaje" Relationship="Self.FK_Umowy_UmowyRodzaje" FromRole="Umowy" ToRole="UmowyRodzaje" />
+    <NavigationProperty Name="UmowyStanowiska" Relationship="Self.FK_Umowy_UmowyStanowiska" FromRole="Umowy" ToRole="UmowyStanowiska" />
+  </EntityType>
+  <EntityType Name="UmowyRodzaje">
+    <Key>
+      <PropertyRef Name="RodzajUmowyId" />
+    </Key>
+    <Property Name="RodzajUmowyId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Kod" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Nazwa" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Opis" Type="String" MaxLength="127" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Uwagi" Type="String" MaxLength="254" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="DataUtworzenia" Type="DateTime" Nullable="false" />
+    <Property Name="KtoUtworzylId" Type="Int32" Nullable="false" />
+    <Property Name="DataMod" Type="DateTime" />
+    <Property Name="KtoModId" Type="Int32" />
+    <Property Name="DataUsuniecia" Type="DateTime" />
+    <Property Name="KtoUsunalId" Type="Int32" />
+    <Property Name="CzyAktywny" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Pracownicy" Relationship="Self.FK_UmowyRodzaje_Pracownicy" FromRole="UmowyRodzaje" ToRole="Pracownicy" />
+    <NavigationProperty Name="Pracownicy1" Relationship="Self.FK_UmowyRodzaje_Pracownicy1" FromRole="UmowyRodzaje" ToRole="Pracownicy" />
+    <NavigationProperty Name="Pracownicy2" Relationship="Self.FK_UmowyRodzaje_Pracownicy2" FromRole="UmowyRodzaje" ToRole="Pracownicy" />
+    <NavigationProperty Name="Umowy" Relationship="Self.FK_Umowy_UmowyRodzaje" FromRole="UmowyRodzaje" ToRole="Umowy" />
+  </EntityType>
+  <EntityType Name="UmowyStanowiska">
+    <Key>
+      <PropertyRef Name="StanowiskoId" />
+    </Key>
+    <Property Name="StanowiskoId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="KodZawodu" Type="String" MaxLength="7" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Nazwa" Type="String" MaxLength="40" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Opis" Type="String" MaxLength="127" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Uwagi" Type="String" MaxLength="254" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="DataUtworzenia" Type="DateTime" Nullable="false" />
+    <Property Name="KtoUtworzylId" Type="Int32" Nullable="false" />
+    <Property Name="DataMod" Type="DateTime" />
+    <Property Name="KtoModId" Type="Int32" />
+    <Property Name="DataUsuniecia" Type="DateTime" />
+    <Property Name="KtoUsunalId" Type="Int32" />
+    <Property Name="CzyAktywny" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Pracownicy" Relationship="Self.FK_UmowyStanowiska_Pracownicy" FromRole="UmowyStanowiska" ToRole="Pracownicy" />
+    <NavigationProperty Name="Pracownicy1" Relationship="Self.FK_UmowyStanowiska_Pracownicy1" FromRole="UmowyStanowiska" ToRole="Pracownicy" />
+    <NavigationProperty Name="Pracownicy2" Relationship="Self.FK_UmowyStanowiska_Pracownicy2" FromRole="UmowyStanowiska" ToRole="Pracownicy" />
+    <NavigationProperty Name="Umowy" Relationship="Self.FK_Umowy_UmowyStanowiska" FromRole="UmowyStanowiska" ToRole="Umowy" />
+  </EntityType>
+  <EntityType Name="WydaniaZewnetrzne">
+    <Key>
+      <PropertyRef Name="WydanieZewnetrzneId" />
+    </Key>
+    <Property Name="WydanieZewnetrzneId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Numer" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="KontrahentId" Type="Int32" Nullable="false" />
+    <Property Name="MagazynId" Type="Int32" Nullable="false" />
+    <Property Name="DataWystawienia" Type="DateTime" Nullable="false" />
+    <Property Name="DataWydania" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="Rabat" Type="Decimal" Precision="5" Scale="2" Nullable="false" />
+    <Property Name="DataUtworzenia" Type="DateTime" Nullable="false" />
+    <Property Name="KtoUtworzylId" Type="Int32" Nullable="false" />
+    <Property Name="DataMod" Type="DateTime" />
+    <Property Name="KtoModId" Type="Int32" />
+    <Property Name="DataUsuniecia" Type="DateTime" />
+    <Property Name="KtoUsunalId" Type="Int32" />
+    <Property Name="CzyAktywny" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="FakturyWydaniaZewnetrzne" Relationship="Self.FK_FakturyWydaniaZewnetrzne_WydaniaZewnetrzne" FromRole="WydaniaZewnetrzne" ToRole="FakturyWydaniaZewnetrzne" />
+    <NavigationProperty Name="Kontrahenci" Relationship="Self.FK_WydaniaZewnetrzne_Kontrahenci" FromRole="WydaniaZewnetrzne" ToRole="Kontrahenci" />
+    <NavigationProperty Name="Magazyny" Relationship="Self.FK_WydaniaZewnetrzne_Magazyny" FromRole="WydaniaZewnetrzne" ToRole="Magazyny" />
+    <NavigationProperty Name="PozycjeWydaniaZewnetrznego" Relationship="Self.FK_PozycjeWydaniaZewnetrznego_WydaniaZewnetrzne" FromRole="WydaniaZewnetrzne" ToRole="PozycjeWydaniaZewnetrznego" />
+    <NavigationProperty Name="Pracownicy" Relationship="Self.FK_WydaniaZewnetrzne_Pracownicy" FromRole="WydaniaZewnetrzne" ToRole="Pracownicy" />
+    <NavigationProperty Name="Pracownicy1" Relationship="Self.FK_WydaniaZewnetrzne_Pracownicy1" FromRole="WydaniaZewnetrzne" ToRole="Pracownicy" />
+    <NavigationProperty Name="Pracownicy2" Relationship="Self.FK_WydaniaZewnetrzne_Pracownicy2" FromRole="WydaniaZewnetrzne" ToRole="Pracownicy" />
+  </EntityType>
+  <Association Name="FK_Adresy_Kraje">
+    <End Role="Kraje" Type="Self.Kraje" Multiplicity="1" />
+    <End Role="Adresy" Type="Self.Adresy" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Kraje">
+        <PropertyRef Name="KrajId" />
+      </Principal>
+      <Dependent Role="Adresy">
+        <PropertyRef Name="KrajId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Adresy_Pracownicy">
+    <End Role="Pracownicy" Type="Self.Pracownicy" Multiplicity="1" />
+    <End Role="Adresy" Type="Self.Adresy" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Pracownicy">
+        <PropertyRef Name="PracownikId" />
+      </Principal>
+      <Dependent Role="Adresy">
+        <PropertyRef Name="KtoUtworzylId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Adresy_Pracownicy1">
+    <End Role="Pracownicy" Type="Self.Pracownicy" Multiplicity="0..1" />
+    <End Role="Adresy" Type="Self.Adresy" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Pracownicy">
+        <PropertyRef Name="PracownikId" />
+      </Principal>
+      <Dependent Role="Adresy">
+        <PropertyRef Name="KtoModId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Adresy_Pracownicy2">
+    <End Role="Pracownicy" Type="Self.Pracownicy" Multiplicity="0..1" />
+    <End Role="Adresy" Type="Self.Adresy" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Pracownicy">
+        <PropertyRef Name="PracownikId" />
+      </Principal>
+      <Dependent Role="Adresy">
+        <PropertyRef Name="KtoUsunalId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Kontrahenci_Adresy">
+    <End Role="Adresy" Type="Self.Adresy" Multiplicity="1" />
+    <End Role="Kontrahenci" Type="Self.Kontrahenci" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Adresy">
+        <PropertyRef Name="AdresId" />
+      </Principal>
+      <Dependent Role="Kontrahenci">
+        <PropertyRef Name="AdresId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Kontrahenci_Adresy1">
+    <End Role="Adresy" Type="Self.Adresy" Multiplicity="0..1" />
+    <End Role="Kontrahenci" Type="Self.Kontrahenci" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Adresy">
+        <PropertyRef Name="AdresId" />
+      </Principal>
+      <Dependent Role="Kontrahenci">
+        <PropertyRef Name="AdresKorId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Magazyny_Adresy">
+    <End Role="Adresy" Type="Self.Adresy" Multiplicity="0..1" />
+    <End Role="Magazyny" Type="Self.Magazyny" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Adresy">
+        <PropertyRef Name="AdresId" />
+      </Principal>
+      <Dependent Role="Magazyny">
+        <PropertyRef Name="AdresId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Pracownicy_Adresy">
+    <End Role="Adresy" Type="Self.Adresy" Multiplicity="1" />
+    <End Role="Pracownicy" Type="Self.Pracownicy" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Adresy">
+        <PropertyRef Name="AdresId" />
+      </Principal>
+      <Dependent Role="Pracownicy">
+        <PropertyRef Name="AdresId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Faktury_FakturyKategorie">
+    <End Role="FakturyKategorie" Type="Self.FakturyKategorie" Multiplicity="1" />
+    <End Role="Faktury" Type="Self.Faktury" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FakturyKategorie">
+        <PropertyRef Name="KategoriaFakturyId" />
+      </Principal>
+      <Dependent Role="Faktury">
+        <PropertyRef Name="KategoriaFakturyId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Faktury_FakturyRodzaje">
+    <End Role="FakturyRodzaje" Type="Self.FakturyRodzaje" Multiplicity="1" />
+    <End Role="Faktury" Type="Self.Faktury" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FakturyRodzaje">
+        <PropertyRef Name="RodzajFakturyId" />
+      </Principal>
+      <Dependent Role="Faktury">
+        <PropertyRef Name="RodzajFakturyId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Faktury_Kontrahenci">
+    <End Role="Kontrahenci" Type="Self.Kontrahenci" Multiplicity="1" />
+    <End Role="Faktury" Type="Self.Faktury" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Kontrahenci">
+        <PropertyRef Name="KontrahentId" />
+      </Principal>
+      <Dependent Role="Faktury">
+        <PropertyRef Name="KontrahentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Faktury_Pracownicy">
+    <End Role="Pracownicy" Type="Self.Pracownicy" Multiplicity="1" />
+    <End Role="Faktury" Type="Self.Faktury" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Pracownicy">
+        <PropertyRef Name="PracownikId" />
+      </Principal>
+      <Dependent Role="Faktury">
+        <PropertyRef Name="KtoUtworzylId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Faktury_Pracownicy1">
+    <End Role="Pracownicy" Type="Self.Pracownicy" Multiplicity="0..1" />
+    <End Role="Faktury" Type="Self.Faktury" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Pracownicy">
+        <PropertyRef Name="PracownikId" />
+      </Principal>
+      <Dependent Role="Faktury">
+        <PropertyRef Name="KtoModId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Faktury_Pracownicy2">
+    <End Role="Pracownicy" Type="Self.Pracownicy" Multiplicity="0..1" />
+    <End Role="Faktury" Type="Self.Faktury" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Pracownicy">
+        <PropertyRef Name="PracownikId" />
+      </Principal>
+      <Dependent Role="Faktury">
+        <PropertyRef Name="KtoUsunalId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Faktury_RodzajePlatnosci">
+    <End Role="RodzajePlatnosci" Type="Self.RodzajePlatnosci" Multiplicity="1" />
+    <End Role="Faktury" Type="Self.Faktury" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="RodzajePlatnosci">
+        <PropertyRef Name="RodzajPlatnosciId" />
+      </Principal>
+      <Dependent Role="Faktury">
+        <PropertyRef Name="RodzajePlatnosciId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FakturyWydaniaZewnetrzne_Faktury">
+    <End Role="Faktury" Type="Self.Faktury" Multiplicity="1" />
+    <End Role="FakturyWydaniaZewnetrzne" Type="Self.FakturyWydaniaZewnetrzne" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Faktury">
+        <PropertyRef Name="FakturaId" />
+      </Principal>
+      <Dependent Role="FakturyWydaniaZewnetrzne">
+        <PropertyRef Name="FakturaId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FakturyKategorie_Pracownicy">
+    <End Role="Pracownicy" Type="Self.Pracownicy" Multiplicity="1" />
+    <End Role="FakturyKategorie" Type="Self.FakturyKategorie" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Pracownicy">
+        <PropertyRef Name="PracownikId" />
+      </Principal>
+      <Dependent Role="FakturyKategorie">
+        <PropertyRef Name="KtoUtworzylId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FakturyKategorie_Pracownicy1">
+    <End Role="Pracownicy" Type="Self.Pracownicy" Multiplicity="0..1" />
+    <End Role="FakturyKategorie" Type="Self.FakturyKategorie" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Pracownicy">
+        <PropertyRef Name="PracownikId" />
+      </Principal>
+      <Dependent Role="FakturyKategorie">
+        <PropertyRef Name="KtoModId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FakturyKategorie_Pracownicy2">
+    <End Role="Pracownicy" Type="Self.Pracownicy" Multiplicity="0..1" />
+    <End Role="FakturyKategorie" Type="Self.FakturyKategorie" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Pracownicy">
+        <PropertyRef Name="PracownikId" />
+      </Principal>
+      <Dependent Role="FakturyKategorie">
+        <PropertyRef Name="KtoUsunalId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FakturyRodzaje_Pracownicy">
+    <End Role="Pracownicy" Type="Self.Pracownicy" Multiplicity="1" />
+    <End Role="FakturyRodzaje" Type="Self.FakturyRodzaje" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Pracownicy">
+        <PropertyRef Name="PracownikId" />
+      </Principal>
+      <Dependent Role="FakturyRodzaje">
+        <PropertyRef Name="KtoUtworzylId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FakturyRodzaje_Pracownicy1">
+    <End Role="Pracownicy" Type="Self.Pracownicy" Multiplicity="0..1" />
+    <End Role="FakturyRodzaje" Type="Self.FakturyRodzaje" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Pracownicy">
+        <PropertyRef Name="PracownikId" />
+      </Principal>
+      <Dependent Role="FakturyRodzaje">
+        <PropertyRef Name="KtoModId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FakturyRodzaje_Pracownicy2">
+    <End Role="Pracownicy" Type="Self.Pracownicy" Multiplicity="0..1" />
+    <End Role="FakturyRodzaje" Type="Self.FakturyRodzaje" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Pracownicy">
+        <PropertyRef Name="PracownikId" />
+      </Principal>
+      <Dependent Role="FakturyRodzaje">
+        <PropertyRef Name="KtoUsunalId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FakturyWydaniaZewnetrzne_Pracownicy">
+    <End Role="Pracownicy" Type="Self.Pracownicy" Multiplicity="1" />
+    <End Role="FakturyWydaniaZewnetrzne" Type="Self.FakturyWydaniaZewnetrzne" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Pracownicy">
+        <PropertyRef Name="PracownikId" />
+      </Principal>
+      <Dependent Role="FakturyWydaniaZewnetrzne">
+        <PropertyRef Name="KtoUtworzylId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FakturyWydaniaZewnetrzne_Pracownicy1">
+    <End Role="Pracownicy" Type="Self.Pracownicy" Multiplicity="0..1" />
+    <End Role="FakturyWydaniaZewnetrzne" Type="Self.FakturyWydaniaZewnetrzne" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Pracownicy">
+        <PropertyRef Name="PracownikId" />
+      </Principal>
+      <Dependent Role="FakturyWydaniaZewnetrzne">
+        <PropertyRef Name="KtoModId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FakturyWydaniaZewnetrzne_Pracownicy2">
+    <End Role="Pracownicy" Type="Self.Pracownicy" Multiplicity="0..1" />
+    <End Role="FakturyWydaniaZewnetrzne" Type="Self.FakturyWydaniaZewnetrzne" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Pracownicy">
+        <PropertyRef Name="PracownikId" />
+      </Principal>
+      <Dependent Role="FakturyWydaniaZewnetrzne">
+        <PropertyRef Name="KtoUsunalId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FakturyWydaniaZewnetrzne_WydaniaZewnetrzne">
+    <End Role="WydaniaZewnetrzne" Type="Self.WydaniaZewnetrzne" Multiplicity="1" />
+    <End Role="FakturyWydaniaZewnetrzne" Type="Self.FakturyWydaniaZewnetrzne" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="WydaniaZewnetrzne">
+        <PropertyRef Name="WydanieZewnetrzneId" />
+      </Principal>
+      <Dependent Role="FakturyWydaniaZewnetrzne">
+        <PropertyRef Name="WydanieZewnetrzneId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_JednostkiMiary_Pracownicy">
+    <End Role="Pracownicy" Type="Self.Pracownicy" Multiplicity="1" />
+    <End Role="JednostkiMiary" Type="Self.JednostkiMiary" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Pracownicy">
+        <PropertyRef Name="PracownikId" />
+      </Principal>
+      <Dependent Role="JednostkiMiary">
+        <PropertyRef Name="KtoUtworzylId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_JednostkiMiary_Pracownicy1">
+    <End Role="Pracownicy" Type="Self.Pracownicy" Multiplicity="0..1" />
+    <End Role="JednostkiMiary" Type="Self.JednostkiMiary" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Pracownicy">
+        <PropertyRef Name="PracownikId" />
+      </Principal>
+      <Dependent Role="JednostkiMiary">
+        <PropertyRef Name="KtoModId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_JednostkiMiary_Pracownicy2">
+    <End Role="Pracownicy" Type="Self.Pracownicy" Multiplicity="0..1" />
+    <End Role="JednostkiMiary" Type="Self.JednostkiMiary" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Pracownicy">
+        <PropertyRef Name="PracownikId" />
+      </Principal>
+      <Dependent Role="JednostkiMiary">
+        <PropertyRef Name="KtoUsunalId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PozycjePrzyjeciaZewnetrznego_JednostkiMiary">
+    <End Role="JednostkiMiary" Type="Self.JednostkiMiary" Multiplicity="1" />
+    <End Role="PozycjePrzyjeciaZewnetrznego" Type="Self.PozycjePrzyjeciaZewnetrznego" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="JednostkiMiary">
+        <PropertyRef Name="JednostkaId" />
+      </Principal>
+      <Dependent Role="PozycjePrzyjeciaZewnetrznego">
+        <PropertyRef Name="JednMiaryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PozycjeWydaniaZewnetrznego_JednostkiMiary">
+    <End Role="JednostkiMiary" Type="Self.JednostkiMiary" Multiplicity="1" />
+    <End Role="PozycjeWydaniaZewnetrznego" Type="Self.PozycjeWydaniaZewnetrznego" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="JednostkiMiary">
+        <PropertyRef Name="JednostkaId" />
+      </Principal>
+      <Dependent Role="PozycjeWydaniaZewnetrznego">
+        <PropertyRef Name="JednMiaryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Kontakty_Pracownicy">
+    <End Role="Pracownicy" Type="Self.Pracownicy" Multiplicity="1" />
+    <End Role="Kontakty" Type="Self.Kontakty" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Pracownicy">
+        <PropertyRef Name="PracownikId" />
+      </Principal>
+      <Dependent Role="Kontakty">
+        <PropertyRef Name="KtoUtworzylId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Kontakty_Pracownicy1">
+    <End Role="Pracownicy" Type="Self.Pracownicy" Multiplicity="0..1" />
+    <End Role="Kontakty" Type="Self.Kontakty" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Pracownicy">
+        <PropertyRef Name="PracownikId" />
+      </Principal>
+      <Dependent Role="Kontakty">
+        <PropertyRef Name="KtoModId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Kontakty_Pracownicy2">
+    <End Role="Pracownicy" Type="Self.Pracownicy" Multiplicity="0..1" />
+    <End Role="Kontakty" Type="Self.Kontakty" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Pracownicy">
+        <PropertyRef Name="PracownikId" />
+      </Principal>
+      <Dependent Role="Kontakty">
+        <PropertyRef Name="KtoUsunalId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_KontrahenciKontakty_Kontakty">
+    <End Role="Kontakty" Type="Self.Kontakty" Multiplicity="1" />
+    <End Role="KontrahenciKontakty" Type="Self.KontrahenciKontakty" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Kontakty">
+        <PropertyRef Name="KontaktId" />
+      </Principal>
+      <Dependent Role="KontrahenciKontakty">
+        <PropertyRef Name="KontaktId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Kontrahenci_Kontrahenci">
+    <End Role="Kontrahenci" Type="Self.Kontrahenci" Multiplicity="0..1" />
+    <End Role="Kontrahenci1" Type="Self.Kontrahenci" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Kontrahenci">
+        <PropertyRef Name="KontrahentId" />
+      </Principal>
+      <Dependent Role="Kontrahenci1">
+        <PropertyRef Name="JednostkaPodlegaPodId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Kontrahenci_KontrahenciRodzaje">
+    <End Role="KontrahenciRodzaje" Type="Self.KontrahenciRodzaje" Multiplicity="1" />
+    <End Role="Kontrahenci" Type="Self.Kontrahenci" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="KontrahenciRodzaje">
+        <PropertyRef Name="RodzajId" />
+      </Principal>
+      <Dependent Role="Kontrahenci">
+        <PropertyRef Name="RodzajKontrahentaId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Kontrahenci_Pracownicy">
+    <End Role="Pracownicy" Type="Self.Pracownicy" Multiplicity="1" />
+    <End Role="Kontrahenci" Type="Self.Kontrahenci" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Pracownicy">
+        <PropertyRef Name="PracownikId" />
+      </Principal>
+      <Dependent Role="Kontrahenci">
+        <PropertyRef Name="KtoUtworzylId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Kontrahenci_Pracownicy1">
+    <End Role="Pracownicy" Type="Self.Pracownicy" Multiplicity="0..1" />
+    <End Role="Kontrahenci" Type="Self.Kontrahenci" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Pracownicy">
+        <PropertyRef Name="PracownikId" />
+      </Principal>
+      <Dependent Role="Kontrahenci">
+        <PropertyRef Name="KtoModId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Kontrahenci_Pracownicy2">
+    <End Role="Pracownicy" Type="Self.Pracownicy" Multiplicity="0..1" />
+    <End Role="Kontrahenci" Type="Self.Kontrahenci" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Pracownicy">
+        <PropertyRef Name="PracownikId" />
+      </Principal>
+      <Dependent Role="Kontrahenci">
+        <PropertyRef Name="KtoUsunalId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_KontrahenciKontakty_Kontrahenci">
+    <End Role="Kontrahenci" Type="Self.Kontrahenci" Multiplicity="1" />
+    <End Role="KontrahenciKontakty" Type="Self.KontrahenciKontakty" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Kontrahenci">
+        <PropertyRef Name="KontrahentId" />
+      </Principal>
+      <Dependent Role="KontrahenciKontakty">
+        <PropertyRef Name="KontrahentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PrzyjeciaZewnetrzne_Kontrahenci">
+    <End Role="Kontrahenci" Type="Self.Kontrahenci" Multiplicity="1" />
+    <End Role="PrzyjeciaZewnetrzne" Type="Self.PrzyjeciaZewnetrzne" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Kontrahenci">
+        <PropertyRef Name="KontrahentId" />
+      </Principal>
+      <Dependent Role="PrzyjeciaZewnetrzne">
+        <PropertyRef Name="KontrahentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Towary_Kontrahenci">
+    <End Role="Kontrahenci" Type="Self.Kontrahenci" Multiplicity="1" />
+    <End Role="Towary" Type="Self.Towary" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Kontrahenci">
+        <PropertyRef Name="KontrahentId" />
+      </Principal>
+      <Dependent Role="Towary">
+        <PropertyRef Name="ProducentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_WydaniaZewnetrzne_Kontrahenci">
+    <End Role="Kontrahenci" Type="Self.Kontrahenci" Multiplicity="1" />
+    <End Role="WydaniaZewnetrzne" Type="Self.WydaniaZewnetrzne" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Kontrahenci">
+        <PropertyRef Name="KontrahentId" />
+      </Principal>
+      <Dependent Role="WydaniaZewnetrzne">
+        <PropertyRef Name="KontrahentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_KontrahenciKontakty_Pracownicy">
+    <End Role="Pracownicy" Type="Self.Pracownicy" Multiplicity="1" />
+    <End Role="KontrahenciKontakty" Type="Self.KontrahenciKontakty" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Pracownicy">
+        <PropertyRef Name="PracownikId" />
+      </Principal>
+      <Dependent Role="KontrahenciKontakty">
+        <PropertyRef Name="KtoUtworzylId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_KontrahenciKontakty_Pracownicy1">
+    <End Role="Pracownicy" Type="Self.Pracownicy" Multiplicity="0..1" />
+    <End Role="KontrahenciKontakty" Type="Self.KontrahenciKontakty" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Pracownicy">
+        <PropertyRef Name="PracownikId" />
+      </Principal>
+      <Dependent Role="KontrahenciKontakty">
+        <PropertyRef Name="KtoModId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_KontrahenciKontakty_Pracownicy2">
+    <End Role="Pracownicy" Type="Self.Pracownicy" Multiplicity="0..1" />
+    <End Role="KontrahenciKontakty" Type="Self.KontrahenciKontakty" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Pracownicy">
+        <PropertyRef Name="PracownikId" />
+      </Principal>
+      <Dependent Role="KontrahenciKontakty">
+        <PropertyRef Name="KtoUsunalId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_KontrahenciRodzaje_Pracownicy">
+    <End Role="Pracownicy" Type="Self.Pracownicy" Multiplicity="1" />
+    <End Role="KontrahenciRodzaje" Type="Self.KontrahenciRodzaje" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Pracownicy">
+        <PropertyRef Name="PracownikId" />
+      </Principal>
+      <Dependent Role="KontrahenciRodzaje">
+        <PropertyRef Name="KtoUtworzylId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_KontrahenciRodzaje_Pracownicy1">
+    <End Role="Pracownicy" Type="Self.Pracownicy" Multiplicity="0..1" />
+    <End Role="KontrahenciRodzaje" Type="Self.KontrahenciRodzaje" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Pracownicy">
+        <PropertyRef Name="PracownikId" />
+      </Principal>
+      <Dependent Role="KontrahenciRodzaje">
+        <PropertyRef Name="KtoModId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_KontrahenciRodzaje_Pracownicy2">
+    <End Role="Pracownicy" Type="Self.Pracownicy" Multiplicity="0..1" />
+    <End Role="KontrahenciRodzaje" Type="Self.KontrahenciRodzaje" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Pracownicy">
+        <PropertyRef Name="PracownikId" />
+      </Principal>
+      <Dependent Role="KontrahenciRodzaje">
+        <PropertyRef Name="KtoUsunalId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Kraje_Pracownicy">
+    <End Role="Pracownicy" Type="Self.Pracownicy" Multiplicity="1" />
+    <End Role="Kraje" Type="Self.Kraje" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Pracownicy">
+        <PropertyRef Name="PracownikId" />
+      </Principal>
+      <Dependent Role="Kraje">
+        <PropertyRef Name="KtoUtworzylId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Kraje_Pracownicy1">
+    <End Role="Pracownicy" Type="Self.Pracownicy" Multiplicity="0..1" />
+    <End Role="Kraje" Type="Self.Kraje" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Pracownicy">
+        <PropertyRef Name="PracownikId" />
+      </Principal>
+      <Dependent Role="Kraje">
+        <PropertyRef Name="KtoModId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Kraje_Pracownicy2">
+    <End Role="Pracownicy" Type="Self.Pracownicy" Multiplicity="0..1" />
+    <End Role="Kraje" Type="Self.Kraje" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Pracownicy">
+        <PropertyRef Name="PracownikId" />
+      </Principal>
+      <Dependent Role="Kraje">
+        <PropertyRef Name="KtoUsunalId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Towary_Kraje">
+    <End Role="Kraje" Type="Self.Kraje" Multiplicity="1" />
+    <End Role="Towary" Type="Self.Towary" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Kraje">
+        <PropertyRef Name="KrajId" />
+      </Principal>
+      <Dependent Role="Towary">
+        <PropertyRef Name="KrajPochodzeniaId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TowaryStawkiVat_Kraje">
+    <End Role="Kraje" Type="Self.Kraje" Multiplicity="1" />
+    <End Role="TowaryStawkiVat" Type="Self.TowaryStawkiVat" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Kraje">
+        <PropertyRef Name="KrajId" />
+      </Principal>
+      <Dependent Role="TowaryStawkiVat">
+        <PropertyRef Name="KrajId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Magazyny_MagazynyTypy">
+    <End Role="MagazynyTypy" Type="Self.MagazynyTypy" Multiplicity="1" />
+    <End Role="Magazyny" Type="Self.Magazyny" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MagazynyTypy">
+        <PropertyRef Name="TypMagazynuId" />
+      </Principal>
+      <Dependent Role="Magazyny">
+        <PropertyRef Name="TypMagazynuId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Magazyny_Pracownicy">
+    <End Role="Pracownicy" Type="Self.Pracownicy" Multiplicity="1" />
+    <End Role="Magazyny" Type="Self.Magazyny" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Pracownicy">
+        <PropertyRef Name="PracownikId" />
+      </Principal>
+      <Dependent Role="Magazyny">
+        <PropertyRef Name="KtoUtworzylId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Magazyny_Pracownicy1">
+    <End Role="Pracownicy" Type="Self.Pracownicy" Multiplicity="0..1" />
+    <End Role="Magazyny" Type="Self.Magazyny" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Pracownicy">
+        <PropertyRef Name="PracownikId" />
+      </Principal>
+      <Dependent Role="Magazyny">
+        <PropertyRef Name="KtoModId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Magazyny_Pracownicy2">
+    <End Role="Pracownicy" Type="Self.Pracownicy" Multiplicity="0..1" />
+    <End Role="Magazyny" Type="Self.Magazyny" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Pracownicy">
+        <PropertyRef Name="PracownikId" />
+      </Principal>
+      <Dependent Role="Magazyny">
+        <PropertyRef Name="KtoUsunalId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PrzyjeciaZewnetrzne_Magazyny">
+    <End Role="Magazyny" Type="Self.Magazyny" Multiplicity="1" />
+    <End Role="PrzyjeciaZewnetrzne" Type="Self.PrzyjeciaZewnetrzne" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Magazyny">
+        <PropertyRef Name="MagazynId" />
+      </Principal>
+      <Dependent Role="PrzyjeciaZewnetrzne">
+        <PropertyRef Name="MagazynId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_WydaniaZewnetrzne_Magazyny">
+    <End Role="Magazyny" Type="Self.Magazyny" Multiplicity="1" />
+    <End Role="WydaniaZewnetrzne" Type="Self.WydaniaZewnetrzne" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Magazyny">
+        <PropertyRef Name="MagazynId" />
+      </Principal>
+      <Dependent Role="WydaniaZewnetrzne">
+        <PropertyRef Name="MagazynId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MagazynyTypy_Pracownicy">
+    <End Role="Pracownicy" Type="Self.Pracownicy" Multiplicity="1" />
+    <End Role="MagazynyTypy" Type="Self.MagazynyTypy" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Pracownicy">
+        <PropertyRef Name="PracownikId" />
+      </Principal>
+      <Dependent Role="MagazynyTypy">
+        <PropertyRef Name="KtoUtworzylId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MagazynyTypy_Pracownicy1">
+    <End Role="Pracownicy" Type="Self.Pracownicy" Multiplicity="0..1" />
+    <End Role="MagazynyTypy" Type="Self.MagazynyTypy" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Pracownicy">
+        <PropertyRef Name="PracownikId" />
+      </Principal>
+      <Dependent Role="MagazynyTypy">
+        <PropertyRef Name="KtoModId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MagazynyTypy_Pracownicy2">
+    <End Role="Pracownicy" Type="Self.Pracownicy" Multiplicity="0..1" />
+    <End Role="MagazynyTypy" Type="Self.MagazynyTypy" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Pracownicy">
+        <PropertyRef Name="PracownikId" />
+      </Principal>
+      <Dependent Role="MagazynyTypy">
+        <PropertyRef Name="KtoUsunalId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PozycjePrzyjeciaZewnetrznego_Pracownicy">
+    <End Role="Pracownicy" Type="Self.Pracownicy" Multiplicity="1" />
+    <End Role="PozycjePrzyjeciaZewnetrznego" Type="Self.PozycjePrzyjeciaZewnetrznego" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Pracownicy">
+        <PropertyRef Name="PracownikId" />
+      </Principal>
+      <Dependent Role="PozycjePrzyjeciaZewnetrznego">
+        <PropertyRef Name="KtoUtworzylId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PozycjePrzyjeciaZewnetrznego_Pracownicy1">
+    <End Role="Pracownicy" Type="Self.Pracownicy" Multiplicity="0..1" />
+    <End Role="PozycjePrzyjeciaZewnetrznego" Type="Self.PozycjePrzyjeciaZewnetrznego" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Pracownicy">
+        <PropertyRef Name="PracownikId" />
+      </Principal>
+      <Dependent Role="PozycjePrzyjeciaZewnetrznego">
+        <PropertyRef Name="KtoModId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PozycjePrzyjeciaZewnetrznego_Pracownicy2">
+    <End Role="Pracownicy" Type="Self.Pracownicy" Multiplicity="0..1" />
+    <End Role="PozycjePrzyjeciaZewnetrznego" Type="Self.PozycjePrzyjeciaZewnetrznego" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Pracownicy">
+        <PropertyRef Name="PracownikId" />
+      </Principal>
+      <Dependent Role="PozycjePrzyjeciaZewnetrznego">
+        <PropertyRef Name="KtoUsunalId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PozycjePrzyjeciaZewnetrznego_PrzyjeciaZewnetrzne">
+    <End Role="PrzyjeciaZewnetrzne" Type="Self.PrzyjeciaZewnetrzne" Multiplicity="1" />
+    <End Role="PozycjePrzyjeciaZewnetrznego" Type="Self.PozycjePrzyjeciaZewnetrznego" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PrzyjeciaZewnetrzne">
+        <PropertyRef Name="PrzyjecieZewnetrzneId" />
+      </Principal>
+      <Dependent Role="PozycjePrzyjeciaZewnetrznego">
+        <PropertyRef Name="PrzyjecieZewnetrzneId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PozycjePrzyjeciaZewnetrznego_Towary">
+    <End Role="Towary" Type="Self.Towary" Multiplicity="1" />
+    <End Role="PozycjePrzyjeciaZewnetrznego" Type="Self.PozycjePrzyjeciaZewnetrznego" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Towary">
+        <PropertyRef Name="TowarId" />
+      </Principal>
+      <Dependent Role="PozycjePrzyjeciaZewnetrznego">
+        <PropertyRef Name="TowarId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PozycjeWydaniaZewnetrznego_Pracownicy">
+    <End Role="Pracownicy" Type="Self.Pracownicy" Multiplicity="1" />
+    <End Role="PozycjeWydaniaZewnetrznego" Type="Self.PozycjeWydaniaZewnetrznego" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Pracownicy">
+        <PropertyRef Name="PracownikId" />
+      </Principal>
+      <Dependent Role="PozycjeWydaniaZewnetrznego">
+        <PropertyRef Name="KtoUtworzylId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PozycjeWydaniaZewnetrznego_Pracownicy1">
+    <End Role="Pracownicy" Type="Self.Pracownicy" Multiplicity="0..1" />
+    <End Role="PozycjeWydaniaZewnetrznego" Type="Self.PozycjeWydaniaZewnetrznego" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Pracownicy">
+        <PropertyRef Name="PracownikId" />
+      </Principal>
+      <Dependent Role="PozycjeWydaniaZewnetrznego">
+        <PropertyRef Name="KtoModId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PozycjeWydaniaZewnetrznego_Pracownicy2">
+    <End Role="Pracownicy" Type="Self.Pracownicy" Multiplicity="0..1" />
+    <End Role="PozycjeWydaniaZewnetrznego" Type="Self.PozycjeWydaniaZewnetrznego" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Pracownicy">
+        <PropertyRef Name="PracownikId" />
+      </Principal>
+      <Dependent Role="PozycjeWydaniaZewnetrznego">
+        <PropertyRef Name="KtoUsunalId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PozycjeWydaniaZewnetrznego_Towary">
+    <End Role="Towary" Type="Self.Towary" Multiplicity="1" />
+    <End Role="PozycjeWydaniaZewnetrznego" Type="Self.PozycjeWydaniaZewnetrznego" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Towary">
+        <PropertyRef Name="TowarId" />
+      </Principal>
+      <Dependent Role="PozycjeWydaniaZewnetrznego">
+        <PropertyRef Name="TowarId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PozycjeWydaniaZewnetrznego_WydaniaZewnetrzne">
+    <End Role="WydaniaZewnetrzne" Type="Self.WydaniaZewnetrzne" Multiplicity="1" />
+    <End Role="PozycjeWydaniaZewnetrznego" Type="Self.PozycjeWydaniaZewnetrznego" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="WydaniaZewnetrzne">
+        <PropertyRef Name="WydanieZewnetrzneId" />
+      </Principal>
+      <Dependent Role="PozycjeWydaniaZewnetrznego">
+        <PropertyRef Name="WydanieZewnetrzneId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Pracownicy_Pracownicy">
+    <End Role="Pracownicy" Type="Self.Pracownicy" Multiplicity="1" />
+    <End Role="Pracownicy1" Type="Self.Pracownicy" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Pracownicy">
+        <PropertyRef Name="PracownikId" />
+      </Principal>
+      <Dependent Role="Pracownicy1">
+        <PropertyRef Name="KtoUtworzylId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Pracownicy_Pracownicy1">
+    <End Role="Pracownicy" Type="Self.Pracownicy" Multiplicity="0..1" />
+    <End Role="Pracownicy1" Type="Self.Pracownicy" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Pracownicy">
+        <PropertyRef Name="PracownikId" />
+      </Principal>
+      <Dependent Role="Pracownicy1">
+        <PropertyRef Name="KtoModId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Pracownicy_Pracownicy2">
+    <End Role="Pracownicy" Type="Self.Pracownicy" Multiplicity="0..1" />
+    <End Role="Pracownicy1" Type="Self.Pracownicy" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Pracownicy">
+        <PropertyRef Name="PracownikId" />
+      </Principal>
+      <Dependent Role="Pracownicy1">
+        <PropertyRef Name="KtoUsunalId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PracownicyUmowy_Pracownicy">
+    <End Role="Pracownicy" Type="Self.Pracownicy" Multiplicity="1" />
+    <End Role="PracownicyUmowy" Type="Self.PracownicyUmowy" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Pracownicy">
+        <PropertyRef Name="PracownikId" />
+      </Principal>
+      <Dependent Role="PracownicyUmowy">
+        <PropertyRef Name="PracownikId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PracownicyUmowy_Pracownicy1">
+    <End Role="Pracownicy" Type="Self.Pracownicy" Multiplicity="1" />
+    <End Role="PracownicyUmowy" Type="Self.PracownicyUmowy" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Pracownicy">
+        <PropertyRef Name="PracownikId" />
+      </Principal>
+      <Dependent Role="PracownicyUmowy">
+        <PropertyRef Name="KtoUtworzylId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PracownicyUmowy_Pracownicy2">
+    <End Role="Pracownicy" Type="Self.Pracownicy" Multiplicity="0..1" />
+    <End Role="PracownicyUmowy" Type="Self.PracownicyUmowy" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Pracownicy">
+        <PropertyRef Name="PracownikId" />
+      </Principal>
+      <Dependent Role="PracownicyUmowy">
+        <PropertyRef Name="KtoModId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PracownicyUmowy_Pracownicy3">
+    <End Role="Pracownicy" Type="Self.Pracownicy" Multiplicity="0..1" />
+    <End Role="PracownicyUmowy" Type="Self.PracownicyUmowy" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Pracownicy">
+        <PropertyRef Name="PracownikId" />
+      </Principal>
+      <Dependent Role="PracownicyUmowy">
+        <PropertyRef Name="KtoUsunalId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PrzyjeciaZewnetrzne_Pracownicy">
+    <End Role="Pracownicy" Type="Self.Pracownicy" Multiplicity="1" />
+    <End Role="PrzyjeciaZewnetrzne" Type="Self.PrzyjeciaZewnetrzne" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Pracownicy">
+        <PropertyRef Name="PracownikId" />
+      </Principal>
+      <Dependent Role="PrzyjeciaZewnetrzne">
+        <PropertyRef Name="KtoUtworzylId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PrzyjeciaZewnetrzne_Pracownicy1">
+    <End Role="Pracownicy" Type="Self.Pracownicy" Multiplicity="0..1" />
+    <End Role="PrzyjeciaZewnetrzne" Type="Self.PrzyjeciaZewnetrzne" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Pracownicy">
+        <PropertyRef Name="PracownikId" />
+      </Principal>
+      <Dependent Role="PrzyjeciaZewnetrzne">
+        <PropertyRef Name="KtoModId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PrzyjeciaZewnetrzne_Pracownicy2">
+    <End Role="Pracownicy" Type="Self.Pracownicy" Multiplicity="0..1" />
+    <End Role="PrzyjeciaZewnetrzne" Type="Self.PrzyjeciaZewnetrzne" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Pracownicy">
+        <PropertyRef Name="PracownikId" />
+      </Principal>
+      <Dependent Role="PrzyjeciaZewnetrzne">
+        <PropertyRef Name="KtoUsunalId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RodzajePlatnosci_Pracownicy">
+    <End Role="Pracownicy" Type="Self.Pracownicy" Multiplicity="1" />
+    <End Role="RodzajePlatnosci" Type="Self.RodzajePlatnosci" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Pracownicy">
+        <PropertyRef Name="PracownikId" />
+      </Principal>
+      <Dependent Role="RodzajePlatnosci">
+        <PropertyRef Name="KtoUtworzylId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RodzajePlatnosci_Pracownicy1">
+    <End Role="Pracownicy" Type="Self.Pracownicy" Multiplicity="0..1" />
+    <End Role="RodzajePlatnosci" Type="Self.RodzajePlatnosci" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Pracownicy">
+        <PropertyRef Name="PracownikId" />
+      </Principal>
+      <Dependent Role="RodzajePlatnosci">
+        <PropertyRef Name="KtoModId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RodzajePlatnosci_Pracownicy2">
+    <End Role="Pracownicy" Type="Self.Pracownicy" Multiplicity="0..1" />
+    <End Role="RodzajePlatnosci" Type="Self.RodzajePlatnosci" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Pracownicy">
+        <PropertyRef Name="PracownikId" />
+      </Principal>
+      <Dependent Role="RodzajePlatnosci">
+        <PropertyRef Name="KtoUsunalId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Towary_Pracownicy">
+    <End Role="Pracownicy" Type="Self.Pracownicy" Multiplicity="1" />
+    <End Role="Towary" Type="Self.Towary" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Pracownicy">
+        <PropertyRef Name="PracownikId" />
+      </Principal>
+      <Dependent Role="Towary">
+        <PropertyRef Name="KtoUtworzylId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Towary_Pracownicy1">
+    <End Role="Pracownicy" Type="Self.Pracownicy" Multiplicity="0..1" />
+    <End Role="Towary" Type="Self.Towary" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Pracownicy">
+        <PropertyRef Name="PracownikId" />
+      </Principal>
+      <Dependent Role="Towary">
+        <PropertyRef Name="KtoModId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Towary_Pracownicy2">
+    <End Role="Pracownicy" Type="Self.Pracownicy" Multiplicity="0..1" />
+    <End Role="Towary" Type="Self.Towary" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Pracownicy">
+        <PropertyRef Name="PracownikId" />
+      </Principal>
+      <Dependent Role="Towary">
+        <PropertyRef Name="KtoUsunalId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TowaryGrupy_Pracownicy">
+    <End Role="Pracownicy" Type="Self.Pracownicy" Multiplicity="1" />
+    <End Role="TowaryGrupy" Type="Self.TowaryGrupy" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Pracownicy">
+        <PropertyRef Name="PracownikId" />
+      </Principal>
+      <Dependent Role="TowaryGrupy">
+        <PropertyRef Name="KtoUtworzylId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TowaryGrupy_Pracownicy1">
+    <End Role="Pracownicy" Type="Self.Pracownicy" Multiplicity="0..1" />
+    <End Role="TowaryGrupy" Type="Self.TowaryGrupy" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Pracownicy">
+        <PropertyRef Name="PracownikId" />
+      </Principal>
+      <Dependent Role="TowaryGrupy">
+        <PropertyRef Name="KtoModId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TowaryGrupy_Pracownicy2">
+    <End Role="Pracownicy" Type="Self.Pracownicy" Multiplicity="0..1" />
+    <End Role="TowaryGrupy" Type="Self.TowaryGrupy" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Pracownicy">
+        <PropertyRef Name="PracownikId" />
+      </Principal>
+      <Dependent Role="TowaryGrupy">
+        <PropertyRef Name="KtoUsunalId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TowaryStawkiVat_Pracownicy">
+    <End Role="Pracownicy" Type="Self.Pracownicy" Multiplicity="1" />
+    <End Role="TowaryStawkiVat" Type="Self.TowaryStawkiVat" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Pracownicy">
+        <PropertyRef Name="PracownikId" />
+      </Principal>
+      <Dependent Role="TowaryStawkiVat">
+        <PropertyRef Name="KtoUtworzylId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TowaryStawkiVat_Pracownicy1">
+    <End Role="Pracownicy" Type="Self.Pracownicy" Multiplicity="0..1" />
+    <End Role="TowaryStawkiVat" Type="Self.TowaryStawkiVat" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Pracownicy">
+        <PropertyRef Name="PracownikId" />
+      </Principal>
+      <Dependent Role="TowaryStawkiVat">
+        <PropertyRef Name="KtoModId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TowaryStawkiVat_Pracownicy2">
+    <End Role="Pracownicy" Type="Self.Pracownicy" Multiplicity="0..1" />
+    <End Role="TowaryStawkiVat" Type="Self.TowaryStawkiVat" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Pracownicy">
+        <PropertyRef Name="PracownikId" />
+      </Principal>
+      <Dependent Role="TowaryStawkiVat">
+        <PropertyRef Name="KtoUsunalId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TowaryTypy_Pracownicy">
+    <End Role="Pracownicy" Type="Self.Pracownicy" Multiplicity="1" />
+    <End Role="TowaryTypy" Type="Self.TowaryTypy" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Pracownicy">
+        <PropertyRef Name="PracownikId" />
+      </Principal>
+      <Dependent Role="TowaryTypy">
+        <PropertyRef Name="KtoUtworzylId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TowaryTypy_Pracownicy1">
+    <End Role="Pracownicy" Type="Self.Pracownicy" Multiplicity="0..1" />
+    <End Role="TowaryTypy" Type="Self.TowaryTypy" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Pracownicy">
+        <PropertyRef Name="PracownikId" />
+      </Principal>
+      <Dependent Role="TowaryTypy">
+        <PropertyRef Name="KtoModId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TowaryTypy_Pracownicy2">
+    <End Role="Pracownicy" Type="Self.Pracownicy" Multiplicity="0..1" />
+    <End Role="TowaryTypy" Type="Self.TowaryTypy" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Pracownicy">
+        <PropertyRef Name="PracownikId" />
+      </Principal>
+      <Dependent Role="TowaryTypy">
+        <PropertyRef Name="KtoUsunalId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Umowy_Pracownicy">
+    <End Role="Pracownicy" Type="Self.Pracownicy" Multiplicity="1" />
+    <End Role="Umowy" Type="Self.Umowy" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Pracownicy">
+        <PropertyRef Name="PracownikId" />
+      </Principal>
+      <Dependent Role="Umowy">
+        <PropertyRef Name="KtoUtworzylId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Umowy_Pracownicy1">
+    <End Role="Pracownicy" Type="Self.Pracownicy" Multiplicity="0..1" />
+    <End Role="Umowy" Type="Self.Umowy" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Pracownicy">
+        <PropertyRef Name="PracownikId" />
+      </Principal>
+      <Dependent Role="Umowy">
+        <PropertyRef Name="KtoModId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Umowy_Pracownicy2">
+    <End Role="Pracownicy" Type="Self.Pracownicy" Multiplicity="0..1" />
+    <End Role="Umowy" Type="Self.Umowy" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Pracownicy">
+        <PropertyRef Name="PracownikId" />
+      </Principal>
+      <Dependent Role="Umowy">
+        <PropertyRef Name="KtoUsunalId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UmowyRodzaje_Pracownicy">
+    <End Role="Pracownicy" Type="Self.Pracownicy" Multiplicity="1" />
+    <End Role="UmowyRodzaje" Type="Self.UmowyRodzaje" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Pracownicy">
+        <PropertyRef Name="PracownikId" />
+      </Principal>
+      <Dependent Role="UmowyRodzaje">
+        <PropertyRef Name="KtoUtworzylId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UmowyRodzaje_Pracownicy1">
+    <End Role="Pracownicy" Type="Self.Pracownicy" Multiplicity="0..1" />
+    <End Role="UmowyRodzaje" Type="Self.UmowyRodzaje" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Pracownicy">
+        <PropertyRef Name="PracownikId" />
+      </Principal>
+      <Dependent Role="UmowyRodzaje">
+        <PropertyRef Name="KtoModId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UmowyRodzaje_Pracownicy2">
+    <End Role="Pracownicy" Type="Self.Pracownicy" Multiplicity="0..1" />
+    <End Role="UmowyRodzaje" Type="Self.UmowyRodzaje" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Pracownicy">
+        <PropertyRef Name="PracownikId" />
+      </Principal>
+      <Dependent Role="UmowyRodzaje">
+        <PropertyRef Name="KtoUsunalId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UmowyStanowiska_Pracownicy">
+    <End Role="Pracownicy" Type="Self.Pracownicy" Multiplicity="1" />
+    <End Role="UmowyStanowiska" Type="Self.UmowyStanowiska" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Pracownicy">
+        <PropertyRef Name="PracownikId" />
+      </Principal>
+      <Dependent Role="UmowyStanowiska">
+        <PropertyRef Name="KtoUtworzylId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UmowyStanowiska_Pracownicy1">
+    <End Role="Pracownicy" Type="Self.Pracownicy" Multiplicity="0..1" />
+    <End Role="UmowyStanowiska" Type="Self.UmowyStanowiska" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Pracownicy">
+        <PropertyRef Name="PracownikId" />
+      </Principal>
+      <Dependent Role="UmowyStanowiska">
+        <PropertyRef Name="KtoModId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UmowyStanowiska_Pracownicy2">
+    <End Role="Pracownicy" Type="Self.Pracownicy" Multiplicity="0..1" />
+    <End Role="UmowyStanowiska" Type="Self.UmowyStanowiska" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Pracownicy">
+        <PropertyRef Name="PracownikId" />
+      </Principal>
+      <Dependent Role="UmowyStanowiska">
+        <PropertyRef Name="KtoUsunalId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_WydaniaZewnetrzne_Pracownicy">
+    <End Role="Pracownicy" Type="Self.Pracownicy" Multiplicity="1" />
+    <End Role="WydaniaZewnetrzne" Type="Self.WydaniaZewnetrzne" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Pracownicy">
+        <PropertyRef Name="PracownikId" />
+      </Principal>
+      <Dependent Role="WydaniaZewnetrzne">
+        <PropertyRef Name="KtoUtworzylId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_WydaniaZewnetrzne_Pracownicy1">
+    <End Role="Pracownicy" Type="Self.Pracownicy" Multiplicity="0..1" />
+    <End Role="WydaniaZewnetrzne" Type="Self.WydaniaZewnetrzne" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Pracownicy">
+        <PropertyRef Name="PracownikId" />
+      </Principal>
+      <Dependent Role="WydaniaZewnetrzne">
+        <PropertyRef Name="KtoModId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_WydaniaZewnetrzne_Pracownicy2">
+    <End Role="Pracownicy" Type="Self.Pracownicy" Multiplicity="0..1" />
+    <End Role="WydaniaZewnetrzne" Type="Self.WydaniaZewnetrzne" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Pracownicy">
+        <PropertyRef Name="PracownikId" />
+      </Principal>
+      <Dependent Role="WydaniaZewnetrzne">
+        <PropertyRef Name="KtoUsunalId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PracownicyUmowy_Umowy">
+    <End Role="Umowy" Type="Self.Umowy" Multiplicity="1" />
+    <End Role="PracownicyUmowy" Type="Self.PracownicyUmowy" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Umowy">
+        <PropertyRef Name="UmowaId" />
+      </Principal>
+      <Dependent Role="PracownicyUmowy">
+        <PropertyRef Name="UmowaId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Towary_TowaryGrupy">
+    <End Role="TowaryGrupy" Type="Self.TowaryGrupy" Multiplicity="1" />
+    <End Role="Towary" Type="Self.Towary" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TowaryGrupy">
+        <PropertyRef Name="GrupaTowaruId" />
+      </Principal>
+      <Dependent Role="Towary">
+        <PropertyRef Name="GrupaTowaruId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Towary_TowaryStawkiVat">
+    <End Role="TowaryStawkiVat" Type="Self.TowaryStawkiVat" Multiplicity="1" />
+    <End Role="Towary" Type="Self.Towary" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TowaryStawkiVat">
+        <PropertyRef Name="StawkiVatId" />
+      </Principal>
+      <Dependent Role="Towary">
+        <PropertyRef Name="VatSprzId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Towary_TowaryStawkiVat1">
+    <End Role="TowaryStawkiVat" Type="Self.TowaryStawkiVat" Multiplicity="1" />
+    <End Role="Towary" Type="Self.Towary" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TowaryStawkiVat">
+        <PropertyRef Name="StawkiVatId" />
+      </Principal>
+      <Dependent Role="Towary">
+        <PropertyRef Name="VatZakId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Towary_TowaryTypy">
+    <End Role="TowaryTypy" Type="Self.TowaryTypy" Multiplicity="1" />
+    <End Role="Towary" Type="Self.Towary" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TowaryTypy">
+        <PropertyRef Name="TypTowaruId" />
+      </Principal>
+      <Dependent Role="Towary">
+        <PropertyRef Name="TypTowaruId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TowaryGrupy_TowaryGrupy">
+    <End Role="TowaryGrupy" Type="Self.TowaryGrupy" Multiplicity="0..1" />
+    <End Role="TowaryGrupy1" Type="Self.TowaryGrupy" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TowaryGrupy">
+        <PropertyRef Name="GrupaTowaruId" />
+      </Principal>
+      <Dependent Role="TowaryGrupy1">
+        <PropertyRef Name="GrupaNadrzednaId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Umowy_UmowyRodzaje">
+    <End Role="UmowyRodzaje" Type="Self.UmowyRodzaje" Multiplicity="1" />
+    <End Role="Umowy" Type="Self.Umowy" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UmowyRodzaje">
+        <PropertyRef Name="RodzajUmowyId" />
+      </Principal>
+      <Dependent Role="Umowy">
+        <PropertyRef Name="RodzajUmowyId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Umowy_UmowyStanowiska">
+    <End Role="UmowyStanowiska" Type="Self.UmowyStanowiska" Multiplicity="1" />
+    <End Role="Umowy" Type="Self.Umowy" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UmowyStanowiska">
+        <PropertyRef Name="StanowiskoId" />
+      </Principal>
+      <Dependent Role="Umowy">
+        <PropertyRef Name="StanowiskoId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="FirmaEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Adresy" EntityType="Self.Adresy" />
+    <EntitySet Name="Faktury" EntityType="Self.Faktury" />
+    <EntitySet Name="FakturyKategorie" EntityType="Self.FakturyKategorie" />
+    <EntitySet Name="FakturyRodzaje" EntityType="Self.FakturyRodzaje" />
+    <EntitySet Name="FakturyWydaniaZewnetrzne" EntityType="Self.FakturyWydaniaZewnetrzne" />
+    <EntitySet Name="JednostkiMiary" EntityType="Self.JednostkiMiary" />
+    <EntitySet Name="Kontakty" EntityType="Self.Kontakty" />
+    <EntitySet Name="Kontrahenci" EntityType="Self.Kontrahenci" />
+    <EntitySet Name="KontrahenciKontakty" EntityType="Self.KontrahenciKontakty" />
+    <EntitySet Name="KontrahenciRodzaje" EntityType="Self.KontrahenciRodzaje" />
+    <EntitySet Name="Kraje" EntityType="Self.Kraje" />
+    <EntitySet Name="Magazyny" EntityType="Self.Magazyny" />
+    <EntitySet Name="MagazynyTypy" EntityType="Self.MagazynyTypy" />
+    <EntitySet Name="PozycjePrzyjeciaZewnetrznego" EntityType="Self.PozycjePrzyjeciaZewnetrznego" />
+    <EntitySet Name="PozycjeWydaniaZewnetrznego" EntityType="Self.PozycjeWydaniaZewnetrznego" />
+    <EntitySet Name="Pracownicy" EntityType="Self.Pracownicy" />
+    <EntitySet Name="PracownicyUmowy" EntityType="Self.PracownicyUmowy" />
+    <EntitySet Name="PrzyjeciaZewnetrzne" EntityType="Self.PrzyjeciaZewnetrzne" />
+    <EntitySet Name="RodzajePlatnosci" EntityType="Self.RodzajePlatnosci" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+    <EntitySet Name="Towary" EntityType="Self.Towary" />
+    <EntitySet Name="TowaryGrupy" EntityType="Self.TowaryGrupy" />
+    <EntitySet Name="TowaryStawkiVat" EntityType="Self.TowaryStawkiVat" />
+    <EntitySet Name="TowaryTypy" EntityType="Self.TowaryTypy" />
+    <EntitySet Name="Umowy" EntityType="Self.Umowy" />
+    <EntitySet Name="UmowyRodzaje" EntityType="Self.UmowyRodzaje" />
+    <EntitySet Name="UmowyStanowiska" EntityType="Self.UmowyStanowiska" />
+    <EntitySet Name="WydaniaZewnetrzne" EntityType="Self.WydaniaZewnetrzne" />
+    <AssociationSet Name="FK_Adresy_Kraje" Association="Self.FK_Adresy_Kraje">
+      <End Role="Kraje" EntitySet="Kraje" />
+      <End Role="Adresy" EntitySet="Adresy" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Adresy_Pracownicy" Association="Self.FK_Adresy_Pracownicy">
+      <End Role="Pracownicy" EntitySet="Pracownicy" />
+      <End Role="Adresy" EntitySet="Adresy" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Adresy_Pracownicy1" Association="Self.FK_Adresy_Pracownicy1">
+      <End Role="Pracownicy" EntitySet="Pracownicy" />
+      <End Role="Adresy" EntitySet="Adresy" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Adresy_Pracownicy2" Association="Self.FK_Adresy_Pracownicy2">
+      <End Role="Pracownicy" EntitySet="Pracownicy" />
+      <End Role="Adresy" EntitySet="Adresy" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Kontrahenci_Adresy" Association="Self.FK_Kontrahenci_Adresy">
+      <End Role="Adresy" EntitySet="Adresy" />
+      <End Role="Kontrahenci" EntitySet="Kontrahenci" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Kontrahenci_Adresy1" Association="Self.FK_Kontrahenci_Adresy1">
+      <End Role="Adresy" EntitySet="Adresy" />
+      <End Role="Kontrahenci" EntitySet="Kontrahenci" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Magazyny_Adresy" Association="Self.FK_Magazyny_Adresy">
+      <End Role="Adresy" EntitySet="Adresy" />
+      <End Role="Magazyny" EntitySet="Magazyny" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Pracownicy_Adresy" Association="Self.FK_Pracownicy_Adresy">
+      <End Role="Adresy" EntitySet="Adresy" />
+      <End Role="Pracownicy" EntitySet="Pracownicy" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Faktury_FakturyKategorie" Association="Self.FK_Faktury_FakturyKategorie">
+      <End Role="FakturyKategorie" EntitySet="FakturyKategorie" />
+      <End Role="Faktury" EntitySet="Faktury" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Faktury_FakturyRodzaje" Association="Self.FK_Faktury_FakturyRodzaje">
+      <End Role="FakturyRodzaje" EntitySet="FakturyRodzaje" />
+      <End Role="Faktury" EntitySet="Faktury" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Faktury_Kontrahenci" Association="Self.FK_Faktury_Kontrahenci">
+      <End Role="Kontrahenci" EntitySet="Kontrahenci" />
+      <End Role="Faktury" EntitySet="Faktury" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Faktury_Pracownicy" Association="Self.FK_Faktury_Pracownicy">
+      <End Role="Pracownicy" EntitySet="Pracownicy" />
+      <End Role="Faktury" EntitySet="Faktury" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Faktury_Pracownicy1" Association="Self.FK_Faktury_Pracownicy1">
+      <End Role="Pracownicy" EntitySet="Pracownicy" />
+      <End Role="Faktury" EntitySet="Faktury" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Faktury_Pracownicy2" Association="Self.FK_Faktury_Pracownicy2">
+      <End Role="Pracownicy" EntitySet="Pracownicy" />
+      <End Role="Faktury" EntitySet="Faktury" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Faktury_RodzajePlatnosci" Association="Self.FK_Faktury_RodzajePlatnosci">
+      <End Role="RodzajePlatnosci" EntitySet="RodzajePlatnosci" />
+      <End Role="Faktury" EntitySet="Faktury" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FakturyWydaniaZewnetrzne_Faktury" Association="Self.FK_FakturyWydaniaZewnetrzne_Faktury">
+      <End Role="Faktury" EntitySet="Faktury" />
+      <End Role="FakturyWydaniaZewnetrzne" EntitySet="FakturyWydaniaZewnetrzne" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FakturyKategorie_Pracownicy" Association="Self.FK_FakturyKategorie_Pracownicy">
+      <End Role="Pracownicy" EntitySet="Pracownicy" />
+      <End Role="FakturyKategorie" EntitySet="FakturyKategorie" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FakturyKategorie_Pracownicy1" Association="Self.FK_FakturyKategorie_Pracownicy1">
+      <End Role="Pracownicy" EntitySet="Pracownicy" />
+      <End Role="FakturyKategorie" EntitySet="FakturyKategorie" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FakturyKategorie_Pracownicy2" Association="Self.FK_FakturyKategorie_Pracownicy2">
+      <End Role="Pracownicy" EntitySet="Pracownicy" />
+      <End Role="FakturyKategorie" EntitySet="FakturyKategorie" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FakturyRodzaje_Pracownicy" Association="Self.FK_FakturyRodzaje_Pracownicy">
+      <End Role="Pracownicy" EntitySet="Pracownicy" />
+      <End Role="FakturyRodzaje" EntitySet="FakturyRodzaje" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FakturyRodzaje_Pracownicy1" Association="Self.FK_FakturyRodzaje_Pracownicy1">
+      <End Role="Pracownicy" EntitySet="Pracownicy" />
+      <End Role="FakturyRodzaje" EntitySet="FakturyRodzaje" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FakturyRodzaje_Pracownicy2" Association="Self.FK_FakturyRodzaje_Pracownicy2">
+      <End Role="Pracownicy" EntitySet="Pracownicy" />
+      <End Role="FakturyRodzaje" EntitySet="FakturyRodzaje" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FakturyWydaniaZewnetrzne_Pracownicy" Association="Self.FK_FakturyWydaniaZewnetrzne_Pracownicy">
+      <End Role="Pracownicy" EntitySet="Pracownicy" />
+      <End Role="FakturyWydaniaZewnetrzne" EntitySet="FakturyWydaniaZewnetrzne" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FakturyWydaniaZewnetrzne_Pracownicy1" Association="Self.FK_FakturyWydaniaZewnetrzne_Pracownicy1">
+      <End Role="Pracownicy" EntitySet="Pracownicy" />
+      <End Role="FakturyWydaniaZewnetrzne" EntitySet="FakturyWydaniaZewnetrzne" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FakturyWydaniaZewnetrzne_Pracownicy2" Association="Self.FK_FakturyWydaniaZewnetrzne_Pracownicy2">
+      <End Role="Pracownicy" EntitySet="Pracownicy" />
+      <End Role="FakturyWydaniaZewnetrzne" EntitySet="FakturyWydaniaZewnetrzne" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FakturyWydaniaZewnetrzne_WydaniaZewnetrzne" Association="Self.FK_FakturyWydaniaZewnetrzne_WydaniaZewnetrzne">
+      <End Role="WydaniaZewnetrzne" EntitySet="WydaniaZewnetrzne" />
+      <End Role="FakturyWydaniaZewnetrzne" EntitySet="FakturyWydaniaZewnetrzne" />
+    </AssociationSet>
+    <AssociationSet Name="FK_JednostkiMiary_Pracownicy" Association="Self.FK_JednostkiMiary_Pracownicy">
+      <End Role="Pracownicy" EntitySet="Pracownicy" />
+      <End Role="JednostkiMiary" EntitySet="JednostkiMiary" />
+    </AssociationSet>
+    <AssociationSet Name="FK_JednostkiMiary_Pracownicy1" Association="Self.FK_JednostkiMiary_Pracownicy1">
+      <End Role="Pracownicy" EntitySet="Pracownicy" />
+      <End Role="JednostkiMiary" EntitySet="JednostkiMiary" />
+    </AssociationSet>
+    <AssociationSet Name="FK_JednostkiMiary_Pracownicy2" Association="Self.FK_JednostkiMiary_Pracownicy2">
+      <End Role="Pracownicy" EntitySet="Pracownicy" />
+      <End Role="JednostkiMiary" EntitySet="JednostkiMiary" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PozycjePrzyjeciaZewnetrznego_JednostkiMiary" Association="Self.FK_PozycjePrzyjeciaZewnetrznego_JednostkiMiary">
+      <End Role="JednostkiMiary" EntitySet="JednostkiMiary" />
+      <End Role="PozycjePrzyjeciaZewnetrznego" EntitySet="PozycjePrzyjeciaZewnetrznego" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PozycjeWydaniaZewnetrznego_JednostkiMiary" Association="Self.FK_PozycjeWydaniaZewnetrznego_JednostkiMiary">
+      <End Role="JednostkiMiary" EntitySet="JednostkiMiary" />
+      <End Role="PozycjeWydaniaZewnetrznego" EntitySet="PozycjeWydaniaZewnetrznego" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Kontakty_Pracownicy" Association="Self.FK_Kontakty_Pracownicy">
+      <End Role="Pracownicy" EntitySet="Pracownicy" />
+      <End Role="Kontakty" EntitySet="Kontakty" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Kontakty_Pracownicy1" Association="Self.FK_Kontakty_Pracownicy1">
+      <End Role="Pracownicy" EntitySet="Pracownicy" />
+      <End Role="Kontakty" EntitySet="Kontakty" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Kontakty_Pracownicy2" Association="Self.FK_Kontakty_Pracownicy2">
+      <End Role="Pracownicy" EntitySet="Pracownicy" />
+      <End Role="Kontakty" EntitySet="Kontakty" />
+    </AssociationSet>
+    <AssociationSet Name="FK_KontrahenciKontakty_Kontakty" Association="Self.FK_KontrahenciKontakty_Kontakty">
+      <End Role="Kontakty" EntitySet="Kontakty" />
+      <End Role="KontrahenciKontakty" EntitySet="KontrahenciKontakty" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Kontrahenci_Kontrahenci" Association="Self.FK_Kontrahenci_Kontrahenci">
+      <End Role="Kontrahenci" EntitySet="Kontrahenci" />
+      <End Role="Kontrahenci1" EntitySet="Kontrahenci" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Kontrahenci_KontrahenciRodzaje" Association="Self.FK_Kontrahenci_KontrahenciRodzaje">
+      <End Role="KontrahenciRodzaje" EntitySet="KontrahenciRodzaje" />
+      <End Role="Kontrahenci" EntitySet="Kontrahenci" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Kontrahenci_Pracownicy" Association="Self.FK_Kontrahenci_Pracownicy">
+      <End Role="Pracownicy" EntitySet="Pracownicy" />
+      <End Role="Kontrahenci" EntitySet="Kontrahenci" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Kontrahenci_Pracownicy1" Association="Self.FK_Kontrahenci_Pracownicy1">
+      <End Role="Pracownicy" EntitySet="Pracownicy" />
+      <End Role="Kontrahenci" EntitySet="Kontrahenci" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Kontrahenci_Pracownicy2" Association="Self.FK_Kontrahenci_Pracownicy2">
+      <End Role="Pracownicy" EntitySet="Pracownicy" />
+      <End Role="Kontrahenci" EntitySet="Kontrahenci" />
+    </AssociationSet>
+    <AssociationSet Name="FK_KontrahenciKontakty_Kontrahenci" Association="Self.FK_KontrahenciKontakty_Kontrahenci">
+      <End Role="Kontrahenci" EntitySet="Kontrahenci" />
+      <End Role="KontrahenciKontakty" EntitySet="KontrahenciKontakty" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PrzyjeciaZewnetrzne_Kontrahenci" Association="Self.FK_PrzyjeciaZewnetrzne_Kontrahenci">
+      <End Role="Kontrahenci" EntitySet="Kontrahenci" />
+      <End Role="PrzyjeciaZewnetrzne" EntitySet="PrzyjeciaZewnetrzne" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Towary_Kontrahenci" Association="Self.FK_Towary_Kontrahenci">
+      <End Role="Kontrahenci" EntitySet="Kontrahenci" />
+      <End Role="Towary" EntitySet="Towary" />
+    </AssociationSet>
+    <AssociationSet Name="FK_WydaniaZewnetrzne_Kontrahenci" Association="Self.FK_WydaniaZewnetrzne_Kontrahenci">
+      <End Role="Kontrahenci" EntitySet="Kontrahenci" />
+      <End Role="WydaniaZewnetrzne" EntitySet="WydaniaZewnetrzne" />
+    </AssociationSet>
+    <AssociationSet Name="FK_KontrahenciKontakty_Pracownicy" Association="Self.FK_KontrahenciKontakty_Pracownicy">
+      <End Role="Pracownicy" EntitySet="Pracownicy" />
+      <End Role="KontrahenciKontakty" EntitySet="KontrahenciKontakty" />
+    </AssociationSet>
+    <AssociationSet Name="FK_KontrahenciKontakty_Pracownicy1" Association="Self.FK_KontrahenciKontakty_Pracownicy1">
+      <End Role="Pracownicy" EntitySet="Pracownicy" />
+      <End Role="KontrahenciKontakty" EntitySet="KontrahenciKontakty" />
+    </AssociationSet>
+    <AssociationSet Name="FK_KontrahenciKontakty_Pracownicy2" Association="Self.FK_KontrahenciKontakty_Pracownicy2">
+      <End Role="Pracownicy" EntitySet="Pracownicy" />
+      <End Role="KontrahenciKontakty" EntitySet="KontrahenciKontakty" />
+    </AssociationSet>
+    <AssociationSet Name="FK_KontrahenciRodzaje_Pracownicy" Association="Self.FK_KontrahenciRodzaje_Pracownicy">
+      <End Role="Pracownicy" EntitySet="Pracownicy" />
+      <End Role="KontrahenciRodzaje" EntitySet="KontrahenciRodzaje" />
+    </AssociationSet>
+    <AssociationSet Name="FK_KontrahenciRodzaje_Pracownicy1" Association="Self.FK_KontrahenciRodzaje_Pracownicy1">
+      <End Role="Pracownicy" EntitySet="Pracownicy" />
+      <End Role="KontrahenciRodzaje" EntitySet="KontrahenciRodzaje" />
+    </AssociationSet>
+    <AssociationSet Name="FK_KontrahenciRodzaje_Pracownicy2" Association="Self.FK_KontrahenciRodzaje_Pracownicy2">
+      <End Role="Pracownicy" EntitySet="Pracownicy" />
+      <End Role="KontrahenciRodzaje" EntitySet="KontrahenciRodzaje" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Kraje_Pracownicy" Association="Self.FK_Kraje_Pracownicy">
+      <End Role="Pracownicy" EntitySet="Pracownicy" />
+      <End Role="Kraje" EntitySet="Kraje" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Kraje_Pracownicy1" Association="Self.FK_Kraje_Pracownicy1">
+      <End Role="Pracownicy" EntitySet="Pracownicy" />
+      <End Role="Kraje" EntitySet="Kraje" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Kraje_Pracownicy2" Association="Self.FK_Kraje_Pracownicy2">
+      <End Role="Pracownicy" EntitySet="Pracownicy" />
+      <End Role="Kraje" EntitySet="Kraje" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Towary_Kraje" Association="Self.FK_Towary_Kraje">
+      <End Role="Kraje" EntitySet="Kraje" />
+      <End Role="Towary" EntitySet="Towary" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TowaryStawkiVat_Kraje" Association="Self.FK_TowaryStawkiVat_Kraje">
+      <End Role="Kraje" EntitySet="Kraje" />
+      <End Role="TowaryStawkiVat" EntitySet="TowaryStawkiVat" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Magazyny_MagazynyTypy" Association="Self.FK_Magazyny_MagazynyTypy">
+      <End Role="MagazynyTypy" EntitySet="MagazynyTypy" />
+      <End Role="Magazyny" EntitySet="Magazyny" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Magazyny_Pracownicy" Association="Self.FK_Magazyny_Pracownicy">
+      <End Role="Pracownicy" EntitySet="Pracownicy" />
+      <End Role="Magazyny" EntitySet="Magazyny" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Magazyny_Pracownicy1" Association="Self.FK_Magazyny_Pracownicy1">
+      <End Role="Pracownicy" EntitySet="Pracownicy" />
+      <End Role="Magazyny" EntitySet="Magazyny" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Magazyny_Pracownicy2" Association="Self.FK_Magazyny_Pracownicy2">
+      <End Role="Pracownicy" EntitySet="Pracownicy" />
+      <End Role="Magazyny" EntitySet="Magazyny" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PrzyjeciaZewnetrzne_Magazyny" Association="Self.FK_PrzyjeciaZewnetrzne_Magazyny">
+      <End Role="Magazyny" EntitySet="Magazyny" />
+      <End Role="PrzyjeciaZewnetrzne" EntitySet="PrzyjeciaZewnetrzne" />
+    </AssociationSet>
+    <AssociationSet Name="FK_WydaniaZewnetrzne_Magazyny" Association="Self.FK_WydaniaZewnetrzne_Magazyny">
+      <End Role="Magazyny" EntitySet="Magazyny" />
+      <End Role="WydaniaZewnetrzne" EntitySet="WydaniaZewnetrzne" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MagazynyTypy_Pracownicy" Association="Self.FK_MagazynyTypy_Pracownicy">
+      <End Role="Pracownicy" EntitySet="Pracownicy" />
+      <End Role="MagazynyTypy" EntitySet="MagazynyTypy" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MagazynyTypy_Pracownicy1" Association="Self.FK_MagazynyTypy_Pracownicy1">
+      <End Role="Pracownicy" EntitySet="Pracownicy" />
+      <End Role="MagazynyTypy" EntitySet="MagazynyTypy" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MagazynyTypy_Pracownicy2" Association="Self.FK_MagazynyTypy_Pracownicy2">
+      <End Role="Pracownicy" EntitySet="Pracownicy" />
+      <End Role="MagazynyTypy" EntitySet="MagazynyTypy" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PozycjePrzyjeciaZewnetrznego_Pracownicy" Association="Self.FK_PozycjePrzyjeciaZewnetrznego_Pracownicy">
+      <End Role="Pracownicy" EntitySet="Pracownicy" />
+      <End Role="PozycjePrzyjeciaZewnetrznego" EntitySet="PozycjePrzyjeciaZewnetrznego" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PozycjePrzyjeciaZewnetrznego_Pracownicy1" Association="Self.FK_PozycjePrzyjeciaZewnetrznego_Pracownicy1">
+      <End Role="Pracownicy" EntitySet="Pracownicy" />
+      <End Role="PozycjePrzyjeciaZewnetrznego" EntitySet="PozycjePrzyjeciaZewnetrznego" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PozycjePrzyjeciaZewnetrznego_Pracownicy2" Association="Self.FK_PozycjePrzyjeciaZewnetrznego_Pracownicy2">
+      <End Role="Pracownicy" EntitySet="Pracownicy" />
+      <End Role="PozycjePrzyjeciaZewnetrznego" EntitySet="PozycjePrzyjeciaZewnetrznego" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PozycjePrzyjeciaZewnetrznego_PrzyjeciaZewnetrzne" Association="Self.FK_PozycjePrzyjeciaZewnetrznego_PrzyjeciaZewnetrzne">
+      <End Role="PrzyjeciaZewnetrzne" EntitySet="PrzyjeciaZewnetrzne" />
+      <End Role="PozycjePrzyjeciaZewnetrznego" EntitySet="PozycjePrzyjeciaZewnetrznego" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PozycjePrzyjeciaZewnetrznego_Towary" Association="Self.FK_PozycjePrzyjeciaZewnetrznego_Towary">
+      <End Role="Towary" EntitySet="Towary" />
+      <End Role="PozycjePrzyjeciaZewnetrznego" EntitySet="PozycjePrzyjeciaZewnetrznego" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PozycjeWydaniaZewnetrznego_Pracownicy" Association="Self.FK_PozycjeWydaniaZewnetrznego_Pracownicy">
+      <End Role="Pracownicy" EntitySet="Pracownicy" />
+      <End Role="PozycjeWydaniaZewnetrznego" EntitySet="PozycjeWydaniaZewnetrznego" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PozycjeWydaniaZewnetrznego_Pracownicy1" Association="Self.FK_PozycjeWydaniaZewnetrznego_Pracownicy1">
+      <End Role="Pracownicy" EntitySet="Pracownicy" />
+      <End Role="PozycjeWydaniaZewnetrznego" EntitySet="PozycjeWydaniaZewnetrznego" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PozycjeWydaniaZewnetrznego_Pracownicy2" Association="Self.FK_PozycjeWydaniaZewnetrznego_Pracownicy2">
+      <End Role="Pracownicy" EntitySet="Pracownicy" />
+      <End Role="PozycjeWydaniaZewnetrznego" EntitySet="PozycjeWydaniaZewnetrznego" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PozycjeWydaniaZewnetrznego_Towary" Association="Self.FK_PozycjeWydaniaZewnetrznego_Towary">
+      <End Role="Towary" EntitySet="Towary" />
+      <End Role="PozycjeWydaniaZewnetrznego" EntitySet="PozycjeWydaniaZewnetrznego" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PozycjeWydaniaZewnetrznego_WydaniaZewnetrzne" Association="Self.FK_PozycjeWydaniaZewnetrznego_WydaniaZewnetrzne">
+      <End Role="WydaniaZewnetrzne" EntitySet="WydaniaZewnetrzne" />
+      <End Role="PozycjeWydaniaZewnetrznego" EntitySet="PozycjeWydaniaZewnetrznego" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Pracownicy_Pracownicy" Association="Self.FK_Pracownicy_Pracownicy">
+      <End Role="Pracownicy" EntitySet="Pracownicy" />
+      <End Role="Pracownicy1" EntitySet="Pracownicy" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Pracownicy_Pracownicy1" Association="Self.FK_Pracownicy_Pracownicy1">
+      <End Role="Pracownicy" EntitySet="Pracownicy" />
+      <End Role="Pracownicy1" EntitySet="Pracownicy" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Pracownicy_Pracownicy2" Association="Self.FK_Pracownicy_Pracownicy2">
+      <End Role="Pracownicy" EntitySet="Pracownicy" />
+      <End Role="Pracownicy1" EntitySet="Pracownicy" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PracownicyUmowy_Pracownicy" Association="Self.FK_PracownicyUmowy_Pracownicy">
+      <End Role="Pracownicy" EntitySet="Pracownicy" />
+      <End Role="PracownicyUmowy" EntitySet="PracownicyUmowy" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PracownicyUmowy_Pracownicy1" Association="Self.FK_PracownicyUmowy_Pracownicy1">
+      <End Role="Pracownicy" EntitySet="Pracownicy" />
+      <End Role="PracownicyUmowy" EntitySet="PracownicyUmowy" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PracownicyUmowy_Pracownicy2" Association="Self.FK_PracownicyUmowy_Pracownicy2">
+      <End Role="Pracownicy" EntitySet="Pracownicy" />
+      <End Role="PracownicyUmowy" EntitySet="PracownicyUmowy" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PracownicyUmowy_Pracownicy3" Association="Self.FK_PracownicyUmowy_Pracownicy3">
+      <End Role="Pracownicy" EntitySet="Pracownicy" />
+      <End Role="PracownicyUmowy" EntitySet="PracownicyUmowy" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PrzyjeciaZewnetrzne_Pracownicy" Association="Self.FK_PrzyjeciaZewnetrzne_Pracownicy">
+      <End Role="Pracownicy" EntitySet="Pracownicy" />
+      <End Role="PrzyjeciaZewnetrzne" EntitySet="PrzyjeciaZewnetrzne" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PrzyjeciaZewnetrzne_Pracownicy1" Association="Self.FK_PrzyjeciaZewnetrzne_Pracownicy1">
+      <End Role="Pracownicy" EntitySet="Pracownicy" />
+      <End Role="PrzyjeciaZewnetrzne" EntitySet="PrzyjeciaZewnetrzne" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PrzyjeciaZewnetrzne_Pracownicy2" Association="Self.FK_PrzyjeciaZewnetrzne_Pracownicy2">
+      <End Role="Pracownicy" EntitySet="Pracownicy" />
+      <End Role="PrzyjeciaZewnetrzne" EntitySet="PrzyjeciaZewnetrzne" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RodzajePlatnosci_Pracownicy" Association="Self.FK_RodzajePlatnosci_Pracownicy">
+      <End Role="Pracownicy" EntitySet="Pracownicy" />
+      <End Role="RodzajePlatnosci" EntitySet="RodzajePlatnosci" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RodzajePlatnosci_Pracownicy1" Association="Self.FK_RodzajePlatnosci_Pracownicy1">
+      <End Role="Pracownicy" EntitySet="Pracownicy" />
+      <End Role="RodzajePlatnosci" EntitySet="RodzajePlatnosci" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RodzajePlatnosci_Pracownicy2" Association="Self.FK_RodzajePlatnosci_Pracownicy2">
+      <End Role="Pracownicy" EntitySet="Pracownicy" />
+      <End Role="RodzajePlatnosci" EntitySet="RodzajePlatnosci" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Towary_Pracownicy" Association="Self.FK_Towary_Pracownicy">
+      <End Role="Pracownicy" EntitySet="Pracownicy" />
+      <End Role="Towary" EntitySet="Towary" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Towary_Pracownicy1" Association="Self.FK_Towary_Pracownicy1">
+      <End Role="Pracownicy" EntitySet="Pracownicy" />
+      <End Role="Towary" EntitySet="Towary" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Towary_Pracownicy2" Association="Self.FK_Towary_Pracownicy2">
+      <End Role="Pracownicy" EntitySet="Pracownicy" />
+      <End Role="Towary" EntitySet="Towary" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TowaryGrupy_Pracownicy" Association="Self.FK_TowaryGrupy_Pracownicy">
+      <End Role="Pracownicy" EntitySet="Pracownicy" />
+      <End Role="TowaryGrupy" EntitySet="TowaryGrupy" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TowaryGrupy_Pracownicy1" Association="Self.FK_TowaryGrupy_Pracownicy1">
+      <End Role="Pracownicy" EntitySet="Pracownicy" />
+      <End Role="TowaryGrupy" EntitySet="TowaryGrupy" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TowaryGrupy_Pracownicy2" Association="Self.FK_TowaryGrupy_Pracownicy2">
+      <End Role="Pracownicy" EntitySet="Pracownicy" />
+      <End Role="TowaryGrupy" EntitySet="TowaryGrupy" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TowaryStawkiVat_Pracownicy" Association="Self.FK_TowaryStawkiVat_Pracownicy">
+      <End Role="Pracownicy" EntitySet="Pracownicy" />
+      <End Role="TowaryStawkiVat" EntitySet="TowaryStawkiVat" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TowaryStawkiVat_Pracownicy1" Association="Self.FK_TowaryStawkiVat_Pracownicy1">
+      <End Role="Pracownicy" EntitySet="Pracownicy" />
+      <End Role="TowaryStawkiVat" EntitySet="TowaryStawkiVat" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TowaryStawkiVat_Pracownicy2" Association="Self.FK_TowaryStawkiVat_Pracownicy2">
+      <End Role="Pracownicy" EntitySet="Pracownicy" />
+      <End Role="TowaryStawkiVat" EntitySet="TowaryStawkiVat" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TowaryTypy_Pracownicy" Association="Self.FK_TowaryTypy_Pracownicy">
+      <End Role="Pracownicy" EntitySet="Pracownicy" />
+      <End Role="TowaryTypy" EntitySet="TowaryTypy" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TowaryTypy_Pracownicy1" Association="Self.FK_TowaryTypy_Pracownicy1">
+      <End Role="Pracownicy" EntitySet="Pracownicy" />
+      <End Role="TowaryTypy" EntitySet="TowaryTypy" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TowaryTypy_Pracownicy2" Association="Self.FK_TowaryTypy_Pracownicy2">
+      <End Role="Pracownicy" EntitySet="Pracownicy" />
+      <End Role="TowaryTypy" EntitySet="TowaryTypy" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Umowy_Pracownicy" Association="Self.FK_Umowy_Pracownicy">
+      <End Role="Pracownicy" EntitySet="Pracownicy" />
+      <End Role="Umowy" EntitySet="Umowy" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Umowy_Pracownicy1" Association="Self.FK_Umowy_Pracownicy1">
+      <End Role="Pracownicy" EntitySet="Pracownicy" />
+      <End Role="Umowy" EntitySet="Umowy" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Umowy_Pracownicy2" Association="Self.FK_Umowy_Pracownicy2">
+      <End Role="Pracownicy" EntitySet="Pracownicy" />
+      <End Role="Umowy" EntitySet="Umowy" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UmowyRodzaje_Pracownicy" Association="Self.FK_UmowyRodzaje_Pracownicy">
+      <End Role="Pracownicy" EntitySet="Pracownicy" />
+      <End Role="UmowyRodzaje" EntitySet="UmowyRodzaje" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UmowyRodzaje_Pracownicy1" Association="Self.FK_UmowyRodzaje_Pracownicy1">
+      <End Role="Pracownicy" EntitySet="Pracownicy" />
+      <End Role="UmowyRodzaje" EntitySet="UmowyRodzaje" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UmowyRodzaje_Pracownicy2" Association="Self.FK_UmowyRodzaje_Pracownicy2">
+      <End Role="Pracownicy" EntitySet="Pracownicy" />
+      <End Role="UmowyRodzaje" EntitySet="UmowyRodzaje" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UmowyStanowiska_Pracownicy" Association="Self.FK_UmowyStanowiska_Pracownicy">
+      <End Role="Pracownicy" EntitySet="Pracownicy" />
+      <End Role="UmowyStanowiska" EntitySet="UmowyStanowiska" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UmowyStanowiska_Pracownicy1" Association="Self.FK_UmowyStanowiska_Pracownicy1">
+      <End Role="Pracownicy" EntitySet="Pracownicy" />
+      <End Role="UmowyStanowiska" EntitySet="UmowyStanowiska" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UmowyStanowiska_Pracownicy2" Association="Self.FK_UmowyStanowiska_Pracownicy2">
+      <End Role="Pracownicy" EntitySet="Pracownicy" />
+      <End Role="UmowyStanowiska" EntitySet="UmowyStanowiska" />
+    </AssociationSet>
+    <AssociationSet Name="FK_WydaniaZewnetrzne_Pracownicy" Association="Self.FK_WydaniaZewnetrzne_Pracownicy">
+      <End Role="Pracownicy" EntitySet="Pracownicy" />
+      <End Role="WydaniaZewnetrzne" EntitySet="WydaniaZewnetrzne" />
+    </AssociationSet>
+    <AssociationSet Name="FK_WydaniaZewnetrzne_Pracownicy1" Association="Self.FK_WydaniaZewnetrzne_Pracownicy1">
+      <End Role="Pracownicy" EntitySet="Pracownicy" />
+      <End Role="WydaniaZewnetrzne" EntitySet="WydaniaZewnetrzne" />
+    </AssociationSet>
+    <AssociationSet Name="FK_WydaniaZewnetrzne_Pracownicy2" Association="Self.FK_WydaniaZewnetrzne_Pracownicy2">
+      <End Role="Pracownicy" EntitySet="Pracownicy" />
+      <End Role="WydaniaZewnetrzne" EntitySet="WydaniaZewnetrzne" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PracownicyUmowy_Umowy" Association="Self.FK_PracownicyUmowy_Umowy">
+      <End Role="Umowy" EntitySet="Umowy" />
+      <End Role="PracownicyUmowy" EntitySet="PracownicyUmowy" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Towary_TowaryGrupy" Association="Self.FK_Towary_TowaryGrupy">
+      <End Role="TowaryGrupy" EntitySet="TowaryGrupy" />
+      <End Role="Towary" EntitySet="Towary" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Towary_TowaryStawkiVat" Association="Self.FK_Towary_TowaryStawkiVat">
+      <End Role="TowaryStawkiVat" EntitySet="TowaryStawkiVat" />
+      <End Role="Towary" EntitySet="Towary" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Towary_TowaryStawkiVat1" Association="Self.FK_Towary_TowaryStawkiVat1">
+      <End Role="TowaryStawkiVat" EntitySet="TowaryStawkiVat" />
+      <End Role="Towary" EntitySet="Towary" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Towary_TowaryTypy" Association="Self.FK_Towary_TowaryTypy">
+      <End Role="TowaryTypy" EntitySet="TowaryTypy" />
+      <End Role="Towary" EntitySet="Towary" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TowaryGrupy_TowaryGrupy" Association="Self.FK_TowaryGrupy_TowaryGrupy">
+      <End Role="TowaryGrupy" EntitySet="TowaryGrupy" />
+      <End Role="TowaryGrupy1" EntitySet="TowaryGrupy" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Umowy_UmowyRodzaje" Association="Self.FK_Umowy_UmowyRodzaje">
+      <End Role="UmowyRodzaje" EntitySet="UmowyRodzaje" />
+      <End Role="Umowy" EntitySet="Umowy" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Umowy_UmowyStanowiska" Association="Self.FK_Umowy_UmowyStanowiska">
+      <End Role="UmowyStanowiska" EntitySet="UmowyStanowiska" />
+      <End Role="Umowy" EntitySet="Umowy" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

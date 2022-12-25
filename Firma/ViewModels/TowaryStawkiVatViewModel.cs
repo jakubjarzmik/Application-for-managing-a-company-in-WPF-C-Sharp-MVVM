@@ -1,4 +1,5 @@
 ﻿using Firma.Models.Entities;
+using Firma.Models.EntitiesForView;
 using Firma.ViewModels.Abstract;
 using System;
 using System.Collections.Generic;
@@ -9,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace Firma.ViewModels
 {
-    class TowaryStawkiVatViewModel : WszystkieViewModel<TowaryStawkiVat>
+    class TowaryStawkiVatViewModel : WszystkieViewModel<StawkaVatTowaruForAllView>
     {
         #region Konstruktor
         public TowaryStawkiVatViewModel() 
@@ -21,11 +22,16 @@ namespace Firma.ViewModels
         #region Helpers
         public override void Load()
         {
-            List = new ObservableCollection<TowaryStawkiVat>
+            List = new ObservableCollection<StawkaVatTowaruForAllView>
                 (
-                    from stawkivat in JJFirmaEntities.TowaryStawkiVat
-                    where stawkivat.CzyAktywny == true
-                    select stawkivat
+                    from stawka in JJFirmaEntities.TowaryStawkiVat
+                    where stawka.CzyAktywny == true
+                    select new StawkaVatTowaruForAllView
+                    {
+                        Kraj = stawka.Kraje.Nazwa,
+                        Stawka = stawka.Stawka,
+                        Opis = stawka.Opis
+                    }
                 );
         }
         #endregion

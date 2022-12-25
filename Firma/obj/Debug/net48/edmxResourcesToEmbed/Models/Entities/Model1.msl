@@ -1,0 +1,560 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="JJFirmaModelStoreContainer" CdmEntityContainer="FirmaEntities">
+    <EntitySetMapping Name="Adresy">
+      <EntityTypeMapping TypeName="JJFirmaModel.Adresy">
+        <MappingFragment StoreEntitySet="Adresy">
+          <ScalarProperty Name="AdresId" ColumnName="AdresId" />
+          <ScalarProperty Name="KrajId" ColumnName="KrajId" />
+          <ScalarProperty Name="Miasto" ColumnName="Miasto" />
+          <ScalarProperty Name="Wojewodztwo" ColumnName="Wojewodztwo" />
+          <ScalarProperty Name="Poczta" ColumnName="Poczta" />
+          <ScalarProperty Name="KodPocztowy" ColumnName="KodPocztowy" />
+          <ScalarProperty Name="Ulica" ColumnName="Ulica" />
+          <ScalarProperty Name="NrDomu" ColumnName="NrDomu" />
+          <ScalarProperty Name="NrLokalu" ColumnName="NrLokalu" />
+          <ScalarProperty Name="Dodatkowe" ColumnName="Dodatkowe" />
+          <ScalarProperty Name="Uwagi" ColumnName="Uwagi" />
+          <ScalarProperty Name="DataUtworzenia" ColumnName="DataUtworzenia" />
+          <ScalarProperty Name="KtoUtworzylId" ColumnName="KtoUtworzylId" />
+          <ScalarProperty Name="DataMod" ColumnName="DataMod" />
+          <ScalarProperty Name="KtoModId" ColumnName="KtoModId" />
+          <ScalarProperty Name="DataUsuniecia" ColumnName="DataUsuniecia" />
+          <ScalarProperty Name="KtoUsunalId" ColumnName="KtoUsunalId" />
+          <ScalarProperty Name="CzyAktywny" ColumnName="CzyAktywny" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Faktury">
+      <EntityTypeMapping TypeName="JJFirmaModel.Faktury">
+        <MappingFragment StoreEntitySet="Faktury">
+          <ScalarProperty Name="FakturaId" ColumnName="FakturaId" />
+          <ScalarProperty Name="RodzajFakturyId" ColumnName="RodzajFakturyId" />
+          <ScalarProperty Name="Numer" ColumnName="Numer" />
+          <ScalarProperty Name="KontrahentId" ColumnName="KontrahentId" />
+          <ScalarProperty Name="KategoriaFakturyId" ColumnName="KategoriaFakturyId" />
+          <ScalarProperty Name="DataWystawienia" ColumnName="DataWystawienia" />
+          <ScalarProperty Name="DataSprzedazy" ColumnName="DataSprzedazy" />
+          <ScalarProperty Name="Rabat" ColumnName="Rabat" />
+          <ScalarProperty Name="RodzajePlatnosciId" ColumnName="RodzajePlatnosciId" />
+          <ScalarProperty Name="DataUtworzenia" ColumnName="DataUtworzenia" />
+          <ScalarProperty Name="KtoUtworzylId" ColumnName="KtoUtworzylId" />
+          <ScalarProperty Name="DataMod" ColumnName="DataMod" />
+          <ScalarProperty Name="KtoModId" ColumnName="KtoModId" />
+          <ScalarProperty Name="DataUsuniecia" ColumnName="DataUsuniecia" />
+          <ScalarProperty Name="KtoUsunalId" ColumnName="KtoUsunalId" />
+          <ScalarProperty Name="CzyAktywny" ColumnName="CzyAktywny" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FakturyKategorie">
+      <EntityTypeMapping TypeName="JJFirmaModel.FakturyKategorie">
+        <MappingFragment StoreEntitySet="FakturyKategorie">
+          <ScalarProperty Name="KategoriaFakturyId" ColumnName="KategoriaFakturyId" />
+          <ScalarProperty Name="Kod" ColumnName="Kod" />
+          <ScalarProperty Name="Nazwa" ColumnName="Nazwa" />
+          <ScalarProperty Name="Opis" ColumnName="Opis" />
+          <ScalarProperty Name="Uwagi" ColumnName="Uwagi" />
+          <ScalarProperty Name="DataUtworzenia" ColumnName="DataUtworzenia" />
+          <ScalarProperty Name="KtoUtworzylId" ColumnName="KtoUtworzylId" />
+          <ScalarProperty Name="DataMod" ColumnName="DataMod" />
+          <ScalarProperty Name="KtoModId" ColumnName="KtoModId" />
+          <ScalarProperty Name="DataUsuniecia" ColumnName="DataUsuniecia" />
+          <ScalarProperty Name="KtoUsunalId" ColumnName="KtoUsunalId" />
+          <ScalarProperty Name="CzyAktywny" ColumnName="CzyAktywny" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FakturyRodzaje">
+      <EntityTypeMapping TypeName="JJFirmaModel.FakturyRodzaje">
+        <MappingFragment StoreEntitySet="FakturyRodzaje">
+          <ScalarProperty Name="RodzajFakturyId" ColumnName="RodzajFakturyId" />
+          <ScalarProperty Name="Kod" ColumnName="Kod" />
+          <ScalarProperty Name="Nazwa" ColumnName="Nazwa" />
+          <ScalarProperty Name="Opis" ColumnName="Opis" />
+          <ScalarProperty Name="Uwagi" ColumnName="Uwagi" />
+          <ScalarProperty Name="DataUtworzenia" ColumnName="DataUtworzenia" />
+          <ScalarProperty Name="KtoUtworzylId" ColumnName="KtoUtworzylId" />
+          <ScalarProperty Name="DataModyfikacji" ColumnName="DataModyfikacji" />
+          <ScalarProperty Name="KtoModId" ColumnName="KtoModId" />
+          <ScalarProperty Name="DataUsuniecia" ColumnName="DataUsuniecia" />
+          <ScalarProperty Name="KtoUsunalId" ColumnName="KtoUsunalId" />
+          <ScalarProperty Name="CzyAktywny" ColumnName="CzyAktywny" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FakturyWydaniaZewnetrzne">
+      <EntityTypeMapping TypeName="JJFirmaModel.FakturyWydaniaZewnetrzne">
+        <MappingFragment StoreEntitySet="FakturyWydaniaZewnetrzne">
+          <ScalarProperty Name="FakturaWZId" ColumnName="FakturaWZId" />
+          <ScalarProperty Name="FakturaId" ColumnName="FakturaId" />
+          <ScalarProperty Name="WydanieZewnetrzneId" ColumnName="WydanieZewnetrzneId" />
+          <ScalarProperty Name="DataUtworzenia" ColumnName="DataUtworzenia" />
+          <ScalarProperty Name="KtoUtworzylId" ColumnName="KtoUtworzylId" />
+          <ScalarProperty Name="DataMod" ColumnName="DataMod" />
+          <ScalarProperty Name="KtoModId" ColumnName="KtoModId" />
+          <ScalarProperty Name="DataUsuniecia" ColumnName="DataUsuniecia" />
+          <ScalarProperty Name="KtoUsunalId" ColumnName="KtoUsunalId" />
+          <ScalarProperty Name="CzyAktywny" ColumnName="CzyAktywny" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="JednostkiMiary">
+      <EntityTypeMapping TypeName="JJFirmaModel.JednostkiMiary">
+        <MappingFragment StoreEntitySet="JednostkiMiary">
+          <ScalarProperty Name="JednostkaId" ColumnName="JednostkaId" />
+          <ScalarProperty Name="Skrot" ColumnName="Skrot" />
+          <ScalarProperty Name="Nazwa" ColumnName="Nazwa" />
+          <ScalarProperty Name="Opis" ColumnName="Opis" />
+          <ScalarProperty Name="Uwagi" ColumnName="Uwagi" />
+          <ScalarProperty Name="DataUtworzenia" ColumnName="DataUtworzenia" />
+          <ScalarProperty Name="KtoUtworzylId" ColumnName="KtoUtworzylId" />
+          <ScalarProperty Name="DataMod" ColumnName="DataMod" />
+          <ScalarProperty Name="KtoModId" ColumnName="KtoModId" />
+          <ScalarProperty Name="DataUsuniecia" ColumnName="DataUsuniecia" />
+          <ScalarProperty Name="KtoUsunalId" ColumnName="KtoUsunalId" />
+          <ScalarProperty Name="CzyAktywny" ColumnName="CzyAktywny" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Kontakty">
+      <EntityTypeMapping TypeName="JJFirmaModel.Kontakty">
+        <MappingFragment StoreEntitySet="Kontakty">
+          <ScalarProperty Name="KontaktId" ColumnName="KontaktId" />
+          <ScalarProperty Name="NazwaDzialu" ColumnName="NazwaDzialu" />
+          <ScalarProperty Name="OpisOsoby" ColumnName="OpisOsoby" />
+          <ScalarProperty Name="Telefon1" ColumnName="Telefon1" />
+          <ScalarProperty Name="Telefon2" ColumnName="Telefon2" />
+          <ScalarProperty Name="Fax" ColumnName="Fax" />
+          <ScalarProperty Name="Email1" ColumnName="Email1" />
+          <ScalarProperty Name="Email2" ColumnName="Email2" />
+          <ScalarProperty Name="Uwagi" ColumnName="Uwagi" />
+          <ScalarProperty Name="DataUtworzenia" ColumnName="DataUtworzenia" />
+          <ScalarProperty Name="KtoUtworzylId" ColumnName="KtoUtworzylId" />
+          <ScalarProperty Name="DataMod" ColumnName="DataMod" />
+          <ScalarProperty Name="KtoModId" ColumnName="KtoModId" />
+          <ScalarProperty Name="DataUsuniecia" ColumnName="DataUsuniecia" />
+          <ScalarProperty Name="KtoUsunalId" ColumnName="KtoUsunalId" />
+          <ScalarProperty Name="CzyAktywny" ColumnName="CzyAktywny" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Kontrahenci">
+      <EntityTypeMapping TypeName="JJFirmaModel.Kontrahenci">
+        <MappingFragment StoreEntitySet="Kontrahenci">
+          <ScalarProperty Name="KontrahentId" ColumnName="KontrahentId" />
+          <ScalarProperty Name="Kod" ColumnName="Kod" />
+          <ScalarProperty Name="Nip" ColumnName="Nip" />
+          <ScalarProperty Name="RodzajKontrahentaId" ColumnName="RodzajKontrahentaId" />
+          <ScalarProperty Name="Regon" ColumnName="Regon" />
+          <ScalarProperty Name="DokumentTozsamosci" ColumnName="DokumentTozsamosci" />
+          <ScalarProperty Name="PESEL" ColumnName="PESEL" />
+          <ScalarProperty Name="Nazwa1" ColumnName="Nazwa1" />
+          <ScalarProperty Name="Nazwa2" ColumnName="Nazwa2" />
+          <ScalarProperty Name="Nazwa3" ColumnName="Nazwa3" />
+          <ScalarProperty Name="JednostkaPodlegaPodId" ColumnName="JednostkaPodlegaPodId" />
+          <ScalarProperty Name="AdresId" ColumnName="AdresId" />
+          <ScalarProperty Name="AdresKorId" ColumnName="AdresKorId" />
+          <ScalarProperty Name="URL" ColumnName="URL" />
+          <ScalarProperty Name="DataUtworzenia" ColumnName="DataUtworzenia" />
+          <ScalarProperty Name="KtoUtworzylId" ColumnName="KtoUtworzylId" />
+          <ScalarProperty Name="DataMod" ColumnName="DataMod" />
+          <ScalarProperty Name="KtoModId" ColumnName="KtoModId" />
+          <ScalarProperty Name="DataUsuniecia" ColumnName="DataUsuniecia" />
+          <ScalarProperty Name="KtoUsunalId" ColumnName="KtoUsunalId" />
+          <ScalarProperty Name="CzyAktywny" ColumnName="CzyAktywny" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="KontrahenciKontakty">
+      <EntityTypeMapping TypeName="JJFirmaModel.KontrahenciKontakty">
+        <MappingFragment StoreEntitySet="KontrahenciKontakty">
+          <ScalarProperty Name="KontrahentKontaktId" ColumnName="KontrahentKontaktId" />
+          <ScalarProperty Name="KontrahentId" ColumnName="KontrahentId" />
+          <ScalarProperty Name="KontaktId" ColumnName="KontaktId" />
+          <ScalarProperty Name="DataUtworzenia" ColumnName="DataUtworzenia" />
+          <ScalarProperty Name="KtoUtworzylId" ColumnName="KtoUtworzylId" />
+          <ScalarProperty Name="DataMod" ColumnName="DataMod" />
+          <ScalarProperty Name="KtoModId" ColumnName="KtoModId" />
+          <ScalarProperty Name="DataUsuniecia" ColumnName="DataUsuniecia" />
+          <ScalarProperty Name="KtoUsunalId" ColumnName="KtoUsunalId" />
+          <ScalarProperty Name="CzyAktywny" ColumnName="CzyAktywny" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="KontrahenciRodzaje">
+      <EntityTypeMapping TypeName="JJFirmaModel.KontrahenciRodzaje">
+        <MappingFragment StoreEntitySet="KontrahenciRodzaje">
+          <ScalarProperty Name="RodzajId" ColumnName="RodzajId" />
+          <ScalarProperty Name="Nazwa" ColumnName="Nazwa" />
+          <ScalarProperty Name="Opis" ColumnName="Opis" />
+          <ScalarProperty Name="Uwagi" ColumnName="Uwagi" />
+          <ScalarProperty Name="DataUtworzenia" ColumnName="DataUtworzenia" />
+          <ScalarProperty Name="KtoUtworzylId" ColumnName="KtoUtworzylId" />
+          <ScalarProperty Name="DataMod" ColumnName="DataMod" />
+          <ScalarProperty Name="KtoModId" ColumnName="KtoModId" />
+          <ScalarProperty Name="DataUsuniecia" ColumnName="DataUsuniecia" />
+          <ScalarProperty Name="KtoUsunalId" ColumnName="KtoUsunalId" />
+          <ScalarProperty Name="CzyAktywny" ColumnName="CzyAktywny" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Kraje">
+      <EntityTypeMapping TypeName="JJFirmaModel.Kraje">
+        <MappingFragment StoreEntitySet="Kraje">
+          <ScalarProperty Name="KrajId" ColumnName="KrajId" />
+          <ScalarProperty Name="Nazwa" ColumnName="Nazwa" />
+          <ScalarProperty Name="ISO" ColumnName="ISO" />
+          <ScalarProperty Name="DataUtworzenia" ColumnName="DataUtworzenia" />
+          <ScalarProperty Name="KtoUtworzylId" ColumnName="KtoUtworzylId" />
+          <ScalarProperty Name="DataMod" ColumnName="DataMod" />
+          <ScalarProperty Name="KtoModId" ColumnName="KtoModId" />
+          <ScalarProperty Name="DataUsuniecia" ColumnName="DataUsuniecia" />
+          <ScalarProperty Name="KtoUsunalId" ColumnName="KtoUsunalId" />
+          <ScalarProperty Name="CzyAktywny" ColumnName="CzyAktywny" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Magazyny">
+      <EntityTypeMapping TypeName="JJFirmaModel.Magazyny">
+        <MappingFragment StoreEntitySet="Magazyny">
+          <ScalarProperty Name="MagazynId" ColumnName="MagazynId" />
+          <ScalarProperty Name="Symbol" ColumnName="Symbol" />
+          <ScalarProperty Name="Nazwa" ColumnName="Nazwa" />
+          <ScalarProperty Name="Opis" ColumnName="Opis" />
+          <ScalarProperty Name="TypMagazynuId" ColumnName="TypMagazynuId" />
+          <ScalarProperty Name="AdresId" ColumnName="AdresId" />
+          <ScalarProperty Name="Telefon" ColumnName="Telefon" />
+          <ScalarProperty Name="DataUtworzenia" ColumnName="DataUtworzenia" />
+          <ScalarProperty Name="KtoUtworzylId" ColumnName="KtoUtworzylId" />
+          <ScalarProperty Name="DataMod" ColumnName="DataMod" />
+          <ScalarProperty Name="KtoModId" ColumnName="KtoModId" />
+          <ScalarProperty Name="DataUsuniecia" ColumnName="DataUsuniecia" />
+          <ScalarProperty Name="KtoUsunalId" ColumnName="KtoUsunalId" />
+          <ScalarProperty Name="CzyAktywny" ColumnName="CzyAktywny" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MagazynyTypy">
+      <EntityTypeMapping TypeName="JJFirmaModel.MagazynyTypy">
+        <MappingFragment StoreEntitySet="MagazynyTypy">
+          <ScalarProperty Name="TypMagazynuId" ColumnName="TypMagazynuId" />
+          <ScalarProperty Name="Symbol" ColumnName="Symbol" />
+          <ScalarProperty Name="Nazwa" ColumnName="Nazwa" />
+          <ScalarProperty Name="Opis" ColumnName="Opis" />
+          <ScalarProperty Name="Uwagi" ColumnName="Uwagi" />
+          <ScalarProperty Name="DataUtworzenia" ColumnName="DataUtworzenia" />
+          <ScalarProperty Name="KtoUtworzylId" ColumnName="KtoUtworzylId" />
+          <ScalarProperty Name="DataMod" ColumnName="DataMod" />
+          <ScalarProperty Name="KtoModId" ColumnName="KtoModId" />
+          <ScalarProperty Name="DataUsuniecia" ColumnName="DataUsuniecia" />
+          <ScalarProperty Name="KtoUsunalId" ColumnName="KtoUsunalId" />
+          <ScalarProperty Name="CzyAktywny" ColumnName="CzyAktywny" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PozycjePrzyjeciaZewnetrznego">
+      <EntityTypeMapping TypeName="JJFirmaModel.PozycjePrzyjeciaZewnetrznego">
+        <MappingFragment StoreEntitySet="PozycjePrzyjeciaZewnetrznego">
+          <ScalarProperty Name="PozycjaPZId" ColumnName="PozycjaPZId" />
+          <ScalarProperty Name="PrzyjecieZewnetrzneId" ColumnName="PrzyjecieZewnetrzneId" />
+          <ScalarProperty Name="TowarId" ColumnName="TowarId" />
+          <ScalarProperty Name="Ilosc" ColumnName="Ilosc" />
+          <ScalarProperty Name="JednMiaryId" ColumnName="JednMiaryId" />
+          <ScalarProperty Name="PierwotnaCenaZakupu" ColumnName="PierwotnaCenaZakupu" />
+          <ScalarProperty Name="Rabat" ColumnName="Rabat" />
+          <ScalarProperty Name="DataUtworzenia" ColumnName="DataUtworzenia" />
+          <ScalarProperty Name="KtoUtworzylId" ColumnName="KtoUtworzylId" />
+          <ScalarProperty Name="DataMod" ColumnName="DataMod" />
+          <ScalarProperty Name="KtoModId" ColumnName="KtoModId" />
+          <ScalarProperty Name="DataUsuniecia" ColumnName="DataUsuniecia" />
+          <ScalarProperty Name="KtoUsunalId" ColumnName="KtoUsunalId" />
+          <ScalarProperty Name="CzyAktywny" ColumnName="CzyAktywny" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PozycjeWydaniaZewnetrznego">
+      <EntityTypeMapping TypeName="JJFirmaModel.PozycjeWydaniaZewnetrznego">
+        <MappingFragment StoreEntitySet="PozycjeWydaniaZewnetrznego">
+          <ScalarProperty Name="PozycjaWZId" ColumnName="PozycjaWZId" />
+          <ScalarProperty Name="WydanieZewnetrzneId" ColumnName="WydanieZewnetrzneId" />
+          <ScalarProperty Name="TowarId" ColumnName="TowarId" />
+          <ScalarProperty Name="Ilosc" ColumnName="Ilosc" />
+          <ScalarProperty Name="JednMiaryId" ColumnName="JednMiaryId" />
+          <ScalarProperty Name="Rabat" ColumnName="Rabat" />
+          <ScalarProperty Name="DataUtworzenia" ColumnName="DataUtworzenia" />
+          <ScalarProperty Name="KtoUtworzylId" ColumnName="KtoUtworzylId" />
+          <ScalarProperty Name="DataMod" ColumnName="DataMod" />
+          <ScalarProperty Name="KtoModId" ColumnName="KtoModId" />
+          <ScalarProperty Name="DataUsuniecia" ColumnName="DataUsuniecia" />
+          <ScalarProperty Name="KtoUsunalId" ColumnName="KtoUsunalId" />
+          <ScalarProperty Name="CzyAktywny" ColumnName="CzyAktywny" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Pracownicy">
+      <EntityTypeMapping TypeName="JJFirmaModel.Pracownicy">
+        <MappingFragment StoreEntitySet="Pracownicy">
+          <ScalarProperty Name="PracownikId" ColumnName="PracownikId" />
+          <ScalarProperty Name="Akronim" ColumnName="Akronim" />
+          <ScalarProperty Name="Nazwisko" ColumnName="Nazwisko" />
+          <ScalarProperty Name="Imie" ColumnName="Imie" />
+          <ScalarProperty Name="DrugieImie" ColumnName="DrugieImie" />
+          <ScalarProperty Name="PESEL" ColumnName="PESEL" />
+          <ScalarProperty Name="NipKraj" ColumnName="NipKraj" />
+          <ScalarProperty Name="Nip" ColumnName="Nip" />
+          <ScalarProperty Name="DataUrodzenia" ColumnName="DataUrodzenia" />
+          <ScalarProperty Name="MiejsceUrodzenia" ColumnName="MiejsceUrodzenia" />
+          <ScalarProperty Name="ImieOjca" ColumnName="ImieOjca" />
+          <ScalarProperty Name="ImieMatki" ColumnName="ImieMatki" />
+          <ScalarProperty Name="NazwiskoRodowe" ColumnName="NazwiskoRodowe" />
+          <ScalarProperty Name="NazwiskoRodoweMatki" ColumnName="NazwiskoRodoweMatki" />
+          <ScalarProperty Name="AdresId" ColumnName="AdresId" />
+          <ScalarProperty Name="Telefon" ColumnName="Telefon" />
+          <ScalarProperty Name="TelefonSMS" ColumnName="TelefonSMS" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Uwagi" ColumnName="Uwagi" />
+          <ScalarProperty Name="DataUtworzenia" ColumnName="DataUtworzenia" />
+          <ScalarProperty Name="KtoUtworzylId" ColumnName="KtoUtworzylId" />
+          <ScalarProperty Name="DataMod" ColumnName="DataMod" />
+          <ScalarProperty Name="KtoModId" ColumnName="KtoModId" />
+          <ScalarProperty Name="DataUsuniecia" ColumnName="DataUsuniecia" />
+          <ScalarProperty Name="KtoUsunalId" ColumnName="KtoUsunalId" />
+          <ScalarProperty Name="CzyAktywny" ColumnName="CzyAktywny" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PracownicyUmowy">
+      <EntityTypeMapping TypeName="JJFirmaModel.PracownicyUmowy">
+        <MappingFragment StoreEntitySet="PracownicyUmowy">
+          <ScalarProperty Name="PracownikUmowaId" ColumnName="PracownikUmowaId" />
+          <ScalarProperty Name="PracownikId" ColumnName="PracownikId" />
+          <ScalarProperty Name="UmowaId" ColumnName="UmowaId" />
+          <ScalarProperty Name="DataUtworzenia" ColumnName="DataUtworzenia" />
+          <ScalarProperty Name="KtoUtworzylId" ColumnName="KtoUtworzylId" />
+          <ScalarProperty Name="DataMod" ColumnName="DataMod" />
+          <ScalarProperty Name="KtoModId" ColumnName="KtoModId" />
+          <ScalarProperty Name="DataUsuniecia" ColumnName="DataUsuniecia" />
+          <ScalarProperty Name="KtoUsunalId" ColumnName="KtoUsunalId" />
+          <ScalarProperty Name="CzyAktywny" ColumnName="CzyAktywny" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PrzyjeciaZewnetrzne">
+      <EntityTypeMapping TypeName="JJFirmaModel.PrzyjeciaZewnetrzne">
+        <MappingFragment StoreEntitySet="PrzyjeciaZewnetrzne">
+          <ScalarProperty Name="PrzyjecieZewnetrzneId" ColumnName="PrzyjecieZewnetrzneId" />
+          <ScalarProperty Name="Numer" ColumnName="Numer" />
+          <ScalarProperty Name="KontrahentId" ColumnName="KontrahentId" />
+          <ScalarProperty Name="MagazynId" ColumnName="MagazynId" />
+          <ScalarProperty Name="DataWystawienia" ColumnName="DataWystawienia" />
+          <ScalarProperty Name="DataPrzyjecia" ColumnName="DataPrzyjecia" />
+          <ScalarProperty Name="Rabat" ColumnName="Rabat" />
+          <ScalarProperty Name="DataUtworzenia" ColumnName="DataUtworzenia" />
+          <ScalarProperty Name="KtoUtworzylId" ColumnName="KtoUtworzylId" />
+          <ScalarProperty Name="DataMod" ColumnName="DataMod" />
+          <ScalarProperty Name="KtoModId" ColumnName="KtoModId" />
+          <ScalarProperty Name="DataUsuniecia" ColumnName="DataUsuniecia" />
+          <ScalarProperty Name="KtoUsunalId" ColumnName="KtoUsunalId" />
+          <ScalarProperty Name="CzyAktywny" ColumnName="CzyAktywny" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RodzajePlatnosci">
+      <EntityTypeMapping TypeName="JJFirmaModel.RodzajePlatnosci">
+        <MappingFragment StoreEntitySet="RodzajePlatnosci">
+          <ScalarProperty Name="RodzajPlatnosciId" ColumnName="RodzajPlatnosciId" />
+          <ScalarProperty Name="Nazwa" ColumnName="Nazwa" />
+          <ScalarProperty Name="IloscDniSplaty" ColumnName="IloscDniSplaty" />
+          <ScalarProperty Name="Opis" ColumnName="Opis" />
+          <ScalarProperty Name="Uwagi" ColumnName="Uwagi" />
+          <ScalarProperty Name="DataUtworzenia" ColumnName="DataUtworzenia" />
+          <ScalarProperty Name="KtoUtworzylId" ColumnName="KtoUtworzylId" />
+          <ScalarProperty Name="DataMod" ColumnName="DataMod" />
+          <ScalarProperty Name="KtoModId" ColumnName="KtoModId" />
+          <ScalarProperty Name="DataUsuniecia" ColumnName="DataUsuniecia" />
+          <ScalarProperty Name="KtoUsunalId" ColumnName="KtoUsunalId" />
+          <ScalarProperty Name="CzyAktywny" ColumnName="CzyAktywny" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="JJFirmaModel.sysdiagrams">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Towary">
+      <EntityTypeMapping TypeName="JJFirmaModel.Towary">
+        <MappingFragment StoreEntitySet="Towary">
+          <ScalarProperty Name="TowarId" ColumnName="TowarId" />
+          <ScalarProperty Name="Kod" ColumnName="Kod" />
+          <ScalarProperty Name="NumerKatalogowy" ColumnName="NumerKatalogowy" />
+          <ScalarProperty Name="GrupaTowaruId" ColumnName="GrupaTowaruId" />
+          <ScalarProperty Name="TypTowaruId" ColumnName="TypTowaruId" />
+          <ScalarProperty Name="EAN" ColumnName="EAN" />
+          <ScalarProperty Name="SWW" ColumnName="SWW" />
+          <ScalarProperty Name="ProducentId" ColumnName="ProducentId" />
+          <ScalarProperty Name="URL" ColumnName="URL" />
+          <ScalarProperty Name="VatSprzId" ColumnName="VatSprzId" />
+          <ScalarProperty Name="VatZakId" ColumnName="VatZakId" />
+          <ScalarProperty Name="Mpp" ColumnName="Mpp" />
+          <ScalarProperty Name="KrajPochodzeniaId" ColumnName="KrajPochodzeniaId" />
+          <ScalarProperty Name="Nazwa" ColumnName="Nazwa" />
+          <ScalarProperty Name="NazwaFiskalna" ColumnName="NazwaFiskalna" />
+          <ScalarProperty Name="Opis" ColumnName="Opis" />
+          <ScalarProperty Name="Uwagi" ColumnName="Uwagi" />
+          <ScalarProperty Name="DataUtworzenia" ColumnName="DataUtworzenia" />
+          <ScalarProperty Name="KtoUtworzylId" ColumnName="KtoUtworzylId" />
+          <ScalarProperty Name="DataMod" ColumnName="DataMod" />
+          <ScalarProperty Name="KtoModId" ColumnName="KtoModId" />
+          <ScalarProperty Name="DataUsuniecia" ColumnName="DataUsuniecia" />
+          <ScalarProperty Name="KtoUsunalId" ColumnName="KtoUsunalId" />
+          <ScalarProperty Name="CzyAktywny" ColumnName="CzyAktywny" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TowaryGrupy">
+      <EntityTypeMapping TypeName="JJFirmaModel.TowaryGrupy">
+        <MappingFragment StoreEntitySet="TowaryGrupy">
+          <ScalarProperty Name="GrupaTowaruId" ColumnName="GrupaTowaruId" />
+          <ScalarProperty Name="GrupaNadrzednaId" ColumnName="GrupaNadrzednaId" />
+          <ScalarProperty Name="Kod" ColumnName="Kod" />
+          <ScalarProperty Name="Nazwa" ColumnName="Nazwa" />
+          <ScalarProperty Name="Opis" ColumnName="Opis" />
+          <ScalarProperty Name="Uwagi" ColumnName="Uwagi" />
+          <ScalarProperty Name="DataUtworzenia" ColumnName="DataUtworzenia" />
+          <ScalarProperty Name="KtoUtworzylId" ColumnName="KtoUtworzylId" />
+          <ScalarProperty Name="DataMod" ColumnName="DataMod" />
+          <ScalarProperty Name="KtoModId" ColumnName="KtoModId" />
+          <ScalarProperty Name="DataUsuniecia" ColumnName="DataUsuniecia" />
+          <ScalarProperty Name="KtoUsunalId" ColumnName="KtoUsunalId" />
+          <ScalarProperty Name="CzyAktywny" ColumnName="CzyAktywny" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TowaryStawkiVat">
+      <EntityTypeMapping TypeName="JJFirmaModel.TowaryStawkiVat">
+        <MappingFragment StoreEntitySet="TowaryStawkiVat">
+          <ScalarProperty Name="StawkiVatId" ColumnName="StawkiVatId" />
+          <ScalarProperty Name="KrajId" ColumnName="KrajId" />
+          <ScalarProperty Name="Stawka" ColumnName="Stawka" />
+          <ScalarProperty Name="Opis" ColumnName="Opis" />
+          <ScalarProperty Name="DataUtworzenia" ColumnName="DataUtworzenia" />
+          <ScalarProperty Name="KtoUtworzylId" ColumnName="KtoUtworzylId" />
+          <ScalarProperty Name="DataMod" ColumnName="DataMod" />
+          <ScalarProperty Name="KtoModId" ColumnName="KtoModId" />
+          <ScalarProperty Name="DataUsuniecia" ColumnName="DataUsuniecia" />
+          <ScalarProperty Name="KtoUsunalId" ColumnName="KtoUsunalId" />
+          <ScalarProperty Name="CzyAktywny" ColumnName="CzyAktywny" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TowaryTypy">
+      <EntityTypeMapping TypeName="JJFirmaModel.TowaryTypy">
+        <MappingFragment StoreEntitySet="TowaryTypy">
+          <ScalarProperty Name="TypTowaruId" ColumnName="TypTowaruId" />
+          <ScalarProperty Name="Nazwa" ColumnName="Nazwa" />
+          <ScalarProperty Name="Opis" ColumnName="Opis" />
+          <ScalarProperty Name="Uwagi" ColumnName="Uwagi" />
+          <ScalarProperty Name="DataUtworzenia" ColumnName="DataUtworzenia" />
+          <ScalarProperty Name="KtoUtworzylId" ColumnName="KtoUtworzylId" />
+          <ScalarProperty Name="DataMod" ColumnName="DataMod" />
+          <ScalarProperty Name="KtoModId" ColumnName="KtoModId" />
+          <ScalarProperty Name="DataUsuniecia" ColumnName="DataUsuniecia" />
+          <ScalarProperty Name="KtoUsunalId" ColumnName="KtoUsunalId" />
+          <ScalarProperty Name="CzyAktywny" ColumnName="CzyAktywny" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Umowy">
+      <EntityTypeMapping TypeName="JJFirmaModel.Umowy">
+        <MappingFragment StoreEntitySet="Umowy">
+          <ScalarProperty Name="UmowaId" ColumnName="UmowaId" />
+          <ScalarProperty Name="NrUmowy" ColumnName="NrUmowy" />
+          <ScalarProperty Name="RodzajUmowyId" ColumnName="RodzajUmowyId" />
+          <ScalarProperty Name="StanowiskoId" ColumnName="StanowiskoId" />
+          <ScalarProperty Name="DataZawarcia" ColumnName="DataZawarcia" />
+          <ScalarProperty Name="DataOd" ColumnName="DataOd" />
+          <ScalarProperty Name="DataDo" ColumnName="DataDo" />
+          <ScalarProperty Name="StawkaBruttoMies" ColumnName="StawkaBruttoMies" />
+          <ScalarProperty Name="StawkaBruttoGodz" ColumnName="StawkaBruttoGodz" />
+          <ScalarProperty Name="CzasPracyMies" ColumnName="CzasPracyMies" />
+          <ScalarProperty Name="Opis" ColumnName="Opis" />
+          <ScalarProperty Name="JestEmerytalne" ColumnName="JestEmerytalne" />
+          <ScalarProperty Name="JestRentowe" ColumnName="JestRentowe" />
+          <ScalarProperty Name="JestChorobowe" ColumnName="JestChorobowe" />
+          <ScalarProperty Name="JestWypadkowe" ColumnName="JestWypadkowe" />
+          <ScalarProperty Name="DataUtworzenia" ColumnName="DataUtworzenia" />
+          <ScalarProperty Name="KtoUtworzylId" ColumnName="KtoUtworzylId" />
+          <ScalarProperty Name="DataMod" ColumnName="DataMod" />
+          <ScalarProperty Name="KtoModId" ColumnName="KtoModId" />
+          <ScalarProperty Name="DataUsuniecia" ColumnName="DataUsuniecia" />
+          <ScalarProperty Name="KtoUsunalId" ColumnName="KtoUsunalId" />
+          <ScalarProperty Name="CzyAktywny" ColumnName="CzyAktywny" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UmowyRodzaje">
+      <EntityTypeMapping TypeName="JJFirmaModel.UmowyRodzaje">
+        <MappingFragment StoreEntitySet="UmowyRodzaje">
+          <ScalarProperty Name="RodzajUmowyId" ColumnName="RodzajUmowyId" />
+          <ScalarProperty Name="Kod" ColumnName="Kod" />
+          <ScalarProperty Name="Nazwa" ColumnName="Nazwa" />
+          <ScalarProperty Name="Opis" ColumnName="Opis" />
+          <ScalarProperty Name="Uwagi" ColumnName="Uwagi" />
+          <ScalarProperty Name="DataUtworzenia" ColumnName="DataUtworzenia" />
+          <ScalarProperty Name="KtoUtworzylId" ColumnName="KtoUtworzylId" />
+          <ScalarProperty Name="DataMod" ColumnName="DataMod" />
+          <ScalarProperty Name="KtoModId" ColumnName="KtoModId" />
+          <ScalarProperty Name="DataUsuniecia" ColumnName="DataUsuniecia" />
+          <ScalarProperty Name="KtoUsunalId" ColumnName="KtoUsunalId" />
+          <ScalarProperty Name="CzyAktywny" ColumnName="CzyAktywny" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UmowyStanowiska">
+      <EntityTypeMapping TypeName="JJFirmaModel.UmowyStanowiska">
+        <MappingFragment StoreEntitySet="UmowyStanowiska">
+          <ScalarProperty Name="StanowiskoId" ColumnName="StanowiskoId" />
+          <ScalarProperty Name="KodZawodu" ColumnName="KodZawodu" />
+          <ScalarProperty Name="Nazwa" ColumnName="Nazwa" />
+          <ScalarProperty Name="Opis" ColumnName="Opis" />
+          <ScalarProperty Name="Uwagi" ColumnName="Uwagi" />
+          <ScalarProperty Name="DataUtworzenia" ColumnName="DataUtworzenia" />
+          <ScalarProperty Name="KtoUtworzylId" ColumnName="KtoUtworzylId" />
+          <ScalarProperty Name="DataMod" ColumnName="DataMod" />
+          <ScalarProperty Name="KtoModId" ColumnName="KtoModId" />
+          <ScalarProperty Name="DataUsuniecia" ColumnName="DataUsuniecia" />
+          <ScalarProperty Name="KtoUsunalId" ColumnName="KtoUsunalId" />
+          <ScalarProperty Name="CzyAktywny" ColumnName="CzyAktywny" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="WydaniaZewnetrzne">
+      <EntityTypeMapping TypeName="JJFirmaModel.WydaniaZewnetrzne">
+        <MappingFragment StoreEntitySet="WydaniaZewnetrzne">
+          <ScalarProperty Name="WydanieZewnetrzneId" ColumnName="WydanieZewnetrzneId" />
+          <ScalarProperty Name="Numer" ColumnName="Numer" />
+          <ScalarProperty Name="KontrahentId" ColumnName="KontrahentId" />
+          <ScalarProperty Name="MagazynId" ColumnName="MagazynId" />
+          <ScalarProperty Name="DataWystawienia" ColumnName="DataWystawienia" />
+          <ScalarProperty Name="DataWydania" ColumnName="DataWydania" />
+          <ScalarProperty Name="Rabat" ColumnName="Rabat" />
+          <ScalarProperty Name="DataUtworzenia" ColumnName="DataUtworzenia" />
+          <ScalarProperty Name="KtoUtworzylId" ColumnName="KtoUtworzylId" />
+          <ScalarProperty Name="DataMod" ColumnName="DataMod" />
+          <ScalarProperty Name="KtoModId" ColumnName="KtoModId" />
+          <ScalarProperty Name="DataUsuniecia" ColumnName="DataUsuniecia" />
+          <ScalarProperty Name="KtoUsunalId" ColumnName="KtoUsunalId" />
+          <ScalarProperty Name="CzyAktywny" ColumnName="CzyAktywny" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
