@@ -143,6 +143,7 @@ using System.Xml.Serialization;
 [assembly: EdmRelationshipAttribute("JJFirmaModel", "FK_ZmianyCeny_Pracownicy1", "Pracownicy", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Firma.Models.Entities.Pracownicy), "ZmianyCeny", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Firma.Models.Entities.ZmianyCeny), true)]
 [assembly: EdmRelationshipAttribute("JJFirmaModel", "FK_ZmianyCeny_Pracownicy2", "Pracownicy", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Firma.Models.Entities.Pracownicy), "ZmianyCeny", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Firma.Models.Entities.ZmianyCeny), true)]
 [assembly: EdmRelationshipAttribute("JJFirmaModel", "FK_ZmianyCeny_Towary", "Towary", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Firma.Models.Entities.Towary), "ZmianyCeny", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Firma.Models.Entities.ZmianyCeny), true)]
+[assembly: EdmRelationshipAttribute("JJFirmaModel", "FK_Towary_JednostkiMiary", "JednostkiMiary", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Firma.Models.Entities.JednostkiMiary), "Towary", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Firma.Models.Entities.Towary), true)]
 
 #endregion
 
@@ -4300,6 +4301,28 @@ namespace Firma.Models.Entities
                 if ((value != null))
                 {
                     ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<ZmianyCeny>("JJFirmaModel.FK_ZmianyCeny_JednostkiMiary", "ZmianyCeny", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("JJFirmaModel", "FK_Towary_JednostkiMiary", "Towary")]
+        public EntityCollection<Towary> Towary
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Towary>("JJFirmaModel.FK_Towary_JednostkiMiary", "Towary");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Towary>("JJFirmaModel.FK_Towary_JednostkiMiary", "Towary", value);
                 }
             }
         }
@@ -14619,6 +14642,30 @@ namespace Firma.Models.Entities
         private global::System.Boolean _CzyAktywny;
         partial void OnCzyAktywnyChanging(global::System.Boolean value);
         partial void OnCzyAktywnyChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> DomJednMiaryId
+        {
+            get
+            {
+                return _DomJednMiaryId;
+            }
+            set
+            {
+                OnDomJednMiaryIdChanging(value);
+                ReportPropertyChanging("DomJednMiaryId");
+                _DomJednMiaryId = StructuralObject.SetValidValue(value, "DomJednMiaryId");
+                ReportPropertyChanged("DomJednMiaryId");
+                OnDomJednMiaryIdChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _DomJednMiaryId;
+        partial void OnDomJednMiaryIdChanging(Nullable<global::System.Int32> value);
+        partial void OnDomJednMiaryIdChanged();
 
         #endregion
 
@@ -15028,6 +15075,44 @@ namespace Firma.Models.Entities
                 if ((value != null))
                 {
                     ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<ZmianyCeny>("JJFirmaModel.FK_ZmianyCeny_Towary", "ZmianyCeny", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("JJFirmaModel", "FK_Towary_JednostkiMiary", "JednostkiMiary")]
+        public JednostkiMiary JednostkiMiary
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<JednostkiMiary>("JJFirmaModel.FK_Towary_JednostkiMiary", "JednostkiMiary").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<JednostkiMiary>("JJFirmaModel.FK_Towary_JednostkiMiary", "JednostkiMiary").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<JednostkiMiary> JednostkiMiaryReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<JednostkiMiary>("JJFirmaModel.FK_Towary_JednostkiMiary", "JednostkiMiary");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<JednostkiMiary>("JJFirmaModel.FK_Towary_JednostkiMiary", "JednostkiMiary", value);
                 }
             }
         }

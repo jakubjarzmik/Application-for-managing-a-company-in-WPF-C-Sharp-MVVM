@@ -313,11 +313,18 @@ namespace Firma.ViewModels
                 return new BaseCommand(() => showAllZmianyCeny());
             }
         }
-        public ICommand RaportSprzedazyCommand
+        public ICommand SrednieWynagrodzenieCommand
         {
             get
             {
                 return new BaseCommand(() => createView(new SrednieWynagrodzenieViewModel()));
+            }
+        }
+        public ICommand RaportSprzedazyCommand
+        {
+            get
+            {
+                return new BaseCommand(() => createView(new RaportSprzedazyViewModel()));
             }
         }
         #endregion
@@ -389,7 +396,8 @@ namespace Firma.ViewModels
                 new CommandViewModel("Stawki VAT", new BaseCommand(()=>showAllTowaryStawkiVat()),"",""),
                 new CommandViewModel("Umowy", new BaseCommand(()=>showAllUmowy()),"",""),
                 new CommandViewModel("Zmiany ceny", new BaseCommand(()=>showAllZmianyCeny()),"",""),
-                new CommandViewModel("Średnie wynagrodzenie",new BaseCommand(()=>createView(new SrednieWynagrodzenieViewModel())),"",""),
+                new CommandViewModel("Średnie wynagrodz.",new BaseCommand(()=>createView(new SrednieWynagrodzenieViewModel())),"",""),
+                new CommandViewModel("Raport sprzedaży",new BaseCommand(()=>createView(new RaportSprzedazyViewModel())),"",""),
                 
                 //new CommandViewModel("Nowa grupa towarów",new BaseCommand(()=>createView(new NowaGrupaTowarowViewModel())),"",""),
                 

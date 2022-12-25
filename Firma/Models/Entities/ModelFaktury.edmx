@@ -392,6 +392,7 @@
           <Property Name="KrajPochodzeniaId" Type="int" Nullable="false" />
           <Property Name="Nazwa" Type="nvarchar" MaxLength="255" Nullable="false" />
           <Property Name="NazwaFiskalna" Type="nvarchar" MaxLength="40" Nullable="false" />
+          <Property Name="DomJednMiaryId" Type="int" />
           <Property Name="Opis" Type="nvarchar(max)" Nullable="false" />
           <Property Name="Uwagi" Type="nvarchar" MaxLength="254" Nullable="false" />
           <Property Name="DataUtworzenia" Type="datetime" Nullable="false" />
@@ -1546,6 +1547,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Towary_JednostkiMiary">
+          <End Role="JednostkiMiary" Type="Self.JednostkiMiary" Multiplicity="0..1" />
+          <End Role="Towary" Type="Self.Towary" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="JednostkiMiary">
+              <PropertyRef Name="JednostkaId" />
+            </Principal>
+            <Dependent Role="Towary">
+              <PropertyRef Name="DomJednMiaryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Towary_Kontrahenci">
           <End Role="Kontrahenci" Type="Self.Kontrahenci" Multiplicity="1" />
           <End Role="Towary" Type="Self.Towary" Multiplicity="*" />
@@ -2431,6 +2444,10 @@
             <End Role="Pracownicy" EntitySet="Pracownicy" />
             <End Role="RodzajePlatnosci" EntitySet="RodzajePlatnosci" />
           </AssociationSet>
+          <AssociationSet Name="FK_Towary_JednostkiMiary" Association="Self.FK_Towary_JednostkiMiary">
+            <End Role="JednostkiMiary" EntitySet="JednostkiMiary" />
+            <End Role="Towary" EntitySet="Towary" />
+          </AssociationSet>
           <AssociationSet Name="FK_Towary_Kontrahenci" Association="Self.FK_Towary_Kontrahenci">
             <End Role="Kontrahenci" EntitySet="Kontrahenci" />
             <End Role="Towary" EntitySet="Towary" />
@@ -2744,6 +2761,7 @@
           <NavigationProperty Name="PozycjePrzyjeciaZewnetrznego" Relationship="Self.FK_PozycjePrzyjeciaZewnetrznego_JednostkiMiary" FromRole="JednostkiMiary" ToRole="PozycjePrzyjeciaZewnetrznego" />
           <NavigationProperty Name="PozycjeWydaniaZewnetrznego" Relationship="Self.FK_PozycjeWydaniaZewnetrznego_JednostkiMiary" FromRole="JednostkiMiary" ToRole="PozycjeWydaniaZewnetrznego" />
           <NavigationProperty Name="ZmianyCeny" Relationship="JJFirmaModel.FK_ZmianyCeny_JednostkiMiary" FromRole="JednostkiMiary" ToRole="ZmianyCeny" />
+          <NavigationProperty Name="Towary" Relationship="JJFirmaModel.FK_Towary_JednostkiMiary" FromRole="JednostkiMiary" ToRole="Towary" />
         </EntityType>
         <EntityType Name="Kontakty">
           <Key>
@@ -3202,6 +3220,8 @@
           <NavigationProperty Name="TowaryStawkiVat1" Relationship="Self.FK_Towary_TowaryStawkiVat1" FromRole="Towary" ToRole="TowaryStawkiVat" />
           <NavigationProperty Name="TowaryTypy" Relationship="Self.FK_Towary_TowaryTypy" FromRole="Towary" ToRole="TowaryTypy" />
           <NavigationProperty Name="ZmianyCeny" Relationship="JJFirmaModel.FK_ZmianyCeny_Towary" FromRole="Towary" ToRole="ZmianyCeny" />
+          <Property Name="DomJednMiaryId" Type="Int32" />
+          <NavigationProperty Name="JednostkiMiary" Relationship="JJFirmaModel.FK_Towary_JednostkiMiary" FromRole="Towary" ToRole="JednostkiMiary" />
         </EntityType>
         <EntityType Name="TowaryGrupy">
           <Key>
@@ -5324,6 +5344,10 @@
             <End Role="Towary" EntitySet="Towary" />
             <End Role="ZmianyCeny" EntitySet="ZmianyCeny" />
           </AssociationSet>
+          <AssociationSet Name="FK_Towary_JednostkiMiary" Association="JJFirmaModel.FK_Towary_JednostkiMiary">
+            <End Role="JednostkiMiary" EntitySet="JednostkiMiary" />
+            <End Role="Towary" EntitySet="Towary" />
+          </AssociationSet>
         </EntityContainer>
         <EntityType Name="ZmianyCeny">
           <Key>
@@ -5405,6 +5429,18 @@
             </Principal>
             <Dependent Role="ZmianyCeny">
               <PropertyRef Name="TowarId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Towary_JednostkiMiary">
+          <End Type="JJFirmaModel.JednostkiMiary" Role="JednostkiMiary" Multiplicity="0..1" />
+          <End Type="JJFirmaModel.Towary" Role="Towary" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="JednostkiMiary">
+              <PropertyRef Name="JednostkaId" />
+            </Principal>
+            <Dependent Role="Towary">
+              <PropertyRef Name="DomJednMiaryId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -5805,6 +5841,7 @@
           <EntitySetMapping Name="Towary">
             <EntityTypeMapping TypeName="JJFirmaModel.Towary">
               <MappingFragment StoreEntitySet="Towary">
+                <ScalarProperty Name="DomJednMiaryId" ColumnName="DomJednMiaryId" />
                 <ScalarProperty Name="TowarId" ColumnName="TowarId" />
                 <ScalarProperty Name="Kod" ColumnName="Kod" />
                 <ScalarProperty Name="NumerKatalogowy" ColumnName="NumerKatalogowy" />

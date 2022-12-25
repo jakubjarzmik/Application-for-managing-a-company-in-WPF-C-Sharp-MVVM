@@ -387,6 +387,7 @@
     <Property Name="KrajPochodzeniaId" Type="int" Nullable="false" />
     <Property Name="Nazwa" Type="nvarchar" MaxLength="255" Nullable="false" />
     <Property Name="NazwaFiskalna" Type="nvarchar" MaxLength="40" Nullable="false" />
+    <Property Name="DomJednMiaryId" Type="int" />
     <Property Name="Opis" Type="nvarchar(max)" Nullable="false" />
     <Property Name="Uwagi" Type="nvarchar" MaxLength="254" Nullable="false" />
     <Property Name="DataUtworzenia" Type="datetime" Nullable="false" />
@@ -1541,6 +1542,18 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_Towary_JednostkiMiary">
+    <End Role="JednostkiMiary" Type="Self.JednostkiMiary" Multiplicity="0..1" />
+    <End Role="Towary" Type="Self.Towary" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="JednostkiMiary">
+        <PropertyRef Name="JednostkaId" />
+      </Principal>
+      <Dependent Role="Towary">
+        <PropertyRef Name="DomJednMiaryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_Towary_Kontrahenci">
     <End Role="Kontrahenci" Type="Self.Kontrahenci" Multiplicity="1" />
     <End Role="Towary" Type="Self.Towary" Multiplicity="*" />
@@ -2425,6 +2438,10 @@
     <AssociationSet Name="FK_RodzajePlatnosci_Pracownicy2" Association="Self.FK_RodzajePlatnosci_Pracownicy2">
       <End Role="Pracownicy" EntitySet="Pracownicy" />
       <End Role="RodzajePlatnosci" EntitySet="RodzajePlatnosci" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Towary_JednostkiMiary" Association="Self.FK_Towary_JednostkiMiary">
+      <End Role="JednostkiMiary" EntitySet="JednostkiMiary" />
+      <End Role="Towary" EntitySet="Towary" />
     </AssociationSet>
     <AssociationSet Name="FK_Towary_Kontrahenci" Association="Self.FK_Towary_Kontrahenci">
       <End Role="Kontrahenci" EntitySet="Kontrahenci" />

@@ -17,6 +17,8 @@
                 <DataGridTextColumn Header="EAN" Binding="{Binding Path=EAN}"/>
                 <DataGridTextColumn Header="Producent" Binding="{Binding Path=Producent}"/>
                 <DataGridTextColumn Header="Kraj pochodzenia" Binding="{Binding Path=KrajPochodzenia}"/>
+                <DataGridTextColumn Header="Ilosc" Binding="{Binding Path=Ilosc}"/>
+                <DataGridTextColumn Header="j.m." Binding="{Binding Path=JednMiary}"/>
             </DataGrid.Columns>
         </DataGrid>
     </Grid>

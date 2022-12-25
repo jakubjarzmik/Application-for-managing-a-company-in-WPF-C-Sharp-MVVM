@@ -17,6 +17,8 @@ namespace Firma.Models.EntitiesForView
         public string EAN { get; set; }
         public string Producent { get; set; }
         public string KrajPochodzenia { get; set; }
+        public int Ilosc { get; set; }
+        public string JednMiary { get; set; }
         #endregion
 
 

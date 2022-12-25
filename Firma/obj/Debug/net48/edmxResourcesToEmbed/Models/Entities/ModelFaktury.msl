@@ -392,6 +392,7 @@
     <EntitySetMapping Name="Towary">
       <EntityTypeMapping TypeName="JJFirmaModel.Towary">
         <MappingFragment StoreEntitySet="Towary">
+          <ScalarProperty Name="DomJednMiaryId" ColumnName="DomJednMiaryId" />
           <ScalarProperty Name="TowarId" ColumnName="TowarId" />
           <ScalarProperty Name="Kod" ColumnName="Kod" />
           <ScalarProperty Name="NumerKatalogowy" ColumnName="NumerKatalogowy" />

@@ -1,9 +1,11 @@
 ﻿using Firma.Models.Entities;
 using Firma.Models.EntitiesForView;
 using Firma.ViewModels.Abstract;
+using Firma.Views;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Data.Metadata.Edm;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -34,7 +36,22 @@ namespace Firma.ViewModels
                         NumerKatalogowy = towar.NumerKatalogowy,
                         EAN = towar.EAN,
                         Producent = towar.Kontrahenci.Nazwa1,
-                        KrajPochodzenia = towar.Kraje.Nazwa
+                        KrajPochodzenia = towar.Kraje.Nazwa,
+                        Ilosc =
+                        (
+                            (
+                                from pozycjaPZ in JJFirmaEntities.PozycjePrzyjeciaZewnetrznego
+                                where pozycjaPZ.CzyAktywny == true && pozycjaPZ.Towary.Nazwa == towar.Nazwa
+                                select pozycjaPZ.Ilosc
+                            ).Sum() -
+                            (
+                                from pozycjaWZ in JJFirmaEntities.PozycjeWydaniaZewnetrznego
+                                where pozycjaWZ.CzyAktywny == true && pozycjaWZ.Towary.Nazwa == towar.Nazwa
+                                select pozycjaWZ.Ilosc
+                            ).Sum()
+                        ),
+                        JednMiary = towar.JednostkiMiary.Skrot
+                        
                     }
                 );
         }

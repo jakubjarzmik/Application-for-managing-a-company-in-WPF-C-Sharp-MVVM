@@ -158,6 +158,7 @@
         <AssociationConnector Association="JJFirmaModel.FK_ZmianyCeny_Pracownicy1" />
         <AssociationConnector Association="JJFirmaModel.FK_ZmianyCeny_Pracownicy2" />
         <AssociationConnector Association="JJFirmaModel.FK_ZmianyCeny_Towary" />
+        <AssociationConnector Association="JJFirmaModel.FK_Towary_JednostkiMiary" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
