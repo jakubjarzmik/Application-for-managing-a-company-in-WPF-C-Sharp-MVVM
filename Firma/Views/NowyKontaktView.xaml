@@ -45,7 +45,7 @@
                     <TextBox Grid.Row="3" Grid.Column="3" Text="{Binding Path=Email2, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource ControlStandardowy}"/>
 
                     <Label Grid.Row="4" Grid.Column="0" Content="Uwagi:" Style="{StaticResource ControlStandardowy}"/>
-                    <TextBox Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="3" Text="{Binding Path=Uwagi, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource BigTextBoxKontrahent}"/>
+                    <TextBox Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="3" Text="{Binding Path=Uwagi, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource TextBoxDuzy}"/>
 
                 </Grid>
             </Expander>

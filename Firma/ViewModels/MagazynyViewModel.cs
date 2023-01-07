@@ -33,7 +33,7 @@ namespace Firma.ViewModels
                         Typ = magazyn.MagazynyTypy.Nazwa,
                         Adres = magazyn.Adresy.Ulica + " " + magazyn.Adresy.NrDomu +
                         (magazyn.Adresy.NrLokalu.Equals("") ? "":"/"+ magazyn.Adresy.NrLokalu)+
-                        "\n" + magazyn.Adresy.KodPocztowy + " " + magazyn.Adresy.Poczta,
+                        "\n" + magazyn.Adresy.KodPocztowy + " " + magazyn.Adresy.Miejscowosc,
                         Telefon = magazyn.Telefon
                     }
                 );

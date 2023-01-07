@@ -36,25 +36,26 @@
                     <ColumnDefinition Width="80"/>
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
-                <Label Content="Dokument:" Style="{StaticResource DokumentLabelFaktura}"/>
+                <Label Content="Dokument:" Style="{StaticResource DokumentLabel}"/>
                 <ComboBox Grid.Column="1" Style="{StaticResource ControlStandardowy}"/>
-                <Label Grid.Column="2" Content="Numer:" Style="{StaticResource NumerLabelFaktura}"/>
+                <Label Grid.Column="2" Content="Numer:" Style="{StaticResource ControlStandardowy}"/>
                 <TextBox Grid.Column="3" IsEnabled="False" Style="{StaticResource ControlStandardowy}"/>
                 <TextBox Grid.Column="4" Style="{StaticResource ControlStandardowy}"/>
-                <TextBox Grid.Column="5" IsEnabled="False" Style="{StaticResource KrotkiTextBoxFaktura}"/>
+                <TextBox Grid.Column="5" IsEnabled="False" Style="{StaticResource ControlStandardowy}"/>
                 <Label Grid.Row="1" Grid.Column="0" Content="Numer obcy:" Style="{StaticResource ControlStandardowy}"/>
                 <TextBox Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="5" Style="{StaticResource ControlStandardowy}"/>
             </Grid>
             <Grid Grid.Column="1">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"/>
                     <ColumnDefinition Width="1.5*"/>
                 </Grid.ColumnDefinitions>
-                <Label Content="Data wpływu:" Style="{StaticResource ControlBottomFaktura}"/>
-                <DatePicker Grid.Column="1" Style="{StaticResource ControlBottomFaktura}"/>
+                <Label Grid.Row="1" Content="Data wpływu:" Style="{StaticResource ControlStandardowy}"/>
+                <DatePicker Grid.Row="1" Grid.Column="1" Style="{StaticResource ControlStandardowy}"/>
             </Grid>
             <Expander Header="Nagłówek" Grid.Row="1" Grid.ColumnSpan="2" IsExpanded="True">
                 <Grid>
@@ -68,13 +69,13 @@
                         <ColumnDefinition Width="200"/>
                         <ColumnDefinition Width="*"/>
                     </Grid.ColumnDefinitions>
-                    <Label Content="Kontrahent" Style="{StaticResource LabelNaglowekFaktura}"/>
+                    <Label Content="Kontrahent:" Style="{StaticResource ControlStandardowy}"/>
                     <ComboBox Grid.Column="1" Style="{StaticResource ControlStandardowy}"/>
                     <TextBox Grid.Column="2" IsEnabled="False" Style="{StaticResource ControlStandardowy}"/>
-                    <Label Grid.Row="1" Content="Kategoria" Style="{StaticResource LabelNaglowekFaktura}"/>
+                    <Label Grid.Row="1" Content="Kategoria:" Style="{StaticResource ControlStandardowy}"/>
                     <ComboBox Grid.Row="1" Grid.Column="1" Style="{StaticResource ControlStandardowy}"/>
                     <TextBox Grid.Row="1" Grid.Column="2" Style="{StaticResource ControlStandardowy}"/>
-                    <Label Grid.Row="2" Content="Magazyn" Style="{StaticResource LabelNaglowekFaktura}"/>
+                    <Label Grid.Row="2" Content="Magazyn:" Style="{StaticResource ControlStandardowy}"/>
                     <ComboBox Grid.Row="2" Grid.Column="1" Style="{StaticResource ControlStandardowy}"/>
                     <TextBox Grid.Row="2" Grid.Column="2" IsEnabled="False" Style="{StaticResource ControlStandardowy}"/>
                 </Grid>
@@ -89,8 +90,7 @@
                         <ColumnDefinition Width="*"/>
                         <ColumnDefinition Width="*"/>
                     </Grid.ColumnDefinitions>
-                    <Border Style="{StaticResource BorderFieldStaticHeightFaktura}">
-                        <Grid>
+                    <Grid Grid.Column="0">
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="Auto"/>
                                 <RowDefinition Height="Auto"/>
@@ -107,9 +107,7 @@
                             <Label Grid.Row="2" Content="Faktura liczona od:" Style="{StaticResource ControlStandardowy}"/>
                             <ComboBox Grid.Row="2" Grid.Column="1" IsEnabled="False" Style="{StaticResource ControlStandardowy}"/>
                         </Grid>
-                    </Border>
-                    <Border Grid.Column="1" Style="{StaticResource BorderFieldStaticHeightFaktura}">
-                        <Grid>
+                   <Grid Grid.Column="1">
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="Auto"/>
                                 <RowDefinition Height="Auto"/>
@@ -126,46 +124,39 @@
                             <Label Grid.Row="2" Content="Termin: 7dn." Style="{StaticResource ControlStandardowy}"/>
                             <DatePicker Grid.Row="2" Grid.Column="1" Style="{StaticResource ControlStandardowy}"/>
                         </Grid>
-                    </Border>
-                    <Border Grid.Column="2" Style="{StaticResource BorderFieldFaktura}">
-                        <Grid>
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="Auto"/>
-                                <RowDefinition Height="Auto"/>
-                                <RowDefinition Height="Auto"/>
-                                <RowDefinition Height="Auto"/>
-                            </Grid.RowDefinitions>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="*"/>
-                                <ColumnDefinition Width="*"/>
-                            </Grid.ColumnDefinitions>
-                            <Label Content="Netto:" Style="{StaticResource ControlStandardowy}"/>
-                            <TextBox Grid.Column="1" IsEnabled="False" Style="{StaticResource ControlStandardowy}"/>
-                            <Label Grid.Row="1" Content="Razem:" Style="{StaticResource ControlBoldStandardowy}"/>
-                            <TextBox Grid.Row="1" Grid.Column="1" IsEnabled="False" Style="{StaticResource ControlBoldStandardowy}"/>
-                            <Label Grid.Row="2" Content="Zapłacono:" Style="{StaticResource ControlStandardowy}"/>
-                            <TextBox Grid.Row="2" Grid.Column="1" IsEnabled="False" Style="{StaticResource ControlStandardowy}"/>
-                            <Label Grid.Row="3" Content="Pozostaje:" Style="{StaticResource ControlStandardowy}"/>
-                            <TextBox Grid.Row="3" Grid.Column="1" IsEnabled="False" Style="{StaticResource ControlStandardowy}"/>
-                            
-                        </Grid>
-                    </Border>
-                    
-                </Grid>
-            </Expander>
-            <Expander Header="Nagłówek" Grid.Row="2" Grid.Column="1" IsExpanded="True">
-                <Border Style="{StaticResource BorderFieldFaktura}">
-                    <Grid>
+                    <Grid Grid.Column="2">
                         <Grid.RowDefinitions>
                             <RowDefinition Height="Auto"/>
                             <RowDefinition Height="Auto"/>
                             <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
                         </Grid.RowDefinitions>
-                        <CheckBox Name="MPP" Content="MPP - podzielona płatność" IsEnabled="False" Style="{StaticResource ControlStandardowy}"/>
-                        <Label Grid.Row="1" Content="Wartość podlegająca MPP:" Style="{StaticResource ControlStandardowy}"/>
-                        <TextBox Grid.Row="2" IsEnabled="False" Style="{StaticResource ControlStandardowy}"/>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Label Content="Netto:" Style="{StaticResource ControlStandardowy}"/>
+                        <TextBox Grid.Column="1" IsEnabled="False" Style="{StaticResource ControlStandardowy}"/>
+                        <Label Grid.Row="1" Content="Razem:" Style="{StaticResource ControlBoldStandardowy}"/>
+                        <TextBox Grid.Row="1" Grid.Column="1" IsEnabled="False" Style="{StaticResource ControlBoldStandardowy}"/>
+                        <Label Grid.Row="2" Content="Zapłacono:" Style="{StaticResource ControlStandardowy}"/>
+                        <TextBox Grid.Row="2" Grid.Column="1" IsEnabled="False" Style="{StaticResource ControlStandardowy}"/>
+                        <Label Grid.Row="3" Content="Pozostaje:" Style="{StaticResource ControlStandardowy}"/>
+                        <TextBox Grid.Row="3" Grid.Column="1" IsEnabled="False" Style="{StaticResource ControlStandardowy}"/>
                     </Grid>
-                </Border>
+                </Grid>
+            </Expander>
+            <Expander Header="Nagłówek" Grid.Row="2" Grid.Column="1" IsExpanded="True">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                    <CheckBox Name="MPP" Content="MPP - podzielona płatność" IsEnabled="False" Style="{StaticResource ControlStandardowy}"/>
+                    <Label Grid.Row="1" Content="Wartość podlegająca MPP:" Style="{StaticResource ControlStandardowy}"/>
+                    <TextBox Grid.Row="2" IsEnabled="False" Style="{StaticResource ControlStandardowy}"/>
+                </Grid>
             </Expander>
             <DataGrid Grid.Row="3" Grid.ColumnSpan="2" Name="Faktura" Height="100">
                 <DataGrid.Columns>

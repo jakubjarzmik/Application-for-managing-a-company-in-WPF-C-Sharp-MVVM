@@ -33,7 +33,7 @@ namespace Firma.ViewModels
                         PESEL= pracownik.PESEL,
                         Adres = pracownik.Adresy3.Ulica + " " + pracownik.Adresy3.NrDomu +
                         (pracownik.Adresy3.NrLokalu.Equals("") ? "":"/"+ pracownik.Adresy3.NrLokalu)+
-                        "\n" + pracownik.Adresy3.KodPocztowy + " " + pracownik.Adresy3.Poczta,
+                        "\n" + pracownik.Adresy3.KodPocztowy + " " + pracownik.Adresy3.Miejscowosc,
                         Telefon = pracownik.Telefon,
                         Email = pracownik.Email
                     }

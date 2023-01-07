@@ -33,7 +33,7 @@ namespace Firma.ViewModels
                         Regon = kontrahent.Regon,
                         Adres = kontrahent.Adresy.Ulica + " " + kontrahent.Adresy.NrDomu +
                         (kontrahent.Adresy.NrLokalu.Equals("") ? "":"/"+ kontrahent.Adresy.NrLokalu)+
-                        "\n" + kontrahent.Adresy.KodPocztowy + " " + kontrahent.Adresy.Poczta,
+                        "\n" + kontrahent.Adresy.KodPocztowy + " " + kontrahent.Adresy.Miejscowosc,
                         Url = kontrahent.URL
                     }
                 );

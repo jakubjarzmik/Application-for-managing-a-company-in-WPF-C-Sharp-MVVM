@@ -319,6 +319,9 @@
     <Compile Update="Views\AdresyView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Views\NowyAdresView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Views\ZmianyCenyView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -427,6 +430,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Page Update="Views\NowyAdresView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="Views\NowyRodzajFakturyView.xaml">
       <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
     </Page>

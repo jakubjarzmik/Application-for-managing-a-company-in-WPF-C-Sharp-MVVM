@@ -33,9 +33,9 @@
                     <Label Grid.Row="0" Grid.Column="2" Content="Ilość dni spłaty:"  Style="{StaticResource ControlStandardowy}"/>
                     <TextBox Grid.Row="0" Grid.Column="3" Text="{Binding Path=IloscDniSplaty, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource ControlStandardowy}"/>
                     <Label Grid.Row="1" Grid.Column="0" Content="Opis:" Style="{StaticResource ControlStandardowy}"/>
-                    <TextBox Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="3"  Text="{Binding Path=Opis, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource BigTextBoxKontrahent}"/>
+                    <TextBox Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="3"  Text="{Binding Path=Opis, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource TextBoxDuzy}"/>
                     <Label Grid.Row="2" Grid.Column="0" Content="Uwagi:" Style="{StaticResource ControlStandardowy}"/>
-                    <TextBox Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="3"  Text="{Binding Path=Uwagi, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource BigTextBoxKontrahent}"/>
+                    <TextBox Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="3"  Text="{Binding Path=Uwagi, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource TextBoxDuzy}"/>
                 </Grid>
             </Expander>
         </Grid>

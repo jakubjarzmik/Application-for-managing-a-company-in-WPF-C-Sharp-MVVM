@@ -11,9 +11,8 @@
           </Key>
           <Property Name="AdresId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="KrajId" Type="int" Nullable="false" />
-          <Property Name="Miasto" Type="nvarchar" MaxLength="40" Nullable="false" />
           <Property Name="Wojewodztwo" Type="nvarchar" MaxLength="40" Nullable="false" />
-          <Property Name="Poczta" Type="nvarchar" MaxLength="40" Nullable="false" />
+          <Property Name="Miejscowosc" Type="nvarchar" MaxLength="40" Nullable="false" />
           <Property Name="KodPocztowy" Type="varchar" MaxLength="10" Nullable="false" />
           <Property Name="Ulica" Type="nvarchar" MaxLength="40" Nullable="false" />
           <Property Name="NrDomu" Type="nvarchar" MaxLength="10" Nullable="false" />
@@ -2623,9 +2622,7 @@
           </Key>
           <Property Name="AdresId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="KrajId" Type="Int32" Nullable="false" />
-          <Property Name="Miasto" Type="String" MaxLength="40" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Wojewodztwo" Type="String" MaxLength="40" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Poczta" Type="String" MaxLength="40" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="KodPocztowy" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Ulica" Type="String" MaxLength="40" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="NrDomu" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
@@ -2647,6 +2644,7 @@
           <NavigationProperty Name="Kontrahenci1" Relationship="Self.FK_Kontrahenci_Adresy1" FromRole="Adresy" ToRole="Kontrahenci" />
           <NavigationProperty Name="Magazyny" Relationship="Self.FK_Magazyny_Adresy" FromRole="Adresy" ToRole="Magazyny" />
           <NavigationProperty Name="Pracownicy3" Relationship="Self.FK_Pracownicy_Adresy" FromRole="Adresy" ToRole="Pracownicy" />
+          <Property Name="Miejscowosc" Type="String" Nullable="false" MaxLength="40" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="Faktury">
           <Key>
@@ -5453,11 +5451,10 @@
           <EntitySetMapping Name="Adresy">
             <EntityTypeMapping TypeName="JJFirmaModel.Adresy">
               <MappingFragment StoreEntitySet="Adresy">
+                <ScalarProperty Name="Miejscowosc" ColumnName="Miejscowosc" />
                 <ScalarProperty Name="AdresId" ColumnName="AdresId" />
                 <ScalarProperty Name="KrajId" ColumnName="KrajId" />
-                <ScalarProperty Name="Miasto" ColumnName="Miasto" />
                 <ScalarProperty Name="Wojewodztwo" ColumnName="Wojewodztwo" />
-                <ScalarProperty Name="Poczta" ColumnName="Poczta" />
                 <ScalarProperty Name="KodPocztowy" ColumnName="KodPocztowy" />
                 <ScalarProperty Name="Ulica" ColumnName="Ulica" />
                 <ScalarProperty Name="NrDomu" ColumnName="NrDomu" />

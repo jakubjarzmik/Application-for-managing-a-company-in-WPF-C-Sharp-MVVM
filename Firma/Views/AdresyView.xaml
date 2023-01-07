@@ -13,7 +13,7 @@
                 <DataGridTextColumn Header="Kraj" Binding="{Binding Path=Kraj}"/>
                 <DataGridTextColumn Header="Wojewodztwo" Binding="{Binding Path=Wojewodztwo}"/>
                 <DataGridTextColumn Header="Kod pocztowy" Binding="{Binding Path=KodPocztowy}"/>
-                <DataGridTextColumn Header="Poczta" Binding="{Binding Path=Poczta}"/>
+                <DataGridTextColumn Header="Miejscowosc" Binding="{Binding Path=Miejscowosc}"/>
                 <DataGridTextColumn Header="Ulica" Binding="{Binding Path=Ulica}"/>
                 <DataGridTextColumn Header="NrDomu" Binding="{Binding Path=NrDomu}"/>
                 <DataGridTextColumn Header="NrLokalu" Binding="{Binding Path=NrLokalu}"/>

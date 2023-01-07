@@ -236,6 +236,13 @@ namespace Firma.ViewModels
                 return new BaseCommand(() => showAllAdresy());
             }
         }
+        public ICommand NowyAdresCommand
+        {
+            get
+            {
+                return new BaseCommand(() => createView(new NowyAdresViewModel()));
+            }
+        }
         public ICommand KontrahenciCommand
         {
             get
@@ -384,6 +391,7 @@ namespace Firma.ViewModels
                 new CommandViewModel("Nowy kontakt",new BaseCommand(()=>createView(new NowyKontaktViewModel())),"",""),
                 new CommandViewModel("Faktury", new BaseCommand(()=>showAllFaktury()),"",""),
                 new CommandViewModel("Adresy", new BaseCommand(()=>showAllAdresy()),"",""),
+                new CommandViewModel("Nowy adres",new BaseCommand(()=>createView(new NowyAdresViewModel())),"",""),
                 new CommandViewModel("Kontrahenci", new BaseCommand(()=>showAllKontrahenci()),"",""),
                 new CommandViewModel("Magazyny", new BaseCommand(()=>showAllMagazyny()),"",""),
                 new CommandViewModel("Pozycje PZ", new BaseCommand(()=>showAllPozycjePrzyjeciaZewnetrznego()),"",""),
@@ -393,13 +401,14 @@ namespace Firma.ViewModels
                 new CommandViewModel("Wydania Zewnetrzne", new BaseCommand(()=>showAllWydaniaZewnetrzne()),"",""),
                 new CommandViewModel("Towary", new BaseCommand(()=>showAllTowary()),"",""),
                 new CommandViewModel("Grupy towarów", new BaseCommand(()=>showAllTowaryGrupy()),"",""),
+                new CommandViewModel("Nowa grupa towarów",new BaseCommand(()=>createView(new NowaGrupaTowarowViewModel())),"",""),
                 new CommandViewModel("Stawki VAT", new BaseCommand(()=>showAllTowaryStawkiVat()),"",""),
                 new CommandViewModel("Umowy", new BaseCommand(()=>showAllUmowy()),"",""),
                 new CommandViewModel("Zmiany ceny", new BaseCommand(()=>showAllZmianyCeny()),"",""),
                 new CommandViewModel("Średnie wynagrodz.",new BaseCommand(()=>createView(new SrednieWynagrodzenieViewModel())),"",""),
                 new CommandViewModel("Raport sprzedaży",new BaseCommand(()=>createView(new RaportSprzedazyViewModel())),"",""),
                 
-                //new CommandViewModel("Nowa grupa towarów",new BaseCommand(()=>createView(new NowaGrupaTowarowViewModel())),"",""),
+                
                 
                 
 

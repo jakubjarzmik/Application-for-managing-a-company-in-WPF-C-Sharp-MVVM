@@ -131,6 +131,10 @@
         <vw:AdresyView/>
     </DataTemplate>
     
+    <DataTemplate DataType="{x:Type vm:NowyAdresViewModel}">
+        <vw:NowyAdresView/>
+    </DataTemplate>
+    
     <DataTemplate DataType="{x:Type vm:KontrahenciViewModel}">
         <vw:KontrahenciView/>
     </DataTemplate>

@@ -31,7 +31,7 @@ namespace Firma.ViewModels
                         Kraj = adres.Kraje.Nazwa,
                         Wojewodztwo = adres.Wojewodztwo,
                         KodPocztowy = adres.KodPocztowy,
-                        Poczta= adres.Poczta,
+                        Miejscowosc= adres.Miejscowosc,
                         Ulica=adres.Ulica,
                         NrDomu= adres.NrDomu,
                         NrLokalu=adres.NrLokalu

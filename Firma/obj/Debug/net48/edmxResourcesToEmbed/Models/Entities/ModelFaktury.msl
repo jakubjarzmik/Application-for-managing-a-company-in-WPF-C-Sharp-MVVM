@@ -4,11 +4,10 @@
     <EntitySetMapping Name="Adresy">
       <EntityTypeMapping TypeName="JJFirmaModel.Adresy">
         <MappingFragment StoreEntitySet="Adresy">
+          <ScalarProperty Name="Miejscowosc" ColumnName="Miejscowosc" />
           <ScalarProperty Name="AdresId" ColumnName="AdresId" />
           <ScalarProperty Name="KrajId" ColumnName="KrajId" />
-          <ScalarProperty Name="Miasto" ColumnName="Miasto" />
           <ScalarProperty Name="Wojewodztwo" ColumnName="Wojewodztwo" />
-          <ScalarProperty Name="Poczta" ColumnName="Poczta" />
           <ScalarProperty Name="KodPocztowy" ColumnName="KodPocztowy" />
           <ScalarProperty Name="Ulica" ColumnName="Ulica" />
           <ScalarProperty Name="NrDomu" ColumnName="NrDomu" />

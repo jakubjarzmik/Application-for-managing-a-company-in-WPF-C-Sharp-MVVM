@@ -33,6 +33,9 @@
     <Page Update="Views\AdresyView.xaml">
       <SubType>Designer</SubType>
     </Page>
+    <Page Update="Views\NowyAdresView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="Views\RaportSprzedazyView.xaml">
       <SubType>Designer</SubType>
     </Page>

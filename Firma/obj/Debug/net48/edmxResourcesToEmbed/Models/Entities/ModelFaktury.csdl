@@ -6,9 +6,7 @@
     </Key>
     <Property Name="AdresId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="KrajId" Type="Int32" Nullable="false" />
-    <Property Name="Miasto" Type="String" MaxLength="40" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="Wojewodztwo" Type="String" MaxLength="40" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="Poczta" Type="String" MaxLength="40" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="KodPocztowy" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="Ulica" Type="String" MaxLength="40" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="NrDomu" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
@@ -30,6 +28,7 @@
     <NavigationProperty Name="Kontrahenci1" Relationship="Self.FK_Kontrahenci_Adresy1" FromRole="Adresy" ToRole="Kontrahenci" />
     <NavigationProperty Name="Magazyny" Relationship="Self.FK_Magazyny_Adresy" FromRole="Adresy" ToRole="Magazyny" />
     <NavigationProperty Name="Pracownicy3" Relationship="Self.FK_Pracownicy_Adresy" FromRole="Adresy" ToRole="Pracownicy" />
+    <Property Name="Miejscowosc" Type="String" Nullable="false" MaxLength="40" FixedLength="false" Unicode="true" />
   </EntityType>
   <EntityType Name="Faktury">
     <Key>

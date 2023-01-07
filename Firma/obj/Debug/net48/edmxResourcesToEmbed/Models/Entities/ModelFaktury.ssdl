@@ -6,9 +6,8 @@
     </Key>
     <Property Name="AdresId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="KrajId" Type="int" Nullable="false" />
-    <Property Name="Miasto" Type="nvarchar" MaxLength="40" Nullable="false" />
     <Property Name="Wojewodztwo" Type="nvarchar" MaxLength="40" Nullable="false" />
-    <Property Name="Poczta" Type="nvarchar" MaxLength="40" Nullable="false" />
+    <Property Name="Miejscowosc" Type="nvarchar" MaxLength="40" Nullable="false" />
     <Property Name="KodPocztowy" Type="varchar" MaxLength="10" Nullable="false" />
     <Property Name="Ulica" Type="nvarchar" MaxLength="40" Nullable="false" />
     <Property Name="NrDomu" Type="nvarchar" MaxLength="10" Nullable="false" />

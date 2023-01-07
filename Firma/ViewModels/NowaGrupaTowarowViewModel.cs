@@ -1,4 +1,5 @@
 ﻿using Firma.Models.Entities;
+using Firma.Models.EntitiesForView;
 using Firma.ViewModels.Abstract;
 using System;
 using System.Collections.Generic;
@@ -48,12 +49,47 @@ namespace Firma.ViewModels
                 }
             }
         }
+        public int? GrupaNadrzednaId
+        {
+            get
+            {
+                return Item.GrupaNadrzednaId;
+            }
+            set
+            {
+                if(value != Item.GrupaNadrzednaId)
+                {
+                    Item.GrupaNadrzednaId = value;
+                    base.OnPropertyChanged(() => GrupaNadrzednaId);
+                }
+            }
+        }
+        public IQueryable<KeyAndValue> GrupyComboBoxItems
+        {
+            get
+            {
+                return
+                (
+                    from grupa in Db.TowaryGrupy
+                    select new KeyAndValue
+                    {
+                        Key = grupa.GrupaTowaruId,
+                        Value = grupa.Kod
+                    }
+                ).ToList().AsQueryable();
+            }
+        }
         #endregion
         #region Save
         public override void Save()
         {
             Item.DataUtworzenia = DateTime.Now;
+            Item.KtoUtworzylId = 1;
             Item.CzyAktywny = true;
+            if (Item.Uwagi == null)
+                Item.Uwagi = "";
+            if (Item.Opis == null)
+                Item.Opis = "";
             Db.TowaryGrupy.AddObject(Item);
             Db.SaveChanges();
         }

@@ -9,188 +9,198 @@
     <UserControl.Resources>
         <ResourceDictionary Source="StyleZakladekResources.xaml"/>
     </UserControl.Resources>
-    <ScrollViewer>
-    <Grid Grid.IsSharedSizeScope="True">
-        <Grid.RowDefinitions>
-            <RowDefinition Height="auto"/>
-            <RowDefinition Height="auto"/>
-            <RowDefinition Height="auto"/>
-            <RowDefinition Height="auto"/>
-        </Grid.RowDefinitions>
-        <Expander Header="Dane identyfikacyjne" IsExpanded="True">
-            <Grid>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
-                </Grid.RowDefinitions>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="Auto" SharedSizeGroup="LabelGroup" />
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="100"/>
-                    <ColumnDefinition Width="280"/>
-                </Grid.ColumnDefinitions>
-                <Label Content="Kod" Style="{StaticResource ControlStandardowy}"/>
-                    <TextBox Grid.Column="1" Style="{StaticResource ControlKontrahent}"/>
-                <Label Grid.Column="2" Content="EU VAT/NIP:" Style="{StaticResource ControlStandardowy}"/>
-                    <TextBox Grid.Column="3" Style="{StaticResource ControlKontrahent}"/>
-                <Label Grid.Row="1" Content="Nazwa:" Style="{StaticResource ControlStandardowy}"/>
-                    <TextBox Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="3" Style="{StaticResource BigTextBoxKontrahent}"/>
-            </Grid>
-        </Expander>
-        <Expander Grid.Row="1" Header="Podmiot" IsExpanded="True">
-            <Grid>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
-                </Grid.RowDefinitions>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="Auto"/>
-                    <ColumnDefinition Width="400"/>
-                    <ColumnDefinition Width="100"/>
-                    <ColumnDefinition Width="Auto"/>
-                </Grid.ColumnDefinitions>
-                <Label Grid.Row="0" Grid.Column="0" Content="Podatnik VAT:" Style="{StaticResource ControlStandardowy}"/>
-                <CheckBox Grid.Row="0" Grid.Column="1" Content="Tak" VerticalAlignment="Center"/>
-                <Label Grid.Row="0" Grid.Column="2" Content="Status:" Style="{StaticResource ControlStandardowy}"/>
-                    <ComboBox Grid.Row="0" Grid.Column="3" Style="{StaticResource ControlKontrahent}"/>
-
-                <Label Grid.Row="1" Grid.Column="0" Content="Rodzaj VAT dla sprzedaży:" Style="{StaticResource ControlStandardowy}"/>
-                    <ComboBox Grid.Row="1" Grid.Column="1" Style="{StaticResource ControlKontrahent}"/>
-                <Label Grid.Row="1" Grid.Column="2" Content="Forma prawna:" Style="{StaticResource ControlStandardowy}"/>
-                    <ComboBox Grid.Row="1" Grid.Column="3" Style="{StaticResource ControlKontrahent}"/>
-
-                <Label Grid.Row="2" Grid.Column="0" Content="Rodzaj VAT dla zakupu:" Style="{StaticResource ControlStandardowy}"/>
-                    <ComboBox Grid.Row="2" Grid.Column="1" Style="{StaticResource ControlKontrahent}"/>
-                <Label Grid.Row="2" Grid.Column="2" Content="VAT liczony od:" Style="{StaticResource ControlStandardowy}"/>
-                    <ComboBox Grid.Row="2" Grid.Column="3" Style="{StaticResource ControlKontrahent}"/>
-
-                <Label Grid.Row="3" Grid.Column="0" Content="Status w bazie MF:" Style="{StaticResource ControlStandardowy}"/>
-                    <ComboBox Grid.Row="3" Grid.Column="1" IsEnabled="False" Style="{StaticResource ControlKontrahent}"/>
-                <Label Grid.Row="3" Grid.Column="2" Content="Status w bazie VIES:" Style="{StaticResource ControlStandardowy}"/>
-                    <ComboBox Grid.Row="3" Grid.Column="3" IsEnabled="False" Style="{StaticResource ControlKontrahent}"/>
-
-                <Label Grid.Row="4" Grid.Column="2" Content="Oddział:" Style="{StaticResource ControlStandardowy}"/>
-                    <ComboBox Grid.Row="4" Grid.Column="3" Style="{StaticResource ControlKontrahent}"/>
-            </Grid>
-        </Expander>
-        <Expander Grid.Row="2" Header="Adres" IsExpanded="True">
-            <Grid>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
-                </Grid.RowDefinitions>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="100" SharedSizeGroup="LabelGroup" />
-                    <ColumnDefinition Width="400"/>
-                    <ColumnDefinition Width="Auto"/>
-                    <ColumnDefinition Width="Auto"/>
-                </Grid.ColumnDefinitions>
-
-                <Label Grid.Row="0" Grid.Column="0" Content="Ulica:" Style="{StaticResource ControlKontrahent}"/>
-                    <ComboBox Grid.Row="0" Grid.Column="1"  Style="{StaticResource ControlDuzyKontrahent}"/>
-                <Label Grid.Row="0" Grid.Column="2" Content="Nr domu:" Style="{StaticResource ControlStandardowy}"/>
-                <Grid Grid.Column="3">
+    <ScrollViewer RenderTransformOrigin="0.5,0.5">
+        <ScrollViewer.RenderTransform>
+            <TransformGroup>
+                <ScaleTransform/>
+                <SkewTransform AngleX="-0.158"/>
+                <RotateTransform/>
+                <TranslateTransform X="-0.621"/>
+            </TransformGroup>
+        </ScrollViewer.RenderTransform>
+        <Grid Grid.IsSharedSizeScope="True" Background="White">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+            </Grid.RowDefinitions>
+            <Expander Header="Dane identyfikacyjne" IsExpanded="True">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="Auto"/>
-                        <ColumnDefinition Width="Auto"/>
-                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="Auto" SharedSizeGroup="LabelGroup" />
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="100"/>
+                        <ColumnDefinition Width="280"/>
                     </Grid.ColumnDefinitions>
-                        <TextBox Style="{StaticResource TextBoxWewnetrznyKontrahent}"/>
-                    <Label Grid.Column="1" Content="Nr lokalu:" Style="{StaticResource ControlStandardowy}"/>
-                        <TextBox Grid.Column="2" Style="{StaticResource TextBoxWewnetrznyKontrahent}"/>
+                    <Label Content="Kod" Style="{StaticResource ControlStandardowy}"/>
+                    <TextBox Grid.Column="1" Style="{StaticResource ControlStandardowy}"/>
+                    <Label Grid.Column="3" Content="EU VAT/NIP:" Style="{StaticResource ControlStandardowy}"/>
+                    <TextBox Grid.Column="4" Style="{StaticResource ControlStandardowy}"/>
+                    <Label Grid.Row="1" Content="Nazwa:" Style="{StaticResource ControlStandardowy}"/>
+                    <TextBox Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="4" Style="{StaticResource TextBoxDuzy}"/>
                 </Grid>
-
-                <Label Grid.Row="1" Grid.Column="0" Content="Kod pocztowy:" Style="{StaticResource ControlStandardowy}"/>
-                    <TextBox Grid.Row="1" Grid.Column="1" Style="{StaticResource TextBoxWewnetrznyKontrahent}"/>
-                <Label Grid.Row="1" Grid.Column="2" Content="Miejscowość:" Style="{StaticResource ControlStandardowy}"/>
-                <ComboBox Grid.Row="1" Grid.Column="3" Style="{StaticResource ControlSzerokoscDomyslnaKontrahent}"/>
-
-                <Label Grid.Row="2" Grid.Column="0" Content="Poczta:" Style="{StaticResource ControlStandardowy}"/>
-                    <ComboBox Grid.Row="2" Grid.Column="1" Style="{StaticResource ControlKontrahent}"/>
-
-                <Label Grid.Row="3" Grid.Column="0" Content="Gmina:" Style="{StaticResource ControlStandardowy}"/>
-                    <ComboBox Grid.Row="3" Grid.Column="1" Style="{StaticResource ControlKontrahent}"/>
-                <Label Grid.Row="3" Grid.Column="2" Content="Powiat:" Style="{StaticResource ControlStandardowy}"/>
-                    <ComboBox Grid.Row="3" Grid.Column="3" Style="{StaticResource ControlSzerokoscDomyslnaKontrahent}"/>
-
-                <Label Grid.Row="4" Grid.Column="0" Content="Województwo:" Style="{StaticResource ControlStandardowy}"/>
-                    <ComboBox Grid.Row="4" Grid.Column="1" Style="{StaticResource ControlKontrahent}"/>
-                <Label Grid.Row="4" Grid.Column="2" Content="Kraj:" Style="{StaticResource ControlStandardowy}"/>
-                <Grid Grid.Row="4" Grid.Column="3">
+            </Expander>
+            <Expander Grid.Row="1" Header="Podmiot" IsExpanded="True">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="0.3*"/>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="100"/>
+                        <ColumnDefinition Width="100"/>
                         <ColumnDefinition Width="*"/>
                     </Grid.ColumnDefinitions>
-                    <ComboBox Margin="2"/>
-                    <ComboBox Grid.Column="1" Margin="2"/>
+                    <Label Grid.Row="0" Grid.Column="0" Content="Podatnik VAT:" Style="{StaticResource ControlStandardowy}"/>
+                    <CheckBox Grid.Row="0" Grid.Column="1" Content="Tak" VerticalAlignment="Center"/>
+                    <Label Grid.Row="0" Grid.Column="3" Content="Status:" Style="{StaticResource ControlStandardowy}"/>
+                    <ComboBox Grid.Row="0" Grid.Column="4" Style="{StaticResource ControlStandardowy}"/>
+
+                    <Label Grid.Row="1" Grid.Column="0" Content="Rodzaj VAT dla sprzedaży:" Style="{StaticResource ControlStandardowy}"/>
+                    <ComboBox Grid.Row="1" Grid.Column="1" Style="{StaticResource ControlStandardowy}"/>
+                    <Label Grid.Row="1" Grid.Column="3" Content="Forma prawna:" Style="{StaticResource ControlStandardowy}"/>
+                    <ComboBox Grid.Row="1" Grid.Column="4" Style="{StaticResource ControlStandardowy}"/>
+
+                    <Label Grid.Row="2" Grid.Column="0" Content="Rodzaj VAT dla zakupu:" Style="{StaticResource ControlStandardowy}"/>
+                    <ComboBox Grid.Row="2" Grid.Column="1" Style="{StaticResource ControlStandardowy}"/>
+                    <Label Grid.Row="2" Grid.Column="3" Content="VAT liczony od:" Style="{StaticResource ControlStandardowy}"/>
+                    <ComboBox Grid.Row="2" Grid.Column="4" Style="{StaticResource ControlStandardowy}"/>
+
+                    <Label Grid.Row="3" Grid.Column="0" Content="Status w bazie MF:" Style="{StaticResource ControlStandardowy}"/>
+                    <ComboBox Grid.Row="3" Grid.Column="1" IsEnabled="False" Style="{StaticResource ControlStandardowy}"/>
+                    <Label Grid.Row="3" Grid.Column="3" Content="Status w bazie VIES:" Style="{StaticResource ControlStandardowy}"/>
+                    <ComboBox Grid.Row="3" Grid.Column="4" IsEnabled="False" Style="{StaticResource ControlStandardowy}"/>
+
+                    <Label Grid.Row="4" Grid.Column="3" Content="Oddział:" Style="{StaticResource ControlStandardowy}"/>
+                    <ComboBox Grid.Row="4" Grid.Column="4" Style="{StaticResource ControlStandardowy}"/>
                 </Grid>
-
-                <Label Grid.Row="5" Grid.Column="0" Content="Nr telefonu:" Style="{StaticResource ControlStandardowy}"/>
-                    <TextBox Grid.Row="5" Grid.Column="1" Style="{StaticResource ControlKontrahent}"/>
-                <Label Grid.Row="5" Grid.Column="2" Content="Nr faxu:" Style="{StaticResource ControlStandardowy}"/>
-                <TextBox Grid.Row="5" Grid.Column="3" Style="{StaticResource ControlSzerokoscDomyslnaKontrahent}"/>
-
-                <Grid Grid.Row="6" Grid.ColumnSpan="2">
+            </Expander>
+            <!--<Expander Grid.Row="2" Header="Adres" IsExpanded="True">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
                     <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="100" SharedSizeGroup="LabelGroup" />
+                        <ColumnDefinition Width="400"/>
                         <ColumnDefinition Width="Auto"/>
-                        <ColumnDefinition Width="249"/>
+                        <ColumnDefinition Width="Auto"/>
                     </Grid.ColumnDefinitions>
-                    <Label Content="Nietypowa lokalizacja:" Style="{StaticResource ControlStandardowy}"/>
+
+                    <Label Grid.Row="0" Grid.Column="0" Content="Ulica:" Style="{StaticResource ControlStandardowy}"/>
+                    <ComboBox Grid.Row="0" Grid.Column="1"  Style="{StaticResource ControlStandardowy}"/>
+                    <Label Grid.Row="0" Grid.Column="2" Content="Nr domu:" Style="{StaticResource ControlStandardowy}"/>
+                    <Grid Grid.Column="3">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+                        <TextBox Style="{StaticResource ControlStandardowy}"/>
+                        <Label Grid.Column="1" Content="Nr lokalu:" Style="{StaticResource ControlStandardowy}"/>
+                        <TextBox Grid.Column="2" Style="{StaticResource ControlStandardowy}"/>
+                    </Grid>
+
+                    <Label Grid.Row="1" Grid.Column="0" Content="Kod pocztowy:" Style="{StaticResource ControlStandardowy}"/>
+                    <TextBox Grid.Row="1" Grid.Column="1" Style="{StaticResource ControlStandardowy}"/>
+                    <Label Grid.Row="1" Grid.Column="2" Content="Miejscowość:" Style="{StaticResource ControlStandardowy}"/>
+                    <ComboBox Grid.Row="1" Grid.Column="3" Style="{StaticResource ControlSzerokoscDomyslnaKontrahent}"/>
+
+                    <Label Grid.Row="2" Grid.Column="0" Content="Poczta:" Style="{StaticResource ControlStandardowy}"/>
+                    <ComboBox Grid.Row="2" Grid.Column="1" Style="{StaticResource ControlKontrahent}"/>
+
+                    <Label Grid.Row="3" Grid.Column="0" Content="Gmina:" Style="{StaticResource ControlStandardowy}"/>
+                    <ComboBox Grid.Row="3" Grid.Column="1" Style="{StaticResource ControlKontrahent}"/>
+                    <Label Grid.Row="3" Grid.Column="2" Content="Powiat:" Style="{StaticResource ControlStandardowy}"/>
+                    <ComboBox Grid.Row="3" Grid.Column="3" Style="{StaticResource ControlSzerokoscDomyslnaKontrahent}"/>
+
+                    <Label Grid.Row="4" Grid.Column="0" Content="Województwo:" Style="{StaticResource ControlStandardowy}"/>
+                    <ComboBox Grid.Row="4" Grid.Column="1" Style="{StaticResource ControlKontrahent}"/>
+                    <Label Grid.Row="4" Grid.Column="2" Content="Kraj:" Style="{StaticResource ControlStandardowy}"/>
+                    <Grid Grid.Row="4" Grid.Column="3">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="0.3*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <ComboBox Margin="2"/>
+                        <ComboBox Grid.Column="1" Margin="2"/>
+                    </Grid>
+
+                    <Label Grid.Row="5" Grid.Column="0" Content="Nr telefonu:" Style="{StaticResource ControlStandardowy}"/>
+                    <TextBox Grid.Row="5" Grid.Column="1" Style="{StaticResource ControlKontrahent}"/>
+                    <Label Grid.Row="5" Grid.Column="2" Content="Nr faxu:" Style="{StaticResource ControlStandardowy}"/>
+                    <TextBox Grid.Row="5" Grid.Column="3" Style="{StaticResource ControlSzerokoscDomyslnaKontrahent}"/>
+
+                    <Grid Grid.Row="6" Grid.ColumnSpan="2">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="249"/>
+                        </Grid.ColumnDefinitions>
+                        <Label Content="Nietypowa lokalizacja:" Style="{StaticResource ControlStandardowy}"/>
                         <TextBox Grid.Column="1" Margin="2" Style="{StaticResource ControlStandardowy}"/>
-                </Grid>
+                    </Grid>
 
-                <Label Grid.Row="7" Grid.Column="0" Content="PESEL:" Style="{StaticResource ControlStandardowy}"/>
+                    <Label Grid.Row="7" Grid.Column="0" Content="PESEL:" Style="{StaticResource ControlStandardowy}"/>
                     <TextBox Grid.Row="7" Grid.Column="1" Style="{StaticResource ControlKontrahent}"/>
-                <Label Grid.Row="7" Grid.Column="2" Content="REGON:" Style="{StaticResource ControlStandardowy}"/>
-                <TextBox Grid.Row="7" Grid.Column="3" Style="{StaticResource ControlSzerokoscDomyslnaKontrahent}"/>
+                    <Label Grid.Row="7" Grid.Column="2" Content="REGON:" Style="{StaticResource ControlStandardowy}"/>
+                    <TextBox Grid.Row="7" Grid.Column="3" Style="{StaticResource ControlSzerokoscDomyslnaKontrahent}"/>
 
-                <Label Grid.Row="8" Grid.Column="0" Content="KRS:" Style="{StaticResource ControlStandardowy}"/>
+                    <Label Grid.Row="8" Grid.Column="0" Content="KRS:" Style="{StaticResource ControlStandardowy}"/>
                     <TextBox Grid.Row="8" Grid.Column="1" Style="{StaticResource ControlKontrahent}"/>
-                <Label Grid.Row="8" Grid.Column="2" Content="GLN/ILN:" Style="{StaticResource ControlStandardowy}"/>
-                <TextBox Grid.Row="8" Grid.Column="3" Style="{StaticResource ControlSzerokoscDomyslnaKontrahent}"/>
-            </Grid>
-        </Expander>
-        <Expander Grid.Row="3" Header="Kontakt" IsExpanded="True">
-            <Grid>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
-                </Grid.RowDefinitions>
-                <ToolBar>
-                    <ToggleButton>
-                        <StackPanel Orientation="Horizontal">
-                            <Image Source="/Views/Content/Icons/file-document-outline.png"/>
-                            <Label Content="Nowy (Dane kontaktowe)"/>
-                        </StackPanel>
-                    </ToggleButton>
-                    <Separator />
-                    <ToggleButton IsEnabled="False">
-                        <StackPanel Orientation="Horizontal">
-                            <Image Source="/Views/Content/Icons/minus.png"/>
-                            <Label Content="Usun"/>
-                        </StackPanel>
-                    </ToggleButton>
-                </ToolBar>
-                <DataGrid Grid.Row="1" Name="MyGrid"  Height="60">
-                    <DataGrid.Columns>
-                        <DataGridTextColumn Header="Rodzaj kontaktu"/>
-                        <DataGridTextColumn Header="Kontakt"/>
-                        <DataGridTextColumn Header="Krótki opis kontaktu"/>
-                        <DataGridTextColumn Header="Adres"/>
-                    </DataGrid.Columns>
-                </DataGrid>
-            </Grid>
-        </Expander>
-    </Grid>
+                    <Label Grid.Row="8" Grid.Column="2" Content="GLN/ILN:" Style="{StaticResource ControlStandardowy}"/>
+                    <TextBox Grid.Row="8" Grid.Column="3" Style="{StaticResource ControlSzerokoscDomyslnaKontrahent}"/>
+                </Grid>
+            </Expander>-->
+            <Expander Grid.Row="3" Header="Kontakt" IsExpanded="True">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                    <ToolBar>
+                        <ToggleButton>
+                            <StackPanel Orientation="Horizontal">
+                                <Image Source="/Views/Content/Icons/file-document-outline.png"/>
+                                <Label Content="Nowy (Dane kontaktowe)"/>
+                            </StackPanel>
+                        </ToggleButton>
+                        <Separator />
+                        <ToggleButton IsEnabled="False">
+                            <StackPanel Orientation="Horizontal">
+                                <Image Source="/Views/Content/Icons/minus.png"/>
+                                <Label Content="Usun"/>
+                            </StackPanel>
+                        </ToggleButton>
+                    </ToolBar>
+                    <DataGrid Grid.Row="1" Name="MyGrid"  Height="60">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Rodzaj kontaktu"/>
+                            <DataGridTextColumn Header="Kontakt"/>
+                            <DataGridTextColumn Header="Krótki opis kontaktu"/>
+                            <DataGridTextColumn Header="Adres"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </Grid>
+            </Expander>
+        </Grid>
     </ScrollViewer>
 </UserControl>

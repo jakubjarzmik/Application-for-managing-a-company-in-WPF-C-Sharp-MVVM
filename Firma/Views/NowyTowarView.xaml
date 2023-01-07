@@ -11,15 +11,12 @@
     </UserControl.Resources>
     <ScrollViewer>
     <Grid Background="white">
-        <Grid.RowDefinitions>
-            <RowDefinition Height="auto"/>
-            <RowDefinition Height="auto"/>
-            <RowDefinition Height="auto"/>
-        </Grid.RowDefinitions>
-        <!--<Label Grid.Row="0" Style="{StaticResource LabelStandardowy}">Tu będzie dodawanie towarów</Label>
-        <Label Grid.Row="1" Style="{StaticResource LabelError}">Tu będzie dodawanie towarów</Label>
-        <Button Grid.Row="2" Content="Ok" Style="{StaticResource ButtonStandardowy}"/>-->
-        <Expander Grid.Row="0" Header="Ogólne" Margin="5" IsExpanded="True">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+            </Grid.RowDefinitions>
+            <Expander Grid.Row="0" Header="Ogólne" Margin="5" IsExpanded="True">
             <Grid Margin="5">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto"/>

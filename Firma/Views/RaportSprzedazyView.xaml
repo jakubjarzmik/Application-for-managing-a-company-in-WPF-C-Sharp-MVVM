@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:Firma.Views"
+             xmlns:local="clr-namespace:Firma.Views" xmlns:viewmodels="clr-namespace:Firma.ViewModels" d:DataContext="{d:DesignInstance Type=viewmodels:RaportSprzedazyViewModel}"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
@@ -51,7 +51,7 @@
                         <ColumnDefinition Width="200"/>
                     </Grid.ColumnDefinitions>
                     <Label Grid.Column="0" Margin="3" Content="Utarg wynosi: "/>
-                    <Label Grid.Column="1" Margin="3" Content="{Binding  Utarg, Mode=TwoWay}"/>
+                    <TextBox Grid.Column="1" Margin="3" IsEnabled="False" Text="{Binding Utarg, StringFormat=N2, Mode=TwoWay}"/>
                 </Grid>
 
             </Grid>

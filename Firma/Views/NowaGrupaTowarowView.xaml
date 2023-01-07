@@ -20,16 +20,35 @@
                     <Grid.RowDefinitions>
                         <RowDefinition Height="Auto"/>
                         <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
                     </Grid.RowDefinitions>
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="100"/>
+                        <ColumnDefinition Width="120"/>
                         <ColumnDefinition Width="200"/>
                         <ColumnDefinition Width="*"/>
                     </Grid.ColumnDefinitions>
-                    <Label Grid.Row="0" Grid.Column="0" Content="Nazwa:"  Style="{StaticResource ControlStandardowy}"/>
-                    <TextBox Grid.Row="0" Grid.Column="1" Text="{Binding Path=Nazwa, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource ControlStandardowy}"/>
-                    <Label Grid.Row="1" Grid.Column="0" Content="Kod:"  Style="{StaticResource ControlStandardowy}"/>
-                    <TextBox Grid.Row="1" Grid.Column="1" Text="{Binding Path=Kod, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource ControlStandardowy}"/>
+                    <Label Grid.Row="0" Grid.Column="0" Content="Grupa nadrzędna:"  Style="{StaticResource ControlStandardowy}"/>
+                    <ComboBox Grid.Row="0" Grid.Column="1"
+                            Style="{StaticResource ControlStandardowy}" 
+                            ItemsSource="{Binding GrupyComboBoxItems}"
+                            DisplayMemberPath="Value"
+                            SelectedValuePath="Key"
+                            SelectedValue="{Binding Path=GrupaNadrzednaId, Mode=TwoWay}"/>
+                    <TextBox Grid.Row="0" Grid.Column="2" IsEnabled="False" Style="{StaticResource ControlStandardowy}"/>
+                    <Label Grid.Row="1" Grid.Column="0" Content="Nazwa:"  Style="{StaticResource ControlStandardowy}"/>
+                    <TextBox Grid.Row="1" Grid.Column="1" Text="{Binding Path=Nazwa, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource ControlStandardowy}"/>
+                    
+                    <Label Grid.Row="2" Grid.Column="0" Content="Kod:"  Style="{StaticResource ControlStandardowy}"/>
+                    <TextBox Grid.Row="2" Grid.Column="1" Text="{Binding Path=Kod, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource ControlStandardowy}"/>
+
+                    <Label Grid.Row="3" Grid.Column="0" Content="Opis:" Style="{StaticResource ControlStandardowy}"/>
+                    <TextBox Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="2" Text="{Binding Path=Opis, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource TextBoxDuzy}"/>
+
+                    <Label Grid.Row="4" Grid.Column="0" Content="Uwagi:" Style="{StaticResource ControlStandardowy}"/>
+                    <TextBox Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="2" Text="{Binding Path=Uwagi, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource TextBoxDuzy}"/>
+
                 </Grid>
             </Expander>
         </Grid>
