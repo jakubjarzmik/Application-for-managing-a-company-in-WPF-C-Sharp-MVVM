@@ -1,10 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "Yc/JNwleff1+8i0ucxn00netvVADkGtRLy+PIxF6ttHLM8rUvRxiBH6mI5n98oyQ7Dx6fNwgHvrYi2gnvY4KTA==",
+  "dgSpecHash": "8hRWGako+HCaelFCaUVOxvggFzbF8qu0HooZ5rHx8a0lRmALXKHpvTPsf3Zppk02BVZD0biN4i4aP5PU9DJyiQ==",
   "success": true,
   "projectFilePath": "D:\\Studia\\Semestr V\\Programowanie desktopowych aplikacji biznesowych\\Projekt\\Firma\\Firma\\Firma.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\jcobc\\.nuget\\packages\\entityframework\\5.0.0\\entityframework.5.0.0.nupkg.sha512"
+    "C:\\Users\\jcobc\\.nuget\\packages\\controlzex\\4.4.0\\controlzex.4.4.0.nupkg.sha512",
+    "C:\\Users\\jcobc\\.nuget\\packages\\entityframework\\5.0.0\\entityframework.5.0.0.nupkg.sha512",
+    "C:\\Users\\jcobc\\.nuget\\packages\\mahapps.metro\\2.4.9\\mahapps.metro.2.4.9.nupkg.sha512",
+    "C:\\Users\\jcobc\\.nuget\\packages\\microsoft.xaml.behaviors.wpf\\1.1.19\\microsoft.xaml.behaviors.wpf.1.1.19.nupkg.sha512"
   ],
   "logs": []
 }

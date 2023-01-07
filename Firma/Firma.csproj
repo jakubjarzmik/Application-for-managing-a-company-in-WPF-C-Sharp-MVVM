@@ -25,6 +25,10 @@
     <None Remove="Views\Content\Icons\attach_money_FILL0_wght400_GRAD0_opsz48.png" />
     <None Remove="Views\Content\Icons\car-white.png" />
     <None Remove="Views\Content\Icons\car.png" />
+    <None Remove="Views\Content\Icons\chevron_left-white.png" />
+    <None Remove="Views\Content\Icons\chevron_left.png" />
+    <None Remove="Views\Content\Icons\chevron_right-white.png" />
+    <None Remove="Views\Content\Icons\chevron_right.png" />
     <None Remove="Views\Content\Icons\close_FILL0_wght400_GRAD0_opsz48-white.png" />
     <None Remove="Views\Content\Icons\close_FILL0_wght400_GRAD0_opsz48.png" />
     <None Remove="Views\Content\Icons\cog.png" />
@@ -92,6 +96,7 @@
 
   <ItemGroup>
     <PackageReference Include="EntityFramework" Version="5.0.0" />
+    <PackageReference Include="MahApps.Metro" Version="2.4.9" />
   </ItemGroup>
 
   <ItemGroup>
@@ -142,6 +147,18 @@
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Views\Content\Icons\car.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Views\Content\Icons\chevron_left-white.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Views\Content\Icons\chevron_left.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Views\Content\Icons\chevron_right-white.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Views\Content\Icons\chevron_right.png">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Views\Content\Icons\close_FILL0_wght400_GRAD0_opsz48-white.png">
