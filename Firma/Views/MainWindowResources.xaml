@@ -6,7 +6,6 @@
 
     <!--tu bedziemy laczyc View z ViewModel zakładek-->
 
-
     <DataTemplate DataType="{x:Type vm:NowyTowarViewModel}">
         <vw:NowyTowarView/>
     </DataTemplate>
@@ -171,12 +170,24 @@
         <vw:TowaryStawkiVatView/>
     </DataTemplate>
 
+    <DataTemplate DataType="{x:Type vm:NowaStawkaVatTowarowViewModel}">
+        <vw:NowaStawkaVatTowarowView/>
+    </DataTemplate>
+
     <DataTemplate DataType="{x:Type vm:UmowyViewModel}">
         <vw:UmowyView/>
     </DataTemplate>
 
+    <DataTemplate DataType="{x:Type vm:NowaUmowaViewModel}">
+        <vw:NowaUmowaView/>
+    </DataTemplate>
+
     <DataTemplate DataType="{x:Type vm:ZmianyCenyViewModel}">
         <vw:ZmianyCenyView/>
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type vm:NowaZmianaCenyViewModel}">
+        <vw:NowaZmianaCenyView/>
     </DataTemplate>
 
     <DataTemplate DataType="{x:Type vm:SrednieWynagrodzenieViewModel}">
@@ -233,20 +244,7 @@
         <Setter Property="SnapsToDevicePixels" Value="True" />
     </Style>
 
-    <!--
-  This template explains how to render the list of commands on the left
-  side in the main window (the 'Control Panel' area).
-  -->
-    <!--<DataTemplate x:Key="CommandsTemplate">
-        <ItemsControl IsTabStop="False" ItemsSource="{Binding}" Margin="6,2">
-            <ItemsControl.ItemTemplate>
-                <DataTemplate>
-                    <Button Content="{Binding DisplayName}" Command="{Binding Path=Command}" Margin="6" Padding="5" Background="LightBlue" BorderThickness="0"/>
-                </DataTemplate>
-            </ItemsControl.ItemTemplate>
-        </ItemsControl>
-    </DataTemplate>-->
-
+ 
     <Style x:Key="ExpandMenuButton" TargetType="{x:Type Button}">
         <Setter Property="Background" Value="#242424"/>
         <Setter Property="BorderThickness" Value="0"/>

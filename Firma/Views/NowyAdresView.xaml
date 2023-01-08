@@ -67,7 +67,7 @@
                               DisplayMemberPath="Value"
                               SelectedValuePath="Key"
                               SelectedValue="{Binding Path=KrajId, Mode=TwoWay}"/>
-                        <TextBox Grid.Column="1" IsEnabled="False" Style="{StaticResource ControlStandardowy}"/>
+                        <TextBox Grid.Column="1" IsEnabled="False" Text="{Binding Path=KrajNazwa, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource ControlStandardowy}"/>
                     </Grid>
 
                     <Label Grid.Row="3" Grid.Column="0" Content="Dodatkowe:" Style="{StaticResource ControlStandardowy}"/>

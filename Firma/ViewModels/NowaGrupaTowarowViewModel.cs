@@ -60,6 +60,7 @@ namespace Firma.ViewModels
                 if(value != Item.GrupaNadrzednaId)
                 {
                     Item.GrupaNadrzednaId = value;
+                    GrupaNadrzednaNazwa = Db.TowaryGrupy.Where(n => n.GrupaTowaruId == GrupaNadrzednaId).Select(n => n.Nazwa).FirstOrDefault();
                     base.OnPropertyChanged(() => GrupaNadrzednaId);
                 }
             }
@@ -77,6 +78,52 @@ namespace Firma.ViewModels
                         Value = grupa.Kod
                     }
                 ).ToList().AsQueryable();
+            }
+        }
+        private String _GrupaNadrzednaNazwa;
+        public string GrupaNadrzednaNazwa
+        {
+            get
+            {
+                return _GrupaNadrzednaNazwa;
+            }
+            set
+            {
+                if (value != _GrupaNadrzednaNazwa)
+                {
+                    _GrupaNadrzednaNazwa = value;
+                    base.OnPropertyChanged(() => GrupaNadrzednaNazwa);
+                }
+            }
+        }
+        public string Opis
+        {
+            get
+            {
+                return Item.Opis;
+            }
+            set
+            {
+                if (value != Item.Opis)
+                {
+                    Item.Opis = value;
+                    base.OnPropertyChanged(() => Opis);
+                }
+            }
+        }
+        public string Uwagi
+        {
+            get
+            {
+                return Item.Uwagi;
+            }
+            set
+            {
+                if (value != Item.Uwagi)
+                {
+                    Item.Uwagi = value;
+                    base.OnPropertyChanged(() => Uwagi);
+                }
             }
         }
         #endregion

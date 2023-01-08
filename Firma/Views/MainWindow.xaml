@@ -301,7 +301,7 @@
                     MouseEnter="ExpandMenuButton_MouseEnter" 
                     MouseLeave="ExpandMenuButton_MouseLeave"
                     Style="{StaticResource ExpandMenuButton}">
-                <Image x:Name="ExpandMenuButtonImage" Source="/Views/Content/Icons/chevron_left-white.png"/>
+                <Image x:Name="ExpandMenuButtonImage" Source="/Views/Content/Icons/chevron_right-white.png"/>
             </Button>
             <Border Grid.Column="1" HorizontalAlignment="Left">
                 <HeaderedContentControl
@@ -310,7 +310,7 @@
                     Content="{Binding Path=Commands}"
                     ContentTemplate="{StaticResource CommandsTemplate}"
                     Style="{StaticResource MainHCCStyle}"
-                    Width="220"
+                    Width="0"
                     x:Name="MenuPanel"
                     />
             </Border>

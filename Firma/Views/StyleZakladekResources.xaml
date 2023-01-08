@@ -6,6 +6,7 @@
         <Setter Property="Height" Value="28"/>
         <Setter Property="Margin" Value="2"/>
         <Setter Property="VerticalAlignment" Value="Center"/>
+        <Setter Property="VerticalContentAlignment" Value="Center"/>
     </Style>
 
     <Style x:Key="ControlBoldStandardowy" TargetType="{x:Type Control}">

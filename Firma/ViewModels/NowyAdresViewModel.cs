@@ -120,6 +120,7 @@ namespace Firma.ViewModels
                 if (value != Item.KrajId)
                 {
                     Item.KrajId = value;
+                    KrajNazwa = Db.Kraje.Where(n => n.KrajId == KrajId).Select(n => n.Nazwa).FirstOrDefault();
                     base.OnPropertyChanged(() => KrajId);
                 }
             }
@@ -137,6 +138,23 @@ namespace Firma.ViewModels
                         Value = kraj.ISO
                     }
                 ).ToList().AsQueryable();
+            }
+        }
+
+        private String _KrajNazwa;
+        public string KrajNazwa
+        {
+            get
+            {
+                return _KrajNazwa;
+            }
+            set
+            {
+                if (value != _KrajNazwa)
+                {
+                    _KrajNazwa = value;
+                    base.OnPropertyChanged(() => KrajNazwa);
+                }
             }
         }
         public string Dodatkowe

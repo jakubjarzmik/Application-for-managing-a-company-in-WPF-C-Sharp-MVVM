@@ -305,6 +305,8 @@
     <Property Name="DataUsuniecia" Type="datetime" />
     <Property Name="KtoUsunalId" Type="int" />
     <Property Name="CzyAktywny" Type="bit" Nullable="false" />
+    <Property Name="Login" Type="nvarchar" MaxLength="50" />
+    <Property Name="Haslo" Type="nvarchar" MaxLength="254" />
   </EntityType>
   <EntityType Name="PracownicyUmowy">
     <Key>

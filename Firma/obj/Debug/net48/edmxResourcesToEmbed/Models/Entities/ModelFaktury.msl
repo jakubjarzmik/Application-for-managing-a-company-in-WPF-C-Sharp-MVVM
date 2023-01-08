@@ -294,6 +294,8 @@
     <EntitySetMapping Name="Pracownicy">
       <EntityTypeMapping TypeName="JJFirmaModel.Pracownicy">
         <MappingFragment StoreEntitySet="Pracownicy">
+          <ScalarProperty Name="Haslo" ColumnName="Haslo" />
+          <ScalarProperty Name="Login" ColumnName="Login" />
           <ScalarProperty Name="PracownikId" ColumnName="PracownikId" />
           <ScalarProperty Name="Akronim" ColumnName="Akronim" />
           <ScalarProperty Name="Nazwisko" ColumnName="Nazwisko" />

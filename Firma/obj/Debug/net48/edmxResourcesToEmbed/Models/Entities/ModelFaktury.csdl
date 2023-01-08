@@ -485,6 +485,8 @@
     <NavigationProperty Name="ZmianyCeny" Relationship="JJFirmaModel.FK_ZmianyCeny_Pracownicy" FromRole="Pracownicy" ToRole="ZmianyCeny" />
     <NavigationProperty Name="ZmianyCeny1" Relationship="JJFirmaModel.FK_ZmianyCeny_Pracownicy1" FromRole="Pracownicy" ToRole="ZmianyCeny" />
     <NavigationProperty Name="ZmianyCeny2" Relationship="JJFirmaModel.FK_ZmianyCeny_Pracownicy2" FromRole="Pracownicy" ToRole="ZmianyCeny" />
+    <Property Name="Login" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Haslo" Type="String" MaxLength="254" FixedLength="false" Unicode="true" />
   </EntityType>
   <EntityType Name="PracownicyUmowy">
     <Key>

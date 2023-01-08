@@ -36,7 +36,7 @@
                             DisplayMemberPath="Value"
                             SelectedValuePath="Key"
                             SelectedValue="{Binding Path=GrupaNadrzednaId, Mode=TwoWay}"/>
-                    <TextBox Grid.Row="0" Grid.Column="2" IsEnabled="False" Style="{StaticResource ControlStandardowy}"/>
+                    <TextBox Grid.Row="0" Grid.Column="2" IsEnabled="False" Text="{Binding Path=GrupaNadrzednaNazwa, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource ControlStandardowy}"/>
                     <Label Grid.Row="1" Grid.Column="0" Content="Nazwa:"  Style="{StaticResource ControlStandardowy}"/>
                     <TextBox Grid.Row="1" Grid.Column="1" Text="{Binding Path=Nazwa, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource ControlStandardowy}"/>
                     
