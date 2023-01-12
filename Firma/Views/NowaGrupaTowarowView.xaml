@@ -27,6 +27,7 @@
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="120"/>
                         <ColumnDefinition Width="200"/>
+                        <ColumnDefinition Width="36"/>
                         <ColumnDefinition Width="*"/>
                     </Grid.ColumnDefinitions>
                     <Label Grid.Row="0" Grid.Column="0" Content="Grupa nadrzędna:"  Style="{StaticResource ControlStandardowy}"/>
@@ -36,7 +37,9 @@
                             DisplayMemberPath="Value"
                             SelectedValuePath="Key"
                             SelectedValue="{Binding Path=GrupaNadrzednaId, Mode=TwoWay}"/>
-                    <TextBox Grid.Row="0" Grid.Column="2" IsEnabled="False" Text="{Binding Path=GrupaNadrzednaNazwa, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource ControlStandardowy}"/>
+                    <Button Grid.Row="0" Grid.Column="2" Content="..." Style="{StaticResource ControlStandardowy}"/>
+                    <TextBox Grid.Row="0" Grid.Column="3" IsEnabled="False" Text="{Binding Path=GrupaNadrzednaNazwa, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource ControlStandardowy}"/>
+                    
                     <Label Grid.Row="1" Grid.Column="0" Content="Nazwa:"  Style="{StaticResource ControlStandardowy}"/>
                     <TextBox Grid.Row="1" Grid.Column="1" Text="{Binding Path=Nazwa, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource ControlStandardowy}"/>
                     
@@ -44,10 +47,10 @@
                     <TextBox Grid.Row="2" Grid.Column="1" Text="{Binding Path=Kod, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource ControlStandardowy}"/>
 
                     <Label Grid.Row="3" Grid.Column="0" Content="Opis:" Style="{StaticResource ControlStandardowy}"/>
-                    <TextBox Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="2" Text="{Binding Path=Opis, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource TextBoxDuzy}"/>
+                    <TextBox Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="3" Text="{Binding Path=Opis, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource TextBoxDuzy}"/>
 
                     <Label Grid.Row="4" Grid.Column="0" Content="Uwagi:" Style="{StaticResource ControlStandardowy}"/>
-                    <TextBox Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="2" Text="{Binding Path=Uwagi, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource TextBoxDuzy}"/>
+                    <TextBox Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="3" Text="{Binding Path=Uwagi, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource TextBoxDuzy}"/>
 
                 </Grid>
             </Expander>

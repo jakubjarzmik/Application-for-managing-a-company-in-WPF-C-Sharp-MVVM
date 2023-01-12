@@ -12,9 +12,9 @@
                 <DataGridTextColumn Header="Numer" Binding="{Binding Path=Numer}"/>
                 <DataGridTextColumn Header="Rodzaj" Binding="{Binding Path=Rodzaj}"/>
                 <DataGridTextColumn Header="Stanowisko" Binding="{Binding Path=Stanowisko}"/>
-                <DataGridTextColumn Header="DataZawarcia" Binding="{Binding Path=DataZawarcia}"/>
-                <DataGridTextColumn Header="Poczatek umowy" Binding="{Binding Path=DataOd}"/>
-                <DataGridTextColumn Header="Koniec Umowy" Binding="{Binding Path=DataDo}"/>
+                <DataGridTextColumn Header="DataZawarcia" Binding="{Binding Path=DataZawarcia, StringFormat=dd.MM.yyyy}"/>
+                <DataGridTextColumn Header="Poczatek umowy" Binding="{Binding Path=DataOd, StringFormat=dd.MM.yyyy}"/>
+                <DataGridTextColumn Header="Koniec Umowy" Binding="{Binding Path=DataDo, StringFormat=dd.MM.yyyy}"/>
                 <DataGridTextColumn Header="Stawka miesieczna" Binding="{Binding Path=StawkaMies}"/>
                 <DataGridTextColumn Header="Stawka godzinowa" Binding="{Binding Path=StawkaGodz}"/>
                 <DataGridTextColumn Header="Czas pracy miesiecznie" Binding="{Binding Path=CzasPracyMies}"/>

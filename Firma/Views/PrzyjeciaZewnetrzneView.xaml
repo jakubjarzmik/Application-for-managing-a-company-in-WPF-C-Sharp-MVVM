@@ -10,7 +10,7 @@
         <DataGrid AutoGenerateColumns="False" ItemsSource="{Binding List}">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Numer" Binding="{Binding Path=Numer}"/>
-                <DataGridTextColumn Header="Data przyjecia" Binding="{Binding Path=DataPrzyjecia}"/>
+                <DataGridTextColumn Header="Data przyjecia" Binding="{Binding Path=DataPrzyjecia, StringFormat=dd.MM.yyyy}"/>
                 <DataGridTextColumn Header="Magazyn" Binding="{Binding Path=NazwaMagazynu}"/>
                 <DataGridTextColumn Header="Kontrahent" Binding="{Binding Path=NazwaKontrahenta}"/>
                 <DataGridTextColumn Header="Nip" Binding="{Binding Path=NipKontrahenta}"/>

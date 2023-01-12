@@ -23,8 +23,9 @@
                         <RowDefinition Height="Auto"/>
                     </Grid.RowDefinitions>
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="120"/>
-                        <ColumnDefinition Width="200"/>
+                        <ColumnDefinition Width="100"/>
+                        <ColumnDefinition Width="160"/>
+                        <ColumnDefinition Width="36"/>
                         <ColumnDefinition Width="*"/>
                     </Grid.ColumnDefinitions>
                     <Label Grid.Row="0" Grid.Column="0" Content="Kraj:"  Style="{StaticResource ControlStandardowy}"/>
@@ -34,13 +35,14 @@
                             DisplayMemberPath="Value"
                             SelectedValuePath="Key"
                             SelectedValue="{Binding Path=KrajId, Mode=TwoWay}"/>
-                    <TextBox Grid.Row="0" Grid.Column="2" IsEnabled="False" Text="{Binding Path=KrajNazwa, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource ControlStandardowy}"/>
+                    <Button Grid.Row="0" Grid.Column="2" Content="..." Style="{StaticResource ControlStandardowy}"/>
+                    <TextBox Grid.Row="0" Grid.Column="3" IsEnabled="False" Text="{Binding Path=KrajNazwa, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource ControlStandardowy}"/>
                     
                     <Label Grid.Row="1" Grid.Column="0" Content="Stawka:"  Style="{StaticResource ControlStandardowy}"/>
                     <TextBox Grid.Row="1" Grid.Column="1" Text="{Binding Path=Stawka, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource ControlStandardowy}"/>
 
                     <Label Grid.Row="2" Grid.Column="0" Content="Opis:" Style="{StaticResource ControlStandardowy}"/>
-                    <TextBox Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2" Text="{Binding Path=Opis, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource TextBoxDuzy}"/>
+                    <TextBox Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="3" Text="{Binding Path=Opis, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource TextBoxDuzy}"/>
 
                 </Grid>
             </Expander>

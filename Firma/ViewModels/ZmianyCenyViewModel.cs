@@ -30,7 +30,7 @@ namespace Firma.ViewModels
                         Towar = cena.Towary.Nazwa,
                         JednostkaMiary = cena.JednostkiMiary.Skrot,
                         CenaNetto = cena.CenaNetto,
-                        CenaBrutto = cena.CenaNetto * (100 + cena.Towary.TowaryStawkiVat.Stawka)/100,
+                        CenaBrutto = cena.CenaNetto * (100 + cena.Towary.TowaryStawkiVat.Stawka) / 100,
                         WartoscVat = cena.CenaNetto * cena.Towary.TowaryStawkiVat.Stawka / 100,
                         DataObowiazywaniaOd = cena.DataObowiazywaniaOd,
                         DataObowiazywaniaDo = cena.DataObowiazywaniaDo

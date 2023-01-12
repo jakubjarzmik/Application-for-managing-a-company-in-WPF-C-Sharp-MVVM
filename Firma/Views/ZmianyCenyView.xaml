@@ -14,8 +14,8 @@
                 <DataGridTextColumn Header="Cena netto" Binding="{Binding Path=CenaNetto}"/>
                 <DataGridTextColumn Header="Cena brutto" Binding="{Binding Path=CenaBrutto}"/>
                 <DataGridTextColumn Header="Wartosc vat" Binding="{Binding Path=WartoscVat}"/>
-                <DataGridTextColumn Header="Data obowiazywania od" Binding="{Binding Path=DataObowiazywaniaOd}"/>
-                <DataGridTextColumn Header="Data obowiazywania do" Binding="{Binding Path=DataObowiazywaniaDo}"/>
+                <DataGridTextColumn Header="Data obowiazywania od" Binding="{Binding Path=DataObowiazywaniaOd, StringFormat=dd.MM.yyyy}"/>
+                <DataGridTextColumn Header="Data obowiazywania do" Binding="{Binding Path=DataObowiazywaniaDo, StringFormat=dd.MM.yyyy}"/>
             </DataGrid.Columns>
         </DataGrid>
     </Grid>

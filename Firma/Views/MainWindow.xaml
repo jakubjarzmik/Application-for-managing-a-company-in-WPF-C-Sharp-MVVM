@@ -3,6 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:ribbon="http://schemas.microsoft.com/winfx/2006/xaml/presentation/ribbon"
         xmlns:local="clr-namespace:Firma"
         mc:Ignorable="d"
         Icon="jj.ico"
@@ -15,282 +16,115 @@
         <KeyBinding Key="K" Modifiers="Control" Command="{Binding NowyKontrahentCommand}"/>
         <KeyBinding Key="P" Modifiers="Control" Command="{Binding PrzyjecieZewnetrzneCommand}"/>
         <KeyBinding Key="W" Modifiers="Control" Command="{Binding WydanieZewnetrzneCommand}"/>
-        <KeyBinding Key="V" Modifiers="Control" Command="{Binding RejestrVATCommand}"/>
-        <KeyBinding Key="F8" Command="{Binding EwidencjaPlatnosciCommand}"/>
     </Window.InputBindings>
     <Window.Resources>
         <ResourceDictionary Source="MainWindowResources.xaml"/>
     </Window.Resources>
     <Grid x:Name="grid">
         <Grid.RowDefinitions>
-            <RowDefinition Height="30"/>
-            <RowDefinition Height="40"/>
+            <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="30"/>
         </Grid.RowDefinitions>
+        <Ribbon  Loaded="RibbonLoaded">
+            <Ribbon.ApplicationMenu>
+                <RibbonApplicationMenu IsEnabled="False" Visibility="Collapsed"/>
+            </Ribbon.ApplicationMenu>
+            <RibbonTab Header="Ogólne" OpacityMask="White">
+                <RibbonGroup Header="Kontrahenci">
+                    <RibbonButton Label="Kontrahenci"  LargeImageSource="/Views/Content/Icons/warehouse_FILL0_wght400_GRAD0_opsz48-white.png" />
+                    <RibbonButton Label="Nowy kontrahent" LargeImageSource="/Views/Content/Icons/warehouse_FILL0_wght400_GRAD0_opsz48.png" />
+                </RibbonGroup>
+                <RibbonGroup Header="Magazyny">
+                    <RibbonButton Label="Magazyny" LargeImageSource="/Views/Content/Icons/warehouse_FILL0_wght400_GRAD0_opsz48.png" />
+                    <RibbonButton Label="Nowy magazyn" LargeImageSource="/Views/Content/Icons/warehouse_FILL0_wght400_GRAD0_opsz48.png" />
+                </RibbonGroup>
+            </RibbonTab>
+            <RibbonTab Header="Towary">
+                <RibbonGroup Header="Towary">
+                    <RibbonButton Label="Towary" LargeImageSource="/Views/Content/Icons/warehouse_FILL0_wght400_GRAD0_opsz48.png" />
+                    <RibbonButton Label="Nowy towar" LargeImageSource="/Views/Content/Icons/warehouse_FILL0_wght400_GRAD0_opsz48.png" />
+                </RibbonGroup>
+                <RibbonGroup Header="Ceny">
+                    <RibbonButton Label="Zmiany ceny"  LargeImageSource="/Views/Content/Icons/warehouse_FILL0_wght400_GRAD0_opsz48-white.png" />
+                    <RibbonButton Label="Nowa zmiana ceny" LargeImageSource="/Views/Content/Icons/warehouse_FILL0_wght400_GRAD0_opsz48.png" />
+                </RibbonGroup>
+                <RibbonGroup Header="Utarg">
+                    <RibbonButton Label="Raport sprzedaży" LargeImageSource="/Views/Content/Icons/warehouse_FILL0_wght400_GRAD0_opsz48.png" />
+                </RibbonGroup>
+            </RibbonTab>
+            <RibbonTab Header="Dokumenty">
+                <RibbonGroup Header="Faktury">
+                    <RibbonButton Label="Faktury"  LargeImageSource="/Views/Content/Icons/warehouse_FILL0_wght400_GRAD0_opsz48-white.png" />
+                    <RibbonButton Label="Nowa faktura" LargeImageSource="/Views/Content/Icons/warehouse_FILL0_wght400_GRAD0_opsz48.png" />
+                </RibbonGroup>
+                <RibbonGroup Header="Przyjecia zewnętrzne">
+                    <RibbonButton Label="Przyjecia zewnętrzne" LargeImageSource="/Views/Content/Icons/warehouse_FILL0_wght400_GRAD0_opsz48.png" />
+                    <RibbonButton Label="Nowe PZ" LargeImageSource="/Views/Content/Icons/warehouse_FILL0_wght400_GRAD0_opsz48.png" />
+                </RibbonGroup>
+                <RibbonGroup Header="Wydania zewnętrzne">
+                    <RibbonButton Label="Wydania zewnętrzne" LargeImageSource="/Views/Content/Icons/warehouse_FILL0_wght400_GRAD0_opsz48.png" />
+                    <RibbonButton Label="Nowe WZ" LargeImageSource="/Views/Content/Icons/warehouse_FILL0_wght400_GRAD0_opsz48.png" />
+                </RibbonGroup>
+            </RibbonTab>
+            <RibbonTab Header="Kadry">
+                <RibbonGroup Header="Pracownicy">
+                    <RibbonButton Label="Pracownicy"  LargeImageSource="/Views/Content/Icons/warehouse_FILL0_wght400_GRAD0_opsz48-white.png" />
+                    <RibbonButton Label="Nowy pracownik" LargeImageSource="/Views/Content/Icons/warehouse_FILL0_wght400_GRAD0_opsz48.png" />
+                </RibbonGroup>
+                <RibbonGroup Header="Umowy">
+                    <RibbonButton Label="Umowy"  LargeImageSource="/Views/Content/Icons/warehouse_FILL0_wght400_GRAD0_opsz48-white.png" />
+                    <RibbonButton Label="Średnie wynagrodzenie" LargeImageSource="/Views/Content/Icons/warehouse_FILL0_wght400_GRAD0_opsz48.png" />
+                </RibbonGroup>
+            </RibbonTab>
+            <RibbonTab Header="Słowniki">
+                <RibbonGroup Header="Faktury">
+                    <RibbonButton Label="Kategorie faktur"  SmallImageSource="/Views/Content/Icons/warehouse_FILL0_wght400_GRAD0_opsz48-white.png" />
+                    <RibbonButton Label="Rodzaje faktur" SmallImageSource="/Views/Content/Icons/warehouse_FILL0_wght400_GRAD0_opsz48.png" />
+                </RibbonGroup>
+                <RibbonGroup Header="Kontrahenci">
+                    <RibbonButton Label="Rodzaje kontrahentów" SmallImageSource="/Views/Content/Icons/warehouse_FILL0_wght400_GRAD0_opsz48.png" />
+                </RibbonGroup>
+                <RibbonGroup Header="Towary">
+                    <RibbonButton Label="Grupy towarów"  SmallImageSource="/Views/Content/Icons/warehouse_FILL0_wght400_GRAD0_opsz48-white.png" />
+                    <RibbonButton Label="Typy towarów" SmallImageSource="/Views/Content/Icons/warehouse_FILL0_wght400_GRAD0_opsz48.png" />
+                    <RibbonButton Label="Jednostki miary" SmallImageSource="/Views/Content/Icons/warehouse_FILL0_wght400_GRAD0_opsz48.png" />
+                    <RibbonButton Label="Stawki VAT" SmallImageSource="/Views/Content/Icons/warehouse_FILL0_wght400_GRAD0_opsz48.png" />
+                </RibbonGroup>
+                <RibbonGroup Header="Umowy">
+                    <RibbonButton Label="Rodzaje umowy"  SmallImageSource="/Views/Content/Icons/warehouse_FILL0_wght400_GRAD0_opsz48-white.png" />
+                    <RibbonButton Label="Stanowiska" SmallImageSource="/Views/Content/Icons/warehouse_FILL0_wght400_GRAD0_opsz48.png" />
+                </RibbonGroup>
+                <RibbonGroup Header="Magazyny">
+                    <RibbonButton Label="Typy magazynów"  SmallImageSource="/Views/Content/Icons/warehouse_FILL0_wght400_GRAD0_opsz48-white.png" />
+                </RibbonGroup>
+                <RibbonGroup Header="Inne">
+                    <RibbonButton Label="Kraje"  SmallImageSource="/Views/Content/Icons/warehouse_FILL0_wght400_GRAD0_opsz48-white.png" />
+                    <RibbonButton Label="Rodzaje płatności"  SmallImageSource="/Views/Content/Icons/warehouse_FILL0_wght400_GRAD0_opsz48-white.png" />
+                </RibbonGroup>
+            </RibbonTab>
+            <RibbonTab Header="Inne">
+                <RibbonGroup Header="Adresy">
+                    <RibbonButton Label="Adresy"  LargeImageSource="/Views/Content/Icons/warehouse_FILL0_wght400_GRAD0_opsz48-white.png" />
+                    <RibbonButton Label="Nowy adres" LargeImageSource="/Views/Content/Icons/warehouse_FILL0_wght400_GRAD0_opsz48.png" />
+                </RibbonGroup>
+                <RibbonGroup Header="Kontakty">
+                    <RibbonButton Label="Kontakty"  LargeImageSource="/Views/Content/Icons/warehouse_FILL0_wght400_GRAD0_opsz48-white.png" />
+                    <RibbonButton Label="Nowy kontakt" LargeImageSource="/Views/Content/Icons/warehouse_FILL0_wght400_GRAD0_opsz48.png" />
+                </RibbonGroup>
+            </RibbonTab>
+            <RibbonTab Header="?">
+                <RibbonGroup>
+                    <RibbonButton Label="FakturyWydaniaZewnetrzne"  LargeImageSource="/Views/Content/Icons/warehouse_FILL0_wght400_GRAD0_opsz48-white.png" />
+                    <RibbonButton Label="KontrahenciKontakty" LargeImageSource="/Views/Content/Icons/warehouse_FILL0_wght400_GRAD0_opsz48.png" />
+                    <RibbonButton Label="PozycjeWydaniaZewnetrznego" LargeImageSource="/Views/Content/Icons/warehouse_FILL0_wght400_GRAD0_opsz48.png" />
+                    <RibbonButton Label="PozycjePrzyjeciaZewnetrznego" LargeImageSource="/Views/Content/Icons/warehouse_FILL0_wght400_GRAD0_opsz48.png" />
+                    <RibbonButton Label="PracownicyUmowy" LargeImageSource="/Views/Content/Icons/warehouse_FILL0_wght400_GRAD0_opsz48.png" />
+                </RibbonGroup>
+            </RibbonTab>
+        </Ribbon>
 
-        <Menu Grid.Row="0" Grid.Column="0" Style="{StaticResource MenuBarStyle}">
-            <MenuItem Style="{StaticResource MenuLogoStyle}" IsEnabled="False">
-                <MenuItem.Background>
-                    <ImageBrush ImageSource="jj-white.ico"/>
-                </MenuItem.Background>
-            </MenuItem>
-            <MenuItem Header="Program" Style="{StaticResource MenuItemStyle}">
-                <MenuItem Header="Wybór magazynu" InputGestureText="Ctrl+O" Style="{StaticResource MenuInternalItemStyle}">
-                    <MenuItem.Icon>
-                        <Image Source="/Views/Content/Icons/warehouse_FILL0_wght400_GRAD0_opsz48.png"/>
-                    </MenuItem.Icon>
-                </MenuItem>
-                <Separator/>
-                <MenuItem Header="Archiwizacja" InputGestureText="Ctrl+A" Style="{StaticResource MenuInternalItemStyle}">
-                    <MenuItem.Icon>
-                        <Image Source="/Views/Content/Icons/archive_FILL0_wght400_GRAD0_opsz48.png"/>
-                    </MenuItem.Icon>
-                </MenuItem>
-                <MenuItem Header="Dearchiwizacja" InputGestureText="Ctrl+D" Style="{StaticResource MenuInternalItemStyle}">
-                    <MenuItem.Icon>
-                        <Image Source="/Views/Content/Icons/unarchive_FILL0_wght400_GRAD0_opsz48.png"/>
-                    </MenuItem.Icon>
-                </MenuItem>
-                <Separator/>
-                <MenuItem Header="Zakończ" Style="{StaticResource MenuInternalItemStyle}">
-                    <MenuItem.Icon>
-                        <Image Source="/Views/Content/Icons/close_FILL0_wght400_GRAD0_opsz48.png"/>
-                    </MenuItem.Icon>
-                </MenuItem>
-            </MenuItem>
-            <MenuItem Header="_Towary" Style="{StaticResource MenuItemStyle}">
-                <MenuItem Header="Wszystkie" InputGestureText="F2" Style="{StaticResource MenuInternalItemStyle}">
-                    <MenuItem.Icon>
-                        <Image Source="/Views/Content/Icons/package-variant-closed.png"/>
-                    </MenuItem.Icon>
-                </MenuItem>
-                <MenuItem Header="Dodawanie" InputGestureText="Ctrl+T" Command="{Binding NowyTowarCommand}" Style="{StaticResource MenuInternalItemStyle}">
-                    <MenuItem.Icon>
-                        <Image Source="/Views/Content/Icons/package-variant-closed-plus.png"/>
-                    </MenuItem.Icon>
-                </MenuItem>
-                <MenuItem Header="Usuwanie" Style="{StaticResource MenuInternalItemStyle}">
-                    <MenuItem.Icon>
-                        <Image Source="/Views/Content/Icons/package-variant-closed-minus.png"/>
-                    </MenuItem.Icon>
-                </MenuItem>
-                <Separator/>
-                <MenuItem Header="Importuj" Style="{StaticResource MenuInternalItemStyle}">
-                    <MenuItem.Icon>
-                        <Image Source="/Views/Content/Icons/download_FILL0_wght400_GRAD0_opsz48.png"/>
-                    </MenuItem.Icon>
-                    <MenuItem Header="Kopiuj z innego magazynu" Style="{StaticResource MenuInternalItemStyle}">
-                        <MenuItem.Icon>
-                            <Image Source="/Views/Content/Icons/content_copy_FILL0_wght400_GRAD0_opsz48.png"/>
-                        </MenuItem.Icon>
-                    </MenuItem>
-                    <MenuItem Header="Z excela" Style="{StaticResource MenuInternalItemStyle}">
-                        <MenuItem.Icon>
-                            <Image Source="/Views/Content/Icons/excel.png"/>
-                        </MenuItem.Icon>
-                    </MenuItem>
-                    <MenuItem Header="Z pliku" Style="{StaticResource MenuInternalItemStyle}">
-                        <MenuItem.Icon>
-                            <Image Source="/Views/Content/Icons/file_open_FILL0_wght400_GRAD0_opsz48.png"/>
-                        </MenuItem.Icon>
-                    </MenuItem>
-                </MenuItem>
-            </MenuItem>
-            <MenuItem Header="_Dokumenty" Style="{StaticResource MenuItemStyle}">
-                <MenuItem Header="Faktury"  Style="{StaticResource MenuInternalItemStyle}">
-                    <MenuItem.Icon>
-                        <Image Source="/Views/Content/Icons/file-document-outline.png"/>
-                    </MenuItem.Icon>
-                    <MenuItem Header="Wszystkie"  InputGestureText="F3"  Style="{StaticResource MenuInternalItemStyle}">
-                        <MenuItem.Icon>
-                            <Image Source="/Views/Content/Icons/file-document-outline.png"/>
-                        </MenuItem.Icon>
-                    </MenuItem>
-                    <MenuItem Header="Dodawanie" InputGestureText="Ctrl+F" Command="{Binding NowaFakturaCommand}"  Style="{StaticResource MenuInternalItemStyle}">
-                        <MenuItem.Icon>
-                            <Image Source="/Views/Content/Icons/file-document-plus-outline.png"/>
-                        </MenuItem.Icon>
-                    </MenuItem>
-                    <MenuItem Header="Usuwanie"  Style="{StaticResource MenuInternalItemStyle}">
-                        <MenuItem.Icon>
-                            <Image Source="/Views/Content/Icons/file-document-minus-outline.png"/>
-                        </MenuItem.Icon>
-                    </MenuItem>
-                </MenuItem>
-                <MenuItem Header="Przyjecie zewnetrzne (PZ)"  InputGestureText="Ctrl+P"  Command="{Binding PrzyjecieZewnetrzneCommand}" Style="{StaticResource MenuInternalItemStyle}">
-                    <MenuItem.Icon>
-                        <Image Source="/Views/Content/Icons/pz.png"/>
-                    </MenuItem.Icon>
-                </MenuItem>
-                <MenuItem Header="Wydanie zewnetrzne (WZ)"  InputGestureText="Ctrl+W" Command="{Binding WydanieZewnetrzneCommand}" Style="{StaticResource MenuInternalItemStyle}">
-                    <MenuItem.Icon>
-                        <Image Source="/Views/Content/Icons/wz.png"/>
-                    </MenuItem.Icon>
-                </MenuItem>
-                <MenuItem Header="Rejestr VAT zakupu"  InputGestureText="Ctrl+V" Command="{Binding RejestrVATCommand}" Style="{StaticResource MenuInternalItemStyle}">
-                    <MenuItem.Icon>
-                        <Image Source="/Views/Content/Icons/vat.png"/>
-                    </MenuItem.Icon>
-                </MenuItem>
-                <MenuItem Header="Korekty stanu magazynu"  InputGestureText="F4" Style="{StaticResource MenuInternalItemStyle}">
-                    <MenuItem.Icon>
-                        <Image Source="/Views/Content/Icons/korekta.png"/>
-                    </MenuItem.Icon>
-                </MenuItem>
-                <MenuItem Header="Przeceny"  InputGestureText="F5" Style="{StaticResource MenuInternalItemStyle}">
-                    <MenuItem.Icon>
-                        <Image Source="/Views/Content/Icons/attach_money_FILL0_wght400_GRAD0_opsz48.png"/>
-                    </MenuItem.Icon>
-                </MenuItem>
-                <Separator/>
-                <MenuItem Header="Renament"  InputGestureText="F6"  Style="{StaticResource MenuInternalItemStyle}">
-                    <MenuItem.Icon>
-                        <Image Source="/Views/Content/Icons/inventory_FILL0_wght400_GRAD0_opsz48.png"/>
-                    </MenuItem.Icon>
-                    <MenuItem Header="Utwórz nowy renament" Style="{StaticResource MenuInternalItemStyle}"/>
-                    <MenuItem Header="Bilans otwarcia"  Style="{StaticResource MenuInternalItemStyle}"/>
-                    <MenuItem Header="Renamenty archiwalne"  Style="{StaticResource MenuInternalItemStyle}"/>
-                </MenuItem>
-            </MenuItem>
-            
-            <MenuItem Header="_Kontrahenci" Style="{StaticResource MenuItemStyle}">
-                <MenuItem Header="Wszyscy"  InputGestureText="F7" Style="{StaticResource MenuInternalItemStyle}">
-                    <MenuItem.Icon>
-                        <Image Source="/Views/Content/Icons/account.png"/>
-                    </MenuItem.Icon>
-                </MenuItem>
-                <MenuItem Header="Dodawanie" InputGestureText="Ctrl+K" Command="{Binding NowyKontrahentCommand}" Style="{StaticResource MenuInternalItemStyle}">
-                    <MenuItem.Icon>
-                        <Image Source="/Views/Content/Icons/account-plus.png"/>
-                    </MenuItem.Icon>
-                </MenuItem>
-                <MenuItem Header="Usuwanie" Style="{StaticResource MenuInternalItemStyle}">
-                    <MenuItem.Icon>
-                        <Image Source="/Views/Content/Icons/account-minus.png"/>
-                    </MenuItem.Icon>
-                </MenuItem>
-                <Separator/>
-                <MenuItem Header="Importuj" Style="{StaticResource MenuInternalItemStyle}">
-                    <MenuItem.Icon>
-                        <Image Source="/Views/Content/Icons/download_FILL0_wght400_GRAD0_opsz48.png"/>
-                    </MenuItem.Icon>
-                    <MenuItem Header="Kopiuj z innego magazynu" Style="{StaticResource MenuInternalItemStyle}">
-                        <MenuItem.Icon>
-                            <Image Source="/Views/Content/Icons/content_copy_FILL0_wght400_GRAD0_opsz48.png"/>
-                        </MenuItem.Icon>
-                    </MenuItem>
-                    <MenuItem Header="Z excela" Style="{StaticResource MenuInternalItemStyle}">
-                        <MenuItem.Icon>
-                            <Image Source="/Views/Content/Icons/excel.png"/>
-                        </MenuItem.Icon>
-                    </MenuItem>
-                    <MenuItem Header="Z pliku" Style="{StaticResource MenuInternalItemStyle}">
-                        <MenuItem.Icon>
-                            <Image Source="/Views/Content/Icons/file_open_FILL0_wght400_GRAD0_opsz48.png"/>
-                        </MenuItem.Icon>
-                    </MenuItem>
-                </MenuItem>
-            </MenuItem>
-            <MenuItem Header="_Płatności" Style="{StaticResource MenuItemStyle}">
-                <MenuItem Header="Ewidencja płatności" InputGestureText="F8" Command="{Binding EwidencjaPlatnosciCommand}" Style="{StaticResource MenuInternalItemStyle}">
-                    <MenuItem.Icon>
-                        <Image Source="/Views/Content/Icons/receipt_FILL0_wght400_GRAD0_opsz48.png"/>
-                    </MenuItem.Icon>
-                </MenuItem>
-                <MenuItem Header="Raport kasowy"  InputGestureText="F9" Style="{StaticResource MenuInternalItemStyle}">
-                    <MenuItem.Icon>
-                        <Image Source="/Views/Content/Icons/summarize_FILL0_wght400_GRAD0_opsz48.png"/>
-                    </MenuItem.Icon>
-                </MenuItem>
-            </MenuItem>
-            <MenuItem Header="_Pomoc" Style="{StaticResource MenuItemStyle}">
-                <MenuItem Header="Instrukcja"  InputGestureText="Ctrl+H" Style="{StaticResource MenuInternalItemStyle}">
-                    <MenuItem.Icon>
-                        <Image Source="/Views/Content/Icons/instruction.png"/>
-                    </MenuItem.Icon>
-                </MenuItem>
-                <MenuItem Header="O programie"  Style="{StaticResource MenuInternalItemStyle}">
-                    <MenuItem.Icon>
-                        <Image Source="/Views/Content/Icons/info_FILL0_wght400_GRAD0_opsz48.png"/>
-                    </MenuItem.Icon>
-                </MenuItem>
-            </MenuItem>
-        </Menu>
-
-        <ToolBar Grid.Row="1" Grid.Column="0" Style="{StaticResource ToolBarStyle}">
-            <ToggleButton Style="{StaticResource ToggleButtonStyle}">
-                <ToggleButton.Background>
-                    <ImageBrush ImageSource="/Views/Content/Icons/package-variant-closed-white.png"/>
-                </ToggleButton.Background>
-            </ToggleButton>
-            <ToggleButton Command="{Binding NowyTowarCommand}" Style="{StaticResource ToggleButtonStyle}">
-                <ToggleButton.Background>
-                    <ImageBrush ImageSource="/Views/Content/Icons/package-variant-closed-plus-white.png"/>
-                </ToggleButton.Background>
-            </ToggleButton>
-            <ToggleButton Style="{StaticResource ToggleButtonStyle}">
-                <ToggleButton.Background>
-                    <ImageBrush ImageSource="/Views/Content/Icons/package-variant-closed-minus-white.png"/>
-                </ToggleButton.Background>
-            </ToggleButton>
-            <Separator/>
-            <ToggleButton Style="{StaticResource ToggleButtonStyle}">
-                <ToggleButton.Background>
-                    <ImageBrush ImageSource="/Views/Content/Icons/file-document-outline-white.png"/>
-                </ToggleButton.Background>
-            </ToggleButton>
-            <ToggleButton Command="{Binding NowaFakturaCommand}" Style="{StaticResource ToggleButtonStyle}">
-                <ToggleButton.Background>
-                    <ImageBrush ImageSource="/Views/Content/Icons/file-document-plus-outline-white.png"/>
-                </ToggleButton.Background>
-            </ToggleButton>
-            <ToggleButton Style="{StaticResource ToggleButtonStyle}">
-                <ToggleButton.Background>
-                    <ImageBrush ImageSource="/Views/Content/Icons/file-document-minus-outline-white.png"/>
-                </ToggleButton.Background>
-            </ToggleButton>
-            <Separator/>
-            <ToggleButton Command="{Binding PrzyjecieZewnetrzneCommand}" Style="{StaticResource ToggleButtonStyle}">
-                <ToggleButton.Background>
-                    <ImageBrush ImageSource="/Views/Content/Icons/pz-white.png"/>
-                </ToggleButton.Background>
-            </ToggleButton>
-            <ToggleButton Command="{Binding WydanieZewnetrzneCommand}" Style="{StaticResource ToggleButtonStyle}">
-                <ToggleButton.Background>
-                    <ImageBrush ImageSource="/Views/Content/Icons/wz-white.png"/>
-                </ToggleButton.Background>
-            </ToggleButton>
-            <ToggleButton Command="{Binding RejestrVATCommand}" Style="{StaticResource ToggleButtonStyle}">
-                <ToggleButton.Background>
-                    <ImageBrush ImageSource="/Views/Content/Icons/vat-white.png"/>
-                </ToggleButton.Background>
-            </ToggleButton>
-            <Separator/>
-            <ToggleButton Style="{StaticResource ToggleButtonStyle}">
-                <ToggleButton.Background>
-                    <ImageBrush ImageSource="/Views/Content/Icons/account-white.png"/>
-                </ToggleButton.Background>
-            </ToggleButton>
-            <ToggleButton Command="{Binding NowyKontrahentCommand}" Style="{StaticResource ToggleButtonStyle}">
-                <ToggleButton.Background>
-                    <ImageBrush ImageSource="/Views/Content/Icons/account-plus-white.png"/>
-                </ToggleButton.Background>
-            </ToggleButton>
-            <ToggleButton Style="{StaticResource ToggleButtonStyle}">
-                <ToggleButton.Background>
-                    <ImageBrush ImageSource="/Views/Content/Icons/account-minus-white.png"/>
-                </ToggleButton.Background>
-            </ToggleButton>
-            <Separator/>
-            <ToggleButton Command="{Binding EwidencjaPlatnosciCommand}" Style="{StaticResource ToggleButtonStyle}">
-                <ToggleButton.Background>
-                    <ImageBrush ImageSource="/Views/Content/Icons/receipt_FILL0_wght400_GRAD0_opsz48-white.png"/>
-                </ToggleButton.Background>
-            </ToggleButton>
-        </ToolBar>
-
-        <Grid Grid.Row="2">
+        <Grid Grid.Row="1">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="20"/>
                 <ColumnDefinition Width="Auto" x:Name="MenuColumn"/>
@@ -314,7 +148,7 @@
                     x:Name="MenuPanel"
                     />
             </Border>
-            
+
             <Border Grid.Column="2">
                 <HeaderedContentControl
                     Header="Przestrzeń robocza"
@@ -325,7 +159,7 @@
             </Border>
         </Grid>
 
-        <StatusBar Grid.Row="3" Style="{StaticResource StatusBarStyle}">
+        <StatusBar Grid.Row="2" Style="{StaticResource StatusBarStyle}">
             <StatusBarItem>
                 <Image Source="/Views/Content/Icons/wsb-white.png"/>
             </StatusBarItem>
@@ -352,7 +186,7 @@
             <StatusBarItem HorizontalAlignment="Right">
                 <TextBlock>Autor: Jakub Jarzmik</TextBlock>
             </StatusBarItem>
-            
+
         </StatusBar>
 
     </Grid>
