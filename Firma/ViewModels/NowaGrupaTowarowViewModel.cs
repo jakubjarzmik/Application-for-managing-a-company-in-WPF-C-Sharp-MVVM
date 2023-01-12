@@ -13,7 +13,7 @@ namespace Firma.ViewModels
     {
         #region Konstruktor
         public NowaGrupaTowarowViewModel() 
-            : base("Nowy rodzaj ceny")
+            : base("Nowa grupa towarów")
         {
             Item = new TowaryGrupy();
         }

@@ -13,7 +13,7 @@ namespace Firma.ViewModels
     public class NowyRodzajFakturyViewModel : JedenViewModel<FakturyRodzaje>
     {
         #region Konstruktor
-        public NowyRodzajFakturyViewModel():base("Nowy Rodzaj faktury")
+        public NowyRodzajFakturyViewModel():base("Nowy rodzaj faktury")
         {
             Item = new FakturyRodzaje();
         }

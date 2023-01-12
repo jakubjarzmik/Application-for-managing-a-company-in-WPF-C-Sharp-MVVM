@@ -13,7 +13,7 @@ namespace Firma.ViewModels
     {
         #region Konstruktor
         public UmowyRodzajeViewModel() 
-            : base("Rodzaje umów")
+            : base("Rodzaje umowy")
         {
         }
         #endregion
