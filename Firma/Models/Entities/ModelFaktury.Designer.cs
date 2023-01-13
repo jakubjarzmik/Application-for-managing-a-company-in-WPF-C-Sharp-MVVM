@@ -9564,7 +9564,6 @@ namespace Firma.Models.Entities
         /// <param name="imie">Initial value of the Imie property.</param>
         /// <param name="drugieImie">Initial value of the DrugieImie property.</param>
         /// <param name="pESEL">Initial value of the PESEL property.</param>
-        /// <param name="nipKraj">Initial value of the NipKraj property.</param>
         /// <param name="nip">Initial value of the Nip property.</param>
         /// <param name="dataUrodzenia">Initial value of the DataUrodzenia property.</param>
         /// <param name="miejsceUrodzenia">Initial value of the MiejsceUrodzenia property.</param>
@@ -9574,13 +9573,12 @@ namespace Firma.Models.Entities
         /// <param name="nazwiskoRodoweMatki">Initial value of the NazwiskoRodoweMatki property.</param>
         /// <param name="adresId">Initial value of the AdresId property.</param>
         /// <param name="telefon">Initial value of the Telefon property.</param>
-        /// <param name="telefonSMS">Initial value of the TelefonSMS property.</param>
         /// <param name="email">Initial value of the Email property.</param>
         /// <param name="uwagi">Initial value of the Uwagi property.</param>
         /// <param name="dataUtworzenia">Initial value of the DataUtworzenia property.</param>
         /// <param name="ktoUtworzylId">Initial value of the KtoUtworzylId property.</param>
         /// <param name="czyAktywny">Initial value of the CzyAktywny property.</param>
-        public static Pracownicy CreatePracownicy(global::System.Int32 pracownikId, global::System.String akronim, global::System.String nazwisko, global::System.String imie, global::System.String drugieImie, global::System.String pESEL, global::System.String nipKraj, global::System.String nip, global::System.DateTime dataUrodzenia, global::System.String miejsceUrodzenia, global::System.String imieOjca, global::System.String imieMatki, global::System.String nazwiskoRodowe, global::System.String nazwiskoRodoweMatki, global::System.Int32 adresId, global::System.String telefon, global::System.String telefonSMS, global::System.String email, global::System.String uwagi, global::System.DateTime dataUtworzenia, global::System.Int32 ktoUtworzylId, global::System.Boolean czyAktywny)
+        public static Pracownicy CreatePracownicy(global::System.Int32 pracownikId, global::System.String akronim, global::System.String nazwisko, global::System.String imie, global::System.String drugieImie, global::System.String pESEL, global::System.String nip, global::System.DateTime dataUrodzenia, global::System.String miejsceUrodzenia, global::System.String imieOjca, global::System.String imieMatki, global::System.String nazwiskoRodowe, global::System.String nazwiskoRodoweMatki, global::System.Int32 adresId, global::System.String telefon, global::System.String email, global::System.String uwagi, global::System.DateTime dataUtworzenia, global::System.Int32 ktoUtworzylId, global::System.Boolean czyAktywny)
         {
             Pracownicy pracownicy = new Pracownicy();
             pracownicy.PracownikId = pracownikId;
@@ -9589,7 +9587,6 @@ namespace Firma.Models.Entities
             pracownicy.Imie = imie;
             pracownicy.DrugieImie = drugieImie;
             pracownicy.PESEL = pESEL;
-            pracownicy.NipKraj = nipKraj;
             pracownicy.Nip = nip;
             pracownicy.DataUrodzenia = dataUrodzenia;
             pracownicy.MiejsceUrodzenia = miejsceUrodzenia;
@@ -9599,7 +9596,6 @@ namespace Firma.Models.Entities
             pracownicy.NazwiskoRodoweMatki = nazwiskoRodoweMatki;
             pracownicy.AdresId = adresId;
             pracownicy.Telefon = telefon;
-            pracownicy.TelefonSMS = telefonSMS;
             pracownicy.Email = email;
             pracownicy.Uwagi = uwagi;
             pracownicy.DataUtworzenia = dataUtworzenia;
@@ -9758,30 +9754,6 @@ namespace Firma.Models.Entities
         private global::System.String _PESEL;
         partial void OnPESELChanging(global::System.String value);
         partial void OnPESELChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.String NipKraj
-        {
-            get
-            {
-                return _NipKraj;
-            }
-            set
-            {
-                OnNipKrajChanging(value);
-                ReportPropertyChanging("NipKraj");
-                _NipKraj = StructuralObject.SetValidValue(value, false, "NipKraj");
-                ReportPropertyChanged("NipKraj");
-                OnNipKrajChanged();
-            }
-        }
-        private global::System.String _NipKraj;
-        partial void OnNipKrajChanging(global::System.String value);
-        partial void OnNipKrajChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -10004,30 +9976,6 @@ namespace Firma.Models.Entities
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.String TelefonSMS
-        {
-            get
-            {
-                return _TelefonSMS;
-            }
-            set
-            {
-                OnTelefonSMSChanging(value);
-                ReportPropertyChanging("TelefonSMS");
-                _TelefonSMS = StructuralObject.SetValidValue(value, false, "TelefonSMS");
-                ReportPropertyChanged("TelefonSMS");
-                OnTelefonSMSChanged();
-            }
-        }
-        private global::System.String _TelefonSMS;
-        partial void OnTelefonSMSChanging(global::System.String value);
-        partial void OnTelefonSMSChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
         public global::System.String Email
         {
             get
@@ -10238,30 +10186,6 @@ namespace Firma.Models.Entities
         private global::System.Boolean _CzyAktywny;
         partial void OnCzyAktywnyChanging(global::System.Boolean value);
         partial void OnCzyAktywnyChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
-        [DataMemberAttribute()]
-        public global::System.String Login
-        {
-            get
-            {
-                return _Login;
-            }
-            set
-            {
-                OnLoginChanging(value);
-                ReportPropertyChanging("Login");
-                _Login = StructuralObject.SetValidValue(value, true, "Login");
-                ReportPropertyChanged("Login");
-                OnLoginChanged();
-            }
-        }
-        private global::System.String _Login;
-        partial void OnLoginChanging(global::System.String value);
-        partial void OnLoginChanged();
     
         /// <summary>
         /// No Metadata Documentation available.

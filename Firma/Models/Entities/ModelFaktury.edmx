@@ -290,7 +290,6 @@
           <Property Name="Imie" Type="nvarchar" MaxLength="40" Nullable="false" />
           <Property Name="DrugieImie" Type="nvarchar" MaxLength="40" Nullable="false" />
           <Property Name="PESEL" Type="nvarchar" MaxLength="11" Nullable="false" />
-          <Property Name="NipKraj" Type="varchar" MaxLength="2" Nullable="false" />
           <Property Name="Nip" Type="nvarchar" MaxLength="20" Nullable="false" />
           <Property Name="DataUrodzenia" Type="date" Nullable="false" />
           <Property Name="MiejsceUrodzenia" Type="nvarchar" MaxLength="40" Nullable="false" />
@@ -300,7 +299,6 @@
           <Property Name="NazwiskoRodoweMatki" Type="nvarchar" MaxLength="40" Nullable="false" />
           <Property Name="AdresId" Type="int" Nullable="false" />
           <Property Name="Telefon" Type="varchar" MaxLength="20" Nullable="false" />
-          <Property Name="TelefonSMS" Type="varchar" MaxLength="20" Nullable="false" />
           <Property Name="Email" Type="nvarchar" MaxLength="127" Nullable="false" />
           <Property Name="Uwagi" Type="nvarchar" MaxLength="254" Nullable="false" />
           <Property Name="DataUtworzenia" Type="datetime" Nullable="false" />
@@ -310,8 +308,7 @@
           <Property Name="DataUsuniecia" Type="datetime" />
           <Property Name="KtoUsunalId" Type="int" />
           <Property Name="CzyAktywny" Type="bit" Nullable="false" />
-          <Property Name="Login" Type="nvarchar" MaxLength="50" />
-          <Property Name="Haslo" Type="nvarchar" MaxLength="254" />
+          <Property Name="Haslo" Type="nvarchar" MaxLength="255" />
         </EntityType>
         <EntityType Name="PracownicyUmowy">
           <Key>
@@ -2994,7 +2991,6 @@
           <Property Name="Imie" Type="String" MaxLength="40" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="DrugieImie" Type="String" MaxLength="40" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="PESEL" Type="String" MaxLength="11" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="NipKraj" Type="String" MaxLength="2" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Nip" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="DataUrodzenia" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="MiejsceUrodzenia" Type="String" MaxLength="40" FixedLength="false" Unicode="true" Nullable="false" />
@@ -3004,7 +3000,6 @@
           <Property Name="NazwiskoRodoweMatki" Type="String" MaxLength="40" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="AdresId" Type="Int32" Nullable="false" />
           <Property Name="Telefon" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="TelefonSMS" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Email" Type="String" MaxLength="127" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Uwagi" Type="String" MaxLength="254" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="DataUtworzenia" Type="DateTime" Nullable="false" Precision="3" />
@@ -3103,8 +3098,7 @@
           <NavigationProperty Name="ZmianyCeny" Relationship="JJFirmaModel.FK_ZmianyCeny_Pracownicy" FromRole="Pracownicy" ToRole="ZmianyCeny" />
           <NavigationProperty Name="ZmianyCeny1" Relationship="JJFirmaModel.FK_ZmianyCeny_Pracownicy1" FromRole="Pracownicy" ToRole="ZmianyCeny" />
           <NavigationProperty Name="ZmianyCeny2" Relationship="JJFirmaModel.FK_ZmianyCeny_Pracownicy2" FromRole="Pracownicy" ToRole="ZmianyCeny" />
-          <Property Name="Login" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Haslo" Type="String" MaxLength="254" FixedLength="false" Unicode="true" />
+          <Property Name="Haslo" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="PracownicyUmowy">
           <Key>
@@ -5746,14 +5740,12 @@
             <EntityTypeMapping TypeName="JJFirmaModel.Pracownicy">
               <MappingFragment StoreEntitySet="Pracownicy">
                 <ScalarProperty Name="Haslo" ColumnName="Haslo" />
-                <ScalarProperty Name="Login" ColumnName="Login" />
                 <ScalarProperty Name="PracownikId" ColumnName="PracownikId" />
                 <ScalarProperty Name="Akronim" ColumnName="Akronim" />
                 <ScalarProperty Name="Nazwisko" ColumnName="Nazwisko" />
                 <ScalarProperty Name="Imie" ColumnName="Imie" />
                 <ScalarProperty Name="DrugieImie" ColumnName="DrugieImie" />
                 <ScalarProperty Name="PESEL" ColumnName="PESEL" />
-                <ScalarProperty Name="NipKraj" ColumnName="NipKraj" />
                 <ScalarProperty Name="Nip" ColumnName="Nip" />
                 <ScalarProperty Name="DataUrodzenia" ColumnName="DataUrodzenia" />
                 <ScalarProperty Name="MiejsceUrodzenia" ColumnName="MiejsceUrodzenia" />
@@ -5763,7 +5755,6 @@
                 <ScalarProperty Name="NazwiskoRodoweMatki" ColumnName="NazwiskoRodoweMatki" />
                 <ScalarProperty Name="AdresId" ColumnName="AdresId" />
                 <ScalarProperty Name="Telefon" ColumnName="Telefon" />
-                <ScalarProperty Name="TelefonSMS" ColumnName="TelefonSMS" />
                 <ScalarProperty Name="Email" ColumnName="Email" />
                 <ScalarProperty Name="Uwagi" ColumnName="Uwagi" />
                 <ScalarProperty Name="DataUtworzenia" ColumnName="DataUtworzenia" />
