@@ -121,3 +121,7 @@ D:\Studia\Semestr V\Programowanie desktopowych aplikacji biznesowych\Projekt\Fir
 D:\Studia\Semestr V\Programowanie desktopowych aplikacji biznesowych\Projekt\Firma\Firma\obj\Debug\net48\Firma.csproj.CopyComplete
 D:\Studia\Semestr V\Programowanie desktopowych aplikacji biznesowych\Projekt\Firma\Firma\obj\Debug\net48\Firma.exe
 D:\Studia\Semestr V\Programowanie desktopowych aplikacji biznesowych\Projekt\Firma\Firma\obj\Debug\net48\Firma.pdb
+D:\Studia\Semestr V\Programowanie desktopowych aplikacji biznesowych\Projekt\Firma\Firma\obj\Debug\net48\Views\NowyMagazynView.g.cs
+D:\Studia\Semestr V\Programowanie desktopowych aplikacji biznesowych\Projekt\Firma\Firma\obj\Debug\net48\Views\NowyMagazynView.baml
+D:\Studia\Semestr V\Programowanie desktopowych aplikacji biznesowych\Projekt\Firma\Firma\obj\Debug\net48\Views\NowyPracownikView.g.cs
+D:\Studia\Semestr V\Programowanie desktopowych aplikacji biznesowych\Projekt\Firma\Firma\obj\Debug\net48\Views\NowyPracownikView.baml

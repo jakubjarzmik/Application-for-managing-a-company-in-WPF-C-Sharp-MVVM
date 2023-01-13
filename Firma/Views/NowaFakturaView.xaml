@@ -133,22 +133,43 @@
                     </Grid>
                 </Grid>
             </Expander>
-            <DataGrid Grid.Row="3" Grid.ColumnSpan="2" Name="Faktura" Height="100">
-                <DataGrid.Columns>
-                    <DataGridCheckBoxColumn/>
-                    <DataGridTextColumn Header="Lp."/>
-                    <DataGridTextColumn Header="Kod"/>
-                    <DataGridTextColumn Header="Nazwa"/>
-                    <DataGridTextColumn Header="Ilość"/>
-                    <DataGridTextColumn Header="Jm"/>
-                    <DataGridTextColumn Header="Rabat"/>
-                    <DataGridTextColumn Header="Cena"/>
-                    <DataGridTextColumn Header="Wartość"/>
-                    <DataGridTextColumn Header="Marża"/>
-                    <DataGridTextColumn Header="% Marży"/>
-                    <DataGridTextColumn Header="Magazyn"/>
-                </DataGrid.Columns>
-            </DataGrid>
+            <Expander Grid.Row="3" Header="Wydania zewnętrzne" IsExpanded="True">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                    <ToolBar>
+                        <ToggleButton>
+                            <StackPanel Orientation="Horizontal" >
+                                <Image Source="/Views/Content/Icons/file-document-outline.png" />
+                                <Label Content="Nowe"/>
+                            </StackPanel>
+                        </ToggleButton>
+                        <Separator />
+                        <ToggleButton>
+                            <StackPanel Orientation="Horizontal">
+                                <Image Source="/Views/Content/Icons/file-document-outline.png"/>
+                                <Label Content="Wybierz"/>
+                            </StackPanel>
+                        </ToggleButton>
+                        <Separator />
+                        <ToggleButton>
+                            <StackPanel Orientation="Horizontal">
+                                <Image Source="/Views/Content/Icons/minus.png"/>
+                                <Label Content="Usun"/>
+                            </StackPanel>
+                        </ToggleButton>
+                    </ToolBar>
+                    <DataGrid Grid.Row="1" Name="MyGrid"  Height="60">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Numer"/>
+                            <DataGridTextColumn Header="Magazyn"/>
+                            <DataGridTextColumn Header="Rabat"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </Grid>
+            </Expander>
         </Grid>
     </ScrollViewer>
 </local:JedenViewBase>

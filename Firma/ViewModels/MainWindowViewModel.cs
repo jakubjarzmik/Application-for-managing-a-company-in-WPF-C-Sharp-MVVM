@@ -257,6 +257,13 @@ namespace Firma.ViewModels
                 return new BaseCommand(() => showAllMagazyny());
             }
         }
+        public ICommand NowyMagazynCommand
+        {
+            get
+            {
+                return new BaseCommand(() => createView(new NowyMagazynViewModel()));
+            }
+        }
         public ICommand PozycjePrzyjeciaZewnetrznegoCommand
         {
             get
@@ -276,6 +283,13 @@ namespace Firma.ViewModels
             get
             {
                 return new BaseCommand(() => showAllPracownicy());
+            }
+        }
+        public ICommand NowyPracownikCommand
+        {
+            get
+            {
+                return new BaseCommand(() => createView(new NowyPracownikViewModel()));
             }
         }
         public ICommand PrzyjeciaZewnetrzneCommand

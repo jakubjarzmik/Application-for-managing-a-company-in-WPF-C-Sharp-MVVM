@@ -141,6 +141,10 @@
     <DataTemplate DataType="{x:Type vm:MagazynyViewModel}">
         <vw:MagazynyView/>
     </DataTemplate>
+    
+    <DataTemplate DataType="{x:Type vm:NowyMagazynViewModel}">
+        <vw:NowyMagazynView/>
+    </DataTemplate>
 
     <DataTemplate DataType="{x:Type vm:PozycjePrzyjeciaZewnetrznegoViewModel}">
         <vw:PozycjePrzyjeciaZewnetrznegoView/>
@@ -152,6 +156,10 @@
 
     <DataTemplate DataType="{x:Type vm:PracownicyViewModel}">
         <vw:PracownicyView/>
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type vm:NowyPracownikViewModel}">
+        <vw:NowyPracownikView/>
     </DataTemplate>
 
     <DataTemplate DataType="{x:Type vm:PrzyjeciaZewnetrzneViewModel}">
