@@ -109,7 +109,7 @@
                     </Grid>
                 </Grid>
             </Expander>
-            <Expander Grid.Row="3" Grid.ColumnSpan="3" Header="Wydania zewnętrzne" IsExpanded="True">
+            <Expander Grid.Row="3" Grid.ColumnSpan="3" Header="Pozycje wydania zewnętrznego" IsExpanded="True">
                 <Grid>
                     <Grid.RowDefinitions>
                         <RowDefinition Height="Auto"/>

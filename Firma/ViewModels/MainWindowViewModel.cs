@@ -40,13 +40,6 @@ namespace Firma.ViewModels
                 return new BaseCommand(() => createView(new NowyKontrahentViewModel()));
             }
         }
-        public ICommand WydanieZewnetrzneCommand
-        {
-            get
-            {
-                return new BaseCommand(() => createView(new WydanieZewnetrzneViewModel()));
-            }
-        }
         public ICommand FakturyKategorieCommand
         {
             get
@@ -304,6 +297,13 @@ namespace Firma.ViewModels
             get
             {
                 return new BaseCommand(() => showAllWydaniaZewnetrzne());
+            }
+        }
+        public ICommand NoweWydanieZewnetrzneCommand
+        {
+            get
+            {
+                return new BaseCommand(() => createView(new NoweWydanieZewnetrzneViewModel()));
             }
         }
         public ICommand TowaryCommand

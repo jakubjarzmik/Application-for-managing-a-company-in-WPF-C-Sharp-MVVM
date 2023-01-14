@@ -336,6 +336,9 @@
     <Compile Update="Views\AdresyView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Views\NoweWydanieZewnetrzneView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Views\NowePrzyjecieZewnetrzneView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -456,9 +459,6 @@
     <Compile Update="Views\NowyTypMagazynuView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="Views\WydanieZewnetrzneView.xaml.cs">
-      <SubType>Code</SubType>
-    </Compile>
   </ItemGroup>
 
   <ItemGroup>
@@ -469,10 +469,6 @@
       <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
     </Page>
     <Page Update="Views\NowaKategoriaFakturyView.xaml">
-      <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Update="Views\WydanieZewnetrzneView.xaml">
       <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
       <SubType>Designer</SubType>
     </Page>

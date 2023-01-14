@@ -134,7 +134,8 @@ namespace Firma.ViewModels
                     base.OnPropertyChanged(() => KontrahentPelnaNazwa);
                 }
             }
-        }public int KategoriaFakturyId
+        }
+        public int KategoriaFakturyId
         {
             get
             {

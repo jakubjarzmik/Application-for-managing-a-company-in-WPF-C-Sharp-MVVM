@@ -55,7 +55,6 @@ D:\Studia\Semestr V\Programowanie desktopowych aplikacji biznesowych\Projekt\Fir
 D:\Studia\Semestr V\Programowanie desktopowych aplikacji biznesowych\Projekt\Firma\Firma\obj\Debug\net48\Views\UmowyStanowiskaView.g.cs
 D:\Studia\Semestr V\Programowanie desktopowych aplikacji biznesowych\Projekt\Firma\Firma\obj\Debug\net48\Views\UmowyView.g.cs
 D:\Studia\Semestr V\Programowanie desktopowych aplikacji biznesowych\Projekt\Firma\Firma\obj\Debug\net48\Views\WydaniaZewnetrzneView.g.cs
-D:\Studia\Semestr V\Programowanie desktopowych aplikacji biznesowych\Projekt\Firma\Firma\obj\Debug\net48\Views\WydanieZewnetrzneView.g.cs
 D:\Studia\Semestr V\Programowanie desktopowych aplikacji biznesowych\Projekt\Firma\Firma\obj\Debug\net48\Views\ZmianyCenyView.g.cs
 D:\Studia\Semestr V\Programowanie desktopowych aplikacji biznesowych\Projekt\Firma\Firma\obj\Debug\net48\App.g.cs
 D:\Studia\Semestr V\Programowanie desktopowych aplikacji biznesowych\Projekt\Firma\Firma\obj\Debug\net48\GeneratedInternalTypeHelper.g.cs
@@ -109,7 +108,6 @@ D:\Studia\Semestr V\Programowanie desktopowych aplikacji biznesowych\Projekt\Fir
 D:\Studia\Semestr V\Programowanie desktopowych aplikacji biznesowych\Projekt\Firma\Firma\obj\Debug\net48\Views\UmowyStanowiskaView.baml
 D:\Studia\Semestr V\Programowanie desktopowych aplikacji biznesowych\Projekt\Firma\Firma\obj\Debug\net48\Views\UmowyView.baml
 D:\Studia\Semestr V\Programowanie desktopowych aplikacji biznesowych\Projekt\Firma\Firma\obj\Debug\net48\Views\WydaniaZewnetrzneView.baml
-D:\Studia\Semestr V\Programowanie desktopowych aplikacji biznesowych\Projekt\Firma\Firma\obj\Debug\net48\Views\WydanieZewnetrzneView.baml
 D:\Studia\Semestr V\Programowanie desktopowych aplikacji biznesowych\Projekt\Firma\Firma\obj\Debug\net48\Views\ZmianyCenyView.baml
 D:\Studia\Semestr V\Programowanie desktopowych aplikacji biznesowych\Projekt\Firma\Firma\obj\Debug\net48\Firma.g.resources
 D:\Studia\Semestr V\Programowanie desktopowych aplikacji biznesowych\Projekt\Firma\Firma\obj\Debug\net48\Firma.GeneratedMSBuildEditorConfig.editorconfig
@@ -125,3 +123,5 @@ D:\Studia\Semestr V\Programowanie desktopowych aplikacji biznesowych\Projekt\Fir
 D:\Studia\Semestr V\Programowanie desktopowych aplikacji biznesowych\Projekt\Firma\Firma\obj\Debug\net48\Views\NowyPracownikView.baml
 D:\Studia\Semestr V\Programowanie desktopowych aplikacji biznesowych\Projekt\Firma\Firma\obj\Debug\net48\Views\NowePrzyjecieZewnetrzneView.g.cs
 D:\Studia\Semestr V\Programowanie desktopowych aplikacji biznesowych\Projekt\Firma\Firma\obj\Debug\net48\Views\NowePrzyjecieZewnetrzneView.baml
+D:\Studia\Semestr V\Programowanie desktopowych aplikacji biznesowych\Projekt\Firma\Firma\obj\Debug\net48\Views\NoweWydanieZewnetrzneView.g.cs
+D:\Studia\Semestr V\Programowanie desktopowych aplikacji biznesowych\Projekt\Firma\Firma\obj\Debug\net48\Views\NoweWydanieZewnetrzneView.baml

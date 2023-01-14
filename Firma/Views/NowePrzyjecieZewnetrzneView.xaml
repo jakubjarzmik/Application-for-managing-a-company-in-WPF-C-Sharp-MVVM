@@ -23,8 +23,8 @@
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
             <Label Content="Numer:" Style="{StaticResource ControlStandardowy}"/>
-                <TextBox Grid.Column="1" IsEnabled="False" Text="{Binding Path=Numer, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource ControlStandardowy}"/>
-                <Expander Header="Nagłówek" Grid.Row="1" Grid.ColumnSpan="3" IsExpanded="True">
+            <TextBox Grid.Column="1" IsEnabled="False" Text="{Binding Path=Numer, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource ControlStandardowy}"/>
+            <Expander Header="Nagłówek" Grid.Row="1" Grid.ColumnSpan="3" IsExpanded="True">
                 <Grid>
                     <Grid.RowDefinitions>
                         <RowDefinition Height="Auto"/>
@@ -109,13 +109,17 @@
                     </Grid>
                 </Grid>
             </Expander>
-            <Expander Grid.Row="3" Grid.ColumnSpan="3" Header="Wydania zewnętrzne" IsExpanded="True">
+            <Expander Grid.Row="3" Grid.ColumnSpan="3" Header="Pozycje przyjęcia zewnętrznego" IsExpanded="True">
                 <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="87*"/>
+                        <ColumnDefinition Width="694*"/>
+                    </Grid.ColumnDefinitions>
                     <Grid.RowDefinitions>
                         <RowDefinition Height="Auto"/>
                         <RowDefinition Height="Auto"/>
                     </Grid.RowDefinitions>
-                    <ToolBar>
+                    <ToolBar Grid.ColumnSpan="2" Margin="0,0,0,60" Grid.RowSpan="2">
                         <ToggleButton>
                             <StackPanel Orientation="Horizontal" >
                                 <Image Source="/Views/Content/Icons/file-document-outline.png" />
@@ -130,7 +134,7 @@
                             </StackPanel>
                         </ToggleButton>
                     </ToolBar>
-                    <DataGrid Grid.Row="1" Name="MyGrid"  Height="60">
+                    <DataGrid Grid.Row="1" Name="MyGrid"  Height="60" Grid.ColumnSpan="2">
                         <DataGrid.Columns>
                             <DataGridTextColumn Header="Towar"/>
                             <DataGridTextColumn Header="Ilosc"/>

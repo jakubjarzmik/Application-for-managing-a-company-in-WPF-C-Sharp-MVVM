@@ -141,7 +141,7 @@ namespace Firma.ViewModels
             }
         }
 
-        private String _KrajNazwa;
+        private string _KrajNazwa;
         public string KrajNazwa
         {
             get
