@@ -285,7 +285,6 @@
     <Property Name="Imie" Type="nvarchar" MaxLength="40" Nullable="false" />
     <Property Name="DrugieImie" Type="nvarchar" MaxLength="40" Nullable="false" />
     <Property Name="PESEL" Type="nvarchar" MaxLength="11" Nullable="false" />
-    <Property Name="NipKraj" Type="varchar" MaxLength="2" Nullable="false" />
     <Property Name="Nip" Type="nvarchar" MaxLength="20" Nullable="false" />
     <Property Name="DataUrodzenia" Type="date" Nullable="false" />
     <Property Name="MiejsceUrodzenia" Type="nvarchar" MaxLength="40" Nullable="false" />
@@ -295,7 +294,6 @@
     <Property Name="NazwiskoRodoweMatki" Type="nvarchar" MaxLength="40" Nullable="false" />
     <Property Name="AdresId" Type="int" Nullable="false" />
     <Property Name="Telefon" Type="varchar" MaxLength="20" Nullable="false" />
-    <Property Name="TelefonSMS" Type="varchar" MaxLength="20" Nullable="false" />
     <Property Name="Email" Type="nvarchar" MaxLength="127" Nullable="false" />
     <Property Name="Uwagi" Type="nvarchar" MaxLength="254" Nullable="false" />
     <Property Name="DataUtworzenia" Type="datetime" Nullable="false" />
@@ -305,8 +303,7 @@
     <Property Name="DataUsuniecia" Type="datetime" />
     <Property Name="KtoUsunalId" Type="int" />
     <Property Name="CzyAktywny" Type="bit" Nullable="false" />
-    <Property Name="Login" Type="nvarchar" MaxLength="50" />
-    <Property Name="Haslo" Type="nvarchar" MaxLength="254" />
+    <Property Name="Haslo" Type="nvarchar" MaxLength="255" />
   </EntityType>
   <EntityType Name="PracownicyUmowy">
     <Key>

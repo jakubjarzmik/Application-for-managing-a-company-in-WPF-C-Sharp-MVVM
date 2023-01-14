@@ -15,13 +15,29 @@ namespace Firma.ViewModels
     {
         #region Konstruktor
         public NowyPracownikViewModel() 
-            : base("Nowy magazyn")
+            : base("Nowy pracownik")
         {
             Item = new Pracownicy();
             DataUrodzenia = DateTime.Today;
+            Akronim = "  ";
         }
         #endregion
         #region Properties
+        public string Akronim
+        {
+            get
+            {
+                return Item.Akronim;
+            }
+            set
+            {
+                if (value != Item.Akronim)
+                {
+                    Item.Akronim = value;
+                    base.OnPropertyChanged(() => Akronim);
+                }
+            }
+        }
         public string Imie
         {
             get
@@ -33,6 +49,15 @@ namespace Firma.ViewModels
                 if (value != Item.Imie)
                 {
                     Item.Imie = value;
+                    var akronimArr = Akronim.ToCharArray();
+                    try
+                    {
+                        akronimArr[0] = Imie[0];
+                    }catch(IndexOutOfRangeException)
+                    {
+                        akronimArr[0] = ' ';
+                    }
+                    Akronim = new string(akronimArr);
                     base.OnPropertyChanged(() => Imie);
                 }
             }
@@ -63,6 +88,16 @@ namespace Firma.ViewModels
                 if(value != Item.Nazwisko)
                 {
                     Item.Nazwisko = value;
+                    var akronimArr = Akronim.ToCharArray();
+                    try
+                    {
+                        akronimArr[1] = Nazwisko[0];
+                    }
+                    catch (IndexOutOfRangeException)
+                    {
+                        akronimArr[1] = ' ';
+                    }
+                    Akronim = new string(akronimArr);
                     base.OnPropertyChanged(() => Nazwisko);
                 }
             }
@@ -425,6 +460,8 @@ namespace Firma.ViewModels
                 Item.NazwiskoRodoweMatki = "";
             if (Item.Telefon == null)
                 Item.Telefon = "";
+            if (Item.Uwagi == null)
+                Item.Uwagi = "";
             Db.Pracownicy.AddObject(Item);
             Db.SaveChanges();
         }

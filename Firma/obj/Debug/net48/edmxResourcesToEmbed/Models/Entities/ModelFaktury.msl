@@ -295,14 +295,12 @@
       <EntityTypeMapping TypeName="JJFirmaModel.Pracownicy">
         <MappingFragment StoreEntitySet="Pracownicy">
           <ScalarProperty Name="Haslo" ColumnName="Haslo" />
-          <ScalarProperty Name="Login" ColumnName="Login" />
           <ScalarProperty Name="PracownikId" ColumnName="PracownikId" />
           <ScalarProperty Name="Akronim" ColumnName="Akronim" />
           <ScalarProperty Name="Nazwisko" ColumnName="Nazwisko" />
           <ScalarProperty Name="Imie" ColumnName="Imie" />
           <ScalarProperty Name="DrugieImie" ColumnName="DrugieImie" />
           <ScalarProperty Name="PESEL" ColumnName="PESEL" />
-          <ScalarProperty Name="NipKraj" ColumnName="NipKraj" />
           <ScalarProperty Name="Nip" ColumnName="Nip" />
           <ScalarProperty Name="DataUrodzenia" ColumnName="DataUrodzenia" />
           <ScalarProperty Name="MiejsceUrodzenia" ColumnName="MiejsceUrodzenia" />
@@ -312,7 +310,6 @@
           <ScalarProperty Name="NazwiskoRodoweMatki" ColumnName="NazwiskoRodoweMatki" />
           <ScalarProperty Name="AdresId" ColumnName="AdresId" />
           <ScalarProperty Name="Telefon" ColumnName="Telefon" />
-          <ScalarProperty Name="TelefonSMS" ColumnName="TelefonSMS" />
           <ScalarProperty Name="Email" ColumnName="Email" />
           <ScalarProperty Name="Uwagi" ColumnName="Uwagi" />
           <ScalarProperty Name="DataUtworzenia" ColumnName="DataUtworzenia" />

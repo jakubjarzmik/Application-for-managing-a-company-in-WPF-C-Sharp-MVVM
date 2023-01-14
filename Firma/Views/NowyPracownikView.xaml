@@ -25,34 +25,39 @@
                         <RowDefinition Height="Auto"/>
                         <RowDefinition Height="Auto"/>
                         <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
                     </Grid.RowDefinitions>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="120"/>
-                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="0.2*" MinWidth="50"/>
+                        <ColumnDefinition Width="0.8*"/>
                         <ColumnDefinition Width="120"/>
                         <ColumnDefinition Width="*"/>
                     </Grid.ColumnDefinitions>
-                    <Label Content="Imię:" Style="{StaticResource ControlStandardowy}"/>
-                    <TextBox Grid.Column="1" Text="{Binding Path=Imie, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource ControlStandardowy}"/>
-                    <Label Grid.Column="2" Content="Drugie imię:" Style="{StaticResource ControlStandardowy}"/>
-                    <TextBox Grid.Column="3" Text="{Binding Path=DrugieImie, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource ControlStandardowy}"/>
+                    <Label Content="Akronim:" Style="{StaticResource ControlStandardowy}"/>
+                    <TextBox Grid.Column="1" IsEnabled="False" Text="{Binding Path=Akronim, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource ControlStandardowy}"/>
 
-                    <Label Grid.Row="1" Grid.Column="0" Content="Nazwisko:" Style="{StaticResource ControlStandardowy}"/>
-                    <TextBox Grid.Row="1" Grid.Column="1" Text="{Binding Path=Nazwisko, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource ControlStandardowy}"/>
-                    <Label  Grid.Row="1" Grid.Column="2" Content="Nazwisko rodowe:" Style="{StaticResource ControlStandardowy}"/>
-                    <TextBox Grid.Row="1" Grid.Column="3" Text="{Binding Path=NazwiskoRodowe, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource ControlStandardowy}"/>
+                    <Label Grid.Row="1" Content="Imię:" Style="{StaticResource ControlStandardowy}"/>
+                    <TextBox Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" Text="{Binding Path=Imie, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource ControlStandardowy}"/>
+                    <Label Grid.Row="1" Grid.Column="3" Content="Drugie imię:" Style="{StaticResource ControlStandardowy}"/>
+                    <TextBox Grid.Row="1" Grid.Column="4" Text="{Binding Path=DrugieImie, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource ControlStandardowy}"/>
 
-                    <Label  Grid.Row="2" Content="PESEL:" Style="{StaticResource ControlStandardowy}"/>
-                    <TextBox Grid.Row="2" Grid.Column="1" Text="{Binding Path=PESEL, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource ControlStandardowy}"/>
-                    <Label  Grid.Row="2" Grid.Column="2" Content="Nip:" Style="{StaticResource ControlStandardowy}"/>
-                    <TextBox Grid.Row="2" Grid.Column="3" Text="{Binding Path=Nip, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource ControlStandardowy}"/>
+                    <Label Grid.Row="2" Grid.Column="0" Content="Nazwisko:" Style="{StaticResource ControlStandardowy}"/>
+                    <TextBox Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2" Text="{Binding Path=Nazwisko, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource ControlStandardowy}"/>
+                    <Label  Grid.Row="2" Grid.Column="3" Content="Nazwisko rodowe:" Style="{StaticResource ControlStandardowy}"/>
+                    <TextBox Grid.Row="2" Grid.Column="4" Text="{Binding Path=NazwiskoRodowe, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource ControlStandardowy}"/>
 
-                    <Label  Grid.Row="3" Content="Data urodzenia:" Style="{StaticResource ControlStandardowy}"/>
-                    <DatePicker Grid.Row="3" Grid.Column="1" SelectedDate="{Binding Path=DataUrodzenia, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource ControlStandardowy}"/>
-                    <Label  Grid.Row="3" Grid.Column="2" Content="Miejsce urodzenia:" Style="{StaticResource ControlStandardowy}"/>
-                    <TextBox Grid.Row="3" Grid.Column="3" Text="{Binding Path=MiejsceUrodzenia, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource ControlStandardowy}"/>
+                    <Label  Grid.Row="3" Content="PESEL:" Style="{StaticResource ControlStandardowy}"/>
+                    <TextBox Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="2" Text="{Binding Path=PESEL, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource ControlStandardowy}"/>
+                    <Label  Grid.Row="3" Grid.Column="3" Content="Nip:" Style="{StaticResource ControlStandardowy}"/>
+                    <TextBox Grid.Row="3" Grid.Column="4" Text="{Binding Path=Nip, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource ControlStandardowy}"/>
 
-                    <Grid Grid.Row="4" Grid.ColumnSpan="4">
+                    <Label  Grid.Row="4" Content="Data urodzenia:" Style="{StaticResource ControlStandardowy}"/>
+                    <DatePicker Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="2" SelectedDate="{Binding Path=DataUrodzenia, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource ControlStandardowy}"/>
+                    <Label  Grid.Row="4" Grid.Column="3" Content="Miejsce urodzenia:" Style="{StaticResource ControlStandardowy}"/>
+                    <TextBox Grid.Row="4" Grid.Column="4" Text="{Binding Path=MiejsceUrodzenia, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource ControlStandardowy}"/>
+
+                    <Grid Grid.Row="5" Grid.ColumnSpan="5">
                         <Grid.RowDefinitions>
                             <RowDefinition Height="Auto"/>
                             <RowDefinition Height="Auto"/>
@@ -78,8 +83,8 @@
                         <TextBox Grid.Row="1"  Grid.Column="3" Grid.ColumnSpan="3" Text="{Binding Path=Email, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource ControlStandardowy}"/>
                     </Grid>
 
-                    <Label Grid.Row="5" Grid.Column="0" Content="Uwagi:" Style="{StaticResource ControlStandardowy}"/>
-                    <TextBox Grid.Row="5" Grid.Column="1" Grid.ColumnSpan="3" Text="{Binding Path=Uwagi, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource TextBoxDuzy}"/>
+                    <Label Grid.Row="6" Grid.Column="0" Content="Uwagi:" Style="{StaticResource ControlStandardowy}"/>
+                    <TextBox Grid.Row="6" Grid.Column="1" Grid.ColumnSpan="4" Text="{Binding Path=Uwagi, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource TextBoxDuzy}"/>
                 </Grid>
             </Expander>
             <Expander Grid.Row="1" Header="Adres" IsExpanded="True">

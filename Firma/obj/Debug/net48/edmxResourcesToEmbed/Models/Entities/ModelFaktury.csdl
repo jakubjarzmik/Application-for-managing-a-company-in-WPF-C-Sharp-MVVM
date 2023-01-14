@@ -376,7 +376,6 @@
     <Property Name="Imie" Type="String" MaxLength="40" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="DrugieImie" Type="String" MaxLength="40" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="PESEL" Type="String" MaxLength="11" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="NipKraj" Type="String" MaxLength="2" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="Nip" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="DataUrodzenia" Type="DateTime" Nullable="false" Precision="0" />
     <Property Name="MiejsceUrodzenia" Type="String" MaxLength="40" FixedLength="false" Unicode="true" Nullable="false" />
@@ -386,7 +385,6 @@
     <Property Name="NazwiskoRodoweMatki" Type="String" MaxLength="40" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="AdresId" Type="Int32" Nullable="false" />
     <Property Name="Telefon" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="TelefonSMS" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="Email" Type="String" MaxLength="127" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="Uwagi" Type="String" MaxLength="254" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="DataUtworzenia" Type="DateTime" Nullable="false" Precision="3" />
@@ -485,8 +483,7 @@
     <NavigationProperty Name="ZmianyCeny" Relationship="JJFirmaModel.FK_ZmianyCeny_Pracownicy" FromRole="Pracownicy" ToRole="ZmianyCeny" />
     <NavigationProperty Name="ZmianyCeny1" Relationship="JJFirmaModel.FK_ZmianyCeny_Pracownicy1" FromRole="Pracownicy" ToRole="ZmianyCeny" />
     <NavigationProperty Name="ZmianyCeny2" Relationship="JJFirmaModel.FK_ZmianyCeny_Pracownicy2" FromRole="Pracownicy" ToRole="ZmianyCeny" />
-    <Property Name="Login" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="Haslo" Type="String" MaxLength="254" FixedLength="false" Unicode="true" />
+    <Property Name="Haslo" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
   </EntityType>
   <EntityType Name="PracownicyUmowy">
     <Key>
