@@ -44,7 +44,6 @@ D:\Studia\Semestr V\Programowanie desktopowych aplikacji biznesowych\Projekt\Fir
 D:\Studia\Semestr V\Programowanie desktopowych aplikacji biznesowych\Projekt\Firma\Firma\obj\Debug\net48\Views\PozycjeWydaniaZewnetrznegoView.g.cs
 D:\Studia\Semestr V\Programowanie desktopowych aplikacji biznesowych\Projekt\Firma\Firma\obj\Debug\net48\Views\PracownicyView.g.cs
 D:\Studia\Semestr V\Programowanie desktopowych aplikacji biznesowych\Projekt\Firma\Firma\obj\Debug\net48\Views\PrzyjeciaZewnetrzneView.g.cs
-D:\Studia\Semestr V\Programowanie desktopowych aplikacji biznesowych\Projekt\Firma\Firma\obj\Debug\net48\Views\PrzyjecieZewnetrzneView.g.cs
 D:\Studia\Semestr V\Programowanie desktopowych aplikacji biznesowych\Projekt\Firma\Firma\obj\Debug\net48\Views\RaportSprzedazyView.g.cs
 D:\Studia\Semestr V\Programowanie desktopowych aplikacji biznesowych\Projekt\Firma\Firma\obj\Debug\net48\Views\RodzajePlatnosciView.g.cs
 D:\Studia\Semestr V\Programowanie desktopowych aplikacji biznesowych\Projekt\Firma\Firma\obj\Debug\net48\Views\SrednieWynagrodzenieView.g.cs
@@ -99,7 +98,6 @@ D:\Studia\Semestr V\Programowanie desktopowych aplikacji biznesowych\Projekt\Fir
 D:\Studia\Semestr V\Programowanie desktopowych aplikacji biznesowych\Projekt\Firma\Firma\obj\Debug\net48\Views\PozycjeWydaniaZewnetrznegoView.baml
 D:\Studia\Semestr V\Programowanie desktopowych aplikacji biznesowych\Projekt\Firma\Firma\obj\Debug\net48\Views\PracownicyView.baml
 D:\Studia\Semestr V\Programowanie desktopowych aplikacji biznesowych\Projekt\Firma\Firma\obj\Debug\net48\Views\PrzyjeciaZewnetrzneView.baml
-D:\Studia\Semestr V\Programowanie desktopowych aplikacji biznesowych\Projekt\Firma\Firma\obj\Debug\net48\Views\PrzyjecieZewnetrzneView.baml
 D:\Studia\Semestr V\Programowanie desktopowych aplikacji biznesowych\Projekt\Firma\Firma\obj\Debug\net48\Views\RaportSprzedazyView.baml
 D:\Studia\Semestr V\Programowanie desktopowych aplikacji biznesowych\Projekt\Firma\Firma\obj\Debug\net48\Views\RodzajePlatnosciView.baml
 D:\Studia\Semestr V\Programowanie desktopowych aplikacji biznesowych\Projekt\Firma\Firma\obj\Debug\net48\Views\SrednieWynagrodzenieView.baml
@@ -125,3 +123,5 @@ D:\Studia\Semestr V\Programowanie desktopowych aplikacji biznesowych\Projekt\Fir
 D:\Studia\Semestr V\Programowanie desktopowych aplikacji biznesowych\Projekt\Firma\Firma\obj\Debug\net48\Views\NowyMagazynView.baml
 D:\Studia\Semestr V\Programowanie desktopowych aplikacji biznesowych\Projekt\Firma\Firma\obj\Debug\net48\Views\NowyPracownikView.g.cs
 D:\Studia\Semestr V\Programowanie desktopowych aplikacji biznesowych\Projekt\Firma\Firma\obj\Debug\net48\Views\NowyPracownikView.baml
+D:\Studia\Semestr V\Programowanie desktopowych aplikacji biznesowych\Projekt\Firma\Firma\obj\Debug\net48\Views\NowePrzyjecieZewnetrzneView.g.cs
+D:\Studia\Semestr V\Programowanie desktopowych aplikacji biznesowych\Projekt\Firma\Firma\obj\Debug\net48\Views\NowePrzyjecieZewnetrzneView.baml

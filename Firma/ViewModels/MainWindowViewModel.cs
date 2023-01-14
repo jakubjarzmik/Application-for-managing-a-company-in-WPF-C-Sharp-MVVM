@@ -40,13 +40,6 @@ namespace Firma.ViewModels
                 return new BaseCommand(() => createView(new NowyKontrahentViewModel()));
             }
         }
-        public ICommand PrzyjecieZewnetrzneCommand
-        {
-            get
-            {
-                return new BaseCommand(() => createView(new PrzyjecieZewnetrzneViewModel()));
-            }
-        }
         public ICommand WydanieZewnetrzneCommand
         {
             get
@@ -297,6 +290,13 @@ namespace Firma.ViewModels
             get
             {
                 return new BaseCommand(() => showAllPrzyjeciaZewnetrzne());
+            }
+        }
+        public ICommand NowePrzyjecieZewnetrzneCommand
+        {
+            get
+            {
+                return new BaseCommand(() => createView(new NowePrzyjecieZewnetrzneViewModel()));
             }
         }
         public ICommand WydaniaZewnetrzneCommand

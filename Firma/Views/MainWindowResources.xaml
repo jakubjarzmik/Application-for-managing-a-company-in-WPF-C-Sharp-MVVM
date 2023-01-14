@@ -13,13 +13,9 @@
     <DataTemplate DataType="{x:Type vm:NowaFakturaViewModel}">
         <vw:NowaFakturaView/>
     </DataTemplate>
-    
+
     <DataTemplate DataType="{x:Type vm:NowyKontrahentViewModel}">
         <vw:NowyKontrahentView/>
-    </DataTemplate>
-
-    <DataTemplate DataType="{x:Type vm:PrzyjecieZewnetrzneViewModel}">
-        <vw:PrzyjecieZewnetrzneView/>
     </DataTemplate>
 
     <DataTemplate DataType="{x:Type vm:WydanieZewnetrzneViewModel}">
@@ -164,6 +160,10 @@
 
     <DataTemplate DataType="{x:Type vm:PrzyjeciaZewnetrzneViewModel}">
         <vw:PrzyjeciaZewnetrzneView/>
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type vm:NowePrzyjecieZewnetrzneViewModel}">
+        <vw:NowePrzyjecieZewnetrzneView/>
     </DataTemplate>
 
     <DataTemplate DataType="{x:Type vm:WydaniaZewnetrzneViewModel}">
