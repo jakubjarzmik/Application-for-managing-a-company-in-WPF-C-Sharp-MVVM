@@ -169,20 +169,36 @@ namespace Firma.ViewModels
                 }
             }
         }
+        //public IQueryable<KeyAndValue> TowaryStawkiVatComboBoxItems
+        //{
+        //    get
+        //    {
+        //        return
+        //        (
+        //            from stawka in Db.TowaryStawkiVat
+        //            select new KeyAndValue
+        //            {
+        //                Key = stawka.StawkiVatId,
+        //                Value = stawka.Stawka.ToString("F2") + " | " + 
+        //                    Db.Kraje.Where(n => n.KrajId == stawka.KrajId).Select(n=>n.ISO).FirstOrDefault()
+        //            }
+        //        ).ToList().AsQueryable();
+        //    }
+        //}
         public IQueryable<KeyAndValue> TowaryStawkiVatComboBoxItems
         {
             get
             {
                 return
                 (
-                    from stawka in Db.TowaryStawkiVat
+                    from stawka in Db.TowaryStawkiVat.AsEnumerable()
                     select new KeyAndValue
                     {
                         Key = stawka.StawkiVatId,
-                        Value = stawka.Stawka.ToString("F2") + " | " + 
-                            Db.Kraje.Where(n => n.KrajId == stawka.KrajId).Select(n=>n.ISO).FirstOrDefault()
+                        Value = stawka.Stawka.ToString() + "%\t|\t" +
+                            Db.Kraje.Where(n => n.KrajId == stawka.KrajId).Select(n => n.ISO).FirstOrDefault()
                     }
-                ).ToList().AsQueryable();
+                ).AsQueryable();
             }
         }
         public bool Mpp

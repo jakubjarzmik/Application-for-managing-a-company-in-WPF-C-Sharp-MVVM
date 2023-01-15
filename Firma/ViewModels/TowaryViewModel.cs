@@ -1,4 +1,5 @@
-﻿using Firma.Models.Entities;
+﻿using Firma.Models.BusinessLogic;
+using Firma.Models.Entities;
 using Firma.Models.EntitiesForView;
 using Firma.ViewModels.Abstract;
 using Firma.Views;
@@ -15,7 +16,7 @@ namespace Firma.ViewModels
     public class TowaryViewModel : WszystkieViewModel<TowarForAllView>
     {
         #region Konstruktor
-        public TowaryViewModel():base("Towary")
+        public TowaryViewModel() : base("Towary")
         {
         }
         #endregion
@@ -36,22 +37,18 @@ namespace Firma.ViewModels
                         NumerKatalogowy = towar.NumerKatalogowy,
                         EAN = towar.EAN,
                         Producent = towar.Kontrahenci.Nazwa1,
-                        KrajPochodzenia = towar.Kraje.Nazwa,
-                        Ilosc =
-                        (
-                            (
+                        KrajPochodzenia = towar.Kraje.ISO,
+                        Ilosc = (
                                 from pozycjaPZ in JJFirmaEntities.PozycjePrzyjeciaZewnetrznego
-                                where pozycjaPZ.CzyAktywny == true && pozycjaPZ.Towary.Nazwa == towar.Nazwa
+                                where pozycjaPZ.CzyAktywny == true && pozycjaPZ.Towary.TowarId == towar.TowarId
                                 select pozycjaPZ.Ilosc
                             ).Sum() -
                             (
                                 from pozycjaWZ in JJFirmaEntities.PozycjeWydaniaZewnetrznego
-                                where pozycjaWZ.CzyAktywny == true && pozycjaWZ.Towary.Nazwa == towar.Nazwa
+                                where pozycjaWZ.CzyAktywny == true && pozycjaWZ.Towary.TowarId == towar.TowarId
                                 select pozycjaWZ.Ilosc
-                            ).Sum()
-                        ),
+                            ).Sum(),
                         JednMiary = towar.JednostkiMiary.Skrot
-                        
                     }
                 );
         }
