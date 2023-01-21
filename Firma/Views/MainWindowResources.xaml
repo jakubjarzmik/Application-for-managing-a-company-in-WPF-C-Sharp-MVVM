@@ -423,7 +423,7 @@
         <Setter Property="Margin" Value="2"/>
     </Style>
 
-    <!--<Style TargetType="Ribbon">
+    <Style TargetType="Ribbon">
         <Setter Property="Background" Value="#242424"/>
         <Setter Property="Foreground" Value="#EFEFEF"/>
         <Setter Property="FontWeight" Value="Bold"/>
@@ -436,9 +436,9 @@
         <Setter Property="MouseOverBorderBrush" Value="Gainsboro"/>
         <Setter Property="PressedBackground" Value="Gainsboro"/>
         <Setter Property="PressedBorderBrush" Value="#FFC8C8C8"/>
-    </Style>-->
+    </Style>
     <Style TargetType="RibbonTabHeader">
-        <!--<Setter Property="Foreground" Value="#EFEFEF"/>-->
+        <Setter Property="Foreground" Value="#EFEFEF"/>
         <Style.Triggers>
             <Trigger Property="IsRibbonTabSelected" Value="True">
                 <Setter Property="Foreground" Value="#242424"/>
