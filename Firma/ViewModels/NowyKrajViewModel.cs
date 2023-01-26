@@ -12,7 +12,7 @@ namespace Firma.ViewModels
     {
         #region Konstruktor
         public NowyKrajViewModel() 
-            : base("Nowy rodzaj kontr.")
+            : base("Nowy kraj")
         {
             Item = new Kraje();
         }

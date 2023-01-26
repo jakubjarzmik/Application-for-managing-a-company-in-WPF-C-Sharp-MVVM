@@ -1,82 +1,141 @@
 ﻿<local:JedenViewBase x:Class="Firma.Views.NowyAdresView"
-             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:Firma.Views"
-             mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
+                     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                     xmlns:local="clr-namespace:Firma.Views"
+                     mc:Ignorable="d"
+                     d:DesignHeight="450"
+                     d:DesignWidth="800">
     <UserControl.Resources>
-        <ResourceDictionary Source="StyleZakladekResources.xaml"/>
+        <ResourceDictionary Source="StyleZakladekResources.xaml" />
     </UserControl.Resources>
     <ScrollViewer>
         <Grid Background="White">
             <Grid.RowDefinitions>
-                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto" />
             </Grid.RowDefinitions>
-            <Expander Grid.Row="0" Header="Ogólne" Margin="5" IsExpanded="True">
+            <Expander Grid.Row="0"
+                      Header="Ogólne"
+                      Margin="5"
+                      IsExpanded="True">
                 <Grid>
                     <Grid.RowDefinitions>
-                        <RowDefinition Height="Auto"/>
-                        <RowDefinition Height="Auto"/>
-                        <RowDefinition Height="Auto"/>
-                        <RowDefinition Height="Auto"/>
-                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
                     </Grid.RowDefinitions>
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="100" SharedSizeGroup="LabelGroup" />
-                        <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="100"/>
-                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="100"
+                                          SharedSizeGroup="LabelGroup" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="100" />
+                        <ColumnDefinition Width="*" />
                     </Grid.ColumnDefinitions>
-                    <Label Grid.Row="0" Grid.Column="0" Content="Ulica:" Style="{StaticResource ControlStandardowy}"/>
-                    <TextBox Grid.Row="0" Grid.Column="1" Text="{Binding Path=Ulica, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource ControlStandardowy}"/>
-                    <Label Grid.Row="0" Grid.Column="2" Content="Nr domu:" Style="{StaticResource ControlStandardowy}"/>
+                    <Label Grid.Row="0"
+                           Grid.Column="0"
+                           Content="Ulica:"
+                           Style="{StaticResource ControlStandardowy}" />
+                    <TextBox Grid.Row="0"
+                             Grid.Column="1"
+                             Text="{Binding Path=Ulica, UpdateSourceTrigger=PropertyChanged}"
+                             Style="{StaticResource ControlStandardowy}" />
+                    <Label Grid.Row="0"
+                           Grid.Column="2"
+                           Content="Nr domu:"
+                           Style="{StaticResource ControlStandardowy}" />
                     <Grid Grid.Column="3">
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="*"/>
-                            <ColumnDefinition Width="100"/>
-                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="100" />
+                            <ColumnDefinition Width="*" />
                         </Grid.ColumnDefinitions>
-                        <TextBox Text="{Binding Path=NrDomu, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource ControlStandardowy}"/>
-                        <Label Grid.Column="1" Content="Nr lokalu:" Style="{StaticResource ControlStandardowy}"/>
-                        <TextBox Grid.Column="2" Text="{Binding Path=NrLokalu, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource ControlStandardowy}"/>
+                        <TextBox Text="{Binding Path=NrDomu, UpdateSourceTrigger=PropertyChanged}"
+                                 Style="{StaticResource ControlStandardowy}" />
+                        <Label Grid.Column="1"
+                               Content="Nr lokalu:"
+                               Style="{StaticResource ControlStandardowy}" />
+                        <TextBox Grid.Column="2"
+                                 Text="{Binding Path=NrLokalu, UpdateSourceTrigger=PropertyChanged}"
+                                 Style="{StaticResource ControlStandardowy}" />
                     </Grid>
 
-                    <Label Grid.Row="1" Grid.Column="0" Content="Kod pocztowy:" Style="{StaticResource ControlStandardowy}"/>
-                    <Grid Grid.Row="1" Grid.Column="1">
+                    <Label Grid.Row="1"
+                           Grid.Column="0"
+                           Content="Kod pocztowy:"
+                           Style="{StaticResource ControlStandardowy}" />
+                    <Grid Grid.Row="1"
+                          Grid.Column="1">
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="*"/>
-                            <ColumnDefinition Width="2*"/>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="2*" />
                         </Grid.ColumnDefinitions>
-                        <TextBox Text="{Binding Path=KodPocztowy, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource ControlStandardowy}"/>
+                        <TextBox Text="{Binding Path=KodPocztowy, UpdateSourceTrigger=PropertyChanged}"
+                                 Style="{StaticResource ControlStandardowy}" />
                     </Grid>
-                    <Label Grid.Row="1" Grid.Column="2" Content="Miejscowość:" Style="{StaticResource ControlStandardowy}"/>
-                    <TextBox Grid.Row="1" Grid.Column="3" Text="{Binding Path=Miejscowosc, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource ControlStandardowy}"/>
-                    
-                    <Label Grid.Row="2" Grid.Column="0" Content="Województwo:" Style="{StaticResource ControlStandardowy}"/>
-                    <TextBox Grid.Row="2" Grid.Column="1" Text="{Binding Path=Wojewodztwo, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource ControlStandardowy}"/>
-                    <Label Grid.Row="2" Grid.Column="2" Content="Kraj:" Style="{StaticResource ControlStandardowy}"/>
-                    <Grid Grid.Row="2" Grid.Column="3">
+                    <Label Grid.Row="1"
+                           Grid.Column="2"
+                           Content="Miejscowość:"
+                           Style="{StaticResource ControlStandardowy}" />
+                    <TextBox Grid.Row="1"
+                             Grid.Column="3"
+                             Text="{Binding Path=Miejscowosc, UpdateSourceTrigger=PropertyChanged}"
+                             Style="{StaticResource ControlStandardowy}" />
+
+                    <Label Grid.Row="2"
+                           Grid.Column="0"
+                           Content="Województwo:"
+                           Style="{StaticResource ControlStandardowy}" />
+                    <TextBox Grid.Row="2"
+                             Grid.Column="1"
+                             Text="{Binding Path=Wojewodztwo, UpdateSourceTrigger=PropertyChanged}"
+                             Style="{StaticResource ControlStandardowy}" />
+                    <Label Grid.Row="2"
+                           Grid.Column="2"
+                           Content="Kraj:"
+                           Style="{StaticResource ControlStandardowy}" />
+                    <Grid Grid.Row="2"
+                          Grid.Column="3">
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="72"/>
-                            <ColumnDefinition Width="36"/>
-                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="72" />
+                            <ColumnDefinition Width="36" />
+                            <ColumnDefinition Width="*" />
                         </Grid.ColumnDefinitions>
-                        <ComboBox Style="{StaticResource ControlStandardowy}" 
-                              ItemsSource="{Binding KrajeComboBoxItems}"
-                              DisplayMemberPath="Value"
-                              SelectedValuePath="Key"
-                              SelectedValue="{Binding Path=KrajId, Mode=TwoWay}"/>
-                        <Button Grid.Column="1" Content="..." Style="{StaticResource ControlStandardowy}"/>
-                        <TextBox Grid.Column="2" IsEnabled="False" Text="{Binding Path=KrajNazwa, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource ControlStandardowy}"/>
+                        <ComboBox Style="{StaticResource ControlStandardowy}"
+                                  ItemsSource="{Binding KrajeComboBoxItems}"
+                                  DisplayMemberPath="Value"
+                                  SelectedValuePath="Key"
+                                  SelectedValue="{Binding Path=KrajId, Mode=TwoWay}" />
+                        <Button Grid.Column="1"
+                                Content="..."
+                                Style="{StaticResource ControlStandardowy}" />
+                        <TextBox Grid.Column="2"
+                                 IsEnabled="False"
+                                 Text="{Binding Path=KrajNazwa, UpdateSourceTrigger=PropertyChanged}"
+                                 Style="{StaticResource ControlStandardowy}" />
                     </Grid>
 
-                    <Label Grid.Row="3" Grid.Column="0" Content="Dodatkowe:" Style="{StaticResource ControlStandardowy}"/>
-                    <TextBox Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="3" Text="{Binding Path=Dodatkowe, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource ControlStandardowy}"/>
+                    <Label Grid.Row="3"
+                           Grid.Column="0"
+                           Content="Dodatkowe:"
+                           Style="{StaticResource ControlStandardowy}" />
+                    <TextBox Grid.Row="3"
+                             Grid.Column="1"
+                             Grid.ColumnSpan="3"
+                             Text="{Binding Path=Dodatkowe, UpdateSourceTrigger=PropertyChanged}"
+                             Style="{StaticResource ControlStandardowy}" />
 
-                    <Label Grid.Row="4" Grid.Column="0" Content="Uwagi:" Style="{StaticResource ControlStandardowy}"/>
-                    <TextBox Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="3" Text="{Binding Path=Uwagi, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource TextBoxDuzy}"/>
+                    <Label Grid.Row="4"
+                           Grid.Column="0"
+                           Content="Uwagi:"
+                           Style="{StaticResource ControlStandardowy}" />
+                    <TextBox Grid.Row="4"
+                             Grid.Column="1"
+                             Grid.ColumnSpan="3"
+                             Text="{Binding Path=Uwagi, UpdateSourceTrigger=PropertyChanged}"
+                             Style="{StaticResource TextBoxDuzy}" />
 
                 </Grid>
             </Expander>

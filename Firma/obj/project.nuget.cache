@@ -1,13 +1,16 @@
 {
   "version": 2,
-  "dgSpecHash": "8hRWGako+HCaelFCaUVOxvggFzbF8qu0HooZ5rHx8a0lRmALXKHpvTPsf3Zppk02BVZD0biN4i4aP5PU9DJyiQ==",
+  "dgSpecHash": "lnf0H/c3LSc5v2ZJg+SQvWpfeUauGuNiZXObONjesnFBf13bF8Pcuj3ydI8yTuETirQYaIvjKIJgb7fsi45DhQ==",
   "success": true,
   "projectFilePath": "D:\\Studia\\Semestr V\\Programowanie desktopowych aplikacji biznesowych\\Projekt\\Firma\\Firma\\Firma.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\jcobc\\.nuget\\packages\\commonservicelocator\\2.0.2\\commonservicelocator.2.0.2.nupkg.sha512",
     "C:\\Users\\jcobc\\.nuget\\packages\\controlzex\\4.4.0\\controlzex.4.4.0.nupkg.sha512",
     "C:\\Users\\jcobc\\.nuget\\packages\\entityframework\\5.0.0\\entityframework.5.0.0.nupkg.sha512",
     "C:\\Users\\jcobc\\.nuget\\packages\\mahapps.metro\\2.4.9\\mahapps.metro.2.4.9.nupkg.sha512",
-    "C:\\Users\\jcobc\\.nuget\\packages\\microsoft.xaml.behaviors.wpf\\1.1.19\\microsoft.xaml.behaviors.wpf.1.1.19.nupkg.sha512"
+    "C:\\Users\\jcobc\\.nuget\\packages\\microsoft.xaml.behaviors.wpf\\1.1.19\\microsoft.xaml.behaviors.wpf.1.1.19.nupkg.sha512",
+    "C:\\Users\\jcobc\\.nuget\\packages\\mvvmlight\\5.4.1\\mvvmlight.5.4.1.nupkg.sha512",
+    "C:\\Users\\jcobc\\.nuget\\packages\\mvvmlightlibs\\5.4.1\\mvvmlightlibs.5.4.1.nupkg.sha512"
   ],
   "logs": []
 }

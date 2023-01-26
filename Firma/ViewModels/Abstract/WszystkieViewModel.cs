@@ -1,5 +1,6 @@
 ﻿using Firma.Helpers;
 using Firma.Models.Entities;
+using GalaSoft.MvvmLight.Messaging;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -13,10 +14,20 @@ namespace Firma.ViewModels.Abstract
     public abstract class WszystkieViewModel<T>:WorkspaceViewModel
     {
         #region Fields
-        // to jest obiekt który będzie służył do operacji na bazie danych
+        private BaseCommand _AddCommand;
+        public BaseCommand AddCommand
+        {
+            get
+            {
+                if (_AddCommand == null)
+                {
+                    _AddCommand = new BaseCommand(() => Add());
+                }
+                return _AddCommand;
+            }
+        }
         private readonly JJFirmaEntities jJFirmaEntities;
         public JJFirmaEntities JJFirmaEntities { get { return jJFirmaEntities; } }
-        // to jest komenda do załadowania towarów
         private BaseCommand _LoadCommand;
         public ICommand LoadCommand
         {
@@ -24,18 +35,17 @@ namespace Firma.ViewModels.Abstract
             {
                 if (_LoadCommand == null)
                 {
-                    _LoadCommand = new BaseCommand(() => Load()); // pusta wywołuje load
+                    _LoadCommand = new BaseCommand(() => Load());
                 }
                 return _LoadCommand;
             }
         }
-        // w tym obiekcie będą wszystkie towary
         private ObservableCollection<T> _List;
         public ObservableCollection<T> List
         {
             get
             {
-                if (_List == null) // jak lista jest pusta wywołujemy load żeby załadować towary
+                if (_List == null)
                     Load();
                 return _List;
             }
@@ -49,12 +59,16 @@ namespace Firma.ViewModels.Abstract
         #region Konstruktor
         public WszystkieViewModel(string displayName)
         {
-            base.DisplayName = displayName;//tu ustawiamy nazwę zakładki
+            base.DisplayName = displayName;
             this.jJFirmaEntities = new JJFirmaEntities();
         }
         #endregion
         #region Helpers
         public abstract void Load();
+        public void Add()
+        {
+            Messenger.Default.Send(DisplayName + "Add");
+        }
         #endregion
     }
 }

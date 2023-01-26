@@ -1,4 +1,5 @@
-﻿using Firma.Models.Entities;
+﻿using Firma.Helpers;
+using Firma.Models.Entities;
 using Firma.Models.EntitiesForView;
 using Firma.ViewModels.Abstract;
 using System;
@@ -11,6 +12,7 @@ namespace Firma.ViewModels
 {
     public class NowaFakturaViewModel : JedenViewModel<Faktury>
     {
+
         #region Konstruktor
         public NowaFakturaViewModel()
             : base("Nowa faktura")

@@ -1,5 +1,6 @@
 ﻿using Firma.Helpers;
 using Firma.Models.Entities;
+using GalaSoft.MvvmLight.Messaging;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -14,18 +15,18 @@ using System.Windows.Input;
 
 namespace Firma.ViewModels
 {
-    public  class MainWindowViewModel : BaseViewModel
+    public class MainWindowViewModel : BaseViewModel
     {
         //będzie zawierała kolekcje komend, które pojawiają się w menu lewym oraz kolekcje zakładek 
         #region Komendy menu i paska narzedzi
         public ICommand NowyTowarCommand //ta komenda zostanie podpieta pod menu i pasek narzedzi
-        { 
+        {
             get
             {
-                return new BaseCommand(()=>createView(new NowyTowarViewModel()));//to jest komenda, która wyw. funkcję createTowar
+                return new BaseCommand(() => createView(new NowyTowarViewModel()));//to jest komenda, która wyw. funkcję createTowar
             }
         }
-        public ICommand NowaFakturaCommand 
+        public ICommand NowaFakturaCommand
         {
             get
             {
@@ -375,18 +376,19 @@ namespace Firma.ViewModels
         private ReadOnlyCollection<CommandViewModel> _Commands;//to jest kolekcja komend w emnu lewym
         public ReadOnlyCollection<CommandViewModel> Commands
         {
-            get 
-            { 
-                if(_Commands == null)//sprawdzam czy przyciski z lewej strony menu nie zostały zainicjalizowane
+            get
+            {
+                if (_Commands == null)//sprawdzam czy przyciski z lewej strony menu nie zostały zainicjalizowane
                 {
                     List<CommandViewModel> cmds = this.CreateCommands();//tworzę listę przyciskow za pomocą funkcji CreateCommands
                     _Commands = new ReadOnlyCollection<CommandViewModel>(cmds);//tę listę przypisuje do ReadOnlyCollection (bo readOnlyCollection można tylko tworzyć, nie można do niej dodawać)
                 }
-                return _Commands; 
-            }   
+                return _Commands;
+            }
         }
         private List<CommandViewModel> CreateCommands()//tu decydujemy jakie przyciski są w lewym menu
         {
+            Messenger.Default.Register<string>(this, open);
             return new List<CommandViewModel>
             {
                 //new CommandViewModel("Towar",new BaseCommand(()=>createView(new NowyTowarViewModel())), "pack://application:,,,/Views/Content/Icons/package-variant-closed-plus-white.png",
@@ -410,11 +412,6 @@ namespace Firma.ViewModels
                 new CommandViewModel("Towary", new BaseCommand(()=>showAllTowary()),"",""),
                 new CommandViewModel("Średnie wynagrodz.",new BaseCommand(()=>createView(new SrednieWynagrodzenieViewModel())),"",""),
                 new CommandViewModel("Raport sprzedaży",new BaseCommand(()=>createView(new RaportSprzedazyViewModel())),"",""),
-                
-                
-                
-                
-
             };
         }
         #endregion
@@ -423,9 +420,9 @@ namespace Firma.ViewModels
         private ObservableCollection<WorkspaceViewModel> _Workspaces; //to jest kolekcja zakładek
         public ObservableCollection<WorkspaceViewModel> Workspaces
         {
-            get 
+            get
             {
-                if(_Workspaces == null)
+                if (_Workspaces == null)
                 {
                     _Workspaces = new ObservableCollection<WorkspaceViewModel>();
                     _Workspaces.CollectionChanged += this.onWorkspacesChanged;
@@ -717,7 +714,88 @@ namespace Firma.ViewModels
                 collectionView.MoveCurrentTo(workspace);
         }
 
-
+        private void open(string name)
+        {
+            switch (name)
+            {
+                #region Handling the "Dodaj" button
+                case "AdresyAdd":
+                    createView(new NowyAdresViewModel());
+                    break;
+                case "Kategorie fakturAdd":
+                    createView(new NowaKategoriaFakturyViewModel());
+                    break;
+                case "Rodzaje fakturAdd":
+                    createView(new NowyRodzajFakturyViewModel());
+                    break;
+                case "FakturyAdd":
+                    createView(new NowaFakturaViewModel());
+                    break;
+                case "Jednostki miaryAdd":
+                    createView(new NowaJednostkaMiaryViewModel());
+                    break;
+                case "KontaktyAdd":
+                    createView(new NowyKontaktViewModel());
+                    break;
+                case "Rodzaje kontrahentówAdd":
+                    createView(new NowyRodzajKontrahentaViewModel());
+                    break;
+                case "KontrahenciAdd":
+                    createView(new NowyKontrahentViewModel());
+                    break;
+                case "KrajeAdd":
+                    createView(new NowyKrajViewModel());
+                    break;
+                case "Typy magazynówAdd":
+                    createView(new NowyTypMagazynuViewModel());
+                    break;
+                case "MagazynyAdd":
+                    createView(new NowyMagazynViewModel());
+                    break;
+                case "PracownicyAdd":
+                    createView(new NowyPracownikViewModel());
+                    break;
+                case "Przyjecia ZewnetrzneAdd":
+                    createView(new NowePrzyjecieZewnetrzneViewModel());
+                    break;
+                case "Rodzaje płatnościAdd":
+                    createView(new NowyRodzajPlatnosciViewModel());
+                    break;
+                case "Grupy towarówAdd":
+                    createView(new NowaGrupaTowarowViewModel());
+                    break;
+                case "Stawki VATAdd":
+                    createView(new NowaStawkaVatTowarowViewModel());
+                    break;
+                case "Typy towarówAdd":
+                    createView(new NowyTypTowarowViewModel());
+                    break;
+                case "TowaryAdd":
+                    createView(new NowyTowarViewModel());
+                    break;
+                case "Rodzaje umowyAdd":
+                    createView(new NowyRodzajUmowyViewModel());
+                    break;
+                case "StanowiskaAdd":
+                    createView(new NoweStanowiskoViewModel());
+                    break;
+                case "UmowyAdd":
+                    createView(new NowaUmowaViewModel());
+                    break;
+                case "Wydania ZewnetrzneAdd":
+                    createView(new NoweWydanieZewnetrzneViewModel());
+                    break;
+                case "Zmiany cenyAdd":
+                    createView(new NowaZmianaCenyViewModel());
+                    break;
+                #endregion
+                #region Add a foreign key through a window
+                case "KontrahenciAll":
+                    showAllKontrahenci();
+                    break;
+                #endregion
+            }
+        }
         #endregion
 
 

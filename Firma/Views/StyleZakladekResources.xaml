@@ -1,34 +1,72 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
     <!--Domyślne style-->
-    <Style x:Key="ControlStandardowy" TargetType="{x:Type Control}">
-        <Setter Property="Height" Value="28"/>
-        <Setter Property="Margin" Value="4"/>
-        <Setter Property="VerticalAlignment" Value="Center"/>
-        <Setter Property="VerticalContentAlignment" Value="Center"/>
+    <Style x:Key="ControlStandardowy"
+           TargetType="{x:Type Control}">
+        <Setter Property="Height"
+                Value="28" />
+        <Setter Property="Margin"
+                Value="4" />
+        <Setter Property="VerticalAlignment"
+                Value="Center" />
+        <Setter Property="VerticalContentAlignment"
+                Value="Center" />
+    </Style>
+    <Style x:Key="ButtonStandardowy"
+           TargetType="{x:Type Button}">
+        <Setter Property="Height"
+                Value="28" />
+        <Setter Property="Margin"
+                Value="4" />
+        <Setter Property="VerticalAlignment"
+                Value="Center" />
+        <Setter Property="VerticalContentAlignment"
+                Value="Center" />
+        <Setter Property="HorizontalContentAlignment"
+                Value="Left" />
+        <Setter Property="Padding"
+                Value="5 0 5 0" />
     </Style>
 
-    <Style x:Key="ControlBoldStandardowy" TargetType="{x:Type Control}">
-        <Setter Property="Height" Value="28"/>
-        <Setter Property="Margin" Value="4"/>
-        <Setter Property="VerticalAlignment" Value="Center"/>
-        <Setter Property="FontWeight" Value="Bold"/>
+    <Style x:Key="ControlBoldStandardowy"
+           TargetType="{x:Type Control}">
+        <Setter Property="Height"
+                Value="28" />
+        <Setter Property="Margin"
+                Value="4" />
+        <Setter Property="VerticalAlignment"
+                Value="Center" />
+        <Setter Property="FontWeight"
+                Value="Bold" />
     </Style>
-    <Style x:Key="TextBoxDuzy" TargetType="{x:Type TextBox}">
-        <Setter Property="Height" Value="100"/>
-        <Setter Property="Margin" Value="4"/>
+    <Style x:Key="TextBoxDuzy"
+           TargetType="{x:Type TextBox}">
+        <Setter Property="Height"
+                Value="100" />
+        <Setter Property="Margin"
+                Value="4" />
     </Style>
-    <Style x:Key="DokumentLabel" TargetType="{x:Type Label}">
-        <Setter Property="HorizontalContentAlignment" Value="Center"/>
-        <Setter Property="FontWeight" Value="Bold"/>
-        <Setter Property="Height" Value="28"/>
-        <Setter Property="Margin" Value="4"/>
+    <Style x:Key="DokumentLabel"
+           TargetType="{x:Type Label}">
+        <Setter Property="HorizontalContentAlignment"
+                Value="Center" />
+        <Setter Property="FontWeight"
+                Value="Bold" />
+        <Setter Property="Height"
+                Value="28" />
+        <Setter Property="Margin"
+                Value="4" />
     </Style>
     <!--Style VAT-->
-    <Style x:Key="LabelDoPrawejVAT" TargetType="{x:Type Label}">
-        <Setter Property="Height" Value="28"/>
-        <Setter Property="Margin" Value="4"/>
-        <Setter Property="VerticalAlignment" Value="Center"/>
-        <Setter Property="HorizontalAlignment" Value="Right"/>
+    <Style x:Key="LabelDoPrawejVAT"
+           TargetType="{x:Type Label}">
+        <Setter Property="Height"
+                Value="28" />
+        <Setter Property="Margin"
+                Value="4" />
+        <Setter Property="VerticalAlignment"
+                Value="Center" />
+        <Setter Property="HorizontalAlignment"
+                Value="Right" />
     </Style>
 </ResourceDictionary>
