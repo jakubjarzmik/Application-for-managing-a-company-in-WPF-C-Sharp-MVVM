@@ -457,12 +457,12 @@ namespace Firma.ViewModels
         private void showAll(WorkspaceViewModel workspace)
         {
             bool contains = false;
-            foreach (var item in Workspaces)
+            foreach (var existingWorkspace in Workspaces)
             {
-                if (item.GetType() == workspace.GetType())
+                if (existingWorkspace.GetType() == workspace.GetType())
                 {
                     contains= true;
-                    workspace = item;
+                    workspace = existingWorkspace;
                     break;
                 }
             }
