@@ -9,6 +9,7 @@ namespace Firma.Models.EntitiesForView
     public class KontrahentForAllView
     {
         #region Properties
+        public int KontrahentId { get; set; }
         public string Kod { get; set; }
         public string Nazwa1 { get; set; }
         public string Nip { get; set; }

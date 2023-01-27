@@ -2,6 +2,7 @@
 using Firma.Models.Entities;
 using Firma.Models.EntitiesForView;
 using Firma.ViewModels.Abstract;
+using GalaSoft.MvvmLight.Messaging;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,12 +13,30 @@ namespace Firma.ViewModels
 {
     public class NowaFakturaViewModel : JedenViewModel<Faktury>
     {
-
+        #region Commands
+        private BaseCommand _ShowKontrahenciCommand;
+        public BaseCommand ShowKontrahenciCommand
+        {
+            get
+            {
+                if (_ShowKontrahenciCommand == null)
+                {
+                    _ShowKontrahenciCommand = new BaseCommand(() => showKontrahenci());
+                }
+                return _ShowKontrahenciCommand;
+            }
+        }
+        private void showKontrahenci()
+        {
+            Messenger.Default.Send("KontrahenciAll");
+        }
+        #endregion
         #region Konstruktor
         public NowaFakturaViewModel()
             : base("Nowa faktura")
         {
             Item = new Faktury();
+            Messenger.Default.Register<KontrahentForAllView>(this, getSelectedKontrahent);
             DataWystawienia = DateTime.Now;
             DataSprzedazy= DateTime.Now;
             RodzajFakturyId = 1;
@@ -289,6 +308,14 @@ namespace Firma.ViewModels
             Item.CzyAktywny = true;
             Db.Faktury.AddObject(Item);
             Db.SaveChanges();
+        }
+        #endregion
+        #region Helpers
+        private void getSelectedKontrahent(KontrahentForAllView kontrahentForAllView)
+        {
+            // to jest funkcja, którą wywołuje Messengeer, który jest w konstruktorze tej klasy, która uruchamia się wtedy, kiedy Messenger dostanie KontrahentForAllView
+            // i uzupełnia dane Propertisow z tej klasy na bazie tego Kontrahenta
+            KontrahentId = kontrahentForAllView.KontrahentId;
         }
         #endregion
     }

@@ -45,7 +45,7 @@ namespace Firma.ViewModels
         {
             get
             {
-                return new BaseCommand(() => showAllFakturyKategorie());
+                return new BaseCommand(() => showAll(new FakturyKategorieViewModel()));
             }
         }
         public ICommand NowaKategoriaFakturyCommand
@@ -59,7 +59,7 @@ namespace Firma.ViewModels
         {
             get
             {
-                return new BaseCommand(() => showAllFakturyRodzaje());
+                return new BaseCommand(() => showAll(new FakturyRodzajeViewModel()));
             }
         }
         public ICommand NowyRodzajFakturyCommand
@@ -73,7 +73,7 @@ namespace Firma.ViewModels
         {
             get
             {
-                return new BaseCommand(() => showAllKontrahenciRodzaje());
+                return new BaseCommand(() => showAll(new KontrahenciRodzajeViewModel()));
             }
         }
         public ICommand NowyRodzajKontrahentaCommand
@@ -87,7 +87,7 @@ namespace Firma.ViewModels
         {
             get
             {
-                return new BaseCommand(() => showAllMagazynyTypy());
+                return new BaseCommand(() => showAll(new MagazynyTypyViewModel()));
             }
         }
         public ICommand NowyTypMagazynuCommand
@@ -101,7 +101,7 @@ namespace Firma.ViewModels
         {
             get
             {
-                return new BaseCommand(() => showAllRodzajePlatnosci());
+                return new BaseCommand(() => showAll(new RodzajePlatnosciViewModel()));
             }
         }
         public ICommand NowyRodzajPlatnosciCommand
@@ -115,7 +115,7 @@ namespace Firma.ViewModels
         {
             get
             {
-                return new BaseCommand(() => showAllTowaryGrupy());
+                return new BaseCommand(() => showAll(new TowaryGrupyViewModel()));
             }
         }
         public ICommand NowaGrupaTowarowCommand
@@ -129,7 +129,7 @@ namespace Firma.ViewModels
         {
             get
             {
-                return new BaseCommand(() => showAllTowaryJednMiary());
+                return new BaseCommand(() => showAll(new JednostkiMiaryViewModel()));
             }
         }
         public ICommand NowaJednostkaMiaryCommand
@@ -143,7 +143,7 @@ namespace Firma.ViewModels
         {
             get
             {
-                return new BaseCommand(() => showAllTowaryTypy());
+                return new BaseCommand(() => showAll(new TowaryTypyViewModel()));
             }
         }
         public ICommand NowyTypTowarowCommand
@@ -157,7 +157,7 @@ namespace Firma.ViewModels
         {
             get
             {
-                return new BaseCommand(() => showAllUmowyRodzaje());
+                return new BaseCommand(() => showAll(new UmowyRodzajeViewModel()));
             }
         }
         public ICommand NowyRodzajUmowyCommand
@@ -171,7 +171,7 @@ namespace Firma.ViewModels
         {
             get
             {
-                return new BaseCommand(() => showAllUmowyStanowiska());
+                return new BaseCommand(() => showAll(new UmowyStanowiskaViewModel()));
             }
         }
         public ICommand NoweStanowiskoCommand
@@ -185,7 +185,7 @@ namespace Firma.ViewModels
         {
             get
             {
-                return new BaseCommand(() => showAllKontakty());
+                return new BaseCommand(() => showAll(new KontaktyViewModel()));
             }
         }
         public ICommand NowyKontaktCommand
@@ -199,7 +199,7 @@ namespace Firma.ViewModels
         {
             get
             {
-                return new BaseCommand(() => showAllKraje());
+                return new BaseCommand(() => showAll(new KrajeViewModel()));
             }
         }
         public ICommand NowyKrajCommand
@@ -213,14 +213,14 @@ namespace Firma.ViewModels
         {
             get
             {
-                return new BaseCommand(() => showAllFaktury());
+                return new BaseCommand(() => showAll(new FakturyViewModel()));
             }
         }
         public ICommand AdresyCommand
         {
             get
             {
-                return new BaseCommand(() => showAllAdresy());
+                return new BaseCommand(() => showAll(new AdresyViewModel()));
             }
         }
         public ICommand NowyAdresCommand
@@ -234,14 +234,14 @@ namespace Firma.ViewModels
         {
             get
             {
-                return new BaseCommand(() => showAllKontrahenci());
+                return new BaseCommand(() => showAll(new KontrahenciViewModel()));
             }
         }
         public ICommand MagazynyCommand
         {
             get
             {
-                return new BaseCommand(() => showAllMagazyny());
+                return new BaseCommand(() => showAll(new MagazynyViewModel()));
             }
         }
         public ICommand NowyMagazynCommand
@@ -255,21 +255,21 @@ namespace Firma.ViewModels
         {
             get
             {
-                return new BaseCommand(() => showAllPozycjePrzyjeciaZewnetrznego());
+                return new BaseCommand(() => showAll(new PozycjePrzyjeciaZewnetrznegoViewModel()));
             }
         }
         public ICommand PozycjeWydaniaZewnetrznegoCommand
         {
             get
             {
-                return new BaseCommand(() => showAllPozycjeWydaniaZewnetrznego());
+                return new BaseCommand(() => showAll(new PozycjeWydaniaZewnetrznegoViewModel()));
             }
         }
         public ICommand PracownicyCommand
         {
             get
             {
-                return new BaseCommand(() => showAllPracownicy());
+                return new BaseCommand(() => showAll(new PracownicyViewModel()));
             }
         }
         public ICommand NowyPracownikCommand
@@ -283,7 +283,7 @@ namespace Firma.ViewModels
         {
             get
             {
-                return new BaseCommand(() => showAllPrzyjeciaZewnetrzne());
+                return new BaseCommand(() => showAll(new PrzyjeciaZewnetrzneViewModel()));
             }
         }
         public ICommand NowePrzyjecieZewnetrzneCommand
@@ -297,7 +297,7 @@ namespace Firma.ViewModels
         {
             get
             {
-                return new BaseCommand(() => showAllWydaniaZewnetrzne());
+                return new BaseCommand(() => showAll(new WydaniaZewnetrzneViewModel()));
             }
         }
         public ICommand NoweWydanieZewnetrzneCommand
@@ -311,14 +311,14 @@ namespace Firma.ViewModels
         {
             get
             {
-                return new BaseCommand(() => showAllTowary());
+                return new BaseCommand(() => showAll(new TowaryViewModel()));
             }
         }
         public ICommand TowaryStawkiVatCommand
         {
             get
             {
-                return new BaseCommand(() => showAllTowaryStawkiVat());
+                return new BaseCommand(() => showAll(new TowaryStawkiVatViewModel()));
             }
         }
         public ICommand NowaStawkaVatTowarowCommand
@@ -332,7 +332,7 @@ namespace Firma.ViewModels
         {
             get
             {
-                return new BaseCommand(() => showAllUmowy());
+                return new BaseCommand(() => showAll(new UmowyViewModel()));
             }
         }
         public ICommand NowaUmowaCommand
@@ -346,7 +346,7 @@ namespace Firma.ViewModels
         {
             get
             {
-                return new BaseCommand(() => showAllZmianyCeny());
+                return new BaseCommand(() => showAll(new ZmianyCenyViewModel()));
             }
         }
         public ICommand NowaZmianaCenyCommand
@@ -373,20 +373,20 @@ namespace Firma.ViewModels
         #endregion
 
         #region Przyciski w menu z lewej strony
-        private ReadOnlyCollection<CommandViewModel> _Commands;//to jest kolekcja komend w emnu lewym
+        private ReadOnlyCollection<CommandViewModel> _Commands;
         public ReadOnlyCollection<CommandViewModel> Commands
         {
             get
             {
-                if (_Commands == null)//sprawdzam czy przyciski z lewej strony menu nie zostały zainicjalizowane
+                if (_Commands == null)
                 {
-                    List<CommandViewModel> cmds = this.CreateCommands();//tworzę listę przyciskow za pomocą funkcji CreateCommands
-                    _Commands = new ReadOnlyCollection<CommandViewModel>(cmds);//tę listę przypisuje do ReadOnlyCollection (bo readOnlyCollection można tylko tworzyć, nie można do niej dodawać)
+                    List<CommandViewModel> cmds = this.CreateCommands();
+                    _Commands = new ReadOnlyCollection<CommandViewModel>(cmds);
                 }
                 return _Commands;
             }
         }
-        private List<CommandViewModel> CreateCommands()//tu decydujemy jakie przyciski są w lewym menu
+        private List<CommandViewModel> CreateCommands()
         {
             Messenger.Default.Register<string>(this, open);
             return new List<CommandViewModel>
@@ -404,12 +404,12 @@ namespace Firma.ViewModels
                 //new CommandViewModel("Kontrahent",new BaseCommand(()=>createView(new NowyKontrahentViewModel())), "pack://application:,,,/Views/Content/Icons/account-plus-white.png",
                 //    "pack://application:,,,/Views/Content/Icons/account-plus.png"),
                 
-                new CommandViewModel("Faktury", new BaseCommand(()=>showAllFaktury()),"",""),
-                new CommandViewModel("Kontrahenci", new BaseCommand(()=>showAllKontrahenci()),"",""),
-                new CommandViewModel("Pracownicy", new BaseCommand(()=>showAllPracownicy()),"",""),
-                new CommandViewModel("Przyjecia Zewnetrzne", new BaseCommand(()=>showAllPrzyjeciaZewnetrzne()),"",""),
-                new CommandViewModel("Wydania Zewnetrzne", new BaseCommand(()=>showAllWydaniaZewnetrzne()),"",""),
-                new CommandViewModel("Towary", new BaseCommand(()=>showAllTowary()),"",""),
+                new CommandViewModel("Faktury", new BaseCommand(()=>showAll(new FakturyViewModel())),"",""),
+                new CommandViewModel("Kontrahenci", new BaseCommand(()=>showAll(new KontrahenciViewModel())),"",""),
+                new CommandViewModel("Pracownicy", new BaseCommand(()=>showAll(new PracownicyViewModel())),"",""),
+                new CommandViewModel("Przyjecia Zewnetrzne", new BaseCommand(()=>showAll(new PrzyjeciaZewnetrzneViewModel())),"",""),
+                new CommandViewModel("Wydania Zewnetrzne", new BaseCommand(()=>showAll(new WydaniaZewnetrzneViewModel())),"",""),
+                new CommandViewModel("Towary", new BaseCommand(()=>showAll(new TowaryViewModel())),"",""),
                 new CommandViewModel("Średnie wynagrodz.",new BaseCommand(()=>createView(new SrednieWynagrodzenieViewModel())),"",""),
                 new CommandViewModel("Raport sprzedaży",new BaseCommand(()=>createView(new RaportSprzedazyViewModel())),"",""),
             };
@@ -454,254 +454,20 @@ namespace Firma.ViewModels
             this.Workspaces.Add(workspace);
             this.setActiveWorkspace(workspace);
         }
-        private void showAllFakturyKategorie()
+        private void showAll(WorkspaceViewModel workspace)
         {
-            FakturyKategorieViewModel workspace = this.Workspaces.FirstOrDefault(vm => vm is FakturyKategorieViewModel) as FakturyKategorieViewModel;
-            if (workspace == null)
+            bool contains = false;
+            foreach (var item in Workspaces)
             {
-                workspace = new FakturyKategorieViewModel();
-                this.Workspaces.Add(workspace);
+                if (item.GetType() == workspace.GetType())
+                {
+                    contains= true;
+                    workspace = item;
+                    break;
+                }
             }
-            this.setActiveWorkspace(workspace);
-        }
-        private void showAllFakturyRodzaje()
-        {
-            FakturyRodzajeViewModel workspace = this.Workspaces.FirstOrDefault(vm => vm is FakturyRodzajeViewModel) as FakturyRodzajeViewModel;
-            if (workspace == null)
-            {
-                workspace = new FakturyRodzajeViewModel();
-                this.Workspaces.Add(workspace);
-            }
-            this.setActiveWorkspace(workspace);
-        }
-        private void showAllKontrahenciRodzaje()
-        {
-            KontrahenciRodzajeViewModel workspace = this.Workspaces.FirstOrDefault(vm => vm is KontrahenciRodzajeViewModel) as KontrahenciRodzajeViewModel;
-            if (workspace == null)
-            {
-                workspace = new KontrahenciRodzajeViewModel();
-                this.Workspaces.Add(workspace);
-            }
-            this.setActiveWorkspace(workspace);
-        }
-        private void showAllMagazynyTypy()
-        {
-            MagazynyTypyViewModel workspace = this.Workspaces.FirstOrDefault(vm => vm is MagazynyTypyViewModel) as MagazynyTypyViewModel;
-            if (workspace == null)
-            {
-                workspace = new MagazynyTypyViewModel();
-                this.Workspaces.Add(workspace);
-            }
-            this.setActiveWorkspace(workspace);
-        }
-        private void showAllRodzajePlatnosci()
-        {
-            RodzajePlatnosciViewModel workspace = this.Workspaces.FirstOrDefault(vm => vm is RodzajePlatnosciViewModel) as RodzajePlatnosciViewModel;
-            if (workspace == null)
-            {
-                workspace = new RodzajePlatnosciViewModel();
-                this.Workspaces.Add(workspace);
-            }
-            this.setActiveWorkspace(workspace);
-        }
-        private void showAllTowaryGrupy()
-        {
-            TowaryGrupyViewModel workspace = this.Workspaces.FirstOrDefault(vm => vm is TowaryGrupyViewModel) as TowaryGrupyViewModel;
-            if (workspace == null)
-            {
-                workspace = new TowaryGrupyViewModel();
-                this.Workspaces.Add(workspace);
-            }
-            this.setActiveWorkspace(workspace);
-        }
-        private void showAllTowaryJednMiary()
-        {
-            JednostkiMiaryViewModel workspace = this.Workspaces.FirstOrDefault(vm => vm is JednostkiMiaryViewModel) as JednostkiMiaryViewModel;
-            if (workspace == null)
-            {
-                workspace = new JednostkiMiaryViewModel();
-                this.Workspaces.Add(workspace);
-            }
-            this.setActiveWorkspace(workspace);
-        }
-        private void showAllTowaryTypy()
-        {
-            TowaryTypyViewModel workspace = this.Workspaces.FirstOrDefault(vm => vm is TowaryTypyViewModel) as TowaryTypyViewModel;
-            if (workspace == null)
-            {
-                workspace = new TowaryTypyViewModel();
-                this.Workspaces.Add(workspace);
-            }
-            this.setActiveWorkspace(workspace);
-        }
-        private void showAllUmowyRodzaje()
-        {
-            UmowyRodzajeViewModel workspace = this.Workspaces.FirstOrDefault(vm => vm is UmowyRodzajeViewModel) as UmowyRodzajeViewModel;
-            if (workspace == null)
-            {
-                workspace = new UmowyRodzajeViewModel();
-                this.Workspaces.Add(workspace);
-            }
-            this.setActiveWorkspace(workspace);
-        }
-        private void showAllUmowyStanowiska()
-        {
-            UmowyStanowiskaViewModel workspace = this.Workspaces.FirstOrDefault(vm => vm is UmowyStanowiskaViewModel) as UmowyStanowiskaViewModel;
-            if (workspace == null)
-            {
-                workspace = new UmowyStanowiskaViewModel();
-                this.Workspaces.Add(workspace);
-            }
-            this.setActiveWorkspace(workspace);
-        }
-        private void showAllKraje()
-        {
-            KrajeViewModel workspace = this.Workspaces.FirstOrDefault(vm => vm is KrajeViewModel) as KrajeViewModel;
-            if (workspace == null)
-            {
-                workspace = new KrajeViewModel();
-                this.Workspaces.Add(workspace);
-            }
-            this.setActiveWorkspace(workspace);
-        }
-        private void showAllKontakty()
-        {
-            KontaktyViewModel workspace = this.Workspaces.FirstOrDefault(vm => vm is KontaktyViewModel) as KontaktyViewModel;
-            if (workspace == null)
-            {
-                workspace = new KontaktyViewModel();
-                this.Workspaces.Add(workspace);
-            }
-            this.setActiveWorkspace(workspace);
-        }
-        private void showAllFaktury()
-        {
-            FakturyViewModel workspace = this.Workspaces.FirstOrDefault(vm => vm is FakturyViewModel) as FakturyViewModel;
-            if (workspace == null)
-            {
-                workspace = new FakturyViewModel();
-                this.Workspaces.Add(workspace);
-            }
-            this.setActiveWorkspace(workspace);
-        }
-        private void showAllAdresy()
-        {
-            AdresyViewModel workspace = this.Workspaces.FirstOrDefault(vm => vm is AdresyViewModel) as AdresyViewModel;
-            if (workspace == null)
-            {
-                workspace = new AdresyViewModel();
-                this.Workspaces.Add(workspace);
-            }
-            this.setActiveWorkspace(workspace);
-        }
-        private void showAllKontrahenci()
-        {
-            KontrahenciViewModel workspace = this.Workspaces.FirstOrDefault(vm => vm is KontrahenciViewModel) as KontrahenciViewModel;
-            if (workspace == null)
-            {
-                workspace = new KontrahenciViewModel();
-                this.Workspaces.Add(workspace);
-            }
-            this.setActiveWorkspace(workspace);
-        }
-        private void showAllMagazyny()
-        {
-            MagazynyViewModel workspace = this.Workspaces.FirstOrDefault(vm => vm is MagazynyViewModel) as MagazynyViewModel;
-            if (workspace == null)
-            {
-                workspace = new MagazynyViewModel();
-                this.Workspaces.Add(workspace);
-            }
-            this.setActiveWorkspace(workspace);
-        }
-        private void showAllPozycjePrzyjeciaZewnetrznego()
-        {
-            PozycjePrzyjeciaZewnetrznegoViewModel workspace = this.Workspaces.FirstOrDefault(vm => vm is PozycjePrzyjeciaZewnetrznegoViewModel) as PozycjePrzyjeciaZewnetrznegoViewModel;
-            if (workspace == null)
-            {
-                workspace = new PozycjePrzyjeciaZewnetrznegoViewModel();
-                this.Workspaces.Add(workspace);
-            }
-            this.setActiveWorkspace(workspace);
-        }
-        private void showAllPozycjeWydaniaZewnetrznego()
-        {
-            PozycjeWydaniaZewnetrznegoViewModel workspace = this.Workspaces.FirstOrDefault(vm => vm is PozycjeWydaniaZewnetrznegoViewModel) as PozycjeWydaniaZewnetrznegoViewModel;
-            if (workspace == null)
-            {
-                workspace = new PozycjeWydaniaZewnetrznegoViewModel();
-                this.Workspaces.Add(workspace);
-            }
-            this.setActiveWorkspace(workspace);
-        }
-        private void showAllPracownicy()
-        {
-            PracownicyViewModel workspace = this.Workspaces.FirstOrDefault(vm => vm is PracownicyViewModel) as PracownicyViewModel;
-            if (workspace == null)
-            {
-                workspace = new PracownicyViewModel();
-                this.Workspaces.Add(workspace);
-            }
-            this.setActiveWorkspace(workspace);
-        }
-        private void showAllPrzyjeciaZewnetrzne()
-        {
-            PrzyjeciaZewnetrzneViewModel workspace = this.Workspaces.FirstOrDefault(vm => vm is PrzyjeciaZewnetrzneViewModel) as PrzyjeciaZewnetrzneViewModel;
-            if (workspace == null)
-            {
-                workspace = new PrzyjeciaZewnetrzneViewModel();
-                this.Workspaces.Add(workspace);
-            }
-            this.setActiveWorkspace(workspace);
-        }
-        private void showAllWydaniaZewnetrzne()
-        {
-            WydaniaZewnetrzneViewModel workspace = this.Workspaces.FirstOrDefault(vm => vm is WydaniaZewnetrzneViewModel) as WydaniaZewnetrzneViewModel;
-            if (workspace == null)
-            {
-                workspace = new WydaniaZewnetrzneViewModel();
-                this.Workspaces.Add(workspace);
-            }
-            this.setActiveWorkspace(workspace);
-        }
-        private void showAllTowary()
-        {
-            TowaryViewModel workspace = this.Workspaces.FirstOrDefault(vm => vm is TowaryViewModel) as TowaryViewModel;
-            if (workspace == null)
-            {
-                workspace = new TowaryViewModel();
-                this.Workspaces.Add(workspace);
-            }
-            this.setActiveWorkspace(workspace);
-        }
-        private void showAllTowaryStawkiVat()
-        {
-            TowaryStawkiVatViewModel workspace = this.Workspaces.FirstOrDefault(vm => vm is TowaryStawkiVatViewModel) as TowaryStawkiVatViewModel;
-            if (workspace == null)
-            {
-                workspace = new TowaryStawkiVatViewModel();
-                this.Workspaces.Add(workspace);
-            }
-            this.setActiveWorkspace(workspace);
-        }
-        private void showAllUmowy()
-        {
-            UmowyViewModel workspace = this.Workspaces.FirstOrDefault(vm => vm is UmowyViewModel) as UmowyViewModel;
-            if (workspace == null)
-            {
-                workspace = new UmowyViewModel();
-                this.Workspaces.Add(workspace);
-            }
-            this.setActiveWorkspace(workspace);
-        }
-        private void showAllZmianyCeny()
-        {
-            ZmianyCenyViewModel workspace = this.Workspaces.FirstOrDefault(vm => vm is ZmianyCenyViewModel) as ZmianyCenyViewModel;
-            if (workspace == null)
-            {
-                workspace = new ZmianyCenyViewModel();
-                this.Workspaces.Add(workspace);
-            }
+            if(!contains)
+                Workspaces.Add(workspace);
             this.setActiveWorkspace(workspace);
         }
 
@@ -791,10 +557,11 @@ namespace Firma.ViewModels
                 #endregion
                 #region Add a foreign key through a window
                 case "KontrahenciAll":
-                    showAllKontrahenci();
+                    createView(new KontrahenciViewModel("close"));
                     break;
                 #endregion
             }
+
         }
         #endregion
 
