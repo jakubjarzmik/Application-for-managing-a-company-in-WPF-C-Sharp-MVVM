@@ -11,9 +11,11 @@ using System.Windows.Input;
 
 namespace Firma.ViewModels.Abstract
 {
-    public abstract class WszystkieViewModel<T>:WorkspaceViewModel
+    public abstract class WszystkieViewModel<T> : WorkspaceViewModel
     {
         #region Fields
+        protected bool toClose;
+        protected string token;
         private BaseCommand _AddCommand;
         public BaseCommand AddCommand
         {
@@ -61,6 +63,14 @@ namespace Firma.ViewModels.Abstract
         {
             base.DisplayName = displayName;
             this.jJFirmaEntities = new JJFirmaEntities();
+            toClose = false;
+        }
+        public WszystkieViewModel(string displayName, string token)
+        {
+            base.DisplayName = displayName;
+            this.jJFirmaEntities = new JJFirmaEntities();
+            this.token = token;
+            toClose = true;
         }
         #endregion
         #region Helpers

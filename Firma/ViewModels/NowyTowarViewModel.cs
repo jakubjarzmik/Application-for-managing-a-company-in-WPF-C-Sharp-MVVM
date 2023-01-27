@@ -1,6 +1,8 @@
-﻿using Firma.Models.Entities;
+﻿using Firma.Helpers;
+using Firma.Models.Entities;
 using Firma.Models.EntitiesForView;
 using Firma.ViewModels.Abstract;
+using GalaSoft.MvvmLight.Messaging;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,11 +13,110 @@ namespace Firma.ViewModels
 {
     public class NowyTowarViewModel : JedenViewModel<Towary>
     {
+        #region Commands
+        private BaseCommand _ShowGrupyTowaruCommand;
+        public BaseCommand ShowGrupyTowaruCommand
+        {
+            get
+            {
+                if (_ShowGrupyTowaruCommand == null)
+                {
+                    _ShowGrupyTowaruCommand = new BaseCommand(() => showGrupyTowaru());
+                }
+                return _ShowGrupyTowaruCommand;
+            }
+        }
+        private void showGrupyTowaru()
+        {
+            Messenger.Default.Send("GrupyTowaruAll;" + DisplayName);
+        }
+        private BaseCommand _ShowVatSprzCommand;
+        public BaseCommand ShowVatSprzCommand
+        {
+            get
+            {
+                if (_ShowVatSprzCommand == null)
+                {
+                    _ShowVatSprzCommand = new BaseCommand(() => showVat("Sprz"));
+                }
+                return _ShowVatSprzCommand;
+            }
+        }
+        private BaseCommand _ShowVatZakCommand;
+        public BaseCommand ShowVatZakCommand
+        {
+            get
+            {
+                if (_ShowVatZakCommand == null)
+                {
+                    _ShowVatZakCommand = new BaseCommand(() => showVat("Zak"));
+                }
+                return _ShowVatZakCommand;
+            }
+        }
+        private void showVat(string rodzajVat)
+        {
+            Messenger.Default.Send("Vat"+rodzajVat+"All;" + DisplayName);
+        }
+        private BaseCommand _ShowKrajeCommand;
+        public BaseCommand ShowKrajeCommand
+        {
+            get
+            {
+                if (_ShowKrajeCommand == null)
+                {
+                    _ShowKrajeCommand = new BaseCommand(() => showKraje());
+                }
+                return _ShowKrajeCommand;
+            }
+        }
+        private void showKraje()
+        {
+            Messenger.Default.Send("KrajeAll;" + DisplayName);
+        }
+        private BaseCommand _ShowJednostkiMiaryCommand;
+        public BaseCommand ShowJednostkiMiaryCommand
+        {
+            get
+            {
+                if (_ShowJednostkiMiaryCommand == null)
+                {
+                    _ShowJednostkiMiaryCommand = new BaseCommand(() => showJednostkiMiary());
+                }
+                return _ShowJednostkiMiaryCommand;
+            }
+        }
+        private void showJednostkiMiary()
+        {
+            Messenger.Default.Send("JednostkiMiaryAll;" + DisplayName);
+        }
+        private BaseCommand _ShowKontrahenciCommand;
+        public BaseCommand ShowKontrahenciCommand
+        {
+            get
+            {
+                if (_ShowKontrahenciCommand == null)
+                {
+                    _ShowKontrahenciCommand = new BaseCommand(() => showKontrahenci());
+                }
+                return _ShowKontrahenciCommand;
+            }
+        }
+        private void showKontrahenci()
+        {
+            Messenger.Default.Send("KontrahenciAll;" + DisplayName);
+        }
+        #endregion
         #region Konstruktor
         public NowyTowarViewModel()
             : base("Nowy towar")
         {
             Item = new Towary();
+            Messenger.Default.Register<GrupaTowaruForAllView>(this, DisplayName, getSelectedGrupa);
+            Messenger.Default.Register<StawkaVatAndIsZak>(this, DisplayName, getSelectedStawkaVat);
+            Messenger.Default.Register<Kraje>(this, DisplayName, getSelectedKraj);
+            Messenger.Default.Register<JednostkiMiary>(this, DisplayName, getJednostkaMiary);
+            Messenger.Default.Register<KontrahentForAllView>(this, DisplayName, getSelectedKontrahent);
         }
         #endregion
         #region Properties
@@ -169,22 +270,6 @@ namespace Firma.ViewModels
                 }
             }
         }
-        //public IQueryable<KeyAndValue> TowaryStawkiVatComboBoxItems
-        //{
-        //    get
-        //    {
-        //        return
-        //        (
-        //            from stawka in Db.TowaryStawkiVat
-        //            select new KeyAndValue
-        //            {
-        //                Key = stawka.StawkiVatId,
-        //                Value = stawka.Stawka.ToString("F2") + " | " + 
-        //                    Db.Kraje.Where(n => n.KrajId == stawka.KrajId).Select(n=>n.ISO).FirstOrDefault()
-        //            }
-        //        ).ToList().AsQueryable();
-        //    }
-        //}
         public IQueryable<KeyAndValue> TowaryStawkiVatComboBoxItems
         {
             get
@@ -366,7 +451,7 @@ namespace Firma.ViewModels
                 return
                 (
                     from kontrahent in Db.Kontrahenci
-                    where kontrahent.RodzajKontrahentaId == 1
+                    where kontrahent.CzyAktywny == true
                     select new KeyAndValue
                     {
                         Key = kontrahent.KontrahentId,
@@ -460,6 +545,31 @@ namespace Firma.ViewModels
                 Item.Opis = "";
             Db.Towary.AddObject(Item);
             Db.SaveChanges();
+        }
+        #endregion
+        #region Helpers
+        private void getSelectedGrupa(GrupaTowaruForAllView grupaTowaruForAllView)
+        {
+            GrupaTowaruId = grupaTowaruForAllView.GrupaTowaruId;
+        }
+        private void getSelectedStawkaVat(StawkaVatAndIsZak stawkaVatAndIsZak)
+        {
+            if (!stawkaVatAndIsZak.isVatZak)
+                VatSprzId = stawkaVatAndIsZak.StawkaVatTowaruForAllView.StawkaVatId;
+            else
+                VatZakId = stawkaVatAndIsZak.StawkaVatTowaruForAllView.StawkaVatId;
+        }
+        private void getSelectedKraj(Kraje kraj)
+        {
+            KrajPochodzeniaId = kraj.KrajId;
+        }
+        private void getJednostkaMiary(JednostkiMiary jednostkiMiary)
+        {
+            DomJednMiaryId = jednostkiMiary.JednostkaId;
+        }
+        private void getSelectedKontrahent(KontrahentForAllView kontrahentForAllView)
+        {
+           ProducentId = kontrahentForAllView.KontrahentId;
         }
         #endregion
     }

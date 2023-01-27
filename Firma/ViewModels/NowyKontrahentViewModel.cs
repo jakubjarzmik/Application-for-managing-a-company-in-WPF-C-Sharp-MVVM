@@ -2,6 +2,7 @@
 using Firma.Models.Entities;
 using Firma.Models.EntitiesForView;
 using Firma.ViewModels.Abstract;
+using GalaSoft.MvvmLight.Messaging;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,11 +14,59 @@ namespace Firma.ViewModels
 {
     public class NowyKontrahentViewModel : JedenViewModel<Kontrahenci>
     {
+        #region Commands
+        private BaseCommand _ShowKontrahenciCommand;
+        public BaseCommand ShowKontrahenciCommand
+        {
+            get
+            {
+                if (_ShowKontrahenciCommand == null)
+                {
+                    _ShowKontrahenciCommand = new BaseCommand(() => showKontrahenci());
+                }
+                return _ShowKontrahenciCommand;
+            }
+        }
+        private void showKontrahenci()
+        {
+            Messenger.Default.Send("KontrahenciAll;" + DisplayName);
+        }
+        private BaseCommand _ShowAdresyCommand;
+        public BaseCommand ShowAdresyCommand
+        {
+            get
+            {
+                if (_ShowAdresyCommand == null)
+                {
+                    _ShowAdresyCommand = new BaseCommand(() => showAdresy(false));
+                }
+                return _ShowAdresyCommand;
+            }
+        }
+        private BaseCommand _ShowAdresyKorCommand;
+        public BaseCommand ShowAdresyKorCommand
+        {
+            get
+            {
+                if (_ShowAdresyKorCommand == null)
+                {
+                    _ShowAdresyKorCommand = new BaseCommand(() => showAdresy(true));
+                }
+                return _ShowAdresyKorCommand;
+            }
+        }
+        private void showAdresy(bool isAdresKor)
+        {
+            Messenger.Default.Send((isAdresKor ? "AdresyKorAll;" : "AdresyAll;") + DisplayName);
+        }
+        #endregion
         #region Konstruktor
         public NowyKontrahentViewModel()
             : base("Nowy kontrahent")
         {
             Item = new Kontrahenci();
+            Messenger.Default.Register<KontrahentForAllView>(this, DisplayName, getSelectedKontrahent);
+            Messenger.Default.Register<AdresAndIsKor>(this, DisplayName, getSelectedAdres);
         }
         #endregion
         #region Properties
@@ -247,7 +296,7 @@ namespace Firma.ViewModels
                     Item.AdresId = value;
                     var adres = Db.Adresy.Where(n => n.AdresId == AdresId).FirstOrDefault();
                     Ulica = adres.Ulica;
-                    NrDomu= adres.NrDomu;
+                    NrDomu = adres.NrDomu;
                     NrLokalu = adres.NrLokalu;
                     KodPocztowy = adres.KodPocztowy;
                     Miejscowosc = adres.Miejscowosc;
@@ -605,6 +654,19 @@ namespace Firma.ViewModels
                 Item.URL = "";
             Db.Kontrahenci.AddObject(Item);
             Db.SaveChanges();
+        }
+        #endregion
+        #region Helpers
+        private void getSelectedKontrahent(KontrahentForAllView kontrahentForAllView)
+        {
+            JednostkaPodlegaPodId = kontrahentForAllView.KontrahentId;
+        }
+        private void getSelectedAdres(AdresAndIsKor adresAndIsKor)
+        {
+            if (!adresAndIsKor.isAdresKor)
+                AdresId = adresAndIsKor.AdresForAllView.AdresId;
+            else
+                AdresKorId = adresAndIsKor.AdresForAllView.AdresId;
         }
         #endregion
     }

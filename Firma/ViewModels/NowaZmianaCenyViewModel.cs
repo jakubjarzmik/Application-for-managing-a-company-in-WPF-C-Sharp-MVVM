@@ -1,6 +1,8 @@
-﻿using Firma.Models.Entities;
+﻿using Firma.Helpers;
+using Firma.Models.Entities;
 using Firma.Models.EntitiesForView;
 using Firma.ViewModels.Abstract;
+using GalaSoft.MvvmLight.Messaging;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,11 +13,47 @@ namespace Firma.ViewModels
 {
     public class NowaZmianaCenyViewModel : JedenViewModel<ZmianyCeny>
     {
+        #region Commands
+        private BaseCommand _ShowTowaryCommand;
+        public BaseCommand ShowTowaryCommand
+        {
+            get
+            {
+                if (_ShowTowaryCommand == null)
+                {
+                    _ShowTowaryCommand = new BaseCommand(() => showTowary());
+                }
+                return _ShowTowaryCommand;
+            }
+        }
+        private void showTowary()
+        {
+            Messenger.Default.Send("TowaryAll;" + DisplayName);
+        }
+        private BaseCommand _ShowJednostkiMiaryCommand;
+        public BaseCommand ShowJednostkiMiaryCommand
+        {
+            get
+            {
+                if (_ShowJednostkiMiaryCommand == null)
+                {
+                    _ShowJednostkiMiaryCommand = new BaseCommand(() => showJednostkiMiary());
+                }
+                return _ShowJednostkiMiaryCommand;
+            }
+        }
+        private void showJednostkiMiary()
+        {
+            Messenger.Default.Send("JednostkiMiaryAll;" + DisplayName);
+        }
+        #endregion
         #region Konstruktor
         public NowaZmianaCenyViewModel() 
             : base("Nowa zmiana ceny")
         {
             Item = new ZmianyCeny();
+            Messenger.Default.Register<TowarForAllView>(this, DisplayName, getSelectedTowar);
+            Messenger.Default.Register<JednostkiMiary>(this, DisplayName, getJednostkaMiary);
             DataObowiazywaniaOd = DateTime.Now;
         }
         #endregion
@@ -215,6 +253,16 @@ namespace Firma.ViewModels
             Item.CzyAktywny = true;
             Db.ZmianyCeny.AddObject(Item);
             Db.SaveChanges();
+        }
+        #endregion
+        #region Helpers
+        private void getSelectedTowar(TowarForAllView towar)
+        {
+            TowarId = towar.TowarId;
+        }
+        private void getJednostkaMiary(JednostkiMiary jednostkiMiary)
+        {
+            JednMiaryId = jednostkiMiary.JednostkaId;
         }
         #endregion
     }

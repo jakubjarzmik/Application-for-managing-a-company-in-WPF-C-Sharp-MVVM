@@ -5,7 +5,7 @@
                      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
                      xmlns:local="clr-namespace:Firma.Views"
                      mc:Ignorable="d"
-                     d:DesignHeight="450"
+                     d:DesignHeight="800"
                      d:DesignWidth="800">
     <UserControl.Resources>
         <ResourceDictionary Source="StyleZakladekResources.xaml" />
@@ -123,8 +123,9 @@
                         <ColumnDefinition Width="50" />
                         <ColumnDefinition Width="2*" />
                     </Grid.ColumnDefinitions>
-                    <Label Content="Jednostka podlega pod:"
-                           Style="{StaticResource ControlStandardowy}" />
+                    <Button Content="Jednostka podlega pod:"
+                            Style="{StaticResource ButtonStandardowy}"
+                            Command="{Binding ShowKontrahenciCommand}" />
                     <ComboBox Grid.Column="1"
                               Style="{StaticResource ControlStandardowy}"
                               ItemsSource="{Binding KontrahenciComboBoxItems}"
@@ -166,17 +167,15 @@
                             <ColumnDefinition Width="36" />
                             <ColumnDefinition Width="*" />
                         </Grid.ColumnDefinitions>
-                        <Label Content="Adres:"
-                               Style="{StaticResource ControlStandardowy}" />
+                        <Button Content="Adres:"
+                                Style="{StaticResource ButtonStandardowy}"
+                                Command="{Binding ShowAdresyCommand}" />
                         <ComboBox Grid.Column="1"
                                   Style="{StaticResource ControlStandardowy}"
                                   ItemsSource="{Binding AdresyComboBoxItems}"
                                   DisplayMemberPath="Value"
                                   SelectedValuePath="Key"
                                   SelectedValue="{Binding Path=AdresId, Mode=TwoWay}" />
-                        <Button Grid.Column="2"
-                                Content="..."
-                                Style="{StaticResource ControlStandardowy}" />
                     </Grid>
 
                     <Label Grid.Row="1"
@@ -288,12 +287,12 @@
                             <ColumnDefinition Width="110" />
                             <ColumnDefinition Width="Auto"
                                               MinWidth="100" />
-                            <ColumnDefinition Width="36" />
                             <ColumnDefinition Width="Auto" />
                             <ColumnDefinition Width="*" />
                         </Grid.ColumnDefinitions>
-                        <Label Content="Adres kor.:"
-                               Style="{StaticResource ControlStandardowy}" />
+                        <Button Content="Adres kor.:"
+                               Style="{StaticResource ButtonStandardowy}"
+                                Command="{Binding ShowAdresyKorCommand}" />
                         <ComboBox Grid.Column="1"
                                   Style="{StaticResource ControlStandardowy}"
                                   ItemsSource="{Binding AdresyComboBoxItems}"
@@ -301,9 +300,6 @@
                                   SelectedValuePath="Key"
                                   SelectedValue="{Binding Path=AdresKorId, Mode=TwoWay}" />
                         <Button Grid.Column="2"
-                                Content="..."
-                                Style="{StaticResource ControlStandardowy}" />
-                        <Button Grid.Column="3"
                                 Content="Wyczyść"
                                 Command="{Binding ClearKorCommand}"
                                 Style="{StaticResource ControlStandardowy}" />
@@ -404,23 +400,23 @@
                         <RowDefinition Height="Auto" />
                         <RowDefinition Height="Auto" />
                     </Grid.RowDefinitions>
-                    <ToolBar>
+                    <ToolBar Style="{StaticResource ToolBarStandardowy}">
                         <ToggleButton>
-                            <StackPanel Orientation="Horizontal">
-                                <Image Source="/Views/Content/Icons/file-document-outline.png" />
-                                <Label Content="Nowy" />
+                            <StackPanel Style="{StaticResource StackPanelDoTabeli}">
+                                <Image Style="{StaticResource ImageToolBarStandardowy}" Source="/Views/Content/Icons/file-document-outline.png" />
+                                <Label Content="Nowy"/>
                             </StackPanel>
                         </ToggleButton>
                         <Separator />
                         <ToggleButton>
-                            <StackPanel Orientation="Horizontal">
-                                <Image Source="/Views/Content/Icons/minus.png" />
+                            <StackPanel Style="{StaticResource StackPanelDoTabeli}">
+                                <Image Style="{StaticResource ImageToolBarStandardowy}" Source="/Views/Content/Icons/minus.png" />
                                 <Label Content="Usun" />
                             </StackPanel>
                         </ToggleButton>
                     </ToolBar>
                     <DataGrid Grid.Row="1"
-                              Name="MyGrid"
+                              Name="Kontakt"
                               Height="60">
                         <DataGrid.Columns>
                             <DataGridTextColumn Header="Nazwa działu" />

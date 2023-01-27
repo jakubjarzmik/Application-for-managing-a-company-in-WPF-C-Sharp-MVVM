@@ -1,6 +1,8 @@
-﻿using Firma.Models.Entities;
+﻿using Firma.Helpers;
+using Firma.Models.Entities;
 using Firma.Models.EntitiesForView;
 using Firma.ViewModels.Abstract;
+using GalaSoft.MvvmLight.Messaging;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,11 +13,30 @@ namespace Firma.ViewModels
 {
     public class NowyAdresViewModel : JedenViewModel<Adresy>
     {
+        #region Commands
+        private BaseCommand _ShowKrajeCommand;
+        public BaseCommand ShowKrajeCommand
+        {
+            get
+            {
+                if (_ShowKrajeCommand == null)
+                {
+                    _ShowKrajeCommand = new BaseCommand(() => showKraje());
+                }
+                return _ShowKrajeCommand;
+            }
+        }
+        private void showKraje()
+        {
+            Messenger.Default.Send("KrajeAll;" + DisplayName);
+        }
+        #endregion
         #region Konstruktor
-        public NowyAdresViewModel() 
+        public NowyAdresViewModel()
             : base("Nowy adres")
         {
             Item = new Adresy();
+            Messenger.Default.Register<Kraje>(this, DisplayName, getSelectedKraj);
         }
         #endregion
         #region Properties
@@ -187,7 +208,7 @@ namespace Firma.ViewModels
                 }
             }
         }
-        
+
 
         #endregion
         #region Save
@@ -204,6 +225,12 @@ namespace Firma.ViewModels
                 Item.Dodatkowe = "";
             Db.Adresy.AddObject(Item);
             Db.SaveChanges();
+        }
+        #endregion
+        #region Helpers
+        private void getSelectedKraj(Kraje kraj)
+        {
+            KrajId = kraj.KrajId;
         }
         #endregion
     }

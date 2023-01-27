@@ -461,12 +461,12 @@ namespace Firma.ViewModels
             {
                 if (existingWorkspace.GetType() == workspace.GetType())
                 {
-                    contains= true;
+                    contains = true;
                     workspace = existingWorkspace;
                     break;
                 }
             }
-            if(!contains)
+            if (!contains)
                 Workspaces.Add(workspace);
             this.setActiveWorkspace(workspace);
         }
@@ -480,8 +480,13 @@ namespace Firma.ViewModels
                 collectionView.MoveCurrentTo(workspace);
         }
 
-        private void open(string name)
+        private void open(string message)
         {
+            string[] messageParts = message.Split(';');
+            string name = messageParts[0];
+            string token = "";
+            if (messageParts.Length > 1)
+                token = messageParts[1];
             switch (name)
             {
                 #region Handling the "Dodaj" button
@@ -557,9 +562,36 @@ namespace Firma.ViewModels
                 #endregion
                 #region Add a foreign key through a window
                 case "KontrahenciAll":
-                    createView(new KontrahenciViewModel("close"));
+                    createView(new KontrahenciViewModel(token));
                     break;
-                #endregion
+                case "KrajeAll":
+                    createView(new KrajeViewModel(token));
+                    break;
+                case "AdresyAll":
+                    createView(new AdresyViewModel(token, false));
+                    break;
+                case "AdresyKorAll":
+                    createView(new AdresyViewModel(token, true));
+                    break;
+                case "GrupyTowaruAll":
+                    createView(new TowaryGrupyViewModel(token));
+                    break;
+                case "VatSprzAll":
+                    createView(new TowaryStawkiVatViewModel(token, false));
+                    break;
+                case "VatZakAll":
+                    createView(new TowaryStawkiVatViewModel(token, true));
+                    break;
+                case "JednostkiMiaryAll":
+                    createView(new JednostkiMiaryViewModel(token));
+                    break;
+                case "StanowiskaAll":
+                    createView(new UmowyStanowiskaViewModel(token));
+                    break;
+                case "TowaryAll":
+                    createView(new TowaryViewModel(token));
+                    break;
+                    #endregion
             }
 
         }

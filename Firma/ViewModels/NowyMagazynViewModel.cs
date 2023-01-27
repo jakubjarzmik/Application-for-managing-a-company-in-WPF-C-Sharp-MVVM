@@ -2,6 +2,7 @@
 using Firma.Models.Entities;
 using Firma.Models.EntitiesForView;
 using Firma.ViewModels.Abstract;
+using GalaSoft.MvvmLight.Messaging;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,11 +14,30 @@ namespace Firma.ViewModels
 {
     public class NowyMagazynViewModel : JedenViewModel<Magazyny>
     {
+        #region Commands
+        private BaseCommand _ShowAdresyCommand;
+        public BaseCommand ShowAdresyCommand
+        {
+            get
+            {
+                if (_ShowAdresyCommand == null)
+                {
+                    _ShowAdresyCommand = new BaseCommand(() => showAdresy());
+                }
+                return _ShowAdresyCommand;
+            }
+        }
+        private void showAdresy()
+        {
+            Messenger.Default.Send("AdresyAll;" + DisplayName);
+        }
+        #endregion
         #region Konstruktor
-        public NowyMagazynViewModel() 
+        public NowyMagazynViewModel()
             : base("Nowy magazyn")
         {
             Item = new Magazyny();
+            Messenger.Default.Register<AdresAndIsKor>(this, DisplayName, getSelectedAdres);
         }
         #endregion
         #region Properties
@@ -44,7 +64,7 @@ namespace Firma.ViewModels
             }
             set
             {
-                if(value != Item.Nazwa)
+                if (value != Item.Nazwa)
                 {
                     Item.Nazwa = value;
                     base.OnPropertyChanged(() => Nazwa);
@@ -59,7 +79,7 @@ namespace Firma.ViewModels
             }
             set
             {
-                if(value != Item.Telefon)
+                if (value != Item.Telefon)
                 {
                     Item.Telefon = value;
                     base.OnPropertyChanged(() => Telefon);
@@ -74,7 +94,7 @@ namespace Firma.ViewModels
             }
             set
             {
-                if(value != Item.TypMagazynuId)
+                if (value != Item.TypMagazynuId)
                 {
                     Item.TypMagazynuId = value;
                     base.OnPropertyChanged(() => TypMagazynuId);
@@ -318,6 +338,12 @@ namespace Firma.ViewModels
                 Item.Telefon = "";
             Db.Magazyny.AddObject(Item);
             Db.SaveChanges();
+        }
+        #endregion
+        #region Helpers
+        private void getSelectedAdres(AdresAndIsKor adresAndIsKor)
+        {
+            AdresId = adresAndIsKor.AdresForAllView.AdresId;
         }
         #endregion
     }

@@ -1,5 +1,7 @@
 ﻿using Firma.Models.Entities;
+using Firma.Models.EntitiesForView;
 using Firma.ViewModels.Abstract;
+using GalaSoft.MvvmLight.Messaging;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -12,12 +14,33 @@ namespace Firma.ViewModels
     class KrajeViewModel : WszystkieViewModel<Kraje>
     {
         #region Konstruktor
-        public KrajeViewModel() 
-            : base("Kraje")
+        public KrajeViewModel() : base("Kraje")
+        {
+        }
+        public KrajeViewModel(string token) : base("Kraje", token)
         {
         }
         #endregion
-
+        #region Properties
+        private Kraje _SelectedKraj;
+        public Kraje SelectedKraj
+        {
+            get
+            {
+                return _SelectedKraj;
+            }
+            set
+            {
+                if (value != _SelectedKraj)
+                {
+                    _SelectedKraj = value;
+                    Messenger.Default.Send(_SelectedKraj, token);
+                    if (toClose)
+                        OnRequestClose();
+                }
+            }
+        }
+        #endregion
         #region Helpers
         public override void Load()
         {

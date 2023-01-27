@@ -1,6 +1,8 @@
-﻿using Firma.Models.Entities;
+﻿using Firma.Helpers;
+using Firma.Models.Entities;
 using Firma.Models.EntitiesForView;
 using Firma.ViewModels.Abstract;
+using GalaSoft.MvvmLight.Messaging;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,11 +13,30 @@ namespace Firma.ViewModels
 {
     public class NowaUmowaViewModel : JedenViewModel<Umowy>
     {
+        #region Commands
+        private BaseCommand _ShowStanowiskaCommand;
+        public BaseCommand ShowStanowiskaCommand
+        {
+            get
+            {
+                if (_ShowStanowiskaCommand == null)
+                {
+                    _ShowStanowiskaCommand = new BaseCommand(() => showStanowiska());
+                }
+                return _ShowStanowiskaCommand;
+            }
+        }
+        private void showStanowiska()
+        {
+            Messenger.Default.Send("StanowiskaAll;" + DisplayName);
+        }
+        #endregion
         #region Konstruktor
         public NowaUmowaViewModel() 
             : base("Nowa umowa")
         {
             Item = new Umowy();
+            Messenger.Default.Register<UmowyStanowiska>(this, DisplayName, getSelectedStanowisko);
             DataZawarcia = DateTime.Now;
             DataOd = DateTime.Now;
             DataDo = DateTime.Now.AddYears(2);
@@ -314,6 +335,12 @@ namespace Firma.ViewModels
                 Item.Opis = "";
             Db.Umowy.AddObject(Item);
             Db.SaveChanges();
+        }
+        #endregion
+        #region Helpers
+        private void getSelectedStanowisko(UmowyStanowiska stanowisko)
+        {
+            StanowiskoId = stanowisko.StanowiskoId;
         }
         #endregion
     }

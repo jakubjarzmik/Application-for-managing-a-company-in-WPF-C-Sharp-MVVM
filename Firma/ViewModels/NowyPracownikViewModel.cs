@@ -2,6 +2,7 @@
 using Firma.Models.Entities;
 using Firma.Models.EntitiesForView;
 using Firma.ViewModels.Abstract;
+using GalaSoft.MvvmLight.Messaging;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,11 +14,30 @@ namespace Firma.ViewModels
 {
     public class NowyPracownikViewModel : JedenViewModel<Pracownicy>
     {
+        #region Commands
+        private BaseCommand _ShowAdresyCommand;
+        public BaseCommand ShowAdresyCommand
+        {
+            get
+            {
+                if (_ShowAdresyCommand == null)
+                {
+                    _ShowAdresyCommand = new BaseCommand(() => showAdresy());
+                }
+                return _ShowAdresyCommand;
+            }
+        }
+        private void showAdresy()
+        {
+            Messenger.Default.Send("AdresyAll;" + DisplayName);
+        }
+        #endregion
         #region Konstruktor
         public NowyPracownikViewModel() 
             : base("Nowy pracownik")
         {
             Item = new Pracownicy();
+            Messenger.Default.Register<AdresAndIsKor>(this, DisplayName, getSelectedAdres);
             DataUrodzenia = DateTime.Today;
             Akronim = "  ";
         }
@@ -464,6 +484,12 @@ namespace Firma.ViewModels
                 Item.Uwagi = "";
             Db.Pracownicy.AddObject(Item);
             Db.SaveChanges();
+        }
+        #endregion
+        #region Helpers
+        private void getSelectedAdres(AdresAndIsKor adresAndIsKor)
+        {
+            AdresId = adresAndIsKor.AdresForAllView.AdresId;
         }
         #endregion
     }

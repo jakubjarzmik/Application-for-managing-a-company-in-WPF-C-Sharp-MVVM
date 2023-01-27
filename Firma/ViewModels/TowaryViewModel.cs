@@ -3,6 +3,7 @@ using Firma.Models.Entities;
 using Firma.Models.EntitiesForView;
 using Firma.ViewModels.Abstract;
 using Firma.Views;
+using GalaSoft.MvvmLight.Messaging;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -19,8 +20,30 @@ namespace Firma.ViewModels
         public TowaryViewModel() : base("Towary")
         {
         }
+        public TowaryViewModel(string token) : base("Towary", token)
+        {
+        }
         #endregion
-
+        #region Properties
+        private TowarForAllView _SelectedTowar;
+        public TowarForAllView SelectedTowar
+        {
+            get
+            {
+                return _SelectedTowar;
+            }
+            set
+            {
+                if (value != _SelectedTowar)
+                {
+                    _SelectedTowar = value;
+                    Messenger.Default.Send(_SelectedTowar, token);
+                    if (toClose)
+                        OnRequestClose();
+                }
+            }
+        }
+        #endregion
         #region Helpers
         public override void Load()
         {
@@ -30,6 +53,7 @@ namespace Firma.ViewModels
                     where towar.CzyAktywny == true
                     select new TowarForAllView
                     {
+                        TowarId = towar.TowarId,
                         Kod = towar.Kod,
                         Nazwa = towar.Nazwa,
                         Typ = towar.TowaryTypy.Nazwa,

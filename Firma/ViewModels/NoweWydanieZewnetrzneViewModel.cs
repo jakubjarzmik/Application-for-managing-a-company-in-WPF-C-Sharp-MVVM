@@ -1,6 +1,8 @@
-﻿using Firma.Models.Entities;
+﻿using Firma.Helpers;
+using Firma.Models.Entities;
 using Firma.Models.EntitiesForView;
 using Firma.ViewModels.Abstract;
+using GalaSoft.MvvmLight.Messaging;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,11 +13,30 @@ namespace Firma.ViewModels
 {
     public class NoweWydanieZewnetrzneViewModel : JedenViewModel<WydaniaZewnetrzne>
     {
+        #region Commands
+        private BaseCommand _ShowKontrahenciCommand;
+        public BaseCommand ShowKontrahenciCommand
+        {
+            get
+            {
+                if (_ShowKontrahenciCommand == null)
+                {
+                    _ShowKontrahenciCommand = new BaseCommand(() => showKontrahenci());
+                }
+                return _ShowKontrahenciCommand;
+            }
+        }
+        private void showKontrahenci()
+        {
+            Messenger.Default.Send("KontrahenciAll;" + DisplayName);
+        }
+        #endregion
         #region Konstruktor
         public NoweWydanieZewnetrzneViewModel()
             : base("Nowe WZ")
         {
             Item = new WydaniaZewnetrzne();
+            Messenger.Default.Register<KontrahentForAllView>(this, DisplayName, getSelectedKontrahent);
             DataWystawienia = DateTime.Now;
             DataWydania = DateTime.Now;
             MagazynId = 1;
@@ -191,6 +212,12 @@ namespace Firma.ViewModels
             Item.CzyAktywny = true;
             Db.WydaniaZewnetrzne.AddObject(Item);
             Db.SaveChanges();
+        }
+        #endregion
+        #region Helpers
+        private void getSelectedKontrahent(KontrahentForAllView kontrahentForAllView)
+        {
+            KontrahentId = kontrahentForAllView.KontrahentId;
         }
         #endregion
     }

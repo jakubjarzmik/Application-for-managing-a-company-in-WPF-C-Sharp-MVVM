@@ -12,8 +12,21 @@
         <Setter Property="VerticalContentAlignment"
                 Value="Center" />
     </Style>
+    <Style x:Key="ControlBoldStandardowy"
+           TargetType="{x:Type Control}">
+        <Setter Property="Height"
+                Value="28" />
+        <Setter Property="Margin"
+                Value="4" />
+        <Setter Property="VerticalAlignment"
+                Value="Center" />
+        <Setter Property="FontWeight"
+                Value="Bold" />
+    </Style>
     <Style x:Key="ButtonStandardowy"
-           TargetType="{x:Type Button}">
+           TargetType="Button">
+        <Setter Property="Background"
+                Value="#E3E3E3" />
         <Setter Property="Height"
                 Value="28" />
         <Setter Property="Margin"
@@ -25,19 +38,7 @@
         <Setter Property="HorizontalContentAlignment"
                 Value="Left" />
         <Setter Property="Padding"
-                Value="5,0,0,0" />
-    </Style>
-
-    <Style x:Key="ControlBoldStandardowy"
-           TargetType="{x:Type Control}">
-        <Setter Property="Height"
-                Value="28" />
-        <Setter Property="Margin"
-                Value="4" />
-        <Setter Property="VerticalAlignment"
-                Value="Center" />
-        <Setter Property="FontWeight"
-                Value="Bold" />
+                Value="5,0,5,0" />
     </Style>
     <Style x:Key="TextBoxDuzy"
            TargetType="{x:Type TextBox}">
@@ -56,6 +57,23 @@
                 Value="28" />
         <Setter Property="Margin"
                 Value="4" />
+    </Style>
+    <Style x:Key="ToolBarStandardowy"
+           TargetType="{x:Type ToolBar}">
+        <Setter Property="Background"
+                Value="White" />
+    </Style>
+    <Style x:Key="ImageToolBarStandardowy"
+           TargetType="{x:Type Image}">
+        <Setter Property="Width"
+                Value="24" />
+        <Setter Property="Height"
+                Value="24" />
+    </Style>
+    <Style x:Key="StackPanelDoTabeli"
+           TargetType="{x:Type StackPanel}">
+        <Setter Property="Orientation"
+                Value="Horizontal" />
     </Style>
     <!--Style VAT-->
     <Style x:Key="LabelDoPrawejVAT"

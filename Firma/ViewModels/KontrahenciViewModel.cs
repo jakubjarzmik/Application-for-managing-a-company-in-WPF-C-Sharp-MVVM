@@ -17,14 +17,11 @@ namespace Firma.ViewModels
         public KontrahenciViewModel():base("Kontrahenci")
         {
         }
-        public KontrahenciViewModel(string info):base("Kontrahenci")
+        public KontrahenciViewModel(string token):base("Kontrahenci", token)
         {
-            if(info.Equals("close"))
-                toClose = true;
         }
         #endregion
         #region Properties
-        private bool toClose = false;
         private KontrahentForAllView _SelectedKontrahent;
         public KontrahentForAllView SelectedKontrahent
         {
@@ -37,7 +34,7 @@ namespace Firma.ViewModels
                 if (value != _SelectedKontrahent)
                 {
                     _SelectedKontrahent = value;
-                    Messenger.Default.Send(_SelectedKontrahent);
+                    Messenger.Default.Send(_SelectedKontrahent, token);
                     if (toClose)
                         OnRequestClose();
                 }
@@ -56,6 +53,7 @@ namespace Firma.ViewModels
                         KontrahentId = kontrahent.KontrahentId,
                         Kod = kontrahent.Kod,
                         Nazwa1 = kontrahent.Nazwa1,
+                        RodzajKontrahenta = kontrahent.KontrahenciRodzaje.Nazwa,
                         Nip = kontrahent.Nip,
                         Regon = kontrahent.Regon,
                         Adres = kontrahent.Adresy.Ulica + " " + kontrahent.Adresy.NrDomu +

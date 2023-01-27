@@ -28,7 +28,7 @@ namespace Firma.ViewModels
         }
         private void showKontrahenci()
         {
-            Messenger.Default.Send("KontrahenciAll");
+            Messenger.Default.Send("KontrahenciAll;" + DisplayName);
         }
         #endregion
         #region Konstruktor
@@ -36,9 +36,9 @@ namespace Firma.ViewModels
             : base("Nowa faktura")
         {
             Item = new Faktury();
-            Messenger.Default.Register<KontrahentForAllView>(this, getSelectedKontrahent);
+            Messenger.Default.Register<KontrahentForAllView>(this, DisplayName, getSelectedKontrahent);
             DataWystawienia = DateTime.Now;
-            DataSprzedazy= DateTime.Now;
+            DataSprzedazy = DateTime.Now;
             RodzajFakturyId = 1;
         }
         #endregion
@@ -167,7 +167,7 @@ namespace Firma.ViewModels
                 if (value != Item.KategoriaFakturyId)
                 {
                     Item.KategoriaFakturyId = value;
-                    KategoriaFakturyOpis = Db.FakturyKategorie.Where(n => n.KategoriaFakturyId == KategoriaFakturyId).Select(n=>n.Opis).FirstOrDefault();
+                    KategoriaFakturyOpis = Db.FakturyKategorie.Where(n => n.KategoriaFakturyId == KategoriaFakturyId).Select(n => n.Opis).FirstOrDefault();
                     base.OnPropertyChanged(() => KategoriaFakturyId);
                 }
             }
@@ -313,8 +313,6 @@ namespace Firma.ViewModels
         #region Helpers
         private void getSelectedKontrahent(KontrahentForAllView kontrahentForAllView)
         {
-            // to jest funkcja, którą wywołuje Messengeer, który jest w konstruktorze tej klasy, która uruchamia się wtedy, kiedy Messenger dostanie KontrahentForAllView
-            // i uzupełnia dane Propertisow z tej klasy na bazie tego Kontrahenta
             KontrahentId = kontrahentForAllView.KontrahentId;
         }
         #endregion

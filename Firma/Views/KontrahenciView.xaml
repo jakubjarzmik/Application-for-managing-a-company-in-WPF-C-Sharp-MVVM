@@ -16,6 +16,8 @@
                                     Binding="{Binding Path=Kod}" />
                 <DataGridTextColumn Header="Nazwa"
                                     Binding="{Binding Path=Nazwa1}" />
+                <DataGridTextColumn Header="Rodzaj"
+                                    Binding="{Binding Path=RodzajKontrahenta}" />
                 <DataGridTextColumn Header="NIP"
                                     Binding="{Binding Path=Nip}" />
                 <DataGridTextColumn Header="Regon"

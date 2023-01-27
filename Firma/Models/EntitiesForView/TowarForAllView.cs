@@ -9,6 +9,7 @@ namespace Firma.Models.EntitiesForView
     public class TowarForAllView
     {
         #region Properties
+        public int TowarId { get; set; }
         public string Kod { get; set; }
         public string Nazwa { get; set; }
         public string Typ { get; set; }

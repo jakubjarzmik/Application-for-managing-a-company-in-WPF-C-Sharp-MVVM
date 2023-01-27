@@ -1,144 +1,192 @@
 ﻿<local:JedenViewBase x:Class="Firma.Views.NoweWydanieZewnetrzneView"
-             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:Firma.Views"
-             mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
+                     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                     xmlns:local="clr-namespace:Firma.Views"
+                     mc:Ignorable="d"
+                     d:DesignHeight="450"
+                     d:DesignWidth="800">
     <UserControl.Resources>
-        <ResourceDictionary Source="StyleZakladekResources.xaml"/>
+        <ResourceDictionary Source="StyleZakladekResources.xaml" />
     </UserControl.Resources>
     <ScrollViewer>
         <Grid Background="White">
             <Grid.RowDefinitions>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="100"/>
-                <ColumnDefinition Width="0.5*" MinWidth="100"/>
-                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="100" />
+                <ColumnDefinition Width="0.5*"
+                                  MinWidth="100" />
+                <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
-            <Label Content="Numer:" Style="{StaticResource ControlStandardowy}"/>
-                <TextBox Grid.Column="1" IsEnabled="False" Text="{Binding Path=Numer, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource ControlStandardowy}"/>
-                <Expander Header="Nagłówek" Grid.Row="1" Grid.ColumnSpan="3" IsExpanded="True">
+            <Label Content="Numer:"
+                   Style="{StaticResource ControlStandardowy}" />
+            <TextBox Grid.Column="1"
+                     IsEnabled="False"
+                     Text="{Binding Path=Numer, UpdateSourceTrigger=PropertyChanged}"
+                     Style="{StaticResource ControlStandardowy}" />
+            <Expander Header="Nagłówek"
+                      Grid.Row="1"
+                      Grid.ColumnSpan="3"
+                      IsExpanded="True">
                 <Grid>
                     <Grid.RowDefinitions>
-                        <RowDefinition Height="Auto"/>
-                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
                     </Grid.RowDefinitions>
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="100"/>
-                        <ColumnDefinition Width="200"/>
-                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="100" />
+                        <ColumnDefinition Width="200" />
+                        <ColumnDefinition Width="*" />
                     </Grid.ColumnDefinitions>
-                    <Label Content="Kontrahent:" Style="{StaticResource ControlStandardowy}"/>
-                    <ComboBox Grid.Column="1" 
-                              Style="{StaticResource ControlStandardowy}" 
-                                ItemsSource="{Binding KontrahenciComboBoxItems}"
-                                DisplayMemberPath="Value"
-                                SelectedValuePath="Key"
-                                SelectedValue="{Binding Path=KontrahentId, Mode=TwoWay}"/>
-                    <TextBox Grid.Column="2" IsEnabled="False" Text="{Binding Path=KontrahentPelnaNazwa, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource ControlStandardowy}"/>
-                    <Label Grid.Row="1" Content="Magazyn:" Style="{StaticResource ControlStandardowy}"/>
-                    <ComboBox Grid.Row="1" Grid.Column="1" 
-                              Style="{StaticResource ControlStandardowy}" 
-                                ItemsSource="{Binding MagazynyComboBoxItems}"
-                                DisplayMemberPath="Value"
-                                SelectedValuePath="Key"
-                                SelectedValue="{Binding Path=MagazynId, Mode=TwoWay}"/>
-                    <TextBox Grid.Row="1" Grid.Column="2" Text="{Binding Path=MagazynNazwa, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource ControlStandardowy}"/>
+                    <Button Content="Kontrahent:"
+                           Style="{StaticResource ButtonStandardowy}"
+                           Command="{Binding ShowKontrahenciCommand}" />
+                    <ComboBox Grid.Column="1"
+                              Style="{StaticResource ControlStandardowy}"
+                              ItemsSource="{Binding KontrahenciComboBoxItems}"
+                              DisplayMemberPath="Value"
+                              SelectedValuePath="Key"
+                              SelectedValue="{Binding Path=KontrahentId, Mode=TwoWay}" />
+                    <TextBox Grid.Column="2"
+                             IsEnabled="False"
+                             Text="{Binding Path=KontrahentPelnaNazwa, UpdateSourceTrigger=PropertyChanged}"
+                             Style="{StaticResource ControlStandardowy}" />
+                    <Label Grid.Row="1"
+                           Content="Magazyn:"
+                           Style="{StaticResource ControlStandardowy}" />
+                    <ComboBox Grid.Row="1"
+                              Grid.Column="1"
+                              Style="{StaticResource ControlStandardowy}"
+                              ItemsSource="{Binding MagazynyComboBoxItems}"
+                              DisplayMemberPath="Value"
+                              SelectedValuePath="Key"
+                              SelectedValue="{Binding Path=MagazynId, Mode=TwoWay}" />
+                    <TextBox Grid.Row="1"
+                             Grid.Column="2"
+                             IsEnabled="False"
+                             Text="{Binding Path=MagazynNazwa, UpdateSourceTrigger=PropertyChanged}"
+                             Style="{StaticResource ControlStandardowy}" />
                 </Grid>
             </Expander>
-            <Expander Grid.Row="2" Grid.ColumnSpan="3" Header="Daty i wartości" IsExpanded="True">
+            <Expander Grid.Row="2"
+                      Grid.ColumnSpan="3"
+                      Header="Daty i wartości"
+                      IsExpanded="True">
                 <Grid>
                     <Grid.RowDefinitions>
-                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto" />
                     </Grid.RowDefinitions>
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
                     </Grid.ColumnDefinitions>
                     <Grid Grid.Column="0">
                         <Grid.RowDefinitions>
-                            <RowDefinition Height="Auto"/>
-                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
                         </Grid.RowDefinitions>
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="*"/>
-                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
                         </Grid.ColumnDefinitions>
-                        <Label Content="Data wystawienia:" Style="{StaticResource ControlStandardowy}"/>
-                        <DatePicker Grid.Column="1" SelectedDate="{Binding Path=DataWystawienia, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource ControlStandardowy}"/>
-                        <Label Grid.Row="1" Content="Data wydania:" Style="{StaticResource ControlStandardowy}"/>
-                        <DatePicker Grid.Row="1" Grid.Column="1" SelectedDate="{Binding Path=DataWydania, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource ControlStandardowy}"/>
+                        <Label Content="Data wystawienia:"
+                               Style="{StaticResource ControlStandardowy}" />
+                        <DatePicker Grid.Column="1"
+                                    SelectedDate="{Binding Path=DataWystawienia, UpdateSourceTrigger=PropertyChanged}"
+                                    Style="{StaticResource ControlStandardowy}" />
+                        <Label Grid.Row="1"
+                               Content="Data wydania:"
+                               Style="{StaticResource ControlStandardowy}" />
+                        <DatePicker Grid.Row="1"
+                                    Grid.Column="1"
+                                    SelectedDate="{Binding Path=DataWydania, UpdateSourceTrigger=PropertyChanged}"
+                                    Style="{StaticResource ControlStandardowy}" />
                     </Grid>
                     <Grid Grid.Column="1">
                         <Grid.RowDefinitions>
-                            <RowDefinition Height="Auto"/>
-                            <RowDefinition Height="Auto"/>
-                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
                         </Grid.RowDefinitions>
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="*"/>
-                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
                         </Grid.ColumnDefinitions>
-                        <Label Content="Rabat:" Style="{StaticResource ControlStandardowy}"/>
-                        <TextBox Grid.Column="1" Text="{Binding Path=Rabat, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource ControlStandardowy}"/>
+                        <Label Content="Rabat:"
+                               Style="{StaticResource ControlStandardowy}" />
+                        <TextBox Grid.Column="1"
+                                 Text="{Binding Path=Rabat, UpdateSourceTrigger=PropertyChanged}"
+                                 Style="{StaticResource ControlStandardowy}" />
                     </Grid>
                     <Grid Grid.Column="2">
                         <Grid.RowDefinitions>
-                            <RowDefinition Height="Auto"/>
-                            <RowDefinition Height="Auto"/>
-                            <RowDefinition Height="Auto"/>
-                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
                         </Grid.RowDefinitions>
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="*"/>
-                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
                         </Grid.ColumnDefinitions>
-                        <Label Content="Netto:" Style="{StaticResource ControlStandardowy}"/>
-                        <TextBox Grid.Column="1" IsEnabled="False" Style="{StaticResource ControlStandardowy}"/>
-                        <Label Grid.Row="1" Content="Razem:" Style="{StaticResource ControlBoldStandardowy}"/>
-                        <TextBox Grid.Row="1" Grid.Column="1" IsEnabled="False" Style="{StaticResource ControlBoldStandardowy}"/>
+                        <Label Content="Netto:"
+                               Style="{StaticResource ControlStandardowy}" />
+                        <TextBox Grid.Column="1"
+                                 IsEnabled="False"
+                                 Style="{StaticResource ControlStandardowy}" />
+                        <Label Grid.Row="1"
+                               Content="Razem:"
+                               Style="{StaticResource ControlBoldStandardowy}" />
+                        <TextBox Grid.Row="1"
+                                 Grid.Column="1"
+                                 IsEnabled="False"
+                                 Style="{StaticResource ControlBoldStandardowy}" />
 
                     </Grid>
                 </Grid>
             </Expander>
-            <Expander Grid.Row="3" Grid.ColumnSpan="3" Header="Pozycje wydania zewnętrznego" IsExpanded="True">
+            <Expander Grid.Row="3"
+                      Grid.ColumnSpan="3"
+                      Header="Pozycje wydania zewnętrznego"
+                      IsExpanded="True">
                 <Grid>
                     <Grid.RowDefinitions>
-                        <RowDefinition Height="Auto"/>
-                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
                     </Grid.RowDefinitions>
                     <ToolBar>
                         <ToggleButton>
-                            <StackPanel Orientation="Horizontal" >
+                            <StackPanel Orientation="Horizontal">
                                 <Image Source="/Views/Content/Icons/file-document-outline.png" />
-                                <Label Content="Nowa"/>
+                                <Label Content="Nowa" />
                             </StackPanel>
                         </ToggleButton>
                         <Separator />
                         <ToggleButton>
                             <StackPanel Orientation="Horizontal">
-                                <Image Source="/Views/Content/Icons/minus.png"/>
-                                <Label Content="Usun"/>
+                                <Image Source="/Views/Content/Icons/minus.png" />
+                                <Label Content="Usun" />
                             </StackPanel>
                         </ToggleButton>
                     </ToolBar>
-                    <DataGrid Grid.Row="1" Name="MyGrid"  Height="60">
+                    <DataGrid Grid.Row="1"
+                              Name="MyGrid"
+                              Height="60">
                         <DataGrid.Columns>
-                            <DataGridTextColumn Header="Towar"/>
-                            <DataGridTextColumn Header="Cena"/>
-                            <DataGridTextColumn Header="Rabat"/>
-                            <DataGridTextColumn Header="Cena po rabacie"/>
-                            <DataGridTextColumn Header="Ilosc"/>
-                            <DataGridTextColumn Header="Jedn. miary"/>
-                            <DataGridTextColumn Header="Wartosc"/>
+                            <DataGridTextColumn Header="Towar" />
+                            <DataGridTextColumn Header="Cena" />
+                            <DataGridTextColumn Header="Rabat" />
+                            <DataGridTextColumn Header="Cena po rabacie" />
+                            <DataGridTextColumn Header="Ilosc" />
+                            <DataGridTextColumn Header="Jedn. miary" />
+                            <DataGridTextColumn Header="Wartosc" />
                         </DataGrid.Columns>
                     </DataGrid>
                 </Grid>

@@ -1,6 +1,8 @@
-﻿using Firma.Models.Entities;
+﻿using Firma.Helpers;
+using Firma.Models.Entities;
 using Firma.Models.EntitiesForView;
 using Firma.ViewModels.Abstract;
+using GalaSoft.MvvmLight.Messaging;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,11 +13,30 @@ namespace Firma.ViewModels
 {
     public class NowaGrupaTowarowViewModel : JedenViewModel<TowaryGrupy>
     {
+        #region Commands
+        private BaseCommand _ShowGrupyTowaruCommand;
+        public BaseCommand ShowGrupyTowaruCommand
+        {
+            get
+            {
+                if (_ShowGrupyTowaruCommand == null)
+                {
+                    _ShowGrupyTowaruCommand = new BaseCommand(() => showGrupyTowaru());
+                }
+                return _ShowGrupyTowaruCommand;
+            }
+        }
+        private void showGrupyTowaru()
+        {
+            Messenger.Default.Send("GrupyTowaruAll;" + DisplayName);
+        }
+        #endregion
         #region Konstruktor
         public NowaGrupaTowarowViewModel() 
             : base("Nowa grupa towarów")
         {
             Item = new TowaryGrupy();
+            Messenger.Default.Register<GrupaTowaruForAllView>(this, DisplayName, getSelectedGrupa);
         }
         #endregion
         #region Properties
@@ -139,6 +160,12 @@ namespace Firma.ViewModels
                 Item.Opis = "";
             Db.TowaryGrupy.AddObject(Item);
             Db.SaveChanges();
+        }
+        #endregion
+        #region Helpers
+        private void getSelectedGrupa(GrupaTowaruForAllView grupaTowaruForAllView)
+        {
+            GrupaNadrzednaId = grupaTowaruForAllView.GrupaTowaruId;
         }
         #endregion
     }
