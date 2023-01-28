@@ -15,7 +15,8 @@
                         </Grid.RowDefinitions>
                         <ToolBar Grid.Row="0"
                                  Height="30"
-                                 Margin="0,2,0,2">
+                                 Margin="0,2,0,2"
+                                 Background="#EEEEEE">
                             <ToggleButton Content="Dodaj"
                                           Margin="0,2,0,2"
                                           Command="{Binding AddCommand}" />
@@ -29,7 +30,7 @@
                         </ToolBar>
 
                         <StackPanel Grid.Row="1"
-                                    Background="Azure">
+                                    Background="#EEEEEE">
                             <Label>Tu bedzie filtrowanie i sortowanie</Label>
                         </StackPanel>
 
@@ -52,7 +53,8 @@
                         </Grid.RowDefinitions>
                         <ToolBar Grid.Row="0"
                                  Height="30"
-                                 Margin="0,2,0,2">
+                                 Margin="0,2,0,2"
+                                 Background="#EEEEEE">
                             <ToggleButton Content="Zapisz i zamknij"
                                           Width="100"
                                           Height="30"
