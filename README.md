@@ -6,6 +6,7 @@ The work on the application is still ongoing. The most important features that a
 - Functionality for linking tables
 - Login
 - Handling of some buttons in tabs.
+
 The code will also be more organized. This is an application through which I am learning a lot, and I am aware that the code in some places is not the best and properly organized, but I am also constantly learning to write clean code outside of work and project, so I will also definitely improve my spaghetti code in some places.
 
 How to run the application?
