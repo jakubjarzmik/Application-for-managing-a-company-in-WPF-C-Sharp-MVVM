@@ -28,6 +28,20 @@ namespace Firma.ViewModels
                     select kontakt
                 );
         }
+        public override void Delete()
+        {
+            try
+            {
+                var toDelete = JJFirmaEntities.Kontakty.Where(a => a.KontaktId == Selected.KontaktId).FirstOrDefault();
+                if (toDelete != null)
+                {
+                    toDelete.CzyAktywny = false;
+                    JJFirmaEntities.SaveChanges();
+                    Load();
+                }
+            }
+            catch (Exception) { }
+        }
         #endregion
 
     }

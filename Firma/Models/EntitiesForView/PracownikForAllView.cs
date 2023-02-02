@@ -9,6 +9,7 @@ namespace Firma.Models.EntitiesForView
     public class PracownikForAllView
     {
         #region Properties
+        public int PracownikId { get; set; }
         public string Akronim { get; set; }
         public string Nazwisko { get; set; }
         public string Imie { get; set; }
@@ -18,7 +19,5 @@ namespace Firma.Models.EntitiesForView
         public string Email { get; set; }
         
         #endregion
-
-
     }
 }

@@ -38,6 +38,20 @@ namespace Firma.ViewModels
                     }
                 );
         }
+        public override void Delete()
+        {
+            try
+            {
+                var toDelete = JJFirmaEntities.Magazyny.Where(a => a.MagazynId == Selected.MagazynId).FirstOrDefault();
+                if (toDelete != null)
+                {
+                    toDelete.CzyAktywny = false;
+                    JJFirmaEntities.SaveChanges();
+                    Load();
+                }
+            }
+            catch (Exception) { }
+        }
         #endregion
 
     }

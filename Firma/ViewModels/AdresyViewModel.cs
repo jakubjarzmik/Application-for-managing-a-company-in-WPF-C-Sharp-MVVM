@@ -29,19 +29,18 @@ namespace Firma.ViewModels
         #endregion
         #region Properties
         private bool isAdresKor;
-        private AdresForAllView _SelectedAdres;
-        public AdresForAllView SelectedAdres
+        public override AdresForAllView Selected
         {
             get
             {
-                return _SelectedAdres;
+                return _Selected;
             }
             set
             {
-                if (value != _SelectedAdres)
+                if (value != _Selected)
                 {
-                    _SelectedAdres = value;
-                    Messenger.Default.Send(new AdresAndIsKor { AdresForAllView = _SelectedAdres, isAdresKor = this.isAdresKor}, token);
+                    _Selected = value;
+                    Messenger.Default.Send(new AdresAndIsKor { AdresForAllView = _Selected, isAdresKor = this.isAdresKor}, token);
                     if (toClose)
                         OnRequestClose();
                 }
@@ -67,6 +66,20 @@ namespace Firma.ViewModels
                         NrLokalu=adres.NrLokalu
                     }
                 );
+        }
+        public override void Delete()
+        {
+            try
+            {
+                var toDelete = JJFirmaEntities.Adresy.Where(a => a.AdresId == Selected.AdresId).FirstOrDefault();
+                if (toDelete != null)
+                {
+                    toDelete.CzyAktywny = false;
+                    JJFirmaEntities.SaveChanges();
+                    Load();
+                }
+            }
+            catch (Exception) { }
         }
         #endregion
 

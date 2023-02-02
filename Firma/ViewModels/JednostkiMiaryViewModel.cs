@@ -51,6 +51,20 @@ namespace Firma.ViewModels
                     select jednmiary
                 );
         }
+        public override void Delete()
+        {
+            try
+            {
+                var toDelete = JJFirmaEntities.JednostkiMiary.Where(a => a.JednostkaId == Selected.JednostkaId).FirstOrDefault();
+                if (toDelete != null)
+                {
+                    toDelete.CzyAktywny = false;
+                    JJFirmaEntities.SaveChanges();
+                    Load();
+                }
+            }
+            catch (Exception) { }
+        }
         #endregion
 
     }

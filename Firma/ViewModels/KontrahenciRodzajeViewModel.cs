@@ -28,6 +28,20 @@ namespace Firma.ViewModels
                     select rodzaj
                 );
         }
+        public override void Delete()
+        {
+            try
+            {
+                var toDelete = JJFirmaEntities.KontrahenciRodzaje.Where(a => a.RodzajId == Selected.RodzajId).FirstOrDefault();
+                if (toDelete != null)
+                {
+                    toDelete.CzyAktywny = false;
+                    JJFirmaEntities.SaveChanges();
+                    Load();
+                }
+            }
+            catch (Exception) { }
+        }
         #endregion
 
     }

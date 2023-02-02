@@ -9,6 +9,7 @@ namespace Firma.Models.EntitiesForView
     public class UmowaForAllView
     {
         #region Properties
+        public int UmowaId { get; set; }
         public string Numer { get; set; }
         public string Rodzaj { get; set; }
         public string Stanowisko { get; set; }

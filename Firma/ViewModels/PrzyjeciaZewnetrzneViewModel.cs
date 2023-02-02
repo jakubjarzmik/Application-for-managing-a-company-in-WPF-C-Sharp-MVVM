@@ -27,6 +27,7 @@ namespace Firma.ViewModels
                     where pz.CzyAktywny == true
                     select new PrzyjecieZewnetrzneForAllView
                     {
+                        PrzyjecieZewnetrzneId= pz.PrzyjecieZewnetrzneId,
                         Numer = pz.Numer,
                         DataPrzyjecia = pz.DataPrzyjecia,
                         NazwaMagazynu = pz.Magazyny.Nazwa,
@@ -34,6 +35,20 @@ namespace Firma.ViewModels
                         NipKontrahenta = pz.Kontrahenci.Nip
                     }
                 );
+        }
+        public override void Delete()
+        {
+            try
+            {
+                var toDelete = JJFirmaEntities.PrzyjeciaZewnetrzne.Where(a => a.PrzyjecieZewnetrzneId == Selected.PrzyjecieZewnetrzneId).FirstOrDefault();
+                if (toDelete != null)
+                {
+                    toDelete.CzyAktywny = false;
+                    JJFirmaEntities.SaveChanges();
+                    Load();
+                }
+            }
+            catch (Exception) { }
         }
         #endregion
 

@@ -27,6 +27,7 @@ namespace Firma.ViewModels
                     where faktura.CzyAktywny == true
                     select new FakturaForAllView
                     {
+                        FakturaId = faktura.FakturaId,
                         Numer = faktura.Numer,
                         DataWystawienia = faktura.DataWystawienia,
                         KontrahentNazwa = faktura.Kontrahenci.Nazwa1,
@@ -34,6 +35,20 @@ namespace Firma.ViewModels
                         RodzajePlatnosciNazwa = faktura.RodzajePlatnosci.Nazwa
                     }
                 );
+        }
+        public override void Delete()
+        {
+            try
+            {
+                var toDelete = JJFirmaEntities.Faktury.Where(a => a.FakturaId == Selected.FakturaId).FirstOrDefault();
+                if (toDelete != null)
+                {
+                    toDelete.CzyAktywny = false;
+                    JJFirmaEntities.SaveChanges();
+                    Load();
+                }
+            }
+            catch (Exception) { }
         }
         #endregion
 

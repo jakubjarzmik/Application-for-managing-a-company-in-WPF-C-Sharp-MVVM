@@ -13,9 +13,7 @@ namespace Firma.ViewModels.Abstract
 {
     public abstract class WszystkieViewModel<T> : WorkspaceViewModel
     {
-        #region Fields
-        protected bool toClose;
-        protected string token;
+        #region Commands
         private BaseCommand _AddCommand;
         public BaseCommand AddCommand
         {
@@ -28,8 +26,6 @@ namespace Firma.ViewModels.Abstract
                 return _AddCommand;
             }
         }
-        private readonly JJFirmaEntities jJFirmaEntities;
-        public JJFirmaEntities JJFirmaEntities { get { return jJFirmaEntities; } }
         private BaseCommand _LoadCommand;
         public ICommand LoadCommand
         {
@@ -42,6 +38,24 @@ namespace Firma.ViewModels.Abstract
                 return _LoadCommand;
             }
         }
+        private BaseCommand _DeleteCommand;
+        public ICommand DeleteCommand
+        {
+            get
+            {
+                if (_DeleteCommand == null)
+                {
+                    _DeleteCommand = new BaseCommand(() => Delete());
+                }
+                return _DeleteCommand;
+            }
+        }
+        #endregion
+        #region Fields
+        protected bool toClose;
+        protected string token;
+        private readonly JJFirmaEntities jJFirmaEntities;
+        public JJFirmaEntities JJFirmaEntities { get { return jJFirmaEntities; } }
         private ObservableCollection<T> _List;
         public ObservableCollection<T> List
         {
@@ -73,12 +87,27 @@ namespace Firma.ViewModels.Abstract
             toClose = true;
         }
         #endregion
+        #region Properties
+        protected T _Selected;
+        public virtual T Selected
+        {
+            get
+            {
+                return _Selected;
+            }
+            set
+            {
+                _Selected = value;
+            }
+        }
+        #endregion
         #region Helpers
-        public abstract void Load();
         public void Add()
         {
             Messenger.Default.Send(DisplayName + "Add");
         }
+        public abstract void Load();
+        public abstract void Delete();
         #endregion
     }
 }

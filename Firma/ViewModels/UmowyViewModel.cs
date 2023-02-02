@@ -27,6 +27,7 @@ namespace Firma.ViewModels
                     where umowa.CzyAktywny == true
                     select new UmowaForAllView
                     {
+                        UmowaId= umowa.UmowaId,
                         Numer = umowa.NrUmowy,
                         Rodzaj = umowa.UmowyRodzaje.Nazwa,
                         Stanowisko = umowa.UmowyStanowiska.Nazwa,
@@ -43,6 +44,20 @@ namespace Firma.ViewModels
                         JestWypadkowe = umowa.JestWypadkowe ? "Tak" : "Nie"
                     }
                 );
+        }
+        public override void Delete()
+        {
+            try
+            {
+                var toDelete = JJFirmaEntities.Umowy.Where(a => a.UmowaId == Selected.UmowaId).FirstOrDefault();
+                if (toDelete != null)
+                {
+                    toDelete.CzyAktywny = false;
+                    JJFirmaEntities.SaveChanges();
+                    Load();
+                }
+            }
+            catch (Exception) { }
         }
         #endregion
 

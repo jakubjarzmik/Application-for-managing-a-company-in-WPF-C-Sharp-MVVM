@@ -22,19 +22,18 @@ namespace Firma.ViewModels
         }
         #endregion
         #region Properties
-        private GrupaTowaruForAllView _SelectedGrupa;
-        public GrupaTowaruForAllView SelectedGrupa
+        public override GrupaTowaruForAllView Selected
         {
             get
             {
-                return _SelectedGrupa;
+                return _Selected;
             }
             set
             {
-                if (value != _SelectedGrupa)
+                if (value != _Selected)
                 {
-                    _SelectedGrupa = value;
-                    Messenger.Default.Send(_SelectedGrupa, token);
+                    _Selected = value;
+                    Messenger.Default.Send(_Selected, token);
                     if (toClose)
                         OnRequestClose();
                 }
@@ -56,6 +55,20 @@ namespace Firma.ViewModels
                         Nazwa = grupa.Nazwa,
                     }
                 );
+        }
+        public override void Delete()
+        {
+            try
+            {
+                var toDelete = JJFirmaEntities.TowaryGrupy.Where(a => a.GrupaTowaruId == Selected.GrupaTowaruId).FirstOrDefault();
+                if (toDelete != null)
+                {
+                    toDelete.CzyAktywny = false;
+                    JJFirmaEntities.SaveChanges();
+                    Load();
+                }
+            }
+            catch (Exception) { }
         }
         #endregion
 

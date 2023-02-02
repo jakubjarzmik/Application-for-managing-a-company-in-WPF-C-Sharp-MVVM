@@ -27,6 +27,7 @@ namespace Firma.ViewModels
                     where cena.CzyAktywny == true
                     select new ZmianaCenyForAllView
                     {
+                        ZmianaCenyId= cena.ZmianaCenyId,
                         Towar = cena.Towary.Nazwa,
                         JednostkaMiary = cena.JednostkiMiary.Skrot,
                         CenaNetto = cena.CenaNetto,
@@ -36,6 +37,20 @@ namespace Firma.ViewModels
                         DataObowiazywaniaDo = cena.DataObowiazywaniaDo
                     }
                 );
+        }
+        public override void Delete()
+        {
+            try
+            {
+                var toDelete = JJFirmaEntities.ZmianyCeny.Where(a => a.ZmianaCenyId == Selected.ZmianaCenyId).FirstOrDefault();
+                if (toDelete != null)
+                {
+                    toDelete.CzyAktywny = false;
+                    JJFirmaEntities.SaveChanges();
+                    Load();
+                }
+            }
+            catch (Exception) { }
         }
         #endregion
 

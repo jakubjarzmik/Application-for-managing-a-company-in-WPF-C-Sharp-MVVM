@@ -27,6 +27,7 @@ namespace Firma.ViewModels
                     where pracownik.CzyAktywny == true
                     select new PracownikForAllView
                     {
+                        PracownikId= pracownik.PracownikId,
                         Akronim = pracownik.Akronim,
                         Nazwisko = pracownik.Nazwisko,
                         Imie = pracownik.Imie,
@@ -38,6 +39,20 @@ namespace Firma.ViewModels
                         Email = pracownik.Email
                     }
                 );
+        }
+        public override void Delete()
+        {
+            try
+            {
+                var toDelete = JJFirmaEntities.Pracownicy.Where(a => a.PracownikId == Selected.PracownikId).FirstOrDefault();
+                if (toDelete != null)
+                {
+                    toDelete.CzyAktywny = false;
+                    JJFirmaEntities.SaveChanges();
+                    Load();
+                }
+            }
+            catch (Exception) { }
         }
         #endregion
 

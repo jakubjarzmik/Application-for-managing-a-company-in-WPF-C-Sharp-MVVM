@@ -139,57 +139,63 @@
 
         <Grid Grid.Row="1">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="20"/>
-                <ColumnDefinition Width="Auto" x:Name="MenuColumn"/>
-                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="20" />
+                <ColumnDefinition Width="Auto"
+                                  x:Name="MenuColumn" />
+                <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
-            <Button Grid.Column="0" x:Name="ExpandMenuButton" 
-                    Click="ExpandMenuButton_Click" 
-                    MouseEnter="ExpandMenuButton_MouseEnter" 
+            <Button Grid.Column="0"
+                    x:Name="ExpandMenuButton"
+                    Click="ExpandMenuButton_Click"
+                    MouseEnter="ExpandMenuButton_MouseEnter"
                     MouseLeave="ExpandMenuButton_MouseLeave"
                     Style="{StaticResource ExpandMenuButton}">
-                <Image x:Name="ExpandMenuButtonImage" Source="/Views/Content/Icons/chevron_right-white.png"/>
+                <Image x:Name="ExpandMenuButtonImage"
+                       Source="/Views/Content/Icons/chevron_right-white.png" />
             </Button>
-            <Border Grid.Column="1" HorizontalAlignment="Left">
-                <HeaderedContentControl
-                    Header="Operacje"
-                    Margin="4,4,0,4"
-                    Content="{Binding Path=Commands}"
-                    ContentTemplate="{StaticResource CommandsTemplate}"
-                    Style="{StaticResource MainHCCStyle}"
-                    Width="0"
-                    x:Name="MenuPanel"
-                    />
+            <Border Grid.Column="1"
+                    HorizontalAlignment="Left">
+                <HeaderedContentControl Header="Operacje"
+                                        Margin="4,4,0,4"
+                                        Content="{Binding Path=Commands}"
+                                        ContentTemplate="{StaticResource CommandsTemplate}"
+                                        Style="{StaticResource MainHCCStyle}"
+                                        Width="0"
+                                        x:Name="MenuPanel" />
             </Border>
 
-            <Border Grid.Column="2" >
-                <HeaderedContentControl
-                    Header="Przestrzeń robocza"
-                    Content="{Binding Path=Workspaces}"
-                    ContentTemplate="{StaticResource WorkspacesTemplate}"
-                    Style="{StaticResource MainHCCStyle}"
-                    />
+            <Border Grid.Column="2">
+                <HeaderedContentControl Header="Przestrzeń robocza"
+                                        Content="{Binding Path=Workspaces}"
+                                        ContentTemplate="{StaticResource WorkspacesTemplate}"
+                                        Style="{StaticResource MainHCCStyle}" />
             </Border>
         </Grid>
-
-        <StatusBar Grid.Row="2" Style="{StaticResource StatusBarStyle}">
+        <StatusBar Grid.Row="2"
+                   Style="{StaticResource StatusBarStyle}">
             <StatusBarItem>
-                <Image Source="/Views/Content/Icons/wsb-white.png"/>
+                <Image Source="/Views/Content/Icons/wsb-white.png" />
             </StatusBarItem>
             <StatusBarItem>
                 <TextBlock>WSB-NLU</TextBlock>
             </StatusBarItem>
-            <Separator/>
+            <Separator />
             <StatusBarItem>
                 <TextBlock>Ładowanie magazynu</TextBlock>
             </StatusBarItem>
             <StatusBarItem>
-                <ProgressBar Width="100" Height="20" Name="ladowanieMagazynu">
+                <ProgressBar Width="100"
+                             Height="20"
+                             Name="ladowanieMagazynu">
                     <ProgressBar.Triggers>
                         <EventTrigger RoutedEvent="ProgressBar.Loaded">
                             <BeginStoryboard>
                                 <Storyboard>
-                                    <DoubleAnimation Storyboard.TargetName="ladowanieMagazynu" Storyboard.TargetProperty="Value" From="0" To="100" Duration="0:0:2"/>
+                                    <DoubleAnimation Storyboard.TargetName="ladowanieMagazynu"
+                                                     Storyboard.TargetProperty="Value"
+                                                     From="0"
+                                                     To="100"
+                                                     Duration="0:0:2" />
                                 </Storyboard>
                             </BeginStoryboard>
                         </EventTrigger>
@@ -199,8 +205,6 @@
             <StatusBarItem HorizontalAlignment="Right">
                 <TextBlock>Autor: Jakub Jarzmik</TextBlock>
             </StatusBarItem>
-
         </StatusBar>
-
     </Grid>
 </Window>

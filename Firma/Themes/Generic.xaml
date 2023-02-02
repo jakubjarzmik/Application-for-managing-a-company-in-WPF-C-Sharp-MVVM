@@ -22,8 +22,9 @@
                                           Command="{Binding AddCommand}" />
                             <ToggleButton Content="Modyfikuj"
                                           Margin="0,2,0,2" />
-                            <ToggleButton Content="Kasuj"
-                                          Margin="0,2,0,2" />
+                            <ToggleButton Content="Usun"
+                                          Margin="0,2,0,2"
+                                          Command="{Binding DeleteCommand}" />
                             <ToggleButton Content="Odswiez"
                                           Margin="0,2,0,2"
                                           Command="{Binding LoadCommand}" />
@@ -61,7 +62,8 @@
                                           Command="{Binding SaveAndCloseCommand}" />
                             <ToggleButton Content="Anuluj"
                                           Width="100"
-                                          Height="30" />
+                                          Height="30"
+                                          Command="{Binding CloseCommand}" />
                         </ToolBar>
                         <ContentPresenter Grid.Row="1"
                                           Margin="0,5,0,5" />

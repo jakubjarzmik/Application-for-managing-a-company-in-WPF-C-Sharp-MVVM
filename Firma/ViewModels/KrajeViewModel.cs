@@ -22,19 +22,18 @@ namespace Firma.ViewModels
         }
         #endregion
         #region Properties
-        private Kraje _SelectedKraj;
-        public Kraje SelectedKraj
+        public override Kraje Selected
         {
             get
             {
-                return _SelectedKraj;
+                return _Selected;
             }
             set
             {
-                if (value != _SelectedKraj)
+                if (value != _Selected)
                 {
-                    _SelectedKraj = value;
-                    Messenger.Default.Send(_SelectedKraj, token);
+                    _Selected = value;
+                    Messenger.Default.Send(_Selected, token);
                     if (toClose)
                         OnRequestClose();
                 }
@@ -50,6 +49,20 @@ namespace Firma.ViewModels
                     where kraj.CzyAktywny == true
                     select kraj
                 );
+        }
+        public override void Delete()
+        {
+            try
+            {
+                var toDelete = JJFirmaEntities.Kraje.Where(a => a.KrajId == Selected.KrajId).FirstOrDefault();
+                if (toDelete != null)
+                {
+                    toDelete.CzyAktywny = false;
+                    JJFirmaEntities.SaveChanges();
+                    Load();
+                }
+            }
+            catch (Exception) { }
         }
         #endregion
 

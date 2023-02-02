@@ -27,6 +27,7 @@ namespace Firma.ViewModels
                     where wz.CzyAktywny == true
                     select new WydanieZewnetrzneForAllView
                     {
+                        WydanieZewnetrzneId= wz.WydanieZewnetrzneId,
                         Numer = wz.Numer,
                         DataWydania = wz.DataWydania,
                         NazwaMagazynu = wz.Magazyny.Nazwa,
@@ -34,6 +35,20 @@ namespace Firma.ViewModels
                         NipKontrahenta = wz.Kontrahenci.Nip
                     }
                 );
+        }
+        public override void Delete()
+        {
+            try
+            {
+                var toDelete = JJFirmaEntities.WydaniaZewnetrzne.Where(a => a.WydanieZewnetrzneId == Selected.WydanieZewnetrzneId).FirstOrDefault();
+                if (toDelete != null)
+                {
+                    toDelete.CzyAktywny = false;
+                    JJFirmaEntities.SaveChanges();
+                    Load();
+                }
+            }
+            catch (Exception) { }
         }
         #endregion
 

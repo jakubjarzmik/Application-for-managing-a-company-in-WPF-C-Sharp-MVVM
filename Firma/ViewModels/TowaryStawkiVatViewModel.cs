@@ -29,19 +29,18 @@ namespace Firma.ViewModels
         #endregion
         #region Properties
         private bool isVatZak;
-        private StawkaVatTowaruForAllView _SelectedStawkaVat;
-        public StawkaVatTowaruForAllView SelectedStawkaVat
+        public override StawkaVatTowaruForAllView Selected
         {
             get
             {
-                return _SelectedStawkaVat;
+                return _Selected;
             }
             set
             {
-                if (value != _SelectedStawkaVat)
+                if (value != _Selected)
                 {
-                    _SelectedStawkaVat = value;
-                    Messenger.Default.Send(new StawkaVatAndIsZak { StawkaVatTowaruForAllView = _SelectedStawkaVat, isVatZak = this.isVatZak }, token);
+                    _Selected = value;
+                    Messenger.Default.Send(new StawkaVatAndIsZak { StawkaVatTowaruForAllView = _Selected, isVatZak = this.isVatZak }, token);
                     if (toClose)
                         OnRequestClose();
                 }
@@ -63,6 +62,20 @@ namespace Firma.ViewModels
                         Opis = stawka.Opis
                     }
                 );
+        }
+        public override void Delete()
+        {
+            try
+            {
+                var toDelete = JJFirmaEntities.TowaryStawkiVat.Where(a => a.StawkiVatId == Selected.StawkaVatId).FirstOrDefault();
+                if (toDelete != null)
+                {
+                    toDelete.CzyAktywny = false;
+                    JJFirmaEntities.SaveChanges();
+                    Load();
+                }
+            }
+            catch (Exception) { }
         }
         #endregion
 

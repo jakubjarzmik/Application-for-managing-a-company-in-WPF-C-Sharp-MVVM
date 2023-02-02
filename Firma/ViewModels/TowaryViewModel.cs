@@ -25,19 +25,18 @@ namespace Firma.ViewModels
         }
         #endregion
         #region Properties
-        private TowarForAllView _SelectedTowar;
-        public TowarForAllView SelectedTowar
+        public override TowarForAllView Selected
         {
             get
             {
-                return _SelectedTowar;
+                return _Selected;
             }
             set
             {
-                if (value != _SelectedTowar)
+                if (value != _Selected)
                 {
-                    _SelectedTowar = value;
-                    Messenger.Default.Send(_SelectedTowar, token);
+                    _Selected = value;
+                    Messenger.Default.Send(_Selected, token);
                     if (toClose)
                         OnRequestClose();
                 }
@@ -75,6 +74,20 @@ namespace Firma.ViewModels
                         JednMiary = towar.JednostkiMiary.Skrot
                     }
                 );
+        }
+        public override void Delete()
+        {
+            try
+            {
+                var toDelete = JJFirmaEntities.Towary.Where(a => a.TowarId == Selected.TowarId).FirstOrDefault();
+                if (toDelete != null)
+                {
+                    toDelete.CzyAktywny = false;
+                    JJFirmaEntities.SaveChanges();
+                    Load();
+                }
+            }
+            catch (Exception) { }
         }
         #endregion
 

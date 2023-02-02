@@ -27,6 +27,7 @@ namespace Firma.ViewModels
                     where pozycja.CzyAktywny == true
                     select new PozycjaWydaniaZewnetrznegoForAllView
                     {
+                        PozycjaWZId = pozycja.PozycjaWZId,
                         NumerWydaniaZewnetrznego = pozycja.WydaniaZewnetrzne.Numer,
                         NazwaKontrahenta = pozycja.WydaniaZewnetrzne.Kontrahenci.Nazwa1,
                         NazwaTowaru = pozycja.Towary.Nazwa,
@@ -35,6 +36,20 @@ namespace Firma.ViewModels
                         Rabat = pozycja.Rabat,
                     }
                 );
+        }
+        public override void Delete()
+        {
+            try
+            {
+                var toDelete = JJFirmaEntities.PozycjeWydaniaZewnetrznego.Where(a => a.PozycjaWZId == Selected.PozycjaWZId).FirstOrDefault();
+                if (toDelete != null)
+                {
+                    toDelete.CzyAktywny = false;
+                    JJFirmaEntities.SaveChanges();
+                    Load();
+                }
+            }
+            catch (Exception) { }
         }
         #endregion
 

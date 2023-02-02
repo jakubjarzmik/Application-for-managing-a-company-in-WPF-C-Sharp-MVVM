@@ -29,6 +29,20 @@ namespace Firma.ViewModels
                 select rodzaj
                 ) ;
         }
+        public override void Delete()
+        {
+            try
+            {
+                var toDelete = JJFirmaEntities.FakturyRodzaje.Where(a => a.RodzajFakturyId == Selected.RodzajFakturyId).FirstOrDefault();
+                if (toDelete != null)
+                {
+                    toDelete.CzyAktywny = false;
+                    JJFirmaEntities.SaveChanges();
+                    Load();
+                }
+            }
+            catch (Exception) { }
+        }
         #endregion
     }
 }

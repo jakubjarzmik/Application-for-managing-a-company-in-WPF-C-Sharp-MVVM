@@ -1,6 +1,8 @@
 ﻿using Firma.Helpers;
 using Firma.Models.Entities;
+using Firma.Models.EntitiesForView;
 using Firma.ViewModels.Abstract;
+using GalaSoft.MvvmLight.Messaging;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -16,7 +18,7 @@ namespace Firma.ViewModels
 
         #region Konstruktor
         public FakturyKategorieViewModel()
-            :base("Kategorie faktur")
+            : base("Kategorie faktur")
         {
         }
         #endregion
@@ -27,7 +29,21 @@ namespace Firma.ViewModels
                 from faktura in JJFirmaEntities.FakturyKategorie
                 where faktura.CzyAktywny == true
                 select faktura
-                ) ;
+                );
+        }
+        public override void Delete()
+        {
+            try
+            {
+                var toDelete = JJFirmaEntities.FakturyKategorie.Where(a => a.KategoriaFakturyId == Selected.KategoriaFakturyId).FirstOrDefault();
+                if (toDelete != null)
+                {
+                    toDelete.CzyAktywny = false;
+                    JJFirmaEntities.SaveChanges();
+                    Load();
+                }
+            }
+            catch (Exception) { }
         }
         #endregion
     }

@@ -5,6 +5,7 @@ using GalaSoft.MvvmLight.Messaging;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -22,19 +23,18 @@ namespace Firma.ViewModels
         }
         #endregion
         #region Properties
-        private KontrahentForAllView _SelectedKontrahent;
-        public KontrahentForAllView SelectedKontrahent
+        public override KontrahentForAllView Selected
         {
             get
             {
-                return _SelectedKontrahent;
+                return _Selected;
             }
             set
             {
-                if (value != _SelectedKontrahent)
+                if (value != _Selected)
                 {
-                    _SelectedKontrahent = value;
-                    Messenger.Default.Send(_SelectedKontrahent, token);
+                    _Selected = value;
+                    Messenger.Default.Send(_Selected, token);
                     if (toClose)
                         OnRequestClose();
                 }
@@ -59,9 +59,23 @@ namespace Firma.ViewModels
                         Adres = kontrahent.Adresy.Ulica + " " + kontrahent.Adresy.NrDomu +
                         (kontrahent.Adresy.NrLokalu.Equals("") ? "":"/"+ kontrahent.Adresy.NrLokalu)+
                         "\n" + kontrahent.Adresy.KodPocztowy + " " + kontrahent.Adresy.Miejscowosc,
-                        Url = kontrahent.URL
+                        Url = kontrahent.URL,
                     }
                 );
+        }
+        public override void Delete()
+        {
+            try
+            {
+                var toDelete = JJFirmaEntities.Kontrahenci.Where(a => a.KontrahentId == Selected.KontrahentId).FirstOrDefault();
+                if (toDelete != null)
+                {
+                    toDelete.CzyAktywny = false;
+                    JJFirmaEntities.SaveChanges();
+                    Load();
+                }
+            }
+            catch (Exception) { }
         }
         #endregion
 

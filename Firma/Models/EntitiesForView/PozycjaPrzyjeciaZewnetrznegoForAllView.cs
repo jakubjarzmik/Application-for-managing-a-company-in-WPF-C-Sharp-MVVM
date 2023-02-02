@@ -9,6 +9,7 @@ namespace Firma.Models.EntitiesForView
     public class PozycjaPrzyjeciaZewnetrznegoForAllView
     {
         #region Properties
+        public int PozycjaPZId { get; set; }
         public string NumerPrzyjeciaZewnetrznego { get; set; }
         public string NazwaKontrahenta { get; set; }
         public string NazwaTowaru { get; set; }
@@ -20,7 +21,5 @@ namespace Firma.Models.EntitiesForView
         public decimal Wartosc { get; set; }
         
         #endregion
-
-
     }
 }

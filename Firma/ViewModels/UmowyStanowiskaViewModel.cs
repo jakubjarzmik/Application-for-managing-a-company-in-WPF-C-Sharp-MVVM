@@ -21,19 +21,18 @@ namespace Firma.ViewModels
         }
         #endregion
         #region Properties
-        private UmowyStanowiska _SelectedStanowisko;
-        public UmowyStanowiska SelectedStanowisko
+        public override UmowyStanowiska Selected
         {
             get
             {
-                return _SelectedStanowisko;
+                return _Selected;
             }
             set
             {
-                if (value != _SelectedStanowisko)
+                if (value != _Selected)
                 {
-                    _SelectedStanowisko = value;
-                    Messenger.Default.Send(_SelectedStanowisko, token);
+                    _Selected = value;
+                    Messenger.Default.Send(_Selected, token);
                     if (toClose)
                         OnRequestClose();
                 }
@@ -49,6 +48,20 @@ namespace Firma.ViewModels
                     where stanowisko.CzyAktywny == true
                     select stanowisko
                 );
+        }
+        public override void Delete()
+        {
+            try
+            {
+                var toDelete = JJFirmaEntities.UmowyStanowiska.Where(a => a.StanowiskoId == Selected.StanowiskoId).FirstOrDefault();
+                if (toDelete != null)
+                {
+                    toDelete.CzyAktywny = false;
+                    JJFirmaEntities.SaveChanges();
+                    Load();
+                }
+            }
+            catch (Exception) { }
         }
         #endregion
 

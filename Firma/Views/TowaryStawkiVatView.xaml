@@ -10,7 +10,7 @@
     <Grid>
         <DataGrid AutoGenerateColumns="False"
                   ItemsSource="{Binding List}"
-                  SelectedItem="{Binding Path=SelectedStawkaVat, Mode=TwoWay}">
+                  SelectedItem="{Binding Path=Selected, Mode=TwoWay}">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Kraj"
                                     Binding="{Binding Path=Kraj}" />
