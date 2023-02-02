@@ -13,24 +13,6 @@ namespace Firma.ViewModels
 {
     public class NowyAdresViewModel : JedenViewModel<Adresy>
     {
-        #region Commands
-        private BaseCommand _ShowKrajeCommand;
-        public BaseCommand ShowKrajeCommand
-        {
-            get
-            {
-                if (_ShowKrajeCommand == null)
-                {
-                    _ShowKrajeCommand = new BaseCommand(() => showKraje());
-                }
-                return _ShowKrajeCommand;
-            }
-        }
-        private void showKraje()
-        {
-            Messenger.Default.Send("KrajeAll;" + DisplayName);
-        }
-        #endregion
         #region Konstruktor
         public NowyAdresViewModel()
             : base("Nowy adres")

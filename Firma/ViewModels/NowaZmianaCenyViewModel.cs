@@ -13,40 +13,6 @@ namespace Firma.ViewModels
 {
     public class NowaZmianaCenyViewModel : JedenViewModel<ZmianyCeny>
     {
-        #region Commands
-        private BaseCommand _ShowTowaryCommand;
-        public BaseCommand ShowTowaryCommand
-        {
-            get
-            {
-                if (_ShowTowaryCommand == null)
-                {
-                    _ShowTowaryCommand = new BaseCommand(() => showTowary());
-                }
-                return _ShowTowaryCommand;
-            }
-        }
-        private void showTowary()
-        {
-            Messenger.Default.Send("TowaryAll;" + DisplayName);
-        }
-        private BaseCommand _ShowJednostkiMiaryCommand;
-        public BaseCommand ShowJednostkiMiaryCommand
-        {
-            get
-            {
-                if (_ShowJednostkiMiaryCommand == null)
-                {
-                    _ShowJednostkiMiaryCommand = new BaseCommand(() => showJednostkiMiary());
-                }
-                return _ShowJednostkiMiaryCommand;
-            }
-        }
-        private void showJednostkiMiary()
-        {
-            Messenger.Default.Send("JednostkiMiaryAll;" + DisplayName);
-        }
-        #endregion
         #region Konstruktor
         public NowaZmianaCenyViewModel() 
             : base("Nowa zmiana ceny")

@@ -22,19 +22,18 @@ namespace Firma.ViewModels
         }
         #endregion
         #region Properties
-        private JednostkiMiary _SelectedJednostkaMiary;
-        public JednostkiMiary SelectedJednostkaMiary
+        public override JednostkiMiary Selected
         {
             get
             {
-                return _SelectedJednostkaMiary;
+                return _Selected;
             }
             set
             {
-                if (value != _SelectedJednostkaMiary)
+                if (value != _Selected)
                 {
-                    _SelectedJednostkaMiary = value;
-                    Messenger.Default.Send(_SelectedJednostkaMiary, token);
+                    _Selected = value;
+                    Messenger.Default.Send(_Selected, token);
                     if (toClose)
                         OnRequestClose();
                 }

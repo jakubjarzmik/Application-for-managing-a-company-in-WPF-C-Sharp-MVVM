@@ -14,52 +14,6 @@ namespace Firma.ViewModels
 {
     public class NowyKontrahentViewModel : JedenViewModel<Kontrahenci>
     {
-        #region Commands
-        private BaseCommand _ShowKontrahenciCommand;
-        public BaseCommand ShowKontrahenciCommand
-        {
-            get
-            {
-                if (_ShowKontrahenciCommand == null)
-                {
-                    _ShowKontrahenciCommand = new BaseCommand(() => showKontrahenci());
-                }
-                return _ShowKontrahenciCommand;
-            }
-        }
-        private void showKontrahenci()
-        {
-            Messenger.Default.Send("KontrahenciAll;" + DisplayName);
-        }
-        private BaseCommand _ShowAdresyCommand;
-        public BaseCommand ShowAdresyCommand
-        {
-            get
-            {
-                if (_ShowAdresyCommand == null)
-                {
-                    _ShowAdresyCommand = new BaseCommand(() => showAdresy(false));
-                }
-                return _ShowAdresyCommand;
-            }
-        }
-        private BaseCommand _ShowAdresyKorCommand;
-        public BaseCommand ShowAdresyKorCommand
-        {
-            get
-            {
-                if (_ShowAdresyKorCommand == null)
-                {
-                    _ShowAdresyKorCommand = new BaseCommand(() => showAdresy(true));
-                }
-                return _ShowAdresyKorCommand;
-            }
-        }
-        private void showAdresy(bool isAdresKor)
-        {
-            Messenger.Default.Send((isAdresKor ? "AdresyKorAll;" : "AdresyAll;") + DisplayName);
-        }
-        #endregion
         #region Konstruktor
         public NowyKontrahentViewModel()
             : base("Nowy kontrahent")

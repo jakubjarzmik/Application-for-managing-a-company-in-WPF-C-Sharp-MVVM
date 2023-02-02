@@ -13,24 +13,6 @@ namespace Firma.ViewModels
 {
     public class NowaUmowaViewModel : JedenViewModel<Umowy>
     {
-        #region Commands
-        private BaseCommand _ShowStanowiskaCommand;
-        public BaseCommand ShowStanowiskaCommand
-        {
-            get
-            {
-                if (_ShowStanowiskaCommand == null)
-                {
-                    _ShowStanowiskaCommand = new BaseCommand(() => showStanowiska());
-                }
-                return _ShowStanowiskaCommand;
-            }
-        }
-        private void showStanowiska()
-        {
-            Messenger.Default.Send("StanowiskaAll;" + DisplayName);
-        }
-        #endregion
         #region Konstruktor
         public NowaUmowaViewModel() 
             : base("Nowa umowa")

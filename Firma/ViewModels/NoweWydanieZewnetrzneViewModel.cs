@@ -13,24 +13,6 @@ namespace Firma.ViewModels
 {
     public class NoweWydanieZewnetrzneViewModel : JedenViewModel<WydaniaZewnetrzne>
     {
-        #region Commands
-        private BaseCommand _ShowKontrahenciCommand;
-        public BaseCommand ShowKontrahenciCommand
-        {
-            get
-            {
-                if (_ShowKontrahenciCommand == null)
-                {
-                    _ShowKontrahenciCommand = new BaseCommand(() => showKontrahenci());
-                }
-                return _ShowKontrahenciCommand;
-            }
-        }
-        private void showKontrahenci()
-        {
-            Messenger.Default.Send("KontrahenciAll;" + DisplayName);
-        }
-        #endregion
         #region Konstruktor
         public NoweWydanieZewnetrzneViewModel()
             : base("Nowe WZ")

@@ -13,24 +13,6 @@ namespace Firma.ViewModels
 {
     public class NowaGrupaTowarowViewModel : JedenViewModel<TowaryGrupy>
     {
-        #region Commands
-        private BaseCommand _ShowGrupyTowaruCommand;
-        public BaseCommand ShowGrupyTowaruCommand
-        {
-            get
-            {
-                if (_ShowGrupyTowaruCommand == null)
-                {
-                    _ShowGrupyTowaruCommand = new BaseCommand(() => showGrupyTowaru());
-                }
-                return _ShowGrupyTowaruCommand;
-            }
-        }
-        private void showGrupyTowaru()
-        {
-            Messenger.Default.Send("GrupyTowaruAll;" + DisplayName);
-        }
-        #endregion
         #region Konstruktor
         public NowaGrupaTowarowViewModel() 
             : base("Nowa grupa towarów")

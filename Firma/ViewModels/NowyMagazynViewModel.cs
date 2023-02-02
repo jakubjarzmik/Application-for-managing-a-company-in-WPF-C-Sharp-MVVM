@@ -14,24 +14,6 @@ namespace Firma.ViewModels
 {
     public class NowyMagazynViewModel : JedenViewModel<Magazyny>
     {
-        #region Commands
-        private BaseCommand _ShowAdresyCommand;
-        public BaseCommand ShowAdresyCommand
-        {
-            get
-            {
-                if (_ShowAdresyCommand == null)
-                {
-                    _ShowAdresyCommand = new BaseCommand(() => showAdresy());
-                }
-                return _ShowAdresyCommand;
-            }
-        }
-        private void showAdresy()
-        {
-            Messenger.Default.Send("AdresyAll;" + DisplayName);
-        }
-        #endregion
         #region Konstruktor
         public NowyMagazynViewModel()
             : base("Nowy magazyn")
