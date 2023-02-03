@@ -337,6 +337,12 @@
     <Compile Update="Views\AdresyView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Views\PracownicyUmowyView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\KontrahenciKontaktyView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Views\NoweWydanieZewnetrzneView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -359,6 +365,9 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="Views\NowyAdresView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\FakturyWydaniaZewnetrzneView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="Views\ZmianyCenyView.xaml.cs">

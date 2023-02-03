@@ -117,6 +117,10 @@
     <DataTemplate DataType="{x:Type vm:FakturyViewModel}">
         <vw:FakturyView/>
     </DataTemplate>
+
+    <DataTemplate DataType="{x:Type vm:FakturyWydaniaZewnetrzneViewModel}">
+        <vw:FakturyWydaniaZewnetrzneView/>
+    </DataTemplate>
     
     <DataTemplate DataType="{x:Type vm:AdresyViewModel}">
         <vw:AdresyView/>
@@ -128,6 +132,10 @@
     
     <DataTemplate DataType="{x:Type vm:KontrahenciViewModel}">
         <vw:KontrahenciView/>
+    </DataTemplate>
+    
+    <DataTemplate DataType="{x:Type vm:KontrahenciKontaktyViewModel}">
+        <vw:KontrahenciKontaktyView/>
     </DataTemplate>
 
     <DataTemplate DataType="{x:Type vm:MagazynyViewModel}">
@@ -148,6 +156,10 @@
 
     <DataTemplate DataType="{x:Type vm:PracownicyViewModel}">
         <vw:PracownicyView/>
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type vm:PracownicyUmowyViewModel}">
+        <vw:PracownicyUmowyView/>
     </DataTemplate>
 
     <DataTemplate DataType="{x:Type vm:NowyPracownikViewModel}">

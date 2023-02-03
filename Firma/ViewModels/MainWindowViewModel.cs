@@ -243,6 +243,13 @@ namespace Firma.ViewModels
                 return new BaseCommand(() => showAll(new FakturyViewModel()));
             }
         }
+        public ICommand FakturyWydaniaZewnetrzneCommand
+        {
+            get
+            {
+                return new BaseCommand(() => showAll(new FakturyWydaniaZewnetrzneViewModel()));
+            }
+        }
         public ICommand AdresyCommand
         {
             get
@@ -262,6 +269,13 @@ namespace Firma.ViewModels
             get
             {
                 return new BaseCommand(() => showAll(new KontrahenciViewModel()));
+            }
+        }
+        public ICommand KontrahenciKontaktyCommand
+        {
+            get
+            {
+                return new BaseCommand(() => showAll(new KontrahenciKontaktyViewModel()));
             }
         }
         public ICommand MagazynyCommand
@@ -297,6 +311,13 @@ namespace Firma.ViewModels
             get
             {
                 return new BaseCommand(() => showAll(new PracownicyViewModel()));
+            }
+        }
+        public ICommand PracownicyUmowyCommand
+        {
+            get
+            {
+                return new BaseCommand(() => showAll(new PracownicyUmowyViewModel()));
             }
         }
         public ICommand NowyPracownikCommand

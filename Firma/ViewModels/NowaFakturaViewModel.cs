@@ -6,6 +6,7 @@ using Firma.ViewModels.Abstract;
 using GalaSoft.MvvmLight.Messaging;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -291,6 +292,38 @@ namespace Firma.ViewModels
         }
 
 
+        #endregion
+        #region WZProperties
+        private ObservableCollection<WydanieZewnetrzneForAllView> _WZList;
+        public ObservableCollection<WydanieZewnetrzneForAllView> WZList
+        {
+            get
+            {
+                if (_WZList == null)
+                    Load();
+                return _WZList;
+            }
+            set
+            {
+                _WZList = value;
+                OnPropertyChanged(() => WZList);
+            }
+        }
+        public void Load()
+        {
+            WZList = new ObservableCollection<WydanieZewnetrzneForAllView>
+                (
+                    from wz in Db.WydaniaZewnetrzne
+                    where wz.CzyAktywny == true && 
+                    wz.WydanieZewnetrzneId == Db.FakturyWydaniaZewnetrzne.Where(k => k.FakturaId == Item.FakturaId).Select(k => k.WydanieZewnetrzneId).FirstOrDefault()
+                    select new WydanieZewnetrzneForAllView
+                    {
+                        Numer = wz.Numer,
+                        NazwaMagazynu = wz.Magazyny.Nazwa,
+                        Rabat = wz.Rabat,
+                    }
+                );
+        }
         #endregion
         #region Save
         public override void Save()

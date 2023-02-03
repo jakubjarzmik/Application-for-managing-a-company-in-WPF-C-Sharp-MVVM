@@ -5,7 +5,7 @@
                      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
                      xmlns:local="clr-namespace:Firma.Views"
                      mc:Ignorable="d"
-                     d:DesignHeight="450"
+                     d:DesignHeight="800"
                      d:DesignWidth="800">
     <UserControl.Resources>
         <ResourceDictionary Source="StyleZakladekResources.xaml" />
@@ -200,8 +200,8 @@
                             <ColumnDefinition Width="*" />
                         </Grid.ColumnDefinitions>
                         <Button Content="Adres:"
-                               Style="{StaticResource ButtonStandardowy}"
-                               Command="{Binding ShowAdresyCommand}"/>
+                                Style="{StaticResource ButtonStandardowy}"
+                                Command="{Binding ShowAdresyCommand}" />
                         <ComboBox Grid.Column="1"
                                   Style="{StaticResource ControlStandardowy}"
                                   ItemsSource="{Binding AdresyComboBoxItems}"
@@ -320,24 +320,29 @@
                             </StackPanel>
                         </ToggleButton>
                     </ToolBar>
-                    <DataGrid Grid.Row="1"
-                              Name="MyGrid"
-                              Height="60">
+                    <DataGrid   Grid.Row="1"
+                                AutoGenerateColumns="False"
+                                ItemsSource="{Binding UmowyList}"
+                                SelectedItem="{Binding Path=Selected, Mode=TwoWay}">
                         <DataGrid.Columns>
-                            <DataGridTextColumn Header="Numer" />
-                            <DataGridTextColumn Header="Rodzaj" />
-                            <DataGridTextColumn Header="Stanowisko" />
-                            <DataGridTextColumn Header="DataZawarcia" />
-                            <DataGridTextColumn Header="Poczatek umowy" />
-                            <DataGridTextColumn Header="Koniec Umowy" />
-                            <DataGridTextColumn Header="Stawka miesieczna" />
-                            <DataGridTextColumn Header="Stawka godzinowa" />
-                            <DataGridTextColumn Header="Czas pracy miesiecznie" />
-                            <DataGridTextColumn Header="Opis" />
-                            <DataGridTextColumn Header="Emerytalne" />
-                            <DataGridTextColumn Header="Rentowe" />
-                            <DataGridTextColumn Header="Chorobowe" />
-                            <DataGridTextColumn Header="Wypadkowe" />
+                            <DataGridTextColumn Header="Nr umowy"
+                                                Binding="{Binding Path=UmowaNumer}" />
+                            <DataGridTextColumn Header="Rodzaj"
+                                                Binding="{Binding Path=UmowaRodzaj}" />
+                            <DataGridTextColumn Header="Stanowisko"
+                                                Binding="{Binding Path=UmowaStanowisko}" />
+                            <DataGridTextColumn Header="Data rozpoczecia"
+                                                Binding="{Binding Path=UmowaDataOd}" />
+                            <DataGridTextColumn Header="Data zakonczenia"
+                                                Binding="{Binding Path=UmowaDataDo}" />
+                            <DataGridTextColumn Header="Stawka (mies)"
+                                                Binding="{Binding Path=UmowaStawkaMies}" />
+                            <DataGridTextColumn Header="Stawka (godz)"
+                                                Binding="{Binding Path=UmowaStawkaGodz}" />
+                            <DataGridTextColumn Header="Czas pracy (mies)"
+                                                Binding="{Binding Path=UmowaCzasPracyMies}" />
+                            <DataGridTextColumn Header="Wartosc (mies)"
+                                                Binding="{Binding Path=UmowaWartoscMies}" />
                         </DataGrid.Columns>
                     </DataGrid>
                 </Grid>

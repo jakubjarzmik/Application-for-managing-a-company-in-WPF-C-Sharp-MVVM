@@ -5,6 +5,7 @@ using Firma.ViewModels.Abstract;
 using GalaSoft.MvvmLight.Messaging;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -19,19 +20,23 @@ namespace Firma.ViewModels
             : base("Nowy kontrahent")
         {
             Item = new Kontrahenci();
-            Messenger.Default.Register<KontrahentForAllView>(this, DisplayName, getSelectedKontrahent);
-            Messenger.Default.Register<AdresAndIsKor>(this, DisplayName, getSelectedAdres);
+            setMessengers();
         }
         public NowyKontrahentViewModel(Kontrahenci kontrahent)
             : base("Edytuj kontrahenta")
         {
             Item = kontrahent;
-            isEditing= true;
+            isEditing = true;
+            setMessengers();
+        }
+        private void setMessengers()
+        {
             Messenger.Default.Register<KontrahentForAllView>(this, DisplayName, getSelectedKontrahent);
             Messenger.Default.Register<AdresAndIsKor>(this, DisplayName, getSelectedAdres);
         }
         #endregion
         #region Properties
+        
         public string Kod
         {
             get
@@ -596,6 +601,41 @@ namespace Firma.ViewModels
             }
         }
 
+        #endregion
+        #region KontaktyProperties
+        private ObservableCollection<KontrahenciKontaktyForAllView> _KontaktyList;
+        public ObservableCollection<KontrahenciKontaktyForAllView> KontaktyList
+        {
+            get
+            {
+                if (_KontaktyList == null)
+                    Load();
+                return _KontaktyList;
+            }
+            set
+            {
+                _KontaktyList = value;
+                OnPropertyChanged(() => KontaktyList);
+            }
+        }
+        public void Load()
+        {
+            KontaktyList = new ObservableCollection<KontrahenciKontaktyForAllView>
+                (
+                    from kontrahentKontakt in Db.KontrahenciKontakty
+                    where kontrahentKontakt.CzyAktywny == true
+                    && kontrahentKontakt.KontrahentId == Item.KontrahentId
+                    select new KontrahenciKontaktyForAllView
+                    {
+                        KontaktNazwaDzialu = kontrahentKontakt.Kontakty.NazwaDzialu,
+                        KontaktOpisOsoby = kontrahentKontakt.Kontakty.OpisOsoby,
+                        KontaktTelefon1 = kontrahentKontakt.Kontakty.Telefon1,
+                        KontaktTelefon2 = kontrahentKontakt.Kontakty.Telefon2,
+                        KontaktEmail1 = kontrahentKontakt.Kontakty.Email1,
+                        KontaktEmail2 = kontrahentKontakt.Kontakty.Email2,
+                    }
+                );
+        }
         #endregion
         #region Save
         public override void Save()

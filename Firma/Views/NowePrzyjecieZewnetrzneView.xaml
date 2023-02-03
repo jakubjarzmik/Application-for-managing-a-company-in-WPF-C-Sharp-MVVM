@@ -157,43 +157,48 @@
                       Header="Pozycje przyjęcia zewnętrznego"
                       IsExpanded="True">
                 <Grid>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="87*" />
-                        <ColumnDefinition Width="694*" />
-                    </Grid.ColumnDefinitions>
                     <Grid.RowDefinitions>
                         <RowDefinition Height="Auto" />
                         <RowDefinition Height="Auto" />
                     </Grid.RowDefinitions>
-                    <ToolBar Grid.ColumnSpan="2"
-                             Margin="0,0,0,60"
-                             Grid.RowSpan="2">
+                    <ToolBar Style="{StaticResource ToolBarStandardowy}">
                         <ToggleButton>
-                            <StackPanel Orientation="Horizontal">
-                                <Image Source="/Views/Content/Icons/file-document-outline.png" />
+                            <StackPanel Style="{StaticResource StackPanelDoTabeli}">
+                                <Image Style="{StaticResource ImageToolBarStandardowy}"
+                                       Source="/Views/Content/Icons/file-document-outline.png" />
                                 <Label Content="Nowa" />
                             </StackPanel>
                         </ToggleButton>
                         <Separator />
                         <ToggleButton>
-                            <StackPanel Orientation="Horizontal">
-                                <Image Source="/Views/Content/Icons/minus.png" />
+                            <StackPanel Style="{StaticResource StackPanelDoTabeli}">
+                                <Image Style="{StaticResource ImageToolBarStandardowy}"
+                                       Source="/Views/Content/Icons/minus.png" />
                                 <Label Content="Usun" />
                             </StackPanel>
                         </ToggleButton>
                     </ToolBar>
-                    <DataGrid Grid.Row="1"
-                              Name="MyGrid"
-                              Height="60"
-                              Grid.ColumnSpan="2">
+                    <DataGrid   Grid.Row="1"
+                                AutoGenerateColumns="False"
+                                ItemsSource="{Binding PozycjePZList}"
+                                SelectedItem="{Binding Path=Selected, Mode=TwoWay}">
                         <DataGrid.Columns>
-                            <DataGridTextColumn Header="Towar" />
-                            <DataGridTextColumn Header="Ilosc" />
-                            <DataGridTextColumn Header="Jedn. miary" />
-                            <DataGridTextColumn Header="Cena zakupu" />
-                            <DataGridTextColumn Header="Rabat" />
-                            <DataGridTextColumn Header="Cena po rabacie" />
-                            <DataGridTextColumn Header="Wartosc" />
+                            <DataGridTextColumn Header="Numer PZ"
+                                                Binding="{Binding Path=NumerPrzyjeciaZewnetrznego}" />
+                            <DataGridTextColumn Header="Towar"
+                                                Binding="{Binding Path=NazwaTowaru}" />
+                            <DataGridTextColumn Header="Ilosc"
+                                                Binding="{Binding Path=Ilosc}" />
+                            <DataGridTextColumn Header="Jedn. miary"
+                                                Binding="{Binding Path=JednostkaMiary}" />
+                            <DataGridTextColumn Header="Cena zakupu"
+                                                Binding="{Binding Path=PierwotnaCenaZakupu}" />
+                            <DataGridTextColumn Header="Rabat"
+                                                Binding="{Binding Path=Rabat}" />
+                            <DataGridTextColumn Header="Cena po rabacie"
+                                                Binding="{Binding Path=CenaPoRabacieZaSzt}" />
+                            <DataGridTextColumn Header="Wartosc"
+                                                Binding="{Binding Path=Wartosc}" />
                         </DataGrid.Columns>
                     </DataGrid>
                 </Grid>

@@ -217,13 +217,17 @@
                             </StackPanel>
                         </ToggleButton>
                     </ToolBar>
-                    <DataGrid Grid.Row="1"
-                              Name="MyGrid"
-                              Height="60">
+                    <DataGrid   Grid.Row="1"
+                                AutoGenerateColumns="False"
+                                ItemsSource="{Binding WZList}"
+                                SelectedItem="{Binding Path=Selected, Mode=TwoWay}">
                         <DataGrid.Columns>
-                            <DataGridTextColumn Header="Numer" />
-                            <DataGridTextColumn Header="Magazyn" />
-                            <DataGridTextColumn Header="Rabat" />
+                            <DataGridTextColumn Header="Numer"
+                                                Binding="{Binding Path=Numer}" />
+                            <DataGridTextColumn Header="Magazyn"
+                                                Binding="{Binding Path=NazwaMagazynu}" />
+                            <DataGridTextColumn Header="Rabat"
+                                                Binding="{Binding Path=Rabat}" />
                         </DataGrid.Columns>
                     </DataGrid>
                 </Grid>

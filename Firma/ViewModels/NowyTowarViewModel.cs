@@ -5,6 +5,7 @@ using Firma.ViewModels.Abstract;
 using GalaSoft.MvvmLight.Messaging;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -444,6 +445,41 @@ namespace Firma.ViewModels
         }
 
 
+        #endregion
+        #region CenyProperties
+        private ObservableCollection<ZmianaCenyForAllView> _CenyList;
+        public ObservableCollection<ZmianaCenyForAllView> CenyList
+        {
+            get
+            {
+                if (_CenyList == null)
+                    Load();
+                return _CenyList;
+            }
+            set
+            {
+                _CenyList = value;
+                OnPropertyChanged(() => CenyList);
+            }
+        }
+        public void Load()
+        {
+            CenyList = new ObservableCollection<ZmianaCenyForAllView>
+                (
+                    from cena in Db.ZmianyCeny
+                    where cena.CzyAktywny == true
+                    && cena.TowarId == Item.TowarId
+                    select new ZmianaCenyForAllView
+                    {
+                        JednostkaMiary = cena.JednostkiMiary.Skrot,
+                        CenaNetto = cena.CenaNetto,
+                        CenaBrutto = cena.CenaNetto * (100 + cena.Towary.TowaryStawkiVat.Stawka) / 100,
+                        WartoscVat = cena.CenaNetto * cena.Towary.TowaryStawkiVat.Stawka / 100,
+                        DataObowiazywaniaOd = cena.DataObowiazywaniaOd,
+                        DataObowiazywaniaDo = cena.DataObowiazywaniaDo
+                    }
+                );
+        }
         #endregion
         #region Save
         public override void Save()

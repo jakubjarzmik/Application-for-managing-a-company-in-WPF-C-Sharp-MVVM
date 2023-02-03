@@ -291,7 +291,7 @@
                             <ColumnDefinition Width="*" />
                         </Grid.ColumnDefinitions>
                         <Button Content="Adres kor.:"
-                               Style="{StaticResource ButtonStandardowy}"
+                                Style="{StaticResource ButtonStandardowy}"
                                 Command="{Binding ShowAdresyKorCommand}" />
                         <ComboBox Grid.Column="1"
                                   Style="{StaticResource ControlStandardowy}"
@@ -403,29 +403,37 @@
                     <ToolBar Style="{StaticResource ToolBarStandardowy}">
                         <ToggleButton>
                             <StackPanel Style="{StaticResource StackPanelDoTabeli}">
-                                <Image Style="{StaticResource ImageToolBarStandardowy}" Source="/Views/Content/Icons/file-document-outline.png" />
-                                <Label Content="Nowy"/>
+                                <Image Style="{StaticResource ImageToolBarStandardowy}"
+                                       Source="/Views/Content/Icons/file-document-outline.png" />
+                                <Label Content="Nowy" />
                             </StackPanel>
                         </ToggleButton>
                         <Separator />
                         <ToggleButton>
                             <StackPanel Style="{StaticResource StackPanelDoTabeli}">
-                                <Image Style="{StaticResource ImageToolBarStandardowy}" Source="/Views/Content/Icons/minus.png" />
+                                <Image Style="{StaticResource ImageToolBarStandardowy}"
+                                       Source="/Views/Content/Icons/minus.png" />
                                 <Label Content="Usun" />
                             </StackPanel>
                         </ToggleButton>
                     </ToolBar>
-                    <DataGrid Grid.Row="1"
-                              Name="Kontakt"
-                              Height="60">
+                    <DataGrid   Grid.Row="1"
+                                AutoGenerateColumns="False"
+                                ItemsSource="{Binding KontaktyList}"
+                                SelectedItem="{Binding Path=Selected, Mode=TwoWay}">
                         <DataGrid.Columns>
-                            <DataGridTextColumn Header="Nazwa działu" />
-                            <DataGridTextColumn Header="Opis osoby" />
-                            <DataGridTextColumn Header="Telefon 1" />
-                            <DataGridTextColumn Header="Telefon 2" />
-                            <DataGridTextColumn Header="Fax" />
-                            <DataGridTextColumn Header="E-mail 1" />
-                            <DataGridTextColumn Header="E-mail 2" />
+                            <DataGridTextColumn Header="Nazwa działu"
+                                                Binding="{Binding Path=KontaktNazwaDzialu}" />
+                            <DataGridTextColumn Header="Opis osoby"
+                                                Binding="{Binding Path=KontaktOpisOsoby}" />
+                            <DataGridTextColumn Header="Telefon 1"
+                                                Binding="{Binding Path=KontaktTelefon1}" />
+                            <DataGridTextColumn Header="Telefon 2"
+                                                Binding="{Binding Path=KontaktTelefon2}" />
+                            <DataGridTextColumn Header="Email 1"
+                                                Binding="{Binding Path=KontaktEmail1}" />
+                            <DataGridTextColumn Header="Email 2"
+                                                Binding="{Binding Path=KontaktEmail2}" />
                         </DataGrid.Columns>
                     </DataGrid>
                 </Grid>

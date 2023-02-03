@@ -5,6 +5,7 @@ using Firma.ViewModels.Abstract;
 using GalaSoft.MvvmLight.Messaging;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -191,7 +192,44 @@ namespace Firma.ViewModels
                 }
             }
         }
-        
+
+        #endregion
+        #region PozycjePZProperties
+        private ObservableCollection<PozycjaPrzyjeciaZewnetrznegoForAllView> _PozycjePZList;
+        public ObservableCollection<PozycjaPrzyjeciaZewnetrznegoForAllView> PozycjePZList
+        {
+            get
+            {
+                if (_PozycjePZList == null)
+                    Load();
+                return _PozycjePZList;
+            }
+            set
+            {
+                _PozycjePZList = value;
+                OnPropertyChanged(() => PozycjePZList);
+            }
+        }
+        public void Load()
+        {
+            PozycjePZList = new ObservableCollection<PozycjaPrzyjeciaZewnetrznegoForAllView>
+                (
+                    from pozycja in Db.PozycjePrzyjeciaZewnetrznego
+                    where pozycja.CzyAktywny == true
+                    && pozycja.PrzyjecieZewnetrzneId == Item.PrzyjecieZewnetrzneId
+                    select new PozycjaPrzyjeciaZewnetrznegoForAllView
+                    {
+                        NumerPrzyjeciaZewnetrznego = pozycja.PrzyjeciaZewnetrzne.Numer,
+                        NazwaTowaru = pozycja.Towary.Nazwa,
+                        Ilosc = pozycja.Ilosc,
+                        JednostkaMiary = pozycja.JednostkiMiary.Skrot,
+                        PierwotnaCenaZakupu = pozycja.PierwotnaCenaZakupu,
+                        Rabat = pozycja.Rabat,
+                        CenaPoRabacieZaSzt = pozycja.PierwotnaCenaZakupu * (100 - pozycja.Rabat) / 100,
+                        Wartosc = (pozycja.PierwotnaCenaZakupu * pozycja.Ilosc * (100 - pozycja.Rabat) / 100),
+                    }
+                );
+        }
         #endregion
         #region Save
         public override void Save()

@@ -5,6 +5,7 @@ using Firma.ViewModels.Abstract;
 using GalaSoft.MvvmLight.Messaging;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -444,6 +445,44 @@ namespace Firma.ViewModels
                     base.OnPropertyChanged(() => Dodatkowe);
                 }
             }
+        }
+        #endregion
+        #region UmowyProperties
+        private ObservableCollection<PracownicyUmowyForAllView> _UmowyList;
+        public ObservableCollection<PracownicyUmowyForAllView> UmowyList
+        {
+            get
+            {
+                if (_UmowyList == null)
+                    Load();
+                return _UmowyList;
+            }
+            set
+            {
+                _UmowyList = value;
+                OnPropertyChanged(() => UmowyList);
+            }
+        }
+        public void Load()
+        {
+            UmowyList = new ObservableCollection<PracownicyUmowyForAllView>
+                (
+                    from pracownikUmowa in Db.PracownicyUmowy
+                    where pracownikUmowa.CzyAktywny == true
+                    && pracownikUmowa.PracownikId == Item.PracownikId
+                    select new PracownicyUmowyForAllView
+                    {
+                        UmowaNumer = pracownikUmowa.Umowy.NrUmowy,
+                        UmowaRodzaj = pracownikUmowa.Umowy.UmowyRodzaje.Nazwa,
+                        UmowaStanowisko = pracownikUmowa.Umowy.UmowyStanowiska.Nazwa,
+                        UmowaDataOd = pracownikUmowa.Umowy.DataOd,
+                        UmowaDataDo = pracownikUmowa.Umowy.DataDo,
+                        UmowaStawkaMies = pracownikUmowa.Umowy.StawkaBruttoMies,
+                        UmowaStawkaGodz = pracownikUmowa.Umowy.StawkaBruttoGodz,
+                        UmowaCzasPracyMies = pracownikUmowa.Umowy.CzasPracyMies,
+                        UmowaWartoscMies = pracownikUmowa.Umowy.StawkaBruttoMies + (pracownikUmowa.Umowy.StawkaBruttoGodz * pracownikUmowa.Umowy.CzasPracyMies)
+                    }
+                );
         }
         #endregion
         #region Save

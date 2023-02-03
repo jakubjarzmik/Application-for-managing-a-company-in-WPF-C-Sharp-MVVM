@@ -261,14 +261,21 @@
                     </ToolBar>
                     <DataGrid Grid.Row="1"
                               AutoGenerateColumns="False"
-                              ItemsSource="{Binding List}">
+                              ItemsSource="{Binding CenyList}"
+                              SelectedItem="{Binding Path=Selected, Mode=TwoWay}">
                         <DataGrid.Columns>
-                            <DataGridTextColumn Header="Cena netto" />
-                            <DataGridTextColumn Header="Cena brutto" />
-                            <DataGridTextColumn Header="Wartosc vat" />
-                            <DataGridTextColumn Header="Jednostka miary" />
-                            <DataGridTextColumn Header="Data obowiazywania od" />
-                            <DataGridTextColumn Header="Data obowiazywania do" />
+                            <DataGridTextColumn Header="Jednostka miary"
+                                                Binding="{Binding Path=JednostkaMiary}" />
+                            <DataGridTextColumn Header="Cena netto"
+                                                Binding="{Binding Path=CenaNetto}" />
+                            <DataGridTextColumn Header="Cena brutto"
+                                                Binding="{Binding Path=CenaBrutto}" />
+                            <DataGridTextColumn Header="Wartosc vat"
+                                                Binding="{Binding Path=WartoscVat}" />
+                            <DataGridTextColumn Header="Data obowiazywania od"
+                                                Binding="{Binding Path=DataObowiazywaniaOd, StringFormat=dd.MM.yyyy}" />
+                            <DataGridTextColumn Header="Data obowiazywania do"
+                                                Binding="{Binding Path=DataObowiazywaniaDo, StringFormat=dd.MM.yyyy}" />
                         </DataGrid.Columns>
                     </DataGrid>
                 </Grid>
