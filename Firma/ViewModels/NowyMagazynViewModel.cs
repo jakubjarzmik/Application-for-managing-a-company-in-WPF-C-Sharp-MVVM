@@ -15,10 +15,15 @@ namespace Firma.ViewModels
     public class NowyMagazynViewModel : JedenViewModel<Magazyny>
     {
         #region Konstruktor
-        public NowyMagazynViewModel()
-            : base("Nowy magazyn")
+        public NowyMagazynViewModel() : base("Nowy magazyn")
         {
             Item = new Magazyny();
+            Messenger.Default.Register<AdresAndIsKor>(this, DisplayName, getSelectedAdres);
+        }
+        public NowyMagazynViewModel(Magazyny magazyn) : base("Edytuj magazyn")
+        {
+            Item = magazyn;
+            isEditing = true;
             Messenger.Default.Register<AdresAndIsKor>(this, DisplayName, getSelectedAdres);
         }
         #endregion

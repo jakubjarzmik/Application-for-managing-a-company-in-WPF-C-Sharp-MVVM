@@ -14,10 +14,19 @@ namespace Firma.ViewModels
     public class NowyTowarViewModel : JedenViewModel<Towary>
     {
         #region Konstruktor
-        public NowyTowarViewModel()
-            : base("Nowy towar")
+        public NowyTowarViewModel() : base("Nowy towar")
         {
             Item = new Towary();
+            setMessengers();
+        }
+        public NowyTowarViewModel(Towary towar) : base("Edytuj towar")
+        {
+            Item = towar;
+            isEditing = true;
+            setMessengers();
+        }
+        private void setMessengers()
+        {
             Messenger.Default.Register<GrupaTowaruForAllView>(this, DisplayName, getSelectedGrupa);
             Messenger.Default.Register<StawkaVatAndIsZak>(this, DisplayName, getSelectedStawkaVat);
             Messenger.Default.Register<Kraje>(this, DisplayName, getSelectedKraj);

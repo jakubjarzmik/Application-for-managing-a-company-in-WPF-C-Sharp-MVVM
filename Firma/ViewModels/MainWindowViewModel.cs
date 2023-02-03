@@ -17,13 +17,41 @@ namespace Firma.ViewModels
 {
     public class MainWindowViewModel : BaseViewModel
     {
-        //będzie zawierała kolekcje komend, które pojawiają się w menu lewym oraz kolekcje zakładek 
+        #region Konstruktor
+        public MainWindowViewModel() : base()
+        {
+            Messenger.Default.Register<string>(this, open);
+            Messenger.Default.Register<NowaFakturaViewModel>(this, createView);
+            Messenger.Default.Register<NowaGrupaTowarowViewModel>(this, createView);
+            Messenger.Default.Register<NowaJednostkaMiaryViewModel>(this, createView);
+            Messenger.Default.Register<NowaKategoriaFakturyViewModel>(this, createView);
+            Messenger.Default.Register<NowaStawkaVatTowarowViewModel>(this, createView);
+            Messenger.Default.Register<NowaUmowaViewModel>(this, createView);
+            Messenger.Default.Register<NowaZmianaCenyViewModel>(this, createView);
+            Messenger.Default.Register<NowePrzyjecieZewnetrzneViewModel>(this, createView);
+            Messenger.Default.Register<NoweStanowiskoViewModel>(this, createView);
+            Messenger.Default.Register<NoweWydanieZewnetrzneViewModel>(this, createView);
+            Messenger.Default.Register<NowyAdresViewModel>(this, createView);
+            Messenger.Default.Register<NowyKontaktViewModel>(this, createView);
+            Messenger.Default.Register<NowyKontrahentViewModel>(this, createView);
+            Messenger.Default.Register<NowyKrajViewModel>(this, createView);
+            Messenger.Default.Register<NowyMagazynViewModel>(this, createView);
+            Messenger.Default.Register<NowyPracownikViewModel>(this, createView);
+            Messenger.Default.Register<NowyRodzajFakturyViewModel>(this, createView);
+            Messenger.Default.Register<NowyRodzajKontrahentaViewModel>(this, createView);
+            Messenger.Default.Register<NowyRodzajPlatnosciViewModel>(this, createView);
+            Messenger.Default.Register<NowyRodzajUmowyViewModel>(this, createView);
+            Messenger.Default.Register<NowyTowarViewModel>(this, createView);
+            Messenger.Default.Register<NowyTypMagazynuViewModel>(this, createView);
+            Messenger.Default.Register<NowyTypTowarowViewModel>(this, createView);
+        }
+        #endregion
         #region Komendy menu i paska narzedzi
-        public ICommand NowyTowarCommand //ta komenda zostanie podpieta pod menu i pasek narzedzi
+        public ICommand NowyTowarCommand
         {
             get
             {
-                return new BaseCommand(() => createView(new NowyTowarViewModel()));//to jest komenda, która wyw. funkcję createTowar
+                return new BaseCommand(() => createView(new NowyTowarViewModel()));
             }
         }
         public ICommand NowaFakturaCommand
@@ -33,7 +61,6 @@ namespace Firma.ViewModels
                 return new BaseCommand(() => createView(new NowaFakturaViewModel()));
             }
         }
-
         public ICommand NowyKontrahentCommand
         {
             get
@@ -388,7 +415,7 @@ namespace Firma.ViewModels
         }
         private List<CommandViewModel> CreateCommands()
         {
-            Messenger.Default.Register<string>(this, open);
+
             return new List<CommandViewModel>
             {
                 //new CommandViewModel("Towar",new BaseCommand(()=>createView(new NowyTowarViewModel())), "pack://application:,,,/Views/Content/Icons/package-variant-closed-plus-white.png",
@@ -417,7 +444,7 @@ namespace Firma.ViewModels
         #endregion
 
         #region Zakładki
-        private ObservableCollection<WorkspaceViewModel> _Workspaces; //to jest kolekcja zakładek
+        private ObservableCollection<WorkspaceViewModel> _Workspaces;
         public ObservableCollection<WorkspaceViewModel> Workspaces
         {
             get
@@ -443,7 +470,6 @@ namespace Firma.ViewModels
         private void onWorkspaceRequestClose(object sender, EventArgs e)
         {
             WorkspaceViewModel workspace = sender as WorkspaceViewModel;
-            //workspace.Dispos();
             this.Workspaces.Remove(workspace);
         }
         #endregion
@@ -490,75 +516,75 @@ namespace Firma.ViewModels
             switch (name)
             {
                 #region Handling the "Dodaj" button
-                case "AdresyAdd":
-                    createView(new NowyAdresViewModel());
-                    break;
-                case "Kategorie fakturAdd":
-                    createView(new NowaKategoriaFakturyViewModel());
-                    break;
-                case "Rodzaje fakturAdd":
-                    createView(new NowyRodzajFakturyViewModel());
-                    break;
-                case "FakturyAdd":
-                    createView(new NowaFakturaViewModel());
-                    break;
-                case "Jednostki miaryAdd":
-                    createView(new NowaJednostkaMiaryViewModel());
-                    break;
-                case "KontaktyAdd":
-                    createView(new NowyKontaktViewModel());
-                    break;
-                case "Rodzaje kontrahentówAdd":
-                    createView(new NowyRodzajKontrahentaViewModel());
-                    break;
-                case "KontrahenciAdd":
-                    createView(new NowyKontrahentViewModel());
-                    break;
-                case "KrajeAdd":
-                    createView(new NowyKrajViewModel());
-                    break;
-                case "Typy magazynówAdd":
-                    createView(new NowyTypMagazynuViewModel());
-                    break;
-                case "MagazynyAdd":
-                    createView(new NowyMagazynViewModel());
-                    break;
-                case "PracownicyAdd":
-                    createView(new NowyPracownikViewModel());
-                    break;
-                case "Przyjecia ZewnetrzneAdd":
-                    createView(new NowePrzyjecieZewnetrzneViewModel());
-                    break;
-                case "Rodzaje płatnościAdd":
-                    createView(new NowyRodzajPlatnosciViewModel());
-                    break;
-                case "Grupy towarówAdd":
-                    createView(new NowaGrupaTowarowViewModel());
-                    break;
-                case "Stawki VATAdd":
-                    createView(new NowaStawkaVatTowarowViewModel());
-                    break;
-                case "Typy towarówAdd":
-                    createView(new NowyTypTowarowViewModel());
-                    break;
-                case "TowaryAdd":
-                    createView(new NowyTowarViewModel());
-                    break;
-                case "Rodzaje umowyAdd":
-                    createView(new NowyRodzajUmowyViewModel());
-                    break;
-                case "StanowiskaAdd":
-                    createView(new NoweStanowiskoViewModel());
-                    break;
-                case "UmowyAdd":
-                    createView(new NowaUmowaViewModel());
-                    break;
-                case "Wydania ZewnetrzneAdd":
-                    createView(new NoweWydanieZewnetrzneViewModel());
-                    break;
-                case "Zmiany cenyAdd":
-                    createView(new NowaZmianaCenyViewModel());
-                    break;
+                //case "AdresyAdd":
+                //    createView(new NowyAdresViewModel());
+                //    break;
+                //case "Kategorie fakturAdd":
+                //    createView(new NowaKategoriaFakturyViewModel());
+                //    break;
+                //case "Rodzaje fakturAdd":
+                //    createView(new NowyRodzajFakturyViewModel());
+                //    break;
+                //case "FakturyAdd":
+                //    createView(new NowaFakturaViewModel());
+                //    break;
+                //case "Jednostki miaryAdd":
+                //    createView(new NowaJednostkaMiaryViewModel());
+                //    break;
+                //case "KontaktyAdd":
+                //    createView(new NowyKontaktViewModel());
+                //    break;
+                //case "Rodzaje kontrahentówAdd":
+                //    createView(new NowyRodzajKontrahentaViewModel());
+                //    break;
+                //case "KontrahenciAdd":
+                //    createView(new NowyKontrahentViewModel());
+                //    break;
+                //case "KrajeAdd":
+                //    createView(new NowyKrajViewModel());
+                //    break;
+                //case "Typy magazynówAdd":
+                //    createView(new NowyTypMagazynuViewModel());
+                //    break;
+                //case "MagazynyAdd":
+                //    createView(new NowyMagazynViewModel());
+                //    break;
+                //case "PracownicyAdd":
+                //    createView(new NowyPracownikViewModel());
+                //    break;
+                //case "Przyjecia ZewnetrzneAdd":
+                //    createView(new NowePrzyjecieZewnetrzneViewModel());
+                //    break;
+                //case "Rodzaje płatnościAdd":
+                //    createView(new NowyRodzajPlatnosciViewModel());
+                //    break;
+                //case "Grupy towarówAdd":
+                //    createView(new NowaGrupaTowarowViewModel());
+                //    break;
+                //case "Stawki VATAdd":
+                //    createView(new NowaStawkaVatTowarowViewModel());
+                //    break;
+                //case "Typy towarówAdd":
+                //    createView(new NowyTypTowarowViewModel());
+                //    break;
+                //case "TowaryAdd":
+                //    createView(new NowyTowarViewModel());
+                //    break;
+                //case "Rodzaje umowyAdd":
+                //    createView(new NowyRodzajUmowyViewModel());
+                //    break;
+                //case "StanowiskaAdd":
+                //    createView(new NoweStanowiskoViewModel());
+                //    break;
+                //case "UmowyAdd":
+                //    createView(new NowaUmowaViewModel());
+                //    break;
+                //case "Wydania ZewnetrzneAdd":
+                //    createView(new NoweWydanieZewnetrzneViewModel());
+                //    break;
+                //case "Zmiany cenyAdd":
+                //    createView(new NowaZmianaCenyViewModel());
+                //    break;
                 #endregion
                 #region Add a foreign key through a window
                 case "KontrahenciAll":
@@ -593,11 +619,7 @@ namespace Firma.ViewModels
                     break;
                     #endregion
             }
-
         }
         #endregion
-
-
-
     }
 }

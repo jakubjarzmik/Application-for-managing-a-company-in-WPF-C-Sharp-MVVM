@@ -14,13 +14,22 @@ namespace Firma.ViewModels
     public class NowaZmianaCenyViewModel : JedenViewModel<ZmianyCeny>
     {
         #region Konstruktor
-        public NowaZmianaCenyViewModel() 
-            : base("Nowa zmiana ceny")
+        public NowaZmianaCenyViewModel() : base("Nowa zmiana ceny")
         {
             Item = new ZmianyCeny();
+            setMessengers();
+            DataObowiazywaniaOd = DateTime.Now;
+        }
+        public NowaZmianaCenyViewModel(ZmianyCeny zmianaCeny) : base("Edytuj zmianę ceny")
+        {
+            Item = zmianaCeny;
+            isEditing = true;
+            setMessengers();
+        }
+        private void setMessengers()
+        {
             Messenger.Default.Register<TowarForAllView>(this, DisplayName, getSelectedTowar);
             Messenger.Default.Register<JednostkiMiary>(this, DisplayName, getJednostkaMiary);
-            DataObowiazywaniaOd = DateTime.Now;
         }
         #endregion
         #region Properties

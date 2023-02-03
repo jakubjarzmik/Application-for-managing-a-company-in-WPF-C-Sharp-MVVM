@@ -9,6 +9,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Input;
 
 namespace Firma.ViewModels
@@ -31,6 +32,30 @@ namespace Firma.ViewModels
                 select faktura
                 );
         }
+        public override void Add()
+        {
+            Messenger.Default.Send(new NowaKategoriaFakturyViewModel());
+        }
+        public override void Edit()
+        {
+            try
+            {
+                var toEdit = JJFirmaEntities.FakturyKategorie.Where(a => a.KategoriaFakturyId == Selected.KategoriaFakturyId).FirstOrDefault();
+                Messenger.Default.Send(new NowaKategoriaFakturyViewModel(toEdit));
+                Messenger.Default.Register<FakturyKategorie>(this, toEdit, saveEdit);
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Wybierz rekord, który chcesz edytować");
+            }
+        }
+        private void saveEdit(FakturyKategorie edited)
+        {
+            edited.DataMod = DateTime.Now;
+            edited.KtoModId = 1;
+            JJFirmaEntities.SaveChanges();
+            Load();
+        }
         public override void Delete()
         {
             try
@@ -43,7 +68,10 @@ namespace Firma.ViewModels
                     Load();
                 }
             }
-            catch (Exception) { }
+            catch (Exception)
+            { 
+                MessageBox.Show("Wybierz rekord, który chcesz usunąć"); 
+            }
         }
         #endregion
     }

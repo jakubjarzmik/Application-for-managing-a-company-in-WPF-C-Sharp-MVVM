@@ -149,6 +149,7 @@ namespace Firma.ViewModels.Abstract
         #region Fields
         public JJFirmaEntities Db { get; set; }
         public T Item { get; set; }
+        protected bool isEditing;
         #endregion
         #region Konstruktor
         public JedenViewModel(string displayName)
@@ -157,7 +158,6 @@ namespace Firma.ViewModels.Abstract
             Db = new JJFirmaEntities();
         }
         #endregion
-
         #region Helpers
         private void showKontrahenci()
         {
@@ -192,9 +192,16 @@ namespace Firma.ViewModels.Abstract
             Messenger.Default.Send("Vat" + rodzajVat + "All;" + DisplayName);
         }
         public abstract void Save();
+        private void Edit()
+        {
+            Messenger.Default.Send(Item, Item);
+        }
         private void saveAndClose()
         {
-            Save();
+            if (isEditing)
+                Edit();
+            else
+                Save();
             OnRequestClose();
         }
         #endregion

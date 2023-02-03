@@ -26,6 +26,18 @@ namespace Firma.ViewModels.Abstract
                 return _AddCommand;
             }
         }
+        private BaseCommand _EditCommand;
+        public BaseCommand EditCommand
+        {
+            get
+            {
+                if (_EditCommand == null)
+                {
+                    _EditCommand = new BaseCommand(() => Edit());
+                }
+                return _EditCommand;
+            }
+        }
         private BaseCommand _LoadCommand;
         public ICommand LoadCommand
         {
@@ -102,10 +114,8 @@ namespace Firma.ViewModels.Abstract
         }
         #endregion
         #region Helpers
-        public void Add()
-        {
-            Messenger.Default.Send(DisplayName + "Add");
-        }
+        public abstract void Add();
+        public abstract void Edit();
         public abstract void Load();
         public abstract void Delete();
         #endregion

@@ -9,13 +9,14 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace Firma.ViewModels
 {
     public class AdresyViewModel : WszystkieViewModel<AdresForAllView>
     {
         #region Konstruktor
-        public AdresyViewModel():base("Adresy")
+        public AdresyViewModel() : base("Adresy")
         {
         }
         public AdresyViewModel(string token) : base("Adresy", token)
@@ -40,7 +41,7 @@ namespace Firma.ViewModels
                 if (value != _Selected)
                 {
                     _Selected = value;
-                    Messenger.Default.Send(new AdresAndIsKor { AdresForAllView = _Selected, isAdresKor = this.isAdresKor}, token);
+                    Messenger.Default.Send(new AdresAndIsKor { AdresForAllView = _Selected, isAdresKor = this.isAdresKor }, token);
                     if (toClose)
                         OnRequestClose();
                 }
@@ -60,12 +61,36 @@ namespace Firma.ViewModels
                         Kraj = adres.Kraje.Nazwa,
                         Wojewodztwo = adres.Wojewodztwo,
                         KodPocztowy = adres.KodPocztowy,
-                        Miejscowosc= adres.Miejscowosc,
-                        Ulica=adres.Ulica,
-                        NrDomu= adres.NrDomu,
-                        NrLokalu=adres.NrLokalu
+                        Miejscowosc = adres.Miejscowosc,
+                        Ulica = adres.Ulica,
+                        NrDomu = adres.NrDomu,
+                        NrLokalu = adres.NrLokalu
                     }
                 );
+        }
+        public override void Add()
+        {
+            Messenger.Default.Send(new NowyAdresViewModel());
+        }
+        public override void Edit()
+        {
+            try
+            {
+                var toEdit = JJFirmaEntities.Adresy.Where(a => a.AdresId == Selected.AdresId).FirstOrDefault();
+                Messenger.Default.Send(new NowyAdresViewModel(toEdit));
+                Messenger.Default.Register<Adresy>(this, toEdit, saveEdit);
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Wybierz rekord, który chcesz edytować");
+            }
+        }
+        private void saveEdit(Adresy edited)
+        {
+            edited.DataMod = DateTime.Now;
+            edited.KtoModId = 1;
+            JJFirmaEntities.SaveChanges();
+            Load();
         }
         public override void Delete()
         {
@@ -75,11 +100,16 @@ namespace Firma.ViewModels
                 if (toDelete != null)
                 {
                     toDelete.CzyAktywny = false;
+                    toDelete.DataUsuniecia = DateTime.Now;
+                    toDelete.KtoUsunalId = 1;
                     JJFirmaEntities.SaveChanges();
                     Load();
                 }
             }
-            catch (Exception) { }
+            catch (Exception)
+            {
+                MessageBox.Show("Wybierz rekord, który chcesz usunąć");
+            }
         }
         #endregion
 

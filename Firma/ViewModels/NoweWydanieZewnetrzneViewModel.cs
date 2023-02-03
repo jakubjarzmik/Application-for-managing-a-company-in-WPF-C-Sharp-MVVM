@@ -14,8 +14,7 @@ namespace Firma.ViewModels
     public class NoweWydanieZewnetrzneViewModel : JedenViewModel<WydaniaZewnetrzne>
     {
         #region Konstruktor
-        public NoweWydanieZewnetrzneViewModel()
-            : base("Nowe WZ")
+        public NoweWydanieZewnetrzneViewModel() : base("Nowe WZ")
         {
             Item = new WydaniaZewnetrzne();
             Messenger.Default.Register<KontrahentForAllView>(this, DisplayName, getSelectedKontrahent);
@@ -23,6 +22,12 @@ namespace Firma.ViewModels
             DataWydania = DateTime.Now;
             MagazynId = 1;
             Numer = "WZ" + DataWystawienia.ToString("yyMMddHHmmss");
+        }
+        public NoweWydanieZewnetrzneViewModel(WydaniaZewnetrzne wydanieZewnetrzne) : base("Edytuj WZ")
+        {
+            Item = wydanieZewnetrzne;
+            isEditing= true;
+            Messenger.Default.Register<KontrahentForAllView>(this, DisplayName, getSelectedKontrahent);
         }
         #endregion
         #region Properties

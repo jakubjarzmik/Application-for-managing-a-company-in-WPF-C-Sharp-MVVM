@@ -11,10 +11,14 @@ namespace Firma.ViewModels
     public class NowyRodzajUmowyViewModel : JedenViewModel<UmowyRodzaje>
     {
         #region Konstruktor
-        public NowyRodzajUmowyViewModel() 
-            : base("Nowy rodzaj umowy")
+        public NowyRodzajUmowyViewModel() : base("Nowy rodzaj umowy")
         {
             Item = new UmowyRodzaje();
+        }
+        public NowyRodzajUmowyViewModel(UmowyRodzaje rodzajUmowy) : base("Edytuj rodzaj umowy")
+        {
+            Item = rodzajUmowy;
+            isEditing= true;
         }
         #endregion
         #region Properties

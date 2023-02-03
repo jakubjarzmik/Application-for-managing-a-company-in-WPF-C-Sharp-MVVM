@@ -15,13 +15,18 @@ namespace Firma.ViewModels
     public class NowyPracownikViewModel : JedenViewModel<Pracownicy>
     {
         #region Konstruktor
-        public NowyPracownikViewModel() 
-            : base("Nowy pracownik")
+        public NowyPracownikViewModel() : base("Nowy pracownik")
         {
             Item = new Pracownicy();
             Messenger.Default.Register<AdresAndIsKor>(this, DisplayName, getSelectedAdres);
             DataUrodzenia = DateTime.Today;
             Akronim = "  ";
+        }
+        public NowyPracownikViewModel(Pracownicy pracownik) : base("Edytuj pracownika")
+        {
+            Item = pracownik;
+            isEditing = true;
+            Messenger.Default.Register<AdresAndIsKor>(this, DisplayName, getSelectedAdres);
         }
         #endregion
         #region Properties

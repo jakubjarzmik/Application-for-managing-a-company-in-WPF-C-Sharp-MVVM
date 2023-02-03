@@ -17,6 +17,11 @@ namespace Firma.ViewModels
         {
             Item = new FakturyKategorie();
         }
+        public NowaKategoriaFakturyViewModel(FakturyKategorie kategoriaFaktury):base("Edytuj kategoria faktury")
+        {
+            Item = kategoriaFaktury;
+            isEditing= true;
+        }
         #endregion
         #region Properties
         public string Kod

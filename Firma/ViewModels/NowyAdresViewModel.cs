@@ -8,6 +8,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace Firma.ViewModels
 {
@@ -18,6 +19,14 @@ namespace Firma.ViewModels
             : base("Nowy adres")
         {
             Item = new Adresy();
+            isEditing = false;
+            Messenger.Default.Register<Kraje>(this, DisplayName, getSelectedKraj);
+        }
+        public NowyAdresViewModel(Adresy adres)
+            : base("Edytuj adres")
+        {
+            Item = adres;
+            isEditing = true;
             Messenger.Default.Register<Kraje>(this, DisplayName, getSelectedKraj);
         }
         #endregion

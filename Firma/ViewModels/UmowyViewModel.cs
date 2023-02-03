@@ -1,12 +1,14 @@
 ﻿using Firma.Models.Entities;
 using Firma.Models.EntitiesForView;
 using Firma.ViewModels.Abstract;
+using GalaSoft.MvvmLight.Messaging;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace Firma.ViewModels
 {
@@ -45,6 +47,30 @@ namespace Firma.ViewModels
                     }
                 );
         }
+        public override void Add()
+        {
+            Messenger.Default.Send(new NowaUmowaViewModel());
+        }
+        public override void Edit()
+        {
+            try
+            {
+                var toEdit = JJFirmaEntities.Umowy.Where(a => a.UmowaId == Selected.UmowaId).FirstOrDefault();
+                Messenger.Default.Send(new NowaUmowaViewModel(toEdit));
+                Messenger.Default.Register<Umowy>(this, toEdit, saveEdit);
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Wybierz rekord, który chcesz edytować");
+            }
+        }
+        private void saveEdit(Umowy edited)
+        {
+            edited.DataMod = DateTime.Now;
+            edited.KtoModId = 1;
+            JJFirmaEntities.SaveChanges();
+            Load();
+        }
         public override void Delete()
         {
             try
@@ -57,7 +83,10 @@ namespace Firma.ViewModels
                     Load();
                 }
             }
-            catch (Exception) { }
+            catch (Exception) 
+            {
+                MessageBox.Show("Wybierz rekord, który chcesz usunąć");
+            }
         }
         #endregion
 

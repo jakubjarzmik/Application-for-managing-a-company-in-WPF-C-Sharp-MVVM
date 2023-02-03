@@ -11,6 +11,7 @@ using System.Data.Metadata.Edm;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace Firma.ViewModels
 {
@@ -75,6 +76,30 @@ namespace Firma.ViewModels
                     }
                 );
         }
+        public override void Add()
+        {
+            Messenger.Default.Send(new NowyTowarViewModel());
+        }
+        public override void Edit()
+        {
+            try
+            {
+                var toEdit = JJFirmaEntities.Towary.Where(a => a.TowarId == Selected.TowarId).FirstOrDefault();
+                Messenger.Default.Send(new NowyTowarViewModel(toEdit));
+                Messenger.Default.Register<Towary>(this, toEdit, saveEdit);
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Wybierz rekord, który chcesz edytować");
+            }
+        }
+        private void saveEdit(Towary edited)
+        {
+            edited.DataMod = DateTime.Now;
+            edited.KtoModId = 1;
+            JJFirmaEntities.SaveChanges();
+            Load();
+        }
         public override void Delete()
         {
             try
@@ -87,7 +112,10 @@ namespace Firma.ViewModels
                     Load();
                 }
             }
-            catch (Exception) { }
+            catch (Exception) 
+            {
+                MessageBox.Show("Wybierz rekord, który chcesz usunąć");
+            }
         }
         #endregion
 

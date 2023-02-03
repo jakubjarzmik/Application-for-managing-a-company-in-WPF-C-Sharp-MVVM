@@ -175,6 +175,7 @@
                            Style="{StaticResource ControlStandardowy}" />
                     <TextBox Grid.Row="1"
                              Grid.Column="1"
+                             Text="{Binding Path=NazwaFiskalna, UpdateSourceTrigger=PropertyChanged}"
                              Style="{StaticResource ControlStandardowy}" />
                     <Button Grid.Row="1"
                             Grid.Column="2"

@@ -11,10 +11,14 @@ namespace Firma.ViewModels
     public class NoweStanowiskoViewModel : JedenViewModel<UmowyStanowiska>
     {
         #region Konstruktor
-        public NoweStanowiskoViewModel() 
-            : base("Nowe stanowisko")
+        public NoweStanowiskoViewModel() : base("Nowe stanowisko")
         {
             Item = new UmowyStanowiska();
+        }
+        public NoweStanowiskoViewModel(UmowyStanowiska stanowisko) : base("Edytuj stanowisko")
+        {
+            Item = stanowisko;
+            isEditing = true;
         }
         #endregion
         #region Properties

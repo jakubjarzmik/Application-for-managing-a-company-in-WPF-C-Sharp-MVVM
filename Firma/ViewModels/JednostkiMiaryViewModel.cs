@@ -8,6 +8,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace Firma.ViewModels
 {
@@ -50,6 +51,30 @@ namespace Firma.ViewModels
                     select jednmiary
                 );
         }
+        public override void Add()
+        {
+            Messenger.Default.Send(new NowaJednostkaMiaryViewModel());
+        }
+        public override void Edit()
+        {
+            try
+            {
+                var toEdit = JJFirmaEntities.JednostkiMiary.Where(a => a.JednostkaId == Selected.JednostkaId).FirstOrDefault();
+                Messenger.Default.Send(new NowaJednostkaMiaryViewModel(toEdit));
+                Messenger.Default.Register<JednostkiMiary>(this, toEdit, saveEdit);
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Wybierz rekord, który chcesz edytować");
+            }
+        }
+        private void saveEdit(JednostkiMiary edited)
+        {
+            edited.DataMod = DateTime.Now;
+            edited.KtoModId = 1;
+            JJFirmaEntities.SaveChanges();
+            Load();
+        }
         public override void Delete()
         {
             try
@@ -62,7 +87,10 @@ namespace Firma.ViewModels
                     Load();
                 }
             }
-            catch (Exception) { }
+            catch (Exception) 
+            {
+                MessageBox.Show("Wybierz rekord, który chcesz usunąć");
+            }
         }
         #endregion
 

@@ -14,14 +14,19 @@ namespace Firma.ViewModels
     public class NowaFakturaViewModel : JedenViewModel<Faktury>
     {
         #region Konstruktor
-        public NowaFakturaViewModel()
-            : base("Nowa faktura")
+        public NowaFakturaViewModel() : base("Nowa faktura")
         {
             Item = new Faktury();
             Messenger.Default.Register<KontrahentForAllView>(this, DisplayName, getSelectedKontrahent);
             DataWystawienia = DateTime.Now;
             DataSprzedazy = DateTime.Now;
             RodzajFakturyId = 1;
+        }
+        public NowaFakturaViewModel(Faktury faktura) : base("Edytuj fakture")
+        {
+            Item = faktura;
+            isEditing= true;
+            Messenger.Default.Register<KontrahentForAllView>(this, DisplayName, getSelectedKontrahent);
         }
         #endregion
         #region Properties

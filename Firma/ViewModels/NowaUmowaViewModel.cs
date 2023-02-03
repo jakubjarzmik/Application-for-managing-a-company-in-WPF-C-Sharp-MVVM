@@ -14,8 +14,7 @@ namespace Firma.ViewModels
     public class NowaUmowaViewModel : JedenViewModel<Umowy>
     {
         #region Konstruktor
-        public NowaUmowaViewModel() 
-            : base("Nowa umowa")
+        public NowaUmowaViewModel() : base("Nowa umowa")
         {
             Item = new Umowy();
             Messenger.Default.Register<UmowyStanowiska>(this, DisplayName, getSelectedStanowisko);
@@ -27,6 +26,12 @@ namespace Firma.ViewModels
             JestRentowe = true;
             JestWypadkowe = true;
             RodzajUmowyId = 1;
+        }
+        public NowaUmowaViewModel(Umowy umowa) : base("Edytuj umowę")
+        {
+            Item = umowa;
+            isEditing = true;
+            Messenger.Default.Register<UmowyStanowiska>(this, DisplayName, getSelectedStanowisko);
         }
         #endregion
         #region Properties

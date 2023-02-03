@@ -11,10 +11,14 @@ namespace Firma.ViewModels
     public class NowaJednostkaMiaryViewModel : JedenViewModel<JednostkiMiary>
     {
         #region Konstruktor
-        public NowaJednostkaMiaryViewModel() 
-            : base("Nowa jedn. miary")
+        public NowaJednostkaMiaryViewModel() : base("Nowa jedn. miary")
         {
             Item = new JednostkiMiary();
+        }
+        public NowaJednostkaMiaryViewModel(JednostkiMiary jednostkaMiary) : base("Edytuj jedn. miary")
+        {
+            Item = jednostkaMiary;
+            isEditing= true;
         }
         #endregion
         #region Properties

@@ -14,10 +14,15 @@ namespace Firma.ViewModels
     public class NowaStawkaVatTowarowViewModel : JedenViewModel<TowaryStawkiVat>
     {
         #region Konstruktor
-        public NowaStawkaVatTowarowViewModel() 
-            : base("Nowa stawka VAT")
+        public NowaStawkaVatTowarowViewModel() : base("Nowa stawka VAT")
         {
             Item = new TowaryStawkiVat();
+            Messenger.Default.Register<Kraje>(this, DisplayName, getSelectedKraj);
+        }
+        public NowaStawkaVatTowarowViewModel(TowaryStawkiVat stawkaVat) : base("Edytuj stawkę VAT")
+        {
+            Item = stawkaVat;
+            isEditing = true;
             Messenger.Default.Register<Kraje>(this, DisplayName, getSelectedKraj);
         }
         #endregion

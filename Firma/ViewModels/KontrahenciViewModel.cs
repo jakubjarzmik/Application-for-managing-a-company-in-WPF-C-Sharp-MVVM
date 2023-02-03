@@ -9,6 +9,7 @@ using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace Firma.ViewModels
 {
@@ -63,6 +64,30 @@ namespace Firma.ViewModels
                     }
                 );
         }
+        public override void Add()
+        {
+            Messenger.Default.Send(new NowyKontrahentViewModel());
+        }
+        public override void Edit()
+        {
+            try
+            {
+                var toEdit = JJFirmaEntities.Kontrahenci.Where(a => a.KontrahentId == Selected.KontrahentId).FirstOrDefault();
+                Messenger.Default.Send(new NowyKontrahentViewModel(toEdit));
+                Messenger.Default.Register<Kontrahenci>(this, toEdit, saveEdit);
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Wybierz rekord, który chcesz edytować");
+            }
+        }
+        private void saveEdit(Kontrahenci edited)
+        {
+            edited.DataMod = DateTime.Now;
+            edited.KtoModId = 1;
+            JJFirmaEntities.SaveChanges();
+            Load();
+        }
         public override void Delete()
         {
             try
@@ -75,7 +100,10 @@ namespace Firma.ViewModels
                     Load();
                 }
             }
-            catch (Exception) { }
+            catch (Exception) 
+            {
+                MessageBox.Show("Wybierz rekord, który chcesz usunąć");
+            }
         }
         #endregion
 

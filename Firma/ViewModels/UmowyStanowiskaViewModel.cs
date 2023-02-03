@@ -7,6 +7,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace Firma.ViewModels
 {
@@ -49,6 +50,30 @@ namespace Firma.ViewModels
                     select stanowisko
                 );
         }
+        public override void Add()
+        {
+            Messenger.Default.Send(new NoweStanowiskoViewModel());
+        }
+        public override void Edit()
+        {
+            try
+            {
+                var toEdit = JJFirmaEntities.UmowyStanowiska.Where(a => a.StanowiskoId == Selected.StanowiskoId).FirstOrDefault();
+                Messenger.Default.Send(new NoweStanowiskoViewModel(toEdit));
+                Messenger.Default.Register<UmowyStanowiska>(this, toEdit, saveEdit);
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Wybierz rekord, który chcesz edytować");
+            }
+        }
+        private void saveEdit(UmowyStanowiska edited)
+        {
+            edited.DataMod = DateTime.Now;
+            edited.KtoModId = 1;
+            JJFirmaEntities.SaveChanges();
+            Load();
+        }
         public override void Delete()
         {
             try
@@ -61,7 +86,10 @@ namespace Firma.ViewModels
                     Load();
                 }
             }
-            catch (Exception) { }
+            catch (Exception) 
+            {
+                MessageBox.Show("Wybierz rekord, który chcesz usunąć");
+            }
         }
         #endregion
 

@@ -11,10 +11,14 @@ namespace Firma.ViewModels
     public class NowyRodzajPlatnosciViewModel : JedenViewModel<RodzajePlatnosci>
     {
         #region Konstruktor
-        public NowyRodzajPlatnosciViewModel() 
-            : base("Nowy rodzaj płatności")
+        public NowyRodzajPlatnosciViewModel() : base("Nowy rodzaj płatności")
         {
             Item = new RodzajePlatnosci();
+        }
+        public NowyRodzajPlatnosciViewModel(RodzajePlatnosci rodzajPlatnosci) : base("Edytuj rodzaj płatności")
+        {
+            Item = rodzajPlatnosci;
+            isEditing= true;
         }
         #endregion
         #region Properties

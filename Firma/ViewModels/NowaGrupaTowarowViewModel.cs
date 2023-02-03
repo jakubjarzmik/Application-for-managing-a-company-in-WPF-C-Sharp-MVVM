@@ -14,10 +14,15 @@ namespace Firma.ViewModels
     public class NowaGrupaTowarowViewModel : JedenViewModel<TowaryGrupy>
     {
         #region Konstruktor
-        public NowaGrupaTowarowViewModel() 
-            : base("Nowa grupa towarów")
+        public NowaGrupaTowarowViewModel() : base("Nowa grupa towarów")
         {
             Item = new TowaryGrupy();
+            Messenger.Default.Register<GrupaTowaruForAllView>(this, DisplayName, getSelectedGrupa);
+        }
+        public NowaGrupaTowarowViewModel(TowaryGrupy grupaTowaru) : base("Edytuj grupę towarów")
+        {
+            Item = grupaTowaru;
+            isEditing= true;
             Messenger.Default.Register<GrupaTowaruForAllView>(this, DisplayName, getSelectedGrupa);
         }
         #endregion

@@ -21,7 +21,8 @@
                                           Margin="0,2,0,2"
                                           Command="{Binding AddCommand}" />
                             <ToggleButton Content="Modyfikuj"
-                                          Margin="0,2,0,2" />
+                                          Margin="0,2,0,2"
+                                          Command="{Binding EditCommand}" />
                             <ToggleButton Content="Usun"
                                           Margin="0,2,0,2"
                                           Command="{Binding DeleteCommand}" />

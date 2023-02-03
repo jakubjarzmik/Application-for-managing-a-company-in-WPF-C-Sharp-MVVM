@@ -22,6 +22,14 @@ namespace Firma.ViewModels
             Messenger.Default.Register<KontrahentForAllView>(this, DisplayName, getSelectedKontrahent);
             Messenger.Default.Register<AdresAndIsKor>(this, DisplayName, getSelectedAdres);
         }
+        public NowyKontrahentViewModel(Kontrahenci kontrahent)
+            : base("Edytuj kontrahenta")
+        {
+            Item = kontrahent;
+            isEditing= true;
+            Messenger.Default.Register<KontrahentForAllView>(this, DisplayName, getSelectedKontrahent);
+            Messenger.Default.Register<AdresAndIsKor>(this, DisplayName, getSelectedAdres);
+        }
         #endregion
         #region Properties
         public string Kod

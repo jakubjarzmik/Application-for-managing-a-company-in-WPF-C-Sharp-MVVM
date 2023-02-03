@@ -11,10 +11,14 @@ namespace Firma.ViewModels
     public class NowyRodzajKontrahentaViewModel : JedenViewModel<KontrahenciRodzaje>
     {
         #region Konstruktor
-        public NowyRodzajKontrahentaViewModel() 
-            : base("Nowy rodzaj kontr.")
+        public NowyRodzajKontrahentaViewModel() : base("Nowy rodzaj kontr.")
         {
             Item = new KontrahenciRodzaje();
+        }
+        public NowyRodzajKontrahentaViewModel(KontrahenciRodzaje rodzajKontrahenta) : base("Edytuj rodzaj kontr.")
+        {
+            Item = rodzajKontrahenta;
+            isEditing = true;
         }
         #endregion
         #region Properties
@@ -26,7 +30,7 @@ namespace Firma.ViewModels
             }
             set
             {
-                if(value != Item.Nazwa)
+                if (value != Item.Nazwa)
                 {
                     Item.Nazwa = value;
                     base.OnPropertyChanged(() => Nazwa);
@@ -41,7 +45,7 @@ namespace Firma.ViewModels
             }
             set
             {
-                if(value != Item.Opis)
+                if (value != Item.Opis)
                 {
                     Item.Opis = value;
                     base.OnPropertyChanged(() => Opis);

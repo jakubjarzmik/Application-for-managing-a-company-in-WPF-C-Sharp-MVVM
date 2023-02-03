@@ -11,10 +11,14 @@ namespace Firma.ViewModels
     public class NowyKrajViewModel : JedenViewModel<Kraje>
     {
         #region Konstruktor
-        public NowyKrajViewModel() 
-            : base("Nowy kraj")
+        public NowyKrajViewModel() : base("Nowy kraj")
         {
             Item = new Kraje();
+        }
+        public NowyKrajViewModel(Kraje kraj) : base("Edytuj kraj")
+        {
+            Item = kraj;
+            isEditing = true;
         }
         #endregion
         #region Properties
@@ -26,7 +30,7 @@ namespace Firma.ViewModels
             }
             set
             {
-                if(value != Item.Nazwa)
+                if (value != Item.Nazwa)
                 {
                     Item.Nazwa = value;
                     base.OnPropertyChanged(() => Nazwa);
@@ -41,14 +45,14 @@ namespace Firma.ViewModels
             }
             set
             {
-                if(value != Item.ISO)
+                if (value != Item.ISO)
                 {
                     Item.ISO = value;
                     base.OnPropertyChanged(() => ISO);
                 }
             }
         }
-        
+
         #endregion
         #region Save
         public override void Save()

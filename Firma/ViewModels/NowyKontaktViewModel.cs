@@ -11,10 +11,14 @@ namespace Firma.ViewModels
     public class NowyKontaktViewModel : JedenViewModel<Kontakty>
     {
         #region Konstruktor
-        public NowyKontaktViewModel() 
-            : base("Nowy kontakt")
+        public NowyKontaktViewModel() : base("Nowy kontakt")
         {
             Item = new Kontakty();
+        }
+        public NowyKontaktViewModel(Kontakty kontakt) : base("Edytuj kontakt")
+        {
+            Item = kontakt;
+            isEditing= true;
         }
         #endregion
         #region Properties

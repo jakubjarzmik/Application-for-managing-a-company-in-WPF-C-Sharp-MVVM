@@ -11,10 +11,14 @@ namespace Firma.ViewModels
     public class NowyTypTowarowViewModel : JedenViewModel<TowaryTypy>
     {
         #region Konstruktor
-        public NowyTypTowarowViewModel() 
-            : base("Nowy typ towarów")
+        public NowyTypTowarowViewModel() : base("Nowy typ towarów")
         {
             Item = new TowaryTypy();
+        }
+        public NowyTypTowarowViewModel(TowaryTypy typTowarow) : base("Edytuj typ towarów")
+        {
+            Item = typTowarow;
+            isEditing= true;
         }
         #endregion
         #region Properties
