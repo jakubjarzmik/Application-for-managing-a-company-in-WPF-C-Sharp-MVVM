@@ -305,6 +305,7 @@ namespace Firma.ViewModels
                 return
                 (
                     from adres in Db.Adresy
+                    where adres.CzyAktywny == true
                     select new KeyAndValue
                     {
                         Key = adres.AdresId,

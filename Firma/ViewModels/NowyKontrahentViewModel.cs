@@ -84,6 +84,7 @@ namespace Firma.ViewModels
                 return
                 (
                     from rodzaj in Db.KontrahenciRodzaje
+                    where rodzaj.CzyAktywny == true
                     select new KeyAndValue
                     {
                         Key = rodzaj.RodzajId,
@@ -206,6 +207,7 @@ namespace Firma.ViewModels
                 return
                 (
                     from kontrahent in Db.Kontrahenci
+                    where kontrahent.CzyAktywny == true
                     select new KeyAndValue
                     {
                         Key = kontrahent.KontrahentId,
@@ -276,6 +278,7 @@ namespace Firma.ViewModels
                 return
                 (
                     from adres in Db.Adresy
+                    where adres.CzyAktywny == true
                     select new KeyAndValue
                     {
                         Key = adres.AdresId,

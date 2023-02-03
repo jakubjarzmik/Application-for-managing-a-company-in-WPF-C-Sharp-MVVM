@@ -80,6 +80,7 @@ namespace Firma.ViewModels
                 return
                 (
                     from grupa in Db.TowaryGrupy
+                    where grupa.CzyAktywny == true
                     select new KeyAndValue
                     {
                         Key = grupa.GrupaTowaruId,

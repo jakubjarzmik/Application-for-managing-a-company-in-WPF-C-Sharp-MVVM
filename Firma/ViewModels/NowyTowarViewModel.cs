@@ -87,6 +87,7 @@ namespace Firma.ViewModels
                 return
                 (
                     from grupa in Db.TowaryGrupy
+                    where grupa.CzyAktywny == true
                     select new KeyAndValue
                     {
                         Key = grupa.GrupaTowaruId,
@@ -117,6 +118,7 @@ namespace Firma.ViewModels
                 return
                 (
                     from typ in Db.TowaryTypy
+                    where typ.CzyAktywny == true
                     select new KeyAndValue
                     {
                         Key = typ.TypTowaruId,
@@ -192,6 +194,7 @@ namespace Firma.ViewModels
                 return
                 (
                     from stawka in Db.TowaryStawkiVat.AsEnumerable()
+                    where stawka.CzyAktywny == true
                     select new KeyAndValue
                     {
                         Key = stawka.StawkiVatId,
@@ -269,6 +272,7 @@ namespace Firma.ViewModels
                 return
                 (
                     from kraj in Db.Kraje
+                    where kraj.CzyAktywny == true
                     select new KeyAndValue
                     {
                         Key = kraj.KrajId,
@@ -317,6 +321,7 @@ namespace Firma.ViewModels
                 return
                 (
                     from jednostka in Db.JednostkiMiary
+                    where jednostka.CzyAktywny == true
                     select new KeyAndValue
                     {
                         Key = jednostka.JednostkaId,

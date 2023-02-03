@@ -1,4 +1,5 @@
 ﻿using Firma.Helpers;
+using Firma.Models.BusinessLogic;
 using Firma.Models.Entities;
 using Firma.Models.EntitiesForView;
 using Firma.ViewModels.Abstract;
@@ -54,6 +55,7 @@ namespace Firma.ViewModels
                 return
                 (
                     from rodzaj in Db.FakturyRodzaje
+                    where rodzaj.CzyAktywny == true
                     select new KeyAndValue
                     {
                         Key = rodzaj.RodzajFakturyId,
@@ -118,6 +120,7 @@ namespace Firma.ViewModels
                 return
                 (
                     from kontrahent in Db.Kontrahenci
+                    where kontrahent.CzyAktywny == true
                     select new KeyAndValue
                     {
                         Key = kontrahent.KontrahentId,
@@ -166,6 +169,7 @@ namespace Firma.ViewModels
                 return
                 (
                     from kategoria in Db.FakturyKategorie
+                    where kategoria.CzyAktywny == true
                     select new KeyAndValue
                     {
                         Key = kategoria.KategoriaFakturyId,
@@ -260,6 +264,7 @@ namespace Firma.ViewModels
                 return
                 (
                     from rodzaj in Db.RodzajePlatnosci
+                    where rodzaj.CzyAktywny == true
                     select new KeyAndValue
                     {
                         Key = rodzaj.RodzajPlatnosciId,

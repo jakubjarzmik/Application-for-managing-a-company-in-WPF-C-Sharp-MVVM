@@ -1,4 +1,5 @@
 ﻿using Firma.Helpers;
+using Firma.Models.BusinessLogic;
 using Firma.Models.Entities;
 using Firma.Models.EntitiesForView;
 using Firma.ViewModels.Abstract;
@@ -69,6 +70,7 @@ namespace Firma.ViewModels
                 return
                 (
                     from towar in Db.Towary
+                    where towar.CzyAktywny == true
                     select new KeyAndValue
                     {
                         Key = towar.TowarId,
@@ -132,6 +134,7 @@ namespace Firma.ViewModels
                 return
                 (
                     from jednMiary in Db.JednostkiMiary
+                    where jednMiary.CzyAktywny == true
                     select new KeyAndValue
                     {
                         Key = jednMiary.JednostkaId,

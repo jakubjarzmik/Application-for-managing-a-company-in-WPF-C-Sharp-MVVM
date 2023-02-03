@@ -95,6 +95,7 @@ namespace Firma.ViewModels
                 return
                 (
                     from typ in Db.MagazynyTypy
+                    where typ.CzyAktywny == true
                     select new KeyAndValue
                     {
                         Key = typ.TypMagazynuId,
@@ -173,6 +174,7 @@ namespace Firma.ViewModels
                 return
                 (
                     from adres in Db.Adresy
+                    where adres.CzyAktywny == true
                     select new KeyAndValue
                     {
                         Key = adres.AdresId,

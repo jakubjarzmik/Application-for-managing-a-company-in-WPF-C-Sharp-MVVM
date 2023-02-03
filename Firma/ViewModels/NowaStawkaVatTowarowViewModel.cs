@@ -50,6 +50,7 @@ namespace Firma.ViewModels
                 return
                 (
                     from kraj in Db.Kraje
+                    where kraj.CzyAktywny == true
                     select new KeyAndValue
                     {
                         Key = kraj.KrajId,

@@ -74,6 +74,7 @@ namespace Firma.ViewModels
                 return
                 (
                     from rodzaj in Db.UmowyRodzaje
+                    where rodzaj.CzyAktywny == true
                     select new KeyAndValue
                     {
                         Key = rodzaj.RodzajUmowyId,
@@ -121,6 +122,7 @@ namespace Firma.ViewModels
                 return
                 (
                     from stanowisko in Db.UmowyStanowiska
+                    where stanowisko.CzyAktywny == true
                     select new KeyAndValue
                     {
                         Key = stanowisko.StanowiskoId,

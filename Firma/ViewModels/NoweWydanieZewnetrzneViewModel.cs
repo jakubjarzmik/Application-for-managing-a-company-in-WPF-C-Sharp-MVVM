@@ -70,6 +70,7 @@ namespace Firma.ViewModels
                 return
                 (
                     from kontrahent in Db.Kontrahenci
+                    where kontrahent.CzyAktywny == true
                     select new KeyAndValue
                     {
                         Key = kontrahent.KontrahentId,
@@ -118,6 +119,7 @@ namespace Firma.ViewModels
                 return
                 (
                     from magazyn in Db.Magazyny
+                    where magazyn.CzyAktywny == true
                     select new KeyAndValue
                     {
                         Key = magazyn.MagazynId,
