@@ -18,33 +18,39 @@ namespace Firma.Models.BusinessLogic
         #region FunkcjeBiznesowe
         public decimal? SrednieWynagrodzenie(DateTime data, int? IdStanowiska)
         {
-
-            if (IdStanowiska != null)
+            try
             {
-                return
+                if (IdStanowiska != null)
+                {
+                    return
+                        (
+                            from umowa in JJFirmaEntities.Umowy
+                            where
+                            umowa.StanowiskoId == IdStanowiska &&
+                            umowa.CzyAktywny == true &&
+                            umowa.DataOd <= data &&
+                            umowa.DataDo >= data
+                            select
+                            umowa.StawkaBruttoMies + (umowa.StawkaBruttoGodz * umowa.CzasPracyMies)
+                        ).Average();
+                }
+                else
+                {
+                    return
                     (
                         from umowa in JJFirmaEntities.Umowy
                         where
-                        umowa.StanowiskoId == IdStanowiska &&
                         umowa.CzyAktywny == true &&
                         umowa.DataOd <= data &&
                         umowa.DataDo >= data
                         select
                         umowa.StawkaBruttoMies + (umowa.StawkaBruttoGodz * umowa.CzasPracyMies)
                     ).Average();
+                }
             }
-            else
+            catch (Exception)
             {
-                return
-                (
-                    from umowa in JJFirmaEntities.Umowy
-                    where
-                    umowa.CzyAktywny == true &&
-                    umowa.DataOd <= data &&
-                    umowa.DataDo >= data
-                    select
-                    umowa.StawkaBruttoMies + (umowa.StawkaBruttoGodz * umowa.CzasPracyMies)
-                ).Average();
+                return 0;
             }
         }
         #endregion

@@ -17,12 +17,21 @@ namespace Firma.ViewModels
         public NowaPozycjaPrzyjeciaZewnetrznegoViewModel() : base("Nowa pozycja PZ")
         {
             Item = new PozycjePrzyjeciaZewnetrznego();
+            IsEnabled= true;
+            setMessengers();
+        }
+        public NowaPozycjaPrzyjeciaZewnetrznegoViewModel(PrzyjeciaZewnetrzne przyjecieZewnetrzne) : base("Nowa pozycja PZ")
+        {
+            Item = new PozycjePrzyjeciaZewnetrznego();
+            PrzyjecieZewnetrzneId = przyjecieZewnetrzne.PrzyjecieZewnetrzneId;
+            IsEnabled = false;
             setMessengers();
         }
         public NowaPozycjaPrzyjeciaZewnetrznegoViewModel(PozycjePrzyjeciaZewnetrznego pozycjaPZ) : base("Edytuj pozycję PZ")
         {
             Item = pozycjaPZ;
             isEditing= true;
+            IsEnabled= false;
             setMessengers();
         }
         private void setMessengers()

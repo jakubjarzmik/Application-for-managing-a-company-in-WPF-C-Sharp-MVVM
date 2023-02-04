@@ -36,13 +36,15 @@
                     <Button Grid.Column="0"
                             Content="Wydanie zewn.:"
                             Style="{StaticResource ButtonStandardowy}"
-                            Command="{Binding ShowWydaniaZewnetrzneCommand}"/>
+                            Command="{Binding ShowWydaniaZewnetrzneCommand}"
+                            IsEnabled="{Binding IsEnabled}" />
                     <ComboBox Grid.Column="1"
                               Style="{StaticResource ControlStandardowy}"
                               ItemsSource="{Binding WydaniaZewnetrzneComboBoxItems}"
                               DisplayMemberPath="Value"
                               SelectedValuePath="Key"
-                              SelectedValue="{Binding Path=WydanieZewnetrzneId, Mode=TwoWay}"/>
+                              SelectedValue="{Binding Path=WydanieZewnetrzneId, Mode=TwoWay}"
+                              IsEnabled="{Binding IsEnabled}" />
 
                     <Label Grid.Row="1"
                            Grid.Column="0"

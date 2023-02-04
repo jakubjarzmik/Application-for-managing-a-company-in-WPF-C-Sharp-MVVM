@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Input;
 
 namespace Firma.ViewModels.Abstract
@@ -13,6 +14,30 @@ namespace Firma.ViewModels.Abstract
     public abstract class JedenViewModel<T> : WorkspaceViewModel
     {
         #region Commands
+        private BaseCommand _AddCommand;
+        public BaseCommand AddCommand
+        {
+            get
+            {
+                if (_AddCommand == null)
+                {
+                    _AddCommand = new BaseCommand(() => add());
+                }
+                return _AddCommand;
+            }
+        }
+        private BaseCommand _DeleteCommand;
+        public BaseCommand DeleteCommand
+        {
+            get
+            {
+                if (_DeleteCommand == null)
+                {
+                    _DeleteCommand = new BaseCommand(() => delete());
+                }
+                return _DeleteCommand;
+            }
+        }
         private BaseCommand _ShowFakturyCommand;
         public BaseCommand ShowFakturyCommand
         {
@@ -230,7 +255,27 @@ namespace Firma.ViewModels.Abstract
             Db = new JJFirmaEntities();
         }
         #endregion
+        #region Properties
+        private bool _isEnabled;
+        public bool IsEnabled
+        {
+            get
+            {
+                return _isEnabled;
+            }
+            set
+            {
+                if (value)
+                {
+                    _isEnabled = value;
+                    base.OnPropertyChanged(() => IsEnabled);
+                }
+            }
+        }
+        #endregion
         #region Helpers
+        protected virtual void add() { }
+        protected virtual void delete() { }
         private void showFaktury()
         {
             Messenger.Default.Send("FakturyAll;" + DisplayName);

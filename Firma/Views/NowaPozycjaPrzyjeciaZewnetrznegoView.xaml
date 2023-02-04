@@ -36,52 +36,54 @@
                     <Button Grid.Column="0"
                             Content="Przyjęcie zewn.:"
                             Style="{StaticResource ButtonStandardowy}"
-                            Command="{Binding ShowPrzyjeciaZewnetrzneCommand}"/>
+                            Command="{Binding ShowPrzyjeciaZewnetrzneCommand}"
+                            IsEnabled="{Binding IsEnabled}" />
                     <ComboBox Grid.Column="1"
                               Style="{StaticResource ControlStandardowy}"
                               ItemsSource="{Binding PrzyjeciaZewnetrzneComboBoxItems}"
                               DisplayMemberPath="Value"
                               SelectedValuePath="Key"
-                              SelectedValue="{Binding Path=PrzyjecieZewnetrzneId, Mode=TwoWay}"/>
+                              SelectedValue="{Binding Path=PrzyjecieZewnetrzneId, Mode=TwoWay}"
+                              IsEnabled="{Binding IsEnabled}" />
 
                     <Label Grid.Row="1"
                            Grid.Column="0"
                            Content="Nazwa kontrah.:"
-                           Style="{StaticResource ControlStandardowy}"/>
+                           Style="{StaticResource ControlStandardowy}" />
                     <TextBox Grid.Row="1"
                              Grid.Column="1"
                              IsEnabled="False"
                              Text="{Binding Path=PZKontrahentNazwa, UpdateSourceTrigger=PropertyChanged}"
-                             Style="{StaticResource ControlStandardowy}"/>
+                             Style="{StaticResource ControlStandardowy}" />
 
                     <Label Grid.Row="1"
                            Grid.Column="2"
                            Content="Magazyn:"
-                           Style="{StaticResource ControlStandardowy}"/>
+                           Style="{StaticResource ControlStandardowy}" />
                     <TextBox Grid.Row="1"
                              Grid.Column="3"
                              IsEnabled="False"
                              Text="{Binding Path=PZMagazynNazwa, UpdateSourceTrigger=PropertyChanged}"
-                             Style="{StaticResource ControlStandardowy}"/>
+                             Style="{StaticResource ControlStandardowy}" />
 
                     <Label Grid.Row="2"
                            Grid.Column="0"
                            Content="Data przyjecia:"
-                           Style="{StaticResource ControlStandardowy}"/>
+                           Style="{StaticResource ControlStandardowy}" />
                     <DatePicker Grid.Row="2"
-                             Grid.Column="1"
-                             IsEnabled="False"
-                             SelectedDate="{Binding Path=PZDataPrzyjecia, UpdateSourceTrigger=PropertyChanged}"
-                             Style="{StaticResource ControlStandardowy}"/>
+                                Grid.Column="1"
+                                IsEnabled="False"
+                                SelectedDate="{Binding Path=PZDataPrzyjecia, UpdateSourceTrigger=PropertyChanged}"
+                                Style="{StaticResource ControlStandardowy}" />
                     <Label Grid.Row="2"
                            Grid.Column="2"
                            Content="Rabat:"
-                           Style="{StaticResource ControlStandardowy}"/>
+                           Style="{StaticResource ControlStandardowy}" />
                     <TextBox Grid.Row="2"
                              Grid.Column="3"
                              IsEnabled="False"
                              Text="{Binding Path=PZRabat, UpdateSourceTrigger=PropertyChanged, StringFormat={}{0:N2}}"
-                             Style="{StaticResource ControlStandardowy}"/>
+                             Style="{StaticResource ControlStandardowy}" />
                 </Grid>
             </Expander>
             <Expander Grid.Row="1"
@@ -121,7 +123,7 @@
                              IsEnabled="False"
                              Text="{Binding Path=TowarNumerKatalogowy, UpdateSourceTrigger=PropertyChanged}"
                              Style="{StaticResource ControlStandardowy}" />
-                    
+
                     <Label Grid.Row="1"
                            Grid.Column="0"
                            Content="Nazwa:"
@@ -140,7 +142,7 @@
                              IsEnabled="False"
                              Text="{Binding Path=TowarGrupaNazwa, UpdateSourceTrigger=PropertyChanged}"
                              Style="{StaticResource ControlStandardowy}" />
-                    
+
                     <Label Grid.Row="2"
                            Grid.Column="0"
                            Content="Producent:"
@@ -172,7 +174,8 @@
                     </Grid.RowDefinitions>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="120" />
-                        <ColumnDefinition Width="0.3*" MinWidth="20"/>
+                        <ColumnDefinition Width="0.3*"
+                                          MinWidth="20" />
                         <ColumnDefinition Width="0.7*" />
                         <ColumnDefinition Width="120" />
                         <ColumnDefinition Width="*" />
@@ -202,7 +205,7 @@
                              Grid.Column="4"
                              Text="{Binding Path=Ilosc, UpdateSourceTrigger=PropertyChanged}"
                              Style="{StaticResource ControlStandardowy}" />
-                    
+
                     <Label Grid.Row="1"
                            Grid.Column="0"
                            Content="Cena zakupu (zł):"

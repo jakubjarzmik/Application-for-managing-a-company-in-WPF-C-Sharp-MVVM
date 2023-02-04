@@ -18,6 +18,7 @@ namespace Firma.ViewModels
         public NowePrzyjecieZewnetrzneViewModel() : base("Nowe PZ")
         {
             Item = new PrzyjeciaZewnetrzne();
+            IsEnabled = false;
             Messenger.Default.Register<KontrahentForAllView>(this, DisplayName, getSelectedKontrahent);
             DataWystawienia = DateTime.Now;
             DataPrzyjecia= DateTime.Now;
@@ -28,6 +29,7 @@ namespace Firma.ViewModels
         {
             Item = przyjecieZewnetrzne;
             isEditing = true;
+            IsEnabled = true;
             Messenger.Default.Register<KontrahentForAllView>(this, DisplayName, getSelectedKontrahent);
         }
         #endregion
@@ -242,6 +244,10 @@ namespace Firma.ViewModels
         }
         #endregion
         #region Helpers
+        protected override void add()
+        {
+            Messenger.Default.Send(new NowaPozycjaPrzyjeciaZewnetrznegoViewModel(Item));
+        }
         private void getSelectedKontrahent(KontrahentForAllView kontrahentForAllView)
         {
             KontrahentId = kontrahentForAllView.KontrahentId;

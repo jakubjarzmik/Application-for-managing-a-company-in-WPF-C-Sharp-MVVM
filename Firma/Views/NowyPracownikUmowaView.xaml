@@ -35,13 +35,15 @@
                     <Button Grid.Column="0"
                             Content="Pracownik:"
                             Style="{StaticResource ButtonStandardowy}"
-                            Command="{Binding ShowPracownicyCommand}" />
+                            Command="{Binding ShowPracownicyCommand}"
+                            IsEnabled="{Binding IsEnabled}" />
                     <ComboBox Grid.Column="1"
                               Style="{StaticResource ControlStandardowy}"
                               ItemsSource="{Binding PracownicyComboBoxItems}"
                               DisplayMemberPath="Value"
                               SelectedValuePath="Key"
-                              SelectedValue="{Binding Path=PracownikId, Mode=TwoWay}" />
+                              SelectedValue="{Binding Path=PracownikId, Mode=TwoWay}"
+                              IsEnabled="{Binding IsEnabled}" />
                     <Label Grid.Row="0"
                            Grid.Column="2"
                            Content="Adres:"

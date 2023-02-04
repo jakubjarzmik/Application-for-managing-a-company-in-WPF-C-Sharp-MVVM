@@ -155,22 +155,23 @@
             <Expander Grid.Row="3"
                       Grid.ColumnSpan="3"
                       Header="Pozycje przyjęcia zewnętrznego"
-                      IsExpanded="True">
+                      IsExpanded="{Binding IsEnabled}"
+                      IsEnabled="{Binding IsEnabled}">
                 <Grid>
                     <Grid.RowDefinitions>
                         <RowDefinition Height="Auto" />
                         <RowDefinition Height="Auto" />
                     </Grid.RowDefinitions>
                     <ToolBar Style="{StaticResource ToolBarStandardowy}">
-                        <ToggleButton>
+                        <ToggleButton Command="{Binding AddCommand}">
                             <StackPanel Style="{StaticResource StackPanelDoTabeli}">
                                 <Image Style="{StaticResource ImageToolBarStandardowy}"
-                                       Source="/Views/Content/Icons/file-document-outline.png" />
-                                <Label Content="Nowa" />
+                                       Source="/Views/Content/Icons/plus.png" />
+                                <Label Content="Dodaj" />
                             </StackPanel>
                         </ToggleButton>
                         <Separator />
-                        <ToggleButton>
+                        <ToggleButton Command="{Binding DeleteCommand}">
                             <StackPanel Style="{StaticResource StackPanelDoTabeli}">
                                 <Image Style="{StaticResource ImageToolBarStandardowy}"
                                        Source="/Views/Content/Icons/minus.png" />

@@ -27,8 +27,7 @@
                         <RowDefinition Height="Auto" />
                     </Grid.RowDefinitions>
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="30.342" />
-                        <ColumnDefinition Width="89.658" />
+                        <ColumnDefinition Width="120" />
                         <ColumnDefinition Width="*" />
                         <ColumnDefinition Width="120" />
                         <ColumnDefinition Width="*" />
@@ -37,53 +36,44 @@
                             Content="Kontrahent:"
                             Style="{StaticResource ButtonStandardowy}"
                             Command="{Binding ShowKontrahenciCommand}"
-                            Grid.ColumnSpan="2"
-                            Margin="4,0,4,0" />
-                    <ComboBox Grid.Column="2"
+                            IsEnabled="{Binding IsEnabled}" />
+                    <ComboBox Grid.Column="1"
                               Style="{StaticResource ControlStandardowy}"
                               ItemsSource="{Binding KontrahenciComboBoxItems}"
                               DisplayMemberPath="Value"
                               SelectedValuePath="Key"
                               SelectedValue="{Binding Path=KontrahentId, Mode=TwoWay}"
-                              Margin="4,0,4,0" />
+                              IsEnabled="{Binding IsEnabled}" />
 
                     <Label Grid.Row="1"
                            Grid.Column="0"
                            Content="Nazwa:"
-                           Style="{StaticResource ControlStandardowy}"
-                           Grid.ColumnSpan="2"
-                           Margin="4,0,4,0" />
+                           Style="{StaticResource ControlStandardowy}"/>
                     <TextBox Grid.Row="1"
-                             Grid.Column="2"
+                             Grid.Column="1"
                              IsEnabled="False"
                              Text="{Binding Path=KontrahentNazwa, UpdateSourceTrigger=PropertyChanged}"
-                             Style="{StaticResource ControlStandardowy}"
-                             Margin="4,0,4,0" />
+                             Style="{StaticResource ControlStandardowy}"/>
 
                     <Label Grid.Row="1"
-                           Grid.Column="3"
+                           Grid.Column="2"
                            Content="NIP:"
-                           Style="{StaticResource ControlStandardowy}"
-                           Margin="4,0,4,0" />
+                           Style="{StaticResource ControlStandardowy}"/>
                     <TextBox Grid.Row="1"
-                             Grid.Column="4"
+                             Grid.Column="3"
                              IsEnabled="False"
                              Text="{Binding Path=FakturaDataWystawienia, UpdateSourceTrigger=PropertyChanged}"
-                             Style="{StaticResource ControlStandardowy}"
-                             Margin="4,0,4,0" />
+                             Style="{StaticResource ControlStandardowy}"/>
 
                     <Label Grid.Row="2"
                            Grid.Column="0"
                            Content="Adres:"
-                           Style="{StaticResource ControlStandardowy}"
-                           Grid.ColumnSpan="2"
-                           Margin="4,0,4,0" />
+                           Style="{StaticResource ControlStandardowy}"/>
                     <TextBox Grid.Row="2"
-                             Grid.Column="2"
+                             Grid.Column="1"
                              IsEnabled="False"
                              Text="{Binding Path=KontrahentAdres, UpdateSourceTrigger=PropertyChanged}"
-                             Style="{StaticResource ControlStandardowy}"
-                             Margin="4,0,4,0" />
+                             Style="{StaticResource ControlStandardowy}"/>
                 </Grid>
             </Expander>
             <Expander Grid.Row="1"

@@ -45,8 +45,8 @@
                         <ColumnDefinition Width="*" />
                     </Grid.ColumnDefinitions>
                     <Button Content="Kontrahent:"
-                           Style="{StaticResource ButtonStandardowy}"
-                           Command="{Binding ShowKontrahenciCommand}" />
+                            Style="{StaticResource ButtonStandardowy}"
+                            Command="{Binding ShowKontrahenciCommand}" />
                     <ComboBox Grid.Column="1"
                               Style="{StaticResource ControlStandardowy}"
                               ItemsSource="{Binding KontrahenciComboBoxItems}"
@@ -155,38 +155,45 @@
             <Expander Grid.Row="3"
                       Grid.ColumnSpan="3"
                       Header="Pozycje wydania zewnętrznego"
-                      IsExpanded="True">
+                      IsExpanded="{Binding IsEnabled}"
+                      IsEnabled="{Binding IsEnabled}">
                 <Grid>
                     <Grid.RowDefinitions>
                         <RowDefinition Height="Auto" />
                         <RowDefinition Height="Auto" />
                     </Grid.RowDefinitions>
-                    <ToolBar>
-                        <ToggleButton>
-                            <StackPanel Orientation="Horizontal">
-                                <Image Source="/Views/Content/Icons/file-document-outline.png" />
-                                <Label Content="Nowa" />
+                    <ToolBar Style="{StaticResource ToolBarStandardowy}">
+                        <ToggleButton Command="{Binding AddCommand}">
+                            <StackPanel Style="{StaticResource StackPanelDoTabeli}">
+                                <Image Style="{StaticResource ImageToolBarStandardowy}"
+                                       Source="/Views/Content/Icons/plus.png" />
+                                <Label Content="Dodaj" />
                             </StackPanel>
                         </ToggleButton>
                         <Separator />
-                        <ToggleButton>
-                            <StackPanel Orientation="Horizontal">
-                                <Image Source="/Views/Content/Icons/minus.png" />
+                        <ToggleButton Command="{Binding DeleteCommand}">
+                            <StackPanel Style="{StaticResource StackPanelDoTabeli}">
+                                <Image Style="{StaticResource ImageToolBarStandardowy}"
+                                       Source="/Views/Content/Icons/minus.png" />
                                 <Label Content="Usun" />
                             </StackPanel>
                         </ToggleButton>
                     </ToolBar>
-                    <DataGrid Grid.Row="1"
-                              Name="MyGrid"
-                              Height="60">
+                    <DataGrid   Grid.Row="1"
+                                AutoGenerateColumns="False"
+                                ItemsSource="{Binding PozycjeWZList}"
+                                SelectedItem="{Binding Path=Selected, Mode=TwoWay}">
                         <DataGrid.Columns>
-                            <DataGridTextColumn Header="Towar" />
-                            <DataGridTextColumn Header="Cena" />
-                            <DataGridTextColumn Header="Rabat" />
-                            <DataGridTextColumn Header="Cena po rabacie" />
-                            <DataGridTextColumn Header="Ilosc" />
-                            <DataGridTextColumn Header="Jedn. miary" />
-                            <DataGridTextColumn Header="Wartosc" />
+                            <DataGridTextColumn Header="Numer PZ"
+                                                Binding="{Binding Path=NumerWydaniaZewnetrznego}" />
+                            <DataGridTextColumn Header="Towar"
+                                                Binding="{Binding Path=NazwaTowaru}" />
+                            <DataGridTextColumn Header="Ilosc"
+                                                Binding="{Binding Path=Ilosc}" />
+                            <DataGridTextColumn Header="Jedn. miary"
+                                                Binding="{Binding Path=JednostkaMiary}" />
+                            <DataGridTextColumn Header="Rabat"
+                                                Binding="{Binding Path=Rabat, StringFormat={}{0:N2}%}" />
                         </DataGrid.Columns>
                     </DataGrid>
                 </Grid>

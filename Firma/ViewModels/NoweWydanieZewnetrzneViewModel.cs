@@ -5,6 +5,7 @@ using Firma.ViewModels.Abstract;
 using GalaSoft.MvvmLight.Messaging;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -17,6 +18,7 @@ namespace Firma.ViewModels
         public NoweWydanieZewnetrzneViewModel() : base("Nowe WZ")
         {
             Item = new WydaniaZewnetrzne();
+            IsEnabled = false;
             Messenger.Default.Register<KontrahentForAllView>(this, DisplayName, getSelectedKontrahent);
             DataWystawienia = DateTime.Now;
             DataWydania = DateTime.Now;
@@ -27,6 +29,7 @@ namespace Firma.ViewModels
         {
             Item = wydanieZewnetrzne;
             isEditing= true;
+            IsEnabled = true;
             Messenger.Default.Register<KontrahentForAllView>(this, DisplayName, getSelectedKontrahent);
         }
         #endregion
@@ -191,9 +194,47 @@ namespace Firma.ViewModels
                 }
             }
         }
-        
+
+        #endregion
+        #region PozycjeWZProperties
+        private ObservableCollection<PozycjaWydaniaZewnetrznegoForAllView> _PozycjeWZList;
+        public ObservableCollection<PozycjaWydaniaZewnetrznegoForAllView> PozycjeWZList
+        {
+            get
+            {
+                if (_PozycjeWZList == null)
+                    Load();
+                return _PozycjeWZList;
+            }
+            set
+            {
+                _PozycjeWZList = value;
+                OnPropertyChanged(() => PozycjeWZList);
+            }
+        }
+        public void Load()
+        {
+            PozycjeWZList = new ObservableCollection<PozycjaWydaniaZewnetrznegoForAllView>
+                (
+                    from pozycja in Db.PozycjeWydaniaZewnetrznego
+                    where pozycja.CzyAktywny == true
+                    && pozycja.WydanieZewnetrzneId == Item.WydanieZewnetrzneId
+                    select new PozycjaWydaniaZewnetrznegoForAllView
+                    {
+                        NumerWydaniaZewnetrznego = pozycja.WydaniaZewnetrzne.Numer,
+                        NazwaTowaru = pozycja.Towary.Nazwa,
+                        Ilosc = pozycja.Ilosc,
+                        JednostkaMiary = pozycja.JednostkiMiary.Skrot,
+                        Rabat = pozycja.Rabat
+                    }
+                );
+        }
         #endregion
         #region Save
+        protected override void add()
+        {
+            Messenger.Default.Send(new NowaPozycjaWydaniaZewnetrznegoViewModel(Item));
+        }
         public override void Save()
         {
             Item.DataUtworzenia = DateTime.Now;

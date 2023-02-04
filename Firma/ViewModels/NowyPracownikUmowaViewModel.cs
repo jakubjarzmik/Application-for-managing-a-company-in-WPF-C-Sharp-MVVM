@@ -14,15 +14,24 @@ namespace Firma.ViewModels
     public class NowyPracownikUmowaViewModel : JedenViewModel<PracownicyUmowy>
     {
         #region Konstruktor
-        public NowyPracownikUmowaViewModel() : base("Nowy pracownik umowa")
+        public NowyPracownikUmowaViewModel() : base("Nowa umowa pracownika")
         {
             Item = new PracownicyUmowy();
+            IsEnabled = true;
             setMessengers();
         }
-        public NowyPracownikUmowaViewModel(PracownicyUmowy pracownikUmowa) : base("Edytuj pracownika umowę")
+        public NowyPracownikUmowaViewModel(Pracownicy pracownik) : base("Nowa umowa pracownika")
+        {
+            Item = new PracownicyUmowy();
+            PracownikId = pracownik.PracownikId;
+            IsEnabled = false;
+            setMessengers();
+        }
+        public NowyPracownikUmowaViewModel(PracownicyUmowy pracownikUmowa) : base("Edytuj umowę pracownika")
         {
             Item = pracownikUmowa;
             isEditing = true;
+            IsEnabled = false;
             setMessengers();
         }
         private void setMessengers()

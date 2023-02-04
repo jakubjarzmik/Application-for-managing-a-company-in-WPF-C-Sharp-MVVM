@@ -18,12 +18,14 @@ namespace Firma.ViewModels
         public NowyTowarViewModel() : base("Nowy towar")
         {
             Item = new Towary();
+            IsEnabled = false;
             setMessengers();
         }
         public NowyTowarViewModel(Towary towar) : base("Edytuj towar")
         {
             Item = towar;
             isEditing = true;
+            IsEnabled = true;
             setMessengers();
         }
         private void setMessengers()
@@ -504,6 +506,10 @@ namespace Firma.ViewModels
         }
         #endregion
         #region Helpers
+        protected override void add()
+        {
+            Messenger.Default.Send(new NowaZmianaCenyViewModel(Item));
+        }
         private void getSelectedGrupa(GrupaTowaruForAllView grupaTowaruForAllView)
         {
             GrupaTowaruId = grupaTowaruForAllView.GrupaTowaruId;

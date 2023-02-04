@@ -19,6 +19,7 @@ namespace Firma.ViewModels
         public NowaFakturaViewModel() : base("Nowa faktura")
         {
             Item = new Faktury();
+            IsEnabled = false;
             Messenger.Default.Register<KontrahentForAllView>(this, DisplayName, getSelectedKontrahent);
             DataWystawienia = DateTime.Now;
             DataSprzedazy = DateTime.Now;
@@ -27,7 +28,8 @@ namespace Firma.ViewModels
         public NowaFakturaViewModel(Faktury faktura) : base("Edytuj fakture")
         {
             Item = faktura;
-            isEditing= true;
+            isEditing = true;
+            IsEnabled = true;
             Messenger.Default.Register<KontrahentForAllView>(this, DisplayName, getSelectedKontrahent);
         }
         #endregion
@@ -314,7 +316,7 @@ namespace Firma.ViewModels
             WZList = new ObservableCollection<WydanieZewnetrzneForAllView>
                 (
                     from wz in Db.WydaniaZewnetrzne
-                    where wz.CzyAktywny == true && 
+                    where wz.CzyAktywny == true &&
                     wz.WydanieZewnetrzneId == Db.FakturyWydaniaZewnetrzne.Where(k => k.FakturaId == Item.FakturaId).Select(k => k.WydanieZewnetrzneId).FirstOrDefault()
                     select new WydanieZewnetrzneForAllView
                     {
@@ -336,6 +338,10 @@ namespace Firma.ViewModels
         }
         #endregion
         #region Helpers
+        protected override void add()
+        {
+            Messenger.Default.Send(new NowaFakturaWydanieZewnetrzneViewModel(Item));
+        }
         private void getSelectedKontrahent(KontrahentForAllView kontrahentForAllView)
         {
             KontrahentId = kontrahentForAllView.KontrahentId;

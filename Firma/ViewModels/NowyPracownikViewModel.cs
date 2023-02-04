@@ -19,6 +19,7 @@ namespace Firma.ViewModels
         public NowyPracownikViewModel() : base("Nowy pracownik")
         {
             Item = new Pracownicy();
+            IsEnabled = false;
             Messenger.Default.Register<AdresAndIsKor>(this, DisplayName, getSelectedAdres);
             DataUrodzenia = DateTime.Today;
             Akronim = "  ";
@@ -27,6 +28,7 @@ namespace Firma.ViewModels
         {
             Item = pracownik;
             isEditing = true;
+            IsEnabled = true;
             Messenger.Default.Register<AdresAndIsKor>(this, DisplayName, getSelectedAdres);
         }
         #endregion
@@ -514,6 +516,10 @@ namespace Firma.ViewModels
         }
         #endregion
         #region Helpers
+        protected override void add()
+        {
+            Messenger.Default.Send(new NowyPracownikUmowaViewModel(Item));
+        }
         private void getSelectedAdres(AdresAndIsKor adresAndIsKor)
         {
             AdresId = adresAndIsKor.AdresForAllView.AdresId;

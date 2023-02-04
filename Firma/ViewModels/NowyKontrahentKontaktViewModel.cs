@@ -17,12 +17,21 @@ namespace Firma.ViewModels
         public NowyKontrahentKontaktViewModel() : base("Nowy kontrahent kontakt")
         {
             Item = new KontrahenciKontakty();
+            IsEnabled = true;
+            setMessengers();
+        }
+        public NowyKontrahentKontaktViewModel(Kontrahenci kontrahent) : base("Nowy kontrahent kontakt")
+        {
+            Item = new KontrahenciKontakty();
+            KontrahentId = kontrahent.KontrahentId;
+            IsEnabled = false;
             setMessengers();
         }
         public NowyKontrahentKontaktViewModel(KontrahenciKontakty kontrahentKontakt) : base("Edytuj kontrahent kontakt")
         {
             Item = kontrahentKontakt;
             isEditing = true;
+            IsEnabled = false;
             setMessengers();
         }
         private void setMessengers()

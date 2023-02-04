@@ -36,14 +36,16 @@
                             Grid.Column="0"
                             Content="Faktura:"
                             Style="{StaticResource ButtonStandardowy}"
-                            Command="{Binding ShowFakturyCommand}" />
+                            Command="{Binding ShowFakturyCommand}"
+                            IsEnabled="{Binding IsEnabled}" />
                     <ComboBox Grid.Row="0"
                               Grid.Column="1"
                               Style="{StaticResource ControlStandardowy}"
                               ItemsSource="{Binding FakturyComboBoxItems}"
                               DisplayMemberPath="Value"
                               SelectedValuePath="Key"
-                              SelectedValue="{Binding Path=FakturaId, Mode=TwoWay}" />
+                              SelectedValue="{Binding Path=FakturaId, Mode=TwoWay}"
+                              IsEnabled="{Binding IsEnabled}" />
                     
                     <Label Grid.Row="1"
                            Grid.Column="0"

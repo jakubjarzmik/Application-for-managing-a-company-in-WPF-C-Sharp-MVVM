@@ -17,12 +17,21 @@ namespace Firma.ViewModels
         public NowaPozycjaWydaniaZewnetrznegoViewModel() : base("Nowa pozycja WZ")
         {
             Item = new PozycjeWydaniaZewnetrznego();
+            IsEnabled= true;
+            setMessengers();
+        }
+        public NowaPozycjaWydaniaZewnetrznegoViewModel(WydaniaZewnetrzne wydanieZewnetrzne) : base("Nowa pozycja WZ")
+        {
+            Item = new PozycjeWydaniaZewnetrznego();
+            WydanieZewnetrzneId = wydanieZewnetrzne.WydanieZewnetrzneId;
+            IsEnabled = false;
             setMessengers();
         }
         public NowaPozycjaWydaniaZewnetrznegoViewModel(PozycjeWydaniaZewnetrznego pozycjaWZ) : base("Edytuj pozycję WZ")
         {
             Item = pozycjaWZ;
             isEditing= true;
+            IsEnabled= false;
             setMessengers();
         }
         private void setMessengers()

@@ -39,14 +39,16 @@
                             Grid.Column="0"
                             Content="Towar:"
                             Style="{StaticResource ButtonStandardowy}"
-                            Command="{Binding ShowTowaryCommand}" />
+                            Command="{Binding ShowTowaryCommand}"
+                            IsEnabled="{Binding IsEnabled}" />
                     <ComboBox Grid.Row="0"
                               Grid.Column="1"
                               Style="{StaticResource ControlStandardowy}"
                               ItemsSource="{Binding TowaryComboBoxItems}"
                               DisplayMemberPath="Value"
                               SelectedValuePath="Key"
-                              SelectedValue="{Binding Path=TowarId, Mode=TwoWay}" />
+                              SelectedValue="{Binding Path=TowarId, Mode=TwoWay}"
+                              IsEnabled="{Binding IsEnabled}" />
 
                     <TextBox Grid.Row="0"
                              Grid.Column="2"

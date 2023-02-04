@@ -17,12 +17,21 @@ namespace Firma.ViewModels
         public NowaFakturaWydanieZewnetrzneViewModel() : base("Nowa faktura WZ")
         {
             Item = new FakturyWydaniaZewnetrzne();
+            IsEnabled= true;
+            setMessengers();
+        }
+        public NowaFakturaWydanieZewnetrzneViewModel(Faktury faktura) : base("Nowa faktura WZ")
+        {
+            Item = new FakturyWydaniaZewnetrzne();
+            FakturaId = faktura.FakturaId;
+            IsEnabled = false;
             setMessengers();
         }
         public NowaFakturaWydanieZewnetrzneViewModel(FakturyWydaniaZewnetrzne fakturaWZ) : base("Edytuj fakturę WZ")
         {
             Item = fakturaWZ;
             isEditing= true;
+            IsEnabled= false;
             setMessengers();
         }
         private void setMessengers()

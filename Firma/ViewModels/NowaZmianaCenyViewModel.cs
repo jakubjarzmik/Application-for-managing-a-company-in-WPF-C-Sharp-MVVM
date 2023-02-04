@@ -18,6 +18,15 @@ namespace Firma.ViewModels
         public NowaZmianaCenyViewModel() : base("Nowa zmiana ceny")
         {
             Item = new ZmianyCeny();
+            IsEnabled = true;
+            setMessengers();
+            DataObowiazywaniaOd = DateTime.Now;
+        }
+        public NowaZmianaCenyViewModel(Towary towar) : base("Nowa zmiana ceny")
+        {
+            Item = new ZmianyCeny();
+            TowarId = towar.TowarId;
+            IsEnabled = false;
             setMessengers();
             DataObowiazywaniaOd = DateTime.Now;
         }
@@ -25,6 +34,7 @@ namespace Firma.ViewModels
         {
             Item = zmianaCeny;
             isEditing = true;
+            IsEnabled = false;
             setMessengers();
         }
         private void setMessengers()

@@ -244,18 +244,27 @@
             <Expander Grid.Row="2"
                       Grid.ColumnSpan="2"
                       Header="Ceny"
-                      IsExpanded="True">
+                      IsExpanded="{Binding IsEnabled}"
+                      IsEnabled="{Binding IsEnabled}">
                 <Grid>
                     <Grid.RowDefinitions>
                         <RowDefinition Height="Auto" />
                         <RowDefinition Height="Auto" />
                     </Grid.RowDefinitions>
                     <ToolBar Style="{StaticResource ToolBarStandardowy}">
-                        <ToggleButton>
+                        <ToggleButton Command="{Binding AddCommand}">
                             <StackPanel Style="{StaticResource StackPanelDoTabeli}">
                                 <Image Style="{StaticResource ImageToolBarStandardowy}"
-                                       Source="/Views/Content/Icons/file-document-outline.png" />
-                                <Label Content="Nowa" />
+                                       Source="/Views/Content/Icons/plus.png" />
+                                <Label Content="Dodaj" />
+                            </StackPanel>
+                        </ToggleButton>
+                        <Separator />
+                        <ToggleButton Command="{Binding DeleteCommand}">
+                            <StackPanel Style="{StaticResource StackPanelDoTabeli}">
+                                <Image Style="{StaticResource ImageToolBarStandardowy}"
+                                       Source="/Views/Content/Icons/minus.png" />
+                                <Label Content="Usun" />
                             </StackPanel>
                         </ToggleButton>
                     </ToolBar>

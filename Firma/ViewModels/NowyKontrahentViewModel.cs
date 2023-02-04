@@ -20,6 +20,7 @@ namespace Firma.ViewModels
             : base("Nowy kontrahent")
         {
             Item = new Kontrahenci();
+            IsEnabled = false;
             setMessengers();
         }
         public NowyKontrahentViewModel(Kontrahenci kontrahent)
@@ -27,6 +28,7 @@ namespace Firma.ViewModels
         {
             Item = kontrahent;
             isEditing = true;
+            IsEnabled = true;
             setMessengers();
         }
         private void setMessengers()
@@ -662,6 +664,10 @@ namespace Firma.ViewModels
         }
         #endregion
         #region Helpers
+        protected override void add()
+        {
+            Messenger.Default.Send(new NowyKontrahentKontaktViewModel(Item));
+        }
         private void getSelectedKontrahent(KontrahentForAllView kontrahentForAllView)
         {
             JednostkaPodlegaPodId = kontrahentForAllView.KontrahentId;
