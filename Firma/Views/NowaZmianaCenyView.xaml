@@ -82,20 +82,20 @@
 
                     <Label Grid.Row="3"
                            Grid.Column="0"
-                           Content="Cena netto:"
+                           Content="Cena netto (zł):"
                            Style="{StaticResource ControlStandardowy}" />
                     <TextBox Grid.Row="3"
                              Grid.Column="1"
-                             Text="{Binding Path=CenaNetto, UpdateSourceTrigger=PropertyChanged}"
+                             Text="{Binding Path=CenaNetto, UpdateSourceTrigger=PropertyChanged, StringFormat={}{0:N2}}"
                              Style="{StaticResource ControlStandardowy}" />
                     <Label Grid.Row="3"
                            Grid.Column="2"
-                           Content="Cena brutto:"
+                           Content="Cena brutto (zł):"
                            Style="{StaticResource ControlStandardowy}" />
                     <TextBox Grid.Row="3"
                              Grid.Column="3"
                              IsEnabled="False"
-                             Text="{Binding Path=CenaBrutto, UpdateSourceTrigger=PropertyChanged}"
+                             Text="{Binding Path=CenaBrutto, UpdateSourceTrigger=PropertyChanged, StringFormat={}{0:N2}}"
                              Style="{StaticResource ControlStandardowy}" />
 
                     <Label Grid.Row="4"

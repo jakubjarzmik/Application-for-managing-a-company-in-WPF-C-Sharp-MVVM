@@ -18,8 +18,29 @@ namespace Firma.ViewModels
         public UmowyViewModel():base("Umowy")
         {
         }
+        public UmowyViewModel(string token):base("Umowy", token)
+        {
+        }
         #endregion
-
+        #region Properties
+        public override UmowaForAllView Selected
+        {
+            get
+            {
+                return _Selected;
+            }
+            set
+            {
+                if (value != _Selected)
+                {
+                    _Selected = value;
+                    Messenger.Default.Send(_Selected, token);
+                    if (toClose)
+                        OnRequestClose();
+                }
+            }
+        }
+        #endregion
         #region Helpers
         public override void Load()
         {
@@ -79,6 +100,8 @@ namespace Firma.ViewModels
                 if (toDelete != null)
                 {
                     toDelete.CzyAktywny = false;
+                    toDelete.DataUsuniecia = DateTime.Now;
+                    toDelete.KtoUsunalId = 1;
                     JJFirmaEntities.SaveChanges();
                     Load();
                 }

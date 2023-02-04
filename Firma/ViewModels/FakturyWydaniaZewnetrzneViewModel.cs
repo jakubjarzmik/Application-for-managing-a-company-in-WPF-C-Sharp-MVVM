@@ -39,14 +39,14 @@ namespace Firma.ViewModels
         }
         public override void Add()
         {
-            //Messenger.Default.Send(new NowaFakturaWydanieZewnetrzneViewModel());
+            Messenger.Default.Send(new NowaFakturaWydanieZewnetrzneViewModel());
         }
         public override void Edit()
         {
             try
             {
                 var toEdit = JJFirmaEntities.FakturyWydaniaZewnetrzne.Where(a => a.FakturaWZId == Selected.FakturaWZId).FirstOrDefault();
-                //Messenger.Default.Send(new NowaFakturaWydanieZewnetrzneViewModel(toEdit));
+                Messenger.Default.Send(new NowaFakturaWydanieZewnetrzneViewModel(toEdit));
                 Messenger.Default.Register<FakturyWydaniaZewnetrzne>(this, toEdit, saveEdit);
             }
             catch (Exception)
@@ -69,6 +69,8 @@ namespace Firma.ViewModels
                 if (toDelete != null)
                 {
                     toDelete.CzyAktywny = false;
+                    toDelete.DataUsuniecia = DateTime.Now;
+                    toDelete.KtoUsunalId = 1;
                     JJFirmaEntities.SaveChanges();
                     Load();
                 }

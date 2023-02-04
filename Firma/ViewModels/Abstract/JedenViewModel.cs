@@ -13,6 +13,18 @@ namespace Firma.ViewModels.Abstract
     public abstract class JedenViewModel<T> : WorkspaceViewModel
     {
         #region Commands
+        private BaseCommand _ShowFakturyCommand;
+        public BaseCommand ShowFakturyCommand
+        {
+            get
+            {
+                if (_ShowFakturyCommand == null)
+                {
+                    _ShowFakturyCommand = new BaseCommand(() => showFaktury());
+                }
+                return _ShowFakturyCommand;
+            }
+        }
         private BaseCommand _ShowKontrahenciCommand;
         public BaseCommand ShowKontrahenciCommand
         {
@@ -133,6 +145,66 @@ namespace Firma.ViewModels.Abstract
                 return _ShowVatZakCommand;
             }
         }
+        private BaseCommand _ShowWydaniaZewnetrzneCommand;
+        public BaseCommand ShowWydaniaZewnetrzneCommand
+        {
+            get
+            {
+                if (_ShowWydaniaZewnetrzneCommand == null)
+                {
+                    _ShowWydaniaZewnetrzneCommand = new BaseCommand(() => showWydaniaZewnetrzne());
+                }
+                return _ShowWydaniaZewnetrzneCommand;
+            }
+        }
+        private BaseCommand _ShowPrzyjeciaZewnetrzneCommand;
+        public BaseCommand ShowPrzyjeciaZewnetrzneCommand
+        {
+            get
+            {
+                if (_ShowPrzyjeciaZewnetrzneCommand == null)
+                {
+                    _ShowPrzyjeciaZewnetrzneCommand = new BaseCommand(() => showPrzyjeciaZewnetrzne());
+                }
+                return _ShowPrzyjeciaZewnetrzneCommand;
+            }
+        }
+        private BaseCommand _ShowKontaktyCommand;
+        public BaseCommand ShowKontaktyCommand
+        {
+            get
+            {
+                if (_ShowKontaktyCommand == null)
+                {
+                    _ShowKontaktyCommand = new BaseCommand(() => showKontakty());
+                }
+                return _ShowKontaktyCommand;
+            }
+        }
+        private BaseCommand _ShowPracownicyCommand;
+        public BaseCommand ShowPracownicyCommand
+        {
+            get
+            {
+                if (_ShowPracownicyCommand == null)
+                {
+                    _ShowPracownicyCommand = new BaseCommand(() => showPracownicy());
+                }
+                return _ShowPracownicyCommand;
+            }
+        }
+        private BaseCommand _ShowUmowyCommand;
+        public BaseCommand ShowUmowyCommand
+        {
+            get
+            {
+                if (_ShowUmowyCommand == null)
+                {
+                    _ShowUmowyCommand = new BaseCommand(() => showUmowy());
+                }
+                return _ShowUmowyCommand;
+            }
+        }
         private BaseCommand _SaveAndCloseCommand;
         public ICommand SaveAndCloseCommand
         {
@@ -159,6 +231,10 @@ namespace Firma.ViewModels.Abstract
         }
         #endregion
         #region Helpers
+        private void showFaktury()
+        {
+            Messenger.Default.Send("FakturyAll;" + DisplayName);
+        }
         private void showKontrahenci()
         {
             Messenger.Default.Send("KontrahenciAll;" + DisplayName);
@@ -190,6 +266,26 @@ namespace Firma.ViewModels.Abstract
         private void showVat(string rodzajVat)
         {
             Messenger.Default.Send("Vat" + rodzajVat + "All;" + DisplayName);
+        }
+        private void showWydaniaZewnetrzne()
+        {
+            Messenger.Default.Send("WydaniaZewnetrzneAll;" + DisplayName);
+        }
+        private void showPrzyjeciaZewnetrzne()
+        {
+            Messenger.Default.Send("PrzyjeciaZewnetrzneAll;" + DisplayName);
+        }
+        private void showKontakty()
+        {
+            Messenger.Default.Send("KontaktyAll;" + DisplayName);
+        }
+        private void showPracownicy()
+        {
+            Messenger.Default.Send("PracownicyAll;" + DisplayName);
+        }
+        private void showUmowy()
+        {
+            Messenger.Default.Send("UmowyAll;" + DisplayName);
         }
         public abstract void Save();
         private void Edit()

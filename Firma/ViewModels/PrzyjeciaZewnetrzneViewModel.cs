@@ -18,8 +18,29 @@ namespace Firma.ViewModels
         public PrzyjeciaZewnetrzneViewModel():base("Przyjecia Zewnetrzne")
         {
         }
+        public PrzyjeciaZewnetrzneViewModel(string token):base("Przyjecia Zewnetrzne", token)
+        {
+        }
         #endregion
-
+        #region Properties
+        public override PrzyjecieZewnetrzneForAllView Selected
+        {
+            get
+            {
+                return _Selected;
+            }
+            set
+            {
+                if (value != _Selected)
+                {
+                    _Selected = value;
+                    Messenger.Default.Send(_Selected, token);
+                    if (toClose)
+                        OnRequestClose();
+                }
+            }
+        }
+        #endregion
         #region Helpers
         public override void Load()
         {
@@ -71,6 +92,8 @@ namespace Firma.ViewModels
                 if (toDelete != null)
                 {
                     toDelete.CzyAktywny = false;
+                    toDelete.DataUsuniecia = DateTime.Now;
+                    toDelete.KtoUsunalId = 1;
                     JJFirmaEntities.SaveChanges();
                     Load();
                 }

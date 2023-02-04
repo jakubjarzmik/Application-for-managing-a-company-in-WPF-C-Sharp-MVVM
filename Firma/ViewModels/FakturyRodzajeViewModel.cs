@@ -63,6 +63,8 @@ namespace Firma.ViewModels
                 if (toDelete != null)
                 {
                     toDelete.CzyAktywny = false;
+                    toDelete.DataUsuniecia = DateTime.Now;
+                    toDelete.KtoUsunalId = 1;
                     JJFirmaEntities.SaveChanges();
                     Load();
                 }

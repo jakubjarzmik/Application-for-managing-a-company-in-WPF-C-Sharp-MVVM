@@ -23,7 +23,7 @@
                 <DataGridTextColumn Header="Jedn. miary"
                                     Binding="{Binding Path=JednostkaMiary}" />
                 <DataGridTextColumn Header="Rabat"
-                                    Binding="{Binding Path=Rabat}" />
+                                    Binding="{Binding Path=Rabat, StringFormat={}{0:N2}%}" />
             </DataGrid.Columns>
         </DataGrid>
     </Grid>

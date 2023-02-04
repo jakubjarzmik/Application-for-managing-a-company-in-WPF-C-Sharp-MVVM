@@ -1,53 +1,77 @@
 ﻿<UserControl x:Class="Firma.Views.SrednieWynagrodzenieView"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:local="clr-namespace:Firma.Views"
-             mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
+             mc:Ignorable="d"
+             d:DesignHeight="450"
+             d:DesignWidth="800">
     <Grid Background="White">
-        <StackPanel Margin="8" Height="175" Width="380" VerticalAlignment="Top" HorizontalAlignment="Left">
+        <StackPanel Margin="8"
+                    Height="175"
+                    Width="380"
+                    VerticalAlignment="Top"
+                    HorizontalAlignment="Left">
             <Grid>
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="33"/>
-                    <RowDefinition Height="33"/>
-                    <RowDefinition Height="33"/>
-                    <RowDefinition Height="40"/>
-                    <RowDefinition Height="33"/>
+                    <RowDefinition Height="33" />
+                    <RowDefinition Height="33" />
+                    <RowDefinition Height="33" />
+                    <RowDefinition Height="40" />
+                    <RowDefinition Height="33" />
                 </Grid.RowDefinitions>
 
-                <Label Grid.Row="0" HorizontalAlignment="Center">Średnie wynagrodzenie w firmie</Label>
+                <Label Grid.Row="0"
+                       HorizontalAlignment="Center">Średnie wynagrodzenie w firmie</Label>
                 <Grid Grid.Row="1">
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="125"/>
-                        <ColumnDefinition Width="125"/>
+                        <ColumnDefinition Width="125" />
+                        <ColumnDefinition Width="125" />
                     </Grid.ColumnDefinitions>
-                    <Label Grid.Column="0" Margin="3" Content="Data"/>
-                    <DatePicker Grid.Column="1" Margin="3" SelectedDate="{Binding Data, Mode=TwoWay}"/>
+                    <Label Grid.Column="0"
+                           Margin="3"
+                           Content="Data" />
+                    <DatePicker Grid.Column="1"
+                                Margin="3"
+                                SelectedDate="{Binding Data, Mode=TwoWay}" />
                 </Grid>
                 <Grid Grid.Row="2">
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="125"/>
-                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="125" />
+                        <ColumnDefinition Width="*" />
                     </Grid.ColumnDefinitions>
-                    <Label Grid.Column="0" Margin="3" Content="Wybierz stanowisko"/>
-                    <ComboBox Grid.Column="1" Margin="3" ItemsSource="{Binding StanowiskaComboBoxItems}" 
-                              DisplayMemberPath="Value" SelectedValuePath="Key" SelectedValue="{Binding Path=StanowiskoId,Mode=TwoWay}"/>
+                    <Label Grid.Column="0"
+                           Margin="3"
+                           Content="Wybierz stanowisko" />
+                    <ComboBox Grid.Column="1"
+                              Margin="3"
+                              ItemsSource="{Binding StanowiskaComboBoxItems}"
+                              DisplayMemberPath="Value"
+                              SelectedValuePath="Key"
+                              SelectedValue="{Binding Path=StanowiskoId,Mode=TwoWay}" />
                 </Grid>
 
-                <Button Grid.Row="3" Margin="3" Content="Oblicz" Command="{Binding ObliczCommand}"/>
+                <Button Grid.Row="3"
+                        Margin="3"
+                        Content="Oblicz"
+                        Command="{Binding ObliczCommand}" />
 
                 <Grid Grid.Row="4">
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="Auto"/>
-                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="*" />
                     </Grid.ColumnDefinitions>
-                    <Label Grid.Column="0" Margin="3" Content="Średnie wynagrodzenie wynosi: "/>
-                    <TextBox Grid.Column="1" Margin="3" IsEnabled="False" Text="{Binding  SrednieWynagrodzenie,StringFormat=N2, Mode=TwoWay}"/>
+                    <Label Grid.Column="0"
+                           Margin="3"
+                           Content="Średnie wynagrodzenie wynosi: " />
+                    <TextBox Grid.Column="1"
+                             Margin="3"
+                             IsEnabled="False"
+                             Text="{Binding  SrednieWynagrodzenie, Mode=TwoWay, StringFormat={}{0:N2}zł}" />
                 </Grid>
 
             </Grid>
-        </StackPanel>   
+        </StackPanel>
     </Grid>
 </UserControl>

@@ -20,33 +20,10 @@ namespace Firma.ViewModels
         #region Konstruktor
         public MainWindowViewModel() : base()
         {
-            Messenger.Default.Register<string>(this, open);
-            Messenger.Default.Register<NowaFakturaViewModel>(this, createView);
-            Messenger.Default.Register<NowaGrupaTowarowViewModel>(this, createView);
-            Messenger.Default.Register<NowaJednostkaMiaryViewModel>(this, createView);
-            Messenger.Default.Register<NowaKategoriaFakturyViewModel>(this, createView);
-            Messenger.Default.Register<NowaStawkaVatTowarowViewModel>(this, createView);
-            Messenger.Default.Register<NowaUmowaViewModel>(this, createView);
-            Messenger.Default.Register<NowaZmianaCenyViewModel>(this, createView);
-            Messenger.Default.Register<NowePrzyjecieZewnetrzneViewModel>(this, createView);
-            Messenger.Default.Register<NoweStanowiskoViewModel>(this, createView);
-            Messenger.Default.Register<NoweWydanieZewnetrzneViewModel>(this, createView);
-            Messenger.Default.Register<NowyAdresViewModel>(this, createView);
-            Messenger.Default.Register<NowyKontaktViewModel>(this, createView);
-            Messenger.Default.Register<NowyKontrahentViewModel>(this, createView);
-            Messenger.Default.Register<NowyKrajViewModel>(this, createView);
-            Messenger.Default.Register<NowyMagazynViewModel>(this, createView);
-            Messenger.Default.Register<NowyPracownikViewModel>(this, createView);
-            Messenger.Default.Register<NowyRodzajFakturyViewModel>(this, createView);
-            Messenger.Default.Register<NowyRodzajKontrahentaViewModel>(this, createView);
-            Messenger.Default.Register<NowyRodzajPlatnosciViewModel>(this, createView);
-            Messenger.Default.Register<NowyRodzajUmowyViewModel>(this, createView);
-            Messenger.Default.Register<NowyTowarViewModel>(this, createView);
-            Messenger.Default.Register<NowyTypMagazynuViewModel>(this, createView);
-            Messenger.Default.Register<NowyTypTowarowViewModel>(this, createView);
+            setMessengers();
         }
         #endregion
-        #region Komendy menu i paska narzedzi
+        #region Commands
         public ICommand NowyTowarCommand
         {
             get
@@ -419,8 +396,7 @@ namespace Firma.ViewModels
             }
         }
         #endregion
-
-        #region Przyciski w menu z lewej strony
+        #region Leftside menu buttons
         private ReadOnlyCollection<CommandViewModel> _Commands;
         public ReadOnlyCollection<CommandViewModel> Commands
         {
@@ -463,8 +439,7 @@ namespace Firma.ViewModels
             };
         }
         #endregion
-
-        #region Zakładki
+        #region Tabs
         private ObservableCollection<WorkspaceViewModel> _Workspaces;
         public ObservableCollection<WorkspaceViewModel> Workspaces
         {
@@ -494,8 +469,7 @@ namespace Firma.ViewModels
             this.Workspaces.Remove(workspace);
         }
         #endregion
-
-        #region Funkcje pomocnicze
+        #region Helpers
         private void createView(WorkspaceViewModel workspace)
         {
             this.Workspaces.Add(workspace);
@@ -536,78 +510,10 @@ namespace Firma.ViewModels
                 token = messageParts[1];
             switch (name)
             {
-                #region Handling the "Dodaj" button
-                //case "AdresyAdd":
-                //    createView(new NowyAdresViewModel());
-                //    break;
-                //case "Kategorie fakturAdd":
-                //    createView(new NowaKategoriaFakturyViewModel());
-                //    break;
-                //case "Rodzaje fakturAdd":
-                //    createView(new NowyRodzajFakturyViewModel());
-                //    break;
-                //case "FakturyAdd":
-                //    createView(new NowaFakturaViewModel());
-                //    break;
-                //case "Jednostki miaryAdd":
-                //    createView(new NowaJednostkaMiaryViewModel());
-                //    break;
-                //case "KontaktyAdd":
-                //    createView(new NowyKontaktViewModel());
-                //    break;
-                //case "Rodzaje kontrahentówAdd":
-                //    createView(new NowyRodzajKontrahentaViewModel());
-                //    break;
-                //case "KontrahenciAdd":
-                //    createView(new NowyKontrahentViewModel());
-                //    break;
-                //case "KrajeAdd":
-                //    createView(new NowyKrajViewModel());
-                //    break;
-                //case "Typy magazynówAdd":
-                //    createView(new NowyTypMagazynuViewModel());
-                //    break;
-                //case "MagazynyAdd":
-                //    createView(new NowyMagazynViewModel());
-                //    break;
-                //case "PracownicyAdd":
-                //    createView(new NowyPracownikViewModel());
-                //    break;
-                //case "Przyjecia ZewnetrzneAdd":
-                //    createView(new NowePrzyjecieZewnetrzneViewModel());
-                //    break;
-                //case "Rodzaje płatnościAdd":
-                //    createView(new NowyRodzajPlatnosciViewModel());
-                //    break;
-                //case "Grupy towarówAdd":
-                //    createView(new NowaGrupaTowarowViewModel());
-                //    break;
-                //case "Stawki VATAdd":
-                //    createView(new NowaStawkaVatTowarowViewModel());
-                //    break;
-                //case "Typy towarówAdd":
-                //    createView(new NowyTypTowarowViewModel());
-                //    break;
-                //case "TowaryAdd":
-                //    createView(new NowyTowarViewModel());
-                //    break;
-                //case "Rodzaje umowyAdd":
-                //    createView(new NowyRodzajUmowyViewModel());
-                //    break;
-                //case "StanowiskaAdd":
-                //    createView(new NoweStanowiskoViewModel());
-                //    break;
-                //case "UmowyAdd":
-                //    createView(new NowaUmowaViewModel());
-                //    break;
-                //case "Wydania ZewnetrzneAdd":
-                //    createView(new NoweWydanieZewnetrzneViewModel());
-                //    break;
-                //case "Zmiany cenyAdd":
-                //    createView(new NowaZmianaCenyViewModel());
-                //    break;
-                #endregion
                 #region Add a foreign key through a window
+                case "FakturyAll":
+                    createView(new FakturyViewModel(token));
+                    break;
                 case "KontrahenciAll":
                     createView(new KontrahenciViewModel(token));
                     break;
@@ -638,8 +544,55 @@ namespace Firma.ViewModels
                 case "TowaryAll":
                     createView(new TowaryViewModel(token));
                     break;
+                case "WydaniaZewnetrzneAll":
+                    createView(new WydaniaZewnetrzneViewModel(token));
+                    break;
+                case "PrzyjeciaZewnetrzneAll":
+                    createView(new PrzyjeciaZewnetrzneViewModel(token));
+                    break;
+                case "KontaktyAll":
+                    createView(new KontaktyViewModel(token));
+                    break;
+                case "PracownicyAll":
+                    createView(new PracownicyViewModel(token));
+                    break;
+                case "UmowyAll":
+                    createView(new UmowyViewModel(token));
+                    break;
                     #endregion
             }
+        }
+        private void setMessengers()
+        {
+            Messenger.Default.Register<string>(this, open);
+            Messenger.Default.Register<NowaFakturaViewModel>(this, createView);
+            Messenger.Default.Register<NowaFakturaWydanieZewnetrzneViewModel>(this, createView);
+            Messenger.Default.Register<NowaGrupaTowarowViewModel>(this, createView);
+            Messenger.Default.Register<NowaJednostkaMiaryViewModel>(this, createView);
+            Messenger.Default.Register<NowaKategoriaFakturyViewModel>(this, createView);
+            Messenger.Default.Register<NowaStawkaVatTowarowViewModel>(this, createView);
+            Messenger.Default.Register<NowaUmowaViewModel>(this, createView);
+            Messenger.Default.Register<NowaZmianaCenyViewModel>(this, createView);
+            Messenger.Default.Register<NowePrzyjecieZewnetrzneViewModel>(this, createView);
+            Messenger.Default.Register<NoweStanowiskoViewModel>(this, createView);
+            Messenger.Default.Register<NoweWydanieZewnetrzneViewModel>(this, createView);
+            Messenger.Default.Register<NowyAdresViewModel>(this, createView);
+            Messenger.Default.Register<NowyKontaktViewModel>(this, createView);
+            Messenger.Default.Register<NowyKontrahentViewModel>(this, createView);
+            Messenger.Default.Register<NowyKontrahentKontaktViewModel>(this, createView);
+            Messenger.Default.Register<NowyKrajViewModel>(this, createView);
+            Messenger.Default.Register<NowyMagazynViewModel>(this, createView);
+            Messenger.Default.Register<NowyPracownikViewModel>(this, createView);
+            Messenger.Default.Register<NowyPracownikUmowaViewModel>(this, createView);
+            Messenger.Default.Register<NowyRodzajFakturyViewModel>(this, createView);
+            Messenger.Default.Register<NowyRodzajKontrahentaViewModel>(this, createView);
+            Messenger.Default.Register<NowyRodzajPlatnosciViewModel>(this, createView);
+            Messenger.Default.Register<NowyRodzajUmowyViewModel>(this, createView);
+            Messenger.Default.Register<NowyTowarViewModel>(this, createView);
+            Messenger.Default.Register<NowaPozycjaPrzyjeciaZewnetrznegoViewModel>(this, createView);
+            Messenger.Default.Register<NowaPozycjaWydaniaZewnetrznegoViewModel>(this, createView);
+            Messenger.Default.Register<NowyTypMagazynuViewModel>(this, createView);
+            Messenger.Default.Register<NowyTypTowarowViewModel>(this, createView);
         }
         #endregion
     }

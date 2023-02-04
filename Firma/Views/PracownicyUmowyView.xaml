@@ -27,13 +27,13 @@
                 <DataGridTextColumn Header="Data zakonczenia"
                                     Binding="{Binding Path=UmowaDataDo}" />
                 <DataGridTextColumn Header="Stawka (mies)"
-                                    Binding="{Binding Path=UmowaStawkaMies}" />
+                                    Binding="{Binding Path=UmowaStawkaMies, StringFormat={}{0:N2}zł}" />
                 <DataGridTextColumn Header="Stawka (godz)"
-                                    Binding="{Binding Path=UmowaStawkaGodz}" />
+                                    Binding="{Binding Path=UmowaStawkaGodz, StringFormat={}{0:N2}zł}" />
                 <DataGridTextColumn Header="Czas pracy (mies)"
                                     Binding="{Binding Path=UmowaCzasPracyMies}" />
                 <DataGridTextColumn Header="Wartosc (mies)"
-                                    Binding="{Binding Path=UmowaWartoscMies}" />
+                                    Binding="{Binding Path=UmowaWartoscMies, StringFormat={}{0:N2}zł}" />
             </DataGrid.Columns>
         </DataGrid>
     </Grid>

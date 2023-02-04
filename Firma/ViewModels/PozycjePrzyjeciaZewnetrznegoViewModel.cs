@@ -15,7 +15,7 @@ namespace Firma.ViewModels
     public class PozycjePrzyjeciaZewnetrznegoViewModel : WszystkieViewModel<PozycjaPrzyjeciaZewnetrznegoForAllView>
     {
         #region Konstruktor
-        public PozycjePrzyjeciaZewnetrznegoViewModel():base("Pozycje PZ")
+        public PozycjePrzyjeciaZewnetrznegoViewModel() : base("Pozycje PZ")
         {
         }
         #endregion
@@ -38,20 +38,20 @@ namespace Firma.ViewModels
                         PierwotnaCenaZakupu = pozycja.PierwotnaCenaZakupu,
                         Rabat = pozycja.Rabat,
                         CenaPoRabacieZaSzt = pozycja.PierwotnaCenaZakupu * (100 - pozycja.Rabat) / 100,
-                        Wartosc = (pozycja.PierwotnaCenaZakupu * pozycja.Ilosc * (100 - pozycja.Rabat) / 100 ),
+                        Wartosc = (pozycja.PierwotnaCenaZakupu * pozycja.Ilosc * (100 - pozycja.Rabat) / 100),
                     }
                 );
         }
         public override void Add()
         {
-            //Messenger.Default.Send(new NowaPozycjaPrzyjeciaZewnetrznegoViewModel());
+            Messenger.Default.Send(new NowaPozycjaPrzyjeciaZewnetrznegoViewModel());
         }
         public override void Edit()
         {
             try
             {
                 var toEdit = JJFirmaEntities.PozycjePrzyjeciaZewnetrznego.Where(a => a.PozycjaPZId == Selected.PozycjaPZId).FirstOrDefault();
-                //Messenger.Default.Send(new NowaPozycjaPrzyjeciaZewnetrznegoViewModel(toEdit));
+                Messenger.Default.Send(new NowaPozycjaPrzyjeciaZewnetrznegoViewModel(toEdit));
                 Messenger.Default.Register<PozycjePrzyjeciaZewnetrznego>(this, toEdit, saveEdit);
             }
             catch (Exception)
@@ -74,11 +74,13 @@ namespace Firma.ViewModels
                 if (toDelete != null)
                 {
                     toDelete.CzyAktywny = false;
+                    toDelete.DataUsuniecia = DateTime.Now;
+                    toDelete.KtoUsunalId = 1;
                     JJFirmaEntities.SaveChanges();
                     Load();
                 }
             }
-            catch (Exception) 
+            catch (Exception)
             {
                 MessageBox.Show("Wybierz rekord, który chcesz usunąć");
             }

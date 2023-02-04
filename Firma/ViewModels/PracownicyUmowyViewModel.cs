@@ -48,14 +48,14 @@ namespace Firma.ViewModels
         }
         public override void Add()
         {
-            //Messenger.Default.Send(new NowyPracownikUmowaViewModel());
+            Messenger.Default.Send(new NowyPracownikUmowaViewModel());
         }
         public override void Edit()
         {
             try
             {
                 var toEdit = JJFirmaEntities.PracownicyUmowy.Where(a => a.PracownikUmowaId == Selected.PracownikUmowaId).FirstOrDefault();
-                //Messenger.Default.Send(new NowyPracownikUmowaViewModel(toEdit));
+                Messenger.Default.Send(new NowyPracownikUmowaViewModel(toEdit));
                 Messenger.Default.Register<PracownicyUmowy>(this, toEdit, saveEdit);
             }
             catch (Exception)
@@ -78,6 +78,8 @@ namespace Firma.ViewModels
                 if (toDelete != null)
                 {
                     toDelete.CzyAktywny = false;
+                    toDelete.DataUsuniecia = DateTime.Now;
+                    toDelete.KtoUsunalId = 1;
                     JJFirmaEntities.SaveChanges();
                     Load();
                 }

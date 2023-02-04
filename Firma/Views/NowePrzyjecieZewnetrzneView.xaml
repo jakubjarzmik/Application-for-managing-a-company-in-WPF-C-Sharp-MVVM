@@ -119,10 +119,10 @@
                             <ColumnDefinition Width="*" />
                             <ColumnDefinition Width="*" />
                         </Grid.ColumnDefinitions>
-                        <Label Content="Rabat:"
+                        <Label Content="Rabat (%):"
                                Style="{StaticResource ControlStandardowy}" />
                         <TextBox Grid.Column="1"
-                                 Text="{Binding Path=Rabat, UpdateSourceTrigger=PropertyChanged}"
+                                 Text="{Binding Path=Rabat, UpdateSourceTrigger=PropertyChanged, StringFormat={}{0:N2}}"
                                  Style="{StaticResource ControlStandardowy}" />
                     </Grid>
                     <Grid Grid.Column="2">
@@ -192,13 +192,13 @@
                             <DataGridTextColumn Header="Jedn. miary"
                                                 Binding="{Binding Path=JednostkaMiary}" />
                             <DataGridTextColumn Header="Cena zakupu"
-                                                Binding="{Binding Path=PierwotnaCenaZakupu}" />
+                                                Binding="{Binding Path=PierwotnaCenaZakupu, StringFormat={}{0:N2}zł}" />
                             <DataGridTextColumn Header="Rabat"
-                                                Binding="{Binding Path=Rabat}" />
+                                                Binding="{Binding Path=Rabat, StringFormat={}{0:N2}%}" />
                             <DataGridTextColumn Header="Cena po rabacie"
-                                                Binding="{Binding Path=CenaPoRabacieZaSzt}" />
+                                                Binding="{Binding Path=CenaPoRabacieZaSzt, StringFormat={}{0:N2}zł}" />
                             <DataGridTextColumn Header="Wartosc"
-                                                Binding="{Binding Path=Wartosc}" />
+                                                Binding="{Binding Path=Wartosc, StringFormat={}{0:N2}zł}" />
                         </DataGrid.Columns>
                     </DataGrid>
                 </Grid>

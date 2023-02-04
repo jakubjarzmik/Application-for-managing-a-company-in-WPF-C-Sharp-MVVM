@@ -121,6 +121,10 @@
     <DataTemplate DataType="{x:Type vm:FakturyWydaniaZewnetrzneViewModel}">
         <vw:FakturyWydaniaZewnetrzneView/>
     </DataTemplate>
+
+    <DataTemplate DataType="{x:Type vm:NowaFakturaWydanieZewnetrzneViewModel}">
+        <vw:NowaFakturaWydanieZewnetrzneView/>
+    </DataTemplate>
     
     <DataTemplate DataType="{x:Type vm:AdresyViewModel}">
         <vw:AdresyView/>
@@ -138,6 +142,10 @@
         <vw:KontrahenciKontaktyView/>
     </DataTemplate>
 
+    <DataTemplate DataType="{x:Type vm:NowyKontrahentKontaktViewModel}">
+        <vw:NowyKontrahentKontaktView/>
+    </DataTemplate>
+
     <DataTemplate DataType="{x:Type vm:MagazynyViewModel}">
         <vw:MagazynyView/>
     </DataTemplate>
@@ -150,8 +158,16 @@
         <vw:PozycjePrzyjeciaZewnetrznegoView/>
     </DataTemplate>
 
+    <DataTemplate DataType="{x:Type vm:NowaPozycjaPrzyjeciaZewnetrznegoViewModel}">
+        <vw:NowaPozycjaPrzyjeciaZewnetrznegoView/>
+    </DataTemplate>
+
     <DataTemplate DataType="{x:Type vm:PozycjeWydaniaZewnetrznegoViewModel}">
         <vw:PozycjeWydaniaZewnetrznegoView/>
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type vm:NowaPozycjaWydaniaZewnetrznegoViewModel}">
+        <vw:NowaPozycjaWydaniaZewnetrznegoView/>
     </DataTemplate>
 
     <DataTemplate DataType="{x:Type vm:PracownicyViewModel}">
@@ -160,6 +176,10 @@
 
     <DataTemplate DataType="{x:Type vm:PracownicyUmowyViewModel}">
         <vw:PracownicyUmowyView/>
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type vm:NowyPracownikUmowaViewModel}">
+        <vw:NowyPracownikUmowaView/>
     </DataTemplate>
 
     <DataTemplate DataType="{x:Type vm:NowyPracownikViewModel}">

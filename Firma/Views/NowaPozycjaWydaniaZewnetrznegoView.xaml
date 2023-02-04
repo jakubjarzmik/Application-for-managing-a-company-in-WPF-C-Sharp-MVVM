@@ -1,0 +1,218 @@
+﻿<local:JedenViewBase x:Class="Firma.Views.NowaPozycjaWydaniaZewnetrznegoView"
+                     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                     xmlns:local="clr-namespace:Firma.Views"
+                     mc:Ignorable="d"
+                     d:DesignHeight="600"
+                     d:DesignWidth="800">
+    <UserControl.Resources>
+        <ResourceDictionary Source="StyleZakladekResources.xaml" />
+    </UserControl.Resources>
+    <ScrollViewer>
+        <Grid Background="White">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <Expander Grid.Row="0"
+                      Header="Przyjecie zewnętrzne"
+                      Margin="5"
+                      IsExpanded="True">
+                <Grid Margin="5">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="120" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="120" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <Button Grid.Column="0"
+                            Content="Wydanie zewn.:"
+                            Style="{StaticResource ButtonStandardowy}"
+                            Command="{Binding ShowWydaniaZewnetrzneCommand}"/>
+                    <ComboBox Grid.Column="1"
+                              Style="{StaticResource ControlStandardowy}"
+                              ItemsSource="{Binding WydaniaZewnetrzneComboBoxItems}"
+                              DisplayMemberPath="Value"
+                              SelectedValuePath="Key"
+                              SelectedValue="{Binding Path=WydanieZewnetrzneId, Mode=TwoWay}"/>
+
+                    <Label Grid.Row="1"
+                           Grid.Column="0"
+                           Content="Nazwa kontrah.:"
+                           Style="{StaticResource ControlStandardowy}"/>
+                    <TextBox Grid.Row="1"
+                             Grid.Column="1"
+                             IsEnabled="False"
+                             Text="{Binding Path=WZKontrahentNazwa, UpdateSourceTrigger=PropertyChanged}"
+                             Style="{StaticResource ControlStandardowy}"/>
+
+                    <Label Grid.Row="1"
+                           Grid.Column="2"
+                           Content="Magazyn:"
+                           Style="{StaticResource ControlStandardowy}"/>
+                    <TextBox Grid.Row="1"
+                             Grid.Column="3"
+                             IsEnabled="False"
+                             Text="{Binding Path=WZMagazynNazwa, UpdateSourceTrigger=PropertyChanged}"
+                             Style="{StaticResource ControlStandardowy}"/>
+
+                    <Label Grid.Row="2"
+                           Grid.Column="0"
+                           Content="Data wydania:"
+                           Style="{StaticResource ControlStandardowy}"/>
+                    <DatePicker Grid.Row="2"
+                             Grid.Column="1"
+                             IsEnabled="False"
+                             SelectedDate="{Binding Path=WZDataWydania, UpdateSourceTrigger=PropertyChanged}"
+                             Style="{StaticResource ControlStandardowy}"/>
+                    <Label Grid.Row="2"
+                           Grid.Column="2"
+                           Content="Rabat:"
+                           Style="{StaticResource ControlStandardowy}"/>
+                    <TextBox Grid.Row="2"
+                             Grid.Column="3"
+                             IsEnabled="False"
+                             Text="{Binding Path=WZRabat, UpdateSourceTrigger=PropertyChanged}"
+                             Style="{StaticResource ControlStandardowy}"/>
+                </Grid>
+            </Expander>
+            <Expander Grid.Row="1"
+                      Header="Towar"
+                      Margin="5"
+                      IsExpanded="True">
+                <Grid Margin="5">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="120" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="120" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <Button Grid.Row="0"
+                            Grid.Column="0"
+                            Content="Towar:"
+                            Style="{StaticResource ButtonStandardowy}"
+                            Command="{Binding ShowTowaryCommand}" />
+                    <ComboBox Grid.Row="0"
+                              Grid.Column="1"
+                              Style="{StaticResource ControlStandardowy}"
+                              ItemsSource="{Binding TowaryComboBoxItems}"
+                              DisplayMemberPath="Value"
+                              SelectedValuePath="Key"
+                              SelectedValue="{Binding Path=TowarId, Mode=TwoWay}" />
+                    <Label Grid.Row="0"
+                           Grid.Column="2"
+                           Content="Nr katalogowy:"
+                           Style="{StaticResource ControlStandardowy}" />
+                    <TextBox Grid.Row="0"
+                             Grid.Column="3"
+                             IsEnabled="False"
+                             Text="{Binding Path=TowarNumerKatalogowy, UpdateSourceTrigger=PropertyChanged}"
+                             Style="{StaticResource ControlStandardowy}" />
+                    
+                    <Label Grid.Row="1"
+                           Grid.Column="0"
+                           Content="Nazwa:"
+                           Style="{StaticResource ControlStandardowy}" />
+                    <TextBox Grid.Row="1"
+                             Grid.Column="1"
+                             IsEnabled="False"
+                             Text="{Binding Path=TowarNazwa, UpdateSourceTrigger=PropertyChanged}"
+                             Style="{StaticResource ControlStandardowy}" />
+                    <Label Grid.Row="1"
+                           Grid.Column="2"
+                           Content="Grupa:"
+                           Style="{StaticResource ControlStandardowy}" />
+                    <TextBox Grid.Row="1"
+                             Grid.Column="3"
+                             IsEnabled="False"
+                             Text="{Binding Path=TowarGrupaNazwa, UpdateSourceTrigger=PropertyChanged}"
+                             Style="{StaticResource ControlStandardowy}" />
+                    
+                    <Label Grid.Row="2"
+                           Grid.Column="0"
+                           Content="Producent:"
+                           Style="{StaticResource ControlStandardowy}" />
+                    <TextBox Grid.Row="2"
+                             Grid.Column="1"
+                             IsEnabled="False"
+                             Text="{Binding Path=TowarProducentNazwa, UpdateSourceTrigger=PropertyChanged}"
+                             Style="{StaticResource ControlStandardowy}" />
+                    <Label Grid.Row="2"
+                           Grid.Column="2"
+                           Content="Dom. jedn. miary:"
+                           Style="{StaticResource ControlStandardowy}" />
+                    <TextBox Grid.Row="2"
+                             Grid.Column="3"
+                             IsEnabled="False"
+                             Text="{Binding Path=TowarDomJednMiaryNazwa, UpdateSourceTrigger=PropertyChanged}"
+                             Style="{StaticResource ControlStandardowy}" />
+                </Grid>
+            </Expander>
+            <Expander Grid.Row="2"
+                      Header="Wartości "
+                      Margin="5"
+                      IsExpanded="True">
+                <Grid Margin="5">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="120" />
+                        <ColumnDefinition Width="0.3*" MinWidth="20"/>
+                        <ColumnDefinition Width="0.7*" />
+                        <ColumnDefinition Width="120" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <Label Grid.Row="0"
+                            Grid.Column="0"
+                            Content="Jedn. miary:"
+                            Style="{StaticResource ControlStandardowy}" />
+                    <ComboBox Grid.Row="0"
+                              Grid.Column="1"
+                              Style="{StaticResource ControlStandardowy}"
+                              ItemsSource="{Binding JednostkiMiaryComboBoxItems}"
+                              DisplayMemberPath="Value"
+                              SelectedValuePath="Key"
+                              SelectedValue="{Binding Path=JednMiaryId, Mode=TwoWay}" />
+                    <TextBox Grid.Row="0"
+                             Grid.Column="2"
+                             IsEnabled="False"
+                             Text="{Binding Path=JednMiaryNazwa, UpdateSourceTrigger=PropertyChanged}"
+                             Style="{StaticResource ControlStandardowy}" />
+                    <Label Grid.Row="0"
+                           Grid.Column="3"
+                           Content="Ilość:"
+                           Style="{StaticResource ControlStandardowy}" />
+                    <TextBox Grid.Row="0"
+                             Grid.Column="4"
+                             Text="{Binding Path=Ilosc, UpdateSourceTrigger=PropertyChanged}"
+                             Style="{StaticResource ControlStandardowy}" />
+                    
+                    <Label Grid.Row="1"
+                           Grid.Column="0"
+                           Content="Rabat (%):"
+                           Style="{StaticResource ControlStandardowy}" />
+                    <TextBox Grid.Row="1"
+                             Grid.Column="1"
+                             Grid.ColumnSpan="2"
+                             Text="{Binding Path=Rabat, UpdateSourceTrigger=PropertyChanged}"
+                             Style="{StaticResource ControlStandardowy}" />
+                </Grid>
+            </Expander>
+        </Grid>
+    </ScrollViewer>
+</local:JedenViewBase>

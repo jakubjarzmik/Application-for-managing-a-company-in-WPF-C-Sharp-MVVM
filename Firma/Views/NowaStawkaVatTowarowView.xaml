@@ -55,7 +55,7 @@
                            Style="{StaticResource ControlStandardowy}" />
                     <TextBox Grid.Row="1"
                              Grid.Column="1"
-                             Text="{Binding Path=Stawka, UpdateSourceTrigger=PropertyChanged}"
+                             Text="{Binding Path=Stawka, UpdateSourceTrigger=PropertyChanged, StringFormat={}{0:N2}}"
                              Style="{StaticResource ControlStandardowy}" />
 
                     <Label Grid.Row="2"

@@ -15,7 +15,7 @@
                 <DataGridTextColumn Header="Kraj"
                                     Binding="{Binding Path=Kraj}" />
                 <DataGridTextColumn Header="Stawka"
-                                    Binding="{Binding Path=Stawka}" />
+                                    Binding="{Binding Path=Stawka, StringFormat={}{0:N2}%}" />
                 <DataGridTextColumn Header="Opis"
                                     Binding="{Binding Path=Opis}" />
             </DataGrid.Columns>

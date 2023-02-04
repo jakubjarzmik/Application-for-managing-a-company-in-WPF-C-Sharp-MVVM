@@ -267,11 +267,11 @@
                             <DataGridTextColumn Header="Jednostka miary"
                                                 Binding="{Binding Path=JednostkaMiary}" />
                             <DataGridTextColumn Header="Cena netto"
-                                                Binding="{Binding Path=CenaNetto}" />
+                                                Binding="{Binding Path=CenaNetto, StringFormat={}{0:N2}zł}" />
                             <DataGridTextColumn Header="Cena brutto"
-                                                Binding="{Binding Path=CenaBrutto}" />
+                                                Binding="{Binding Path=CenaBrutto, StringFormat={}{0:N2}zł}" />
                             <DataGridTextColumn Header="Wartosc vat"
-                                                Binding="{Binding Path=WartoscVat}" />
+                                                Binding="{Binding Path=WartoscVat, StringFormat={}{0:N2}zł}" />
                             <DataGridTextColumn Header="Data obowiazywania od"
                                                 Binding="{Binding Path=DataObowiazywaniaOd, StringFormat=dd.MM.yyyy}" />
                             <DataGridTextColumn Header="Data obowiazywania do"

@@ -119,10 +119,10 @@
                             <ColumnDefinition Width="*" />
                             <ColumnDefinition Width="*" />
                         </Grid.ColumnDefinitions>
-                        <Label Content="Rabat:"
+                        <Label Content="Rabat (%):"
                                Style="{StaticResource ControlStandardowy}" />
                         <TextBox Grid.Column="1"
-                                 Text="{Binding Path=Rabat, UpdateSourceTrigger=PropertyChanged}"
+                                 Text="{Binding Path=Rabat, UpdateSourceTrigger=PropertyChanged, StringFormat={}{0:N2}}"
                                  Style="{StaticResource ControlStandardowy}" />
                     </Grid>
                     <Grid Grid.Column="2">

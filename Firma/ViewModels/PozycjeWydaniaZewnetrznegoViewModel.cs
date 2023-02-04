@@ -41,14 +41,14 @@ namespace Firma.ViewModels
         }
         public override void Add()
         {
-            //Messenger.Default.Send(new NowaPozycjaWydaniaZewnetrznegoViewModel());
+            Messenger.Default.Send(new NowaPozycjaWydaniaZewnetrznegoViewModel());
         }
         public override void Edit()
         {
             try
             {
                 var toEdit = JJFirmaEntities.PozycjeWydaniaZewnetrznego.Where(a => a.PozycjaWZId == Selected.PozycjaWZId).FirstOrDefault();
-                //Messenger.Default.Send(new NowaPozycjaWydaniaZewnetrznegoViewModel(toEdit));
+                Messenger.Default.Send(new NowaPozycjaWydaniaZewnetrznegoViewModel(toEdit));
                 Messenger.Default.Register<PozycjeWydaniaZewnetrznego>(this, toEdit, saveEdit);
             }
             catch (Exception)
@@ -71,6 +71,8 @@ namespace Firma.ViewModels
                 if (toDelete != null)
                 {
                     toDelete.CzyAktywny = false;
+                    toDelete.DataUsuniecia = DateTime.Now;
+                    toDelete.KtoUsunalId = 1;
                     JJFirmaEntities.SaveChanges();
                     Load();
                 }

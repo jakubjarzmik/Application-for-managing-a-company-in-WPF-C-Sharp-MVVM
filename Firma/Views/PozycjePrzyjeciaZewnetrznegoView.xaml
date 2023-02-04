@@ -23,13 +23,13 @@
                 <DataGridTextColumn Header="Jedn. miary"
                                     Binding="{Binding Path=JednostkaMiary}" />
                 <DataGridTextColumn Header="Cena zakupu"
-                                    Binding="{Binding Path=PierwotnaCenaZakupu}" />
+                                    Binding="{Binding Path=PierwotnaCenaZakupu, StringFormat={}{0:N2}zł}" />
                 <DataGridTextColumn Header="Rabat"
-                                    Binding="{Binding Path=Rabat}" />
+                                    Binding="{Binding Path=Rabat, StringFormat={}{0:N2}%}" />
                 <DataGridTextColumn Header="Cena po rabacie"
-                                    Binding="{Binding Path=CenaPoRabacieZaSzt}" />
+                                    Binding="{Binding Path=CenaPoRabacieZaSzt, StringFormat={}{0:N2}zł}" />
                 <DataGridTextColumn Header="Wartosc"
-                                    Binding="{Binding Path=Wartosc}" />
+                                    Binding="{Binding Path=Wartosc, StringFormat={}{0:N2}zł}" />
             </DataGrid.Columns>
         </DataGrid>
     </Grid>
