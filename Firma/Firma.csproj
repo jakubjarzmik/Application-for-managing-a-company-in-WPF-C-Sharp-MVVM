@@ -70,6 +70,7 @@
     <None Remove="Views\Content\Icons\pz.png" />
     <None Remove="Views\Content\Icons\receipt_FILL0_wght400_GRAD0_opsz48-white.png" />
     <None Remove="Views\Content\Icons\receipt_FILL0_wght400_GRAD0_opsz48.png" />
+    <None Remove="Views\Content\Icons\refresh.png" />
     <None Remove="Views\Content\Icons\summarize_FILL0_wght400_GRAD0_opsz48.png" />
     <None Remove="Views\Content\Icons\trzy.png" />
     <None Remove="Views\Content\Icons\unarchive_FILL0_wght400_GRAD0_opsz48-white.png" />
@@ -259,6 +260,9 @@
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Views\Content\Icons\receipt_FILL0_wght400_GRAD0_opsz48.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Views\Content\Icons\refresh.png">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Views\Content\Icons\summarize_FILL0_wght400_GRAD0_opsz48.png">

@@ -46,7 +46,7 @@ namespace Firma.ViewModels
         {
             List = new ObservableCollection<PracownikForAllView>
                 (
-                    from pracownik in JJFirmaEntities.Pracownicy
+                    from pracownik in Db.Pracownicy
                     where pracownik.CzyAktywny == true
                     select new PracownikForAllView
                     {
@@ -71,7 +71,7 @@ namespace Firma.ViewModels
         {
             try
             {
-                var toEdit = JJFirmaEntities.Pracownicy.Where(a => a.PracownikId == Selected.PracownikId).FirstOrDefault();
+                var toEdit = Db.Pracownicy.Where(a => a.PracownikId == Selected.PracownikId).FirstOrDefault();
                 Messenger.Default.Send(new NowyPracownikViewModel(toEdit));
                 Messenger.Default.Register<Pracownicy>(this, toEdit, saveEdit);
             }
@@ -84,20 +84,27 @@ namespace Firma.ViewModels
         {
             edited.DataMod = DateTime.Now;
             edited.KtoModId = 1;
-            JJFirmaEntities.SaveChanges();
+            Db.SaveChanges();
             Load();
         }
         public override void Delete()
         {
             try
             {
-                var toDelete = JJFirmaEntities.Pracownicy.Where(a => a.PracownikId == Selected.PracownikId).FirstOrDefault();
+                var toDelete = Db.Pracownicy.Where(a => a.PracownikId == Selected.PracownikId).FirstOrDefault();
                 if (toDelete != null)
                 {
                     toDelete.CzyAktywny = false;
                     toDelete.DataUsuniecia = DateTime.Now;
                     toDelete.KtoUsunalId = 1;
-                    JJFirmaEntities.SaveChanges();
+                    var umowyToDelete = Db.PracownicyUmowy.Where(a => a.PracownikId == toDelete.PracownikId).ToList();
+                    foreach (var umowa in umowyToDelete)
+                    {
+                        umowa.CzyAktywny = false;
+                        umowa.DataUsuniecia = DateTime.Now;
+                        umowa.KtoUsunalId = 1;
+                    }
+                    Db.SaveChanges();
                     Load();
                 }
             }

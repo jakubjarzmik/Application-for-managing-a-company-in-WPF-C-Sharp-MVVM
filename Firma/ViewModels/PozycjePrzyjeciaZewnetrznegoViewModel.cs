@@ -25,7 +25,7 @@ namespace Firma.ViewModels
         {
             List = new ObservableCollection<PozycjaPrzyjeciaZewnetrznegoForAllView>
                 (
-                    from pozycja in JJFirmaEntities.PozycjePrzyjeciaZewnetrznego
+                    from pozycja in Db.PozycjePrzyjeciaZewnetrznego
                     where pozycja.CzyAktywny == true
                     select new PozycjaPrzyjeciaZewnetrznegoForAllView
                     {
@@ -50,7 +50,7 @@ namespace Firma.ViewModels
         {
             try
             {
-                var toEdit = JJFirmaEntities.PozycjePrzyjeciaZewnetrznego.Where(a => a.PozycjaPZId == Selected.PozycjaPZId).FirstOrDefault();
+                var toEdit = Db.PozycjePrzyjeciaZewnetrznego.Where(a => a.PozycjaPZId == Selected.PozycjaPZId).FirstOrDefault();
                 Messenger.Default.Send(new NowaPozycjaPrzyjeciaZewnetrznegoViewModel(toEdit));
                 Messenger.Default.Register<PozycjePrzyjeciaZewnetrznego>(this, toEdit, saveEdit);
             }
@@ -63,20 +63,20 @@ namespace Firma.ViewModels
         {
             edited.DataMod = DateTime.Now;
             edited.KtoModId = 1;
-            JJFirmaEntities.SaveChanges();
+            Db.SaveChanges();
             Load();
         }
         public override void Delete()
         {
             try
             {
-                var toDelete = JJFirmaEntities.PozycjePrzyjeciaZewnetrznego.Where(a => a.PozycjaPZId == Selected.PozycjaPZId).FirstOrDefault();
+                var toDelete = Db.PozycjePrzyjeciaZewnetrznego.Where(a => a.PozycjaPZId == Selected.PozycjaPZId).FirstOrDefault();
                 if (toDelete != null)
                 {
                     toDelete.CzyAktywny = false;
                     toDelete.DataUsuniecia = DateTime.Now;
                     toDelete.KtoUsunalId = 1;
-                    JJFirmaEntities.SaveChanges();
+                    Db.SaveChanges();
                     Load();
                 }
             }

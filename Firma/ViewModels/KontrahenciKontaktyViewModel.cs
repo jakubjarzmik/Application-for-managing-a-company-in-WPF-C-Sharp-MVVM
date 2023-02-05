@@ -24,7 +24,7 @@ namespace Firma.ViewModels
         {
             List = new ObservableCollection<KontrahenciKontaktyForAllView>
                 (
-                    from kontrahentKontakt in JJFirmaEntities.KontrahenciKontakty
+                    from kontrahentKontakt in Db.KontrahenciKontakty
                     where kontrahentKontakt.CzyAktywny == true
                     select new KontrahenciKontaktyForAllView
                     {
@@ -51,7 +51,7 @@ namespace Firma.ViewModels
         {
             try
             {
-                var toEdit = JJFirmaEntities.KontrahenciKontakty.Where(a => a.KontrahentKontaktId == Selected.KontrahentKontaktId).FirstOrDefault();
+                var toEdit = Db.KontrahenciKontakty.Where(a => a.KontrahentKontaktId == Selected.KontrahentKontaktId).FirstOrDefault();
                 Messenger.Default.Send(new NowyKontrahentKontaktViewModel(toEdit));
                 Messenger.Default.Register<KontrahenciKontakty>(this, toEdit, saveEdit);
             }
@@ -64,20 +64,20 @@ namespace Firma.ViewModels
         {
             edited.DataMod = DateTime.Now;
             edited.KtoModId = 1;
-            JJFirmaEntities.SaveChanges();
+            Db.SaveChanges();
             Load();
         }
         public override void Delete()
         {
             try
             {
-                var toDelete = JJFirmaEntities.KontrahenciKontakty.Where(a => a.KontrahentKontaktId == Selected.KontrahentKontaktId).FirstOrDefault();
+                var toDelete = Db.KontrahenciKontakty.Where(a => a.KontrahentKontaktId == Selected.KontrahentKontaktId).FirstOrDefault();
                 if (toDelete != null)
                 {
                     toDelete.CzyAktywny = false;
                     toDelete.DataUsuniecia = DateTime.Now;
                     toDelete.KtoUsunalId = 1;
-                    JJFirmaEntities.SaveChanges();
+                    Db.SaveChanges();
                     Load();
                 }
             }

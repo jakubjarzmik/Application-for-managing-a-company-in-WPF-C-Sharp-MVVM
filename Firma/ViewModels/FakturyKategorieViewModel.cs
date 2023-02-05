@@ -27,7 +27,7 @@ namespace Firma.ViewModels
         public override void Load()
         {
             List = new ObservableCollection<FakturyKategorie>(
-                from faktura in JJFirmaEntities.FakturyKategorie
+                from faktura in Db.FakturyKategorie
                 where faktura.CzyAktywny == true
                 select faktura
                 );
@@ -40,7 +40,7 @@ namespace Firma.ViewModels
         {
             try
             {
-                var toEdit = JJFirmaEntities.FakturyKategorie.Where(a => a.KategoriaFakturyId == Selected.KategoriaFakturyId).FirstOrDefault();
+                var toEdit = Db.FakturyKategorie.Where(a => a.KategoriaFakturyId == Selected.KategoriaFakturyId).FirstOrDefault();
                 Messenger.Default.Send(new NowaKategoriaFakturyViewModel(toEdit));
                 Messenger.Default.Register<FakturyKategorie>(this, toEdit, saveEdit);
             }
@@ -53,20 +53,20 @@ namespace Firma.ViewModels
         {
             edited.DataMod = DateTime.Now;
             edited.KtoModId = 1;
-            JJFirmaEntities.SaveChanges();
+            Db.SaveChanges();
             Load();
         }
         public override void Delete()
         {
             try
             {
-                var toDelete = JJFirmaEntities.FakturyKategorie.Where(a => a.KategoriaFakturyId == Selected.KategoriaFakturyId).FirstOrDefault();
+                var toDelete = Db.FakturyKategorie.Where(a => a.KategoriaFakturyId == Selected.KategoriaFakturyId).FirstOrDefault();
                 if (toDelete != null)
                 {
                     toDelete.CzyAktywny = false;
                     toDelete.DataUsuniecia = DateTime.Now;
                     toDelete.KtoUsunalId = 1;
-                    JJFirmaEntities.SaveChanges();
+                    Db.SaveChanges();
                     Load();
                 }
             }

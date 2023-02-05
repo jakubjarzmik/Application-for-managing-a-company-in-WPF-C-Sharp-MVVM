@@ -9,6 +9,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Input;
 
 namespace Firma.ViewModels
@@ -450,6 +451,21 @@ namespace Firma.ViewModels
         }
         #endregion
         #region UmowyProperties
+        private PracownicyUmowyForAllView _Selected;
+        public PracownicyUmowyForAllView Selected
+        {
+            get
+            {
+                return _Selected;
+            }
+            set
+            {
+                if (value != _Selected)
+                {
+                    _Selected = value;
+                }
+            }
+        }
         private ObservableCollection<PracownicyUmowyForAllView> _UmowyList;
         public ObservableCollection<PracownicyUmowyForAllView> UmowyList
         {
@@ -465,7 +481,7 @@ namespace Firma.ViewModels
                 OnPropertyChanged(() => UmowyList);
             }
         }
-        public void Load()
+        protected override void Load()
         {
             UmowyList = new ObservableCollection<PracownicyUmowyForAllView>
                 (
@@ -474,6 +490,7 @@ namespace Firma.ViewModels
                     && pracownikUmowa.PracownikId == Item.PracownikId
                     select new PracownicyUmowyForAllView
                     {
+                        PracownikUmowaId = pracownikUmowa.PracownikUmowaId,
                         UmowaNumer = pracownikUmowa.Umowy.NrUmowy,
                         UmowaRodzaj = pracownikUmowa.Umowy.UmowyRodzaje.Nazwa,
                         UmowaStanowisko = pracownikUmowa.Umowy.UmowyStanowiska.Nazwa,
@@ -485,6 +502,25 @@ namespace Firma.ViewModels
                         UmowaWartoscMies = pracownikUmowa.Umowy.StawkaBruttoMies + (pracownikUmowa.Umowy.StawkaBruttoGodz * pracownikUmowa.Umowy.CzasPracyMies)
                     }
                 );
+        }
+        protected override void delete()
+        {
+            try
+            {
+                var toDelete = Db.PracownicyUmowy.Where(a => a.PracownikUmowaId == Selected.PracownikUmowaId).FirstOrDefault();
+                if (toDelete != null)
+                {
+                    toDelete.CzyAktywny = false;
+                    toDelete.DataUsuniecia = DateTime.Now;
+                    toDelete.KtoUsunalId = 1;
+                    Db.SaveChanges();
+                    Load();
+                }
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Wybierz rekord, który chcesz usunąć ");
+            }
         }
         #endregion
         #region Save

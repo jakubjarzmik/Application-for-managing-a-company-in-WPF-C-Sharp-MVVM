@@ -9,6 +9,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Input;
 
 namespace Firma.ViewModels
@@ -605,6 +606,21 @@ namespace Firma.ViewModels
 
         #endregion
         #region KontaktyProperties
+        private KontrahenciKontaktyForAllView _Selected;
+        public KontrahenciKontaktyForAllView Selected
+        {
+            get
+            {
+                return _Selected;
+            }
+            set
+            {
+                if (value != _Selected)
+                {
+                    _Selected = value;
+                }
+            }
+        }
         private ObservableCollection<KontrahenciKontaktyForAllView> _KontaktyList;
         public ObservableCollection<KontrahenciKontaktyForAllView> KontaktyList
         {
@@ -620,7 +636,7 @@ namespace Firma.ViewModels
                 OnPropertyChanged(() => KontaktyList);
             }
         }
-        public void Load()
+        protected override void Load()
         {
             KontaktyList = new ObservableCollection<KontrahenciKontaktyForAllView>
                 (
@@ -629,6 +645,7 @@ namespace Firma.ViewModels
                     && kontrahentKontakt.KontrahentId == Item.KontrahentId
                     select new KontrahenciKontaktyForAllView
                     {
+                        KontrahentKontaktId = kontrahentKontakt.KontrahentKontaktId,
                         KontaktNazwaDzialu = kontrahentKontakt.Kontakty.NazwaDzialu,
                         KontaktOpisOsoby = kontrahentKontakt.Kontakty.OpisOsoby,
                         KontaktTelefon1 = kontrahentKontakt.Kontakty.Telefon1,
@@ -637,6 +654,25 @@ namespace Firma.ViewModels
                         KontaktEmail2 = kontrahentKontakt.Kontakty.Email2,
                     }
                 );
+        }
+        protected override void delete()
+        {
+            try
+            {
+                var toDelete = Db.KontrahenciKontakty.Where(a => a.KontrahentKontaktId == Selected.KontrahentKontaktId).FirstOrDefault();
+                if (toDelete != null)
+                {
+                    toDelete.CzyAktywny = false;
+                    toDelete.DataUsuniecia = DateTime.Now;
+                    toDelete.KtoUsunalId = 1;
+                    Db.SaveChanges();
+                    Load();
+                }
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Wybierz rekord, który chcesz usunąć ");
+            }
         }
         #endregion
         #region Save

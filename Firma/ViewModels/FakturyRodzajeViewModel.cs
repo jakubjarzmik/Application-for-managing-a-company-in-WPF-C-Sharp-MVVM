@@ -26,7 +26,7 @@ namespace Firma.ViewModels
         public override void Load()
         {
             List = new ObservableCollection<FakturyRodzaje>(
-                from rodzaj in JJFirmaEntities.FakturyRodzaje
+                from rodzaj in Db.FakturyRodzaje
                 where rodzaj.CzyAktywny == true
                 select rodzaj
                 ) ;
@@ -39,7 +39,7 @@ namespace Firma.ViewModels
         {
             try
             {
-                var toEdit = JJFirmaEntities.FakturyRodzaje.Where(a => a.RodzajFakturyId == Selected.RodzajFakturyId).FirstOrDefault();
+                var toEdit = Db.FakturyRodzaje.Where(a => a.RodzajFakturyId == Selected.RodzajFakturyId).FirstOrDefault();
                 Messenger.Default.Send(new NowyRodzajFakturyViewModel(toEdit));
                 Messenger.Default.Register<FakturyRodzaje>(this, toEdit, saveEdit);
             }
@@ -52,20 +52,20 @@ namespace Firma.ViewModels
         {
             edited.DataModyfikacji = DateTime.Now;
             edited.KtoModId = 1;
-            JJFirmaEntities.SaveChanges();
+            Db.SaveChanges();
             Load();
         }
         public override void Delete()
         {
             try
             {
-                var toDelete = JJFirmaEntities.FakturyRodzaje.Where(a => a.RodzajFakturyId == Selected.RodzajFakturyId).FirstOrDefault();
+                var toDelete = Db.FakturyRodzaje.Where(a => a.RodzajFakturyId == Selected.RodzajFakturyId).FirstOrDefault();
                 if (toDelete != null)
                 {
                     toDelete.CzyAktywny = false;
                     toDelete.DataUsuniecia = DateTime.Now;
                     toDelete.KtoUsunalId = 1;
-                    JJFirmaEntities.SaveChanges();
+                    Db.SaveChanges();
                     Load();
                 }
             }

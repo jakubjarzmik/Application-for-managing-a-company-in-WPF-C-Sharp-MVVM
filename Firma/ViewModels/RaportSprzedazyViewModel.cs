@@ -13,9 +13,30 @@ namespace Firma.ViewModels
 {
     public class RaportSprzedazyViewModel : WorkspaceViewModel
     {
-        #region Wlasciwosci
+        #region Command
+        private BaseCommand _ObliczCommand;
+        public ICommand ObliczCommand
+        {
+            get
+            {
+                if (_ObliczCommand == null)
+                    _ObliczCommand = new BaseCommand(obliczUtargClick);
+                return _ObliczCommand;
+            }
+        }
+        #endregion
+        #region Konstruktor
+        public RaportSprzedazyViewModel()
+        {
+            base.DisplayName = "Raport sprzedaży";
+            JJFirmaEntities = new JJFirmaEntities();
+            DataOd = DateTime.Now;
+            DataDo = DateTime.Now;
+            Utarg = 0;
+        }
+        #endregion
+        #region Properties
         public JJFirmaEntities JJFirmaEntities { get; set; }
-        //dla każdego pola na widoku istotnego w obliczeniach tworzymy pole i właściwośc
         private DateTime _DataOd;
         public DateTime DataOd
         {
@@ -48,28 +69,26 @@ namespace Firma.ViewModels
                 }
             }
         }
-        private int _IdTowaru;
-        public int IdTowaru
+        private int _TowarId;
+        public int TowarId
         {
             get
             {
-                return _IdTowaru;
+                return _TowarId;
             }
             set
             {
-                if (_IdTowaru != value)
+                if (_TowarId != value)
                 {
-                    _IdTowaru = value;
-                    OnPropertyChanged(() => IdTowaru);
+                    _TowarId = value;
+                    OnPropertyChanged(() => TowarId);
                 }
             }
         }
-        //dla każdego ComboBoxa w systemie należy utworzyć następujący properties
         public IQueryable<KeyAndValue> TowaryComboBoxItems
         {
             get
             {
-                //w tym miejscu wywołujemy funckję logiki biznesowej która znajduje się w klasie TowarB
                 return new TowarB(JJFirmaEntities).GetAktywneTowary();
             }
         }
@@ -90,34 +109,10 @@ namespace Firma.ViewModels
             }
         }
         #endregion
-        #region Command
-        //tworymy komendę którą podłączymy pod przycisk oblicz, która wywoła funkcję obliczUtargClick
-        private BaseCommand _ObliczCommand;
-        public ICommand ObliczCommand
-        {
-            get
-            {
-                if (_ObliczCommand == null)
-                    _ObliczCommand = new BaseCommand(obliczUtargClick);
-                return _ObliczCommand;
-            }
-        }
-        #endregion
         #region Helpers
         private void obliczUtargClick()
         {
-            //wywołujemy funkcję logiki biznesowej z klasy UtargB
-            Utarg = new UtargB(JJFirmaEntities).UtargOkresTowar(IdTowaru, DataOd, DataDo);
-        }
-        #endregion
-        #region Konstruktor
-        public RaportSprzedazyViewModel()
-        {
-            base.DisplayName = "Raport Sprzedazy";
-            JJFirmaEntities =new JJFirmaEntities();  
-            DataOd=DateTime.Now;
-            DataDo = DateTime.Now;
-            Utarg = 0;
+            Utarg = new UtargB(JJFirmaEntities).UtargOkresTowar(TowarId, DataOd, DataDo);
         }
         #endregion
     }

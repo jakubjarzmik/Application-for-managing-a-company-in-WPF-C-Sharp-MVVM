@@ -25,7 +25,7 @@ namespace Firma.ViewModels
         {
             List = new ObservableCollection<MagazynForAllView>
                 (
-                    from magazyn in JJFirmaEntities.Magazyny
+                    from magazyn in Db.Magazyny
                     where magazyn.CzyAktywny == true
                     select new MagazynForAllView
                     {
@@ -48,7 +48,7 @@ namespace Firma.ViewModels
         {
             try
             {
-                var toEdit = JJFirmaEntities.Magazyny.Where(a => a.MagazynId == Selected.MagazynId).FirstOrDefault();
+                var toEdit = Db.Magazyny.Where(a => a.MagazynId == Selected.MagazynId).FirstOrDefault();
                 Messenger.Default.Send(new NowyMagazynViewModel(toEdit));
                 Messenger.Default.Register<Magazyny>(this, toEdit, saveEdit);
             }
@@ -61,20 +61,20 @@ namespace Firma.ViewModels
         {
             edited.DataMod = DateTime.Now;
             edited.KtoModId = 1;
-            JJFirmaEntities.SaveChanges();
+            Db.SaveChanges();
             Load();
         }
         public override void Delete()
         {
             try
             {
-                var toDelete = JJFirmaEntities.Magazyny.Where(a => a.MagazynId == Selected.MagazynId).FirstOrDefault();
+                var toDelete = Db.Magazyny.Where(a => a.MagazynId == Selected.MagazynId).FirstOrDefault();
                 if (toDelete != null)
                 {
                     toDelete.CzyAktywny = false;
                     toDelete.DataUsuniecia = DateTime.Now;
                     toDelete.KtoUsunalId = 1;
-                    JJFirmaEntities.SaveChanges();
+                    Db.SaveChanges();
                     Load();
                 }
             }

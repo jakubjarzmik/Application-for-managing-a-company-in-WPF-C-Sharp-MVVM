@@ -46,7 +46,7 @@ namespace Firma.ViewModels
         {
             List = new ObservableCollection<Kraje>
                 (
-                    from kraj in JJFirmaEntities.Kraje
+                    from kraj in Db.Kraje
                     where kraj.CzyAktywny == true
                     select kraj
                 );
@@ -59,7 +59,7 @@ namespace Firma.ViewModels
         {
             try
             {
-                var toEdit = JJFirmaEntities.Kraje.Where(a => a.KrajId == Selected.KrajId).FirstOrDefault();
+                var toEdit = Db.Kraje.Where(a => a.KrajId == Selected.KrajId).FirstOrDefault();
                 Messenger.Default.Send(new NowyKrajViewModel(toEdit));
                 Messenger.Default.Register<Kraje>(this, toEdit, saveEdit);
             }
@@ -72,20 +72,20 @@ namespace Firma.ViewModels
         {
             edited.DataMod = DateTime.Now;
             edited.KtoModId = 1;
-            JJFirmaEntities.SaveChanges();
+            Db.SaveChanges();
             Load();
         }
         public override void Delete()
         {
             try
             {
-                var toDelete = JJFirmaEntities.Kraje.Where(a => a.KrajId == Selected.KrajId).FirstOrDefault();
+                var toDelete = Db.Kraje.Where(a => a.KrajId == Selected.KrajId).FirstOrDefault();
                 if (toDelete != null)
                 {
                     toDelete.CzyAktywny = false;
                     toDelete.DataUsuniecia = DateTime.Now;
                     toDelete.KtoUsunalId = 1;
-                    JJFirmaEntities.SaveChanges();
+                    Db.SaveChanges();
                     Load();
                 }
             }

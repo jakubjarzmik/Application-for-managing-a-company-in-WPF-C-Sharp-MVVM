@@ -25,7 +25,7 @@ namespace Firma.ViewModels
         {
             List = new ObservableCollection<MagazynyTypy>
                 (
-                    from typ in JJFirmaEntities.MagazynyTypy
+                    from typ in Db.MagazynyTypy
                     where typ.CzyAktywny == true
                     select typ
                 );
@@ -38,7 +38,7 @@ namespace Firma.ViewModels
         {
             try
             {
-                var toEdit = JJFirmaEntities.MagazynyTypy.Where(a => a.TypMagazynuId == Selected.TypMagazynuId).FirstOrDefault();
+                var toEdit = Db.MagazynyTypy.Where(a => a.TypMagazynuId == Selected.TypMagazynuId).FirstOrDefault();
                 Messenger.Default.Send(new NowyTypMagazynuViewModel(toEdit));
                 Messenger.Default.Register<MagazynyTypy>(this, toEdit, saveEdit);
             }
@@ -51,20 +51,20 @@ namespace Firma.ViewModels
         {
             edited.DataMod = DateTime.Now;
             edited.KtoModId = 1;
-            JJFirmaEntities.SaveChanges();
+            Db.SaveChanges();
             Load();
         }
         public override void Delete()
         {
             try
             {
-                var toDelete = JJFirmaEntities.MagazynyTypy.Where(a => a.TypMagazynuId == Selected.TypMagazynuId).FirstOrDefault();
+                var toDelete = Db.MagazynyTypy.Where(a => a.TypMagazynuId == Selected.TypMagazynuId).FirstOrDefault();
                 if (toDelete != null)
                 {
                     toDelete.CzyAktywny = false;
                     toDelete.DataUsuniecia = DateTime.Now;
                     toDelete.KtoUsunalId = 1;
-                    JJFirmaEntities.SaveChanges();
+                    Db.SaveChanges();
                     Load();
                 }
             }

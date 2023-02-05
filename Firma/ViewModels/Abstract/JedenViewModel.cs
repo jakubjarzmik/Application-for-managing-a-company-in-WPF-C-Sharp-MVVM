@@ -38,6 +38,18 @@ namespace Firma.ViewModels.Abstract
                 return _DeleteCommand;
             }
         }
+        private BaseCommand _RefreshCommand;
+        public BaseCommand RefreshCommand
+        {
+            get
+            {
+                if (_RefreshCommand == null)
+                {
+                    _RefreshCommand = new BaseCommand(() => Load());
+                }
+                return _RefreshCommand;
+            }
+        }
         private BaseCommand _ShowFakturyCommand;
         public BaseCommand ShowFakturyCommand
         {
@@ -276,6 +288,7 @@ namespace Firma.ViewModels.Abstract
         #region Helpers
         protected virtual void add() { }
         protected virtual void delete() { }
+        protected virtual void Load() { }
         private void showFaktury()
         {
             Messenger.Default.Send("FakturyAll;" + DisplayName);

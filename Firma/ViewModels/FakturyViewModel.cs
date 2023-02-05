@@ -46,7 +46,7 @@ namespace Firma.ViewModels
         {
             List = new ObservableCollection<FakturaForAllView>
                 (
-                    from faktura in JJFirmaEntities.Faktury
+                    from faktura in Db.Faktury
                     where faktura.CzyAktywny == true
                     select new FakturaForAllView
                     {
@@ -67,7 +67,7 @@ namespace Firma.ViewModels
         {
             try
             {
-                var toEdit = JJFirmaEntities.Faktury.Where(a => a.FakturaId == Selected.FakturaId).FirstOrDefault();
+                var toEdit = Db.Faktury.Where(a => a.FakturaId == Selected.FakturaId).FirstOrDefault();
                 Messenger.Default.Send(new NowaFakturaViewModel(toEdit));
                 Messenger.Default.Register<Faktury>(this, toEdit, saveEdit);
             }
@@ -80,20 +80,20 @@ namespace Firma.ViewModels
         {
             edited.DataMod = DateTime.Now;
             edited.KtoModId = 1;
-            JJFirmaEntities.SaveChanges();
+            Db.SaveChanges();
             Load();
         }
         public override void Delete()
         {
             try
             {
-                var toDelete = JJFirmaEntities.Faktury.Where(a => a.FakturaId == Selected.FakturaId).FirstOrDefault();
+                var toDelete = Db.Faktury.Where(a => a.FakturaId == Selected.FakturaId).FirstOrDefault();
                 if (toDelete != null)
                 {
                     toDelete.CzyAktywny = false;
                     toDelete.DataUsuniecia = DateTime.Now;
                     toDelete.KtoUsunalId = 1;
-                    JJFirmaEntities.SaveChanges();
+                    Db.SaveChanges();
                     Load();
                 }
             }

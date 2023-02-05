@@ -46,7 +46,7 @@ namespace Firma.ViewModels
         {
             List = new ObservableCollection<UmowaForAllView>
                 (
-                    from umowa in JJFirmaEntities.Umowy
+                    from umowa in Db.Umowy
                     where umowa.CzyAktywny == true
                     select new UmowaForAllView
                     {
@@ -76,7 +76,7 @@ namespace Firma.ViewModels
         {
             try
             {
-                var toEdit = JJFirmaEntities.Umowy.Where(a => a.UmowaId == Selected.UmowaId).FirstOrDefault();
+                var toEdit = Db.Umowy.Where(a => a.UmowaId == Selected.UmowaId).FirstOrDefault();
                 Messenger.Default.Send(new NowaUmowaViewModel(toEdit));
                 Messenger.Default.Register<Umowy>(this, toEdit, saveEdit);
             }
@@ -89,20 +89,20 @@ namespace Firma.ViewModels
         {
             edited.DataMod = DateTime.Now;
             edited.KtoModId = 1;
-            JJFirmaEntities.SaveChanges();
+            Db.SaveChanges();
             Load();
         }
         public override void Delete()
         {
             try
             {
-                var toDelete = JJFirmaEntities.Umowy.Where(a => a.UmowaId == Selected.UmowaId).FirstOrDefault();
+                var toDelete = Db.Umowy.Where(a => a.UmowaId == Selected.UmowaId).FirstOrDefault();
                 if (toDelete != null)
                 {
                     toDelete.CzyAktywny = false;
                     toDelete.DataUsuniecia = DateTime.Now;
                     toDelete.KtoUsunalId = 1;
-                    JJFirmaEntities.SaveChanges();
+                    Db.SaveChanges();
                     Load();
                 }
             }

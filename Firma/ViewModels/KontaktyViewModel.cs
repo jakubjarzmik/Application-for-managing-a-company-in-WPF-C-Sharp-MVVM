@@ -46,7 +46,7 @@ namespace Firma.ViewModels
         {
             List = new ObservableCollection<Kontakty>
                 (
-                    from kontakt in JJFirmaEntities.Kontakty
+                    from kontakt in Db.Kontakty
                     where kontakt.CzyAktywny == true
                     select kontakt
                 );
@@ -59,7 +59,7 @@ namespace Firma.ViewModels
         {
             try
             {
-                var toEdit = JJFirmaEntities.Kontakty.Where(a => a.KontaktId == Selected.KontaktId).FirstOrDefault();
+                var toEdit = Db.Kontakty.Where(a => a.KontaktId == Selected.KontaktId).FirstOrDefault();
                 Messenger.Default.Send(new NowyKontaktViewModel(toEdit));
                 Messenger.Default.Register<Kontakty>(this, toEdit, saveEdit);
             }
@@ -72,20 +72,20 @@ namespace Firma.ViewModels
         {
             edited.DataMod = DateTime.Now;
             edited.KtoModId = 1;
-            JJFirmaEntities.SaveChanges();
+            Db.SaveChanges();
             Load();
         }
         public override void Delete()
         {
             try
             {
-                var toDelete = JJFirmaEntities.Kontakty.Where(a => a.KontaktId == Selected.KontaktId).FirstOrDefault();
+                var toDelete = Db.Kontakty.Where(a => a.KontaktId == Selected.KontaktId).FirstOrDefault();
                 if (toDelete != null)
                 {
                     toDelete.CzyAktywny = false;
                     toDelete.DataUsuniecia = DateTime.Now;
                     toDelete.KtoUsunalId = 1;
-                    JJFirmaEntities.SaveChanges();
+                    Db.SaveChanges();
                     Load();
                 }
             }

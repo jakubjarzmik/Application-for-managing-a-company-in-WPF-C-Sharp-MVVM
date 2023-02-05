@@ -13,11 +13,11 @@
                   SelectedItem="{Binding Path=Selected, Mode=TwoWay}">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Numer faktury"
-                                    Binding="{Binding Path=NumerFaktury}" />
+                                    Binding="{Binding Path=FakturaNumer}" />
                 <DataGridTextColumn Header="Kontrahent"
-                                    Binding="{Binding Path=NazwaKontrahenta}" />
+                                    Binding="{Binding Path=FakturaKontrahentNazwa}" />
                 <DataGridTextColumn Header="Numer WZ"
-                                    Binding="{Binding Path=NumerWZ}" />
+                                    Binding="{Binding Path=WZNumer}" />
             </DataGrid.Columns>
         </DataGrid>
     </Grid>

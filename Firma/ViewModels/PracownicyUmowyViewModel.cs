@@ -24,7 +24,7 @@ namespace Firma.ViewModels
         {
             List = new ObservableCollection<PracownicyUmowyForAllView>
                 (
-                    from pracownikUmowa in JJFirmaEntities.PracownicyUmowy
+                    from pracownikUmowa in Db.PracownicyUmowy
                     where pracownikUmowa.CzyAktywny == true
                     select new PracownicyUmowyForAllView
                     {
@@ -54,7 +54,7 @@ namespace Firma.ViewModels
         {
             try
             {
-                var toEdit = JJFirmaEntities.PracownicyUmowy.Where(a => a.PracownikUmowaId == Selected.PracownikUmowaId).FirstOrDefault();
+                var toEdit = Db.PracownicyUmowy.Where(a => a.PracownikUmowaId == Selected.PracownikUmowaId).FirstOrDefault();
                 Messenger.Default.Send(new NowyPracownikUmowaViewModel(toEdit));
                 Messenger.Default.Register<PracownicyUmowy>(this, toEdit, saveEdit);
             }
@@ -67,20 +67,20 @@ namespace Firma.ViewModels
         {
             edited.DataMod = DateTime.Now;
             edited.KtoModId = 1;
-            JJFirmaEntities.SaveChanges();
+            Db.SaveChanges();
             Load();
         }
         public override void Delete()
         {
             try
             {
-                var toDelete = JJFirmaEntities.PracownicyUmowy.Where(a => a.PracownikUmowaId == Selected.PracownikUmowaId).FirstOrDefault();
+                var toDelete = Db.PracownicyUmowy.Where(a => a.PracownikUmowaId == Selected.PracownikUmowaId).FirstOrDefault();
                 if (toDelete != null)
                 {
                     toDelete.CzyAktywny = false;
                     toDelete.DataUsuniecia = DateTime.Now;
                     toDelete.KtoUsunalId = 1;
-                    JJFirmaEntities.SaveChanges();
+                    Db.SaveChanges();
                     Load();
                 }
             }

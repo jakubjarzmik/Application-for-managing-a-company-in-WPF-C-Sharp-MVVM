@@ -46,7 +46,7 @@ namespace Firma.ViewModels
         {
             List = new ObservableCollection<PrzyjecieZewnetrzneForAllView>
                 (
-                    from pz in JJFirmaEntities.PrzyjeciaZewnetrzne
+                    from pz in Db.PrzyjeciaZewnetrzne
                     where pz.CzyAktywny == true
                     select new PrzyjecieZewnetrzneForAllView
                     {
@@ -68,7 +68,7 @@ namespace Firma.ViewModels
         {
             try
             {
-                var toEdit = JJFirmaEntities.PrzyjeciaZewnetrzne.Where(a => a.PrzyjecieZewnetrzneId == Selected.PrzyjecieZewnetrzneId).FirstOrDefault();
+                var toEdit = Db.PrzyjeciaZewnetrzne.Where(a => a.PrzyjecieZewnetrzneId == Selected.PrzyjecieZewnetrzneId).FirstOrDefault();
                 Messenger.Default.Send(new NowePrzyjecieZewnetrzneViewModel(toEdit));
                 Messenger.Default.Register<PrzyjeciaZewnetrzne>(this, toEdit, saveEdit);
             }
@@ -81,20 +81,27 @@ namespace Firma.ViewModels
         {
             edited.DataMod = DateTime.Now;
             edited.KtoModId = 1;
-            JJFirmaEntities.SaveChanges();
+            Db.SaveChanges();
             Load();
         }
         public override void Delete()
         {
             try
             {
-                var toDelete = JJFirmaEntities.PrzyjeciaZewnetrzne.Where(a => a.PrzyjecieZewnetrzneId == Selected.PrzyjecieZewnetrzneId).FirstOrDefault();
+                var toDelete = Db.PrzyjeciaZewnetrzne.Where(a => a.PrzyjecieZewnetrzneId == Selected.PrzyjecieZewnetrzneId).FirstOrDefault();
                 if (toDelete != null)
                 {
                     toDelete.CzyAktywny = false;
                     toDelete.DataUsuniecia = DateTime.Now;
                     toDelete.KtoUsunalId = 1;
-                    JJFirmaEntities.SaveChanges();
+                    var pozycjeToDelete = Db.PozycjePrzyjeciaZewnetrznego.Where(a => a.PrzyjecieZewnetrzneId == toDelete.PrzyjecieZewnetrzneId).ToList();
+                    foreach (var pozycja in pozycjeToDelete)
+                    {
+                        pozycja.CzyAktywny = false;
+                        pozycja.DataUsuniecia = DateTime.Now;
+                        pozycja.KtoUsunalId = 1;
+                    }
+                    Db.SaveChanges();
                     Load();
                 }
             }

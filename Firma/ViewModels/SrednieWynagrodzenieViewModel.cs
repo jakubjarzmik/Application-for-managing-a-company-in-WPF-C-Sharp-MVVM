@@ -13,9 +13,29 @@ namespace Firma.ViewModels
 {
     public class SrednieWynagrodzenieViewModel : WorkspaceViewModel
     {
-        #region Wlasciwosci
-        public JJFirmaEntities JJFirmaEntities { get; set; }
-        //dla każdego pola na widoku istotnego w obliczeniach tworzymy pole i właściwośc
+        #region Commands
+        private BaseCommand _ObliczCommand;
+        public ICommand ObliczCommand
+        {
+            get
+            {
+                if (_ObliczCommand == null)
+                    _ObliczCommand = new BaseCommand(obliczSrednieWynagrodzenieClick);
+                return _ObliczCommand;
+            }
+        }
+        #endregion
+        #region Konstruktor
+        public SrednieWynagrodzenieViewModel()
+        {
+            base.DisplayName = "Srednie wynagrodzenie";
+            Db = new JJFirmaEntities();
+            Data = DateTime.Now;
+            SrednieWynagrodzenie = 0;
+        }
+        #endregion
+        #region Properties
+        public JJFirmaEntities Db { get; set; }
         private DateTime _Data;
         public DateTime Data
         {
@@ -48,13 +68,11 @@ namespace Firma.ViewModels
                 }
             }
         }
-        //dla każdego ComboBoxa w systemie należy utworzyć następujący properties
         public IQueryable<KeyAndValue> StanowiskaComboBoxItems
         {
             get
             {
-                //w tym miejscu wywołujemy funckję logiki biznesowej która znajduje się w klasie TowarB
-                return new StanowiskaB(JJFirmaEntities).GetAktywneStanowiska();
+                return new StanowiskaB(Db).GetAktywneStanowiska();
             }
         }
         private decimal? _SrednieWynagrodzenie;
@@ -74,31 +92,10 @@ namespace Firma.ViewModels
             }
         }
         #endregion
-        #region Command
-        private BaseCommand _ObliczCommand;
-        public ICommand ObliczCommand
-        {
-            get
-            {
-                if (_ObliczCommand == null)
-                    _ObliczCommand = new BaseCommand(obliczSrednieWynagrodzenieClick);
-                return _ObliczCommand;
-            }
-        }
-        #endregion
         #region Helpers
         private void obliczSrednieWynagrodzenieClick()
         {
-            SrednieWynagrodzenie = new SrednieWynagrodzenieB(JJFirmaEntities).SrednieWynagrodzenie(Data, StanowiskoId);
-        }
-        #endregion
-        #region Konstruktor
-        public SrednieWynagrodzenieViewModel()
-        {
-            base.DisplayName = "Srednie wynagrodzenie";
-            JJFirmaEntities=new JJFirmaEntities();  
-            Data=DateTime.Now;
-            SrednieWynagrodzenie = 0;
+            SrednieWynagrodzenie = new SrednieWynagrodzenieB(Db).SrednieWynagrodzenie(Data, StanowiskoId);
         }
         #endregion
     }

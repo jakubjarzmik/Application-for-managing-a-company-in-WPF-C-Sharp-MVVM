@@ -9,6 +9,8 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Controls.Primitives;
+using System.Windows;
 
 namespace Firma.ViewModels
 {
@@ -197,6 +199,21 @@ namespace Firma.ViewModels
 
         #endregion
         #region PozycjeWZProperties
+        private PozycjaWydaniaZewnetrznegoForAllView _Selected;
+        public PozycjaWydaniaZewnetrznegoForAllView Selected
+        {
+            get
+            {
+                return _Selected;
+            }
+            set
+            {
+                if (value != _Selected)
+                {
+                    _Selected = value;
+                }
+            }
+        }
         private ObservableCollection<PozycjaWydaniaZewnetrznegoForAllView> _PozycjeWZList;
         public ObservableCollection<PozycjaWydaniaZewnetrznegoForAllView> PozycjeWZList
         {
@@ -212,7 +229,7 @@ namespace Firma.ViewModels
                 OnPropertyChanged(() => PozycjeWZList);
             }
         }
-        public void Load()
+        protected override void Load()
         {
             PozycjeWZList = new ObservableCollection<PozycjaWydaniaZewnetrznegoForAllView>
                 (
@@ -221,6 +238,7 @@ namespace Firma.ViewModels
                     && pozycja.WydanieZewnetrzneId == Item.WydanieZewnetrzneId
                     select new PozycjaWydaniaZewnetrznegoForAllView
                     {
+                        PozycjaWZId = pozycja.PozycjaWZId,
                         NumerWydaniaZewnetrznego = pozycja.WydaniaZewnetrzne.Numer,
                         NazwaTowaru = pozycja.Towary.Nazwa,
                         Ilosc = pozycja.Ilosc,
@@ -228,6 +246,25 @@ namespace Firma.ViewModels
                         Rabat = pozycja.Rabat
                     }
                 );
+        }
+        protected override void delete()
+        {
+            try
+            {
+                var toDelete = Db.PozycjeWydaniaZewnetrznego.Where(a => a.PozycjaWZId == Selected.PozycjaWZId).FirstOrDefault();
+                if (toDelete != null)
+                {
+                    toDelete.CzyAktywny = false;
+                    toDelete.DataUsuniecia = DateTime.Now;
+                    toDelete.KtoUsunalId = 1;
+                    Db.SaveChanges();
+                    Load();
+                }
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Wybierz rekord, który chcesz usunąć ");
+            }
         }
         #endregion
         #region Save

@@ -49,7 +49,7 @@ namespace Firma.ViewModels
         {
             List = new ObservableCollection<TowarForAllView>
                 (
-                    from towar in JJFirmaEntities.Towary
+                    from towar in Db.Towary
                     where towar.CzyAktywny == true
                     select new TowarForAllView
                     {
@@ -63,12 +63,12 @@ namespace Firma.ViewModels
                         Producent = towar.Kontrahenci.Nazwa1,
                         KrajPochodzenia = towar.Kraje.ISO,
                         Ilosc = (
-                                from pozycjaPZ in JJFirmaEntities.PozycjePrzyjeciaZewnetrznego
+                                from pozycjaPZ in Db.PozycjePrzyjeciaZewnetrznego
                                 where pozycjaPZ.CzyAktywny == true && pozycjaPZ.Towary.TowarId == towar.TowarId
                                 select pozycjaPZ.Ilosc
                             ).Sum() -
                             (
-                                from pozycjaWZ in JJFirmaEntities.PozycjeWydaniaZewnetrznego
+                                from pozycjaWZ in Db.PozycjeWydaniaZewnetrznego
                                 where pozycjaWZ.CzyAktywny == true && pozycjaWZ.Towary.TowarId == towar.TowarId
                                 select pozycjaWZ.Ilosc
                             ).Sum(),
@@ -84,7 +84,7 @@ namespace Firma.ViewModels
         {
             try
             {
-                var toEdit = JJFirmaEntities.Towary.Where(a => a.TowarId == Selected.TowarId).FirstOrDefault();
+                var toEdit = Db.Towary.Where(a => a.TowarId == Selected.TowarId).FirstOrDefault();
                 Messenger.Default.Send(new NowyTowarViewModel(toEdit));
                 Messenger.Default.Register<Towary>(this, toEdit, saveEdit);
             }
@@ -97,20 +97,27 @@ namespace Firma.ViewModels
         {
             edited.DataMod = DateTime.Now;
             edited.KtoModId = 1;
-            JJFirmaEntities.SaveChanges();
+            Db.SaveChanges();
             Load();
         }
         public override void Delete()
         {
             try
             {
-                var toDelete = JJFirmaEntities.Towary.Where(a => a.TowarId == Selected.TowarId).FirstOrDefault();
+                var toDelete = Db.Towary.Where(a => a.TowarId == Selected.TowarId).FirstOrDefault();
                 if (toDelete != null)
                 {
                     toDelete.CzyAktywny = false;
                     toDelete.DataUsuniecia = DateTime.Now;
                     toDelete.KtoUsunalId = 1;
-                    JJFirmaEntities.SaveChanges();
+                    var cenyToDelete = Db.ZmianyCeny.Where(a => a.TowarId == toDelete.TowarId).ToList();
+                    foreach (var cena in cenyToDelete)
+                    {
+                        cena.CzyAktywny = false;
+                        cena.DataUsuniecia = DateTime.Now;
+                        cena.KtoUsunalId = 1;
+                    }
+                    Db.SaveChanges();
                     Load();
                 }
             }

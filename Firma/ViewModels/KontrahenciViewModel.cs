@@ -47,7 +47,7 @@ namespace Firma.ViewModels
         {
             List = new ObservableCollection<KontrahentForAllView>
                 (
-                    from kontrahent in JJFirmaEntities.Kontrahenci
+                    from kontrahent in Db.Kontrahenci
                     where kontrahent.CzyAktywny == true
                     select new KontrahentForAllView
                     {
@@ -72,7 +72,7 @@ namespace Firma.ViewModels
         {
             try
             {
-                var toEdit = JJFirmaEntities.Kontrahenci.Where(a => a.KontrahentId == Selected.KontrahentId).FirstOrDefault();
+                var toEdit = Db.Kontrahenci.Where(a => a.KontrahentId == Selected.KontrahentId).FirstOrDefault();
                 Messenger.Default.Send(new NowyKontrahentViewModel(toEdit));
                 Messenger.Default.Register<Kontrahenci>(this, toEdit, saveEdit);
             }
@@ -85,20 +85,27 @@ namespace Firma.ViewModels
         {
             edited.DataMod = DateTime.Now;
             edited.KtoModId = 1;
-            JJFirmaEntities.SaveChanges();
+            Db.SaveChanges();
             Load();
         }
         public override void Delete()
         {
             try
             {
-                var toDelete = JJFirmaEntities.Kontrahenci.Where(a => a.KontrahentId == Selected.KontrahentId).FirstOrDefault();
+                var toDelete = Db.Kontrahenci.Where(a => a.KontrahentId == Selected.KontrahentId).FirstOrDefault();
                 if (toDelete != null)
                 {
                     toDelete.CzyAktywny = false;
                     toDelete.DataUsuniecia = DateTime.Now;
                     toDelete.KtoUsunalId = 1;
-                    JJFirmaEntities.SaveChanges();
+                    var kontaktyToDelete = Db.KontrahenciKontakty.Where(a => a.KontrahentId == toDelete.KontrahentId).ToList();
+                    foreach (var kontakt in kontaktyToDelete)
+                    {
+                        kontakt.CzyAktywny = false;
+                        kontakt.DataUsuniecia = DateTime.Now;
+                        kontakt.KtoUsunalId = 1;
+                    }
+                    Db.SaveChanges();
                     Load();
                 }
             }

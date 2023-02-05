@@ -10,6 +10,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace Firma.ViewModels
 {
@@ -296,8 +297,23 @@ namespace Firma.ViewModels
 
         #endregion
         #region WZProperties
-        private ObservableCollection<WydanieZewnetrzneForAllView> _WZList;
-        public ObservableCollection<WydanieZewnetrzneForAllView> WZList
+        private FakturyWydaniaZewnetrzneForAllView _Selected;
+        public FakturyWydaniaZewnetrzneForAllView Selected
+        {
+            get
+            {
+                return _Selected;
+            }
+            set
+            {
+                if (value != _Selected)
+                {
+                    _Selected = value;
+                }
+            }
+        }
+        private ObservableCollection<FakturyWydaniaZewnetrzneForAllView> _WZList;
+        public ObservableCollection<FakturyWydaniaZewnetrzneForAllView> WZList
         {
             get
             {
@@ -311,20 +327,40 @@ namespace Firma.ViewModels
                 OnPropertyChanged(() => WZList);
             }
         }
-        public void Load()
+        protected override void Load()
         {
-            WZList = new ObservableCollection<WydanieZewnetrzneForAllView>
+            WZList = new ObservableCollection<FakturyWydaniaZewnetrzneForAllView>
                 (
-                    from wz in Db.WydaniaZewnetrzne
-                    where wz.CzyAktywny == true &&
-                    wz.WydanieZewnetrzneId == Db.FakturyWydaniaZewnetrzne.Where(k => k.FakturaId == Item.FakturaId).Select(k => k.WydanieZewnetrzneId).FirstOrDefault()
-                    select new WydanieZewnetrzneForAllView
+                    from fakturaWz in Db.FakturyWydaniaZewnetrzne
+                    where fakturaWz.CzyAktywny == true &&
+                    fakturaWz.FakturaId == Item.FakturaId
+                    select new FakturyWydaniaZewnetrzneForAllView
                     {
-                        Numer = wz.Numer,
-                        NazwaMagazynu = wz.Magazyny.Nazwa,
-                        Rabat = wz.Rabat,
+                        FakturaWZId= fakturaWz.FakturaWZId,
+                        WZNumer = fakturaWz.WydaniaZewnetrzne.Numer,
+                        WZMagazynNazwa = fakturaWz.WydaniaZewnetrzne.Magazyny.Nazwa,
+                        WZRabat = fakturaWz.WydaniaZewnetrzne.Rabat,
                     }
                 );
+        }
+        protected override void delete()
+        {
+            try
+            {
+                var toDelete = Db.FakturyWydaniaZewnetrzne.Where(a => a.FakturaWZId == Selected.FakturaWZId).FirstOrDefault();
+                if (toDelete != null)
+                {
+                    toDelete.CzyAktywny = false;
+                    toDelete.DataUsuniecia = DateTime.Now;
+                    toDelete.KtoUsunalId = 1;
+                    Db.SaveChanges();
+                    Load();
+                }
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Wybierz rekord, który chcesz usunąć ");
+            }
         }
         #endregion
         #region Save

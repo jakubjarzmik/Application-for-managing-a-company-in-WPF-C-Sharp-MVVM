@@ -46,7 +46,7 @@ namespace Firma.ViewModels
         {
             List = new ObservableCollection<WydanieZewnetrzneForAllView>
                 (
-                    from wz in JJFirmaEntities.WydaniaZewnetrzne
+                    from wz in Db.WydaniaZewnetrzne
                     where wz.CzyAktywny == true
                     select new WydanieZewnetrzneForAllView
                     {
@@ -67,7 +67,7 @@ namespace Firma.ViewModels
         {
             try
             {
-                var toEdit = JJFirmaEntities.WydaniaZewnetrzne.Where(a => a.WydanieZewnetrzneId == Selected.WydanieZewnetrzneId).FirstOrDefault();
+                var toEdit = Db.WydaniaZewnetrzne.Where(a => a.WydanieZewnetrzneId == Selected.WydanieZewnetrzneId).FirstOrDefault();
                 Messenger.Default.Send(new NoweWydanieZewnetrzneViewModel(toEdit));
                 Messenger.Default.Register<WydaniaZewnetrzne>(this, toEdit, saveEdit);
             }
@@ -80,20 +80,27 @@ namespace Firma.ViewModels
         {
             edited.DataMod = DateTime.Now;
             edited.KtoModId = 1;
-            JJFirmaEntities.SaveChanges();
+            Db.SaveChanges();
             Load();
         }
         public override void Delete()
         {
             try
             {
-                var toDelete = JJFirmaEntities.WydaniaZewnetrzne.Where(a => a.WydanieZewnetrzneId == Selected.WydanieZewnetrzneId).FirstOrDefault();
+                var toDelete = Db.WydaniaZewnetrzne.Where(a => a.WydanieZewnetrzneId == Selected.WydanieZewnetrzneId).FirstOrDefault();
                 if (toDelete != null)
                 {
                     toDelete.CzyAktywny = false;
                     toDelete.DataUsuniecia = DateTime.Now;
                     toDelete.KtoUsunalId = 1;
-                    JJFirmaEntities.SaveChanges();
+                    var pozycjeToDelete = Db.PozycjeWydaniaZewnetrznego.Where(a => a.WydanieZewnetrzneId == toDelete.WydanieZewnetrzneId).ToList();
+                    foreach(var pozycja in pozycjeToDelete)
+                    {
+                        pozycja.CzyAktywny = false;
+                        pozycja.DataUsuniecia = DateTime.Now;
+                        pozycja.KtoUsunalId = 1;
+                    }
+                    Db.SaveChanges();
                     Load();
                 }
             }

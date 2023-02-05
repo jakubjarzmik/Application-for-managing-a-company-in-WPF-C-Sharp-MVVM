@@ -24,16 +24,16 @@ namespace Firma.ViewModels
         {
             List = new ObservableCollection<FakturyWydaniaZewnetrzneForAllView>
                 (
-                    from fakturawz in JJFirmaEntities.FakturyWydaniaZewnetrzne
+                    from fakturawz in Db.FakturyWydaniaZewnetrzne
                     where fakturawz.CzyAktywny == true
                     select new FakturyWydaniaZewnetrzneForAllView
                     {
                         FakturaWZId = fakturawz.FakturaWZId,
                         FakturaId = fakturawz.FakturaId,
-                        NumerFaktury = fakturawz.Faktury.Numer,
-                        NazwaKontrahenta = fakturawz.Faktury.Kontrahenci.Nazwa1,
+                        FakturaNumer = fakturawz.Faktury.Numer,
+                        FakturaKontrahentNazwa = fakturawz.Faktury.Kontrahenci.Nazwa1,
                         WydanieZewnetrzneId = fakturawz.WydanieZewnetrzneId,
-                        NumerWZ = fakturawz.WydaniaZewnetrzne.Numer,
+                        WZNumer = fakturawz.WydaniaZewnetrzne.Numer,
                     }
                 );
         }
@@ -45,7 +45,7 @@ namespace Firma.ViewModels
         {
             try
             {
-                var toEdit = JJFirmaEntities.FakturyWydaniaZewnetrzne.Where(a => a.FakturaWZId == Selected.FakturaWZId).FirstOrDefault();
+                var toEdit = Db.FakturyWydaniaZewnetrzne.Where(a => a.FakturaWZId == Selected.FakturaWZId).FirstOrDefault();
                 Messenger.Default.Send(new NowaFakturaWydanieZewnetrzneViewModel(toEdit));
                 Messenger.Default.Register<FakturyWydaniaZewnetrzne>(this, toEdit, saveEdit);
             }
@@ -58,20 +58,20 @@ namespace Firma.ViewModels
         {
             edited.DataMod = DateTime.Now;
             edited.KtoModId = 1;
-            JJFirmaEntities.SaveChanges();
+            Db.SaveChanges();
             Load();
         }
         public override void Delete()
         {
             try
             {
-                var toDelete = JJFirmaEntities.FakturyWydaniaZewnetrzne.Where(a => a.FakturaWZId == Selected.FakturaWZId).FirstOrDefault();
+                var toDelete = Db.FakturyWydaniaZewnetrzne.Where(a => a.FakturaWZId == Selected.FakturaWZId).FirstOrDefault();
                 if (toDelete != null)
                 {
                     toDelete.CzyAktywny = false;
                     toDelete.DataUsuniecia = DateTime.Now;
                     toDelete.KtoUsunalId = 1;
-                    JJFirmaEntities.SaveChanges();
+                    Db.SaveChanges();
                     Load();
                 }
             }

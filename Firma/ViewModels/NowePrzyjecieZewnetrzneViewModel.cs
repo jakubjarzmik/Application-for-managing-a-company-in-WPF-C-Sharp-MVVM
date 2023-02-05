@@ -9,6 +9,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace Firma.ViewModels
 {
@@ -197,6 +198,21 @@ namespace Firma.ViewModels
 
         #endregion
         #region PozycjePZProperties
+        private PozycjaPrzyjeciaZewnetrznegoForAllView _Selected;
+        public PozycjaPrzyjeciaZewnetrznegoForAllView Selected
+        {
+            get
+            {
+                return _Selected;
+            }
+            set
+            {
+                if (value != _Selected)
+                {
+                    _Selected = value;
+                }
+            }
+        }
         private ObservableCollection<PozycjaPrzyjeciaZewnetrznegoForAllView> _PozycjePZList;
         public ObservableCollection<PozycjaPrzyjeciaZewnetrznegoForAllView> PozycjePZList
         {
@@ -212,7 +228,7 @@ namespace Firma.ViewModels
                 OnPropertyChanged(() => PozycjePZList);
             }
         }
-        public void Load()
+        protected override void Load()
         {
             PozycjePZList = new ObservableCollection<PozycjaPrzyjeciaZewnetrznegoForAllView>
                 (
@@ -221,6 +237,7 @@ namespace Firma.ViewModels
                     && pozycja.PrzyjecieZewnetrzneId == Item.PrzyjecieZewnetrzneId
                     select new PozycjaPrzyjeciaZewnetrznegoForAllView
                     {
+                        PozycjaPZId = pozycja.PozycjaPZId,
                         NumerPrzyjeciaZewnetrznego = pozycja.PrzyjeciaZewnetrzne.Numer,
                         NazwaTowaru = pozycja.Towary.Nazwa,
                         Ilosc = pozycja.Ilosc,
@@ -231,6 +248,25 @@ namespace Firma.ViewModels
                         Wartosc = (pozycja.PierwotnaCenaZakupu * pozycja.Ilosc * (100 - pozycja.Rabat) / 100),
                     }
                 );
+        }
+        protected override void delete()
+        {
+            try
+            {
+                var toDelete = Db.PozycjePrzyjeciaZewnetrznego.Where(a => a.PozycjaPZId == Selected.PozycjaPZId).FirstOrDefault();
+                if (toDelete != null)
+                {
+                    toDelete.CzyAktywny = false;
+                    toDelete.DataUsuniecia = DateTime.Now;
+                    toDelete.KtoUsunalId = 1;
+                    Db.SaveChanges();
+                    Load();
+                }
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Wybierz rekord, który chcesz usunąć ");
+            }
         }
         #endregion
         #region Save

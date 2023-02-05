@@ -53,7 +53,7 @@ namespace Firma.ViewModels
         {
             List = new ObservableCollection<StawkaVatTowaruForAllView>
                 (
-                    from stawka in JJFirmaEntities.TowaryStawkiVat
+                    from stawka in Db.TowaryStawkiVat
                     where stawka.CzyAktywny == true
                     select new StawkaVatTowaruForAllView
                     {
@@ -72,7 +72,7 @@ namespace Firma.ViewModels
         {
             try
             {
-                var toEdit = JJFirmaEntities.TowaryStawkiVat.Where(a => a.StawkiVatId == Selected.StawkaVatId).FirstOrDefault();
+                var toEdit = Db.TowaryStawkiVat.Where(a => a.StawkiVatId == Selected.StawkaVatId).FirstOrDefault();
                 Messenger.Default.Send(new NowaStawkaVatTowarowViewModel(toEdit));
                 Messenger.Default.Register<TowaryStawkiVat>(this, toEdit, saveEdit);
             }
@@ -85,20 +85,20 @@ namespace Firma.ViewModels
         {
             edited.DataMod = DateTime.Now;
             edited.KtoModId = 1;
-            JJFirmaEntities.SaveChanges();
+            Db.SaveChanges();
             Load();
         }
         public override void Delete()
         {
             try
             {
-                var toDelete = JJFirmaEntities.TowaryStawkiVat.Where(a => a.StawkiVatId == Selected.StawkaVatId).FirstOrDefault();
+                var toDelete = Db.TowaryStawkiVat.Where(a => a.StawkiVatId == Selected.StawkaVatId).FirstOrDefault();
                 if (toDelete != null)
                 {
                     toDelete.CzyAktywny = false;
                     toDelete.DataUsuniecia = DateTime.Now;
                     toDelete.KtoUsunalId = 1;
-                    JJFirmaEntities.SaveChanges();
+                    Db.SaveChanges();
                     Load();
                 }
             }

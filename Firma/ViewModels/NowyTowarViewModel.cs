@@ -9,6 +9,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace Firma.ViewModels
 {
@@ -449,6 +450,21 @@ namespace Firma.ViewModels
 
         #endregion
         #region CenyProperties
+        private ZmianaCenyForAllView _Selected;
+        public ZmianaCenyForAllView Selected
+        {
+            get
+            {
+                return _Selected;
+            }
+            set
+            {
+                if (value != _Selected)
+                {
+                    _Selected = value;
+                }
+            }
+        }
         private ObservableCollection<ZmianaCenyForAllView> _CenyList;
         public ObservableCollection<ZmianaCenyForAllView> CenyList
         {
@@ -464,7 +480,7 @@ namespace Firma.ViewModels
                 OnPropertyChanged(() => CenyList);
             }
         }
-        public void Load()
+        protected override void Load()
         {
             CenyList = new ObservableCollection<ZmianaCenyForAllView>
                 (
@@ -473,6 +489,7 @@ namespace Firma.ViewModels
                     && cena.TowarId == Item.TowarId
                     select new ZmianaCenyForAllView
                     {
+                        ZmianaCenyId= cena.ZmianaCenyId,
                         JednostkaMiary = cena.JednostkiMiary.Skrot,
                         CenaNetto = cena.CenaNetto,
                         CenaBrutto = cena.CenaNetto * (100 + cena.Towary.TowaryStawkiVat.Stawka) / 100,
@@ -481,6 +498,25 @@ namespace Firma.ViewModels
                         DataObowiazywaniaDo = cena.DataObowiazywaniaDo
                     }
                 );
+        }
+        protected override void delete()
+        {
+            try
+            {
+                var toDelete = Db.ZmianyCeny.Where(a => a.ZmianaCenyId == Selected.ZmianaCenyId).FirstOrDefault();
+                if (toDelete != null)
+                {
+                    toDelete.CzyAktywny = false;
+                    toDelete.DataUsuniecia = DateTime.Now;
+                    toDelete.KtoUsunalId = 1;
+                    Db.SaveChanges();
+                    Load();
+                }
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Wybierz rekord, który chcesz usunąć ");
+            }
         }
         #endregion
         #region Save

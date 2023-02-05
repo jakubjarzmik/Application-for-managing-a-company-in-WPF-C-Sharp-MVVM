@@ -66,8 +66,8 @@ namespace Firma.ViewModels.Abstract
         #region Fields
         protected bool toClose;
         protected string token;
-        private readonly JJFirmaEntities jJFirmaEntities;
-        public JJFirmaEntities JJFirmaEntities { get { return jJFirmaEntities; } }
+        private readonly JJFirmaEntities _Db;
+        public JJFirmaEntities Db { get { return _Db; } }
         private ObservableCollection<T> _List;
         public ObservableCollection<T> List
         {
@@ -88,13 +88,13 @@ namespace Firma.ViewModels.Abstract
         public WszystkieViewModel(string displayName)
         {
             base.DisplayName = displayName;
-            this.jJFirmaEntities = new JJFirmaEntities();
+            this._Db = new JJFirmaEntities();
             toClose = false;
         }
         public WszystkieViewModel(string displayName, string token)
         {
             base.DisplayName = displayName;
-            this.jJFirmaEntities = new JJFirmaEntities();
+            this._Db = new JJFirmaEntities();
             this.token = token;
             toClose = true;
         }

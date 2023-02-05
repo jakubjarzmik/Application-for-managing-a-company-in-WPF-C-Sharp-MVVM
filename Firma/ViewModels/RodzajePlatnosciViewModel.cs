@@ -25,7 +25,7 @@ namespace Firma.ViewModels
         {
             List = new ObservableCollection<RodzajePlatnosci>
                 (
-                    from rodzaj in JJFirmaEntities.RodzajePlatnosci
+                    from rodzaj in Db.RodzajePlatnosci
                     where rodzaj.CzyAktywny == true
                     select rodzaj
                 );
@@ -38,7 +38,7 @@ namespace Firma.ViewModels
         {
             try
             {
-                var toEdit = JJFirmaEntities.RodzajePlatnosci.Where(a => a.RodzajPlatnosciId == Selected.RodzajPlatnosciId).FirstOrDefault();
+                var toEdit = Db.RodzajePlatnosci.Where(a => a.RodzajPlatnosciId == Selected.RodzajPlatnosciId).FirstOrDefault();
                 Messenger.Default.Send(new NowyRodzajPlatnosciViewModel(toEdit));
                 Messenger.Default.Register<RodzajePlatnosci>(this, toEdit, saveEdit);
             }
@@ -51,20 +51,20 @@ namespace Firma.ViewModels
         {
             edited.DataMod = DateTime.Now;
             edited.KtoModId = 1;
-            JJFirmaEntities.SaveChanges();
+            Db.SaveChanges();
             Load();
         }
         public override void Delete()
         {
             try
             {
-                var toDelete = JJFirmaEntities.RodzajePlatnosci.Where(a => a.RodzajPlatnosciId == Selected.RodzajPlatnosciId).FirstOrDefault();
+                var toDelete = Db.RodzajePlatnosci.Where(a => a.RodzajPlatnosciId == Selected.RodzajPlatnosciId).FirstOrDefault();
                 if (toDelete != null)
                 {
                     toDelete.CzyAktywny = false;
                     toDelete.DataUsuniecia = DateTime.Now;
                     toDelete.KtoUsunalId = 1;
-                    JJFirmaEntities.SaveChanges();
+                    Db.SaveChanges();
                     Load();
                 }
             }

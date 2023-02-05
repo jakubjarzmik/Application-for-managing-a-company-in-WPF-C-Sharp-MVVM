@@ -53,7 +53,7 @@ namespace Firma.ViewModels
         {
             List = new ObservableCollection<AdresForAllView>
                 (
-                    from adres in JJFirmaEntities.Adresy
+                    from adres in Db.Adresy
                     where adres.CzyAktywny == true
                     select new AdresForAllView
                     {
@@ -76,7 +76,7 @@ namespace Firma.ViewModels
         {
             try
             {
-                var toEdit = JJFirmaEntities.Adresy.Where(a => a.AdresId == Selected.AdresId).FirstOrDefault();
+                var toEdit = Db.Adresy.Where(a => a.AdresId == Selected.AdresId).FirstOrDefault();
                 Messenger.Default.Send(new NowyAdresViewModel(toEdit));
                 Messenger.Default.Register<Adresy>(this, toEdit, saveEdit);
             }
@@ -89,20 +89,20 @@ namespace Firma.ViewModels
         {
             edited.DataMod = DateTime.Now;
             edited.KtoModId = 1;
-            JJFirmaEntities.SaveChanges();
+            Db.SaveChanges();
             Load();
         }
         public override void Delete()
         {
             try
             {
-                var toDelete = JJFirmaEntities.Adresy.Where(a => a.AdresId == Selected.AdresId).FirstOrDefault();
+                var toDelete = Db.Adresy.Where(a => a.AdresId == Selected.AdresId).FirstOrDefault();
                 if (toDelete != null)
                 {
                     toDelete.CzyAktywny = false;
                     toDelete.DataUsuniecia = DateTime.Now;
                     toDelete.KtoUsunalId = 1;
-                    JJFirmaEntities.SaveChanges();
+                    Db.SaveChanges();
                     Load();
                 }
             }
