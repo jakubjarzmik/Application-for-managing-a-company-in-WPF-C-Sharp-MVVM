@@ -113,7 +113,53 @@ namespace Firma.ViewModels.Abstract
             }
         }
         #endregion
-        
+        #region SortAndFind
+        private BaseCommand _SortCommand;
+        public ICommand SortCommand
+        {
+            get
+            {
+                if (_SortCommand == null)
+                {
+                    _SortCommand = new BaseCommand(() => Sort());
+                }
+                return _SortCommand;
+            }
+        }
+        public virtual void Sort() { }
+        public string SortField { get; set; }
+        public List<string> SortComboBoxItems
+        {
+            get
+            {
+                return GetComboBoxSortList();
+            }
+        }
+        public virtual List<string> GetComboBoxSortList() { return null; }
+        private BaseCommand _FindCommand;
+        public ICommand FindCommand
+        {
+            get
+            {
+                if (_FindCommand == null)
+                {
+                    _FindCommand = new BaseCommand(() => Find());
+                }
+                return _FindCommand;
+            }
+        }
+        public virtual void Find() { }
+        public string FindField { get; set; }
+        public string FindTextBox { get; set; }
+        public List<string> FindComboBoxItems
+        {
+            get
+            {
+                return GetComboBoxFindList();
+            }
+        }
+        public virtual List<string> GetComboBoxFindList() { return null; }
+        #endregion
         #region Helpers
         public abstract void Add();
         public abstract void Edit();
