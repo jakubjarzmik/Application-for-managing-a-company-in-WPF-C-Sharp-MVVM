@@ -90,6 +90,7 @@ namespace Firma.ViewModels.Abstract
             base.DisplayName = displayName;
             this._Db = new JJFirmaEntities();
             toClose = false;
+            SortField = "Domyślne";
         }
         public WszystkieViewModel(string displayName, string token)
         {
@@ -97,6 +98,7 @@ namespace Firma.ViewModels.Abstract
             this._Db = new JJFirmaEntities();
             this.token = token;
             toClose = true;
+            SortField = "Domyślne";
         }
         #endregion
         #region Properties

@@ -23,7 +23,7 @@
         <Setter Property="FontWeight"
                 Value="Bold" />
     </Style>
-    <Style x:Key="ButtonStandardowy"
+    <Style x:Key="ButtonLabelStandardowy"
            TargetType="Button">
         <Setter Property="Background"
                 Value="#E3E3E3" />
@@ -41,6 +41,25 @@
                 Value="Left" />
         <Setter Property="Padding"
                 Value="5,0,5,0" />
+    </Style>
+    <Style x:Key="ButtonStandardowy"
+           TargetType="Button">
+        <Setter Property="Background"
+                Value="#E3E3E3" />
+        <Setter Property="BorderBrush"
+                Value="#AFAFAF" />
+        <Setter Property="Height"
+                Value="28" />
+        <Setter Property="Margin"
+                Value="4" />
+        <Setter Property="VerticalAlignment"
+                Value="Center" />
+        <Setter Property="VerticalContentAlignment"
+                Value="Center" />
+        <Setter Property="HorizontalContentAlignment"
+                Value="Center" />
+        <Setter Property="Padding"
+                Value="4,2,4,2" />
     </Style>
     <Style x:Key="TextBoxDuzy"
            TargetType="{x:Type TextBox}">

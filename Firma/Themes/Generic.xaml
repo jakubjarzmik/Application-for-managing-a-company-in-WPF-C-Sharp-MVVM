@@ -41,53 +41,59 @@
                         <StackPanel Grid.Row="1"
                                     Style="{StaticResource StackPanelStandardowy}">
                             <Border Style="{StaticResource BorderStandardowy}">
-                                <Expander Header="Sortowanie i wyszukiwanie">
+                                <Expander Header="Sortowanie i filtrowanie">
                                     <Grid>
                                         <Grid.RowDefinitions>
                                             <RowDefinition Height="36" />
                                             <RowDefinition Height="36" />
-                                            <RowDefinition Height="36" />
                                         </Grid.RowDefinitions>
                                         <Grid.ColumnDefinitions>
-                                            <ColumnDefinition Width="200" />
-                                            <ColumnDefinition Width="50" />
-                                            <ColumnDefinition Width="50" />
-                                            <ColumnDefinition Width="100" />
-                                            <ColumnDefinition Width="50" />
+                                            <ColumnDefinition Width="Auto" MinWidth="200" />
+                                            <ColumnDefinition Width="Auto" MinWidth="50" />
+                                            <ColumnDefinition Width="Auto" MinWidth="50" />
+                                            <ColumnDefinition Width="Auto" MinWidth="100" />
+                                            <ColumnDefinition Width="Auto" MinWidth="100" />
+                                            <ColumnDefinition Width="Auto" MinWidth="50" />
+                                            <ColumnDefinition Width="Auto" MinWidth="50" />
                                         </Grid.ColumnDefinitions>
                                         <Label Grid.Row="0"
                                                Grid.Column="0"
                                                Content="Sortowanie"
-                                               Style="{StaticResource ControlBoldStandardowy}" />
+                                               Style="{StaticResource ControlStandardowy}" />
                                         <ComboBox Grid.Row="1"
                                                   Grid.Column="0"
-                                                  Style="{StaticResource ControlBoldStandardowy}"
+                                                  Style="{StaticResource ControlStandardowy}"
                                                   ItemsSource="{Binding SortComboBoxItems}"
                                                   SelectedValue="{Binding Path=SortField, Mode=TwoWay}" />
                                         <Button Grid.Row="1"
                                                 Grid.Column="1"
                                                 Content="Sortuj"
-                                                Style="{StaticResource ControlBoldStandardowy}"
+                                                Style="{StaticResource ButtonStandardowy}"
                                                 Command="{Binding SortCommand}" />
 
                                         <Label Grid.Row="0"
                                                Grid.Column="3"
-                                               Content="Wyszukiwanie"
-                                               Style="{StaticResource ControlBoldStandardowy}" />
+                                               Content="Filtrowanie"
+                                               Style="{StaticResource ControlStandardowy}" />
                                         <ComboBox Grid.Row="1"
                                                   Grid.Column="3"
-                                                  Style="{StaticResource ControlBoldStandardowy}"
+                                                  Style="{StaticResource ControlStandardowy}"
                                                   ItemsSource="{Binding FindComboBoxItems}"
                                                   SelectedValue="{Binding Path=FindField, Mode=TwoWay}" />
-                                        <TextBox Grid.Row="2"
-                                                 Grid.Column="3"
-                                                 Style="{StaticResource ControlBoldStandardowy}"
+                                        <TextBox Grid.Row="1"
+                                                 Grid.Column="4"
+                                                 Style="{StaticResource ControlStandardowy}"
                                                  Text="{Binding FindTextBox}" />
-                                        <Button Grid.Row="2"
-                                                Grid.Column="4"
+                                        <Button Grid.Row="1"
+                                                Grid.Column="5"
                                                 Content="Szukaj"
-                                                Style="{StaticResource ControlBoldStandardowy}"
+                                                Style="{StaticResource ButtonStandardowy}"
                                                 Command="{Binding FindCommand}" />
+                                        <Button Grid.Row="1"
+                                                Grid.Column="6"
+                                                Content="Wyczysc"
+                                                Style="{StaticResource ButtonStandardowy}"
+                                                Command="{Binding LoadCommand}" />
                                     </Grid>
                                 </Expander>
                             </Border>
