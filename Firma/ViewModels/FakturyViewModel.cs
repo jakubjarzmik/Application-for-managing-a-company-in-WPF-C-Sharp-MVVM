@@ -103,6 +103,52 @@ namespace Firma.ViewModels
             }
         }
         #endregion
-
+        #region SortAndFind
+        public override void Sort()
+        {
+            switch (SortField)
+            {
+                case "Domyślne":
+                    List = new ObservableCollection<FakturaForAllView>(List.OrderBy(Item => Item.FakturaId));
+                    break;
+                case "Data wystawienia":
+                    List = new ObservableCollection<FakturaForAllView>(List.OrderBy(Item => Item.DataWystawienia));
+                    break;
+                case "Nazwa kontrahenta":
+                    List = new ObservableCollection<FakturaForAllView>(List.OrderBy(Item => Item.KontrahentNazwa));
+                    break;
+                case "Rodzaj płatności":
+                    List = new ObservableCollection<FakturaForAllView>(List.OrderBy(Item => Item.RodzajePlatnosciNazwa));
+                    break;
+            }
+        }
+        public override List<string> GetComboBoxSortList()
+        {
+            return new List<string> { "Domyślne", "Data wystawienia", "Nazwa kontrahenta", "Rodzaj płatności" };
+        }
+        public override void Find()
+        {
+            try
+            {
+                switch (FindField)
+                {
+                    case "Data wystawienia":
+                        List = new ObservableCollection<FakturaForAllView>(List.Where(i => i.DataWystawienia != null && i.DataWystawienia.ToString("dd.MM.yyyy HH:mm").StartsWith(FindTextBox)));
+                        break;
+                    case "Nazwa kontrahenta":
+                        List = new ObservableCollection<FakturaForAllView>(List.Where(i => i.KontrahentNazwa != null && i.KontrahentNazwa.StartsWith(FindTextBox)));
+                        break;
+                    case "Rodzaj płatności":
+                        List = new ObservableCollection<FakturaForAllView>(List.Where(i => i.RodzajePlatnosciNazwa != null && i.RodzajePlatnosciNazwa.StartsWith(FindTextBox)));
+                        break;
+                }
+            }
+            catch (Exception) { }
+        }
+        public override List<string> GetComboBoxFindList()
+        {
+            return new List<string> { "Data wystawienia", "Nazwa kontrahenta", "Rodzaj płatności" };
+        }
+        #endregion
     }
 }
