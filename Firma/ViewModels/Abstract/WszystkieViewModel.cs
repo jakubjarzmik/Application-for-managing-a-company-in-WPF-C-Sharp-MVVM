@@ -113,6 +113,7 @@ namespace Firma.ViewModels.Abstract
             }
         }
         #endregion
+        
         #region Helpers
         public abstract void Add();
         public abstract void Edit();
