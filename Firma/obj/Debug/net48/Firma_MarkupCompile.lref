@@ -5,8 +5,10 @@ FD:\Studia\Semestr V\Programowanie desktopowych aplikacji biznesowych\Projekt\Fi
 FD:\Studia\Semestr V\Programowanie desktopowych aplikacji biznesowych\Projekt\Firma\Firma\Views\FakturyKategorieView.xaml;;
 FD:\Studia\Semestr V\Programowanie desktopowych aplikacji biznesowych\Projekt\Firma\Firma\Views\FakturyRodzajeView.xaml;;
 FD:\Studia\Semestr V\Programowanie desktopowych aplikacji biznesowych\Projekt\Firma\Firma\Views\FakturyView.xaml;;
+FD:\Studia\Semestr V\Programowanie desktopowych aplikacji biznesowych\Projekt\Firma\Firma\Views\FakturyWydaniaZewnetrzneView.xaml;;
 FD:\Studia\Semestr V\Programowanie desktopowych aplikacji biznesowych\Projekt\Firma\Firma\Views\JednostkiMiaryView.xaml;;
 FD:\Studia\Semestr V\Programowanie desktopowych aplikacji biznesowych\Projekt\Firma\Firma\Views\KontaktyView.xaml;;
+FD:\Studia\Semestr V\Programowanie desktopowych aplikacji biznesowych\Projekt\Firma\Firma\Views\KontrahenciKontaktyView.xaml;;
 FD:\Studia\Semestr V\Programowanie desktopowych aplikacji biznesowych\Projekt\Firma\Firma\Views\KontrahenciRodzajeView.xaml;;
 FD:\Studia\Semestr V\Programowanie desktopowych aplikacji biznesowych\Projekt\Firma\Firma\Views\KontrahenciView.xaml;;
 FD:\Studia\Semestr V\Programowanie desktopowych aplikacji biznesowych\Projekt\Firma\Firma\Views\KrajeView.xaml;;
@@ -15,9 +17,12 @@ FD:\Studia\Semestr V\Programowanie desktopowych aplikacji biznesowych\Projekt\Fi
 FD:\Studia\Semestr V\Programowanie desktopowych aplikacji biznesowych\Projekt\Firma\Firma\Views\MainWindow.xaml;;
 FD:\Studia\Semestr V\Programowanie desktopowych aplikacji biznesowych\Projekt\Firma\Firma\Views\MainWindowResources.xaml;;
 FD:\Studia\Semestr V\Programowanie desktopowych aplikacji biznesowych\Projekt\Firma\Firma\Views\NowaFakturaView.xaml;;
+FD:\Studia\Semestr V\Programowanie desktopowych aplikacji biznesowych\Projekt\Firma\Firma\Views\NowaFakturaWydanieZewnetrzneView.xaml;;
 FD:\Studia\Semestr V\Programowanie desktopowych aplikacji biznesowych\Projekt\Firma\Firma\Views\NowaGrupaTowarowView.xaml;;
 FD:\Studia\Semestr V\Programowanie desktopowych aplikacji biznesowych\Projekt\Firma\Firma\Views\NowaJednostkaMiaryView.xaml;;
 FD:\Studia\Semestr V\Programowanie desktopowych aplikacji biznesowych\Projekt\Firma\Firma\Views\NowaKategoriaFakturyView.xaml;;
+FD:\Studia\Semestr V\Programowanie desktopowych aplikacji biznesowych\Projekt\Firma\Firma\Views\NowaPozycjaPrzyjeciaZewnetrznegoView.xaml;;
+FD:\Studia\Semestr V\Programowanie desktopowych aplikacji biznesowych\Projekt\Firma\Firma\Views\NowaPozycjaWydaniaZewnetrznegoView.xaml;;
 FD:\Studia\Semestr V\Programowanie desktopowych aplikacji biznesowych\Projekt\Firma\Firma\Views\NowaStawkaVatTowarowView.xaml;;
 FD:\Studia\Semestr V\Programowanie desktopowych aplikacji biznesowych\Projekt\Firma\Firma\Views\NowaUmowaView.xaml;;
 FD:\Studia\Semestr V\Programowanie desktopowych aplikacji biznesowych\Projekt\Firma\Firma\Views\NowaZmianaCenyView.xaml;;
@@ -26,9 +31,11 @@ FD:\Studia\Semestr V\Programowanie desktopowych aplikacji biznesowych\Projekt\Fi
 FD:\Studia\Semestr V\Programowanie desktopowych aplikacji biznesowych\Projekt\Firma\Firma\Views\NoweWydanieZewnetrzneView.xaml;;
 FD:\Studia\Semestr V\Programowanie desktopowych aplikacji biznesowych\Projekt\Firma\Firma\Views\NowyAdresView.xaml;;
 FD:\Studia\Semestr V\Programowanie desktopowych aplikacji biznesowych\Projekt\Firma\Firma\Views\NowyKontaktView.xaml;;
+FD:\Studia\Semestr V\Programowanie desktopowych aplikacji biznesowych\Projekt\Firma\Firma\Views\NowyKontrahentKontaktView.xaml;;
 FD:\Studia\Semestr V\Programowanie desktopowych aplikacji biznesowych\Projekt\Firma\Firma\Views\NowyKontrahentView.xaml;;
 FD:\Studia\Semestr V\Programowanie desktopowych aplikacji biznesowych\Projekt\Firma\Firma\Views\NowyKrajView.xaml;;
 FD:\Studia\Semestr V\Programowanie desktopowych aplikacji biznesowych\Projekt\Firma\Firma\Views\NowyMagazynView.xaml;;
+FD:\Studia\Semestr V\Programowanie desktopowych aplikacji biznesowych\Projekt\Firma\Firma\Views\NowyPracownikUmowaView.xaml;;
 FD:\Studia\Semestr V\Programowanie desktopowych aplikacji biznesowych\Projekt\Firma\Firma\Views\NowyPracownikView.xaml;;
 FD:\Studia\Semestr V\Programowanie desktopowych aplikacji biznesowych\Projekt\Firma\Firma\Views\NowyRodzajFakturyView.xaml;;
 FD:\Studia\Semestr V\Programowanie desktopowych aplikacji biznesowych\Projekt\Firma\Firma\Views\NowyRodzajKontrahentaView.xaml;;
@@ -39,6 +46,7 @@ FD:\Studia\Semestr V\Programowanie desktopowych aplikacji biznesowych\Projekt\Fi
 FD:\Studia\Semestr V\Programowanie desktopowych aplikacji biznesowych\Projekt\Firma\Firma\Views\NowyTypTowarowView.xaml;;
 FD:\Studia\Semestr V\Programowanie desktopowych aplikacji biznesowych\Projekt\Firma\Firma\Views\PozycjePrzyjeciaZewnetrznegoView.xaml;;
 FD:\Studia\Semestr V\Programowanie desktopowych aplikacji biznesowych\Projekt\Firma\Firma\Views\PozycjeWydaniaZewnetrznegoView.xaml;;
+FD:\Studia\Semestr V\Programowanie desktopowych aplikacji biznesowych\Projekt\Firma\Firma\Views\PracownicyUmowyView.xaml;;
 FD:\Studia\Semestr V\Programowanie desktopowych aplikacji biznesowych\Projekt\Firma\Firma\Views\PracownicyView.xaml;;
 FD:\Studia\Semestr V\Programowanie desktopowych aplikacji biznesowych\Projekt\Firma\Firma\Views\PrzyjeciaZewnetrzneView.xaml;;
 FD:\Studia\Semestr V\Programowanie desktopowych aplikacji biznesowych\Projekt\Firma\Firma\Views\RaportSprzedazyView.xaml;;
@@ -53,12 +61,4 @@ FD:\Studia\Semestr V\Programowanie desktopowych aplikacji biznesowych\Projekt\Fi
 FD:\Studia\Semestr V\Programowanie desktopowych aplikacji biznesowych\Projekt\Firma\Firma\Views\UmowyView.xaml;;
 FD:\Studia\Semestr V\Programowanie desktopowych aplikacji biznesowych\Projekt\Firma\Firma\Views\WydaniaZewnetrzneView.xaml;;
 FD:\Studia\Semestr V\Programowanie desktopowych aplikacji biznesowych\Projekt\Firma\Firma\Views\ZmianyCenyView.xaml;;
-FD:\Studia\Semestr V\Programowanie desktopowych aplikacji biznesowych\Projekt\Firma\Firma\Views\FakturyWydaniaZewnetrzneView.xaml;;
-FD:\Studia\Semestr V\Programowanie desktopowych aplikacji biznesowych\Projekt\Firma\Firma\Views\KontrahenciKontaktyView.xaml;;
-FD:\Studia\Semestr V\Programowanie desktopowych aplikacji biznesowych\Projekt\Firma\Firma\Views\PracownicyUmowyView.xaml;;
-FD:\Studia\Semestr V\Programowanie desktopowych aplikacji biznesowych\Projekt\Firma\Firma\Views\NowaFakturaWydanieZewnetrzneView.xaml;;
-FD:\Studia\Semestr V\Programowanie desktopowych aplikacji biznesowych\Projekt\Firma\Firma\Views\NowyKontrahentKontaktView.xaml;;
-FD:\Studia\Semestr V\Programowanie desktopowych aplikacji biznesowych\Projekt\Firma\Firma\Views\NowaPozycjaPrzyjeciaZewnetrznegoView.xaml;;
-FD:\Studia\Semestr V\Programowanie desktopowych aplikacji biznesowych\Projekt\Firma\Firma\Views\NowaPozycjaWydaniaZewnetrznegoView.xaml;;
-FD:\Studia\Semestr V\Programowanie desktopowych aplikacji biznesowych\Projekt\Firma\Firma\Views\NowyPracownikUmowaView.xaml;;
 

@@ -7,33 +7,96 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type local:WszystkieViewBase}">
-                    <Grid Margin="0,10,0,0">
+                    <ControlTemplate.Resources>
+                        <ResourceDictionary Source="/Views/StyleZakladekResources.xaml" />
+                    </ControlTemplate.Resources>
+                    <Grid>
                         <Grid.RowDefinitions>
-                            <RowDefinition Height="34" />
-                            <RowDefinition Height="60" />
+                            <RowDefinition Height="40" />
+                            <RowDefinition Height="Auto" />
                             <RowDefinition Height="*" />
                         </Grid.RowDefinitions>
-                        <ToolBar Grid.Row="0"
-                                 Height="30"
-                                 Margin="0,2,0,2"
-                                 Background="#EEEEEE">
-                            <ToggleButton Content="Dodaj"
-                                          Margin="0,2,0,2"
-                                          Command="{Binding AddCommand}" />
-                            <ToggleButton Content="Modyfikuj"
-                                          Margin="0,2,0,2"
-                                          Command="{Binding EditCommand}" />
-                            <ToggleButton Content="Usun"
-                                          Margin="0,2,0,2"
-                                          Command="{Binding DeleteCommand}" />
-                            <ToggleButton Content="Odswiez"
-                                          Margin="0,2,0,2"
-                                          Command="{Binding LoadCommand}" />
+                        <ToolBar Style="{StaticResource ToolBarStandardowy}">
+                            <ToggleButton Command="{Binding AddCommand}">
+                                <Image Style="{StaticResource ImageToolBarStandardowy}"
+                                       Source="/Views/Content/Icons/plus.png" />
+                            </ToggleButton>
+                            <Separator />
+                            <ToggleButton Command="{Binding EditCommand}">
+                                <Image Style="{StaticResource ImageToolBarStandardowy}"
+                                       Source="/Views/Content/Icons/edit.png" />
+                            </ToggleButton>
+                            <Separator />
+                            <ToggleButton Command="{Binding DeleteCommand}">
+                                <Image Style="{StaticResource ImageToolBarStandardowy}"
+                                       Source="/Views/Content/Icons/minus.png" />
+                            </ToggleButton>
+                            <Separator />
+                            <ToggleButton Command="{Binding RefreshCommand}">
+                                <Image Style="{StaticResource ImageToolBarStandardowy}"
+                                       Source="/Views/Content/Icons/refresh.png" />
+                            </ToggleButton>
                         </ToolBar>
 
                         <StackPanel Grid.Row="1"
-                                    Background="#EEEEEE">
-                            <Label>Tu bedzie filtrowanie i sortowanie</Label>
+                                    Style="{StaticResource StackPanelStandardowy}">
+                            <Border Style="{StaticResource BorderStandardowy}">
+                                <Expander Header="Sortowanie i filtrowanie">
+                                    <Grid>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="36" />
+                                            <RowDefinition Height="36" />
+                                        </Grid.RowDefinitions>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="Auto" MinWidth="200" />
+                                            <ColumnDefinition Width="Auto" MinWidth="50" />
+                                            <ColumnDefinition Width="Auto" MinWidth="50" />
+                                            <ColumnDefinition Width="Auto" MinWidth="100" />
+                                            <ColumnDefinition Width="Auto" MinWidth="100" />
+                                            <ColumnDefinition Width="Auto" MinWidth="50" />
+                                            <ColumnDefinition Width="Auto" MinWidth="50" />
+                                        </Grid.ColumnDefinitions>
+                                        <Label Grid.Row="0"
+                                               Grid.Column="0"
+                                               Content="Sortowanie"
+                                               Style="{StaticResource ControlStandardowy}" />
+                                        <ComboBox Grid.Row="1"
+                                                  Grid.Column="0"
+                                                  Style="{StaticResource ControlStandardowy}"
+                                                  ItemsSource="{Binding SortComboBoxItems}"
+                                                  SelectedValue="{Binding Path=SortField, Mode=TwoWay}" />
+                                        <Button Grid.Row="1"
+                                                Grid.Column="1"
+                                                Content="Sortuj"
+                                                Style="{StaticResource ButtonStandardowy}"
+                                                Command="{Binding SortCommand}" />
+
+                                        <Label Grid.Row="0"
+                                               Grid.Column="3"
+                                               Content="Filtrowanie"
+                                               Style="{StaticResource ControlStandardowy}" />
+                                        <ComboBox Grid.Row="1"
+                                                  Grid.Column="3"
+                                                  Style="{StaticResource ControlStandardowy}"
+                                                  ItemsSource="{Binding FindComboBoxItems}"
+                                                  SelectedValue="{Binding Path=FindField, Mode=TwoWay}" />
+                                        <TextBox Grid.Row="1"
+                                                 Grid.Column="4"
+                                                 Style="{StaticResource ControlStandardowy}"
+                                                 Text="{Binding FindTextBox}" />
+                                        <Button Grid.Row="1"
+                                                Grid.Column="5"
+                                                Content="Szukaj"
+                                                Style="{StaticResource ButtonStandardowy}"
+                                                Command="{Binding FindCommand}" />
+                                        <Button Grid.Row="1"
+                                                Grid.Column="6"
+                                                Content="Wyczysc"
+                                                Style="{StaticResource ButtonStandardowy}"
+                                                Command="{Binding LoadCommand}" />
+                                    </Grid>
+                                </Expander>
+                            </Border>
                         </StackPanel>
 
                         <ContentPresenter Grid.Row="2"
@@ -48,26 +111,27 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type local:JedenViewBase}">
-                    <Grid Margin="0,10,0,0">
+                    <ControlTemplate.Resources>
+                        <ResourceDictionary Source="/Views/StyleZakladekResources.xaml" />
+                    </ControlTemplate.Resources>
+                    <Grid>
                         <Grid.RowDefinitions>
-                            <RowDefinition Height="34" />
+                            <RowDefinition Height="40" />
                             <RowDefinition Height="*" />
                         </Grid.RowDefinitions>
-                        <ToolBar Grid.Row="0"
-                                 Height="30"
-                                 Margin="0,2,0,2"
-                                 Background="#EEEEEE">
-                            <ToggleButton Content="Zapisz i zamknij"
-                                          Width="100"
-                                          Height="30"
-                                          Command="{Binding SaveAndCloseCommand}" />
-                            <ToggleButton Content="Anuluj"
-                                          Width="100"
-                                          Height="30"
-                                          Command="{Binding CloseCommand}" />
+                        <ToolBar Style="{StaticResource ToolBarStandardowy}">
+                            <ToggleButton Command="{Binding SaveAndCloseCommand}">
+                                <Image Style="{StaticResource ImageToolBarStandardowy}"
+                                       Source="/Views/Content/Icons/save.png" />
+                            </ToggleButton>
+                            <Separator />
+                            <ToggleButton Command="{Binding CloseCommand}">
+                                <Image Style="{StaticResource ImageToolBarStandardowy}"
+                                       Source="/Views/Content/Icons/cancel.png" />
+                            </ToggleButton>
                         </ToolBar>
                         <ContentPresenter Grid.Row="1"
-                                          Margin="0,5,0,5" />
+                                          Margin="4" />
                     </Grid>
                 </ControlTemplate>
             </Setter.Value>

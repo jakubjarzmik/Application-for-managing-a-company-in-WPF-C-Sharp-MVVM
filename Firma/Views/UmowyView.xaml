@@ -18,17 +18,17 @@
                                     Binding="{Binding Path=Rodzaj}" />
                 <DataGridTextColumn Header="Stanowisko"
                                     Binding="{Binding Path=Stanowisko}" />
-                <DataGridTextColumn Header="DataZawarcia"
+                <DataGridTextColumn Header="Data zawarcia"
                                     Binding="{Binding Path=DataZawarcia, StringFormat=dd.MM.yyyy}" />
                 <DataGridTextColumn Header="Poczatek umowy"
                                     Binding="{Binding Path=DataOd, StringFormat=dd.MM.yyyy}" />
-                <DataGridTextColumn Header="Koniec Umowy"
+                <DataGridTextColumn Header="Koniec umowy"
                                     Binding="{Binding Path=DataDo, StringFormat=dd.MM.yyyy}" />
-                <DataGridTextColumn Header="Stawka miesieczna"
+                <DataGridTextColumn Header="Stawka (mies)"
                                     Binding="{Binding Path=StawkaMies, StringFormat={}{0:N2}zł}" />
-                <DataGridTextColumn Header="Stawka godzinowa"
+                <DataGridTextColumn Header="Stawka (godz)"
                                     Binding="{Binding Path=StawkaGodz, StringFormat={}{0:N2}zł}" />
-                <DataGridTextColumn Header="Czas pracy miesiecznie"
+                <DataGridTextColumn Header="Czas pracy (mies)"
                                     Binding="{Binding Path=CzasPracyMies}" />
                 <DataGridTextColumn Header="Opis"
                                     Binding="{Binding Path=Opis}" />

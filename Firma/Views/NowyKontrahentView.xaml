@@ -403,24 +403,18 @@
                     </Grid.RowDefinitions>
                     <ToolBar Style="{StaticResource ToolBarStandardowy}">
                         <ToggleButton Command="{Binding AddCommand}">
-                            <StackPanel Style="{StaticResource StackPanelDoTabeli}">
-                                <Image Style="{StaticResource ImageToolBarStandardowy}"
-                                       Source="/Views/Content/Icons/plus.png" />
-                            </StackPanel>
+                            <Image Style="{StaticResource ImageToolBarStandardowy}"
+                                   Source="/Views/Content/Icons/plus.png" />
                         </ToggleButton>
                         <Separator />
                         <ToggleButton Command="{Binding DeleteCommand}">
-                            <StackPanel Style="{StaticResource StackPanelDoTabeli}">
-                                <Image Style="{StaticResource ImageToolBarStandardowy}"
-                                       Source="/Views/Content/Icons/minus.png" />
-                            </StackPanel>
+                            <Image Style="{StaticResource ImageToolBarStandardowy}"
+                                   Source="/Views/Content/Icons/minus.png" />
                         </ToggleButton>
                         <Separator />
                         <ToggleButton Command="{Binding RefreshCommand}">
-                            <StackPanel Style="{StaticResource StackPanelDoTabeli}">
-                                <Image Style="{StaticResource ImageToolBarStandardowy}"
-                                       Source="/Views/Content/Icons/refresh.png" />
-                            </StackPanel>
+                            <Image Style="{StaticResource ImageToolBarStandardowy}"
+                                   Source="/Views/Content/Icons/refresh.png" />
                         </ToggleButton>
                     </ToolBar>
                     <DataGrid   Grid.Row="1"

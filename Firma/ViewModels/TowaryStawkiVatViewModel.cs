@@ -108,6 +108,46 @@ namespace Firma.ViewModels
             }
         }
         #endregion
-
+        #region SortAndFind
+        public override void Sort()
+        {
+            switch (SortField)
+            {
+                case "Domyślne":
+                    List = new ObservableCollection<StawkaVatTowaruForAllView>(List.OrderBy(Item => Item.StawkaVatId));
+                    break;
+                case "Kraj":
+                    List = new ObservableCollection<StawkaVatTowaruForAllView>(List.OrderBy(Item => Item.Kraj));
+                    break;
+                case "Stawka":
+                    List = new ObservableCollection<StawkaVatTowaruForAllView>(List.OrderBy(Item => Item.Stawka));
+                    break;
+            }
+        }
+        public override List<string> GetComboBoxSortList()
+        {
+            return new List<string> { "Domyślne", "Kraj", "Stawka" };
+        }
+        public override void Find()
+        {
+            try
+            {
+                switch (FindField)
+                {
+                    case "Kraj":
+                        List = new ObservableCollection<StawkaVatTowaruForAllView>(List.Where(i => i.Kraj != null && i.Kraj.StartsWith(FindTextBox)));
+                        break;
+                    case "Stawka":
+                        List = new ObservableCollection<StawkaVatTowaruForAllView>(List.Where(i => i.Stawka == decimal.Parse(FindTextBox)));
+                        break;
+                }
+            }
+            catch (Exception) { }
+        }
+        public override List<string> GetComboBoxFindList()
+        {
+            return new List<string> { "Kraj", "Stawka" };
+        }
+        #endregion
     }
 }

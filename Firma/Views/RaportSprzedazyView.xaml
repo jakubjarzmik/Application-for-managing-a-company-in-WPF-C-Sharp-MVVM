@@ -9,78 +9,81 @@
              mc:Ignorable="d"
              d:DesignHeight="450"
              d:DesignWidth="800">
-    <Grid Background="White">
-        <StackPanel>
-            <Grid>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="33" />
-                    <RowDefinition Height="33" />
-                    <RowDefinition Height="33" />
-                    <RowDefinition Height="40" />
-                    <RowDefinition Height="33" />
-                </Grid.RowDefinitions>
-
-                <Label Grid.Row="0"
-                       HorizontalAlignment="Center">Utarg w wybranym okresie dla wybranego towaru.</Label>
-
-                <Grid Grid.Row="1">
+    <UserControl.Resources>
+        <ResourceDictionary Source="StyleZakladekResources.xaml" />
+    </UserControl.Resources>
+    <ScrollViewer>
+        <Grid Background="White">
+            <Expander Header="Raport sprzedaży"
+                      IsExpanded="True">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="40" />
-                        <ColumnDefinition Width="120" />
-                        <ColumnDefinition Width="20" />
-                        <ColumnDefinition Width="40" />
-                        <ColumnDefinition Width="120" />
+                        <ColumnDefinition Width="150" />
+                        <ColumnDefinition Width="100" />
+                        <ColumnDefinition Width="150" />
                     </Grid.ColumnDefinitions>
-                    <Label Grid.Column="0"
-                           Margin="3"
-                           Content="Od" />
-                    <DatePicker Grid.Column="1"
-                                Margin="3"
-                                SelectedDate="{Binding DataOd, Mode=TwoWay}" />
-                    <Label Grid.Column="3"
-                           Margin="3"
-                           Content="Do" />
-                    <DatePicker Grid.Column="4"
-                                Margin="3"
-                                SelectedDate="{Binding DataDo, Mode=TwoWay}" />
-                </Grid>
+                    <Grid Grid.Row="0"
+                          Grid.Column="0"
+                          Grid.ColumnSpan="3">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="50" />
+                            <ColumnDefinition Width="*"
+                                              MinWidth="100" />
+                            <ColumnDefinition Width="50" />
+                            <ColumnDefinition Width="*"
+                                              MinWidth="100" />
+                        </Grid.ColumnDefinitions>
 
-                <Grid Grid.Row="2">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="Auto" />
-                        <ColumnDefinition Width="200" />
-                    </Grid.ColumnDefinitions>
-                    <Label Grid.Column="0"
-                           Margin="3"
-                           Content="Wybierz towar" />
-                    <ComboBox Grid.Column="1"
-                              Margin="3"
+                        <Label Grid.Column="0"
+                               Content="Od:"
+                               Style="{StaticResource ControlStandardowy}" />
+                        <DatePicker Grid.Column="1"
+                                    SelectedDate="{Binding DataOd, Mode=TwoWay}"
+                                    Style="{StaticResource ControlStandardowy}" />
+                        <Label Grid.Column="2"
+                               Content="Do:"
+                               Style="{StaticResource ControlStandardowy}" />
+                        <DatePicker Grid.Column="3"
+                                    SelectedDate="{Binding DataDo, Mode=TwoWay}"
+                                    Style="{StaticResource ControlStandardowy}" />
+                    </Grid>
+                    <Label Grid.Row="1"
+                           Grid.Column="0"
+                           Content="Wybierz towar:"
+                           Style="{StaticResource ControlStandardowy}" />
+                    <ComboBox Grid.Row="1"
+                              Grid.Column="1"
+                              Grid.ColumnSpan="2"
                               ItemsSource="{Binding TowaryComboBoxItems}"
                               DisplayMemberPath="Value"
                               SelectedValuePath="Key"
-                              SelectedValue="{Binding Path=IdTowaru,Mode=TwoWay}" />
-                </Grid>
+                              SelectedValue="{Binding Path=TowarId,Mode=TwoWay}"
+                              Style="{StaticResource ControlStandardowy}" />
 
-                <Button Grid.Row="3"
-                        Margin="3"
-                        Content="Oblicz"
-                        Command="{Binding ObliczCommand}" />
+                    <Button Grid.Row="2"
+                            Grid.Column="0"
+                            Grid.ColumnSpan="3"
+                            Content="Oblicz"
+                            Command="{Binding ObliczCommand}"
+                            Style="{StaticResource ControlStandardowy}" />
 
-                <Grid Grid.Row="4">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="150" />
-                        <ColumnDefinition Width="200" />
-                    </Grid.ColumnDefinitions>
-                    <Label Grid.Column="0"
+                    <Label Grid.Row="3"
+                           Grid.Column="0"
                            Margin="3"
                            Content="Utarg wynosi: " />
-                    <TextBox Grid.Column="1"
-                             Margin="3"
+                    <TextBox Grid.Row="3"
+                             Grid.Column="1"
                              IsEnabled="False"
-                             Text="{Binding Utarg, Mode=TwoWay, StringFormat={}{0:N2}zł}" />
+                             Text="{Binding Utarg, Mode=TwoWay, StringFormat={}{0:N2}zł}"
+                             Style="{StaticResource ControlStandardowy}" />
                 </Grid>
-
-            </Grid>
-        </StackPanel>
-    </Grid>
+            </Expander>
+        </Grid>
+    </ScrollViewer>
 </UserControl>

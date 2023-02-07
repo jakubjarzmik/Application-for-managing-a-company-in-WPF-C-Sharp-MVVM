@@ -95,6 +95,58 @@ namespace Firma.ViewModels
             }
         }
         #endregion
-
+        #region SortAndFind
+        public override void Sort()
+        {
+            switch (SortField)
+            {
+                case "Domyślne":
+                    List = new ObservableCollection<Kontakty>(List.OrderBy(Item => Item.KontaktId));
+                    break;
+                case "Nazwa działu":
+                    List = new ObservableCollection<Kontakty>(List.OrderBy(Item => Item.NazwaDzialu));
+                    break;
+                case "Opis osoby":
+                    List = new ObservableCollection<Kontakty>(List.OrderBy(Item => Item.OpisOsoby));
+                    break;
+            }
+        }
+        public override List<string> GetComboBoxSortList()
+        {
+            return new List<string> { "Domyślne", "Nazwa działu", "Opis osoby" };
+        }
+        public override void Find()
+        {
+            try
+            {
+                switch (FindField)
+                {
+                    case "Nazwa działu":
+                        List = new ObservableCollection<Kontakty>(List.Where(i => i.NazwaDzialu != null && i.NazwaDzialu.StartsWith(FindTextBox)));
+                        break;
+                    case "Opis osoby":
+                        List = new ObservableCollection<Kontakty>(List.Where(i => i.OpisOsoby != null && i.OpisOsoby.StartsWith(FindTextBox)));
+                        break;
+                    case "Telefon 1":
+                        List = new ObservableCollection<Kontakty>(List.Where(i => i.Telefon1 != null && i.Telefon1.StartsWith(FindTextBox)));
+                        break;
+                    case "Telefon 2":
+                        List = new ObservableCollection<Kontakty>(List.Where(i => i.Telefon2 != null && i.Telefon2.StartsWith(FindTextBox)));
+                        break;
+                    case "Email 1":
+                        List = new ObservableCollection<Kontakty>(List.Where(i => i.Email1 != null && i.Email1.StartsWith(FindTextBox)));
+                        break;
+                    case "Email 2":
+                        List = new ObservableCollection<Kontakty>(List.Where(i => i.Email2 != null && i.Email2.StartsWith(FindTextBox)));
+                        break;
+                }
+            }
+            catch (Exception) { }
+        }
+        public override List<string> GetComboBoxFindList()
+        {
+            return new List<string> { "Nazwa działu", "Opis osoby", "Telefon 1", "Telefon 2", "Email 1", "Email 2" };
+        }
+        #endregion
     }
 }

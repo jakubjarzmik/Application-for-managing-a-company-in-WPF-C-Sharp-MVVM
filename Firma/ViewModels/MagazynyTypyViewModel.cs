@@ -1,4 +1,5 @@
 ﻿using Firma.Models.Entities;
+using Firma.Models.EntitiesForView;
 using Firma.ViewModels.Abstract;
 using GalaSoft.MvvmLight.Messaging;
 using System;
@@ -19,7 +20,6 @@ namespace Firma.ViewModels
         {
         }
         #endregion
-
         #region Helpers
         public override void Load()
         {
@@ -74,6 +74,46 @@ namespace Firma.ViewModels
             }
         }
         #endregion
-
+        #region SortAndFind
+        public override void Sort()
+        {
+            switch (SortField)
+            {
+                case "Domyślne":
+                    List = new ObservableCollection<MagazynyTypy>(List.OrderBy(Item => Item.TypMagazynuId));
+                    break;
+                case "Symbol":
+                    List = new ObservableCollection<MagazynyTypy>(List.OrderBy(Item => Item.Symbol));
+                    break;
+                case "Nazwa":
+                    List = new ObservableCollection<MagazynyTypy>(List.OrderBy(Item => Item.Nazwa));
+                    break;
+            }
+        }
+        public override List<string> GetComboBoxSortList()
+        {
+            return new List<string> { "Domyślne", "Symbol", "Nazwa" };
+        }
+        public override void Find()
+        {
+            try
+            {
+                switch (FindField)
+                {
+                    case "Symbol":
+                        List = new ObservableCollection<MagazynyTypy>(List.Where(i => i.Symbol != null && i.Symbol.StartsWith(FindTextBox)));
+                        break;
+                    case "Nazwa":
+                        List = new ObservableCollection<MagazynyTypy>(List.Where(i => i.Nazwa != null && i.Nazwa.StartsWith(FindTextBox)));
+                        break;
+                }
+            }
+            catch (Exception) { }
+        }
+        public override List<string> GetComboBoxFindList()
+        {
+            return new List<string> { "Symbol", "Nazwa" };
+        }
+        #endregion
     }
 }

@@ -23,6 +23,7 @@
     <None Remove="Views\Content\Icons\arrow-u-left-top.png" />
     <None Remove="Views\Content\Icons\arrow-u-right-top.png" />
     <None Remove="Views\Content\Icons\attach_money_FILL0_wght400_GRAD0_opsz48.png" />
+    <None Remove="Views\Content\Icons\cancel.png" />
     <None Remove="Views\Content\Icons\car-white.png" />
     <None Remove="Views\Content\Icons\car.png" />
     <None Remove="Views\Content\Icons\chevron_left-white.png" />
@@ -39,6 +40,7 @@
     <None Remove="Views\Content\Icons\content_copy_FILL0_wght400_GRAD0_opsz48.png" />
     <None Remove="Views\Content\Icons\download_FILL0_wght400_GRAD0_opsz48.png" />
     <None Remove="Views\Content\Icons\dwa.png" />
+    <None Remove="Views\Content\Icons\edit.png" />
     <None Remove="Views\Content\Icons\excel.png" />
     <None Remove="Views\Content\Icons\file-document-minus-outline-white.png" />
     <None Remove="Views\Content\Icons\file-document-minus-outline.png" />
@@ -71,6 +73,7 @@
     <None Remove="Views\Content\Icons\receipt_FILL0_wght400_GRAD0_opsz48-white.png" />
     <None Remove="Views\Content\Icons\receipt_FILL0_wght400_GRAD0_opsz48.png" />
     <None Remove="Views\Content\Icons\refresh.png" />
+    <None Remove="Views\Content\Icons\save.png" />
     <None Remove="Views\Content\Icons\summarize_FILL0_wght400_GRAD0_opsz48.png" />
     <None Remove="Views\Content\Icons\trzy.png" />
     <None Remove="Views\Content\Icons\unarchive_FILL0_wght400_GRAD0_opsz48-white.png" />
@@ -145,6 +148,9 @@
     <Resource Include="Views\Content\Icons\attach_money_FILL0_wght400_GRAD0_opsz48.png">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
+    <Resource Include="Views\Content\Icons\cancel.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
     <Resource Include="Views\Content\Icons\car-white.png">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
@@ -191,6 +197,9 @@
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Views\Content\Icons\dwa.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Views\Content\Icons\edit.png">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Views\Content\Icons\excel.png">
@@ -263,6 +272,9 @@
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Views\Content\Icons\refresh.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Views\Content\Icons\save.png">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Views\Content\Icons\summarize_FILL0_wght400_GRAD0_opsz48.png">

@@ -81,6 +81,46 @@ namespace Firma.ViewModels
             }
         }
         #endregion
-
+        #region SortAndFind
+        public override void Sort()
+        {
+            switch (SortField)
+            {
+                case "Domyślne":
+                    List = new ObservableCollection<FakturyWydaniaZewnetrzneForAllView>(List.OrderBy(Item => Item.FakturaWZId));
+                    break;
+                case "Numer faktury":
+                    List = new ObservableCollection<FakturyWydaniaZewnetrzneForAllView>(List.OrderBy(Item => Item.FakturaNumer));
+                    break;
+                case "Nazwa kontrahenta":
+                    List = new ObservableCollection<FakturyWydaniaZewnetrzneForAllView>(List.OrderBy(Item => Item.FakturaKontrahentNazwa));
+                    break;
+            }
+        }
+        public override List<string> GetComboBoxSortList()
+        {
+            return new List<string> { "Domyślne", "Numer faktury", "Nazwa kontrahenta" };
+        }
+        public override void Find()
+        {
+            try
+            {
+                switch (FindField)
+                {
+                    case "Numer faktury":
+                        List = new ObservableCollection<FakturyWydaniaZewnetrzneForAllView>(List.Where(i => i.FakturaNumer != null && i.FakturaNumer.StartsWith(FindTextBox)));
+                        break;
+                    case "Nazwa kontrahenta":
+                        List = new ObservableCollection<FakturyWydaniaZewnetrzneForAllView>(List.Where(i => i.FakturaKontrahentNazwa != null && i.FakturaKontrahentNazwa.StartsWith(FindTextBox)));
+                        break;
+                }
+            }
+            catch (Exception) { }
+        }
+        public override List<string> GetComboBoxFindList()
+        {
+            return new List<string> { "Numer faktury", "Nazwa kontrahenta" };
+        }
+        #endregion
     }
 }

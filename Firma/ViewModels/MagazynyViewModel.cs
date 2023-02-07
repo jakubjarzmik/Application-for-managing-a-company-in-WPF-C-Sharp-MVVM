@@ -15,11 +15,10 @@ namespace Firma.ViewModels
     public class MagazynyViewModel : WszystkieViewModel<MagazynForAllView>
     {
         #region Konstruktor
-        public MagazynyViewModel():base("Magazyny")
+        public MagazynyViewModel() : base("Magazyny")
         {
         }
         #endregion
-
         #region Helpers
         public override void Load()
         {
@@ -34,7 +33,7 @@ namespace Firma.ViewModels
                         Opis = magazyn.Opis,
                         Typ = magazyn.MagazynyTypy.Nazwa,
                         Adres = magazyn.Adresy.Ulica + " " + magazyn.Adresy.NrDomu +
-                        (magazyn.Adresy.NrLokalu.Equals("") ? "":"/"+ magazyn.Adresy.NrLokalu)+
+                        (magazyn.Adresy.NrLokalu.Equals("") ? "" : "/" + magazyn.Adresy.NrLokalu) +
                         "\n" + magazyn.Adresy.KodPocztowy + " " + magazyn.Adresy.Miejscowosc,
                         Telefon = magazyn.Telefon
                     }
@@ -78,12 +77,64 @@ namespace Firma.ViewModels
                     Load();
                 }
             }
-            catch (Exception) 
+            catch (Exception)
             {
                 MessageBox.Show("Wybierz rekord, który chcesz usunąć");
             }
         }
         #endregion
-
+        #region SortAndFind
+        public override void Sort()
+        {
+            switch (SortField)
+            {
+                case "Domyślne":
+                    List = new ObservableCollection<MagazynForAllView>(List.OrderBy(Item => Item.MagazynId));
+                    break;
+                case "Symbol":
+                    List = new ObservableCollection<MagazynForAllView>(List.OrderBy(Item => Item.Symbol));
+                    break;
+                case "Nazwa":
+                    List = new ObservableCollection<MagazynForAllView>(List.OrderBy(Item => Item.Nazwa));
+                    break;
+                case "Typ":
+                    List = new ObservableCollection<MagazynForAllView>(List.OrderBy(Item => Item.Typ));
+                    break;
+            }
+        }
+        public override List<string> GetComboBoxSortList()
+        {
+            return new List<string> { "Domyślne", "Symbol", "Nazwa", "Typ" };
+        }
+        public override void Find()
+        {
+            try
+            {
+                switch (FindField)
+                {
+                    case "Symbol":
+                        List = new ObservableCollection<MagazynForAllView>(List.Where(i => i.Symbol != null && i.Symbol.StartsWith(FindTextBox)));
+                        break;
+                    case "Nazwa":
+                        List = new ObservableCollection<MagazynForAllView>(List.Where(i => i.Nazwa != null && i.Nazwa.StartsWith(FindTextBox)));
+                        break;
+                    case "Typ":
+                        List = new ObservableCollection<MagazynForAllView>(List.Where(i => i.Typ != null && i.Typ.StartsWith(FindTextBox)));
+                        break;
+                    case "Adres":
+                        List = new ObservableCollection<MagazynForAllView>(List.Where(i => i.Adres != null && i.Adres.StartsWith(FindTextBox)));
+                        break;
+                    case "Telefon":
+                        List = new ObservableCollection<MagazynForAllView>(List.Where(i => i.Telefon != null && i.Telefon.StartsWith(FindTextBox)));
+                        break;
+                }
+            }
+            catch (Exception) { }
+        }
+        public override List<string> GetComboBoxFindList()
+        {
+            return new List<string> { "Symbol", "Nazwa", "Typ", "Adres", "Telefon" };
+        }
+        #endregion
     }
 }

@@ -95,6 +95,46 @@ namespace Firma.ViewModels
             }
         }
         #endregion
-
+        #region SortAndFind
+        public override void Sort()
+        {
+            switch (SortField)
+            {
+                case "Domyślne":
+                    List = new ObservableCollection<JednostkiMiary>(List.OrderBy(Item => Item.JednostkaId));
+                    break;
+                case "Skrót":
+                    List = new ObservableCollection<JednostkiMiary>(List.OrderBy(Item => Item.Skrot));
+                    break;
+                case "Nazwa":
+                    List = new ObservableCollection<JednostkiMiary>(List.OrderBy(Item => Item.Nazwa));
+                    break;
+            }
+        }
+        public override List<string> GetComboBoxSortList()
+        {
+            return new List<string> { "Domyślne", "Skrót", "Nazwa" };
+        }
+        public override void Find()
+        {
+            try
+            {
+                switch (FindField)
+                {
+                    case "Skrót":
+                        List = new ObservableCollection<JednostkiMiary>(List.Where(i => i.Skrot != null && i.Skrot.StartsWith(FindTextBox)));
+                        break;
+                    case "Nazwa":
+                        List = new ObservableCollection<JednostkiMiary>(List.Where(i => i.Nazwa != null && i.Nazwa.StartsWith(FindTextBox)));
+                        break;
+                }
+            }
+            catch (Exception) { }
+        }
+        public override List<string> GetComboBoxFindList()
+        {
+            return new List<string> { "Skrót", "Nazwa" };
+        }
+        #endregion
     }
 }

@@ -1,4 +1,5 @@
 ﻿using Firma.Helpers;
+using Firma.Models.BusinessLogic;
 using Firma.Models.Entities;
 using Firma.Models.EntitiesForView;
 using Firma.ViewModels.Abstract;
@@ -112,6 +113,64 @@ namespace Firma.ViewModels
             }
         }
         #endregion
-
+        #region SortAndFind
+        public override void Sort()
+        {
+            switch (SortField)
+            {
+                case "Domyślne":
+                    List = new ObservableCollection<AdresForAllView>(List.OrderBy(Item => Item.AdresId));
+                    break;
+                case "Kraj":
+                    List = new ObservableCollection<AdresForAllView>(List.OrderBy(Item => Item.Kraj));
+                    break;
+                case "Województwo":
+                    List = new ObservableCollection<AdresForAllView>(List.OrderBy(Item => Item.Wojewodztwo));
+                    break;
+                case "Miejscowość":
+                    List = new ObservableCollection<AdresForAllView>(List.OrderBy(Item => Item.Miejscowosc));
+                    break;
+                case "Ulica":
+                    List = new ObservableCollection<AdresForAllView>(List.OrderBy(Item => Item.Ulica));
+                    break;
+            }
+        }
+        public override List<string> GetComboBoxSortList()
+        {
+            return new List<string> { "Domyślne", "Kraj", "Województwo", "Miejscowość", "Ulica" };
+        }
+        public override void Find()
+        {
+            try
+            {
+                switch (FindField)
+                {
+                    case "Kraj":
+                        List = new ObservableCollection<AdresForAllView>(List.Where(i => i.Kraj != null && i.Kraj.StartsWith(FindTextBox)));
+                        break;
+                    case "Województwo":
+                        List = new ObservableCollection<AdresForAllView>(List.Where(i => i.Wojewodztwo != null && i.Wojewodztwo.StartsWith(FindTextBox)));
+                        break;
+                    case "Kod pocztowy":
+                        List = new ObservableCollection<AdresForAllView>(List.Where(i => i.KodPocztowy != null && i.KodPocztowy.StartsWith(FindTextBox)));
+                        break;
+                    case "Miejscowość":
+                        List = new ObservableCollection<AdresForAllView>(List.Where(i => i.Miejscowosc != null && i.Miejscowosc.StartsWith(FindTextBox)));
+                        break;
+                    case "Ulica":
+                        List = new ObservableCollection<AdresForAllView>(List.Where(i => i.Ulica != null && i.Ulica.StartsWith(FindTextBox)));
+                        break;
+                    case "Nr domu":
+                        List = new ObservableCollection<AdresForAllView>(List.Where(i => i.NrDomu != null && i.NrDomu.StartsWith(FindTextBox)));
+                        break;
+                }
+            }
+            catch (Exception) { }
+        }
+        public override List<string> GetComboBoxFindList()
+        {
+            return new List<string> { "Kraj", "Województwo", "Kod pocztowy", "Miejscowość", "Ulica", "Nr domu" };
+        }
+        #endregion
     }
 }

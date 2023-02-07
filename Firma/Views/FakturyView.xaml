@@ -15,7 +15,7 @@
                 <DataGridTextColumn Header="Numer"
                                     Binding="{Binding Path=Numer}" />
                 <DataGridTextColumn Header="Data wystawienia"
-                                    Binding="{Binding Path=DataWystawienia}" />
+                                    Binding="{Binding Path=DataWystawienia, StringFormat='dd.MM.yyyy HH:mm'}" />
                 <DataGridTextColumn Header="Kontrahent"
                                     Binding="{Binding Path=KontrahentNazwa}" />
                 <DataGridTextColumn Header="NIP"

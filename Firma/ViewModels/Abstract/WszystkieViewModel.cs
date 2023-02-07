@@ -90,6 +90,7 @@ namespace Firma.ViewModels.Abstract
             base.DisplayName = displayName;
             this._Db = new JJFirmaEntities();
             toClose = false;
+            SortField = "Domyślne";
         }
         public WszystkieViewModel(string displayName, string token)
         {
@@ -97,6 +98,7 @@ namespace Firma.ViewModels.Abstract
             this._Db = new JJFirmaEntities();
             this.token = token;
             toClose = true;
+            SortField = "Domyślne";
         }
         #endregion
         #region Properties
@@ -112,6 +114,53 @@ namespace Firma.ViewModels.Abstract
                 _Selected = value;
             }
         }
+        #endregion
+        #region SortAndFind
+        private BaseCommand _SortCommand;
+        public ICommand SortCommand
+        {
+            get
+            {
+                if (_SortCommand == null)
+                {
+                    _SortCommand = new BaseCommand(() => Sort());
+                }
+                return _SortCommand;
+            }
+        }
+        public abstract void Sort();
+        public string SortField { get; set; }
+        public List<string> SortComboBoxItems
+        {
+            get
+            {
+                return GetComboBoxSortList();
+            }
+        }
+        public abstract List<string> GetComboBoxSortList();
+        private BaseCommand _FindCommand;
+        public ICommand FindCommand
+        {
+            get
+            {
+                if (_FindCommand == null)
+                {
+                    _FindCommand = new BaseCommand(() => Find());
+                }
+                return _FindCommand;
+            }
+        }
+        public abstract void Find();
+        public string FindField { get; set; }
+        public string FindTextBox { get; set; }
+        public List<string> FindComboBoxItems
+        {
+            get
+            {
+                return GetComboBoxFindList();
+            }
+        }
+        public abstract List<string> GetComboBoxFindList();
         #endregion
         #region Helpers
         public abstract void Add();
