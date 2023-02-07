@@ -112,6 +112,67 @@ namespace Firma.ViewModels
             }
         }
         #endregion
-
+        #region SortAndFind
+        public override void Sort()
+        {
+            switch (SortField)
+            {
+                case "Domyślne":
+                    List = new ObservableCollection<UmowaForAllView>(List.OrderBy(Item => Item.UmowaId));
+                    break;
+                case "Numer":
+                    List = new ObservableCollection<UmowaForAllView>(List.OrderBy(Item => Item.Numer));
+                    break;
+                case "Data zawarcia":
+                    List = new ObservableCollection<UmowaForAllView>(List.OrderBy(Item => Item.DataZawarcia));
+                    break;
+                case "Poczatek umowy":
+                    List = new ObservableCollection<UmowaForAllView>(List.OrderBy(Item => Item.DataOd));
+                    break;
+                case "Koniec umowy":
+                    List = new ObservableCollection<UmowaForAllView>(List.OrderBy(Item => Item.DataDo));
+                    break;
+                case "Stawka (mies)":
+                    List = new ObservableCollection<UmowaForAllView>(List.OrderBy(Item => Item.StawkaMies));
+                    break;
+                case "Stawka (godz)":
+                    List = new ObservableCollection<UmowaForAllView>(List.OrderBy(Item => Item.StawkaGodz));
+                    break;
+                case "Czas pracy (mies)":
+                    List = new ObservableCollection<UmowaForAllView>(List.OrderBy(Item => Item.CzasPracyMies));
+                    break;
+            }
+        }
+        public override List<string> GetComboBoxSortList()
+        {
+            return new List<string> { "Domyślne", "Numer", "Data zawarcia", "Poczatek umowy", "Koniec umowy", "Stawka (mies)", "Stawka (godz)", "Czas pracy (mies)" };
+        }
+        public override void Find()
+        {
+            try
+            {
+                switch (FindField)
+                {
+                    case "Numer":
+                        List = new ObservableCollection<UmowaForAllView>(List.Where(i => i.Numer != null && i.Numer.StartsWith(FindTextBox)));
+                        break;
+                    case "Rodzaj":
+                        List = new ObservableCollection<UmowaForAllView>(List.Where(i => i.Rodzaj != null && i.Rodzaj.StartsWith(FindTextBox)));
+                        break;
+                    case "Stanowisko":
+                        List = new ObservableCollection<UmowaForAllView>(List.Where(i => i.Stanowisko != null && i.Stanowisko.StartsWith(FindTextBox)));
+                        break;
+                    case "Czas pracy (mies)":
+                        List = new ObservableCollection<UmowaForAllView>(List.Where(i => i.CzasPracyMies == int.Parse(FindTextBox)));
+                        break;
+                }
+            }
+            catch (Exception) { }
+        }
+        public override List<string> GetComboBoxFindList()
+        {
+            return new List<string> { "Numer", "Rodzaj", "Stanowisko", "Czas pracy (mies)" };
+        }
+        #endregion
     }
 }

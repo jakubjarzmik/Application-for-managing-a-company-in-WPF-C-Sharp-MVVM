@@ -1,4 +1,5 @@
 ﻿using Firma.Models.Entities;
+using Firma.Models.EntitiesForView;
 using Firma.ViewModels.Abstract;
 using GalaSoft.MvvmLight.Messaging;
 using System;
@@ -19,7 +20,6 @@ namespace Firma.ViewModels
         {
         }
         #endregion
-
         #region Helpers
         public override void Load()
         {
@@ -74,6 +74,40 @@ namespace Firma.ViewModels
             }
         }
         #endregion
-
+        #region SortAndFind
+        public override void Sort()
+        {
+            switch (SortField)
+            {
+                case "Domyślne":
+                    List = new ObservableCollection<TowaryTypy>(List.OrderBy(Item => Item.TypTowaruId));
+                    break;
+                case "Nazwa":
+                    List = new ObservableCollection<TowaryTypy>(List.OrderBy(Item => Item.Nazwa));
+                    break;
+            }
+        }
+        public override List<string> GetComboBoxSortList()
+        {
+            return new List<string> { "Domyślne", "Nazwa" };
+        }
+        public override void Find()
+        {
+            try
+            {
+                switch (FindField)
+                {
+                    case "Nazwa":
+                        List = new ObservableCollection<TowaryTypy>(List.Where(i => i.Nazwa != null && i.Nazwa.StartsWith(FindTextBox)));
+                        break;
+                }
+            }
+            catch (Exception) { }
+        }
+        public override List<string> GetComboBoxFindList()
+        {
+            return new List<string> { "Nazwa" };
+        }
+        #endregion
     }
 }

@@ -19,7 +19,6 @@ namespace Firma.ViewModels
         {
         }
         #endregion
-
         #region Helpers
         public override void Load()
         {
@@ -74,6 +73,46 @@ namespace Firma.ViewModels
             }
         }
         #endregion
-
+        #region SortAndFind
+        public override void Sort()
+        {
+            switch (SortField)
+            {
+                case "Domyślne":
+                    List = new ObservableCollection<UmowyRodzaje>(List.OrderBy(Item => Item.RodzajUmowyId));
+                    break;
+                case "Kod":
+                    List = new ObservableCollection<UmowyRodzaje>(List.OrderBy(Item => Item.Kod));
+                    break;
+                case "Nazwa":
+                    List = new ObservableCollection<UmowyRodzaje>(List.OrderBy(Item => Item.Nazwa));
+                    break;
+            }
+        }
+        public override List<string> GetComboBoxSortList()
+        {
+            return new List<string> { "Domyślne", "Kod", "Nazwa" };
+        }
+        public override void Find()
+        {
+            try
+            {
+                switch (FindField)
+                {
+                    case "Kod":
+                        List = new ObservableCollection<UmowyRodzaje>(List.Where(i => i.Kod != null && i.Kod.StartsWith(FindTextBox)));
+                        break;
+                    case "Nazwa":
+                        List = new ObservableCollection<UmowyRodzaje>(List.Where(i => i.Nazwa != null && i.Nazwa.StartsWith(FindTextBox)));
+                        break;
+                }
+            }
+            catch (Exception) { }
+        }
+        public override List<string> GetComboBoxFindList()
+        {
+            return new List<string> { "Kod", "Nazwa" };
+        }
+        #endregion
     }
 }

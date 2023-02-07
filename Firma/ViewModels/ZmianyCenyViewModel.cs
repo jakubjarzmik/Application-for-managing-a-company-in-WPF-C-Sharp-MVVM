@@ -19,7 +19,6 @@ namespace Firma.ViewModels
         {
         }
         #endregion
-
         #region Helpers
         public override void Load()
         {
@@ -84,6 +83,64 @@ namespace Firma.ViewModels
             }
         }
         #endregion
-
+        #region SortAndFind
+        public override void Sort()
+        {
+            switch (SortField)
+            {
+                case "Domyślne":
+                    List = new ObservableCollection<ZmianaCenyForAllView>(List.OrderBy(Item => Item.ZmianaCenyId));
+                    break;
+                case "Towar":
+                    List = new ObservableCollection<ZmianaCenyForAllView>(List.OrderBy(Item => Item.Towar));
+                    break;
+                case "Cena netto":
+                    List = new ObservableCollection<ZmianaCenyForAllView>(List.OrderBy(Item => Item.CenaNetto));
+                    break;
+                case "Cena brutto":
+                    List = new ObservableCollection<ZmianaCenyForAllView>(List.OrderBy(Item => Item.CenaBrutto));
+                    break;
+                case "Data obowiazywania od":
+                    List = new ObservableCollection<ZmianaCenyForAllView>(List.OrderBy(Item => Item.DataObowiazywaniaOd));
+                    break;
+                case "Data obowiazywania do":
+                    List = new ObservableCollection<ZmianaCenyForAllView>(List.OrderBy(Item => Item.DataObowiazywaniaDo));
+                    break;
+            }
+        }
+        public override List<string> GetComboBoxSortList()
+        {
+            return new List<string> { "Domyślne", "Towar", "Cena netto", "Cena brutto", "Data obowiazywania od", "Data obowiazywania do" };
+        }
+        public override void Find()
+        {
+            try
+            {
+                switch (FindField)
+                {
+                    case "Towar":
+                        List = new ObservableCollection<ZmianaCenyForAllView>(List.Where(i => i.Towar != null && i.Towar.StartsWith(FindTextBox)));
+                        break;
+                    case "Cena netto":
+                        List = new ObservableCollection<ZmianaCenyForAllView>(List.Where(i => i.CenaNetto == decimal.Parse(FindTextBox)));
+                        break;
+                    case "Cena brutto":
+                        List = new ObservableCollection<ZmianaCenyForAllView>(List.Where(i => i.CenaBrutto == decimal.Parse(FindTextBox)));
+                        break;
+                    case "Data obowiazywania od":
+                        List = new ObservableCollection<ZmianaCenyForAllView>(List.Where(i => i.DataObowiazywaniaOd != null && i.DataObowiazywaniaOd.ToString("dd.MM.yyyy HH:mm").StartsWith(FindTextBox)));
+                        break;
+                    case "Data obowiazywania do":
+                        List = new ObservableCollection<ZmianaCenyForAllView>(List.Where(i => i.DataObowiazywaniaDo != null && i.DataObowiazywaniaDo.GetValueOrDefault().ToString("dd.MM.yyyy HH:mm").StartsWith(FindTextBox)));
+                        break;
+                }
+            }
+            catch (Exception) { }
+        }
+        public override List<string> GetComboBoxFindList()
+        {
+            return new List<string> { "Towar", "Cena netto", "Cena brutto", "Data obowiazywania od", "Data obowiazywania do" };
+        }
+        #endregion
     }
 }

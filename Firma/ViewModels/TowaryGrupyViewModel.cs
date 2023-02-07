@@ -102,6 +102,52 @@ namespace Firma.ViewModels
             }
         }
         #endregion
-
+        #region SortAndFind
+        public override void Sort()
+        {
+            switch (SortField)
+            {
+                case "Domyślne":
+                    List = new ObservableCollection<GrupaTowaruForAllView>(List.OrderBy(Item => Item.GrupaTowaruId));
+                    break;
+                case "Grupa nadrzedna":
+                    List = new ObservableCollection<GrupaTowaruForAllView>(List.OrderBy(Item => Item.GrupaNadrzedna));
+                    break;
+                case "Nazwa":
+                    List = new ObservableCollection<GrupaTowaruForAllView>(List.OrderBy(Item => Item.Nazwa));
+                    break;
+                case "Kod":
+                    List = new ObservableCollection<GrupaTowaruForAllView>(List.OrderBy(Item => Item.Kod));
+                    break;
+            }
+        }
+        public override List<string> GetComboBoxSortList()
+        {
+            return new List<string> { "Domyślne", "Grupa nadrzedna", "Nazwa", "Kod" };
+        }
+        public override void Find()
+        {
+            try
+            {
+                switch (FindField)
+                {
+                    case "Grupa nadrzedna":
+                        List = new ObservableCollection<GrupaTowaruForAllView>(List.Where(i => i.GrupaNadrzedna != null && i.GrupaNadrzedna.StartsWith(FindTextBox)));
+                        break;
+                    case "Nazwa":
+                        List = new ObservableCollection<GrupaTowaruForAllView>(List.Where(i => i.Nazwa != null && i.Nazwa.StartsWith(FindTextBox)));
+                        break;
+                    case "Kod":
+                        List = new ObservableCollection<GrupaTowaruForAllView>(List.Where(i => i.Kod != null && i.Kod.StartsWith(FindTextBox)));
+                        break;
+                }
+            }
+            catch (Exception) { }
+        }
+        public override List<string> GetComboBoxFindList()
+        {
+            return new List<string> { "Grupa nadrzedna", "Nazwa", "Kod" };
+        }
+        #endregion
     }
 }

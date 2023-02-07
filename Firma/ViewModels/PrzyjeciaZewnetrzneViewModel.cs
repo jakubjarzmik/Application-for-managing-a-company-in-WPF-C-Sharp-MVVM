@@ -111,6 +111,52 @@ namespace Firma.ViewModels
             }
         }
         #endregion
-
+        #region SortAndFind
+        public override void Sort()
+        {
+            switch (SortField)
+            {
+                case "Domyślne":
+                    List = new ObservableCollection<PrzyjecieZewnetrzneForAllView>(List.OrderBy(Item => Item.PrzyjecieZewnetrzneId));
+                    break;
+                case "Data przyjęcia":
+                    List = new ObservableCollection<PrzyjecieZewnetrzneForAllView>(List.OrderBy(Item => Item.DataPrzyjecia));
+                    break;
+                case "Magazyn":
+                    List = new ObservableCollection<PrzyjecieZewnetrzneForAllView>(List.OrderBy(Item => Item.NazwaMagazynu));
+                    break;
+                case "Kontrahent":
+                    List = new ObservableCollection<PrzyjecieZewnetrzneForAllView>(List.OrderBy(Item => Item.NazwaKontrahenta));
+                    break;
+            }
+        }
+        public override List<string> GetComboBoxSortList()
+        {
+            return new List<string> { "Domyślne", "Data przyjęcia", "Magazyn", "Kontrahent" };
+        }
+        public override void Find()
+        {
+            try
+            {
+                switch (FindField)
+                {
+                    case "Data przyjęcia":
+                        List = new ObservableCollection<PrzyjecieZewnetrzneForAllView>(List.Where(i => i.DataPrzyjecia != null && i.DataPrzyjecia.ToString("dd.MM.yyyy HH:mm").StartsWith(FindTextBox)));
+                        break;
+                    case "Magazyn":
+                        List = new ObservableCollection<PrzyjecieZewnetrzneForAllView>(List.Where(i => i.NazwaMagazynu != null && i.NazwaMagazynu.StartsWith(FindTextBox)));
+                        break;
+                    case "Kontrahent":
+                        List = new ObservableCollection<PrzyjecieZewnetrzneForAllView>(List.Where(i => i.NazwaKontrahenta != null && i.NazwaKontrahenta.StartsWith(FindTextBox)));
+                        break;
+                }
+            }
+            catch (Exception) { }
+        }
+        public override List<string> GetComboBoxFindList()
+        {
+            return new List<string> { "Data przyjęcia", "Magazyn", "Kontrahent" };
+        }
+        #endregion
     }
 }

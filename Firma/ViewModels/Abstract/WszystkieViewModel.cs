@@ -128,7 +128,7 @@ namespace Firma.ViewModels.Abstract
                 return _SortCommand;
             }
         }
-        public virtual void Sort() { }
+        public abstract void Sort();
         public string SortField { get; set; }
         public List<string> SortComboBoxItems
         {
@@ -137,7 +137,7 @@ namespace Firma.ViewModels.Abstract
                 return GetComboBoxSortList();
             }
         }
-        public virtual List<string> GetComboBoxSortList() { return null; }
+        public abstract List<string> GetComboBoxSortList();
         private BaseCommand _FindCommand;
         public ICommand FindCommand
         {
@@ -150,7 +150,7 @@ namespace Firma.ViewModels.Abstract
                 return _FindCommand;
             }
         }
-        public virtual void Find() { }
+        public abstract void Find();
         public string FindField { get; set; }
         public string FindTextBox { get; set; }
         public List<string> FindComboBoxItems
@@ -160,7 +160,7 @@ namespace Firma.ViewModels.Abstract
                 return GetComboBoxFindList();
             }
         }
-        public virtual List<string> GetComboBoxFindList() { return null; }
+        public abstract List<string> GetComboBoxFindList();
         #endregion
         #region Helpers
         public abstract void Add();

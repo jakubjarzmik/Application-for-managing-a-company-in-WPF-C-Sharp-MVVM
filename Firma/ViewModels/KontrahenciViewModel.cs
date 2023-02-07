@@ -115,6 +115,61 @@ namespace Firma.ViewModels
             }
         }
         #endregion
-
+        #region SortAndFind
+        public override void Sort()
+        {
+            switch (SortField)
+            {
+                case "Domyślne":
+                    List = new ObservableCollection<KontrahentForAllView>(List.OrderBy(Item => Item.KontrahentId));
+                    break;
+                case "Kod":
+                    List = new ObservableCollection<KontrahentForAllView>(List.OrderBy(Item => Item.Kod));
+                    break;
+                case "Nazwa":
+                    List = new ObservableCollection<KontrahentForAllView>(List.OrderBy(Item => Item.Nazwa1));
+                    break;
+                case "Rodzaj":
+                    List = new ObservableCollection<KontrahentForAllView>(List.OrderBy(Item => Item.RodzajKontrahenta));
+                    break;
+            }
+        }
+        public override List<string> GetComboBoxSortList()
+        {
+            return new List<string> { "Domyślne", "Kod", "Nazwa", "Rodzaj" };
+        }
+        public override void Find()
+        {
+            try
+            {
+                switch (FindField)
+                {
+                    case "Kod":
+                        List = new ObservableCollection<KontrahentForAllView>(List.Where(i => i.Kod != null && i.Kod.StartsWith(FindTextBox)));
+                        break;
+                    case "Nazwa":
+                        List = new ObservableCollection<KontrahentForAllView>(List.Where(i => i.Nazwa1 != null && i.Nazwa1.StartsWith(FindTextBox)));
+                        break;
+                    case "Rodzaj":
+                        List = new ObservableCollection<KontrahentForAllView>(List.Where(i => i.RodzajKontrahenta != null && i.RodzajKontrahenta.StartsWith(FindTextBox)));
+                        break;
+                    case "Nip":
+                        List = new ObservableCollection<KontrahentForAllView>(List.Where(i => i.Nip != null && i.Nip.StartsWith(FindTextBox)));
+                        break;
+                    case "Regon":
+                        List = new ObservableCollection<KontrahentForAllView>(List.Where(i => i.Regon != null && i.Regon.StartsWith(FindTextBox)));
+                        break;
+                    case "Adres":
+                        List = new ObservableCollection<KontrahentForAllView>(List.Where(i => i.Adres != null && i.Adres.StartsWith(FindTextBox)));
+                        break;
+                }
+            }
+            catch (Exception) { }
+        }
+        public override List<string> GetComboBoxFindList()
+        {
+            return new List<string> { "Kod", "Nazwa", "Rodzaj", "Nip", "Regon", "Adres" };
+        }
+        #endregion
     }
 }

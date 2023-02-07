@@ -114,6 +114,55 @@ namespace Firma.ViewModels
             }
         }
         #endregion
-
+        #region SortAndFind
+        public override void Sort()
+        {
+            switch (SortField)
+            {
+                case "Domyślne":
+                    List = new ObservableCollection<PracownikForAllView>(List.OrderBy(Item => Item.PracownikId));
+                    break;
+                case "Nazwisko":
+                    List = new ObservableCollection<PracownikForAllView>(List.OrderBy(Item => Item.Nazwisko));
+                    break;
+                case "Imię":
+                    List = new ObservableCollection<PracownikForAllView>(List.OrderBy(Item => Item.Imie));
+                    break;
+            }
+        }
+        public override List<string> GetComboBoxSortList()
+        {
+            return new List<string> { "Domyślne", "Nazwisko", "Imię"};
+        }
+        public override void Find()
+        {
+            try
+            {
+                switch (FindField)
+                {
+                    case "Akronim":
+                        List = new ObservableCollection<PracownikForAllView>(List.Where(i => i.Akronim != null && i.Akronim.StartsWith(FindTextBox)));
+                        break;
+                    case "Nazwisko":
+                        List = new ObservableCollection<PracownikForAllView>(List.Where(i => i.Nazwisko != null && i.Nazwisko.StartsWith(FindTextBox)));
+                        break;
+                    case "Imię":
+                        List = new ObservableCollection<PracownikForAllView>(List.Where(i => i.Imie != null && i.Imie.StartsWith(FindTextBox)));
+                        break;
+                    case "Adres":
+                        List = new ObservableCollection<PracownikForAllView>(List.Where(i => i.Adres != null && i.Adres.StartsWith(FindTextBox)));
+                        break;
+                    case "Telefon":
+                        List = new ObservableCollection<PracownikForAllView>(List.Where(i => i.Telefon != null && i.Telefon.StartsWith(FindTextBox)));
+                        break;
+                }
+            }
+            catch (Exception) { }
+        }
+        public override List<string> GetComboBoxFindList()
+        {
+            return new List<string> { "Akronim", "Nazwisko", "Imię", "Adres", "Telefon" };
+        }
+        #endregion
     }
 }

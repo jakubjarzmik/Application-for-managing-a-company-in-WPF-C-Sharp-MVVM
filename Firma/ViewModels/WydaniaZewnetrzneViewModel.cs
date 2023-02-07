@@ -110,6 +110,52 @@ namespace Firma.ViewModels
             }
         }
         #endregion
-
+        #region SortAndFind
+        public override void Sort()
+        {
+            switch (SortField)
+            {
+                case "Domyślne":
+                    List = new ObservableCollection<WydanieZewnetrzneForAllView>(List.OrderBy(Item => Item.WydanieZewnetrzneId));
+                    break;
+                case "Data wydania":
+                    List = new ObservableCollection<WydanieZewnetrzneForAllView>(List.OrderBy(Item => Item.DataWydania));
+                    break;
+                case "Magazyn":
+                    List = new ObservableCollection<WydanieZewnetrzneForAllView>(List.OrderBy(Item => Item.NazwaMagazynu));
+                    break;
+                case "Kontrahent":
+                    List = new ObservableCollection<WydanieZewnetrzneForAllView>(List.OrderBy(Item => Item.NazwaKontrahenta));
+                    break;
+            }
+        }
+        public override List<string> GetComboBoxSortList()
+        {
+            return new List<string> { "Domyślne", "Data wydania", "Magazyn", "Kontrahent" };
+        }
+        public override void Find()
+        {
+            try
+            {
+                switch (FindField)
+                {
+                    case "Data wydania":
+                        List = new ObservableCollection<WydanieZewnetrzneForAllView>(List.Where(i => i.DataWydania != null && i.DataWydania.ToString("dd.MM.yyyy HH:mm").StartsWith(FindTextBox)));
+                        break;
+                    case "Magazyn":
+                        List = new ObservableCollection<WydanieZewnetrzneForAllView>(List.Where(i => i.NazwaMagazynu != null && i.NazwaMagazynu.StartsWith(FindTextBox)));
+                        break;
+                    case "Kontrahent":
+                        List = new ObservableCollection<WydanieZewnetrzneForAllView>(List.Where(i => i.NazwaKontrahenta != null && i.NazwaKontrahenta.StartsWith(FindTextBox)));
+                        break;
+                }
+            }
+            catch (Exception) { }
+        }
+        public override List<string> GetComboBoxFindList()
+        {
+            return new List<string> { "Data wydania", "Magazyn", "Kontrahent" };
+        }
+        #endregion
     }
 }

@@ -19,7 +19,6 @@ namespace Firma.ViewModels
         {
         }
         #endregion
-
         #region Helpers
         public override void Load()
         {
@@ -83,6 +82,52 @@ namespace Firma.ViewModels
             }
         }
         #endregion
-
+        #region SortAndFind
+        public override void Sort()
+        {
+            switch (SortField)
+            {
+                case "Domyślne":
+                    List = new ObservableCollection<PozycjaWydaniaZewnetrznegoForAllView>(List.OrderBy(Item => Item.PozycjaWZId));
+                    break;
+                case "Numer WZ":
+                    List = new ObservableCollection<PozycjaWydaniaZewnetrznegoForAllView>(List.OrderBy(Item => Item.NumerWydaniaZewnetrznego));
+                    break;
+                case "Kontrahent":
+                    List = new ObservableCollection<PozycjaWydaniaZewnetrznegoForAllView>(List.OrderBy(Item => Item.NazwaKontrahenta));
+                    break;
+                case "Towar":
+                    List = new ObservableCollection<PozycjaWydaniaZewnetrznegoForAllView>(List.OrderBy(Item => Item.NazwaTowaru));
+                    break;
+            }
+        }
+        public override List<string> GetComboBoxSortList()
+        {
+            return new List<string> { "Domyślne", "Numer WZ", "Kontrahent", "Towar" };
+        }
+        public override void Find()
+        {
+            try
+            {
+                switch (FindField)
+                {
+                    case "Numer WZ":
+                        List = new ObservableCollection<PozycjaWydaniaZewnetrznegoForAllView>(List.Where(i => i.NumerWydaniaZewnetrznego != null && i.NumerWydaniaZewnetrznego.StartsWith(FindTextBox)));
+                        break;
+                    case "Kontrahent":
+                        List = new ObservableCollection<PozycjaWydaniaZewnetrznegoForAllView>(List.Where(i => i.NazwaKontrahenta != null && i.NazwaKontrahenta.StartsWith(FindTextBox)));
+                        break;
+                    case "Towar":
+                        List = new ObservableCollection<PozycjaWydaniaZewnetrznegoForAllView>(List.Where(i => i.NazwaTowaru != null && i.NazwaTowaru.StartsWith(FindTextBox)));
+                        break;
+                }
+            }
+            catch (Exception) { }
+        }
+        public override List<string> GetComboBoxFindList()
+        {
+            return new List<string> { "Numer WZ", "Kontrahent", "Towar" };
+        }
+        #endregion
     }
 }

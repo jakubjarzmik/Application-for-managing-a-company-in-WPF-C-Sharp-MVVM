@@ -23,9 +23,9 @@
                 <DataGridTextColumn Header="Stanowisko"
                                     Binding="{Binding Path=UmowaStanowisko}" />
                 <DataGridTextColumn Header="Data rozpoczecia"
-                                    Binding="{Binding Path=UmowaDataOd}" />
+                                    Binding="{Binding Path=UmowaDataOd, StringFormat='dd.MM.yyyy'}" />
                 <DataGridTextColumn Header="Data zakonczenia"
-                                    Binding="{Binding Path=UmowaDataDo}" />
+                                    Binding="{Binding Path=UmowaDataDo, StringFormat='dd.MM.yyyy'}" />
                 <DataGridTextColumn Header="Stawka (mies)"
                                     Binding="{Binding Path=UmowaStawkaMies, StringFormat={}{0:N2}zł}" />
                 <DataGridTextColumn Header="Stawka (godz)"

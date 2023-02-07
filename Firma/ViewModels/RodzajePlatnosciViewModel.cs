@@ -1,4 +1,5 @@
 ﻿using Firma.Models.Entities;
+using Firma.Models.EntitiesForView;
 using Firma.ViewModels.Abstract;
 using GalaSoft.MvvmLight.Messaging;
 using System;
@@ -19,7 +20,6 @@ namespace Firma.ViewModels
         {
         }
         #endregion
-
         #region Helpers
         public override void Load()
         {
@@ -74,6 +74,46 @@ namespace Firma.ViewModels
             }
         }
         #endregion
-
+        #region SortAndFind
+        public override void Sort()
+        {
+            switch (SortField)
+            {
+                case "Domyślne":
+                    List = new ObservableCollection<RodzajePlatnosci>(List.OrderBy(Item => Item.RodzajPlatnosciId));
+                    break;
+                case "Nazwa":
+                    List = new ObservableCollection<RodzajePlatnosci>(List.OrderBy(Item => Item.Nazwa));
+                    break;
+                case "Ilość dni do spłaty":
+                    List = new ObservableCollection<RodzajePlatnosci>(List.OrderBy(Item => Item.IloscDniSplaty));
+                    break;
+            }
+        }
+        public override List<string> GetComboBoxSortList()
+        {
+            return new List<string> { "Domyślne", "Nazwa", "Ilość dni do spłaty" };
+        }
+        public override void Find()
+        {
+            try
+            {
+                switch (FindField)
+                {
+                    case "Nazwa":
+                        List = new ObservableCollection<RodzajePlatnosci>(List.Where(i => i.Nazwa != null && i.Nazwa.StartsWith(FindTextBox)));
+                        break;  
+                    case "Ilość dni do spłaty":
+                        List = new ObservableCollection<RodzajePlatnosci>(List.Where(i => i.IloscDniSplaty == int.Parse(FindTextBox)));
+                        break;
+                }
+            }
+            catch (Exception) { }
+        }
+        public override List<string> GetComboBoxFindList()
+        {
+            return new List<string> { "Nazwa", "Ilość dni do spłaty" };
+        }
+        #endregion
     }
 }
