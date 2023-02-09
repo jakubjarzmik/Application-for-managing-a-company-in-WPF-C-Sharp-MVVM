@@ -11,10 +11,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Controls.Primitives;
 using System.Windows;
+using Firma.Models.Validators;
+using System.ComponentModel;
 
 namespace Firma.ViewModels
 {
-    public class NoweWydanieZewnetrzneViewModel : JedenViewModel<WydaniaZewnetrzne>
+    public class NoweWydanieZewnetrzneViewModel : JedenViewModel<WydaniaZewnetrzne>, IDataErrorInfo
     {
         #region Konstruktor
         public NoweWydanieZewnetrzneViewModel() : base("Nowe WZ")
@@ -285,6 +287,47 @@ namespace Firma.ViewModels
         private void getSelectedKontrahent(KontrahentForAllView kontrahentForAllView)
         {
             KontrahentId = kontrahentForAllView.KontrahentId;
+        }
+        #endregion
+        #region Validation
+        public string Error
+        {
+            get
+            {
+                return null;
+            }
+        }
+        public string this[string name]
+        {
+            get
+            {
+                string komunikat = null;
+                switch (name)
+                {
+                    case "Rabat":
+                        komunikat = BusinessValidator.CheckBetween0and100(Rabat);
+                        if (komunikat != null)
+                            break;
+                        komunikat = BusinessValidator.CheckIsNotNull(Rabat);
+                        break;
+                    case "Kontrahent":
+                        komunikat = BusinessValidator.CheckIsSet(KontrahentId);
+                        break;
+                    case "Magazyn":
+                        komunikat = BusinessValidator.CheckIsSet(MagazynId);
+                        break;
+                }
+                return komunikat;
+            }
+        }
+        public override string IsValid()
+        {
+            string komunikat = null;
+            komunikat += this["Rabat"] == null ? "" : "Rabat: " + this["Rabat"] + "\n";
+            komunikat += this["Kontrahent"] == null ? "" : "Kontrahent: " + this["Kontrahent"] + "\n";
+            komunikat += this["Magazyn"] == null ? "" : "Magazyn: " + this["Magazyn"] + "\n";
+
+            return komunikat;
         }
         #endregion
     }

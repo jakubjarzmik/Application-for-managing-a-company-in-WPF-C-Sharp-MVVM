@@ -50,7 +50,7 @@
                     <TextBox Grid.Row="1"
                              Grid.Column="1"
                              Grid.ColumnSpan="2"
-                             Text="{Binding Path=Imie, UpdateSourceTrigger=PropertyChanged}"
+                             Text="{Binding Path=Imie, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"
                              Style="{StaticResource ControlStandardowy}" />
                     <Label Grid.Row="1"
                            Grid.Column="3"
@@ -58,7 +58,7 @@
                            Style="{StaticResource ControlStandardowy}" />
                     <TextBox Grid.Row="1"
                              Grid.Column="4"
-                             Text="{Binding Path=DrugieImie, UpdateSourceTrigger=PropertyChanged}"
+                             Text="{Binding Path=DrugieImie, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"
                              Style="{StaticResource ControlStandardowy}" />
 
                     <Label Grid.Row="2"
@@ -68,7 +68,7 @@
                     <TextBox Grid.Row="2"
                              Grid.Column="1"
                              Grid.ColumnSpan="2"
-                             Text="{Binding Path=Nazwisko, UpdateSourceTrigger=PropertyChanged}"
+                             Text="{Binding Path=Nazwisko, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"
                              Style="{StaticResource ControlStandardowy}" />
                     <Label  Grid.Row="2"
                             Grid.Column="3"
@@ -76,7 +76,7 @@
                             Style="{StaticResource ControlStandardowy}" />
                     <TextBox Grid.Row="2"
                              Grid.Column="4"
-                             Text="{Binding Path=NazwiskoRodowe, UpdateSourceTrigger=PropertyChanged}"
+                             Text="{Binding Path=NazwiskoRodowe, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"
                              Style="{StaticResource ControlStandardowy}" />
 
                     <Label  Grid.Row="3"
@@ -85,7 +85,7 @@
                     <TextBox Grid.Row="3"
                              Grid.Column="1"
                              Grid.ColumnSpan="2"
-                             Text="{Binding Path=PESEL, UpdateSourceTrigger=PropertyChanged}"
+                             Text="{Binding Path=PESEL, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"
                              Style="{StaticResource ControlStandardowy}" />
                     <Label  Grid.Row="3"
                             Grid.Column="3"
@@ -93,7 +93,7 @@
                             Style="{StaticResource ControlStandardowy}" />
                     <TextBox Grid.Row="3"
                              Grid.Column="4"
-                             Text="{Binding Path=Nip, UpdateSourceTrigger=PropertyChanged}"
+                             Text="{Binding Path=Nip, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"
                              Style="{StaticResource ControlStandardowy}" />
 
                     <Label  Grid.Row="4"
@@ -110,7 +110,7 @@
                             Style="{StaticResource ControlStandardowy}" />
                     <TextBox Grid.Row="4"
                              Grid.Column="4"
-                             Text="{Binding Path=MiejsceUrodzenia, UpdateSourceTrigger=PropertyChanged}"
+                             Text="{Binding Path=MiejsceUrodzenia, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"
                              Style="{StaticResource ControlStandardowy}" />
 
                     <Grid Grid.Row="5"
@@ -130,19 +130,19 @@
                         <Label Content="Imię ojca:"
                                Style="{StaticResource ControlStandardowy}" />
                         <TextBox  Grid.Column="1"
-                                  Text="{Binding Path=ImieOjca, UpdateSourceTrigger=PropertyChanged}"
+                                  Text="{Binding Path=ImieOjca, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"
                                   Style="{StaticResource ControlStandardowy}" />
                         <Label  Grid.Column="2"
                                 Content="Imię matki:"
                                 Style="{StaticResource ControlStandardowy}" />
                         <TextBox Grid.Column="3"
-                                 Text="{Binding Path=ImieMatki, UpdateSourceTrigger=PropertyChanged}"
+                                 Text="{Binding Path=ImieMatki, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"
                                  Style="{StaticResource ControlStandardowy}" />
                         <Label  Grid.Column="4"
                                 Content="Nazwisko rodowe matki:"
                                 Style="{StaticResource ControlStandardowy}" />
                         <TextBox Grid.Column="5"
-                                 Text="{Binding Path=NazwiskoRodoweMatki, UpdateSourceTrigger=PropertyChanged}"
+                                 Text="{Binding Path=NazwiskoRodoweMatki, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"
                                  Style="{StaticResource ControlStandardowy}" />
 
                         <Label Grid.Row="1"
@@ -150,7 +150,7 @@
                                Style="{StaticResource ControlStandardowy}" />
                         <TextBox Grid.Row="1"
                                  Grid.Column="1"
-                                 Text="{Binding Path=Telefon, UpdateSourceTrigger=PropertyChanged}"
+                                 Text="{Binding Path=Telefon, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"
                                  Style="{StaticResource ControlStandardowy}" />
                         <Label Grid.Row="1"
                                Grid.Column="2"
@@ -159,7 +159,7 @@
                         <TextBox Grid.Row="1"
                                  Grid.Column="3"
                                  Grid.ColumnSpan="3"
-                                 Text="{Binding Path=Email, UpdateSourceTrigger=PropertyChanged}"
+                                 Text="{Binding Path=Email, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"
                                  Style="{StaticResource ControlStandardowy}" />
                     </Grid>
 
@@ -207,7 +207,7 @@
                                   ItemsSource="{Binding AdresyComboBoxItems}"
                                   DisplayMemberPath="Value"
                                   SelectedValuePath="Key"
-                                  SelectedValue="{Binding Path=AdresId, Mode=TwoWay}" />
+                                  SelectedValue="{Binding Path=AdresId, Mode=TwoWay, ValidatesOnDataErrors=True}" />
                     </Grid>
 
                     <Label Grid.Row="1"

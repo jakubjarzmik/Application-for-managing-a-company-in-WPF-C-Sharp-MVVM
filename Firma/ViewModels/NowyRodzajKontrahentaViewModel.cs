@@ -1,14 +1,16 @@
 ﻿using Firma.Models.Entities;
+using Firma.Models.Validators;
 using Firma.ViewModels.Abstract;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace Firma.ViewModels
 {
-    public class NowyRodzajKontrahentaViewModel : JedenViewModel<KontrahenciRodzaje>
+    public class NowyRodzajKontrahentaViewModel : JedenViewModel<KontrahenciRodzaje>, IDataErrorInfo
     {
         #region Konstruktor
         public NowyRodzajKontrahentaViewModel() : base("Nowy rodzaj kontr.")
@@ -81,6 +83,39 @@ namespace Firma.ViewModels
                 Item.Opis = "";
             Db.KontrahenciRodzaje.AddObject(Item);
             Db.SaveChanges();
+        }
+        #endregion
+        #region Validation
+        public string Error
+        {
+            get
+            {
+                return null;
+            }
+        }
+        public string this[string name]
+        {
+            get
+            {
+                string komunikat = null;
+                switch (name)
+                {
+                    case "Nazwa":
+                        komunikat = StringValidator.CheckIsStartsWithUpper(Nazwa);
+                        if (komunikat != null)
+                            break;
+                        komunikat = BusinessValidator.CheckIsNotNull(Nazwa);
+                        break;
+                }
+                return komunikat;
+            }
+        }
+        public override string IsValid()
+        {
+            string komunikat = null;
+            komunikat += this["Nazwa"] == null ? "" : "Nazwa: " + this["Nazwa"] + "\n";
+
+            return komunikat;
         }
         #endregion
     }

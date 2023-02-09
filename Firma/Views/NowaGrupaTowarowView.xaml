@@ -44,7 +44,7 @@
                               ItemsSource="{Binding GrupyComboBoxItems}"
                               DisplayMemberPath="Value"
                               SelectedValuePath="Key"
-                              SelectedValue="{Binding Path=GrupaNadrzednaId, Mode=TwoWay}" />
+                              SelectedValue="{Binding Path=GrupaNadrzednaId, Mode=TwoWay, ValidatesOnDataErrors=True}" />
                     <TextBox Grid.Row="0"
                              Grid.Column="2"
                              IsEnabled="False"
@@ -57,7 +57,7 @@
                            Style="{StaticResource ControlStandardowy}" />
                     <TextBox Grid.Row="1"
                              Grid.Column="1"
-                             Text="{Binding Path=Nazwa, UpdateSourceTrigger=PropertyChanged}"
+                             Text="{Binding Path=Nazwa, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"
                              Style="{StaticResource ControlStandardowy}" />
 
                     <Label Grid.Row="2"
@@ -66,7 +66,7 @@
                            Style="{StaticResource ControlStandardowy}" />
                     <TextBox Grid.Row="2"
                              Grid.Column="1"
-                             Text="{Binding Path=Kod, UpdateSourceTrigger=PropertyChanged}"
+                             Text="{Binding Path=Kod, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"
                              Style="{StaticResource ControlStandardowy}" />
 
                     <Label Grid.Row="3"

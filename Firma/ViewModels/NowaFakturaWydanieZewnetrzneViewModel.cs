@@ -1,17 +1,19 @@
 ﻿using Firma.Helpers;
 using Firma.Models.Entities;
 using Firma.Models.EntitiesForView;
+using Firma.Models.Validators;
 using Firma.ViewModels.Abstract;
 using GalaSoft.MvvmLight.Messaging;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace Firma.ViewModels
 {
-    public class NowaFakturaWydanieZewnetrzneViewModel : JedenViewModel<FakturyWydaniaZewnetrzne>
+    public class NowaFakturaWydanieZewnetrzneViewModel : JedenViewModel<FakturyWydaniaZewnetrzne>, IDataErrorInfo
     {
         #region Konstruktor
         public NowaFakturaWydanieZewnetrzneViewModel() : base("Nowa faktura WZ")
@@ -211,6 +213,40 @@ namespace Firma.ViewModels
         private void getSelectedWydanieZewnetrzne(WydanieZewnetrzneForAllView wz)
         {
             WydanieZewnetrzneId = wz.WydanieZewnetrzneId;
+        }
+        #endregion
+        #region Validation
+        public string Error
+        {
+            get
+            {
+                return null;
+            }
+        }
+        public string this[string name]
+        {
+            get
+            {
+                string komunikat = null;
+                switch (name)
+                {
+                    case "Faktura":
+                        komunikat = BusinessValidator.CheckIsSet(FakturaId);
+                        break;
+                    case "Wydanie zewnetrzne":
+                        komunikat = BusinessValidator.CheckIsSet(WydanieZewnetrzneId);
+                        break;
+                }
+                return komunikat;
+            }
+        }
+        public override string IsValid()
+        {
+            string komunikat = null;
+            komunikat += this["Faktura"] == null ? "" : "Faktura: " + this["Faktura"] + "\n";
+            komunikat += this["Wydanie zewnetrzne"] == null ? "" : "Wydanie zewnetrzne: " + this["Wydanie zewnetrzne"] + "\n";
+
+            return komunikat;
         }
         #endregion
     }

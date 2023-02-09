@@ -1,14 +1,16 @@
 ﻿using Firma.Models.Entities;
+using Firma.Models.Validators;
 using Firma.ViewModels.Abstract;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace Firma.ViewModels
 {
-    public class NowyKontaktViewModel : JedenViewModel<Kontakty>
+    public class NowyKontaktViewModel : JedenViewModel<Kontakty>, IDataErrorInfo
     {
         #region Konstruktor
         public NowyKontaktViewModel() : base("Nowy kontakt")
@@ -18,7 +20,7 @@ namespace Firma.ViewModels
         public NowyKontaktViewModel(Kontakty kontakt) : base("Edytuj kontakt")
         {
             Item = kontakt;
-            isEditing= true;
+            isEditing = true;
         }
         #endregion
         #region Properties
@@ -30,7 +32,7 @@ namespace Firma.ViewModels
             }
             set
             {
-                if(value != Item.NazwaDzialu)
+                if (value != Item.NazwaDzialu)
                 {
                     Item.NazwaDzialu = value;
                     base.OnPropertyChanged(() => NazwaDzialu);
@@ -45,7 +47,7 @@ namespace Firma.ViewModels
             }
             set
             {
-                if(value != Item.OpisOsoby)
+                if (value != Item.OpisOsoby)
                 {
                     Item.OpisOsoby = value;
                     base.OnPropertyChanged(() => OpisOsoby);
@@ -184,6 +186,68 @@ namespace Firma.ViewModels
                 Item.Email2 = "";
             if (Item.Uwagi == null)
                 Item.Uwagi = "";
+        }
+        #endregion
+        #region Validation
+        public string Error
+        {
+            get
+            {
+                return null;
+            }
+        }
+        public string this[string name]
+        {
+            get
+            {
+                string komunikat = null;
+                switch (name)
+                {
+                    case "NazwaDzialu":
+                        komunikat = StringValidator.CheckIsStartsWithUpper(NazwaDzialu);
+                        if (komunikat != null)
+                            break;
+                        komunikat = BusinessValidator.CheckIsNotNull(NazwaDzialu);
+                        break;
+                    case "OpisOsoby":
+                        komunikat = StringValidator.CheckIsStartsWithUpper(OpisOsoby);
+                        if (komunikat != null)
+                            break;
+                        komunikat = BusinessValidator.CheckIsNotNull(OpisOsoby);
+                        break;
+                    case "Telefon1":
+                        komunikat = StringValidator.CheckIsNumeric(Telefon1);
+                        if (komunikat != null)
+                            break;
+                        komunikat = BusinessValidator.CheckIsNotNull(Telefon1);
+                        break;
+                    case "Telefon2":
+                        komunikat = StringValidator.CheckIsNumeric(Telefon2);
+                        break;
+                    case "Email1":
+                        komunikat = StringValidator.CheckIsEmail(Email1);
+                        if (komunikat != null)
+                            break;
+                        komunikat = BusinessValidator.CheckIsNotNull(Email1);
+                        break;
+                    case "Email2":
+                        komunikat = StringValidator.CheckIsEmail(Email2);
+                        break;
+                }
+                return komunikat;
+            }
+        }
+        public override string IsValid()
+        {
+            string komunikat = null;
+            komunikat += this["NazwaDzialu"] == null ? "" : "Nazwa działu: " + this["NazwaDzialu"] + "\n";
+            komunikat += this["OpisOsoby"] == null ? "" : "Opis osoby: " + this["OpisOsoby"] + "\n";
+            komunikat += this["Telefon1"] == null ? "" : "Telefon (1): " + this["Telefon1"] + "\n";
+            komunikat += this["Telefon2"] == null ? "" : "Telefon (2): " + this["Telefon2"] + "\n";
+            komunikat += this["Email1"] == null ? "" : "Email (1): " + this["Email1"] + "\n";
+            komunikat += this["Email2"] == null ? "" : "Email (2): " + this["Email2"] + "\n";
+
+            return komunikat;
         }
         #endregion
     }

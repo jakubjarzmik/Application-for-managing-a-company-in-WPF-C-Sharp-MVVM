@@ -1,10 +1,12 @@
 ﻿using Firma.Helpers;
 using Firma.Models.Entities;
 using Firma.Models.EntitiesForView;
+using Firma.Models.Validators;
 using Firma.ViewModels.Abstract;
 using GalaSoft.MvvmLight.Messaging;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,7 +14,7 @@ using System.Windows.Input;
 
 namespace Firma.ViewModels
 {
-    public class NowyMagazynViewModel : JedenViewModel<Magazyny>
+    public class NowyMagazynViewModel : JedenViewModel<Magazyny>, IDataErrorInfo
     {
         #region Konstruktor
         public NowyMagazynViewModel() : base("Nowy magazyn")
@@ -333,6 +335,57 @@ namespace Firma.ViewModels
         private void getSelectedAdres(AdresAndIsKor adresAndIsKor)
         {
             AdresId = adresAndIsKor.AdresForAllView.AdresId;
+        }
+        #endregion
+        #region Validation
+        public string Error
+        {
+            get
+            {
+                return null;
+            }
+        }
+        public string this[string name]
+        {
+            get
+            {
+                string komunikat = null;
+                switch (name)
+                {
+                    case "Symbol":
+                        komunikat = StringValidator.CheckIsAllUpper(Symbol);
+                        if (komunikat != null)
+                            break;
+                        komunikat = BusinessValidator.CheckIsNotNull(Symbol);
+                        break;
+                    case "Nazwa":
+                        komunikat = StringValidator.CheckIsStartsWithUpper(Nazwa);
+                        if (komunikat != null)
+                            break;
+                        komunikat = BusinessValidator.CheckIsNotNull(Nazwa);
+                        break;
+                    case "Telefon":
+                        komunikat = StringValidator.CheckIsNumeric(Telefon);
+                        if (komunikat != null)
+                            break;
+                        komunikat = BusinessValidator.CheckIsNotNull(Telefon);
+                        break;
+                    case "TypMagazynu":
+                        komunikat = BusinessValidator.CheckIsSet(TypMagazynuId);
+                        break;
+                }
+                return komunikat;
+            }
+        }
+        public override string IsValid()
+        {
+            string komunikat = null;
+            komunikat += this["Symbol"] == null ? "" : "Symbol: " + this["Symbol"] + "\n";
+            komunikat += this["Nazwa"] == null ? "" : "Nazwa: " + this["Nazwa"] + "\n";
+            komunikat += this["Telefon"] == null ? "" : "Telefon: " + this["Telefon"] + "\n";
+            komunikat += this["TypMagazynu"] == null ? "" : "Typ: " + this["TypMagazynu"] + "\n";
+
+            return komunikat;
         }
         #endregion
     }

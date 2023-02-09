@@ -41,13 +41,13 @@
                     <Label Content="Kod"
                            Style="{StaticResource ControlStandardowy}" />
                     <TextBox Grid.Column="1"
-                             Text="{Binding Path=Kod, UpdateSourceTrigger=PropertyChanged}"
+                             Text="{Binding Path=Kod, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"
                              Style="{StaticResource ControlStandardowy}" />
                     <Label Grid.Column="2"
                            Content="NIP:"
                            Style="{StaticResource ControlStandardowy}" />
                     <TextBox Grid.Column="3"
-                             Text="{Binding Path=Nip, UpdateSourceTrigger=PropertyChanged}"
+                             Text="{Binding Path=Nip, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"
                              Style="{StaticResource ControlStandardowy}" />
 
                     <Label  Grid.Row="1"
@@ -59,14 +59,14 @@
                               ItemsSource="{Binding RodzajeKontrahentaComboBoxItems}"
                               DisplayMemberPath="Value"
                               SelectedValuePath="Key"
-                              SelectedValue="{Binding Path=RodzajKontrahentaId, Mode=TwoWay}" />
+                              SelectedValue="{Binding Path=RodzajKontrahentaId, Mode=TwoWay, ValidatesOnDataErrors=True}" />
                     <Label  Grid.Row="1"
                             Grid.Column="2"
                             Content="REGON:"
                             Style="{StaticResource ControlStandardowy}" />
                     <TextBox Grid.Row="1"
                              Grid.Column="3"
-                             Text="{Binding Path=Regon, UpdateSourceTrigger=PropertyChanged}"
+                             Text="{Binding Path=Regon, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"
                              Style="{StaticResource ControlStandardowy}" />
 
                     <Label  Grid.Row="2"
@@ -74,7 +74,7 @@
                             Style="{StaticResource ControlStandardowy}" />
                     <TextBox Grid.Row="2"
                              Grid.Column="1"
-                             Text="{Binding Path=DokumentTozsamosci, UpdateSourceTrigger=PropertyChanged}"
+                             Text="{Binding Path=DokumentTozsamosci, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"
                              Style="{StaticResource ControlStandardowy}" />
                     <Label  Grid.Row="2"
                             Grid.Column="2"
@@ -82,7 +82,7 @@
                             Style="{StaticResource ControlStandardowy}" />
                     <TextBox Grid.Row="2"
                              Grid.Column="3"
-                             Text="{Binding Path=PESEL, UpdateSourceTrigger=PropertyChanged}"
+                             Text="{Binding Path=PESEL, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"
                              Style="{StaticResource ControlStandardowy}" />
 
                     <Label Grid.Row="3"
@@ -91,7 +91,7 @@
                     <TextBox Grid.Row="3"
                              Grid.Column="1"
                              Grid.ColumnSpan="3"
-                             Text="{Binding Path=Nazwa1, UpdateSourceTrigger=PropertyChanged}"
+                             Text="{Binding Path=Nazwa1, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"
                              Style="{StaticResource ControlStandardowy}" />
                     <TextBox Grid.Row="4"
                              Grid.Column="1"
@@ -110,7 +110,7 @@
                     <TextBox Grid.Row="6"
                              Grid.Column="1"
                              Grid.ColumnSpan="3"
-                             Text="{Binding Path=URL, UpdateSourceTrigger=PropertyChanged}"
+                             Text="{Binding Path=URL, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"
                              Style="{StaticResource ControlStandardowy}" />
                 </Grid>
             </Expander>
@@ -175,7 +175,7 @@
                                   ItemsSource="{Binding AdresyComboBoxItems}"
                                   DisplayMemberPath="Value"
                                   SelectedValuePath="Key"
-                                  SelectedValue="{Binding Path=AdresId, Mode=TwoWay}" />
+                                  SelectedValue="{Binding Path=AdresId, Mode=TwoWay, ValidatesOnDataErrors=True}" />
                     </Grid>
 
                     <Label Grid.Row="1"

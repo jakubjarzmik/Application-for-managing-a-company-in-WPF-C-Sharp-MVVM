@@ -56,7 +56,7 @@
                               ItemsSource="{Binding RodzajeUmowyComboBoxItems}"
                               DisplayMemberPath="Value"
                               SelectedValuePath="Key"
-                              SelectedValue="{Binding Path=RodzajUmowyId, Mode=TwoWay}" />
+                              SelectedValue="{Binding Path=RodzajUmowyId, Mode=TwoWay, ValidatesOnDataErrors=True}" />
                     <TextBox Grid.Row="1"
                              Grid.Column="2"
                              Grid.ColumnSpan="2"
@@ -75,7 +75,7 @@
                               ItemsSource="{Binding StanowiskaComboBoxItems}"
                               DisplayMemberPath="Value"
                               SelectedValuePath="Key"
-                              SelectedValue="{Binding Path=StanowiskoId, Mode=TwoWay}" />
+                              SelectedValue="{Binding Path=StanowiskoId, Mode=TwoWay, ValidatesOnDataErrors=True}" />
 
                     <Label Grid.Row="2"
                            Grid.Column="2"
@@ -113,7 +113,7 @@
                                Content="Obowiązuje do:"
                                Style="{StaticResource ControlStandardowy}" />
                         <DatePicker Grid.Column="5"
-                                    SelectedDate="{Binding Path=DataDo, UpdateSourceTrigger=PropertyChanged}"
+                                    SelectedDate="{Binding Path=DataDo, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"
                                     Style="{StaticResource ControlStandardowy}" />
                     </Grid>
 
@@ -131,19 +131,19 @@
                                Content="Stawka brutto (mies):"
                                Style="{StaticResource ControlStandardowy}" />
                         <TextBox Grid.Column="1"
-                                 Text="{Binding Path=StawkaBruttoMies, UpdateSourceTrigger=PropertyChanged, StringFormat={}{0:N2}}"
+                                 Text="{Binding Path=StawkaBruttoMies, UpdateSourceTrigger=PropertyChanged, StringFormat={}{0:N2}, ValidatesOnDataErrors=True}"
                                  Style="{StaticResource ControlStandardowy}" />
                         <Label Grid.Column="2"
                                Content="Stawka brutto (godz):"
                                Style="{StaticResource ControlStandardowy}" />
                         <TextBox Grid.Column="3"
-                                 Text="{Binding Path=StawkaBruttoGodz, UpdateSourceTrigger=PropertyChanged, StringFormat={}{0:N2}}"
+                                 Text="{Binding Path=StawkaBruttoGodz, UpdateSourceTrigger=PropertyChanged, StringFormat={}{0:N2}, ValidatesOnDataErrors=True}"
                                  Style="{StaticResource ControlStandardowy}" />
                         <Label Grid.Column="4"
                                Content="Miesięczny czas pracy (godz):"
                                Style="{StaticResource ControlStandardowy}" />
                         <TextBox Grid.Column="5"
-                                 Text="{Binding Path=CzasPracyMies, UpdateSourceTrigger=PropertyChanged}"
+                                 Text="{Binding Path=CzasPracyMies, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"
                                  Style="{StaticResource ControlStandardowy}" />
                     </Grid>
 

@@ -1,14 +1,16 @@
 ﻿using Firma.Models.Entities;
+using Firma.Models.Validators;
 using Firma.ViewModels.Abstract;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace Firma.ViewModels
 {
-    public class NowyRodzajPlatnosciViewModel : JedenViewModel<RodzajePlatnosci>
+    public class NowyRodzajPlatnosciViewModel : JedenViewModel<RodzajePlatnosci>, IDataErrorInfo
     {
         #region Konstruktor
         public NowyRodzajPlatnosciViewModel() : base("Nowy rodzaj płatności")
@@ -84,7 +86,7 @@ namespace Firma.ViewModels
             }
         }
         #endregion
-            #region Save
+        #region Save
         public override void Save()
         {
             Item.DataUtworzenia = DateTime.Now;
@@ -96,6 +98,46 @@ namespace Firma.ViewModels
                 Item.Opis = "";
             Db.RodzajePlatnosci.AddObject(Item);
             Db.SaveChanges();
+        }
+        #endregion
+        #region Validation
+        public string Error
+        {
+            get
+            {
+                return null;
+            }
+        }
+        public string this[string name]
+        {
+            get
+            {
+                string komunikat = null;
+                switch (name)
+                {
+                    case "Nazwa":
+                        komunikat = StringValidator.CheckIsStartsWithUpper(Nazwa);
+                        if (komunikat != null)
+                            break;
+                        komunikat = BusinessValidator.CheckIsNotNull(Nazwa);
+                        break;
+                    case "IloscDniSplaty":
+                        komunikat = BusinessValidator.CheckIsNotLessThanZero(IloscDniSplaty);
+                        if (komunikat != null)
+                            break;
+                        komunikat = BusinessValidator.CheckIsNotNull(IloscDniSplaty);
+                        break;
+                }
+                return komunikat;
+            }
+        }
+        public override string IsValid()
+        {
+            string komunikat = null;
+            komunikat += this["Nazwa"] == null ? "" : "Nazwa: " + this["Nazwa"] + "\n";
+            komunikat += this["IloscDniSplaty"] == null ? "" : "Ilość dni do spłaty: " + this["IloscDniSplaty"] + "\n";
+
+            return komunikat;
         }
         #endregion
     }

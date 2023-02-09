@@ -40,7 +40,7 @@
                            Style="{StaticResource ControlStandardowy}" />
                     <TextBox Grid.Row="0"
                              Grid.Column="1"
-                             Text="{Binding Path=Ulica, UpdateSourceTrigger=PropertyChanged}"
+                             Text="{Binding Path=Ulica, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"
                              Style="{StaticResource ControlStandardowy}" />
                     <Label Grid.Row="0"
                            Grid.Column="2"
@@ -52,7 +52,7 @@
                             <ColumnDefinition Width="100" />
                             <ColumnDefinition Width="*" />
                         </Grid.ColumnDefinitions>
-                        <TextBox Text="{Binding Path=NrDomu, UpdateSourceTrigger=PropertyChanged}"
+                        <TextBox Text="{Binding Path=NrDomu, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"
                                  Style="{StaticResource ControlStandardowy}" />
                         <Label Grid.Column="1"
                                Content="Nr lokalu:"
@@ -72,7 +72,7 @@
                             <ColumnDefinition Width="*" />
                             <ColumnDefinition Width="2*" />
                         </Grid.ColumnDefinitions>
-                        <TextBox Text="{Binding Path=KodPocztowy, UpdateSourceTrigger=PropertyChanged}"
+                        <TextBox Text="{Binding Path=KodPocztowy, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"
                                  Style="{StaticResource ControlStandardowy}" />
                     </Grid>
                     <Label Grid.Row="1"
@@ -81,7 +81,7 @@
                            Style="{StaticResource ControlStandardowy}" />
                     <TextBox Grid.Row="1"
                              Grid.Column="3"
-                             Text="{Binding Path=Miejscowosc, UpdateSourceTrigger=PropertyChanged}"
+                             Text="{Binding Path=Miejscowosc, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"
                              Style="{StaticResource ControlStandardowy}" />
 
                     <Label Grid.Row="2"
@@ -90,7 +90,7 @@
                            Style="{StaticResource ControlStandardowy}" />
                     <TextBox Grid.Row="2"
                              Grid.Column="1"
-                             Text="{Binding Path=Wojewodztwo, UpdateSourceTrigger=PropertyChanged}"
+                             Text="{Binding Path=Wojewodztwo, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"
                              Style="{StaticResource ControlStandardowy}" />
                     <Button Grid.Row="2"
                             Grid.Column="2"
@@ -107,7 +107,7 @@
                                   ItemsSource="{Binding KrajeComboBoxItems}"
                                   DisplayMemberPath="Value"
                                   SelectedValuePath="Key"
-                                  SelectedValue="{Binding Path=KrajId, Mode=TwoWay}" />
+                                  SelectedValue="{Binding Path=KrajId, Mode=TwoWay, ValidatesOnDataErrors=True}" />
                         <TextBox Grid.Column="1"
                                  IsEnabled="False"
                                  Text="{Binding Path=KrajNazwa, UpdateSourceTrigger=PropertyChanged}"

@@ -42,7 +42,7 @@
                               ItemsSource="{Binding KrajeComboBoxItems}"
                               DisplayMemberPath="Value"
                               SelectedValuePath="Key"
-                              SelectedValue="{Binding Path=KrajId, Mode=TwoWay}" />
+                              SelectedValue="{Binding Path=KrajId, Mode=TwoWay, ValidatesOnDataErrors=True}" />
                     <TextBox Grid.Row="0"
                              Grid.Column="2"
                              IsEnabled="False"
@@ -51,11 +51,11 @@
 
                     <Label Grid.Row="1"
                            Grid.Column="0"
-                           Content="Stawka:"
+                           Content="Stawka (%):"
                            Style="{StaticResource ControlStandardowy}" />
                     <TextBox Grid.Row="1"
                              Grid.Column="1"
-                             Text="{Binding Path=Stawka, UpdateSourceTrigger=PropertyChanged, StringFormat={}{0:N2}}"
+                             Text="{Binding Path=Stawka, UpdateSourceTrigger=PropertyChanged, StringFormat={}{0:N2}, ValidatesOnDataErrors=True}"
                              Style="{StaticResource ControlStandardowy}" />
 
                     <Label Grid.Row="2"

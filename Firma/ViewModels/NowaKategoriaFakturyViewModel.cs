@@ -1,8 +1,10 @@
 ﻿using Firma.Helpers;
 using Firma.Models.Entities;
+using Firma.Models.Validators;
 using Firma.ViewModels.Abstract;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,7 +12,7 @@ using System.Windows.Input;
 
 namespace Firma.ViewModels
 {
-    public class NowaKategoriaFakturyViewModel : JedenViewModel<FakturyKategorie>
+    public class NowaKategoriaFakturyViewModel : JedenViewModel<FakturyKategorie>, IDataErrorInfo
     {
         #region Konstruktor
         public NowaKategoriaFakturyViewModel():base("Nowa kategoria faktury")
@@ -98,6 +100,46 @@ namespace Firma.ViewModels
                 Item.Opis = "";
             Db.FakturyKategorie.AddObject(Item);
             Db.SaveChanges();
+        }
+        #endregion
+        #region Validation
+        public string Error
+        {
+            get
+            {
+                return null;
+            }
+        }
+        public string this[string name]
+        {
+            get
+            {
+                string komunikat = null;
+                switch (name)
+                {
+                    case "Nazwa":
+                        komunikat = StringValidator.CheckIsStartsWithUpper(Nazwa);
+                        if (komunikat != null)
+                            break;
+                        komunikat = BusinessValidator.CheckIsNotNull(Nazwa);
+                        break;
+                    case "Kod":
+                        komunikat = StringValidator.CheckIsAllUpper(Kod);
+                        if (komunikat != null)
+                            break;
+                        komunikat = BusinessValidator.CheckIsNotNull(Kod);
+                        break;
+                }
+                return komunikat;
+            }
+        }
+        public override string IsValid()
+        {
+            string komunikat = null;
+            komunikat += this["Nazwa"] == null ? "" : "Nazwa: " + this["Nazwa"] + "\n";
+            komunikat += this["Kod"] == null ? "" : "Kod: " + this["Kod"] + "\n";
+
+            return komunikat;
         }
         #endregion
     }

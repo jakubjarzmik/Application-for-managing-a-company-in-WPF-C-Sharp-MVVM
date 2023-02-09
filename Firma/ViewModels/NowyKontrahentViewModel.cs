@@ -1,11 +1,13 @@
 ﻿using Firma.Helpers;
 using Firma.Models.Entities;
 using Firma.Models.EntitiesForView;
+using Firma.Models.Validators;
 using Firma.ViewModels.Abstract;
 using GalaSoft.MvvmLight.Messaging;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,7 +16,7 @@ using System.Windows.Input;
 
 namespace Firma.ViewModels
 {
-    public class NowyKontrahentViewModel : JedenViewModel<Kontrahenci>
+    public class NowyKontrahentViewModel : JedenViewModel<Kontrahenci>, IDataErrorInfo
     {
         #region Konstruktor
         public NowyKontrahentViewModel()
@@ -714,6 +716,74 @@ namespace Firma.ViewModels
                 AdresId = adresAndIsKor.AdresForAllView.AdresId;
             else
                 AdresKorId = adresAndIsKor.AdresForAllView.AdresId;
+        }
+        #endregion
+        #region Validation
+        public string Error
+        {
+            get
+            {
+                return null;
+            }
+        }
+        public string this[string name]
+        {
+            get
+            {
+                string komunikat = null;
+                switch (name)
+                {
+                    case "Kod":
+                        komunikat = StringValidator.CheckIsAllUpper(Kod);
+                        if (komunikat != null)
+                            break;
+                        komunikat = BusinessValidator.CheckIsNotNull(Kod);
+                        break;
+                    case "Nip":
+                        komunikat = BusinessValidator.CheckIsNip(Nip);
+                        break;
+                    case "RodzajKontrahenta":
+                        komunikat = BusinessValidator.CheckIsSet(RodzajKontrahentaId);
+                        break;
+                    case "Regon":
+                        komunikat = BusinessValidator.CheckIsRegon(Regon);
+                        break;
+                    case "DokumentTozsamosci":
+                        komunikat = StringValidator.CheckIsAllUpper(DokumentTozsamosci);
+                        break;
+                    case "PESEL":
+                        komunikat = BusinessValidator.CheckIsPesel(PESEL);
+                        break;
+                    case "Nazwa1":
+                        komunikat = StringValidator.CheckIsStartsWithUpper(Nazwa1);
+                        if (komunikat != null)
+                            break;
+                        komunikat = BusinessValidator.CheckIsNotNull(Nazwa1);
+                        break;
+                    case "URL":
+                        komunikat = BusinessValidator.CheckIsUrl(URL);
+                        break;
+                    case "Adres":
+                        komunikat = BusinessValidator.CheckIsSet(AdresId);
+                        break;
+                }
+                return komunikat;
+            }
+        }
+        public override string IsValid()
+        {
+            string komunikat = null;
+            komunikat += this["Kod"] == null ? "" : "Kod: " + this["Kod"] + "\n";
+            komunikat += this["Nip"] == null ? "" : "Nip: " + this["Nip"] + "\n";
+            komunikat += this["RodzajKontrahenta"] == null ? "" : "Rodzaj kontrahenta: " + this["RodzajKontrahenta"] + "\n";
+            komunikat += this["Regon"] == null ? "" : "Regon: " + this["Regon"] + "\n";
+            komunikat += this["DokumentTozsamosci"] == null ? "" : "Dokument tożsamosci: " + this["DokumentTozsamosci"] + "\n";
+            komunikat += this["PESEL"] == null ? "" : "PESEL: " + this["PESEL"] + "\n";
+            komunikat += this["Nazwa1"] == null ? "" : "Nazwa: " + this["Nazwa1"] + "\n";
+            komunikat += this["URL"] == null ? "" : "URL: " + this["URL"] + "\n";
+            komunikat += this["Adres"] == null ? "" : "Adres: " + this["Adres"] + "\n";
+
+            return komunikat;
         }
         #endregion
     }

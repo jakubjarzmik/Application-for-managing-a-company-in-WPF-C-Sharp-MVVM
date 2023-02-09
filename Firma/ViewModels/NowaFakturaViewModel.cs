@@ -2,11 +2,13 @@
 using Firma.Models.BusinessLogic;
 using Firma.Models.Entities;
 using Firma.Models.EntitiesForView;
+using Firma.Models.Validators;
 using Firma.ViewModels.Abstract;
 using GalaSoft.MvvmLight.Messaging;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,7 +16,7 @@ using System.Windows;
 
 namespace Firma.ViewModels
 {
-    public class NowaFakturaViewModel : JedenViewModel<Faktury>
+    public class NowaFakturaViewModel : JedenViewModel<Faktury>, IDataErrorInfo
     {
         #region Konstruktor
         public NowaFakturaViewModel() : base("Nowa faktura")
@@ -336,7 +338,7 @@ namespace Firma.ViewModels
                     fakturaWz.FakturaId == Item.FakturaId
                     select new FakturyWydaniaZewnetrzneForAllView
                     {
-                        FakturaWZId= fakturaWz.FakturaWZId,
+                        FakturaWZId = fakturaWz.FakturaWZId,
                         WZNumer = fakturaWz.WydaniaZewnetrzne.Numer,
                         WZMagazynNazwa = fakturaWz.WydaniaZewnetrzne.Magazyny.Nazwa,
                         WZRabat = fakturaWz.WydaniaZewnetrzne.Rabat,
@@ -381,6 +383,51 @@ namespace Firma.ViewModels
         private void getSelectedKontrahent(KontrahentForAllView kontrahentForAllView)
         {
             KontrahentId = kontrahentForAllView.KontrahentId;
+        }
+        #endregion
+        #region Validation
+        public string Error
+        {
+            get
+            {
+                return null;
+            }
+        }
+        public string this[string name]
+        {
+            get
+            {
+                string komunikat = null;
+                switch (name)
+                {
+                    case "Rabat":
+                        komunikat = BusinessValidator.CheckBetween0and100(Rabat);
+                        if (komunikat != null)
+                            break;
+                        komunikat = BusinessValidator.CheckIsNotNull(Rabat);
+                        break;
+                    case "Platnosc":
+                        komunikat = BusinessValidator.CheckIsSet(RodzajePlatnosciId);
+                        break;
+                    case "Kontrahent":
+                        komunikat = BusinessValidator.CheckIsSet(KontrahentId);
+                        break;
+                    case "Kategoria":
+                        komunikat = BusinessValidator.CheckIsSet(KategoriaFakturyId);
+                        break;
+                }
+                return komunikat;
+            }
+        }
+        public override string IsValid()
+        {
+            string komunikat = null;
+            komunikat += this["Rabat"] == null ? "" : "Rabat: " + this["Rabat"] + "\n";
+            komunikat += this["Platnosc"] == null ? "" : "Płatność: " + this["Platnosc"] + "\n";
+            komunikat += this["Kontrahent"] == null ? "" : "Kontrahent: " + this["Kontrahent"] + "\n";
+            komunikat += this["Kategoria"] == null ? "" : "Kategoria: " + this["Kategoria"] + "\n";
+
+            return komunikat;
         }
         #endregion
     }

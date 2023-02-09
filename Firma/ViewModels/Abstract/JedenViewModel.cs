@@ -350,13 +350,24 @@ namespace Firma.ViewModels.Abstract
         {
             Messenger.Default.Send(Item, Item);
         }
+        public virtual string IsValid()
+        {
+            return null;
+        }
         private void saveAndClose()
         {
-            if (isEditing)
-                Edit();
+            if (string.IsNullOrWhiteSpace(IsValid()))
+            {
+                if (isEditing)
+                    Edit();
+                else
+                    Save();
+                OnRequestClose();
+            }
             else
-                Save();
-            OnRequestClose();
+            {
+                MessageBox.Show(IsValid());
+            }
         }
         #endregion
     }
