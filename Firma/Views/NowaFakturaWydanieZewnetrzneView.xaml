@@ -40,6 +40,7 @@
                             IsEnabled="{Binding IsEnabled}" />
                     <ComboBox Grid.Row="0"
                               Grid.Column="1"
+                              BorderThickness="1"
                               Style="{StaticResource ControlStandardowy}"
                               ItemsSource="{Binding FakturyComboBoxItems}"
                               DisplayMemberPath="Value"

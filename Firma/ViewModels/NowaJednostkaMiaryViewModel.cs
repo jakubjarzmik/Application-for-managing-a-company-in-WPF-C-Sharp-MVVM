@@ -1,14 +1,16 @@
 ﻿using Firma.Models.Entities;
+using Firma.Models.Validators;
 using Firma.ViewModels.Abstract;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace Firma.ViewModels
 {
-    public class NowaJednostkaMiaryViewModel : JedenViewModel<JednostkiMiary>
+    public class NowaJednostkaMiaryViewModel : JedenViewModel<JednostkiMiary>, IDataErrorInfo
     {
         #region Konstruktor
         public NowaJednostkaMiaryViewModel() : base("Nowa jedn. miary")
@@ -96,6 +98,46 @@ namespace Firma.ViewModels
                 Item.Opis = "";
             Db.JednostkiMiary.AddObject(Item);
             Db.SaveChanges();
+        }
+        #endregion
+        #region Validation
+        public string Error
+        {
+            get
+            {
+                return null;
+            }
+        }
+        public string this[string name]
+        {
+            get
+            {
+                string komunikat = null;
+                switch (name)
+                {
+                    case "Skrot":
+                        komunikat = StringValidator.CheckIsStartsWithUpper(Skrot);
+                        if (komunikat != null)
+                            break;
+                        komunikat = BusinessValidator.CheckIsNotNull(Skrot);
+                        break;
+                    case "Nazwa":
+                        komunikat = StringValidator.CheckIsStartsWithUpper(Nazwa);
+                        if (komunikat != null)
+                            break;
+                        komunikat = BusinessValidator.CheckIsNotNull(Nazwa);
+                        break;
+                }
+                return komunikat;
+            }
+        }
+        public override string IsValid()
+        {
+            string komunikat = null;
+            komunikat += this["Skrot"] == null ? "" : "Skrót: " + this["Skrot"] + "\n";
+            komunikat += this["Nazwa"] == null ? "" : "Nazwa: " + this["Nazwa"] + "\n";
+
+            return komunikat;
         }
         #endregion
     }

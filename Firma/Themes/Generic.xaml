@@ -7,10 +7,10 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type local:WszystkieViewBase}">
-                    <ControlTemplate.Resources>
-                        <ResourceDictionary Source="/Views/StyleZakladekResources.xaml" />
-                    </ControlTemplate.Resources>
                     <Grid>
+                        <Grid.Resources>
+                            <ResourceDictionary Source="/Views/StyleZakladekResources.xaml" />
+                        </Grid.Resources>
                         <Grid.RowDefinitions>
                             <RowDefinition Height="40" />
                             <RowDefinition Height="Auto" />
@@ -111,10 +111,10 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type local:JedenViewBase}">
-                    <ControlTemplate.Resources>
-                        <ResourceDictionary Source="/Views/StyleZakladekResources.xaml" />
-                    </ControlTemplate.Resources>
                     <Grid>
+                        <Grid.Resources>
+                            <ResourceDictionary Source="/Views/StyleZakladekResources.xaml" />
+                        </Grid.Resources>
                         <Grid.RowDefinitions>
                             <RowDefinition Height="40" />
                             <RowDefinition Height="*" />

@@ -1,11 +1,13 @@
 ﻿using Firma.Helpers;
 using Firma.Models.Entities;
 using Firma.Models.EntitiesForView;
+using Firma.Models.Validators;
 using Firma.ViewModels.Abstract;
 using GalaSoft.MvvmLight.Messaging;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,7 +15,7 @@ using System.Windows;
 
 namespace Firma.ViewModels
 {
-    public class NowyTowarViewModel : JedenViewModel<Towary>
+    public class NowyTowarViewModel : JedenViewModel<Towary>, IDataErrorInfo
     {
         #region Konstruktor
         public NowyTowarViewModel() : base("Nowy towar")
@@ -568,6 +570,90 @@ namespace Firma.ViewModels
         private void getSelectedKontrahent(KontrahentForAllView kontrahentForAllView)
         {
            ProducentId = kontrahentForAllView.KontrahentId;
+        }
+        #endregion
+        #region Validation
+        public string Error
+        {
+            get
+            {
+                return null;
+            }
+        }
+        public string this[string name]
+        {
+            get
+            {
+                string komunikat = null;
+                switch (name)
+                {
+                    case "Kod":
+                        komunikat = StringValidator.CheckIsAllUpper(Kod);
+                        if (komunikat != null)
+                            break;
+                        komunikat = BusinessValidator.CheckIsNotNull(Kod);
+                        break;
+                    case "NumerKatalogowy":
+                        komunikat = StringValidator.CheckIsAllUpper(NumerKatalogowy);
+                        break;
+                    case "GrupaTowaru":
+                        komunikat = BusinessValidator.CheckIsSet(GrupaTowaruId);
+                        break;
+                    case "TypTowaru":
+                        komunikat = BusinessValidator.CheckIsSet(TypTowaruId);
+                        break;
+                    case "EAN":
+                        komunikat = StringValidator.CheckIsNumeric(EAN);
+                        break;
+                    case "SWW":
+                        komunikat = StringValidator.CheckIsAllUpper(SWW);
+                        break;
+                    case "VatSprz":
+                        komunikat = BusinessValidator.CheckIsSet(VatSprzId);
+                        break;
+                    case "VatZak":
+                        komunikat = BusinessValidator.CheckIsSet(VatZakId);
+                        break;
+                    case "Nazwa":
+                        komunikat = StringValidator.CheckIsStartsWithUpper(Nazwa);
+                        if (komunikat != null)
+                            break;
+                        komunikat = BusinessValidator.CheckIsNotNull(Nazwa);
+                        break;
+                    case "NazwaFiskalna":
+                        komunikat = StringValidator.CheckIsAllUpper(NazwaFiskalna);
+                        break;
+                    case "KrajPochodzenia":
+                        komunikat = BusinessValidator.CheckIsSet(KrajPochodzeniaId);
+                        break;
+                    case "Producent":
+                        komunikat = BusinessValidator.CheckIsSet(ProducentId);
+                        break;
+                    case "URL":
+                        komunikat = BusinessValidator.CheckIsUrl(URL);
+                        break;
+                }
+                return komunikat;
+            }
+        }
+        public override string IsValid()
+        {
+            string komunikat = null;
+            komunikat += this["Kod"] == null ? "" : "Kod: " + this["Kod"] + "\n";
+            komunikat += this["NumerKatalogowy"] == null ? "" : "Numer katalogowy: " + this["NumerKatalogowy"] + "\n";
+            komunikat += this["GrupaTowaru"] == null ? "" : "Grupa: " + this["GrupaTowaru"] + "\n";
+            komunikat += this["TypTowaru"] == null ? "" : "Typ: " + this["TypTowaru"] + "\n";
+            komunikat += this["EAN"] == null ? "" : "EAN: " + this["EAN"] + "\n";
+            komunikat += this["SWW"] == null ? "" : "SWW: " + this["SWW"] + "\n";
+            komunikat += this["VatSprz"] == null ? "" : "Vat sprzedaży: " + this["VatSprz"] + "\n";
+            komunikat += this["VatZak"] == null ? "" : "Vat zakupu: " + this["VatZak"] + "\n";
+            komunikat += this["Nazwa"] == null ? "" : "Nazwa: " + this["Nazwa"] + "\n";
+            komunikat += this["NazwaFiskalna"] == null ? "" : "Nazwa fiskalna: " + this["NazwaFiskalna"] + "\n";
+            komunikat += this["KrajPochodzenia"] == null ? "" : "Kraj pochodzenia: " + this["KrajPochodzenia"] + "\n";
+            komunikat += this["Producent"] == null ? "" : "Producent: " + this["Producent"] + "\n";
+            komunikat += this["URL"] == null ? "" : "URL: " + this["URL"] + "\n";
+
+            return komunikat;
         }
         #endregion
     }

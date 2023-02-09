@@ -39,14 +39,14 @@
                            Content="Symbol:"
                            Style="{StaticResource ControlStandardowy}" />
                     <TextBox Grid.Column="1"
-                             Text="{Binding Path=Symbol, UpdateSourceTrigger=PropertyChanged}"
+                             Text="{Binding Path=Symbol, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"
                              Style="{StaticResource ControlStandardowy}" />
                     <Label Grid.Column="2"
                            Grid.ColumnSpan="2"
                            Content="Nazwa:"
                            Style="{StaticResource ControlStandardowy}" />
                     <TextBox Grid.Column="4"
-                             Text="{Binding Path=Nazwa, UpdateSourceTrigger=PropertyChanged}"
+                             Text="{Binding Path=Nazwa, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"
                              Style="{StaticResource ControlStandardowy}" />
 
                     <Label Grid.Row="1"
@@ -55,7 +55,7 @@
                            Style="{StaticResource ControlStandardowy}" />
                     <TextBox Grid.Row="1"
                              Grid.Column="1"
-                             Text="{Binding Path=Telefon, UpdateSourceTrigger=PropertyChanged}"
+                             Text="{Binding Path=Telefon, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"
                              Style="{StaticResource ControlStandardowy}" />
 
                     <Label Grid.Row="1"
@@ -69,7 +69,7 @@
                               ItemsSource="{Binding MagazynyTypyComboBoxItems}"
                               DisplayMemberPath="Value"
                               SelectedValuePath="Key"
-                              SelectedValue="{Binding Path=TypMagazynuId, Mode=TwoWay}" />
+                              SelectedValue="{Binding Path=TypMagazynuId, Mode=TwoWay, ValidatesOnDataErrors=True}" />
 
                     <Label Grid.Row="2"
                            Grid.Column="0"
@@ -116,7 +116,7 @@
                                   ItemsSource="{Binding AdresyComboBoxItems}"
                                   DisplayMemberPath="Value"
                                   SelectedValuePath="Key"
-                                  SelectedValue="{Binding Path=AdresId, Mode=TwoWay}" />
+                                  SelectedValue="{Binding Path=AdresId, Mode=TwoWay, ValidatesOnDataErrors=True}" />
                         <Button Grid.Column="2"
                                 Content="Wyczyść"
                                 Command="{Binding ClearAdresCommand}"

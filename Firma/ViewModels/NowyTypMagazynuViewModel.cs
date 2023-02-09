@@ -1,14 +1,16 @@
 ﻿using Firma.Models.Entities;
+using Firma.Models.Validators;
 using Firma.ViewModels.Abstract;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace Firma.ViewModels
 {
-    public class NowyTypMagazynuViewModel : JedenViewModel<MagazynyTypy>
+    public class NowyTypMagazynuViewModel : JedenViewModel<MagazynyTypy>, IDataErrorInfo
     {
         #region Konstruktor
         public NowyTypMagazynuViewModel() : base("Nowy typ magazynu")
@@ -95,6 +97,46 @@ namespace Firma.ViewModels
                 Item.Opis = "";
             Db.MagazynyTypy.AddObject(Item);
             Db.SaveChanges();
+        }
+        #endregion
+        #region Validation
+        public string Error
+        {
+            get
+            {
+                return null;
+            }
+        }
+        public string this[string name]
+        {
+            get
+            {
+                string komunikat = null;
+                switch (name)
+                {
+                    case "Nazwa":
+                        komunikat = StringValidator.CheckIsStartsWithUpper(Nazwa);
+                        if (komunikat != null)
+                            break;
+                        komunikat = BusinessValidator.CheckIsNotNull(Nazwa);
+                        break;
+                    case "Symbol":
+                        komunikat = StringValidator.CheckIsAllUpper(Symbol);
+                        if (komunikat != null)
+                            break;
+                        komunikat = BusinessValidator.CheckIsNotNull(Symbol);
+                        break;
+                }
+                return komunikat;
+            }
+        }
+        public override string IsValid()
+        {
+            string komunikat = null;
+            komunikat += this["Nazwa"] == null ? "" : "Nazwa: " + this["Nazwa"] + "\n";
+            komunikat += this["Symbol"] == null ? "" : "Symbol: " + this["Symbol"] + "\n";
+
+            return komunikat;
         }
         #endregion
     }

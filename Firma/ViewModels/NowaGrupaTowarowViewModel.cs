@@ -1,28 +1,31 @@
 ﻿using Firma.Helpers;
 using Firma.Models.Entities;
 using Firma.Models.EntitiesForView;
+using Firma.Models.Validators;
 using Firma.ViewModels.Abstract;
 using GalaSoft.MvvmLight.Messaging;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace Firma.ViewModels
 {
-    public class NowaGrupaTowarowViewModel : JedenViewModel<TowaryGrupy>
+    public class NowaGrupaTowarowViewModel : JedenViewModel<TowaryGrupy>, IDataErrorInfo
     {
         #region Konstruktor
         public NowaGrupaTowarowViewModel() : base("Nowa grupa towarów")
         {
             Item = new TowaryGrupy();
+            GrupaNadrzednaId= 1;
             Messenger.Default.Register<GrupaTowaruForAllView>(this, DisplayName, getSelectedGrupa);
         }
         public NowaGrupaTowarowViewModel(TowaryGrupy grupaTowaru) : base("Edytuj grupę towarów")
         {
             Item = grupaTowaru;
-            isEditing= true;
+            isEditing = true;
             Messenger.Default.Register<GrupaTowaruForAllView>(this, DisplayName, getSelectedGrupa);
         }
         #endregion
@@ -35,7 +38,7 @@ namespace Firma.ViewModels
             }
             set
             {
-                if(value != Item.Nazwa)
+                if (value != Item.Nazwa)
                 {
                     Item.Nazwa = value;
                     base.OnPropertyChanged(() => Nazwa);
@@ -50,7 +53,7 @@ namespace Firma.ViewModels
             }
             set
             {
-                if(value != Item.Kod)
+                if (value != Item.Kod)
                 {
                     Item.Kod = value;
                     base.OnPropertyChanged(() => Kod);
@@ -65,7 +68,7 @@ namespace Firma.ViewModels
             }
             set
             {
-                if(value != Item.GrupaNadrzednaId)
+                if (value != Item.GrupaNadrzednaId)
                 {
                     Item.GrupaNadrzednaId = value;
                     GrupaNadrzednaNazwa = Db.TowaryGrupy.Where(n => n.GrupaTowaruId == GrupaNadrzednaId).Select(n => n.Nazwa).FirstOrDefault();
@@ -154,6 +157,46 @@ namespace Firma.ViewModels
         private void getSelectedGrupa(GrupaTowaruForAllView grupaTowaruForAllView)
         {
             GrupaNadrzednaId = grupaTowaruForAllView.GrupaTowaruId;
+        }
+        #endregion
+        #region Validation
+        public string Error
+        {
+            get
+            {
+                return null;
+            }
+        }
+        public string this[string name]
+        {
+            get
+            {
+                string komunikat = null;
+                switch (name)
+                {
+                    case "Nazwa":
+                        komunikat = StringValidator.CheckIsStartsWithUpper(Nazwa);
+                        if (komunikat != null)
+                            break;
+                        komunikat = BusinessValidator.CheckIsNotNull(Nazwa);
+                        break;
+                    case "Kod":
+                        komunikat = StringValidator.CheckIsAllUpper(Kod);
+                        if (komunikat != null)
+                            break;
+                        komunikat = BusinessValidator.CheckIsNotNull(Kod);
+                        break;
+                }
+                return komunikat;
+            }
+        }
+        public override string IsValid()
+        {
+            string komunikat = null;
+            komunikat += this["Nazwa"] == null ? "" : "Nazwa: " + this["Nazwa"] + "\n";
+            komunikat += this["Kod"] == null ? "" : "Kod: " + this["Kod"] + "\n";
+
+            return komunikat;
         }
         #endregion
     }

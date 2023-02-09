@@ -2,17 +2,20 @@
 using Firma.Models.BusinessLogic;
 using Firma.Models.Entities;
 using Firma.Models.EntitiesForView;
+using Firma.Models.Validators;
 using Firma.ViewModels.Abstract;
 using GalaSoft.MvvmLight.Messaging;
 using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace Firma.ViewModels
 {
-    public class NowaZmianaCenyViewModel : JedenViewModel<ZmianyCeny>
+    public class NowaZmianaCenyViewModel : JedenViewModel<ZmianyCeny>, IDataErrorInfo
     {
         #region Konstruktor
         public NowaZmianaCenyViewModel() : base("Nowa zmiana ceny")
@@ -251,6 +254,54 @@ namespace Firma.ViewModels
         private void getJednostkaMiary(JednostkiMiary jednostkiMiary)
         {
             JednMiaryId = jednostkiMiary.JednostkaId;
+        }
+        #endregion
+        #region Validation
+        public string Error
+        {
+            get
+            {
+                return null;
+            }
+        }
+        public string this[string name]
+        {
+            get
+            {
+                string komunikat = null;
+                switch (name)
+                {
+                    case "Towar":
+                        komunikat = BusinessValidator.CheckIsSet(TowarId);
+                        break;
+                    case "Jednostka miary":
+                        komunikat = BusinessValidator.CheckIsSet(JednMiaryId);
+                        break;
+                    case "CenaNetto":
+                        komunikat = BusinessValidator.CheckIsNotLessThanZero(CenaNetto);
+                        if (komunikat != null)
+                            break;
+                        komunikat = BusinessValidator.CheckIsNotNull(CenaNetto);
+                        break;
+                    case "DataObowiazywaniaDo":
+                        komunikat = BusinessValidator.CheckDateIsNotEarlier(DataObowiazywaniaOd, DataObowiazywaniaDo);
+                        if (komunikat != null)
+                            break;
+                        komunikat = BusinessValidator.CheckIsNotNull(DataObowiazywaniaOd);
+                        break;
+                }
+                return komunikat;
+            }
+        }
+        public override string IsValid()
+        {
+            string komunikat = null;
+            komunikat += this["Towar"] == null ? "" : "Towar: " + this["Towar"] + "\n";
+            komunikat += this["Jednostka miary"] == null ? "" : "Jednostka miary: " + this["Jednostka miary"] + "\n";
+            komunikat += this["CenaNetto"] == null ? "" : "Cena netto (zł): " + this["CenaNetto"] + "\n";
+            komunikat += this["DataObowiazywaniaDo"] == null ? "" : "Data obowiązywania do: " + this["DataObowiazywaniaDo"] + "\n";
+
+            return komunikat;
         }
         #endregion
     }

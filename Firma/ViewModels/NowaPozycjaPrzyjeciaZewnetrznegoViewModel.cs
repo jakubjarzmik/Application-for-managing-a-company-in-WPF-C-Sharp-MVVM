@@ -1,17 +1,19 @@
 ﻿using Firma.Helpers;
 using Firma.Models.Entities;
 using Firma.Models.EntitiesForView;
+using Firma.Models.Validators;
 using Firma.ViewModels.Abstract;
 using GalaSoft.MvvmLight.Messaging;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace Firma.ViewModels
 {
-    public class NowaPozycjaPrzyjeciaZewnetrznegoViewModel : JedenViewModel<PozycjePrzyjeciaZewnetrznego>
+    public class NowaPozycjaPrzyjeciaZewnetrznegoViewModel : JedenViewModel<PozycjePrzyjeciaZewnetrznego>, IDataErrorInfo
     {
         #region Konstruktor
         public NowaPozycjaPrzyjeciaZewnetrznegoViewModel() : base("Nowa pozycja PZ")
@@ -380,6 +382,65 @@ namespace Firma.ViewModels
         private void getSelectedJednMiary(JednostkiMiary jednMiary)
         {
             JednMiaryId = jednMiary.JednostkaId;
+        }
+        #endregion
+        #region Validation
+        public string Error
+        {
+            get
+            {
+                return null;
+            }
+        }
+        public string this[string name]
+        {
+            get
+            {
+                string komunikat = null;
+                switch (name)
+                {
+                    case "Towar":
+                        komunikat = BusinessValidator.CheckIsSet(TowarId);
+                        break;
+                    case "Przyjecie zewnetrzne":
+                        komunikat = BusinessValidator.CheckIsSet(PrzyjecieZewnetrzneId);
+                        break;
+                    case "Jednostka miary":
+                        komunikat = BusinessValidator.CheckIsSet(JednMiaryId);
+                        break;
+                    case "Ilosc":
+                        komunikat = BusinessValidator.CheckIsNotLessThanZero(Ilosc);
+                        if (komunikat != null)
+                            break;
+                        komunikat = BusinessValidator.CheckIsNotNull(Ilosc);
+                        break;
+                    case "Cena zakupu":
+                        komunikat = BusinessValidator.CheckIsNotLessThanZero(PierwotnaCenaZakupu);
+                        if (komunikat != null)
+                            break;
+                        komunikat = BusinessValidator.CheckIsNotNull(PierwotnaCenaZakupu);
+                        break;
+                    case "Rabat":
+                        komunikat = BusinessValidator.CheckBetween0and100(Rabat);
+                        if (komunikat != null)
+                            break;
+                        komunikat = BusinessValidator.CheckIsNotNull(Rabat);
+                        break;
+                }
+                return komunikat;
+            }
+        }
+        public override string IsValid()
+        {
+            string komunikat = null;
+            komunikat += this["Towar"] == null ? "" : "Towar: " + this["Towar"] + "\n";
+            komunikat += this["Przyjecie zewnetrzne"] == null ? "" : "Przyjęcie zewnętrzne: " + this["Przyjecie zewnetrzne"] + "\n";
+            komunikat += this["Jednostka miary"] == null ? "" : "Jednostka miary: " + this["Jednostka miary"] + "\n";
+            komunikat += this["Ilosc"] == null ? "" : "Ilość: " + this["Ilosc"] + "\n";
+            komunikat += this["Cena zakupu"] == null ? "" : "Cena zakupu: " + this["Cena zakupu"] + "\n";
+            komunikat += this["Rabat"] == null ? "" : "Rabat: " + this["Rabat"] + "\n";
+
+            return komunikat;
         }
         #endregion
     }

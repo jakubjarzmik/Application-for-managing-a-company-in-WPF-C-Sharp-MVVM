@@ -42,7 +42,7 @@
                               ItemsSource="{Binding KontrahenciComboBoxItems}"
                               DisplayMemberPath="Value"
                               SelectedValuePath="Key"
-                              SelectedValue="{Binding Path=KontrahentId, Mode=TwoWay}"
+                              SelectedValue="{Binding Path=KontrahentId, Mode=TwoWay, ValidatesOnDataErrors=True}"
                               IsEnabled="{Binding IsEnabled}" />
 
                     <Label Grid.Row="1"
@@ -103,7 +103,7 @@
                               ItemsSource="{Binding KontaktyComboBoxItems}"
                               DisplayMemberPath="Value"
                               SelectedValuePath="Key"
-                              SelectedValue="{Binding Path=KontaktId, Mode=TwoWay}" />
+                              SelectedValue="{Binding Path=KontaktId, Mode=TwoWay, ValidatesOnDataErrors=True}" />
                     <Label Grid.Row="0"
                            Grid.Column="2"
                            Content="Nazwa działu:"

@@ -52,7 +52,7 @@
                               ItemsSource="{Binding KontrahenciComboBoxItems}"
                               DisplayMemberPath="Value"
                               SelectedValuePath="Key"
-                              SelectedValue="{Binding Path=KontrahentId, Mode=TwoWay}" />
+                              SelectedValue="{Binding Path=KontrahentId, Mode=TwoWay, ValidatesOnDataErrors=True}" />
                     <TextBox Grid.Column="2"
                              IsEnabled="False"
                              Text="{Binding Path=KontrahentPelnaNazwa, UpdateSourceTrigger=PropertyChanged}"
@@ -66,7 +66,7 @@
                               ItemsSource="{Binding MagazynyComboBoxItems}"
                               DisplayMemberPath="Value"
                               SelectedValuePath="Key"
-                              SelectedValue="{Binding Path=MagazynId, Mode=TwoWay}" />
+                              SelectedValue="{Binding Path=MagazynId, Mode=TwoWay, ValidatesOnDataErrors=True}" />
                     <TextBox Grid.Row="1"
                              Grid.Column="2"
                              IsEnabled="False"
@@ -122,33 +122,8 @@
                         <Label Content="Rabat (%):"
                                Style="{StaticResource ControlStandardowy}" />
                         <TextBox Grid.Column="1"
-                                 Text="{Binding Path=Rabat, UpdateSourceTrigger=PropertyChanged, StringFormat={}{0:N2}}"
+                                 Text="{Binding Path=Rabat, UpdateSourceTrigger=PropertyChanged, StringFormat={}{0:N2}, ValidatesOnDataErrors=True}"
                                  Style="{StaticResource ControlStandardowy}" />
-                    </Grid>
-                    <Grid Grid.Column="2">
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="Auto" />
-                            <RowDefinition Height="Auto" />
-                            <RowDefinition Height="Auto" />
-                            <RowDefinition Height="Auto" />
-                        </Grid.RowDefinitions>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="*" />
-                            <ColumnDefinition Width="*" />
-                        </Grid.ColumnDefinitions>
-                        <Label Content="Netto:"
-                               Style="{StaticResource ControlStandardowy}" />
-                        <TextBox Grid.Column="1"
-                                 IsEnabled="False"
-                                 Style="{StaticResource ControlStandardowy}" />
-                        <Label Grid.Row="1"
-                               Content="Razem:"
-                               Style="{StaticResource ControlBoldStandardowy}" />
-                        <TextBox Grid.Row="1"
-                                 Grid.Column="1"
-                                 IsEnabled="False"
-                                 Style="{StaticResource ControlBoldStandardowy}" />
-
                     </Grid>
                 </Grid>
             </Expander>

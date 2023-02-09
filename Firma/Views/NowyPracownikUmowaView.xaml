@@ -42,7 +42,7 @@
                               ItemsSource="{Binding PracownicyComboBoxItems}"
                               DisplayMemberPath="Value"
                               SelectedValuePath="Key"
-                              SelectedValue="{Binding Path=PracownikId, Mode=TwoWay}"
+                              SelectedValue="{Binding Path=PracownikId, Mode=TwoWay, ValidatesOnDataErrors=True}"
                               IsEnabled="{Binding IsEnabled}" />
                     <Label Grid.Row="0"
                            Grid.Column="2"
@@ -121,7 +121,7 @@
                               ItemsSource="{Binding UmowyComboBoxItems}"
                               DisplayMemberPath="Value"
                               SelectedValuePath="Key"
-                              SelectedValue="{Binding Path=UmowaId, Mode=TwoWay}" />
+                              SelectedValue="{Binding Path=UmowaId, Mode=TwoWay, ValidatesOnDataErrors=True}" />
                     <Label Grid.Row="0"
                            Grid.Column="2"
                            Content="Rodzaj umowy:"

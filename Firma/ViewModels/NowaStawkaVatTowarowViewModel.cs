@@ -1,17 +1,19 @@
 ﻿using Firma.Helpers;
 using Firma.Models.Entities;
 using Firma.Models.EntitiesForView;
+using Firma.Models.Validators;
 using Firma.ViewModels.Abstract;
 using GalaSoft.MvvmLight.Messaging;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace Firma.ViewModels
 {
-    public class NowaStawkaVatTowarowViewModel : JedenViewModel<TowaryStawkiVat>
+    public class NowaStawkaVatTowarowViewModel : JedenViewModel<TowaryStawkiVat>, IDataErrorInfo
     {
         #region Konstruktor
         public NowaStawkaVatTowarowViewModel() : base("Nowa stawka VAT")
@@ -122,6 +124,43 @@ namespace Firma.ViewModels
         private void getSelectedKraj(Kraje kraj)
         {
             KrajId = kraj.KrajId;
+        }
+        #endregion
+        #region Validation
+        public string Error
+        {
+            get
+            {
+                return null;
+            }
+        }
+        public string this[string name]
+        {
+            get
+            {
+                string komunikat = null;
+                switch (name)
+                {
+                    case "Kraj":
+                        komunikat = BusinessValidator.CheckIsSet(KrajId);
+                        break;
+                    case "Stawka":
+                        komunikat = BusinessValidator.CheckBetween0and100(Stawka);
+                        if (komunikat != null)
+                            break;
+                        komunikat = BusinessValidator.CheckIsNotNull(Stawka);
+                        break;
+                }
+                return komunikat;
+            }
+        }
+        public override string IsValid()
+        {
+            string komunikat = null;
+            komunikat += this["Kraj"] == null ? "" : "Kraj: " + this["Kraj"] + "\n";
+            komunikat += this["Stawka"] == null ? "" : "Stawka (%): " + this["Stawka"] + "\n";
+
+            return komunikat;
         }
         #endregion
     }

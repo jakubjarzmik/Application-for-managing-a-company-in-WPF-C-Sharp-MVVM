@@ -1,12 +1,15 @@
 ﻿using Firma.Helpers;
 using Firma.Models.Entities;
 using Firma.Models.EntitiesForView;
+using Firma.Models.Validators;
 using Firma.ViewModels.Abstract;
 using GalaSoft.MvvmLight.Messaging;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Linq;
+using System.Security.Policy;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -14,7 +17,7 @@ using System.Windows.Input;
 
 namespace Firma.ViewModels
 {
-    public class NowyPracownikViewModel : JedenViewModel<Pracownicy>
+    public class NowyPracownikViewModel : JedenViewModel<Pracownicy>, IDataErrorInfo
     {
         #region Konstruktor
         public NowyPracownikViewModel() : base("Nowy pracownik")
@@ -559,6 +562,99 @@ namespace Firma.ViewModels
         private void getSelectedAdres(AdresAndIsKor adresAndIsKor)
         {
             AdresId = adresAndIsKor.AdresForAllView.AdresId;
+        }
+        #endregion
+        #region Validation
+        public string Error
+        {
+            get
+            {
+                return null;
+            }
+        }
+        public string this[string name]
+        {
+            get
+            {
+                string komunikat = null;
+                switch (name)
+                {
+                    case "Imie":
+                        komunikat = StringValidator.CheckIsStartsWithUpper(Imie);
+                        if (komunikat != null)
+                            break;
+                        komunikat = BusinessValidator.CheckIsNotNull(Imie);
+                        break;
+                    case "DrugieImie":
+                        komunikat = StringValidator.CheckIsStartsWithUpper(DrugieImie);
+                        break;
+                    case "Nazwisko":
+                        komunikat = StringValidator.CheckIsStartsWithUpper(Nazwisko);
+                        if (komunikat != null)
+                            break;
+                        komunikat = BusinessValidator.CheckIsNotNull(Nazwisko);
+                        break;
+                    case "NazwiskoRodowe":
+                        komunikat = StringValidator.CheckIsStartsWithUpper(NazwiskoRodowe);
+                        break;
+                    case "PESEL":
+                        komunikat = BusinessValidator.CheckIsPesel(PESEL);
+                        break;
+                    case "Nip":
+                        komunikat = BusinessValidator.CheckIsNip(Nip);
+                        break;
+                    case "MiejsceUrodzenia":
+                        komunikat = StringValidator.CheckIsStartsWithUpper(MiejsceUrodzenia);
+                        if (komunikat != null)
+                            break;
+                        komunikat = BusinessValidator.CheckIsNotNull(MiejsceUrodzenia);
+                        break;
+                    case "ImieOjca":
+                        komunikat = StringValidator.CheckIsStartsWithUpper(ImieOjca);
+                        break;
+                    case "ImieMatki":
+                        komunikat = StringValidator.CheckIsStartsWithUpper(ImieMatki);
+                        break;
+                    case "NazwiskoRodoweMatki":
+                        komunikat = StringValidator.CheckIsStartsWithUpper(NazwiskoRodoweMatki);
+                        break;
+                    case "Telefon":
+                        komunikat = StringValidator.CheckIsNumeric(Telefon);
+                        if (komunikat != null)
+                            break;
+                        komunikat = BusinessValidator.CheckIsNotNull(Telefon);
+                        break;
+                    case "Email":
+                        komunikat = StringValidator.CheckIsEmail(Email);
+                        if (komunikat != null)
+                            break;
+                        komunikat = BusinessValidator.CheckIsNotNull(Email);
+                        break;
+                    case "Adres":
+                        komunikat = BusinessValidator.CheckIsSet(AdresId);
+                        break;
+                }
+                return komunikat;
+            }
+        }
+        public override string IsValid()
+        {
+            string komunikat = null;
+            komunikat += this["Imie"] == null ? "" : "Imię: " + this["Imie"] + "\n";
+            komunikat += this["DrugieImie"] == null ? "" : "Drugie imię: " + this["DrugieImie"] + "\n";
+            komunikat += this["Nazwisko"] == null ? "" : "Nazwisko: " + this["Nazwisko"] + "\n";
+            komunikat += this["NazwiskoRodowe"] == null ? "" : "Nazwisko rodowe: " + this["NazwiskoRodowe"] + "\n";
+            komunikat += this["PESEL"] == null ? "" : "PESEL: " + this["PESEL"] + "\n";
+            komunikat += this["Nip"] == null ? "" : "Nip: " + this["Nip"] + "\n";
+            komunikat += this["MiejsceUrodzenia"] == null ? "" : "Miejsce urodzenia: " + this["MiejsceUrodzenia"] + "\n";
+            komunikat += this["ImieOjca"] == null ? "" : "Imię ojca: " + this["ImieOjca"] + "\n";
+            komunikat += this["ImieMatki"] == null ? "" : "Imię matki: " + this["ImieMatki"] + "\n";
+            komunikat += this["NazwiskoRodoweMatki"] == null ? "" : "Nazwisko rodowe matki: " + this["NazwiskoRodoweMatki"] + "\n";
+            komunikat += this["Telefon"] == null ? "" : "Telefon: " + this["Telefon"] + "\n";
+            komunikat += this["Email"] == null ? "" : "Email: " + this["Email"] + "\n";
+            komunikat += this["Adres"] == null ? "" : "Adres: " + this["Adres"] + "\n";
+
+            return komunikat;
         }
         #endregion
     }

@@ -1,17 +1,19 @@
 ﻿using Firma.Helpers;
 using Firma.Models.Entities;
 using Firma.Models.EntitiesForView;
+using Firma.Models.Validators;
 using Firma.ViewModels.Abstract;
 using GalaSoft.MvvmLight.Messaging;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace Firma.ViewModels
 {
-    public class NowaUmowaViewModel : JedenViewModel<Umowy>
+    public class NowaUmowaViewModel : JedenViewModel<Umowy>, IDataErrorInfo
     {
         #region Konstruktor
         public NowaUmowaViewModel() : base("Nowa umowa")
@@ -330,6 +332,71 @@ namespace Firma.ViewModels
         private void getSelectedStanowisko(UmowyStanowiska stanowisko)
         {
             StanowiskoId = stanowisko.StanowiskoId;
+        }
+        #endregion
+        #region Validation
+        public string Error
+        {
+            get
+            {
+                return null;
+            }
+        }
+        public string this[string name]
+        {
+            get
+            {
+                string komunikat = null;
+                switch (name)
+                {
+                    case "Rodzaj":
+                        komunikat = BusinessValidator.CheckIsSet(RodzajUmowyId);
+                        break;
+                    case "Stanowisko":
+                        komunikat = BusinessValidator.CheckIsSet(StanowiskoId);
+                        break;
+                    case "StawkaBruttoMies":
+                        komunikat = BusinessValidator.CheckIsNotLessThanZero(StawkaBruttoMies);
+                        if (komunikat != null)
+                            break;
+                        komunikat = BusinessValidator.CheckIsNotNull(StawkaBruttoMies);
+                        break;
+                    case "StawkaBruttoGodz":
+                        komunikat = BusinessValidator.CheckIsNotLessThanZero(StawkaBruttoGodz);
+                        if (komunikat != null)
+                            break;
+                        komunikat = BusinessValidator.CheckIsNotNull(StawkaBruttoGodz);
+                        break;
+                    case "CzasPracyMies":
+                        komunikat = BusinessValidator.CheckIsNotLessThanZero(CzasPracyMies);
+                        if (komunikat != null)
+                            break;
+                        komunikat = BusinessValidator.CheckIsNotNull(CzasPracyMies);
+                        break;
+                    case "DataDo":
+                        komunikat = BusinessValidator.CheckDateIsNotEarlier(DataOd, DataDo);
+                        if (komunikat != null)
+                            break;
+                        komunikat = BusinessValidator.CheckIsNotNull(DataOd);
+                        if (komunikat != null)
+                            break;
+                        komunikat = BusinessValidator.CheckIsNotNull(DataDo);
+                        break;
+                }
+                return komunikat;
+            }
+        }
+        public override string IsValid()
+        {
+            string komunikat = null;
+            komunikat += this["Rodzaj"] == null ? "" : "Rodzaj: " + this["Rodzaj"] + "\n";
+            komunikat += this["Stanowisko"] == null ? "" : "Stanowisko: " + this["Stanowisko"] + "\n";
+            komunikat += this["StawkaBruttoMies"] == null ? "" : "Stawka brutto (mies): " + this["StawkaBruttoMies"] + "\n";
+            komunikat += this["StawkaBruttoGodz"] == null ? "" : "Stawka brutto (godz): " + this["StawkaBruttoGodz"] + "\n";
+            komunikat += this["CzasPracyMies"] == null ? "" : "Miesięczny czas pracy (godz): " + this["CzasPracyMies"] + "\n";
+            komunikat += this["DataDo"] == null ? "" : "Obowiązuje do: " + this["DataDo"] + "\n";
+
+            return komunikat;
         }
         #endregion
     }

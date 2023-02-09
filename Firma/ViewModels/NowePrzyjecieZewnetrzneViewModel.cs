@@ -1,11 +1,13 @@
 ﻿using Firma.Helpers;
 using Firma.Models.Entities;
 using Firma.Models.EntitiesForView;
+using Firma.Models.Validators;
 using Firma.ViewModels.Abstract;
 using GalaSoft.MvvmLight.Messaging;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,7 +15,7 @@ using System.Windows;
 
 namespace Firma.ViewModels
 {
-    public class NowePrzyjecieZewnetrzneViewModel : JedenViewModel<PrzyjeciaZewnetrzne>
+    public class NowePrzyjecieZewnetrzneViewModel : JedenViewModel<PrzyjeciaZewnetrzne>, IDataErrorInfo
     {
         #region Konstruktor
         public NowePrzyjecieZewnetrzneViewModel() : base("Nowe PZ")
@@ -287,6 +289,47 @@ namespace Firma.ViewModels
         private void getSelectedKontrahent(KontrahentForAllView kontrahentForAllView)
         {
             KontrahentId = kontrahentForAllView.KontrahentId;
+        }
+        #endregion
+        #region Validation
+        public string Error
+        {
+            get
+            {
+                return null;
+            }
+        }
+        public string this[string name]
+        {
+            get
+            {
+                string komunikat = null;
+                switch (name)
+                {
+                    case "Rabat":
+                        komunikat = BusinessValidator.CheckBetween0and100(Rabat);
+                        if (komunikat != null)
+                            break;
+                        komunikat = BusinessValidator.CheckIsNotNull(Rabat);
+                        break;
+                    case "Kontrahent":
+                        komunikat = BusinessValidator.CheckIsSet(KontrahentId);
+                        break;
+                    case "Magazyn":
+                        komunikat = BusinessValidator.CheckIsSet(MagazynId);
+                        break;
+                }
+                return komunikat;
+            }
+        }
+        public override string IsValid()
+        {
+            string komunikat = null;
+            komunikat += this["Rabat"] == null ? "" : "Rabat: " + this["Rabat"] + "\n";
+            komunikat += this["Kontrahent"] == null ? "" : "Kontrahent: " + this["Kontrahent"] + "\n";
+            komunikat += this["Magazyn"] == null ? "" : "Magazyn: " + this["Magazyn"] + "\n";
+
+            return komunikat;
         }
         #endregion
     }

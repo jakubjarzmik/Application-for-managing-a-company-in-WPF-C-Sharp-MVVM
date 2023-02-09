@@ -1,10 +1,12 @@
 ﻿using Firma.Helpers;
 using Firma.Models.Entities;
 using Firma.Models.EntitiesForView;
+using Firma.Models.Validators;
 using Firma.ViewModels.Abstract;
 using GalaSoft.MvvmLight.Messaging;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,7 +14,7 @@ using System.Windows;
 
 namespace Firma.ViewModels
 {
-    public class NowyAdresViewModel : JedenViewModel<Adresy>
+    public class NowyAdresViewModel : JedenViewModel<Adresy>, IDataErrorInfo
     {
         #region Konstruktor
         public NowyAdresViewModel()
@@ -223,6 +225,62 @@ namespace Firma.ViewModels
         private void getSelectedKraj(Kraje kraj)
         {
             KrajId = kraj.KrajId;
+        }
+        #endregion
+        #region Validation
+        public string Error
+        {
+            get
+            {
+                return null;
+            }
+        }
+        public string this[string name]
+        {
+            get
+            {
+                string komunikat = null;
+                switch (name)
+                {
+                    case "Ulica":
+                        komunikat = StringValidator.CheckIsStartsWithUpper(Ulica);
+                        if (komunikat != null)
+                            break;
+                        komunikat = BusinessValidator.CheckIsNotNull(Ulica);
+                        break;
+                    case "NrDomu":
+                        komunikat = StringValidator.CheckIsEmpty(NrDomu);
+                        break;
+                    case "KodPocztowy":
+                        komunikat = StringValidator.CheckIsEmpty(KodPocztowy);
+                        break;
+                    case "Miejscowosc":
+                        komunikat = StringValidator.CheckIsStartsWithUpper(Miejscowosc);
+                        if (komunikat != null)
+                            break;
+                        komunikat = BusinessValidator.CheckIsNotNull(Miejscowosc);
+                        break;
+                    case "Wojewodztwo":
+                        komunikat = StringValidator.CheckIsEmpty(Wojewodztwo);
+                        break;
+                    case "Kraj":
+                        komunikat = BusinessValidator.CheckIsSet(KrajId);
+                        break;
+                }
+                return komunikat;
+            }
+        }
+        public override string IsValid()
+        {
+            string komunikat = null;
+            komunikat += this["Ulica"] == null ? "" : "Ulica: " + this["Ulica"] + "\n";
+            komunikat += this["NrDomu"] == null ? "" : "Nr domu: " + this["NrDomu"] + "\n";
+            komunikat += this["KodPocztowy"] == null ? "" : "Kod pocztowy: " + this["KodPocztowy"] + "\n";
+            komunikat += this["Miejscowosc"] == null ? "" : "Miejscowość: " + this["Miejscowosc"] + "\n";
+            komunikat += this["Wojewodztwo"] == null ? "" : "Województwo: " + this["Wojewodztwo"] + "\n";
+            komunikat += this["Kraj"] == null ? "" : "Kraj: " + this["Kraj"] + "\n";
+
+            return komunikat;
         }
         #endregion
     }

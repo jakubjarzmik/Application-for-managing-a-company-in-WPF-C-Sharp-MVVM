@@ -1,17 +1,19 @@
 ﻿using Firma.Helpers;
 using Firma.Models.Entities;
 using Firma.Models.EntitiesForView;
+using Firma.Models.Validators;
 using Firma.ViewModels.Abstract;
 using GalaSoft.MvvmLight.Messaging;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace Firma.ViewModels
 {
-    public class NowyPracownikUmowaViewModel : JedenViewModel<PracownicyUmowy>
+    public class NowyPracownikUmowaViewModel : JedenViewModel<PracownicyUmowy>, IDataErrorInfo
     {
         #region Konstruktor
         public NowyPracownikUmowaViewModel() : base("Nowa umowa pracownika")
@@ -333,6 +335,40 @@ namespace Firma.ViewModels
         private void getSelectedUmowa(UmowaForAllView umowa)
         {
             UmowaId = umowa.UmowaId;
+        }
+        #endregion
+        #region Validation
+        public string Error
+        {
+            get
+            {
+                return null;
+            }
+        }
+        public string this[string name]
+        {
+            get
+            {
+                string komunikat = null;
+                switch (name)
+                {
+                    case "Pracownik":
+                        komunikat = BusinessValidator.CheckIsSet(PracownikId);
+                        break;
+                    case "Umowa":
+                        komunikat = BusinessValidator.CheckIsSet(UmowaId);
+                        break;
+                }
+                return komunikat;
+            }
+        }
+        public override string IsValid()
+        {
+            string komunikat = null;
+            komunikat += this["Pracownik"] == null ? "" : "Pracownik: " + this["Pracownik"] + "\n";
+            komunikat += this["Umowa"] == null ? "" : "Umowa: " + this["Umowa"] + "\n";
+
+            return komunikat;
         }
         #endregion
     }

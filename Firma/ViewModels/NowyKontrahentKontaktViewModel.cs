@@ -1,17 +1,19 @@
 ﻿using Firma.Helpers;
 using Firma.Models.Entities;
 using Firma.Models.EntitiesForView;
+using Firma.Models.Validators;
 using Firma.ViewModels.Abstract;
 using GalaSoft.MvvmLight.Messaging;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace Firma.ViewModels
 {
-    public class NowyKontrahentKontaktViewModel : JedenViewModel<KontrahenciKontakty>
+    public class NowyKontrahentKontaktViewModel : JedenViewModel<KontrahenciKontakty>, IDataErrorInfo
     {
         #region Konstruktor
         public NowyKontrahentKontaktViewModel() : base("Nowy kontrahent kontakt")
@@ -262,6 +264,40 @@ namespace Firma.ViewModels
         private void getSelectedKontakt(Kontakty kontakt)
         {
             KontaktId = kontakt.KontaktId;
+        }
+        #endregion
+        #region Validation
+        public string Error
+        {
+            get
+            {
+                return null;
+            }
+        }
+        public string this[string name]
+        {
+            get
+            {
+                string komunikat = null;
+                switch (name)
+                {
+                    case "Kontrahent":
+                        komunikat = BusinessValidator.CheckIsSet(KontrahentId);
+                        break;
+                    case "Kontakt":
+                        komunikat = BusinessValidator.CheckIsSet(KontaktId);
+                        break;
+                }
+                return komunikat;
+            }
+        }
+        public override string IsValid()
+        {
+            string komunikat = null;
+            komunikat += this["Kontrahent"] == null ? "" : "Kontrahent: " + this["Kontrahent"] + "\n";
+            komunikat += this["Kontakt"] == null ? "" : "Kontakt: " + this["Kontakt"] + "\n";
+
+            return komunikat;
         }
         #endregion
     }
