@@ -45,7 +45,7 @@
                         <ColumnDefinition Width="*" />
                     </Grid.ColumnDefinitions>
                     <Button Content="Kontrahent:"
-                            Style="{StaticResource ButtonStandardowy}"
+                            Style="{StaticResource ButtonLabelStandardowy}"
                             Command="{Binding ShowKontrahenciCommand}" />
                     <ComboBox Grid.Column="1"
                               Style="{StaticResource ControlStandardowy}"

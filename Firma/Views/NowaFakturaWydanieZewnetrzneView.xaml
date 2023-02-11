@@ -35,7 +35,7 @@
                     <Button Grid.Row="0"
                             Grid.Column="0"
                             Content="Faktura:"
-                            Style="{StaticResource ButtonStandardowy}"
+                            Style="{StaticResource ButtonLabelStandardowy}"
                             Command="{Binding ShowFakturyCommand}"
                             IsEnabled="{Binding IsEnabled}" />
                     <ComboBox Grid.Row="0"
@@ -97,7 +97,7 @@
                     <Button Grid.Row="0"
                             Grid.Column="0"
                             Content="Wydanie zewn.:"
-                            Style="{StaticResource ButtonStandardowy}"
+                            Style="{StaticResource ButtonLabelStandardowy}"
                             Command="{Binding ShowWydaniaZewnetrzneCommand}" />
                     <ComboBox Grid.Row="0"
                               Grid.Column="1"

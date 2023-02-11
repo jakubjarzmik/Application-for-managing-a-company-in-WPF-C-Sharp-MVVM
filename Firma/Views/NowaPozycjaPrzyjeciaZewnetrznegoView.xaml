@@ -35,7 +35,7 @@
                     </Grid.ColumnDefinitions>
                     <Button Grid.Column="0"
                             Content="Przyjęcie zewn.:"
-                            Style="{StaticResource ButtonStandardowy}"
+                            Style="{StaticResource ButtonLabelStandardowy}"
                             Command="{Binding ShowPrzyjeciaZewnetrzneCommand}"
                             IsEnabled="{Binding IsEnabled}" />
                     <ComboBox Grid.Column="1"
@@ -105,7 +105,7 @@
                     <Button Grid.Row="0"
                             Grid.Column="0"
                             Content="Towar:"
-                            Style="{StaticResource ButtonStandardowy}"
+                            Style="{StaticResource ButtonLabelStandardowy}"
                             Command="{Binding ShowTowaryCommand}" />
                     <ComboBox Grid.Row="0"
                               Grid.Column="1"
@@ -183,7 +183,7 @@
                     <Button Grid.Row="0"
                             Grid.Column="0"
                             Content="Jedn. miary:"
-                            Style="{StaticResource ButtonStandardowy}"
+                            Style="{StaticResource ButtonLabelStandardowy}"
                             Command="{Binding ShowJednostkiMiaryCommand}" />
                     <ComboBox Grid.Row="0"
                               Grid.Column="1"

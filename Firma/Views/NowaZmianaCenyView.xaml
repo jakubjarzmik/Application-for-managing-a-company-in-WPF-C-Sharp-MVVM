@@ -38,7 +38,7 @@
                     <Button Grid.Row="0"
                             Grid.Column="0"
                             Content="Towar:"
-                            Style="{StaticResource ButtonStandardowy}"
+                            Style="{StaticResource ButtonLabelStandardowy}"
                             Command="{Binding ShowTowaryCommand}"
                             IsEnabled="{Binding IsEnabled}" />
                     <ComboBox Grid.Row="0"
@@ -65,7 +65,7 @@
                     <Button Grid.Row="1"
                             Grid.Column="0"
                             Content="Jednostka miary:"
-                            Style="{StaticResource ButtonStandardowy}"
+                            Style="{StaticResource ButtonLabelStandardowy}"
                             Command="{Binding ShowJednostkiMiaryCommand}" />
                     <ComboBox Grid.Row="1"
                               Grid.Column="1"

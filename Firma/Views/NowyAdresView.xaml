@@ -95,7 +95,7 @@
                     <Button Grid.Row="2"
                             Grid.Column="2"
                             Content="Kraj:"
-                            Style="{StaticResource ButtonStandardowy}"
+                            Style="{StaticResource ButtonLabelStandardowy}"
                             Command="{Binding ShowKrajeCommand}" />
                     <Grid Grid.Row="2"
                           Grid.Column="3">

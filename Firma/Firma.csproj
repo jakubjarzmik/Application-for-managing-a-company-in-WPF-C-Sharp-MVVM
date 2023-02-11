@@ -9,80 +9,72 @@
   <ItemGroup>
     <None Remove="Models\Entities\ModelFaktury.edmx" />
     <None Remove="Views\24dp.png" />
-    <None Remove="Views\Content\Icons\account-box-white.png" />
-    <None Remove="Views\Content\Icons\account-box.png" />
-    <None Remove="Views\Content\Icons\account-minus-white.png" />
-    <None Remove="Views\Content\Icons\account-minus.png" />
-    <None Remove="Views\Content\Icons\account-plus-white.png" />
     <None Remove="Views\Content\Icons\account-plus.png" />
     <None Remove="Views\Content\Icons\account-white.png" />
     <None Remove="Views\Content\Icons\account.png" />
     <None Remove="Views\Content\Icons\add.png" />
-    <None Remove="Views\Content\Icons\archive_FILL0_wght400_GRAD0_opsz48-white.png" />
-    <None Remove="Views\Content\Icons\archive_FILL0_wght400_GRAD0_opsz48.png" />
-    <None Remove="Views\Content\Icons\arrow-u-left-top.png" />
-    <None Remove="Views\Content\Icons\arrow-u-right-top.png" />
-    <None Remove="Views\Content\Icons\attach_money_FILL0_wght400_GRAD0_opsz48.png" />
     <None Remove="Views\Content\Icons\cancel.png" />
-    <None Remove="Views\Content\Icons\car-white.png" />
-    <None Remove="Views\Content\Icons\car.png" />
     <None Remove="Views\Content\Icons\chevron_left-white.png" />
     <None Remove="Views\Content\Icons\chevron_left.png" />
     <None Remove="Views\Content\Icons\chevron_right-white.png" />
     <None Remove="Views\Content\Icons\chevron_right.png" />
-    <None Remove="Views\Content\Icons\close_FILL0_wght400_GRAD0_opsz48-white.png" />
-    <None Remove="Views\Content\Icons\close_FILL0_wght400_GRAD0_opsz48.png" />
-    <None Remove="Views\Content\Icons\cog.png" />
-    <None Remove="Views\Content\Icons\content-copy.png" />
-    <None Remove="Views\Content\Icons\content-cut.png" />
-    <None Remove="Views\Content\Icons\content-paste.png" />
-    <None Remove="Views\Content\Icons\content-save.png" />
-    <None Remove="Views\Content\Icons\content_copy_FILL0_wght400_GRAD0_opsz48.png" />
-    <None Remove="Views\Content\Icons\download_FILL0_wght400_GRAD0_opsz48.png" />
-    <None Remove="Views\Content\Icons\dwa.png" />
+    <None Remove="Views\Content\Icons\contract-plus.png" />
+    <None Remove="Views\Content\Icons\contract.png" />
     <None Remove="Views\Content\Icons\edit.png" />
-    <None Remove="Views\Content\Icons\excel.png" />
-    <None Remove="Views\Content\Icons\file-document-minus-outline-white.png" />
-    <None Remove="Views\Content\Icons\file-document-minus-outline.png" />
-    <None Remove="Views\Content\Icons\file-document-outline-white.png" />
-    <None Remove="Views\Content\Icons\file-document-outline.png" />
-    <None Remove="Views\Content\Icons\file-document-plus-outline-white.png" />
-    <None Remove="Views\Content\Icons\file-document-plus-outline.png" />
-    <None Remove="Views\Content\Icons\file_open_FILL0_wght400_GRAD0_opsz48.png" />
-    <None Remove="Views\Content\Icons\file_upload_FILL0_wght400_GRAD0_opsz48.png" />
-    <None Remove="Views\Content\Icons\help-circle.png" />
-    <None Remove="Views\Content\Icons\info_FILL0_wght400_GRAD0_opsz48.png" />
-    <None Remove="Views\Content\Icons\instruction.png" />
-    <None Remove="Views\Content\Icons\inventory_FILL0_wght400_GRAD0_opsz48.png" />
+    <None Remove="Views\Content\Icons\employee-plus.png" />
+    <None Remove="Views\Content\Icons\employee-white.png" />
+    <None Remove="Views\Content\Icons\employee.png" />
+    <None Remove="Views\Content\Icons\employee_plus.png" />
+    <None Remove="Views\Content\Icons\file-minus-white.png" />
+    <None Remove="Views\Content\Icons\file-minus.png" />
+    <None Remove="Views\Content\Icons\file-plus-white.png" />
+    <None Remove="Views\Content\Icons\file-plus.png" />
+    <None Remove="Views\Content\Icons\file-white.png" />
+    <None Remove="Views\Content\Icons\file.png" />
+    <None Remove="Views\Content\Icons\flag-plus.png" />
+    <None Remove="Views\Content\Icons\flag.png" />
     <None Remove="Views\Content\Icons\jj-white.ico" />
     <None Remove="Views\Content\Icons\jj-white.png" />
     <None Remove="Views\Content\Icons\jj.png" />
-    <None Remove="Views\Content\Icons\korekta.png" />
     <None Remove="Views\Content\Icons\kroekta.png" />
+    <None Remove="Views\Content\Icons\measuring_tape-plus.png" />
+    <None Remove="Views\Content\Icons\measuring_tape.png" />
     <None Remove="Views\Content\Icons\minus.png" />
-    <None Remove="Views\Content\Icons\note_FILL0_wght400_GRAD0_opsz48.png" />
+    <None Remove="Views\Content\Icons\package-plus-white.png" />
+    <None Remove="Views\Content\Icons\package-plus.png" />
     <None Remove="Views\Content\Icons\package-variant-closed-minus-white.png" />
     <None Remove="Views\Content\Icons\package-variant-closed-minus.png" />
     <None Remove="Views\Content\Icons\package-variant-closed-plus-white.png" />
     <None Remove="Views\Content\Icons\package-variant-closed-plus.png" />
     <None Remove="Views\Content\Icons\package-variant-closed-white.png" />
     <None Remove="Views\Content\Icons\package-variant-closed.png" />
+    <None Remove="Views\Content\Icons\package-white.png" />
+    <None Remove="Views\Content\Icons\package.png" />
+    <None Remove="Views\Content\Icons\payments-plus.png" />
+    <None Remove="Views\Content\Icons\payments-white.png" />
+    <None Remove="Views\Content\Icons\payments.png" />
+    <None Remove="Views\Content\Icons\person-white.png" />
+    <None Remove="Views\Content\Icons\person.png" />
+    <None Remove="Views\Content\Icons\person_add.png" />
     <None Remove="Views\Content\Icons\plus.png" />
+    <None Remove="Views\Content\Icons\price-plus.png" />
+    <None Remove="Views\Content\Icons\price.png" />
+    <None Remove="Views\Content\Icons\pz-plus.png" />
     <None Remove="Views\Content\Icons\pz-white.png" />
     <None Remove="Views\Content\Icons\pz.png" />
-    <None Remove="Views\Content\Icons\receipt_FILL0_wght400_GRAD0_opsz48-white.png" />
-    <None Remove="Views\Content\Icons\receipt_FILL0_wght400_GRAD0_opsz48.png" />
     <None Remove="Views\Content\Icons\refresh.png" />
     <None Remove="Views\Content\Icons\save.png" />
-    <None Remove="Views\Content\Icons\summarize_FILL0_wght400_GRAD0_opsz48.png" />
-    <None Remove="Views\Content\Icons\trzy.png" />
-    <None Remove="Views\Content\Icons\unarchive_FILL0_wght400_GRAD0_opsz48-white.png" />
-    <None Remove="Views\Content\Icons\unarchive_FILL0_wght400_GRAD0_opsz48.png" />
-    <None Remove="Views\Content\Icons\vat-white.png" />
+    <None Remove="Views\Content\Icons\star-white.png" />
+    <None Remove="Views\Content\Icons\star.png" />
+    <None Remove="Views\Content\Icons\summarize-white.png" />
+    <None Remove="Views\Content\Icons\summarize.png" />
+    <None Remove="Views\Content\Icons\vat-plus.png" />
     <None Remove="Views\Content\Icons\vat.png" />
-    <None Remove="Views\Content\Icons\warehouse_FILL0_wght400_GRAD0_opsz48-white.png" />
-    <None Remove="Views\Content\Icons\warehouse_FILL0_wght400_GRAD0_opsz48.png" />
+    <None Remove="Views\Content\Icons\warehouse-white.png" />
+    <None Remove="Views\Content\Icons\warehouse.png" />
+    <None Remove="Views\Content\Icons\warehouse_add.png" />
     <None Remove="Views\Content\Icons\wsb-white.png" />
+    <None Remove="Views\Content\Icons\wz-plus.png" />
     <None Remove="Views\Content\Icons\wz-white.png" />
     <None Remove="Views\Content\Icons\wz.png" />
     <None Remove="Views\dwa.png" />
@@ -109,21 +101,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Resource Include="Views\Content\Icons\account-box-white.png">
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Views\Content\Icons\account-box.png">
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Views\Content\Icons\account-minus-white.png">
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Views\Content\Icons\account-minus.png">
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Views\Content\Icons\account-plus-white.png">
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-    </Resource>
     <Resource Include="Views\Content\Icons\account-plus.png">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
@@ -133,28 +110,7 @@
     <Resource Include="Views\Content\Icons\account.png">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
-    <Resource Include="Views\Content\Icons\archive_FILL0_wght400_GRAD0_opsz48-white.png">
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Views\Content\Icons\archive_FILL0_wght400_GRAD0_opsz48.png">
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Views\Content\Icons\arrow-u-left-top.png">
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Views\Content\Icons\arrow-u-right-top.png">
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Views\Content\Icons\attach_money_FILL0_wght400_GRAD0_opsz48.png">
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-    </Resource>
     <Resource Include="Views\Content\Icons\cancel.png">
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Views\Content\Icons\car-white.png">
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Views\Content\Icons\car.png">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Views\Content\Icons\chevron_left-white.png">
@@ -169,94 +125,94 @@
     <Resource Include="Views\Content\Icons\chevron_right.png">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
-    <Resource Include="Views\Content\Icons\close_FILL0_wght400_GRAD0_opsz48-white.png">
+    <Resource Include="Views\Content\Icons\contract-plus.png">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
-    <Resource Include="Views\Content\Icons\close_FILL0_wght400_GRAD0_opsz48.png">
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Views\Content\Icons\cog.png">
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Views\Content\Icons\content-copy.png">
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Views\Content\Icons\content-cut.png">
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Views\Content\Icons\content-paste.png">
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Views\Content\Icons\content-save.png">
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Views\Content\Icons\content_copy_FILL0_wght400_GRAD0_opsz48.png">
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Views\Content\Icons\download_FILL0_wght400_GRAD0_opsz48.png">
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Views\Content\Icons\dwa.png">
+    <Resource Include="Views\Content\Icons\contract.png">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Views\Content\Icons\edit.png">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
-    <Resource Include="Views\Content\Icons\excel.png">
+    <Resource Include="Views\Content\Icons\employee-white.png">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
-    <Resource Include="Views\Content\Icons\file-document-minus-outline-white.png">
+    <Resource Include="Views\Content\Icons\employee.png">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
-    <Resource Include="Views\Content\Icons\file-document-minus-outline.png">
+    <Resource Include="Views\Content\Icons\employee_plus.png">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
-    <Resource Include="Views\Content\Icons\file-document-outline-white.png">
+    <Resource Include="Views\Content\Icons\file-minus-white.png">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
-    <Resource Include="Views\Content\Icons\file-document-outline.png">
+    <Resource Include="Views\Content\Icons\file-minus.png">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
-    <Resource Include="Views\Content\Icons\file-document-plus-outline-white.png">
+    <Resource Include="Views\Content\Icons\file-white.png">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
-    <Resource Include="Views\Content\Icons\file-document-plus-outline.png">
+    <Resource Include="Views\Content\Icons\file.png">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
-    <Resource Include="Views\Content\Icons\file_open_FILL0_wght400_GRAD0_opsz48.png">
+    <Resource Include="Views\Content\Icons\file-plus-white.png">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
-    <Resource Include="Views\Content\Icons\file_upload_FILL0_wght400_GRAD0_opsz48.png">
+    <Resource Include="Views\Content\Icons\file-plus.png">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
-    <Resource Include="Views\Content\Icons\help-circle.png">
+    <Resource Include="Views\Content\Icons\flag-plus.png">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
-    <Resource Include="Views\Content\Icons\info_FILL0_wght400_GRAD0_opsz48.png">
+    <Resource Include="Views\Content\Icons\flag.png">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
-    <Resource Include="Views\Content\Icons\instruction.png">
+    <Resource Include="Views\Content\Icons\measuring_tape-plus.png">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
-    <Resource Include="Views\Content\Icons\inventory_FILL0_wght400_GRAD0_opsz48.png">
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Views\Content\Icons\Jeden.png">
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Views\Content\Icons\korekta.png">
+    <Resource Include="Views\Content\Icons\measuring_tape.png">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Views\Content\Icons\minus.png">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
-    <Resource Include="Views\Content\Icons\note_FILL0_wght400_GRAD0_opsz48.png">
+    <Resource Include="Views\Content\Icons\package-plus-white.png">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
-    <Resource Include="Views\Content\Icons\package-variant-closed-minus-white.png">
+    <Resource Include="Views\Content\Icons\package-plus.png">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
-    <Resource Include="Views\Content\Icons\package-variant-closed-minus.png">
+    <Resource Include="Views\Content\Icons\package-white.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Views\Content\Icons\package.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Views\Content\Icons\payments-plus.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Views\Content\Icons\payments-white.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Views\Content\Icons\payments.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Views\Content\Icons\person-white.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Views\Content\Icons\person.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Views\Content\Icons\person_add.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Views\Content\Icons\price-plus.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Views\Content\Icons\price.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Views\Content\Icons\pz-plus.png">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Views\Content\Icons\pz-white.png">
@@ -265,40 +221,43 @@
     <Resource Include="Views\Content\Icons\pz.png">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
-    <Resource Include="Views\Content\Icons\receipt_FILL0_wght400_GRAD0_opsz48-white.png">
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Views\Content\Icons\receipt_FILL0_wght400_GRAD0_opsz48.png">
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-    </Resource>
     <Resource Include="Views\Content\Icons\refresh.png">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Views\Content\Icons\save.png">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
-    <Resource Include="Views\Content\Icons\summarize_FILL0_wght400_GRAD0_opsz48.png">
+    <Resource Include="Views\Content\Icons\star-white.png">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
-    <Resource Include="Views\Content\Icons\unarchive_FILL0_wght400_GRAD0_opsz48-white.png">
+    <Resource Include="Views\Content\Icons\star.png">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
-    <Resource Include="Views\Content\Icons\unarchive_FILL0_wght400_GRAD0_opsz48.png">
+    <Resource Include="Views\Content\Icons\summarize-white.png">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
-    <Resource Include="Views\Content\Icons\vat-white.png">
+    <Resource Include="Views\Content\Icons\summarize.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Views\Content\Icons\vat-plus.png">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Views\Content\Icons\vat.png">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
-    <Resource Include="Views\Content\Icons\warehouse_FILL0_wght400_GRAD0_opsz48-white.png">
+    <Resource Include="Views\Content\Icons\warehouse-white.png">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
-    <Resource Include="Views\Content\Icons\warehouse_FILL0_wght400_GRAD0_opsz48.png">
+    <Resource Include="Views\Content\Icons\warehouse.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Views\Content\Icons\warehouse_add.png">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Views\Content\Icons\wsb-white.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Views\Content\Icons\wz-plus.png">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Views\Content\Icons\wz-white.png">
@@ -316,22 +275,7 @@
     <Resource Include="Views\Content\Icons\jj.png">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
-    <Resource Include="Views\Content\Icons\package-variant-closed-plus-white.png">
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Views\Content\Icons\package-variant-closed-plus.png">
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Views\Content\Icons\package-variant-closed-white.png">
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Views\Content\Icons\package-variant-closed.png">
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-    </Resource>
     <Resource Include="Views\Content\Icons\plus.png">
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Views\Content\Icons\trzy.png">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Views\jj.ico">

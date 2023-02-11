@@ -9,7 +9,10 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
+using System.Data;
+using System.Data.Entity;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -295,7 +298,38 @@ namespace Firma.ViewModels
                 }
             }
         }
-
+        private decimal _Netto;
+        public decimal Netto
+        {
+            get
+            {
+                return _Netto;
+            }
+            set
+            {
+                if (value != _Netto)
+                {
+                    _Netto = value;
+                    base.OnPropertyChanged(() => Netto);
+                }
+            }
+        }
+        private decimal _Brutto;
+        public decimal Brutto
+        {
+            get
+            {
+                return _Brutto;
+            }
+            set
+            {
+                if (value != _Brutto)
+                {
+                    _Brutto = value;
+                    base.OnPropertyChanged(() => Brutto);
+                }
+            }
+        }
 
         #endregion
         #region WZProperties
@@ -340,10 +374,41 @@ namespace Firma.ViewModels
                     {
                         FakturaWZId = fakturaWz.FakturaWZId,
                         WZNumer = fakturaWz.WydaniaZewnetrzne.Numer,
+                        WydanieZewnetrzneId = fakturaWz.WydanieZewnetrzneId,
                         WZMagazynNazwa = fakturaWz.WydaniaZewnetrzne.Magazyny.Nazwa,
                         WZRabat = fakturaWz.WydaniaZewnetrzne.Rabat,
                     }
                 );
+            if (isEditing)
+                setNettoAndBrutto();
+        }
+        private void setNettoAndBrutto()
+        {
+            var wz = WZList.ToList().Select(y => y.WydanieZewnetrzneId).ToList();
+            var pozycjeWZ = Db.PozycjeWydaniaZewnetrznego.Where(x => wz.Contains(x.WydanieZewnetrzneId) && x.CzyAktywny).ToList();
+
+            Netto = 0;
+            Brutto = 0;
+            foreach (var pozycjaWZ in pozycjeWZ)
+            {
+                var wydanie = Db.WydaniaZewnetrzne.Where(x => x.WydanieZewnetrzneId == pozycjaWZ.WydanieZewnetrzneId && pozycjaWZ.CzyAktywny).FirstOrDefault();
+                var cena = Db.ZmianyCeny.Where
+                    (
+                        x => x.TowarId == pozycjaWZ.TowarId
+                        && x.DataObowiazywaniaOd <= wydanie.DataWydania
+                        && (x.DataObowiazywaniaDo >= wydanie.DataWydania || x.DataObowiazywaniaDo == null)
+                        && x.CzyAktywny
+                    ).OrderByDescending(x=>x.DataObowiazywaniaOd).Select(x => x.CenaNetto).FirstOrDefault();
+                var wartoscNettoPozycji = cena * pozycjaWZ.Ilosc
+                    * (100 - pozycjaWZ.Rabat) / 100
+                    * (100 - wydanie.Rabat) / 100;
+                Netto += wartoscNettoPozycji;
+                var stawkaVatSprzId = Db.Towary.Where(x => x.TowarId == pozycjaWZ.TowarId).Select(x => x.VatSprzId).FirstOrDefault();
+                var vat = Db.TowaryStawkiVat.Where(x => x.StawkiVatId == stawkaVatSprzId).Select(x => x.Stawka).FirstOrDefault();
+                Brutto += wartoscNettoPozycji * (100 + vat) / 100;
+            }
+            Netto *= (100 - Rabat) / 100;
+            Brutto *= (100 - Rabat) / 100;
         }
         protected override void delete()
         {

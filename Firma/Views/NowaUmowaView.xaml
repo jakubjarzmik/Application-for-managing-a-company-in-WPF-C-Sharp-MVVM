@@ -67,7 +67,7 @@
                     <Button Grid.Row="2"
                             Grid.Column="0"
                             Content="Stanowisko:"
-                            Style="{StaticResource ButtonStandardowy}"
+                            Style="{StaticResource ButtonLabelStandardowy}"
                             Command="{Binding ShowStanowiskaCommand}" />
                     <ComboBox Grid.Row="2"
                               Grid.Column="1"

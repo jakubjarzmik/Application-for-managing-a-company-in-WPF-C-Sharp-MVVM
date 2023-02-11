@@ -120,11 +120,10 @@
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="Auto" />
                         <ColumnDefinition Width="*" />
-                        <ColumnDefinition Width="50" />
                         <ColumnDefinition Width="2*" />
                     </Grid.ColumnDefinitions>
                     <Button Content="Jednostka podlega pod:"
-                            Style="{StaticResource ButtonStandardowy}"
+                            Style="{StaticResource ButtonLabelStandardowy}"
                             Command="{Binding ShowKontrahenciCommand}" />
                     <ComboBox Grid.Column="1"
                               Style="{StaticResource ControlStandardowy}"
@@ -132,9 +131,6 @@
                               DisplayMemberPath="Value"
                               SelectedValuePath="Key"
                               SelectedValue="{Binding Path=JednostkaPodlegaPodId, Mode=TwoWay}" />
-                    <Button Grid.Column="2"
-                            Content="..."
-                            Style="{StaticResource ControlStandardowy}" />
                     <TextBox Grid.Column="3"
                              IsEnabled="False"
                              Text="{Binding Path=JednostkaPodlegaPodNazwa, UpdateSourceTrigger=PropertyChanged}"
@@ -168,7 +164,7 @@
                             <ColumnDefinition Width="*" />
                         </Grid.ColumnDefinitions>
                         <Button Content="Adres:"
-                                Style="{StaticResource ButtonStandardowy}"
+                                Style="{StaticResource ButtonLabelStandardowy}"
                                 Command="{Binding ShowAdresyCommand}" />
                         <ComboBox Grid.Column="1"
                                   Style="{StaticResource ControlStandardowy}"
@@ -291,7 +287,7 @@
                             <ColumnDefinition Width="*" />
                         </Grid.ColumnDefinitions>
                         <Button Content="Adres kor.:"
-                                Style="{StaticResource ButtonStandardowy}"
+                                Style="{StaticResource ButtonLabelStandardowy}"
                                 Command="{Binding ShowAdresyKorCommand}" />
                         <ComboBox Grid.Column="1"
                                   Style="{StaticResource ControlStandardowy}"

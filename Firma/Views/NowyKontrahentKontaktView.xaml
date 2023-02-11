@@ -34,7 +34,7 @@
                     </Grid.ColumnDefinitions>
                     <Button Grid.Column="0"
                             Content="Kontrahent:"
-                            Style="{StaticResource ButtonStandardowy}"
+                            Style="{StaticResource ButtonLabelStandardowy}"
                             Command="{Binding ShowKontrahenciCommand}"
                             IsEnabled="{Binding IsEnabled}" />
                     <ComboBox Grid.Column="1"
@@ -95,7 +95,7 @@
                     <Button Grid.Row="0"
                             Grid.Column="0"
                             Content="Kontakt:"
-                            Style="{StaticResource ButtonStandardowy}"
+                            Style="{StaticResource ButtonLabelStandardowy}"
                             Command="{Binding ShowKontaktyCommand}" />
                     <ComboBox Grid.Row="0"
                               Grid.Column="1"

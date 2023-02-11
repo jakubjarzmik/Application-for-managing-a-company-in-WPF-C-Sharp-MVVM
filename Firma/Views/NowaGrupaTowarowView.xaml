@@ -36,7 +36,7 @@
                     <Button Grid.Row="0"
                             Grid.Column="0"
                             Content="Grupa nadrzędna:"
-                            Style="{StaticResource ButtonStandardowy}"
+                            Style="{StaticResource ButtonLabelStandardowy}"
                             Command="{Binding ShowGrupyTowaruCommand}" />
                     <ComboBox Grid.Row="0"
                               Grid.Column="1"

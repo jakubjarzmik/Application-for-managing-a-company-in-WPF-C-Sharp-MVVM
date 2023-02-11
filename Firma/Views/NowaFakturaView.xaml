@@ -64,7 +64,7 @@
                         <ColumnDefinition Width="*" />
                     </Grid.ColumnDefinitions>
                     <Button Content="Kontrahent:"
-                            Style="{StaticResource ButtonStandardowy}"
+                            Style="{StaticResource ButtonLabelStandardowy}"
                             Command="{Binding ShowKontrahenciCommand}" />
                     <ComboBox Grid.Column="1"
                               Style="{StaticResource ControlStandardowy}"
@@ -176,14 +176,16 @@
                                Style="{StaticResource ControlStandardowy}" />
                         <TextBox Grid.Column="1"
                                  IsEnabled="False"
-                                 Style="{StaticResource ControlStandardowy}" />
+                                 Style="{StaticResource ControlStandardowy}"
+                                 Text="{Binding Path=Netto, UpdateSourceTrigger=PropertyChanged, StringFormat={}{0:N2}zł}" />
                         <Label Grid.Row="1"
-                               Content="Razem:"
+                               Content="Brutto:"
                                Style="{StaticResource ControlBoldStandardowy}" />
                         <TextBox Grid.Row="1"
                                  Grid.Column="1"
                                  IsEnabled="False"
-                                 Style="{StaticResource ControlBoldStandardowy}" />
+                                 Style="{StaticResource ControlBoldStandardowy}"
+                                 Text="{Binding Path=Brutto, UpdateSourceTrigger=PropertyChanged, StringFormat={}{0:N2}zł}" />
 
                     </Grid>
                 </Grid>

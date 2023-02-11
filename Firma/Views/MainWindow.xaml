@@ -38,7 +38,7 @@
             <RowDefinition Height="*" />
             <RowDefinition Height="30" />
         </Grid.RowDefinitions>
-        <Ribbon  Loaded="RibbonLoaded">
+        <Ribbon Loaded="RibbonLoaded">
             <Ribbon.ApplicationMenu>
                 <RibbonApplicationMenu IsEnabled="False"
                                        Visibility="Collapsed" />
@@ -46,196 +46,198 @@
             <RibbonTab Header="Ogólne">
                 <RibbonGroup Header="Kontrahenci">
                     <RibbonButton Label="Kontrahenci"
-                                  LargeImageSource="/Views/Content/Icons/warehouse_FILL0_wght400_GRAD0_opsz48.png"
+                                  LargeImageSource="/Views/Content/Icons/person.png"
                                   Command="{Binding KontrahenciCommand}" />
                     <RibbonButton Label="Nowy kontrahent"
-                                  LargeImageSource="/Views/Content/Icons/warehouse_FILL0_wght400_GRAD0_opsz48.png"
+                                  LargeImageSource="/Views/Content/Icons/person_add.png"
                                   Command="{Binding NowyKontrahentCommand}" />
                 </RibbonGroup>
                 <RibbonGroup Header="Magazyny">
                     <RibbonButton Label="Magazyny"
-                                  LargeImageSource="/Views/Content/Icons/warehouse_FILL0_wght400_GRAD0_opsz48.png"
+                                  LargeImageSource="/Views/Content/Icons/warehouse.png"
                                   Command="{Binding MagazynyCommand}" />
                     <RibbonButton Label="Nowy magazyn"
-                                  LargeImageSource="/Views/Content/Icons/warehouse_FILL0_wght400_GRAD0_opsz48.png"
+                                  LargeImageSource="/Views/Content/Icons/warehouse_add.png"
                                   Command="{Binding NowyMagazynCommand}" />
+                </RibbonGroup>
+                <RibbonGroup Header="Słowniki">
+                    <RibbonButton Label="Typy magazynów"
+                                  SmallImageSource="/Views/Content/Icons/warehouse.png"
+                                  Command="{Binding MagazynyTypyCommand}" />
+                    <RibbonButton Label="Nowy typ magazynów"
+                                  SmallImageSource="/Views/Content/Icons/warehouse_add.png"
+                                  Command="{Binding NowyTypMagazynuCommand}" />
+                    <Separator />
+                    <RibbonButton Label="Kraje"
+                                  SmallImageSource="/Views/Content/Icons/flag.png"
+                                  Command="{Binding KrajeCommand}" />
+                    <RibbonButton Label="Nowy kraj"
+                                  SmallImageSource="/Views/Content/Icons/flag-plus.png"
+                                  Command="{Binding NowyKrajCommand}" />
                 </RibbonGroup>
             </RibbonTab>
             <RibbonTab Header="Towary">
                 <RibbonGroup Header="Towary">
                     <RibbonButton Label="Towary"
-                                  LargeImageSource="/Views/Content/Icons/warehouse_FILL0_wght400_GRAD0_opsz48.png"
+                                  LargeImageSource="/Views/Content/Icons/package.png"
                                   Command="{Binding TowaryCommand}" />
                     <RibbonButton Label="Nowy towar"
-                                  LargeImageSource="/Views/Content/Icons/warehouse_FILL0_wght400_GRAD0_opsz48.png"
+                                  LargeImageSource="/Views/Content/Icons/package-plus.png"
                                   Command="{Binding NowyTowarCommand}" />
                 </RibbonGroup>
                 <RibbonGroup Header="Ceny">
                     <RibbonButton Label="Zmiany ceny"
-                                  LargeImageSource="/Views/Content/Icons/warehouse_FILL0_wght400_GRAD0_opsz48.png"
+                                  LargeImageSource="/Views/Content/Icons/price.png"
                                   Command="{Binding ZmianyCenyCommand}" />
                     <RibbonButton Label="Nowa zmiana ceny"
-                                  LargeImageSource="/Views/Content/Icons/warehouse_FILL0_wght400_GRAD0_opsz48.png"
+                                  LargeImageSource="/Views/Content/Icons/price-plus.png"
                                   Command="{Binding NowaZmianaCenyCommand}" />
                 </RibbonGroup>
                 <RibbonGroup Header="Utarg">
                     <RibbonButton Label="Raport sprzedaży"
-                                  LargeImageSource="/Views/Content/Icons/warehouse_FILL0_wght400_GRAD0_opsz48.png"
+                                  LargeImageSource="/Views/Content/Icons/summarize.png"
                                   Command="{Binding RaportSprzedazyCommand}" />
+                </RibbonGroup>
+                <RibbonGroup Header="Słowniki">
+                    <RibbonButton Label="Grupy towarów"
+                                  SmallImageSource="/Views/Content/Icons/package.png"
+                                  Command="{Binding TowaryGrupyCommand}" />
+                    <RibbonButton Label="Nowa grupa towarów"
+                                  SmallImageSource="/Views/Content/Icons/package-plus.png"
+                                  Command="{Binding NowaGrupaTowarowCommand}" />
+                    <Separator />
+                    <RibbonButton Label="Typy towarów"
+                                  SmallImageSource="/Views/Content/Icons/package.png"
+                                  Command="{Binding TowaryTypyCommand}" />
+                    <RibbonButton Label="Nowy typ towarów"
+                                  SmallImageSource="/Views/Content/Icons/package-plus.png"
+                                  Command="{Binding NowyTypTowarowCommand}" />
+                    <Separator />
+                    <RibbonButton Label="Jednostki miary"
+                                  SmallImageSource="/Views/Content/Icons/measuring_tape.png"
+                                  Command="{Binding TowaryJednMiaryCommand}" />
+                    <RibbonButton Label="Nowa jednostka miary"
+                                  SmallImageSource="/Views/Content/Icons/measuring_tape-plus.png"
+                                  Command="{Binding NowaJednostkaMiaryCommand}" />
+                    <Separator />
+                    <RibbonButton Label="Stawki VAT"
+                                  SmallImageSource="/Views/Content/Icons/vat.png"
+                                  Command="{Binding TowaryStawkiVatCommand}" />
+                    <RibbonButton Label="Nowa stawka VAT"
+                                  SmallImageSource="/Views/Content/Icons/vat-plus.png"
+                                  Command="{Binding NowaStawkaVatTowarowCommand}" />
                 </RibbonGroup>
             </RibbonTab>
             <RibbonTab Header="Dokumenty">
                 <RibbonGroup Header="Faktury">
                     <RibbonButton Label="Faktury"
-                                  LargeImageSource="/Views/Content/Icons/warehouse_FILL0_wght400_GRAD0_opsz48.png"
+                                  LargeImageSource="/Views/Content/Icons/file.png"
                                   Command="{Binding FakturyCommand}" />
                     <RibbonButton Label="Nowa faktura"
-                                  LargeImageSource="/Views/Content/Icons/warehouse_FILL0_wght400_GRAD0_opsz48.png"
+                                  LargeImageSource="/Views/Content/Icons/file-plus.png"
                                   Command="{Binding NowaFakturaCommand}" />
                 </RibbonGroup>
                 <RibbonGroup Header="Przyjecia zewnętrzne">
                     <RibbonButton Label="Przyjecia zewnętrzne"
-                                  LargeImageSource="/Views/Content/Icons/warehouse_FILL0_wght400_GRAD0_opsz48.png"
+                                  LargeImageSource="/Views/Content/Icons/pz.png"
                                   Command="{Binding PrzyjeciaZewnetrzneCommand}" />
                     <RibbonButton Label="Nowe PZ"
-                                  LargeImageSource="/Views/Content/Icons/warehouse_FILL0_wght400_GRAD0_opsz48.png"
+                                  LargeImageSource="/Views/Content/Icons/pz-plus.png"
                                   Command="{Binding NowePrzyjecieZewnetrzneCommand}" />
                 </RibbonGroup>
                 <RibbonGroup Header="Wydania zewnętrzne">
                     <RibbonButton Label="Wydania zewnętrzne"
-                                  LargeImageSource="/Views/Content/Icons/warehouse_FILL0_wght400_GRAD0_opsz48.png"
+                                  LargeImageSource="/Views/Content/Icons/wz.png"
                                   Command="{Binding WydaniaZewnetrzneCommand}" />
                     <RibbonButton Label="Nowe WZ"
-                                  LargeImageSource="/Views/Content/Icons/warehouse_FILL0_wght400_GRAD0_opsz48.png"
+                                  LargeImageSource="/Views/Content/Icons/wz-plus.png"
                                   Command="{Binding NoweWydanieZewnetrzneCommand}" />
+                </RibbonGroup>
+                <RibbonGroup Header="Słowniki">
+                    <RibbonButton Label="Kategorie faktur"
+                                  SmallImageSource="/Views/Content/Icons/file-plus.png"
+                                  Command="{Binding FakturyKategorieCommand}" />
+                    <RibbonButton Label="Nowa kategoria faktury"
+                                  SmallImageSource="/Views/Content/Icons/file-plus.png"
+                                  Command="{Binding NowaKategoriaFakturyCommand}" />
+                    <Separator />
+                    <RibbonButton Label="Rodzaje faktur"
+                                  SmallImageSource="/Views/Content/Icons/file-plus.png"
+                                  Command="{Binding FakturyRodzajeCommand}" />
+                    <RibbonButton Label="Nowy rodzaj faktury"
+                                  SmallImageSource="/Views/Content/Icons/file-plus.png"
+                                  Command="{Binding NowyRodzajFakturyCommand}" />
+                    <Separator />
+                    <RibbonButton Label="Rodzaje płatności"
+                                  SmallImageSource="/Views/Content/Icons/payments.png"
+                                  Command="{Binding RodzajePlatnosciCommand}" />
+                    <RibbonButton Label="Nowy rodzaj płatności"
+                                  SmallImageSource="/Views/Content/Icons/payments-plus.png"
+                                  Command="{Binding NowyRodzajPlatnosciCommand}" />
                 </RibbonGroup>
             </RibbonTab>
             <RibbonTab Header="Kadry">
                 <RibbonGroup Header="Pracownicy">
                     <RibbonButton Label="Pracownicy"
-                                  LargeImageSource="/Views/Content/Icons/warehouse_FILL0_wght400_GRAD0_opsz48.png"
+                                  LargeImageSource="/Views/Content/Icons/employee.png"
                                   Command="{Binding PracownicyCommand}" />
                     <RibbonButton Label="Nowy pracownik"
-                                  LargeImageSource="/Views/Content/Icons/warehouse_FILL0_wght400_GRAD0_opsz48.png"
+                                  LargeImageSource="/Views/Content/Icons/employee_plus.png"
                                   Command="{Binding NowyPracownikCommand}" />
                 </RibbonGroup>
                 <RibbonGroup Header="Umowy">
                     <RibbonButton Label="Umowy"
-                                  LargeImageSource="/Views/Content/Icons/warehouse_FILL0_wght400_GRAD0_opsz48.png"
+                                  LargeImageSource="/Views/Content/Icons/contract.png"
                                   Command="{Binding UmowyCommand}" />
                     <RibbonButton Label="Nowa umowa"
-                                  LargeImageSource="/Views/Content/Icons/warehouse_FILL0_wght400_GRAD0_opsz48.png"
+                                  LargeImageSource="/Views/Content/Icons/contract-plus.png"
                                   Command="{Binding NowaUmowaCommand}" />
                     <RibbonButton Label="Średnie wynagrodzenie"
-                                  LargeImageSource="/Views/Content/Icons/warehouse_FILL0_wght400_GRAD0_opsz48.png"
+                                  LargeImageSource="/Views/Content/Icons/payments.png"
                                   Command="{Binding SrednieWynagrodzenieCommand}" />
                 </RibbonGroup>
-            </RibbonTab>
-            <RibbonTab Header="Słowniki">
-                <RibbonGroup Header="Faktury">
-                    <RibbonButton Label="Kategorie faktur"
-                                  SmallImageSource="/Views/Content/Icons/warehouse_FILL0_wght400_GRAD0_opsz48.png"
-                                  Command="{Binding FakturyKategorieCommand}" />
-                    <RibbonButton Label="Nowa kategoria faktury"
-                                  SmallImageSource="/Views/Content/Icons/warehouse_FILL0_wght400_GRAD0_opsz48.png"
-                                  Command="{Binding NowaKategoriaFakturyCommand}" />
-                    <RibbonButton Label="Rodzaje faktur"
-                                  SmallImageSource="/Views/Content/Icons/warehouse_FILL0_wght400_GRAD0_opsz48.png"
-                                  Command="{Binding FakturyRodzajeCommand}" />
-                    <RibbonButton Label="Nowy rodzaj faktury"
-                                  SmallImageSource="/Views/Content/Icons/warehouse_FILL0_wght400_GRAD0_opsz48.png"
-                                  Command="{Binding NowyRodzajFakturyCommand}" />
-                </RibbonGroup>
-                <RibbonGroup Header="Kontrahenci">
+                <RibbonGroup Header="Słowniki">
                     <RibbonButton Label="Rodzaje kontrahentów"
-                                  SmallImageSource="/Views/Content/Icons/warehouse_FILL0_wght400_GRAD0_opsz48.png"
+                                  SmallImageSource="/Views/Content/Icons/employee.png"
                                   Command="{Binding KontrahenciRodzajeCommand}" />
                     <RibbonButton Label="Nowy rodzaj kontrahenta"
-                                  SmallImageSource="/Views/Content/Icons/warehouse_FILL0_wght400_GRAD0_opsz48.png"
+                                  SmallImageSource="/Views/Content/Icons/employee_plus.png"
                                   Command="{Binding NowyRodzajKontrahentaCommand}" />
-                </RibbonGroup>
-                <RibbonGroup Header="Towary">
-                    <RibbonButton Label="Grupy towarów"
-                                  SmallImageSource="/Views/Content/Icons/warehouse_FILL0_wght400_GRAD0_opsz48.png"
-                                  Command="{Binding TowaryGrupyCommand}" />
-                    <RibbonButton Label="Nowa grupa towarów"
-                                  SmallImageSource="/Views/Content/Icons/warehouse_FILL0_wght400_GRAD0_opsz48.png"
-                                  Command="{Binding NowaGrupaTowarowCommand}" />
-                    <RibbonButton Label="Typy towarów"
-                                  SmallImageSource="/Views/Content/Icons/warehouse_FILL0_wght400_GRAD0_opsz48.png"
-                                  Command="{Binding TowaryTypyCommand}" />
-                    <RibbonButton Label="Nowy typ towarów"
-                                  SmallImageSource="/Views/Content/Icons/warehouse_FILL0_wght400_GRAD0_opsz48.png"
-                                  Command="{Binding NowyTypTowarowCommand}" />
-                    <RibbonButton Label="Jednostki miary"
-                                  SmallImageSource="/Views/Content/Icons/warehouse_FILL0_wght400_GRAD0_opsz48.png"
-                                  Command="{Binding TowaryJednMiaryCommand}" />
-                    <RibbonButton Label="Nowa jednostka miary"
-                                  SmallImageSource="/Views/Content/Icons/warehouse_FILL0_wght400_GRAD0_opsz48.png"
-                                  Command="{Binding NowaJednostkaMiaryCommand}" />
-                    <RibbonButton Label="Stawki VAT"
-                                  SmallImageSource="/Views/Content/Icons/warehouse_FILL0_wght400_GRAD0_opsz48.png"
-                                  Command="{Binding TowaryStawkiVatCommand}" />
-                    <RibbonButton Label="Nowa stawka VAT"
-                                  SmallImageSource="/Views/Content/Icons/warehouse_FILL0_wght400_GRAD0_opsz48.png"
-                                  Command="{Binding NowaStawkaVatTowarowCommand}" />
-                </RibbonGroup>
-                <RibbonGroup Header="Umowy">
+                    <Separator />
                     <RibbonButton Label="Rodzaje umowy"
-                                  SmallImageSource="/Views/Content/Icons/warehouse_FILL0_wght400_GRAD0_opsz48.png"
+                                  SmallImageSource="/Views/Content/Icons/contract.png"
                                   Command="{Binding UmowyRodzajeCommand}" />
                     <RibbonButton Label="Nowy rodzaj umowy"
-                                  SmallImageSource="/Views/Content/Icons/warehouse_FILL0_wght400_GRAD0_opsz48.png"
+                                  SmallImageSource="/Views/Content/Icons/contract-plus.png"
                                   Command="{Binding NowyRodzajUmowyCommand}" />
+                    <Separator />
                     <RibbonButton Label="Stanowiska"
-                                  SmallImageSource="/Views/Content/Icons/warehouse_FILL0_wght400_GRAD0_opsz48.png"
+                                  SmallImageSource="/Views/Content/Icons/person.png"
                                   Command="{Binding UmowyStanowiskaCommand}" />
                     <RibbonButton Label="Nowe stanowisko"
-                                  SmallImageSource="/Views/Content/Icons/warehouse_FILL0_wght400_GRAD0_opsz48.png"
+                                  SmallImageSource="/Views/Content/Icons/person_add.png"
                                   Command="{Binding NoweStanowiskoCommand}" />
                 </RibbonGroup>
-                <RibbonGroup Header="Magazyny">
-                    <RibbonButton Label="Typy magazynów"
-                                  SmallImageSource="/Views/Content/Icons/warehouse_FILL0_wght400_GRAD0_opsz48.png"
-                                  Command="{Binding MagazynyTypyCommand}" />
-                    <RibbonButton Label="Nowy typ magazynów"
-                                  SmallImageSource="/Views/Content/Icons/warehouse_FILL0_wght400_GRAD0_opsz48.png"
-                                  Command="{Binding NowyTypMagazynuCommand}" />
-                </RibbonGroup>
-                <RibbonGroup Header="Inne">
-                    <RibbonButton Label="Kraje"
-                                  SmallImageSource="/Views/Content/Icons/warehouse_FILL0_wght400_GRAD0_opsz48.png"
-                                  Command="{Binding KrajeCommand}" />
-                    <RibbonButton Label="Nowy kraj"
-                                  SmallImageSource="/Views/Content/Icons/warehouse_FILL0_wght400_GRAD0_opsz48.png"
-                                  Command="{Binding NowyKrajCommand}" />
-                    <RibbonButton Label="Rodzaje płatności"
-                                  SmallImageSource="/Views/Content/Icons/warehouse_FILL0_wght400_GRAD0_opsz48.png"
-                                  Command="{Binding RodzajePlatnosciCommand}" />
-                    <RibbonButton Label="Nowy rodzaj płatności"
-                                  SmallImageSource="/Views/Content/Icons/warehouse_FILL0_wght400_GRAD0_opsz48.png"
-                                  Command="{Binding NowyRodzajPlatnosciCommand}" />
-                </RibbonGroup>
             </RibbonTab>
-            <RibbonTab Header="Inne">
+            <!--<RibbonTab Header="Inne">
                 <RibbonGroup Header="Adresy">
                     <RibbonButton Label="Adresy"
-                                  LargeImageSource="/Views/Content/Icons/warehouse_FILL0_wght400_GRAD0_opsz48.png"
+                                  LargeImageSource="/Views/Content/Icons/warehouse.png"
                                   Command="{Binding AdresyCommand}" />
                     <RibbonButton Label="Nowy adres"
-                                  LargeImageSource="/Views/Content/Icons/warehouse_FILL0_wght400_GRAD0_opsz48.png"
+                                  LargeImageSource="/Views/Content/Icons/warehouse.png"
                                   Command="{Binding NowyAdresCommand}" />
                 </RibbonGroup>
                 <RibbonGroup Header="Kontakty">
                     <RibbonButton Label="Kontakty"
-                                  LargeImageSource="/Views/Content/Icons/warehouse_FILL0_wght400_GRAD0_opsz48.png"
+                                  LargeImageSource="/Views/Content/Icons/warehouse.png"
                                   Command="{Binding KontaktyCommand}" />
                     <RibbonButton Label="Nowy kontakt"
-                                  LargeImageSource="/Views/Content/Icons/warehouse_FILL0_wght400_GRAD0_opsz48.png"
+                                  LargeImageSource="/Views/Content/Icons/warehouse.png"
                                   Command="{Binding NowyKontaktCommand}" />
                 </RibbonGroup>
-            </RibbonTab>
-            <RibbonTab Header="?">
+            </RibbonTab>-->
+            <!--<RibbonTab Header="?">
                 <RibbonGroup>
                     <RibbonButton Label="FakturyWydaniaZewnetrzne"
                                   LargeImageSource="/Views/Content/Icons/warehouse_FILL0_wght400_GRAD0_opsz48.png"
@@ -253,7 +255,7 @@
                                   LargeImageSource="/Views/Content/Icons/warehouse_FILL0_wght400_GRAD0_opsz48.png"
                                   Command="{Binding PracownicyUmowyCommand}" />
                 </RibbonGroup>
-            </RibbonTab>
+            </RibbonTab>-->
         </Ribbon>
 
         <Grid Grid.Row="1">

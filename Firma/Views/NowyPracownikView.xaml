@@ -200,7 +200,7 @@
                             <ColumnDefinition Width="*" />
                         </Grid.ColumnDefinitions>
                         <Button Content="Adres:"
-                                Style="{StaticResource ButtonStandardowy}"
+                                Style="{StaticResource ButtonLabelStandardowy}"
                                 Command="{Binding ShowAdresyCommand}" />
                         <ComboBox Grid.Column="1"
                                   Style="{StaticResource ControlStandardowy}"

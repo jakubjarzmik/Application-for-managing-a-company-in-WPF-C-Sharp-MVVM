@@ -34,7 +34,7 @@
                     <Button Grid.Row="0"
                             Grid.Column="0"
                             Content="Kraj:"
-                            Style="{StaticResource ButtonStandardowy}"
+                            Style="{StaticResource ButtonLabelStandardowy}"
                             Command="{Binding ShowKrajeCommand}" />
                     <ComboBox Grid.Row="0"
                               Grid.Column="1"
