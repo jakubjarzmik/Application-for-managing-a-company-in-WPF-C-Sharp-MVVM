@@ -10,6 +10,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Data;
 using System.Windows.Input;
 
@@ -18,9 +19,18 @@ namespace Firma.ViewModels
     public class MainWindowViewModel : BaseViewModel
     {
         #region Konstruktor
-        public MainWindowViewModel() : base()
+        private static MainWindowViewModel instance;
+        public static MainWindowViewModel GetInstance()
         {
+            if(instance == null)
+                instance = new MainWindowViewModel();
+            return instance;
+        }
+        private MainWindowViewModel() : base()
+        {
+            Loading = "Visible";
             setMessengers();
+            NumberOfTabs = 0;
         }
         #endregion
         #region Commands
@@ -396,6 +406,31 @@ namespace Firma.ViewModels
             }
         }
         #endregion
+        #region Properties
+        private string _Loading;
+        public string Loading
+        {
+            get { return _Loading; }
+            set { _Loading = value; RaisePropertyChanged(nameof(Loading)); }
+        }
+        private int _NumberOfTabs;
+        public int NumberOfTabs
+        {
+            get
+            {
+                return _NumberOfTabs;
+            }
+            set
+            {
+                if (value != _NumberOfTabs)
+                {
+                    _NumberOfTabs = value;
+                    base.OnPropertyChanged(() => NumberOfTabs);
+                }
+            }
+        }
+
+        #endregion
         #region Leftside menu buttons
         private ReadOnlyCollection<CommandViewModel> _Commands;
         public ReadOnlyCollection<CommandViewModel> Commands
@@ -412,7 +447,6 @@ namespace Firma.ViewModels
         }
         private List<CommandViewModel> CreateCommands()
         {
-
             return new List<CommandViewModel>
             {
                 new CommandViewModel("Faktury", new BaseCommand(()=>showAll(new FakturyViewModel())),"pack://application:,,,/Views/Content/Icons/file-white.png",
@@ -462,6 +496,7 @@ namespace Firma.ViewModels
         }
         private void onWorkspaceRequestClose(object sender, EventArgs e)
         {
+            NumberOfTabs--;
             WorkspaceViewModel workspace = sender as WorkspaceViewModel;
             this.Workspaces.Remove(workspace);
         }
@@ -470,6 +505,7 @@ namespace Firma.ViewModels
         private void createView(WorkspaceViewModel workspace)
         {
             this.Workspaces.Add(workspace);
+            NumberOfTabs++;
             this.setActiveWorkspace(workspace);
         }
         private void showAll(WorkspaceViewModel workspace)
@@ -485,7 +521,10 @@ namespace Firma.ViewModels
                 }
             }
             if (!contains)
+            {
                 Workspaces.Add(workspace);
+                NumberOfTabs++;
+            }
             this.setActiveWorkspace(workspace);
         }
 
@@ -590,6 +629,19 @@ namespace Firma.ViewModels
             Messenger.Default.Register<NowaPozycjaWydaniaZewnetrznegoViewModel>(this, createView);
             Messenger.Default.Register<NowyTypMagazynuViewModel>(this, createView);
             Messenger.Default.Register<NowyTypTowarowViewModel>(this, createView);
+        }
+        public void CheckDatabaseConnection()
+        {
+            try
+            {
+                new JJFirmaEntities().Connection.Open();
+                Loading = "Hidden";
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Połączenie z bazą danych nieudane.");
+                Environment.Exit(1);
+            }
         }
         #endregion
     }

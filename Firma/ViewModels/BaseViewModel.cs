@@ -11,7 +11,6 @@ namespace Firma.ViewModels
 {
     public class BaseViewModel : INotifyPropertyChanged
     {
-
         #region Propertychanged
         protected void OnPropertyChanged<T>(Expression<Func<T>> action)
         {
@@ -34,6 +33,10 @@ namespace Firma.ViewModels
                 handler(this, e);
             }
         }
+        protected void RaisePropertyChanged(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
         public event PropertyChangedEventHandler PropertyChanged;
         #endregion
 
@@ -47,7 +50,7 @@ namespace Firma.ViewModels
             }
             return baseCommand;
         }
-        #endregion  //Command
+        #endregion
 
     }
 }

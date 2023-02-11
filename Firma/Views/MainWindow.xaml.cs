@@ -1,7 +1,9 @@
-﻿using System;
+﻿using Firma.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Web.UI.WebControls;
 using System.Windows;
@@ -17,15 +19,15 @@ using System.Windows.Shapes;
 
 namespace Firma
 {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
     public partial class MainWindow : Window
     {
+        private MainWindowViewModel _viewModel;
         private bool expanded = false;
         public MainWindow()
         {
             InitializeComponent();
+            _viewModel = MainWindowViewModel.GetInstance();
+            DataContext = _viewModel;
         }
         private void ExpandMenuButton_Click(object sender, RoutedEventArgs e)
         {
@@ -77,6 +79,10 @@ namespace Firma
             {
                 child.RowDefinitions[0].Height = new GridLength(0);
             }
+        }
+        private void StatusBarLoaded(object sender, RoutedEventArgs e)
+        {
+            _viewModel.CheckDatabaseConnection();
         }
     }
 }

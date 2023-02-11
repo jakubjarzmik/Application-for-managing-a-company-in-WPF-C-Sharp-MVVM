@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:ribbon="http://schemas.microsoft.com/winfx/2006/xaml/presentation/ribbon"
         xmlns:local="clr-namespace:Firma"
+        xmlns:viewmodels="clr-namespace:Firma.ViewModels"
         mc:Ignorable="d"
         Icon="jj.ico"
         Title="Firma"
@@ -293,7 +294,8 @@
             </Border>
         </Grid>
         <StatusBar Grid.Row="2"
-                   Style="{StaticResource StatusBarStyle}">
+                   Style="{StaticResource StatusBarStyle}"
+                   Loaded="StatusBarLoaded">
             <StatusBarItem>
                 <Image Source="/Views/Content/Icons/wsb-white.png" />
             </StatusBarItem>
@@ -302,26 +304,16 @@
             </StatusBarItem>
             <Separator />
             <StatusBarItem>
-                <TextBlock>Ładowanie magazynu</TextBlock>
+                <TextBlock>Liczba otwartych zakładek: </TextBlock>
+            </StatusBarItem>
+            <StatusBarItem>
+                <TextBlock Text="{Binding NumberOfTabs, UpdateSourceTrigger=PropertyChanged}"/>
             </StatusBarItem>
             <StatusBarItem>
                 <ProgressBar Width="100"
                              Height="20"
-                             Name="ladowanieMagazynu">
-                    <ProgressBar.Triggers>
-                        <EventTrigger RoutedEvent="ProgressBar.Loaded">
-                            <BeginStoryboard>
-                                <Storyboard>
-                                    <DoubleAnimation Storyboard.TargetName="ladowanieMagazynu"
-                                                     Storyboard.TargetProperty="Value"
-                                                     From="0"
-                                                     To="100"
-                                                     Duration="0:0:2" />
-                                </Storyboard>
-                            </BeginStoryboard>
-                        </EventTrigger>
-                    </ProgressBar.Triggers>
-                </ProgressBar>
+                             IsIndeterminate="True"
+                             Visibility="{Binding Loading, UpdateSourceTrigger=PropertyChanged}" />
             </StatusBarItem>
             <StatusBarItem HorizontalAlignment="Right">
                 <TextBlock>Autor: Jakub Jarzmik</TextBlock>
