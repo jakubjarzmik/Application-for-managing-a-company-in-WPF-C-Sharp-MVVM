@@ -238,6 +238,10 @@
         <vw:RaportSprzedazyView/>
     </DataTemplate>
 
+    <DataTemplate DataType="{x:Type vm:NajpopularniejszyViewModel}">
+        <vw:NajpopularniejszyView/>
+    </DataTemplate>
+
     <!--tu jest koniec laczenia View z ViewModel zakładek-->
 
     <Style x:Key="MainHCCStyle" TargetType="{x:Type HeaderedContentControl}">

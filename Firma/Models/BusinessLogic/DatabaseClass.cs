@@ -10,13 +10,13 @@ namespace Firma.Models.BusinessLogic
     public class DatabaseClass
     {
         #region Entities
-        public JJFirmaEntities JJFirmaEntities { get; set; }
+        public JJFirmaEntities Db { get; set; }
         #endregion
 
         #region Constructor
-        public DatabaseClass(JJFirmaEntities jJFirmaEntities)
+        public DatabaseClass(JJFirmaEntities Db)
         {
-            JJFirmaEntities = jJFirmaEntities;
+            this.Db = Db;
         }
         #endregion
     }

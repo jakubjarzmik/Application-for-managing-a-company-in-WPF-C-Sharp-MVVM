@@ -4,6 +4,8 @@
     <Style x:Key="ControlStandardowy"
            TargetType="{x:Type Control}">
         <Setter Property="Height"
+                Value="Auto" />
+        <Setter Property="MinHeight"
                 Value="28" />
         <Setter Property="Margin"
                 Value="4" />

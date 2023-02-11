@@ -436,6 +436,7 @@ namespace Firma.ViewModels
                 new CommandViewModel("Towary", new BaseCommand(()=>showAll(new TowaryViewModel())),"",""),
                 new CommandViewModel("Średnie wynagrodz.",new BaseCommand(()=>createView(new SrednieWynagrodzenieViewModel())),"",""),
                 new CommandViewModel("Raport sprzedaży",new BaseCommand(()=>createView(new RaportSprzedazyViewModel())),"",""),
+                new CommandViewModel("Najpopularniejsze",new BaseCommand(()=>createView(new NajpopularniejszyViewModel())),"",""),
             };
         }
         #endregion

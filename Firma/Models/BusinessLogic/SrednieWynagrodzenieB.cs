@@ -24,7 +24,7 @@ namespace Firma.Models.BusinessLogic
                 {
                     return
                         (
-                            from umowa in JJFirmaEntities.Umowy
+                            from umowa in Db.Umowy
                             where
                             umowa.StanowiskoId == IdStanowiska &&
                             umowa.CzyAktywny == true &&
@@ -38,7 +38,7 @@ namespace Firma.Models.BusinessLogic
                 {
                     return
                     (
-                        from umowa in JJFirmaEntities.Umowy
+                        from umowa in Db.Umowy
                         where
                         umowa.CzyAktywny == true &&
                         umowa.DataOd <= data &&

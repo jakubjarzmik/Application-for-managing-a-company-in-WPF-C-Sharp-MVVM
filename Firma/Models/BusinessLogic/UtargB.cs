@@ -17,26 +17,25 @@ namespace Firma.Models.BusinessLogic
         }
         #endregion
         #region FunkcjeBiznesowe
-        public decimal? UtargOkresTowar(int IdTowaru, DateTime dataOd, DateTime dataDo)
+        public decimal? UtargOkresTowar(int TowarId, DateTime dataOd, DateTime dataDo)
         {
-            //zapytanie liczy za jaką kwotę sprzedano wybrany towar w wybranym okresie
             try
             {
                 return
                     (
-                        from pozycjaWydania in JJFirmaEntities.PozycjeWydaniaZewnetrznego
+                        from pozycjaWydania in Db.PozycjeWydaniaZewnetrznego
                         where
-                        pozycjaWydania.TowarId == IdTowaru &&
+                        pozycjaWydania.TowarId == TowarId &&
                         pozycjaWydania.CzyAktywny == true &&
                         pozycjaWydania.WydaniaZewnetrzne.DataWydania >= dataOd &&
                         pozycjaWydania.WydaniaZewnetrzne.DataWydania <= dataDo
                         select
                         pozycjaWydania.Ilosc *
                         (
-                            from cena in JJFirmaEntities.ZmianyCeny
+                            from cena in Db.ZmianyCeny
                             where
                             cena.CzyAktywny == true &&
-                            cena.TowarId == IdTowaru &&
+                            cena.TowarId == TowarId &&
                             pozycjaWydania.WydaniaZewnetrzne.DataWydania >= cena.DataObowiazywaniaOd
                             &&
                             (pozycjaWydania.WydaniaZewnetrzne.DataWydania <= cena.DataObowiazywaniaDo

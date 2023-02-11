@@ -43,7 +43,7 @@ namespace Firma.Models.Validators
         }
         public static string CheckIsNip(string value)
         {
-            if (value == null)
+            if (string.IsNullOrWhiteSpace(value))
                 return null;
             if (value.Length != 10)
                 return "Numer NIP powinien składać się z 10 cyfr.";
@@ -63,7 +63,7 @@ namespace Firma.Models.Validators
         }
         public static string CheckIsRegon(string value)
         {
-            if (value == null)
+            if (string.IsNullOrWhiteSpace(value))
                 return null;
             int length = value.Length;
             if (length != 9 && length != 14)
@@ -85,7 +85,7 @@ namespace Firma.Models.Validators
         }
         public static string CheckIsPesel(string value)
         {
-            if (value == null)
+            if (string.IsNullOrWhiteSpace(value))
                 return null;
             int length = value.Length;
             if (length != 11)
@@ -107,7 +107,7 @@ namespace Firma.Models.Validators
         }
         public static string CheckIsUrl(string value)
         {
-            if (value == null)
+            if (string.IsNullOrWhiteSpace(value))
                 return null;
             if (Uri.TryCreate(value, UriKind.Absolute, out Uri uriResult) && (uriResult.Scheme == Uri.UriSchemeHttp || uriResult.Scheme == Uri.UriSchemeHttps))
                 return null;

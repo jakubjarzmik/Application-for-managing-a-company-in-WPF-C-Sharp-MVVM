@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Firma.Models.BusinessLogic
 {
-    public class StanowiskaB : DatabaseClass // dziedziczy bo używa bazy danych
+    public class StanowiskaB : DatabaseClass
     {
         #region Konstruktor
         public StanowiskaB(JJFirmaEntities jJFirmaEntities)
@@ -18,15 +18,14 @@ namespace Firma.Models.BusinessLogic
         #endregion
 
         #region FunkcjeBiznesowe
-        //ta funkcja pobiera wsystkie aktywne towary z bazy danych
-        public IQueryable<KeyAndValue> GetAktywneStanowiska()//ta funkcja zwróci kolekjce KeyAndValue dla Comboboxa wyświetlającego wszystkie aktywne towary
+        public IQueryable<KeyAndValue> GetAktywneStanowiska()
         {
             List<KeyAndValue> stanowiska = new List<KeyAndValue>();
             stanowiska.Add(new KeyAndValue { Key = null, Value = "Wszystkie" });
             stanowiska.AddRange
                 (
                     (
-                        from stanowisko in JJFirmaEntities.UmowyStanowiska //dla kazdego towaru z bazy danych towarow
+                        from stanowisko in Db.UmowyStanowiska 
                         where stanowisko.CzyAktywny==true
                         select new KeyAndValue
                         {

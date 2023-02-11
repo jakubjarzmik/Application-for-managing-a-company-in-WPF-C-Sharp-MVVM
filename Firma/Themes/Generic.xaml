@@ -32,7 +32,7 @@
                                        Source="/Views/Content/Icons/minus.png" />
                             </ToggleButton>
                             <Separator />
-                            <ToggleButton Command="{Binding RefreshCommand}">
+                            <ToggleButton Command="{Binding LoadCommand}">
                                 <Image Style="{StaticResource ImageToolBarStandardowy}"
                                        Source="/Views/Content/Icons/refresh.png" />
                             </ToggleButton>

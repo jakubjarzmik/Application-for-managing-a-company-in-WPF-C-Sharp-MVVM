@@ -81,6 +81,9 @@
     <Page Update="Views\FakturyWydaniaZewnetrzneView.xaml">
       <SubType>Designer</SubType>
     </Page>
+    <Page Update="Views\NajpopularniejszyView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="Views\RaportSprzedazyView.xaml">
       <SubType>Designer</SubType>
     </Page>
