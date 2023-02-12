@@ -38,6 +38,7 @@ namespace Firma.ViewModels
             Item = zmianaCeny;
             isEditing = true;
             IsEnabled = false;
+            setAllFields();
             setMessengers();
         }
         private void setMessengers()
@@ -58,20 +59,7 @@ namespace Firma.ViewModels
                 if(value != Item.TowarId)
                 {
                     Item.TowarId = value;
-                    TowarNumerKatalogowy = Db.Towary.Where(n => n.TowarId == TowarId).Select(n => n.NumerKatalogowy).FirstOrDefault();
-                    TowarNazwa = Db.Towary.Where(n => n.TowarId == TowarId).Select(n => n.Nazwa).FirstOrDefault();
-                    var currentPriceChange = (from cena in Db.ZmianyCeny
-                             where
-                             cena.CzyAktywny == true &&
-                             cena.TowarId == TowarId &&
-                             DateTime.Now >= cena.DataObowiazywaniaOd
-                             &&
-                             (DateTime.Now <= cena.DataObowiazywaniaDo
-                             || cena.DataObowiazywaniaDo == null)
-                             orderby cena.DataObowiazywaniaOd descending
-                             select cena);
-                    CenaNetto = currentPriceChange.Select(n => n.CenaNetto).FirstOrDefault();
-                    JednMiaryId = currentPriceChange.Select(n => n.JednMiaryId).FirstOrDefault();
+                    setTowarFields();
                     base.OnPropertyChanged(() => TowarId);
                 }
             }
@@ -135,7 +123,7 @@ namespace Firma.ViewModels
                 if(value != Item.JednMiaryId)
                 {
                     Item.JednMiaryId = value;
-                    JednMiaryNazwa = Db.JednostkiMiary.Where(n => n.JednostkaId == JednMiaryId).Select(n => n.Nazwa).FirstOrDefault();
+                    setJednostkaMiaryFields();
                     base.OnPropertyChanged(() => JednMiaryId);
                 }
             }
@@ -254,6 +242,32 @@ namespace Firma.ViewModels
         private void getJednostkaMiary(JednostkiMiary jednostkiMiary)
         {
             JednMiaryId = jednostkiMiary.JednostkaId;
+        }
+        private void setAllFields()
+        {
+            setTowarFields();
+            setJednostkaMiaryFields();
+        }
+        private void setTowarFields()
+        {
+            TowarNumerKatalogowy = Db.Towary.Where(n => n.TowarId == TowarId).Select(n => n.NumerKatalogowy).FirstOrDefault();
+            TowarNazwa = Db.Towary.Where(n => n.TowarId == TowarId).Select(n => n.Nazwa).FirstOrDefault();
+            var currentPriceChange = (from cena in Db.ZmianyCeny
+                                      where
+                                      cena.CzyAktywny == true &&
+                                      cena.TowarId == TowarId &&
+                                      DateTime.Now >= cena.DataObowiazywaniaOd
+                                      &&
+                                      (DateTime.Now <= cena.DataObowiazywaniaDo
+                                      || cena.DataObowiazywaniaDo == null)
+                                      orderby cena.DataObowiazywaniaOd descending
+                                      select cena);
+            CenaNetto = currentPriceChange.Select(n => n.CenaNetto).FirstOrDefault();
+            JednMiaryId = currentPriceChange.Select(n => n.JednMiaryId).FirstOrDefault();
+        }
+        private void setJednostkaMiaryFields()
+        {
+            JednMiaryNazwa = Db.JednostkiMiary.Where(n => n.JednostkaId == JednMiaryId).Select(n => n.Nazwa).FirstOrDefault();
         }
         #endregion
         #region Validation

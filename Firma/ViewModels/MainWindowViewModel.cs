@@ -429,7 +429,6 @@ namespace Firma.ViewModels
                 }
             }
         }
-
         #endregion
         #region Leftside menu buttons
         private ReadOnlyCollection<CommandViewModel> _Commands;
@@ -465,7 +464,7 @@ namespace Firma.ViewModels
                 "pack://application:,,,/Views/Content/Icons/payments.png"),
                 new CommandViewModel("Raport sprzedaży",new BaseCommand(()=>createView(new RaportSprzedazyViewModel())),"pack://application:,,,/Views/Content/Icons/summarize-white.png",
                 "pack://application:,,,/Views/Content/Icons/summarize.png"),
-                new CommandViewModel("Najpopularniejsze",new BaseCommand(()=>createView(new NajpopularniejszyViewModel())),"pack://application:,,,/Views/Content/Icons/star-white.png",
+                new CommandViewModel("Najpopularniejszy",new BaseCommand(()=>createView(new NajpopularniejszyViewModel())),"pack://application:,,,/Views/Content/Icons/star-white.png",
                 "pack://application:,,,/Views/Content/Icons/star.png"),
             };
         }
@@ -527,7 +526,6 @@ namespace Firma.ViewModels
             }
             this.setActiveWorkspace(workspace);
         }
-
         private void setActiveWorkspace(WorkspaceViewModel workspace)
         {
             Debug.Assert(this.Workspaces.Contains(workspace));

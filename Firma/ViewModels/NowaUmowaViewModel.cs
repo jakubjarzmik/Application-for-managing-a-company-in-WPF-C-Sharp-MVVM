@@ -33,6 +33,7 @@ namespace Firma.ViewModels
         {
             Item = umowa;
             isEditing = true;
+            setAllFields();
             Messenger.Default.Register<UmowyStanowiska>(this, DisplayName, getSelectedStanowisko);
         }
         #endregion
@@ -63,8 +64,7 @@ namespace Firma.ViewModels
                 if(value != Item.RodzajUmowyId)
                 {
                     Item.RodzajUmowyId = value;
-                    NrUmowy = Db.UmowyRodzaje.Where(n => n.RodzajUmowyId == RodzajUmowyId).Select(n => n.Kod).FirstOrDefault() + DataZawarcia.ToString("yyMMddHHmmss");
-                    RodzajUmowyNazwa = Db.UmowyRodzaje.Where(n => n.RodzajUmowyId == RodzajUmowyId).Select(n => n.Nazwa).FirstOrDefault();
+                    setRodzajUmowyFields();
                     base.OnPropertyChanged(() => RodzajUmowyId);
                 }
             }
@@ -112,7 +112,7 @@ namespace Firma.ViewModels
                 if(value != Item.StanowiskoId)
                 {
                     Item.StanowiskoId = value;
-                    StanowiskoKodZawodu = Db.UmowyStanowiska.Where(n => n.StanowiskoId == StanowiskoId).Select(n => n.KodZawodu).FirstOrDefault();
+                    setStanowiskoFields();
                     base.OnPropertyChanged(() => StanowiskoId);
                 }
             }
@@ -332,6 +332,20 @@ namespace Firma.ViewModels
         private void getSelectedStanowisko(UmowyStanowiska stanowisko)
         {
             StanowiskoId = stanowisko.StanowiskoId;
+        }
+        private void setAllFields()
+        {
+            setRodzajUmowyFields();
+            setStanowiskoFields();
+        }
+        private void setRodzajUmowyFields()
+        {
+            NrUmowy = Db.UmowyRodzaje.Where(n => n.RodzajUmowyId == RodzajUmowyId).Select(n => n.Kod).FirstOrDefault() + DataZawarcia.ToString("yyMMddHHmmss");
+            RodzajUmowyNazwa = Db.UmowyRodzaje.Where(n => n.RodzajUmowyId == RodzajUmowyId).Select(n => n.Nazwa).FirstOrDefault();
+        }
+        private void setStanowiskoFields()
+        {
+            StanowiskoKodZawodu = Db.UmowyStanowiska.Where(n => n.StanowiskoId == StanowiskoId).Select(n => n.KodZawodu).FirstOrDefault();
         }
         #endregion
         #region Validation

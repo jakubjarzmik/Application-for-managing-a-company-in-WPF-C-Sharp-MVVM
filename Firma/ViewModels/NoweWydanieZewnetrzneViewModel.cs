@@ -34,6 +34,7 @@ namespace Firma.ViewModels
             Item = wydanieZewnetrzne;
             isEditing= true;
             IsEnabled = true;
+            setAllFields();
             Messenger.Default.Register<KontrahentForAllView>(this, DisplayName, getSelectedKontrahent);
         }
         #endregion
@@ -64,8 +65,7 @@ namespace Firma.ViewModels
                 if (value != Item.KontrahentId)
                 {
                     Item.KontrahentId = value;
-                    var kontrahent = Db.Kontrahenci.Where(n => n.KontrahentId == KontrahentId).FirstOrDefault();
-                    KontrahentPelnaNazwa = kontrahent.Nazwa1 + " " + kontrahent.Nazwa2 + " " + kontrahent.Nazwa3;
+                    setKontrahentFields();
                     base.OnPropertyChanged(() => KontrahentId);
                 }
             }
@@ -114,7 +114,7 @@ namespace Firma.ViewModels
                 if (value != Item.MagazynId)
                 {
                     Item.MagazynId = value;
-                    MagazynNazwa = Db.Magazyny.Where(n => n.MagazynId == MagazynId).Select(n => n.Nazwa).FirstOrDefault();
+                    setMagazynFields();
                     base.OnPropertyChanged(() => MagazynId);
                 }
             }
@@ -287,6 +287,20 @@ namespace Firma.ViewModels
         private void getSelectedKontrahent(KontrahentForAllView kontrahentForAllView)
         {
             KontrahentId = kontrahentForAllView.KontrahentId;
+        }
+        private void setAllFields()
+        {
+            setKontrahentFields();
+            setMagazynFields();
+        }
+        private void setKontrahentFields()
+        {
+            var kontrahent = Db.Kontrahenci.Where(n => n.KontrahentId == KontrahentId).FirstOrDefault();
+            KontrahentPelnaNazwa = kontrahent.Nazwa1 + " " + kontrahent.Nazwa2 + " " + kontrahent.Nazwa3;
+        }
+        private void setMagazynFields()
+        {
+            MagazynNazwa = Db.Magazyny.Where(n => n.MagazynId == MagazynId).Select(n => n.Nazwa).FirstOrDefault();
         }
         #endregion
         #region Validation

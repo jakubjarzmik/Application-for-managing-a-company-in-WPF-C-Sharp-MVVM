@@ -18,6 +18,15 @@ namespace Firma.ViewModels
 {
     public class NowyKontrahentViewModel : JedenViewModel<Kontrahenci>, IDataErrorInfo
     {
+        #region Commands
+        public ICommand ClearKorCommand
+        {
+            get
+            {
+                return new BaseCommand(() => ClearKor());
+            }
+        }
+        #endregion
         #region Konstruktor
         public NowyKontrahentViewModel()
             : base("Nowy kontrahent")
@@ -32,6 +41,7 @@ namespace Firma.ViewModels
             Item = kontrahent;
             isEditing = true;
             IsEnabled = true;
+            setAllFields();
             setMessengers();
         }
         private void setMessengers()
@@ -41,7 +51,7 @@ namespace Firma.ViewModels
         }
         #endregion
         #region Properties
-        
+
         public string Kod
         {
             get
@@ -204,8 +214,7 @@ namespace Firma.ViewModels
                 if (value != Item.JednostkaPodlegaPodId)
                 {
                     Item.JednostkaPodlegaPodId = value;
-                    var kontrahent = Db.Kontrahenci.Where(n => n.KontrahentId == JednostkaPodlegaPodId).FirstOrDefault();
-                    JednostkaPodlegaPodNazwa = kontrahent.Nazwa1 + " " + kontrahent.Nazwa2 + " " + kontrahent.Nazwa3;
+                    setJednostkaPodlegaPodFields();
                     base.OnPropertyChanged(() => JednostkaPodlegaPodId);
                 }
             }
@@ -268,15 +277,7 @@ namespace Firma.ViewModels
                 if (value != Item.AdresId)
                 {
                     Item.AdresId = value;
-                    var adres = Db.Adresy.Where(n => n.AdresId == AdresId).FirstOrDefault();
-                    Ulica = adres.Ulica;
-                    NrDomu = adres.NrDomu;
-                    NrLokalu = adres.NrLokalu;
-                    KodPocztowy = adres.KodPocztowy;
-                    Miejscowosc = adres.Miejscowosc;
-                    Wojewodztwo = adres.Wojewodztwo;
-                    Kraj = Db.Kraje.Where(n => n.KrajId == adres.KrajId).Select(n => n.Nazwa).FirstOrDefault();
-                    Dodatkowe = adres.Dodatkowe;
+                    setAdresFields();
                     base.OnPropertyChanged(() => AdresId);
                 }
             }
@@ -428,17 +429,6 @@ namespace Firma.ViewModels
                 }
             }
         }
-        public ICommand ClearKorCommand
-        {
-            get
-            {
-                return new BaseCommand(() => ClearKor());
-            }
-        }
-        private void ClearKor()
-        {
-            AdresKorId = null;
-        }
         public int? AdresKorId
         {
             get
@@ -450,28 +440,12 @@ namespace Firma.ViewModels
                 if (value == null)
                 {
                     Item.AdresKorId = value;
-                    UlicaKor = "";
-                    NrDomuKor = "";
-                    NrLokaluKor = "";
-                    KodPocztowyKor = "";
-                    MiejscowoscKor = "";
-                    WojewodztwoKor = "";
-                    KrajKor = "";
-                    DodatkoweKor = "";
                     base.OnPropertyChanged(() => AdresKorId);
                 }
                 else if (value != Item.AdresKorId)
                 {
                     Item.AdresKorId = value;
-                    var adres = Db.Adresy.Where(n => n.AdresId == AdresKorId).FirstOrDefault();
-                    UlicaKor = adres.Ulica;
-                    NrDomuKor = adres.NrDomu;
-                    NrLokaluKor = adres.NrLokalu;
-                    KodPocztowyKor = adres.KodPocztowy;
-                    MiejscowoscKor = adres.Miejscowosc;
-                    WojewodztwoKor = adres.Wojewodztwo;
-                    KrajKor = Db.Kraje.Where(n => n.KrajId == adres.KrajId).Select(n => n.Nazwa).FirstOrDefault();
-                    DodatkoweKor = adres.Dodatkowe;
+                    setAdresKorFields();
                     base.OnPropertyChanged(() => AdresKorId);
                 }
             }
@@ -716,6 +690,64 @@ namespace Firma.ViewModels
                 AdresId = adresAndIsKor.AdresForAllView.AdresId;
             else
                 AdresKorId = adresAndIsKor.AdresForAllView.AdresId;
+        }
+        private void ClearKor()
+        {
+            AdresKorId = null;
+            UlicaKor = "";
+            NrDomuKor = "";
+            NrLokaluKor = "";
+            KodPocztowyKor = "";
+            MiejscowoscKor = "";
+            WojewodztwoKor = "";
+            KrajKor = "";
+            DodatkoweKor = "";
+        }
+        private void setAllFields()
+        {
+            setJednostkaPodlegaPodFields();
+            setAdresFields();
+            setAdresKorFields();
+        }
+        private void setJednostkaPodlegaPodFields()
+        {
+            try
+            {
+                var kontrahent = Db.Kontrahenci.Where(n => n.KontrahentId == JednostkaPodlegaPodId).FirstOrDefault();
+                if (kontrahent != null)
+                    JednostkaPodlegaPodNazwa = kontrahent.Nazwa1 + " " + kontrahent.Nazwa2 + " " + kontrahent.Nazwa3;
+            }
+            catch (Exception) { }
+        }
+        private void setAdresFields()
+        {
+            var adres = Db.Adresy.Where(n => n.AdresId == AdresId).FirstOrDefault();
+            if (adres != null)
+            {
+                Ulica = adres.Ulica;
+                NrDomu = adres.NrDomu;
+                NrLokalu = adres.NrLokalu;
+                KodPocztowy = adres.KodPocztowy;
+                Miejscowosc = adres.Miejscowosc;
+                Wojewodztwo = adres.Wojewodztwo;
+                Kraj = Db.Kraje.Where(n => n.KrajId == adres.KrajId).Select(n => n.Nazwa).FirstOrDefault();
+                Dodatkowe = adres.Dodatkowe;
+            }
+        }
+        private void setAdresKorFields()
+        {
+            var adres = Db.Adresy.Where(n => n.AdresId == AdresKorId).FirstOrDefault();
+            if (adres != null)
+            {
+                UlicaKor = adres.Ulica;
+                NrDomuKor = adres.NrDomu;
+                NrLokaluKor = adres.NrLokalu;
+                KodPocztowyKor = adres.KodPocztowy;
+                MiejscowoscKor = adres.Miejscowosc;
+                WojewodztwoKor = adres.Wojewodztwo;
+                KrajKor = Db.Kraje.Where(n => n.KrajId == adres.KrajId).Select(n => n.Nazwa).FirstOrDefault();
+                DodatkoweKor = adres.Dodatkowe;
+            }
         }
         #endregion
         #region Validation

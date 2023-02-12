@@ -16,6 +16,15 @@ namespace Firma.ViewModels
 {
     public class NowyMagazynViewModel : JedenViewModel<Magazyny>, IDataErrorInfo
     {
+        #region Commands
+        public ICommand ClearAdresCommand
+        {
+            get
+            {
+                return new BaseCommand(() => ClearAdres());
+            }
+        }
+        #endregion
         #region Konstruktor
         public NowyMagazynViewModel() : base("Nowy magazyn")
         {
@@ -26,6 +35,7 @@ namespace Firma.ViewModels
         {
             Item = magazyn;
             isEditing = true;
+            setAllFields();
             Messenger.Default.Register<AdresAndIsKor>(this, DisplayName, getSelectedAdres);
         }
         #endregion
@@ -121,17 +131,6 @@ namespace Firma.ViewModels
                 }
             }
         }
-        public ICommand ClearAdresCommand
-        {
-            get
-            {
-                return new BaseCommand(() => ClearAdres());
-            }
-        }
-        private void ClearAdres()
-        {
-            AdresId = null;
-        }
         public int? AdresId
         {
             get
@@ -143,28 +142,12 @@ namespace Firma.ViewModels
                 if (value == null)
                 {
                     Item.AdresId = value;
-                    Ulica = "";
-                    NrDomu = "";
-                    NrLokalu = "";
-                    KodPocztowy = "";
-                    Miejscowosc = "";
-                    Wojewodztwo = "";
-                    Kraj = "";
-                    Dodatkowe = "";
                     base.OnPropertyChanged(() => AdresId);
                 }
                 else if (value != Item.AdresId)
                 {
                     Item.AdresId = value;
-                    var adres = Db.Adresy.Where(n => n.AdresId == AdresId).FirstOrDefault();
-                    Ulica = adres.Ulica;
-                    NrDomu = adres.NrDomu;
-                    NrLokalu = adres.NrLokalu;
-                    KodPocztowy = adres.KodPocztowy;
-                    Miejscowosc = adres.Miejscowosc;
-                    Wojewodztwo = adres.Wojewodztwo;
-                    Kraj = Db.Kraje.Where(n => n.KrajId == adres.KrajId).Select(n => n.Nazwa).FirstOrDefault();
-                    Dodatkowe = adres.Dodatkowe;
+                    setAdresFields();
                     base.OnPropertyChanged(() => AdresId);
                 }
             }
@@ -335,6 +318,37 @@ namespace Firma.ViewModels
         private void getSelectedAdres(AdresAndIsKor adresAndIsKor)
         {
             AdresId = adresAndIsKor.AdresForAllView.AdresId;
+        }
+        private void ClearAdres()
+        {
+            AdresId = null;
+            Ulica = "";
+            NrDomu = "";
+            NrLokalu = "";
+            KodPocztowy = "";
+            Miejscowosc = "";
+            Wojewodztwo = "";
+            Kraj = "";
+            Dodatkowe = "";
+        }
+        private void setAllFields()
+        {
+            setAdresFields();
+        }
+        private void setAdresFields()
+        {
+            var adres = Db.Adresy.Where(n => n.AdresId == AdresId).FirstOrDefault();
+            if (adres != null)
+            {
+                Ulica = adres.Ulica;
+                NrDomu = adres.NrDomu;
+                NrLokalu = adres.NrLokalu;
+                KodPocztowy = adres.KodPocztowy;
+                Miejscowosc = adres.Miejscowosc;
+                Wojewodztwo = adres.Wojewodztwo;
+                Kraj = Db.Kraje.Where(n => n.KrajId == adres.KrajId).Select(n => n.Nazwa).FirstOrDefault();
+                Dodatkowe = adres.Dodatkowe;
+            }
         }
         #endregion
         #region Validation

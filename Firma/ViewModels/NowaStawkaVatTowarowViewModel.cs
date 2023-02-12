@@ -25,6 +25,7 @@ namespace Firma.ViewModels
         {
             Item = stawkaVat;
             isEditing = true;
+            setAllFields();
             Messenger.Default.Register<Kraje>(this, DisplayName, getSelectedKraj);
         }
         #endregion
@@ -40,7 +41,7 @@ namespace Firma.ViewModels
                 if(value != Item.KrajId)
                 {
                     Item.KrajId = value;
-                    KrajNazwa = Db.Kraje.Where(n => n.KrajId == KrajId).Select(n => n.Nazwa).FirstOrDefault();
+                    setKrajFields();
                     base.OnPropertyChanged(() => KrajId);
                 }
             }
@@ -124,6 +125,14 @@ namespace Firma.ViewModels
         private void getSelectedKraj(Kraje kraj)
         {
             KrajId = kraj.KrajId;
+        }
+        private void setAllFields()
+        {
+            setKrajFields();
+        }
+        private void setKrajFields()
+        {
+            KrajNazwa = Db.Kraje.Where(n => n.KrajId == KrajId).Select(n => n.Nazwa).FirstOrDefault();
         }
         #endregion
         #region Validation

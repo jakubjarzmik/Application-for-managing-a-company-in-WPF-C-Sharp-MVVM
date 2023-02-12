@@ -29,6 +29,7 @@ namespace Firma.ViewModels
             Item = towar;
             isEditing = true;
             IsEnabled = true;
+            setAllFields();
             setMessengers();
         }
         private void setMessengers()
@@ -266,7 +267,7 @@ namespace Firma.ViewModels
                 if (value != Item.KrajPochodzeniaId)
                 {
                     Item.KrajPochodzeniaId = value;
-                    KrajPochodzeniaNazwa = Db.Kraje.Where(n => n.KrajId == KrajPochodzeniaId).Select(n => n.Nazwa).FirstOrDefault();
+                    setKrajPochodzeniaFields();
                     base.OnPropertyChanged(() => KrajPochodzeniaId);
                 }
             }
@@ -315,7 +316,7 @@ namespace Firma.ViewModels
                 if (value != Item.DomJednMiaryId)
                 {
                     Item.DomJednMiaryId = value;
-                    DomJednMiaryNazwa = Db.JednostkiMiary.Where(n => n.JednostkaId == DomJednMiaryId).Select(n => n.Nazwa).FirstOrDefault();
+                    setDomJednostkaMiaryFields();
                     base.OnPropertyChanged(() => DomJednMiaryId);
                 }
             }
@@ -364,8 +365,7 @@ namespace Firma.ViewModels
                 if (value != Item.ProducentId)
                 {
                     Item.ProducentId = value;
-                    var kontrahent = Db.Kontrahenci.Where(n => n.KontrahentId == ProducentId).FirstOrDefault();
-                    ProducentPelnaNazwa = kontrahent.Nazwa1 + " " + kontrahent.Nazwa2 + " " + kontrahent.Nazwa3;
+                    setProducentFields();
                     base.OnPropertyChanged(() => ProducentId);
                 }
             }
@@ -570,6 +570,25 @@ namespace Firma.ViewModels
         private void getSelectedKontrahent(KontrahentForAllView kontrahentForAllView)
         {
            ProducentId = kontrahentForAllView.KontrahentId;
+        }
+        private void setAllFields()
+        {
+            setKrajPochodzeniaFields();
+            setDomJednostkaMiaryFields();
+            setProducentFields();
+        }
+        private void setKrajPochodzeniaFields()
+        {
+            KrajPochodzeniaNazwa = Db.Kraje.Where(n => n.KrajId == KrajPochodzeniaId).Select(n => n.Nazwa).FirstOrDefault();
+        }
+        private void setDomJednostkaMiaryFields()
+        {
+            DomJednMiaryNazwa = Db.JednostkiMiary.Where(n => n.JednostkaId == DomJednMiaryId).Select(n => n.Nazwa).FirstOrDefault();
+        }
+        private void setProducentFields()
+        {
+            var kontrahent = Db.Kontrahenci.Where(n => n.KontrahentId == ProducentId).FirstOrDefault();
+            ProducentPelnaNazwa = kontrahent.Nazwa1 + " " + kontrahent.Nazwa2 + " " + kontrahent.Nazwa3;
         }
         #endregion
         #region Validation

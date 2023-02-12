@@ -34,6 +34,7 @@ namespace Firma.ViewModels
             Item = fakturaWZ;
             isEditing= true;
             IsEnabled= false;
+            setAllFields();
             setMessengers();
         }
         private void setMessengers()
@@ -54,12 +55,7 @@ namespace Firma.ViewModels
                 if(value != Item.FakturaId)
                 {
                     Item.FakturaId = value;
-                    var faktura = Db.Faktury.Where(n => n.FakturaId == FakturaId).FirstOrDefault();
-                    var kontrahent = Db.Kontrahenci.Where(n=>n.KontrahentId == faktura.KontrahentId).FirstOrDefault();
-                    FakturaKontrahentNazwa = kontrahent.Nazwa1 + " " + kontrahent.Nazwa2 + " " + kontrahent.Nazwa3;
-                    FakturaDataWystawienia = faktura.DataWystawienia;
-                    var rodzajPlatnosci = Db.RodzajePlatnosci.Where(n => n.RodzajPlatnosciId == faktura.RodzajePlatnosciId).FirstOrDefault();
-                    FakturaRodzajPlatnosci = rodzajPlatnosci.Nazwa;
+                    setFakturaFields();
                     base.OnPropertyChanged(() => FakturaId);
                 }
             }
@@ -139,9 +135,7 @@ namespace Firma.ViewModels
                 if(value != Item.WydanieZewnetrzneId)
                 {
                     Item.WydanieZewnetrzneId = value;
-                    var wz = Db.WydaniaZewnetrzne.Where(n => n.WydanieZewnetrzneId == WydanieZewnetrzneId).FirstOrDefault();
-                    WZMagazyn = Db.Magazyny.Where(n => n.MagazynId == wz.MagazynId).Select(n => n.Nazwa).FirstOrDefault();
-                    WZDataWydania = wz.DataWydania;
+                    setWydanieZewnetrzneFields();
                     base.OnPropertyChanged(() => WydanieZewnetrzneId);
                 }
             }
@@ -213,6 +207,26 @@ namespace Firma.ViewModels
         private void getSelectedWydanieZewnetrzne(WydanieZewnetrzneForAllView wz)
         {
             WydanieZewnetrzneId = wz.WydanieZewnetrzneId;
+        }
+        private void setAllFields()
+        {
+            setFakturaFields();
+            setWydanieZewnetrzneFields();
+        }
+        private void setFakturaFields()
+        {
+            var faktura = Db.Faktury.Where(n => n.FakturaId == FakturaId).FirstOrDefault();
+            var kontrahent = Db.Kontrahenci.Where(n => n.KontrahentId == faktura.KontrahentId).FirstOrDefault();
+            FakturaKontrahentNazwa = kontrahent.Nazwa1 + " " + kontrahent.Nazwa2 + " " + kontrahent.Nazwa3;
+            FakturaDataWystawienia = faktura.DataWystawienia;
+            var rodzajPlatnosci = Db.RodzajePlatnosci.Where(n => n.RodzajPlatnosciId == faktura.RodzajePlatnosciId).FirstOrDefault();
+            FakturaRodzajPlatnosci = rodzajPlatnosci.Nazwa;
+        }
+        private void setWydanieZewnetrzneFields()
+        {
+            var wz = Db.WydaniaZewnetrzne.Where(n => n.WydanieZewnetrzneId == WydanieZewnetrzneId).FirstOrDefault();
+            WZMagazyn = Db.Magazyny.Where(n => n.MagazynId == wz.MagazynId).Select(n => n.Nazwa).FirstOrDefault();
+            WZDataWydania = wz.DataWydania;
         }
         #endregion
         #region Validation

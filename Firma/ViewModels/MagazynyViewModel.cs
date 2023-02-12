@@ -28,6 +28,7 @@ namespace Firma.ViewModels
                     where magazyn.CzyAktywny == true
                     select new MagazynForAllView
                     {
+                        MagazynId = magazyn.MagazynId,
                         Symbol = magazyn.Symbol,
                         Nazwa = magazyn.Nazwa,
                         Opis = magazyn.Opis,

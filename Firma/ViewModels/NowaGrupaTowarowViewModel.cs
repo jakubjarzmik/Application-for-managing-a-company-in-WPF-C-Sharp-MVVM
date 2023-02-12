@@ -26,6 +26,7 @@ namespace Firma.ViewModels
         {
             Item = grupaTowaru;
             isEditing = true;
+            setAllFields();
             Messenger.Default.Register<GrupaTowaruForAllView>(this, DisplayName, getSelectedGrupa);
         }
         #endregion
@@ -71,7 +72,7 @@ namespace Firma.ViewModels
                 if (value != Item.GrupaNadrzednaId)
                 {
                     Item.GrupaNadrzednaId = value;
-                    GrupaNadrzednaNazwa = Db.TowaryGrupy.Where(n => n.GrupaTowaruId == GrupaNadrzednaId).Select(n => n.Nazwa).FirstOrDefault();
+                    setGrupaNadrzednaFields();
                     base.OnPropertyChanged(() => GrupaNadrzednaId);
                 }
             }
@@ -157,6 +158,14 @@ namespace Firma.ViewModels
         private void getSelectedGrupa(GrupaTowaruForAllView grupaTowaruForAllView)
         {
             GrupaNadrzednaId = grupaTowaruForAllView.GrupaTowaruId;
+        }
+        private void setAllFields()
+        {
+            setGrupaNadrzednaFields();
+        }
+        private void setGrupaNadrzednaFields()
+        {
+            GrupaNadrzednaNazwa = Db.TowaryGrupy.Where(n => n.GrupaTowaruId == GrupaNadrzednaId).Select(n => n.Nazwa).FirstOrDefault();
         }
         #endregion
         #region Validation

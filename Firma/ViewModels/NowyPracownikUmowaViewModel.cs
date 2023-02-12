@@ -34,6 +34,7 @@ namespace Firma.ViewModels
             Item = pracownikUmowa;
             isEditing = true;
             IsEnabled = false;
+            setAllFields();
             setMessengers();
         }
         private void setMessengers()
@@ -54,14 +55,7 @@ namespace Firma.ViewModels
                 if (value != Item.PracownikId)
                 {
                     Item.PracownikId = value;
-                    var pracownik = Db.Pracownicy.Where(n => n.PracownikId == PracownikId).FirstOrDefault();
-                    var adres = Db.Adresy.Where(n => n.AdresId == pracownik.AdresId).FirstOrDefault();
-                    PracownikAdres = adres.Ulica + " " + adres.NrDomu + (adres.NrLokalu.Equals("") ? "" : "/" + adres.NrLokalu) +
-                        ", " + adres.KodPocztowy + " " + adres.Miejscowosc;
-                    PracownikPESEL = pracownik.PESEL;
-                    PracownikDataMiejsceUr = pracownik.DataUrodzenia + ", " + pracownik.MiejsceUrodzenia;
-                    PracownikTelefon = pracownik.Telefon;
-                    PracownikEmail = pracownik.Email;
+                    setPracownikFields();
                     base.OnPropertyChanged(() => PracownikId);
                 }
             }
@@ -174,16 +168,7 @@ namespace Firma.ViewModels
                 if (value != Item.UmowaId)
                 {
                     Item.UmowaId = value;
-                    var umowa = Db.Umowy.Where(n => n.UmowaId == UmowaId).FirstOrDefault();
-                    var rodzaj = Db.UmowyRodzaje.Where(n => n.RodzajUmowyId == umowa.RodzajUmowyId).FirstOrDefault();
-                    UmowaRodzajNazwa = rodzaj.Nazwa;
-                    var stanowisko = Db.UmowyStanowiska.Where(n => n.StanowiskoId == umowa.StanowiskoId).FirstOrDefault();
-                    UmowaStanowisko = stanowisko.Nazwa;
-                    UmowaDataZawarcia = umowa.DataZawarcia;
-                    UmowaDataOd = umowa.DataOd;
-                    UmowaDataDo = umowa.DataDo;
-                    UmowaCzasPracyMies = umowa.CzasPracyMies;
-                    UmowaWartosc = umowa.StawkaBruttoMies + umowa.StawkaBruttoGodz * umowa.CzasPracyMies;
+                    setUmowaFields();
                     base.OnPropertyChanged(() => UmowaId);
                 }
             }
@@ -335,6 +320,35 @@ namespace Firma.ViewModels
         private void getSelectedUmowa(UmowaForAllView umowa)
         {
             UmowaId = umowa.UmowaId;
+        }
+        private void setAllFields()
+        {
+            setPracownikFields();
+            setUmowaFields();
+        }
+        private void setPracownikFields()
+        {
+            var pracownik = Db.Pracownicy.Where(n => n.PracownikId == PracownikId).FirstOrDefault();
+            var adres = Db.Adresy.Where(n => n.AdresId == pracownik.AdresId).FirstOrDefault();
+            PracownikAdres = adres.Ulica + " " + adres.NrDomu + (adres.NrLokalu.Equals("") ? "" : "/" + adres.NrLokalu) +
+                ", " + adres.KodPocztowy + " " + adres.Miejscowosc;
+            PracownikPESEL = pracownik.PESEL;
+            PracownikDataMiejsceUr = pracownik.DataUrodzenia + ", " + pracownik.MiejsceUrodzenia;
+            PracownikTelefon = pracownik.Telefon;
+            PracownikEmail = pracownik.Email;
+        }
+        private void setUmowaFields()
+        {
+            var umowa = Db.Umowy.Where(n => n.UmowaId == UmowaId).FirstOrDefault();
+            var rodzaj = Db.UmowyRodzaje.Where(n => n.RodzajUmowyId == umowa.RodzajUmowyId).FirstOrDefault();
+            UmowaRodzajNazwa = rodzaj.Nazwa;
+            var stanowisko = Db.UmowyStanowiska.Where(n => n.StanowiskoId == umowa.StanowiskoId).FirstOrDefault();
+            UmowaStanowisko = stanowisko.Nazwa;
+            UmowaDataZawarcia = umowa.DataZawarcia;
+            UmowaDataOd = umowa.DataOd;
+            UmowaDataDo = umowa.DataDo;
+            UmowaCzasPracyMies = umowa.CzasPracyMies;
+            UmowaWartosc = umowa.StawkaBruttoMies + umowa.StawkaBruttoGodz * umowa.CzasPracyMies;
         }
         #endregion
         #region Validation

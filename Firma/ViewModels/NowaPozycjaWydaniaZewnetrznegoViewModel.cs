@@ -34,12 +34,14 @@ namespace Firma.ViewModels
             Item = pozycjaWZ;
             isEditing= true;
             IsEnabled= false;
+            setAllFields();
             setMessengers();
         }
         private void setMessengers()
         {
             Messenger.Default.Register<WydanieZewnetrzneForAllView>(this, DisplayName, getSelectedWydanieZewnetrzne);
             Messenger.Default.Register<TowarForAllView>(this, DisplayName, getSelectedTowar);
+            Messenger.Default.Register<JednostkiMiary>(this, DisplayName, getSelectedJednMiary);
         }
         #endregion
         #region Properties
@@ -54,13 +56,7 @@ namespace Firma.ViewModels
                 if(value != Item.WydanieZewnetrzneId)
                 {
                     Item.WydanieZewnetrzneId = value;
-                    var wydanieZewnetrzne = Db.WydaniaZewnetrzne.Where(n => n.WydanieZewnetrzneId == WydanieZewnetrzneId).FirstOrDefault();
-                    var kontrahent = Db.Kontrahenci.Where(n=>n.KontrahentId == wydanieZewnetrzne.KontrahentId).FirstOrDefault();
-                    WZKontrahentNazwa = kontrahent.Nazwa1 + " " + kontrahent.Nazwa2 + " " + kontrahent.Nazwa3;
-                    var magazyn = Db.Magazyny.Where(n => n.MagazynId == wydanieZewnetrzne.MagazynId).FirstOrDefault();
-                    WZMagazynNazwa = magazyn.Nazwa;
-                    WZDataWydania = wydanieZewnetrzne.DataWydania;
-                    WZRabat = wydanieZewnetrzne.Rabat;
+                    setWydanieZewnetrzneFields();
                     base.OnPropertyChanged(() => WydanieZewnetrzneId);
                 }
             }
@@ -156,15 +152,7 @@ namespace Firma.ViewModels
                 if(value != Item.TowarId)
                 {
                     Item.TowarId = value;
-                    var towar = Db.Towary.Where(n=>n.TowarId==TowarId).FirstOrDefault();
-                    TowarNumerKatalogowy = towar.NumerKatalogowy;
-                    TowarNazwa = towar.Nazwa;
-                    var grupaTowaru = Db.TowaryGrupy.Where(n=>n.GrupaTowaruId == towar.GrupaTowaruId).FirstOrDefault();
-                    TowarGrupaNazwa = grupaTowaru.Nazwa;
-                    var producent = Db.Kontrahenci.Where(n=>n.KontrahentId == towar.ProducentId).FirstOrDefault();
-                    TowarProducentNazwa = producent.Nazwa1 + " " + producent.Nazwa2 + " " + producent.Nazwa3;
-                    var jednMiary = Db.JednostkiMiary.Where(n=>n.JednostkaId == towar.DomJednMiaryId).FirstOrDefault();
-                    TowarDomJednMiaryNazwa = jednMiary.Nazwa;
+                    setTowarFields();
                     base.OnPropertyChanged(() => TowarId);
                 }
             }
@@ -276,7 +264,7 @@ namespace Firma.ViewModels
                 if (value != Item.JednMiaryId)
                 {
                     Item.JednMiaryId = value;
-                    JednMiaryNazwa = Db.JednostkiMiary.Where(n=>n.JednostkaId == JednMiaryId).Select(n=>n.Nazwa).FirstOrDefault();
+                    setJednostkiMiaryFields();
                     base.OnPropertyChanged(() => JednMiaryId);
                 }
             }
@@ -366,6 +354,38 @@ namespace Firma.ViewModels
         private void getSelectedJednMiary(JednostkiMiary jednMiary)
         {
             JednMiaryId = jednMiary.JednostkaId;
+        }
+        private void setAllFields()
+        {
+            setWydanieZewnetrzneFields();
+            setTowarFields();
+            setJednostkiMiaryFields();
+        }
+        private void setWydanieZewnetrzneFields()
+        {
+            var wydanieZewnetrzne = Db.WydaniaZewnetrzne.Where(n => n.WydanieZewnetrzneId == WydanieZewnetrzneId).FirstOrDefault();
+            var kontrahent = Db.Kontrahenci.Where(n => n.KontrahentId == wydanieZewnetrzne.KontrahentId).FirstOrDefault();
+            WZKontrahentNazwa = kontrahent.Nazwa1 + " " + kontrahent.Nazwa2 + " " + kontrahent.Nazwa3;
+            var magazyn = Db.Magazyny.Where(n => n.MagazynId == wydanieZewnetrzne.MagazynId).FirstOrDefault();
+            WZMagazynNazwa = magazyn.Nazwa;
+            WZDataWydania = wydanieZewnetrzne.DataWydania;
+            WZRabat = wydanieZewnetrzne.Rabat;
+        }
+        private void setTowarFields()
+        {
+            var towar = Db.Towary.Where(n => n.TowarId == TowarId).FirstOrDefault();
+            TowarNumerKatalogowy = towar.NumerKatalogowy;
+            TowarNazwa = towar.Nazwa;
+            var grupaTowaru = Db.TowaryGrupy.Where(n => n.GrupaTowaruId == towar.GrupaTowaruId).FirstOrDefault();
+            TowarGrupaNazwa = grupaTowaru.Nazwa;
+            var producent = Db.Kontrahenci.Where(n => n.KontrahentId == towar.ProducentId).FirstOrDefault();
+            TowarProducentNazwa = producent.Nazwa1 + " " + producent.Nazwa2 + " " + producent.Nazwa3;
+            var jednMiary = Db.JednostkiMiary.Where(n => n.JednostkaId == towar.DomJednMiaryId).FirstOrDefault();
+            TowarDomJednMiaryNazwa = jednMiary.Nazwa;
+        }
+        private void setJednostkiMiaryFields()
+        {
+            JednMiaryNazwa = Db.JednostkiMiary.Where(n => n.JednostkaId == JednMiaryId).Select(n => n.Nazwa).FirstOrDefault();
         }
         #endregion
         #region Validation

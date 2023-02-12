@@ -33,6 +33,7 @@ namespace Firma.ViewModels
             Item = pracownik;
             isEditing = true;
             IsEnabled = true;
+            setAllFields();
             Messenger.Default.Register<AdresAndIsKor>(this, DisplayName, getSelectedAdres);
         }
         #endregion
@@ -67,7 +68,8 @@ namespace Firma.ViewModels
                     try
                     {
                         akronimArr[0] = Imie[0];
-                    }catch(IndexOutOfRangeException)
+                    }
+                    catch (IndexOutOfRangeException)
                     {
                         akronimArr[0] = ' ';
                     }
@@ -84,7 +86,7 @@ namespace Firma.ViewModels
             }
             set
             {
-                if(value != Item.DrugieImie)
+                if (value != Item.DrugieImie)
                 {
                     Item.DrugieImie = value;
                     base.OnPropertyChanged(() => DrugieImie);
@@ -99,7 +101,7 @@ namespace Firma.ViewModels
             }
             set
             {
-                if(value != Item.Nazwisko)
+                if (value != Item.Nazwisko)
                 {
                     Item.Nazwisko = value;
                     var akronimArr = Akronim.ToCharArray();
@@ -124,7 +126,7 @@ namespace Firma.ViewModels
             }
             set
             {
-                if(value != Item.NazwiskoRodowe)
+                if (value != Item.NazwiskoRodowe)
                 {
                     Item.NazwiskoRodowe = value;
                     base.OnPropertyChanged(() => NazwiskoRodowe);
@@ -139,7 +141,7 @@ namespace Firma.ViewModels
             }
             set
             {
-                if(value != Item.PESEL)
+                if (value != Item.PESEL)
                 {
                     Item.PESEL = value;
                     base.OnPropertyChanged(() => PESEL);
@@ -154,7 +156,7 @@ namespace Firma.ViewModels
             }
             set
             {
-                if(value != Item.Nip)
+                if (value != Item.Nip)
                 {
                     Item.Nip = value;
                     base.OnPropertyChanged(() => Nip);
@@ -169,7 +171,7 @@ namespace Firma.ViewModels
             }
             set
             {
-                if(value != Item.DataUrodzenia)
+                if (value != Item.DataUrodzenia)
                 {
                     Item.DataUrodzenia = value;
                     base.OnPropertyChanged(() => DataUrodzenia);
@@ -292,15 +294,7 @@ namespace Firma.ViewModels
                 if (value != Item.AdresId)
                 {
                     Item.AdresId = value;
-                    var adres = Db.Adresy.Where(n => n.AdresId == AdresId).FirstOrDefault();
-                    Ulica = adres.Ulica;
-                    NrDomu = adres.NrDomu;
-                    NrLokalu = adres.NrLokalu;
-                    KodPocztowy = adres.KodPocztowy;
-                    Miejscowosc = adres.Miejscowosc;
-                    Wojewodztwo = adres.Wojewodztwo;
-                    Kraj = Db.Kraje.Where(n => n.KrajId == adres.KrajId).Select(n => n.Nazwa).FirstOrDefault();
-                    Dodatkowe = adres.Dodatkowe;
+                    setAdresFields();
                     base.OnPropertyChanged(() => AdresId);
                 }
             }
@@ -562,6 +556,25 @@ namespace Firma.ViewModels
         private void getSelectedAdres(AdresAndIsKor adresAndIsKor)
         {
             AdresId = adresAndIsKor.AdresForAllView.AdresId;
+        }
+        private void setAllFields() 
+        { 
+            setAdresFields();
+        }
+        private void setAdresFields()
+        {
+            var adres = Db.Adresy.Where(n => n.AdresId == AdresId).FirstOrDefault();
+            if (adres != null)
+            {
+                Ulica = adres.Ulica;
+                NrDomu = adres.NrDomu;
+                NrLokalu = adres.NrLokalu;
+                KodPocztowy = adres.KodPocztowy;
+                Miejscowosc = adres.Miejscowosc;
+                Wojewodztwo = adres.Wojewodztwo;
+                Kraj = Db.Kraje.Where(n => n.KrajId == adres.KrajId).Select(n => n.Nazwa).FirstOrDefault();
+                Dodatkowe = adres.Dodatkowe;
+            }
         }
         #endregion
         #region Validation

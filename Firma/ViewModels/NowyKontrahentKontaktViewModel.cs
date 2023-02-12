@@ -34,6 +34,7 @@ namespace Firma.ViewModels
             Item = kontrahentKontakt;
             isEditing = true;
             IsEnabled = false;
+            setAllFields();
             setMessengers();
         }
         private void setMessengers()
@@ -54,12 +55,7 @@ namespace Firma.ViewModels
                 if (value != Item.KontrahentId)
                 {
                     Item.KontrahentId = value;
-                    var kontrahent = Db.Kontrahenci.Where(n => n.KontrahentId == KontrahentId).FirstOrDefault();
-                    KontrahentNazwa = kontrahent.Nazwa1 + " " + kontrahent.Nazwa2 + " " + kontrahent.Nazwa3;
-                    KontrahentNIP = kontrahent.Nip;
-                    var adres = Db.Adresy.Where(n => n.AdresId == kontrahent.AdresId).FirstOrDefault();
-                    KontrahentAdres = adres.Ulica + " " + adres.NrDomu + (adres.NrLokalu.Equals("") ? "" : "/" + adres.NrLokalu) +
-                        ", " + adres.KodPocztowy + " " + adres.Miejscowosc;
+                    setKontrahentFields();
                     base.OnPropertyChanged(() => KontrahentId);
                 }
             }
@@ -139,12 +135,7 @@ namespace Firma.ViewModels
                 if (value != Item.KontaktId)
                 {
                     Item.KontaktId = value;
-                    var kontakt = Db.Kontakty.Where(n => n.KontaktId == KontaktId).FirstOrDefault();
-                    KontaktNazwaDzialu = kontakt.NazwaDzialu;
-                    KontaktTelefon1= kontakt.Telefon1;
-                    KontaktTelefon2 = kontakt.Telefon2;
-                    KontaktEmail1= kontakt.Email1;
-                    KontaktEmail2= kontakt.Email2;
+                    setKontaktFields();
                     base.OnPropertyChanged(() => KontaktId);
                 }
             }
@@ -264,6 +255,29 @@ namespace Firma.ViewModels
         private void getSelectedKontakt(Kontakty kontakt)
         {
             KontaktId = kontakt.KontaktId;
+        }
+        private void setAllFields()
+        {
+            setKontrahentFields();
+            setKontaktFields();
+        }
+        private void setKontrahentFields()
+        {
+            var kontrahent = Db.Kontrahenci.Where(n => n.KontrahentId == KontrahentId).FirstOrDefault();
+            KontrahentNazwa = kontrahent.Nazwa1 + " " + kontrahent.Nazwa2 + " " + kontrahent.Nazwa3;
+            KontrahentNIP = kontrahent.Nip;
+            var adres = Db.Adresy.Where(n => n.AdresId == kontrahent.AdresId).FirstOrDefault();
+            KontrahentAdres = adres.Ulica + " " + adres.NrDomu + (adres.NrLokalu.Equals("") ? "" : "/" + adres.NrLokalu) +
+                ", " + adres.KodPocztowy + " " + adres.Miejscowosc;
+        }
+        private void setKontaktFields()
+        {
+            var kontakt = Db.Kontakty.Where(n => n.KontaktId == KontaktId).FirstOrDefault();
+            KontaktNazwaDzialu = kontakt.NazwaDzialu;
+            KontaktTelefon1 = kontakt.Telefon1;
+            KontaktTelefon2 = kontakt.Telefon2;
+            KontaktEmail1 = kontakt.Email1;
+            KontaktEmail2 = kontakt.Email2;
         }
         #endregion
         #region Validation

@@ -164,16 +164,16 @@
                               IsExpanded="True">
                         <Grid>
                             <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="82" />
+                                <ColumnDefinition Width="86" />
                                 <ColumnDefinition Width="24" />
                                 <ColumnDefinition Width="*" />
-                                <ColumnDefinition Width="82" />
+                                <ColumnDefinition Width="86" />
                                 <ColumnDefinition Width="24" />
                                 <ColumnDefinition Width="*" />
-                                <ColumnDefinition Width="82" />
+                                <ColumnDefinition Width="86" />
                                 <ColumnDefinition Width="24" />
                                 <ColumnDefinition Width="*" />
-                                <ColumnDefinition Width="82" />
+                                <ColumnDefinition Width="86" />
                                 <ColumnDefinition Width="24" />
 
                             </Grid.ColumnDefinitions>

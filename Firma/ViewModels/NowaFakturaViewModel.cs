@@ -36,6 +36,7 @@ namespace Firma.ViewModels
             Item = faktura;
             isEditing = true;
             IsEnabled = true;
+            setAllFields();
             Messenger.Default.Register<KontrahentForAllView>(this, DisplayName, getSelectedKontrahent);
         }
         #endregion
@@ -51,8 +52,7 @@ namespace Firma.ViewModels
                 if (value != Item.RodzajFakturyId)
                 {
                     Item.RodzajFakturyId = value;
-                    Numer = Db.FakturyRodzaje.Where(n => n.RodzajFakturyId == RodzajFakturyId).Select(n => n.Kod).FirstOrDefault() + DataWystawienia.ToString("yyMMddHHmmss");
-                    RodzajFakturyNazwa = Db.FakturyRodzaje.Where(n => n.RodzajFakturyId == RodzajFakturyId).Select(n => n.Nazwa).FirstOrDefault();
+                    setRodzajFakturyFields();
                     base.OnPropertyChanged(() => RodzajFakturyId);
                 }
             }
@@ -116,8 +116,7 @@ namespace Firma.ViewModels
                 if (value != Item.KontrahentId)
                 {
                     Item.KontrahentId = value;
-                    var kontrahent = Db.Kontrahenci.Where(n => n.KontrahentId == KontrahentId).FirstOrDefault();
-                    KontrahentPelnaNazwa = kontrahent.Nazwa1 + " " + kontrahent.Nazwa2 + " " + kontrahent.Nazwa3;
+                    setKontrahentFields();
                     base.OnPropertyChanged(() => KontrahentId);
                 }
             }
@@ -166,7 +165,7 @@ namespace Firma.ViewModels
                 if (value != Item.KategoriaFakturyId)
                 {
                     Item.KategoriaFakturyId = value;
-                    KategoriaFakturyOpis = Db.FakturyKategorie.Where(n => n.KategoriaFakturyId == KategoriaFakturyId).Select(n => n.Opis).FirstOrDefault();
+                    setKategoriaFakturyFields();
                     base.OnPropertyChanged(() => KategoriaFakturyId);
                 }
             }
@@ -260,8 +259,7 @@ namespace Firma.ViewModels
                 if (value != Item.RodzajePlatnosciId)
                 {
                     Item.RodzajePlatnosciId = value;
-                    var IloscDniSplaty = Db.RodzajePlatnosci.Where(n => n.RodzajPlatnosciId == RodzajePlatnosciId).Select(n => n.IloscDniSplaty).FirstOrDefault();
-                    TerminPlatnosci = DateTime.Now.AddDays(IloscDniSplaty);
+                    setRodzajPlatnosciFields();
                     base.OnPropertyChanged(() => RodzajePlatnosciId);
                 }
             }
@@ -448,6 +446,32 @@ namespace Firma.ViewModels
         private void getSelectedKontrahent(KontrahentForAllView kontrahentForAllView)
         {
             KontrahentId = kontrahentForAllView.KontrahentId;
+        }
+        private void setAllFields()
+        {
+            setRodzajFakturyFields();
+            setKontrahentFields();
+            setKategoriaFakturyFields();
+            setRodzajPlatnosciFields();
+        }
+        private void setRodzajFakturyFields()
+        {
+            Numer = Db.FakturyRodzaje.Where(n => n.RodzajFakturyId == RodzajFakturyId).Select(n => n.Kod).FirstOrDefault() + DataWystawienia.ToString("yyMMddHHmmss");
+            RodzajFakturyNazwa = Db.FakturyRodzaje.Where(n => n.RodzajFakturyId == RodzajFakturyId).Select(n => n.Nazwa).FirstOrDefault();
+        }
+        private void setKontrahentFields()
+        {
+            var kontrahent = Db.Kontrahenci.Where(n => n.KontrahentId == KontrahentId).FirstOrDefault();
+            KontrahentPelnaNazwa = kontrahent.Nazwa1 + " " + kontrahent.Nazwa2 + " " + kontrahent.Nazwa3;
+        }
+        private void setKategoriaFakturyFields()
+        {
+            KategoriaFakturyOpis = Db.FakturyKategorie.Where(n => n.KategoriaFakturyId == KategoriaFakturyId).Select(n => n.Opis).FirstOrDefault();
+        }
+        private void setRodzajPlatnosciFields()
+        {
+            var IloscDniSplaty = Db.RodzajePlatnosci.Where(n => n.RodzajPlatnosciId == RodzajePlatnosciId).Select(n => n.IloscDniSplaty).FirstOrDefault();
+            TerminPlatnosci = DateTime.Now.AddDays(IloscDniSplaty);
         }
         #endregion
         #region Validation

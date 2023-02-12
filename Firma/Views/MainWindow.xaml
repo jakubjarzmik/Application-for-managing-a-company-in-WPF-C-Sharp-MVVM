@@ -11,8 +11,7 @@
         Title="Firma"
         Height="800"
         Width="1200"
-        Background="#3d3d3d"
-        WindowState="Maximized">
+        Background="#3d3d3d">
     <Window.InputBindings>
         <KeyBinding Key="T"
                     Modifiers="Control"
@@ -62,6 +61,13 @@
                                   Command="{Binding NowyMagazynCommand}" />
                 </RibbonGroup>
                 <RibbonGroup Header="Słowniki">
+                    <RibbonButton Label="Rodzaje kontrahentów"
+                                  SmallImageSource="/Views/Content/Icons/employee.png"
+                                  Command="{Binding KontrahenciRodzajeCommand}" />
+                    <RibbonButton Label="Nowy rodzaj kontrahenta"
+                                  SmallImageSource="/Views/Content/Icons/employee_plus.png"
+                                  Command="{Binding NowyRodzajKontrahentaCommand}" />
+                    <Separator />
                     <RibbonButton Label="Typy magazynów"
                                   SmallImageSource="/Views/Content/Icons/warehouse.png"
                                   Command="{Binding MagazynyTypyCommand}" />
@@ -156,14 +162,14 @@
                 </RibbonGroup>
                 <RibbonGroup Header="Słowniki">
                     <RibbonButton Label="Kategorie faktur"
-                                  SmallImageSource="/Views/Content/Icons/file-plus.png"
+                                  SmallImageSource="/Views/Content/Icons/file.png"
                                   Command="{Binding FakturyKategorieCommand}" />
                     <RibbonButton Label="Nowa kategoria faktury"
                                   SmallImageSource="/Views/Content/Icons/file-plus.png"
                                   Command="{Binding NowaKategoriaFakturyCommand}" />
                     <Separator />
                     <RibbonButton Label="Rodzaje faktur"
-                                  SmallImageSource="/Views/Content/Icons/file-plus.png"
+                                  SmallImageSource="/Views/Content/Icons/file.png"
                                   Command="{Binding FakturyRodzajeCommand}" />
                     <RibbonButton Label="Nowy rodzaj faktury"
                                   SmallImageSource="/Views/Content/Icons/file-plus.png"
@@ -198,13 +204,6 @@
                                   Command="{Binding SrednieWynagrodzenieCommand}" />
                 </RibbonGroup>
                 <RibbonGroup Header="Słowniki">
-                    <RibbonButton Label="Rodzaje kontrahentów"
-                                  SmallImageSource="/Views/Content/Icons/employee.png"
-                                  Command="{Binding KontrahenciRodzajeCommand}" />
-                    <RibbonButton Label="Nowy rodzaj kontrahenta"
-                                  SmallImageSource="/Views/Content/Icons/employee_plus.png"
-                                  Command="{Binding NowyRodzajKontrahentaCommand}" />
-                    <Separator />
                     <RibbonButton Label="Rodzaje umowy"
                                   SmallImageSource="/Views/Content/Icons/contract.png"
                                   Command="{Binding UmowyRodzajeCommand}" />
@@ -218,6 +217,31 @@
                     <RibbonButton Label="Nowe stanowisko"
                                   SmallImageSource="/Views/Content/Icons/person_add.png"
                                   Command="{Binding NoweStanowiskoCommand}" />
+                </RibbonGroup>
+            </RibbonTab>
+            <RibbonTab Header="Inne">
+                <RibbonGroup Header="Inne">
+                    <RibbonButton Label="Faktury - wydania zewnetrzne"
+                                  LargeImageSource="/Views/Content/Icons/file.png"
+                                  Command="{Binding FakturyWydaniaZewnetrzneCommand}" />
+                    <RibbonButton Label="Kontrahenci - kontakty"
+                                  LargeImageSource="/Views/Content/Icons/person.png"
+                                  Command="{Binding KontrahenciKontaktyCommand}" />
+                    <RibbonButton Label="Pozycje przyjęcia zewnętrznego"
+                                  LargeImageSource="/Views/Content/Icons/pz.png"
+                                  Command="{Binding PozycjePrzyjeciaZewnetrznegoCommand}" />
+                    <RibbonButton Label="Pozycje wydania zewnętrznego"
+                                  LargeImageSource="/Views/Content/Icons/wz.png"
+                                  Command="{Binding PozycjeWydaniaZewnetrznegoCommand}" />
+                    <RibbonButton Label="Pracownicy umowy"
+                                  LargeImageSource="/Views/Content/Icons/employee.png"
+                                  Command="{Binding PracownicyUmowyCommand}" />
+                </RibbonGroup>
+                <RibbonGroup Header="">
+                    <RibbonButton Label="Kontakty"
+                                  Command="{Binding KontaktyCommand}" />
+                    <RibbonButton Label="Adresy"
+                                  Command="{Binding AdresyCommand}" />
                 </RibbonGroup>
             </RibbonTab>
             <!--<RibbonTab Header="Inne">
