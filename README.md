@@ -2,10 +2,8 @@
 Desktop application utilizing MVVM architecture, communicating with MS SQL database using Entity Framework, with features such as managing products, invoices, sales reports, etc.
 
 The work on the application is still ongoing. The most important features that are still missing and will be added to the project in the near future are:
-- Data validation
-- Functionality for linking tables
 - Login
-- Handling of some buttons in tabs.
+- Improve inheritance
 
 The code will also be more organized. This is an application through which I am learning a lot and I am aware that the code in some places is not the best and properly organized, but I am also constantly learning to write clean code outside of work and project, so I will also definitely improve my spaghetti code in some places.
 
