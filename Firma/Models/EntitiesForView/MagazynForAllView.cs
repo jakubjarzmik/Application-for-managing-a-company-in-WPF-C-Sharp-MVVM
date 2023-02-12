@@ -16,7 +16,6 @@ namespace Firma.Models.EntitiesForView
         public string Typ { get; set; }
         public string Adres { get; set; }
         public string Telefon { get; set; }
-        
         #endregion
     }
 }

@@ -15,9 +15,6 @@ namespace Firma.Models.EntitiesForView
         public string KontrahentNazwa { get; set; }
         public string KontrahentNip { get; set; }
         public string RodzajePlatnosciNazwa { get; set; }
-        
         #endregion
-
-
     }
 }

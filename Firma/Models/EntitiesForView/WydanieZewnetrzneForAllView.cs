@@ -16,7 +16,6 @@ namespace Firma.Models.EntitiesForView
         public string NazwaKontrahenta { get; set; }
         public string NipKontrahenta { get; set; }
         public decimal Rabat { get; set; }
-        
         #endregion
     }
 }

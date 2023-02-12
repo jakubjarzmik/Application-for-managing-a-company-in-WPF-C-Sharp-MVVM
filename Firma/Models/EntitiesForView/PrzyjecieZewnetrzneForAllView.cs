@@ -15,7 +15,6 @@ namespace Firma.Models.EntitiesForView
         public string NazwaMagazynu { get; set; }
         public string NazwaKontrahenta { get; set; }
         public string NipKontrahenta { get; set; }
-        
         #endregion
     }
 }

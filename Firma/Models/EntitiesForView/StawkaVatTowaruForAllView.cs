@@ -14,7 +14,5 @@ namespace Firma.Models.EntitiesForView
         public decimal Stawka { get; set; }
         public string Opis { get; set; }
         #endregion
-
-
     }
 }

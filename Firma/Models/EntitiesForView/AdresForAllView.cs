@@ -17,9 +17,6 @@ namespace Firma.Models.EntitiesForView
         public string Ulica { get; set; }
         public string NrDomu { get; set; }
         public string NrLokalu { get; set; }
-        
         #endregion
-
-
     }
 }

@@ -21,7 +21,5 @@ namespace Firma.Models.EntitiesForView
         public int? Ilosc { get; set; }
         public string JednMiary { get; set; }
         #endregion
-
-
     }
 }

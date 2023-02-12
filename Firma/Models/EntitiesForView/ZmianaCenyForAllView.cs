@@ -17,9 +17,6 @@ namespace Firma.Models.EntitiesForView
         public decimal WartoscVat { get; set; }
         public DateTime DataObowiazywaniaOd { get; set; }
         public DateTime? DataObowiazywaniaDo { get; set; }
-        
         #endregion
-
-
     }
 }

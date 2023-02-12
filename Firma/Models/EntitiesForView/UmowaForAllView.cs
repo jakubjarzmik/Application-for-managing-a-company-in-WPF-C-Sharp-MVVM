@@ -24,9 +24,6 @@ namespace Firma.Models.EntitiesForView
         public string JestRentowe { get; set; }
         public string JestChorobowe { get; set; }
         public string JestWypadkowe { get; set; }
-        
         #endregion
-
-
     }
 }

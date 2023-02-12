@@ -17,9 +17,6 @@ namespace Firma.Models.EntitiesForView
         public string Regon { get; set; }
         public string Adres { get; set; }
         public string Url { get; set; }
-        
         #endregion
-
-
     }
 }

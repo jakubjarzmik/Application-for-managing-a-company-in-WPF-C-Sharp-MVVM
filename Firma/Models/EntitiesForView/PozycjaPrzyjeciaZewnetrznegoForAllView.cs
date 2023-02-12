@@ -19,7 +19,6 @@ namespace Firma.Models.EntitiesForView
         public decimal Rabat { get; set; }
         public decimal CenaPoRabacieZaSzt { get; set; }
         public decimal Wartosc { get; set; }
-        
         #endregion
     }
 }

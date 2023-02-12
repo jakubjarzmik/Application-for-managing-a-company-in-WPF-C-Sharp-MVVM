@@ -49,7 +49,6 @@ namespace Firma.Models.BusinessLogic
             {
                 return 0;
             }
-
         }
         #endregion
 
