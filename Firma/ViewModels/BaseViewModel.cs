@@ -33,10 +33,6 @@ namespace Firma.ViewModels
                 handler(this, e);
             }
         }
-        protected void RaisePropertyChanged(string propertyName)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
         public event PropertyChangedEventHandler PropertyChanged;
         #endregion
 

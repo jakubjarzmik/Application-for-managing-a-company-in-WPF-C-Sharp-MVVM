@@ -38,7 +38,8 @@
             <RowDefinition Height="*" />
             <RowDefinition Height="30" />
         </Grid.RowDefinitions>
-        <Ribbon Loaded="RibbonLoaded">
+        <Ribbon Loaded="RibbonLoaded"
+                IsEnabled="{Binding Path=IsConnected, UpdateSourceTrigger=PropertyChanged}">
             <Ribbon.ApplicationMenu>
                 <RibbonApplicationMenu IsEnabled="False"
                                        Visibility="Collapsed" />
@@ -328,16 +329,19 @@
             </StatusBarItem>
             <Separator />
             <StatusBarItem>
-                <TextBlock>Liczba otwartych zakładek: </TextBlock>
+                <TextBlock>Liczba otwartych zakładek:</TextBlock>
             </StatusBarItem>
             <StatusBarItem>
-                <TextBlock Text="{Binding NumberOfTabs, UpdateSourceTrigger=PropertyChanged}"/>
+                <TextBlock Text="{Binding NumberOfTabs, UpdateSourceTrigger=PropertyChanged}" />
             </StatusBarItem>
-            <StatusBarItem>
+            <Separator Visibility="{Binding Loading, UpdateSourceTrigger=PropertyChanged}" />
+            <StatusBarItem Visibility="{Binding Loading, UpdateSourceTrigger=PropertyChanged}">
+                <TextBlock>Łączenie z bazą danych:</TextBlock>
+            </StatusBarItem>
+            <StatusBarItem Visibility="{Binding Loading, UpdateSourceTrigger=PropertyChanged}">
                 <ProgressBar Width="100"
                              Height="20"
-                             IsIndeterminate="True"
-                             Visibility="{Binding Loading, UpdateSourceTrigger=PropertyChanged}" />
+                             IsIndeterminate="True" />
             </StatusBarItem>
             <StatusBarItem HorizontalAlignment="Right">
                 <TextBlock>Autor: Jakub Jarzmik</TextBlock>

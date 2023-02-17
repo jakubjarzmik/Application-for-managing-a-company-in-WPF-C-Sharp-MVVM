@@ -1,6 +1,7 @@
 ﻿using Firma.Helpers;
 using Firma.Models.Entities;
 using GalaSoft.MvvmLight.Messaging;
+using MahApps.Metro.Controls.Dialogs;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -22,13 +23,14 @@ namespace Firma.ViewModels
         private static MainWindowViewModel instance;
         public static MainWindowViewModel GetInstance()
         {
-            if(instance == null)
+            if (instance == null)
                 instance = new MainWindowViewModel();
             return instance;
         }
         private MainWindowViewModel() : base()
         {
             Loading = "Visible";
+            IsConnected = false;
             setMessengers();
             NumberOfTabs = 0;
         }
@@ -407,11 +409,37 @@ namespace Firma.ViewModels
         }
         #endregion
         #region Properties
+        private bool _IsConnected;
+        public bool IsConnected
+        {
+            get
+            {
+                return _IsConnected;
+            }
+            set
+            {
+                if (value != _IsConnected)
+                {
+                    _IsConnected = value;
+                    base.OnPropertyChanged(() => IsConnected);
+                }
+            }
+        }
         private string _Loading;
         public string Loading
         {
-            get { return _Loading; }
-            set { _Loading = value; RaisePropertyChanged(nameof(Loading)); }
+            get
+            {
+                return _Loading;
+            }
+            set
+            {
+                if (value != _Loading)
+                {
+                    _Loading = value;
+                    base.OnPropertyChanged(() => Loading);
+                }
+            }
         }
         private int _NumberOfTabs;
         public int NumberOfTabs
@@ -630,15 +658,22 @@ namespace Firma.ViewModels
         }
         public void CheckDatabaseConnection()
         {
-            try
+            using (var db = new JJFirmaEntities())
             {
-                new JJFirmaEntities().Connection.Open();
-                Loading = "Hidden";
-            }
-            catch (Exception)
-            {
-                MessageBox.Show("Połączenie z bazą danych nieudane.");
-                Environment.Exit(1);
+                try
+                {
+                    db.Connection.Open();
+                    IsConnected = true;
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("Połączenie z bazą danych nieudane.");
+                    Environment.Exit(1);
+                }
+                finally
+                {
+                    Loading = "Hidden";
+                }
             }
         }
         #endregion
