@@ -1,15 +1,11 @@
-﻿using Firma.Helpers;
-using Firma.Models.Entities;
+﻿using Firma.Models.Entities;
 using Firma.ViewModels.Abstract;
 using GalaSoft.MvvmLight.Messaging;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Input;
 
 namespace Firma.ViewModels
 {

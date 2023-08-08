@@ -1,14 +1,8 @@
-﻿using Firma.Helpers;
-using Firma.Models.Entities;
+﻿using Firma.Models.Entities;
 using Firma.Models.Validators;
 using Firma.ViewModels.Abstract;
 using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Input;
 
 namespace Firma.ViewModels
 {

@@ -1,16 +1,11 @@
-﻿using Firma.Models.BusinessLogic;
-using Firma.Models.Entities;
+﻿using Firma.Models.Entities;
 using Firma.Models.EntitiesForView;
 using Firma.ViewModels.Abstract;
-using Firma.Views;
 using GalaSoft.MvvmLight.Messaging;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Data.Metadata.Edm;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 
 namespace Firma.ViewModels

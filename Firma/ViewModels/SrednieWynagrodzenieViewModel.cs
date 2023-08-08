@@ -3,10 +3,7 @@ using Firma.Models.BusinessLogic;
 using Firma.Models.Entities;
 using Firma.Models.EntitiesForView;
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Input;
 
 namespace Firma.ViewModels

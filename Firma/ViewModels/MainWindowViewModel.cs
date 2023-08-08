@@ -1,16 +1,12 @@
 ﻿using Firma.Helpers;
 using Firma.Models.Entities;
 using GalaSoft.MvvmLight.Messaging;
-using MahApps.Metro.Controls.Dialogs;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Collections.Specialized;
 using System.ComponentModel;
 using System.Diagnostics;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Data;
 using System.Windows.Input;

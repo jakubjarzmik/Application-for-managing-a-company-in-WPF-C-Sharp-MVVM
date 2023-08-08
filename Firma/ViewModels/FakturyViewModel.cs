@@ -6,8 +6,6 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 
 namespace Firma.ViewModels
@@ -15,14 +13,19 @@ namespace Firma.ViewModels
     public class FakturyViewModel : WszystkieViewModel<FakturaForAllView>
     {
         #region Konstruktor
-        public FakturyViewModel():base("Faktury")
+
+        public FakturyViewModel() : base("Faktury")
         {
         }
-        public FakturyViewModel(string token) :base("Faktury", token)
+
+        public FakturyViewModel(string token) : base("Faktury", token)
         {
         }
-        #endregion
+
+        #endregion Konstruktor
+
         #region Properties
+
         public override FakturaForAllView Selected
         {
             get
@@ -40,8 +43,11 @@ namespace Firma.ViewModels
                 }
             }
         }
-        #endregion
+
+        #endregion Properties
+
         #region Helpers
+
         public override void Load()
         {
             List = new ObservableCollection<FakturaForAllView>
@@ -59,10 +65,12 @@ namespace Firma.ViewModels
                     }
                 );
         }
+
         public override void Add()
         {
             Messenger.Default.Send(new NowaFakturaViewModel());
         }
+
         public override void Edit()
         {
             try
@@ -76,6 +84,7 @@ namespace Firma.ViewModels
                 MessageBox.Show("Wybierz rekord, który chcesz edytować");
             }
         }
+
         private void saveEdit(Faktury edited)
         {
             edited.DataMod = DateTime.Now;
@@ -83,6 +92,7 @@ namespace Firma.ViewModels
             Db.SaveChanges();
             Load();
         }
+
         public override void Delete()
         {
             try
@@ -97,13 +107,16 @@ namespace Firma.ViewModels
                     Load();
                 }
             }
-            catch (Exception) 
+            catch (Exception)
             {
                 MessageBox.Show("Wybierz rekord, który chcesz usunąć");
             }
         }
-        #endregion
+
+        #endregion Helpers
+
         #region SortAndFind
+
         public override void Sort()
         {
             switch (SortField)
@@ -111,21 +124,26 @@ namespace Firma.ViewModels
                 case "Domyślne":
                     List = new ObservableCollection<FakturaForAllView>(List.OrderBy(Item => Item.FakturaId));
                     break;
+
                 case "Data wystawienia":
                     List = new ObservableCollection<FakturaForAllView>(List.OrderBy(Item => Item.DataWystawienia));
                     break;
+
                 case "Nazwa kontrahenta":
                     List = new ObservableCollection<FakturaForAllView>(List.OrderBy(Item => Item.KontrahentNazwa));
                     break;
+
                 case "Rodzaj płatności":
                     List = new ObservableCollection<FakturaForAllView>(List.OrderBy(Item => Item.RodzajePlatnosciNazwa));
                     break;
             }
         }
+
         public override List<string> GetComboBoxSortList()
         {
             return new List<string> { "Domyślne", "Data wystawienia", "Nazwa kontrahenta", "Rodzaj płatności" };
         }
+
         public override void Find()
         {
             try
@@ -135,9 +153,11 @@ namespace Firma.ViewModels
                     case "Data wystawienia":
                         List = new ObservableCollection<FakturaForAllView>(List.Where(i => i.DataWystawienia != null && i.DataWystawienia.ToString("dd.MM.yyyy HH:mm").StartsWith(FindTextBox)));
                         break;
+
                     case "Nazwa kontrahenta":
                         List = new ObservableCollection<FakturaForAllView>(List.Where(i => i.KontrahentNazwa != null && i.KontrahentNazwa.StartsWith(FindTextBox)));
                         break;
+
                     case "Rodzaj płatności":
                         List = new ObservableCollection<FakturaForAllView>(List.Where(i => i.RodzajePlatnosciNazwa != null && i.RodzajePlatnosciNazwa.StartsWith(FindTextBox)));
                         break;
@@ -145,10 +165,12 @@ namespace Firma.ViewModels
             }
             catch (Exception) { }
         }
+
         public override List<string> GetComboBoxFindList()
         {
             return new List<string> { "Data wystawienia", "Nazwa kontrahenta", "Rodzaj płatności" };
         }
-        #endregion
+
+        #endregion SortAndFind
     }
 }
